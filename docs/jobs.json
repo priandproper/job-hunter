@@ -1,9 +1,15 @@
 {
-  "generated_at": "2026-07-19 19:13:41",
+  "generated_at": "2026-07-19 19:25:52",
   "meta": {
     "job_count": 117,
     "app_url": "https://priandproper.github.io/resume-builder",
-    "min_fit_score": 30
+    "min_fit_score": 30,
+    "github": {
+      "owner": "priandproper",
+      "repo": "job-hunter",
+      "workflow": "hunt.yml",
+      "ref": "main"
+    }
   },
   "summary": {
     "best_match": {
