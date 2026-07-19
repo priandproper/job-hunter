@@ -252,8 +252,6 @@
 </div>
 
 <main>
-  <div id="hint" class="hint" style="display:none"></div>
-
   <!-- ===== COCKPIT (home) ===== -->
   <section id="screen-home" class="screen">
     <div class="top2">
@@ -561,10 +559,6 @@ function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
   document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';}
 
 // ---------- render orchestration + routing ----------
-function renderHint(){const priv=getPrivate(),hint=document.getElementById('hint');
-  if(!priv.connections_loaded){hint.style.display='block';
-    hint.innerHTML='Referrer names + your email/phone are private, so they aren\'t in the public data. Click <b>▶ Run script</b> and paste <code>scripts/inject.local.js</code> to load them into this browser.';}
-  else hint.style.display='none';}
 function renderHome(){renderScore();renderAuto();renderQueue();}
 function renderJobs(){
   renderFunnel();renderFilters();
@@ -579,7 +573,6 @@ function renderJobs(){
 }
 function render(){
   document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
-  renderHint();
   if(location.hash.startsWith('#/jobs'))renderJobs();else renderHome();
 }
 function route(){
