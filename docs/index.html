@@ -8,8 +8,8 @@
   :root{
     color-scheme:light;
     --plane:#f7f7f8; --surface:#ffffff; --surface-2:#f4f4f5;
-    --ink:#18181b; --ink-2:#52525b; --muted:#a1a1aa;
-    --line:rgba(24,24,27,.07); --line-2:#e4e4e7;
+    --ink:#18181b; --ink-2:#3f3f46; --muted:#63636c;
+    --line:rgba(24,24,27,.09); --line-2:#dcdce0;
     --accent:#6366f1; --accent-ink:#fff; --accent-soft:rgba(99,102,241,.09);
     --good:#3f9142; --good-soft:rgba(63,145,66,.09);
     --mid:#9a6a12;  --mid-soft:rgba(154,106,18,.10);
@@ -21,8 +21,8 @@
   @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
     color-scheme:dark;
     --plane:#0a0a0b; --surface:#141416; --surface-2:#1c1c1f;
-    --ink:#f4f4f5; --ink-2:#a1a1aa; --muted:#71717a;
-    --line:rgba(255,255,255,.08); --line-2:#27272a;
+    --ink:#f5f5f6; --ink-2:#bfbfc7; --muted:#95959f;
+    --line:rgba(255,255,255,.11); --line-2:#2e2e33;
     --accent:#818cf8; --accent-ink:#0a0a0b; --accent-soft:rgba(129,140,248,.15);
     --good:#4ade80; --good-soft:rgba(74,222,128,.13);
     --mid:#d1a054; --mid-soft:rgba(209,160,84,.14);
@@ -32,8 +32,8 @@
   :root[data-theme="dark"]{
     color-scheme:dark;
     --plane:#0a0a0b; --surface:#141416; --surface-2:#1c1c1f;
-    --ink:#f4f4f5; --ink-2:#a1a1aa; --muted:#71717a;
-    --line:rgba(255,255,255,.08); --line-2:#27272a;
+    --ink:#f5f5f6; --ink-2:#bfbfc7; --muted:#95959f;
+    --line:rgba(255,255,255,.11); --line-2:#2e2e33;
     --accent:#818cf8; --accent-ink:#0a0a0b; --accent-soft:rgba(129,140,248,.15);
     --good:#4ade80; --good-soft:rgba(74,222,128,.13);
     --mid:#d1a054; --mid-soft:rgba(209,160,84,.14);
@@ -69,7 +69,7 @@
   button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
   button.primary:hover{filter:brightness(1.06);background:var(--accent)}
   button.icon{padding:.44rem .6rem}
-  button:disabled{opacity:.45;cursor:default}
+  button:disabled{opacity:.6;cursor:default}
 
   main{padding:2.1rem 1.4rem 5rem;max-width:1060px;margin:0 auto}
   .screen[hidden]{display:none}
@@ -126,7 +126,7 @@
   /* ===== automation panel ===== */
   .panel{margin-bottom:1.6rem}
   .panel-hd{display:flex;align-items:center;gap:.6rem;padding:0 0 .75rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  .panel-hd h2{margin:0;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+  .panel-hd h2{margin:0;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2)}
   .autostat{display:flex;align-items:center;gap:.5rem;font-size:.84rem;color:var(--ink-2);margin-left:auto}
   .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
   .sdot.run{background:var(--accent);animation:pulse 1.6s infinite}
@@ -140,7 +140,7 @@
   /* ===== sections / funnel / queue (shared) ===== */
   .section{margin-bottom:1.5rem}
   .section-h{display:flex;align-items:baseline;gap:.6rem;margin:0 0 .75rem;flex-wrap:wrap}
-  .section-h h2{font-size:.76rem;font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+  .section-h h2{font-size:.76rem;font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2)}
   .section-h .count{margin-left:auto;color:var(--muted);font-size:.8rem}
   .funnel{display:flex;gap:1.6rem;flex-wrap:wrap;margin-bottom:1.6rem;padding:.2rem 0 1.1rem;border-bottom:1px solid var(--line)}
   .stage{background:none;border:none;box-shadow:none;padding:0;cursor:pointer}
@@ -217,7 +217,7 @@
 
   .collapsible{overflow:hidden;margin-top:1.5rem;border-top:1px solid var(--line)}
   .panel-toggle{width:100%;text-align:left;border:none;background:transparent;padding:.95rem 0;display:flex;align-items:center;gap:.5rem;
-    font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);border-radius:0}
+    font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);border-radius:0}
   .panel-toggle:hover{color:var(--ink-2)}
   .panel-toggle .chev{margin-left:auto;color:var(--muted);transition:transform .15s;font-size:.8rem}
   .panel-toggle.open .chev{transform:rotate(90deg)}
