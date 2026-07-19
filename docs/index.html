@@ -5,113 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Job Hunter</title>
 <style>
-  :root {
-    color-scheme: light dark;
-    --bg:#f6f7f9; --card:#fff; --ink:#1a1d21; --muted:#6b7280; --line:#e5e7eb;
-    --accent:#2563eb; --accent-ink:#fff; --ok:#1a7f37; --okbg:#dcfce7;
-    --warn:#b45309; --warnbg:#fef3c7; --bad:#b91c1c; --badbg:#fee2e2;
-    --chip:#eef2ff; --chipink:#3730a3;
+  :root{
+    color-scheme:light;
+    --plane:#f4f3f0; --surface:#fcfcfb; --surface-2:#f7f6f2;
+    --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --line:rgba(11,11,11,.09); --line-2:#e1e0d9;
+    --accent:#2a78d6; --accent-ink:#fff; --accent-soft:rgba(42,120,214,.10);
+    --good:#0e8a0e; --good-soft:rgba(14,138,14,.10);
+    --mid:#b06f1e;  --mid-soft:rgba(176,111,30,.12);
+    --bad:#c0392b;  --bad-soft:rgba(192,57,43,.09);
+    --ring:0 1px 2px rgba(11,11,11,.04), 0 1px 1px rgba(11,11,11,.03);
+    --ring-hover:0 4px 14px rgba(11,11,11,.07);
+    --r:14px; --r-sm:9px;
   }
-  @media (prefers-color-scheme: dark){ :root{
-    --bg:#0f1115; --card:#181b21; --ink:#e6e8eb; --muted:#9aa1ac; --line:#2a2f37;
-    --chip:#1e2740; --chipink:#a5b4fc; --okbg:#0f3d24; --warnbg:#3a2c07; --badbg:#3d1519; }}
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
+    color-scheme:dark;
+    --plane:#0d0d0d; --surface:#1a1a19; --surface-2:#222220;
+    --ink:#f4f3ee; --ink-2:#c3c2b7; --muted:#8f8d86;
+    --line:rgba(255,255,255,.10); --line-2:#2c2c2a;
+    --accent:#4f97ea; --accent-soft:rgba(79,151,234,.16);
+    --good:#39c039; --good-soft:rgba(57,192,57,.15);
+    --mid:#e0a030;  --mid-soft:rgba(224,160,48,.16);
+    --bad:#ef6b5f;  --bad-soft:rgba(239,107,95,.15);
+    --ring:0 1px 2px rgba(0,0,0,.4); --ring-hover:0 6px 20px rgba(0,0,0,.5);
+  }}
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --plane:#0d0d0d; --surface:#1a1a19; --surface-2:#222220;
+    --ink:#f4f3ee; --ink-2:#c3c2b7; --muted:#8f8d86;
+    --line:rgba(255,255,255,.10); --line-2:#2c2c2a;
+    --accent:#4f97ea; --accent-soft:rgba(79,151,234,.16);
+    --good:#39c039; --good-soft:rgba(57,192,57,.15);
+    --mid:#e0a030;  --mid-soft:rgba(224,160,48,.16);
+    --bad:#ef6b5f;  --bad-soft:rgba(239,107,95,.15);
+    --ring:0 1px 2px rgba(0,0,0,.4); --ring-hover:0 6px 20px rgba(0,0,0,.5);
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:15px/1.55 -apple-system,system-ui,"Segoe UI",sans-serif}
-  header{position:sticky;top:0;z-index:10;background:var(--card);
-    border-bottom:1px solid var(--line);padding:.8rem 1.25rem;display:flex;
-    align-items:center;gap:1rem;flex-wrap:wrap}
-  header h1{font-size:1.1rem;margin:0;font-weight:700}
-  header h1 .pin{color:var(--accent)}
-  .meta{color:var(--muted);font-size:.82rem}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--plane);color:var(--ink);
+    font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:var(--accent-soft)}
   .grow{flex:1}
-  button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
-    color:var(--ink);border-radius:8px;padding:.4rem .7rem}
-  button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-  button:hover{filter:brightness(.97)} button:disabled{opacity:.5;cursor:default}
-  main{padding:1.1rem 1.25rem 4rem;max-width:1180px;margin:0 auto}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-bottom:1.1rem}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem}
-  .stat .k{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
-  .stat .v{font-size:1.5rem;font-weight:800;margin-top:.15rem}
-  .stat .s{color:var(--muted);font-size:.82rem;margin-top:.1rem}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:1rem 1.1rem;margin-bottom:1.1rem}
-  .panel h2{margin:0 0 .2rem;font-size:1rem}
-  .panel .sub{color:var(--muted);font-size:.83rem;margin:0 0 .7rem}
-  .leader{display:flex;flex-wrap:wrap;gap:.45rem}
-  .kw{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);
-    border-radius:999px;padding:.2rem .6rem;font-size:.82rem;background:var(--badbg);color:var(--bad)}
-  .kw b{background:var(--bad);color:#fff;border-radius:999px;font-size:.72rem;padding:.02rem .42rem}
-  .filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
-  .filters .seg{display:flex;gap:.25rem;flex-wrap:wrap}
-  .filters button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-  .count{color:var(--muted);font-size:.85rem}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:1rem 1.1rem;margin-bottom:1rem;box-shadow:0 1px 2px rgba(0,0,0,.03)}
-  .card.applied{opacity:.72}
-  .top{display:flex;gap:.6rem;align-items:flex-start}
-  .top .t{flex:1;min-width:0}
-  .role{font-size:1.06rem;font-weight:700;margin:0 0 .15rem}
-  .co{color:var(--muted);font-size:.9rem}
-  .scorebox{text-align:center;min-width:74px}
-  .scorebox .n{font-size:1.5rem;font-weight:800;line-height:1}
-  .scorebox .l{font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-  .ats-hi{color:var(--ok)} .ats-mid{color:var(--warn)} .ats-lo{color:var(--bad)}
-  .badges{display:flex;gap:.4rem;flex-wrap:wrap;margin:.55rem 0 .1rem}
-  .chip{background:var(--chip);color:var(--chipink);border-radius:999px;
-    padding:.12rem .55rem;font-size:.75rem;font-weight:600;white-space:nowrap}
-  .chip.fit{background:var(--okbg);color:var(--ok)}
-  .chip.new{background:var(--accent);color:#fff}
-  .chip.spon{background:var(--warnbg);color:var(--warn)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:.9rem}
-  @media (max-width:760px){.grid{grid-template-columns:1fr}}
-  .box{border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem}
-  .box h3{margin:0 0 .5rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-  .miss{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:.2rem}
-  .miss span{background:var(--badbg);color:var(--bad);border-radius:6px;padding:.08rem .42rem;font-size:.76rem}
-  .miss.none span{background:var(--okbg);color:var(--ok)}
-  .msg{width:100%;min-height:112px;resize:vertical;border:1px solid var(--line);border-radius:8px;
-    padding:.5rem .6rem;font:13px/1.5 inherit;background:var(--bg);color:var(--ink)}
-  .rowbtns{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap;align-items:center}
-  .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column;gap:.35rem}
-  .refs li{display:flex;gap:.5rem;align-items:center;font-size:.86rem}
-  .refs .who{flex:1;min-width:0}
-  .refs .pos{color:var(--muted);font-size:.8rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .tag{font-size:.66rem;font-weight:700;padding:.05rem .4rem;border-radius:5px}
-  .tag.in{background:var(--okbg);color:var(--ok)} .tag.ap{background:var(--chip);color:var(--chipink)}
-  .tag.se{background:var(--warnbg);color:var(--warn)}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  .foot{display:flex;gap:.5rem;align-items:center;margin-top:.9rem;flex-wrap:wrap}
-  .status select{font:inherit;padding:.35rem .5rem;border-radius:8px;border:1px solid var(--line);
-    background:var(--card);color:var(--ink)}
-  .hint{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:.5rem .7rem;
-    font-size:.82rem;margin-bottom:1rem}
-  .empty{text-align:center;color:var(--muted);padding:3rem 1rem}
-  .toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--ink);
-    color:var(--bg);padding:.55rem .9rem;border-radius:10px;font-size:.85rem;opacity:0;
-    transition:opacity .2s;pointer-events:none}
-  .toast.show{opacity:1}
-  .modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);
-    display:flex;align-items:center;justify-content:center;padding:1rem}
-  .modal-box{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:1.2rem 1.3rem;max-width:640px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3)}
-  .modal-box h2{margin:0 0 .3rem;font-size:1.05rem}
-  .modal-box .sub{color:var(--muted);font-size:.83rem;margin:0 0 .8rem}
-  .runner-code{width:100%;min-height:160px;resize:vertical;border:1px solid var(--line);
-    border-radius:8px;padding:.6rem .7rem;background:var(--bg);color:var(--ink);
-    font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
-  .filebtn{border:1px solid var(--line);background:var(--card);color:var(--ink);
-    border-radius:8px;padding:.4rem .7rem;cursor:pointer;font-size:.9rem}
-  .filebtn:hover{filter:brightness(.97)}
+
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--surface) 88%,transparent);
+    backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);padding:.7rem 1.4rem;display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:baseline;gap:.5rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
+  .brand .pin{font-size:1.05rem}
+  .meta{color:var(--muted);font-size:.8rem;letter-spacing:.01em}
+
+  button{font:inherit;font-size:.86rem;cursor:pointer;border:1px solid var(--line-2);background:var(--surface);
+    color:var(--ink);border-radius:var(--r-sm);padding:.44rem .8rem;transition:all .14s ease}
+  button:hover{border-color:var(--muted);background:var(--surface-2)}
+  button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
+  button.primary:hover{filter:brightness(1.06);background:var(--accent)}
+  button.icon{padding:.44rem .6rem}
+  button:disabled{opacity:.5;cursor:default}
+
+  main{padding:1.4rem 1.4rem 5rem;max-width:1160px;margin:0 auto}
+
+  /* ---- stat tiles ---- */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.85rem;margin-bottom:1.15rem}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:1rem 1.1rem;box-shadow:var(--ring);position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.85}
+  .stat.s-good::before{background:var(--good)} .stat.s-plain::before{opacity:0}
+  .stat .k{color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+  .stat .v{font-size:1.85rem;font-weight:700;margin-top:.28rem;line-height:1;letter-spacing:-.02em}
+  .stat .s{color:var(--ink-2);font-size:.82rem;margin-top:.35rem;line-height:1.35}
+
+  /* ---- panels ---- */
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.15rem 1.25rem;margin-bottom:1.15rem;box-shadow:var(--ring)}
+  .panel h2{margin:0 0 .25rem;font-size:.98rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:.45rem}
+  .panel .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .95rem;max-width:70ch}
+  .leader{display:flex;flex-wrap:wrap;gap:.5rem}
+  .kw{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line-2);
+    border-radius:999px;padding:.28rem .4rem .28rem .72rem;font-size:.83rem;background:var(--surface);
+    color:var(--ink-2);transition:all .14s ease}
+  .kw:hover{border-color:var(--muted);color:var(--ink)}
+  .kw b{background:var(--mid-soft);color:var(--mid);font-weight:700;border-radius:999px;
+    font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
+
+  /* ---- filters ---- */
+  .filters{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
+  .seg{display:inline-flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:11px;padding:3px;flex-wrap:wrap}
+  .seg button{border:1px solid transparent;background:transparent;border-radius:8px;padding:.34rem .7rem;
+    font-size:.82rem;color:var(--ink-2)}
+  .seg button:hover{background:var(--surface);color:var(--ink)}
+  .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);
+    box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
+  .seg button span{opacity:.55;font-variant-numeric:tabular-nums;margin-left:.15rem}
+  .count{color:var(--muted);font-size:.83rem}
+
+  /* ---- job cards ---- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.15rem 1.25rem;margin-bottom:1rem;box-shadow:var(--ring);transition:box-shadow .16s ease,border-color .16s ease}
+  .card:hover{box-shadow:var(--ring-hover);border-color:var(--line-2)}
+  .card.applied{opacity:.62}
+  .top{display:flex;gap:1rem;align-items:flex-start}
+  .top .t{flex:1;min-width:0}
+  .role{font-size:1.08rem;font-weight:700;margin:0 0 .22rem;letter-spacing:-.01em;line-height:1.25}
+  .co{color:var(--muted);font-size:.85rem}
+  .scores{display:flex;gap:1.1rem;flex-shrink:0}
+  .scorebox{text-align:center;min-width:52px}
+  .scorebox .n{font-size:1.55rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+  .scorebox .l{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.28rem;font-weight:600}
+  .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
+
+  .badges{display:flex;gap:.4rem;flex-wrap:wrap;margin:.85rem 0 .1rem;align-items:center}
+  .chip{border-radius:7px;padding:.16rem .5rem;font-size:.74rem;font-weight:600;white-space:nowrap;
+    background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+  .chip.variant{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+  .chip.spon{background:var(--mid-soft);color:var(--mid);border-color:transparent}
+  .chip.kwd{background:transparent;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1rem}
+  @media (max-width:740px){.grid{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line);background:var(--surface-2);border-radius:11px;padding:.85rem .9rem}
+  .box h3{margin:0 0 .55rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  .miss{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
+  .miss span{background:var(--bad-soft);color:var(--bad);border-radius:6px;padding:.13rem .48rem;font-size:.76rem;font-weight:500}
+  .miss.none span{background:var(--good-soft);color:var(--good)}
+  .msg{width:100%;min-height:118px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;
+    padding:.6rem .7rem;font:12.5px/1.55 inherit;background:var(--surface);color:var(--ink);transition:border-color .14s}
+  .msg:focus{outline:none;border-color:var(--accent)}
+  .rowbtns{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap;align-items:center}
+
+  .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column}
+  .refs li{display:flex;gap:.6rem;align-items:center;font-size:.87rem;padding:.42rem 0;border-top:1px solid var(--line)}
+  .refs li:first-child{border-top:none;padding-top:.1rem}
+  .refs .who{flex:1;min-width:0}
+  .refs .who b{font-weight:600}
+  .refs .pos{color:var(--muted);font-size:.78rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag{font-size:.63rem;font-weight:700;padding:.09rem .4rem;border-radius:5px;text-transform:uppercase;letter-spacing:.03em;vertical-align:middle;margin-left:.15rem}
+  .tag.in{background:var(--good-soft);color:var(--good)}
+  .tag.ap{background:var(--accent-soft);color:var(--accent)}
+  .tag.se{background:var(--mid-soft);color:var(--mid)}
+
+  .foot{display:flex;gap:.7rem;align-items:center;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);flex-wrap:wrap}
+  .status{display:flex;align-items:center;gap:.5rem;font-size:.83rem;color:var(--muted)}
+  .status select{font:inherit;font-size:.83rem;padding:.36rem .55rem;border-radius:8px;border:1px solid var(--line-2);
+    background:var(--surface);color:var(--ink);cursor:pointer}
+
+  .hint{background:var(--accent-soft);color:var(--ink-2);border:1px solid transparent;border-left:3px solid var(--accent);
+    border-radius:9px;padding:.7rem .9rem;font-size:.83rem;margin-bottom:1.15rem;line-height:1.5}
+  .hint b{color:var(--ink)}
+  .empty{text-align:center;color:var(--muted);padding:3.5rem 1rem;line-height:1.6}
+  .more{text-align:center;margin-top:1.3rem}
+  .more button{padding:.55rem 1.3rem;font-weight:600}
+  .more button span{color:var(--muted);font-weight:400}
+  code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:5px;padding:.05em .35em}
+
+  .toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(8px);
+    background:var(--ink);color:var(--plane);padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;
+    opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(11,11,11,.5);backdrop-filter:blur(3px);
+    display:flex;align-items:center;justify-content:center;padding:1rem;animation:fade .15s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal-box{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);
+    padding:1.35rem 1.45rem;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .modal-box h2{margin:0 0 .35rem;font-size:1.08rem;font-weight:700}
+  .modal-box .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem;line-height:1.55}
+  .runner-code{width:100%;min-height:160px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;
+    padding:.7rem .8rem;background:var(--surface-2);color:var(--ink);
+    font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
+  .runner-code:focus{outline:none;border-color:var(--accent)}
+  .filebtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);
+    border-radius:var(--r-sm);padding:.44rem .8rem;cursor:pointer;font-size:.86rem;transition:all .14s}
+  .filebtn:hover{border-color:var(--muted);background:var(--surface-2)}
 </style>
 </head>
 <body>
 <header>
-  <h1><span class="pin">📌</span> Job Hunter</h1>
+  <h1 class="brand"><span class="pin">🎯</span> Job Hunter</h1>
   <div class="meta" id="meta">loading…</div>
   <div class="grow"></div>
-  <button id="runnerBtn" title="Paste a one-off script (e.g. scripts/inject.local.js) to load private data into this browser">▶ Run one-off script</button>
+  <button id="themeBtn" class="icon" title="Toggle light / dark">◐</button>
+  <button id="runnerBtn" title="Paste a one-off script (e.g. scripts/inject.local.js) to load private data into this browser">▶ Run script</button>
   <button id="reloadBtn" class="primary">↻ Reload</button>
 </header>
 
@@ -205,13 +282,13 @@ function renderStats(){
   const priv=getPrivate();
   const conn=priv.connections_loaded||0;
   const cards=[
-    ['Matching jobs', m.job_count||0, 'fit ≥ '+(m.min_fit_score||0)],
-    ['Best resume match', bm?bm.ats_score+'%':'—', bm?esc(bm.variant)+' → '+esc(bm.company):'run the worker'],
-    ['Missing keywords', (s.missing_leaderboard||[]).length, 'distinct, across all jobs'],
-    ['Private data', conn?conn+' contacts':'not loaded', conn?'in-network referrers':'click ▶ Run one-off script'],
+    ['Matching jobs', m.job_count||0, 'fit ≥ '+(m.min_fit_score||0), 's-plain'],
+    ['Best resume match', bm?bm.ats_score+'%':'—', bm?esc(bm.variant)+' → '+esc(bm.company):'run the worker', 's-good'],
+    ['Missing keywords', (s.missing_leaderboard||[]).length, 'distinct, across all jobs', ''],
+    ['Private data', conn?conn+' contacts':'not loaded', conn?'in-network referrers':'click ▶ Run script', 's-plain'],
   ];
-  document.getElementById('stats').innerHTML=cards.map(([k,v,sub])=>
-    `<div class="stat"><div class="k">${esc(k)}</div><div class="v">${esc(String(v))}</div><div class="s">${esc(sub)}</div></div>`).join('');
+  document.getElementById('stats').innerHTML=cards.map(([k,v,sub,cls])=>
+    `<div class="stat ${cls}"><div class="k">${esc(k)}</div><div class="v">${esc(String(v))}</div><div class="s">${sub}</div></div>`).join('');
 }
 
 function renderLeader(){
@@ -227,9 +304,11 @@ function renderFilters(){
   jobs.forEach(j=>{const st=jobStatus(j.id);counts[st]=(counts[st]||0)+1;if(st!=='archived')counts.active++;});
   const opts=[["active","Active"],["all","All"]].concat(STATUSES.map(s=>[s,s]));
   document.getElementById('statusFilter').innerHTML=opts.map(([k,label])=>
-    `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${esc(label)} <span style="opacity:.6">${counts[k]||0}</span></button>`).join('');
+    `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${esc(label)}<span>${counts[k]||0}</span></button>`).join('');
 }
-function setFilter(f){filter=f;render();}
+const PAGE=40;
+let shownCount=PAGE;
+function setFilter(f){filter=f;shownCount=PAGE;render();}
 function visibleJobs(){
   const jobs=DOC.jobs||[];
   if(filter==='all')return jobs;
@@ -247,7 +326,7 @@ function refItem(job,r){
 
 function card(job){
   const st=jobStatus(job.id);
-  const kws=(job.title_keywords||[]).map(k=>`<span class="chip">${esc(k)}</span>`).join('');
+  const kws=(job.title_keywords||[]).map(k=>`<span class="chip kwd">${esc(k)}</span>`).join('');
   const spon=job.sponsorship&&job.sponsorship!=='Unknown'?`<span class="chip spon">visa: ${esc(job.sponsorship)}</span>`:'';
   const missing=job.missing_keywords||[];
   const missHtml=missing.length
@@ -272,10 +351,12 @@ function card(job){
         <p class="role">${esc(job.title)}</p>
         <div class="co">${esc(job.company)} · ${esc(job.location||'')} ${job.posted_at?'· posted '+esc(String(job.posted_at).slice(0,10)):''}</div>
       </div>
-      <div class="scorebox"><div class="n ${atsClass(job.ats_score)}">${job.ats_score}%</div><div class="l">ATS match</div></div>
-      <div class="scorebox"><div class="n">${job.fit_score}</div><div class="l">fit</div></div>
+      <div class="scores">
+        <div class="scorebox"><div class="n ${atsClass(job.ats_score)}">${job.ats_score}%</div><div class="l">ATS match</div></div>
+        <div class="scorebox"><div class="n">${job.fit_score}</div><div class="l">fit</div></div>
+      </div>
     </div>
-    <div class="badges">${spon}<span class="chip">${esc(job.best_variant||job.variant_label||'')}</span>${kws}</div>
+    <div class="badges">${spon}<span class="chip variant">${esc(job.best_variant||job.variant_label||'')}</span>${kws}</div>
 
     <div class="grid">
       <div class="box">
@@ -322,8 +403,14 @@ function render(){
   renderStats();renderLeader();renderFilters();
   const jobs=visibleJobs();
   document.getElementById('count').textContent=`${jobs.length} job${jobs.length!==1?'s':''}`;
-  document.getElementById('list').innerHTML=jobs.length?jobs.map(card).join(''):
-    '<div class="empty">No jobs in this view.</div>';
+  const list=document.getElementById('list');
+  if(!jobs.length){ list.innerHTML='<div class="empty">No jobs in this view.</div>'; return; }
+  const slice=jobs.slice(0,shownCount);
+  const remaining=jobs.length-slice.length;
+  list.innerHTML=slice.map(card).join('')
+    +(remaining>0?`<div class="more"><button id="moreBtn">Show ${Math.min(PAGE,remaining)} more <span>· ${remaining} remaining</span></button></div>`:'');
+  const mb=document.getElementById('moreBtn');
+  if(mb) mb.addEventListener('click',()=>{shownCount+=PAGE;render();});
 }
 
 function useName(jobId,btn){
@@ -376,6 +463,18 @@ document.getElementById('privFile').addEventListener('change',ev=>{
 });
 
 document.getElementById('reloadBtn').addEventListener('click',()=>{load().then(()=>toast('Reloaded'));});
+
+// ----- Light / dark theme toggle (persisted; overrides OS preference) --------
+const THEME_KEY='job-hunter:theme';
+(function(){const t=localStorage.getItem(THEME_KEY);if(t)document.documentElement.setAttribute('data-theme',t);})();
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  const isDark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem(THEME_KEY,next);
+});
+
 load();
 </script>
 </body>
