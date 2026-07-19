@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-19 19:54:39",
+  "generated_at": "2026-07-19 19:56:25",
   "meta": {
-    "job_count": 117,
+    "job_count": 116,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -57,10 +57,6 @@
         "count": 4
       },
       {
-        "keyword": "growth marketing",
-        "count": 3
-      },
-      {
         "keyword": "marketing operations",
         "count": 3
       },
@@ -74,6 +70,10 @@
       },
       {
         "keyword": "customer marketing",
+        "count": 2
+      },
+      {
+        "keyword": "growth marketing",
         "count": 2
       },
       {
@@ -15188,211 +15188,6 @@
       },
       "referral_message": "Hi there \u2014 hope you're doing well! I saw that Affirm is hiring for a Senior Manager, Accounting Policy & Reporting role (https://job-boards.greenhouse.io/affirm/jobs/7725035003), and it lines up closely with my background in B2B marketing, GTM, and analytics. Since you're at Affirm, would you be open to referring me or pointing me to the right person on the team? Happy to send my resume and a quick blurb to make it easy. Thanks so much!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Affirm%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "81aaf6254b7b8e88",
-      "company": "Amplitude",
-      "title": "Web Growth Marketing Manager",
-      "location": "San Francisco, CA",
-      "url": "https://job-boards.greenhouse.io/amplitude/jobs/8590452002",
-      "source": "greenhouse",
-      "posted_at": "2026-07-15T11:57:28-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 33,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "growth marketing"
-      ],
-      "ats_score": 67,
-      "best_variant": "Marketing & Business Analyst",
-      "missing_keywords": [
-        "growth marketing"
-      ],
-      "requested_keywords": [
-        "analytics",
-        "growth marketing",
-        "r"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 67,
-          "missing": [
-            "growth marketing"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 67,
-          "missing": [
-            "growth marketing"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 67,
-          "missing": [
-            "growth marketing"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 67,
-          "missing": [
-            "growth marketing"
-          ]
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 67,
-          "missing": [
-            "growth marketing"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "import_url": "https://priandproper.github.io/resume-builder/?import=%7B%22label%22%3A%22Amplitude%20%5Cu2014%20Web%20Growth%20Marketing%20Manager%22%2C%22contact%22%3A%7B%22fullName%22%3A%22Priyanka%20Tambe%22%2C%22headline%22%3A%22%22%2C%22email%22%3A%22%22%2C%22phone%22%3A%22%22%2C%22location%22%3A%22Boston%2C%20MA%22%2C%22linkedin%22%3A%22linkedin.com/in/priyankatam%22%2C%22github%22%3A%22github.com/priandproper%22%7D%2C%22summary%22%3A%22Marketing%20and%20business%20analyst%20with%206%20years%20of%20experience%20turning%20customer%2C%20funnel%2C%20and%20campaign%20data%20into%20growth%20decisions%20across%20enterprise%20SaaS%20and%20fintech%2C%20backed%20by%20a%20STEM%20MBA%20in%20Business%20Analytics%20%26%20Machine%20Learning.%22%2C%22experience%22%3A%5B%7B%22company%22%3A%22Glidely%20Inc.%22%2C%22title%22%3A%22MBA%20Intern%20-%20Sales%20%26%20Marketing%20Analytics%22%2C%22location%22%3A%22San%20Francisco%2C%20CA%22%2C%22startDate%22%3A%22Jun%202025%22%2C%22endDate%22%3A%22Aug%202025%22%2C%22highlights%22%3A%5B%22Modeled%20the%20lead-to-demo%20funnel%20in%20SQL%20across%20CRM%20and%20outbound-activity%20data%2C%20exposing%20speed-to-lead%20and%20routing%20gaps%20in%20a%20Tableau%20dashboard%3B%20rebuilt%20routing%20and%20ICP%20segmentation%20on%20the%20findings%2C%20lifting%20lead-to-demo%20conversion%2030%25.%22%2C%22Ran%20cohort%20analysis%20to%20compare%20conversion%20by%20segment%2C%20prioritizing%20India%20as%20a%20high-opportunity%20growth%20market.%22%2C%22Designed%20and%20analyzed%20A/B%20tests%20on%20outbound%20messaging%2C%20selecting%20winning%20variants%20that%20lifted%20LinkedIn%20acceptance%20rates%20to%2025%25%2B.%22%2C%22Led%2040%2B%20C-suite%20discovery%20interviews%20to%20pressure-test%20the%20ICP%2C%20surfacing%20pain%20points%20that%20reshaped%20the%20product%20roadmap.%22%2C%22Analyzed%20self-serve%20product%20telemetry%20to%20pinpoint%20activation%20drop-off%2C%20informing%20the%20activation%20framework%20in%20Glidely%27s%20product-led-growth%20motion.%22%5D%7D%2C%7B%22company%22%3A%22Infosys%20Finacle%20%28Banking%20SaaS%20/%20Fintech%29%22%2C%22title%22%3A%22Marketing%20%26%20Analytics%20Specialist%22%2C%22location%22%3A%22India%22%2C%22startDate%22%3A%22Mar%202022%22%2C%22endDate%22%3A%22Dec%202024%22%2C%22highlights%22%3A%5B%22Defined%20named-account%20segmentation%20and%20targeting%20criteria%20for%20multi-channel%20ABM%20across%2050%2B%20countries%2C%20driving%20a%2028%25%20conversion%20uplift%20across%20100%2B%20enterprise%20banking%20clients.%22%2C%22Built%20and%20measured%20named-account%20targeting%20parameters%20and%20outbound%20cadence%20performance%20in%20Salesforce%20and%20Eloqua%20to%20guide%20pipeline%20prioritization.%22%2C%22Designed%20Finacle%27s%20first%20pulse-analytics%20measurement%20strategy%2C%20lifting%20brand%20recall%202.4x%20and%20earning%20the%20Best%20Internal%20Campaign%20Award.%22%2C%22Ran%20competitive%20analysis%20feeding%20battlecards%20and%20monetization%20deep-dives%20for%2050%2B%20account%20executives%2C%20cutting%20sales-cycle%20length%2015%25.%22%2C%22Orchestrated%2010%2B%20executive%20roundtables%20and%20client%20briefings%20that%20deepened%20relationships%20and%20accelerated%20late-stage%20deals.%22%5D%7D%2C%7B%22company%22%3A%22Neurealm%22%2C%22title%22%3A%22Lead%20Consultant%2C%20Product%20Marketing%22%2C%22location%22%3A%22India%22%2C%22startDate%22%3A%22Jul%202021%22%2C%22endDate%22%3A%22Mar%202022%22%2C%22highlights%22%3A%5B%22Ran%20quantitative%20win/loss%20analysis%20and%20competitive%20benchmarking%20across%20enterprise%20deals%2C%20identifying%20loss%20drivers%20and%20sharpening%20positioning%20that%20lifted%20competitive%20win-rates%2010%25.%22%2C%22Delivered%2080%2B%20executive%20presentations%20to%20CIOs%20and%20CTOs%20across%20EMEA%2C%20APAC%2C%20and%20North%20America%2C%20tailoring%20each%20to%20client%20priorities%20and%20decision%20criteria.%22%2C%22Authored%20thought-leadership%20content%20and%20executive%20briefings%20that%20grew%20website%20engagement%2040%25%20and%20strengthened%20pipeline%20quality.%22%5D%7D%2C%7B%22company%22%3A%22YES%20Bank%20Foundation%22%2C%22title%22%3A%22Marketing%20Manager%22%2C%22location%22%3A%22India%22%2C%22startDate%22%3A%22Jul%202016%22%2C%22endDate%22%3A%22Dec%202018%22%2C%22highlights%22%3A%5B%22Built%20an%20impact-measurement%20framework%20across%2020%2B%20partnerships%20and%2050M%2B%20impressions%2C%20driving%20200%25%20growth%20in%20program%20reach.%22%2C%22Ran%20conversion-rate-optimization%20analysis%20across%20donor-acquisition%20funnels%20to%20raise%20~%2435K%20through%20digital%20campaigns.%22%2C%22Unified%20operational%20frameworks%20across%20marketing%2C%20legal%2C%20and%20finance%2C%20earning%20the%20YES%20League%20of%20Excellency%20Award.%22%5D%7D%5D%2C%22education%22%3A%5B%7B%22institution%22%3A%22Babson%20College%22%2C%22degree%22%3A%22MBA%2C%20Business%20Analytics%20%26%20Machine%20Learning%20%28STEM%29%22%2C%22location%22%3A%22Boston%2C%20MA%22%2C%22startDate%22%3A%22%22%2C%22endDate%22%3A%22May%202026%22%2C%22details%22%3A%22Fairleigh%20S.%20Dickinson%2C%20Jr.%20Global%20Manager%20Award%22%7D%2C%7B%22institution%22%3A%22Indian%20Institute%20of%20Technology%20Madras%22%2C%22degree%22%3A%22MBA%2C%20Marketing%20%26%20Strategy%22%2C%22location%22%3A%22Chennai%2C%20India%22%2C%22startDate%22%3A%22%22%2C%22endDate%22%3A%22%22%2C%22details%22%3A%22%22%7D%2C%7B%22institution%22%3A%22Mumbai%20University%22%2C%22degree%22%3A%22B.E.%2C%20Electronics%20%26%20Telecommunications%22%2C%22location%22%3A%22Mumbai%2C%20India%22%2C%22startDate%22%3A%22%22%2C%22endDate%22%3A%22%22%2C%22details%22%3A%22%22%7D%5D%2C%22skills%22%3A%5B%7B%22name%22%3A%22Analytics%20%26%20Data%22%2C%22items%22%3A%5B%22SQL%22%2C%22Tableau%22%2C%22Microsoft%20Excel%20%28advanced%29%22%2C%22customer%20segmentation%22%2C%22cohort%20%26%20funnel%20analysis%22%2C%22A/B%20testing%20%26%20experiment%20design%22%2C%22KPI%20reporting%20%26%20dashboard%20development%22%2C%22AI-assisted%20analytics%22%5D%7D%2C%7B%22name%22%3A%22Business%20Analysis%22%2C%22items%22%3A%5B%22Requirements%20gathering%22%2C%22KPI%20definition%22%2C%22stakeholder%20management%22%2C%22report%20automation%22%2C%22business%20intelligence%22%2C%22data-driven%20decision%20making%22%5D%7D%2C%7B%22name%22%3A%22Marketing%20%26%20GTM%22%2C%22items%22%3A%5B%22Campaign%20measurement%22%2C%22account-based%20marketing%20%28ABM%29%22%2C%22customer%20lifecycle%20analysis%20%28acquisition%2C%20activation%2C%20retention%29%22%2C%22competitive%20benchmarking%22%2C%22go-to-market%20strategy%22%5D%7D%2C%7B%22name%22%3A%22Platforms%22%2C%22items%22%3A%5B%22Salesforce%20%28CRM%29%22%2C%22HubSpot%22%2C%22Eloqua%22%2C%22LinkedIn%20Sales%20Navigator%22%2C%22Apollo.io%22%5D%7D%5D%7D",
-      "resume_core": {
-        "label": "Amplitude \u2014 Web Growth Marketing Manager",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 hope you're doing well! I saw that Amplitude is hiring for a Web Growth Marketing Manager role (https://job-boards.greenhouse.io/amplitude/jobs/8590452002), and it lines up closely with my background in B2B marketing, GTM, and analytics. Since you're at Amplitude, would you be open to referring me or pointing me to the right person on the team? Happy to send my resume and a quick blurb to make it easy. Thanks so much!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amplitude%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "b6cad88a5b33f472",
