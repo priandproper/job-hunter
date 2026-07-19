@@ -73,9 +73,22 @@
   .hint b{color:var(--ink)}
 
   /* ===== hero score ===== */
+  /* intro + score, side by side on desktop */
+  .top2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;align-items:stretch}
+  @media (max-width:860px){.top2{grid-template-columns:1fr}}
+  .intro{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.6rem}
+  .intro h2{margin:0 0 .5rem;font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+  .intro p{color:var(--ink-2);font-size:.89rem;line-height:1.55;margin:0 0 1rem}
+  .steps{margin:0 0 1rem;padding-left:1.15rem;display:flex;flex-direction:column;gap:.55rem}
+  .steps li{font-size:.88rem;line-height:1.5;color:var(--ink-2);padding-left:.15rem}
+  .steps li b{color:var(--ink);font-weight:600}
+  .steps li::marker{color:var(--accent);font-weight:700}
+  .ihelp{font-size:.82rem;color:var(--muted)!important;margin:0!important;line-height:1.5}
+  .ihelp b{color:var(--ink-2)}
   .hero{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);
-    padding:1.6rem;margin-bottom:1.2rem;display:grid;grid-template-columns:auto 1fr;gap:1.8rem;align-items:center}
-  @media (max-width:640px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+    padding:1.6rem;display:flex;flex-direction:column;gap:1.3rem;justify-content:center}
+  .hero-top{display:flex;align-items:center;gap:1.4rem}
+  @media (max-width:420px){.hero-top{flex-direction:column;text-align:center}}
   .gauge{position:relative;width:168px;height:168px;flex-shrink:0}
   .gauge svg{transform:rotate(-90deg)}
   .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -242,11 +255,26 @@
 
   <!-- ===== COCKPIT (home) ===== -->
   <section id="screen-home" class="screen">
-    <div class="hero">
-      <div class="gauge" id="gauge"></div>
-      <div class="hero-r">
-        <h2>Job Hunt Score</h2>
-        <p class="tip" id="scoreTip"></p>
+    <div class="top2">
+      <div class="intro">
+        <h2>Your job hunt, on autopilot</h2>
+        <p>Job Hunter scans H-1B-friendly companies, tailors a resume for every match, drafts a referral message, and finds who can refer you — then scores where you stand.</p>
+        <ol class="steps">
+          <li><b>Check "Needs you now"</b> — the few jobs worth acting on today.</li>
+          <li><b>Open the resume</b> — review the tailored version and download the PDF.</li>
+          <li><b>Copy the referral message</b> — send it to a contact, or use a search link.</li>
+          <li><b>Apply, then set the status</b> — jobs move through your funnel and your score climbs.</li>
+        </ol>
+        <p class="ihelp">Automations run ~every 30 min (or trigger them below once GitHub is connected). Load your private contacts via <b>▶ Run script</b>. Browse everything on the <b>Jobs</b> tab.</p>
+      </div>
+      <div class="hero">
+        <div class="hero-top">
+          <div class="gauge" id="gauge"></div>
+          <div class="hero-r">
+            <h2>Job Hunt Score</h2>
+            <p class="tip" id="scoreTip"></p>
+          </div>
+        </div>
         <div class="factors" id="factors"></div>
       </div>
     </div>
