@@ -15,6 +15,7 @@ runs and forks don't fail.
 
 import json
 import os
+import re
 import smtplib
 import ssl
 from email.message import EmailMessage
@@ -36,10 +37,9 @@ def load_json(p, default):
 def main() -> int:
     doc = load_json(JOBS, {"jobs": []})
     seen = set(load_json(SEEN, []))
-    try:
-        MIN = json.loads((ROOT / "config.json").read_text())["alerts"]["min_fit_for_alert"]
-    except Exception:
-        MIN = MIN_FIT
+    cfg = load_json(ROOT / "config.json", {})
+    alerts = cfg.get("alerts", {}) if isinstance(cfg, dict) else {}
+    MIN = alerts.get("min_fit_for_alert", MIN_FIT)
 
     # "Send digest now" (mode=digest) force-sends the current top picks even if
     # they were already alerted; otherwise only genuinely-new jobs go out.
@@ -66,21 +66,36 @@ def main() -> int:
 
     user = os.environ.get("GMAIL_USER") or os.environ.get("GMAIL_USERNAME")
     pw = os.environ.get("GMAIL_APP_PASSWORD") or os.environ.get("GMAIL_PASS")
-    to = os.environ.get("ALERT_TO") or user
+    # Recipients: env (secrets) win over config.json; a string may list several
+    # addresses separated by comma/semicolon/space.
+    def addrs(val):
+        if not val:
+            return []
+        if isinstance(val, list):
+            return [a.strip() for a in val if a and a.strip()]
+        return [a.strip() for a in re.split(r"[,;\s]+", val) if a.strip()]
 
-    if not (user and pw and to):
-        print("notify: no Gmail credentials set — would have sent:\n")
+    to_list = addrs(os.environ.get("ALERT_TO") or alerts.get("to")) or ([user] if user else [])
+    cc_list = addrs(os.environ.get("ALERT_CC") or alerts.get("cc"))
+
+    if not (user and pw and to_list):
+        print("notify: no Gmail credentials set — would have sent to "
+              f"{', '.join(to_list) or '(nobody)'}"
+              f"{' cc ' + ', '.join(cc_list) if cc_list else ''}:\n")
         print(body)
     else:
         msg = EmailMessage()
         msg["Subject"] = f"🎯 Job Hunter: {len(fresh)} new match(es)"
         msg["From"] = user
-        msg["To"] = to
+        msg["To"] = ", ".join(to_list)
+        if cc_list:
+            msg["Cc"] = ", ".join(cc_list)
         msg.set_content(body)
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as s:
             s.login(user, pw)
-            s.send_message(msg)
-        print(f"notify: emailed {len(fresh)} job(s) to {to}")
+            s.send_message(msg)  # delivers to To + Cc automatically
+        print(f"notify: emailed {len(fresh)} job(s) to {', '.join(to_list)}"
+              f"{' (cc ' + ', '.join(cc_list) + ')' if cc_list else ''}")
 
     # Mark these ids as alerted so we don't re-send next run.
     seen.update(j["id"] for j in fresh)

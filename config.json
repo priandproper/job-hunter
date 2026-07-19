@@ -25,7 +25,9 @@
   },
 
   "alerts": {
-    "min_fit_for_alert": 55
+    "min_fit_for_alert": 55,
+    "to": "priyankatambe910@gmail.com",
+    "cc": ["tambe.aniruddha3110@gmail.com", "prakashtambe5834@gmail.com"]
   },
 
   "contact_public": {

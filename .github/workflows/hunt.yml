@@ -48,7 +48,9 @@ jobs:
           # named GMAIL_USERNAME / GMAIL_PASS, so we map them here.
           GMAIL_USER: ${{ secrets.GMAIL_USERNAME }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_PASS }}
+          # Optional overrides; when unset, recipients come from config.json alerts.to/cc.
           ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_CC: ${{ secrets.ALERT_CC }}
           # "Send digest now" from the app forces a top-picks email regardless of
           # whether the jobs are new since the last alert.
           HUNT_MODE: ${{ github.event.inputs.mode }}
