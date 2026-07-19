@@ -77,6 +77,7 @@
   .side-nav a.on svg{opacity:1}
   .side-foot{margin-top:auto;display:flex;flex-direction:column;gap:.55rem}
   .side-status{display:flex;align-items:center;gap:.55rem;font-size:.79rem;color:var(--ink-2);padding:.55rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+  .side-status a{color:inherit;text-decoration:none} .side-status a:hover{text-decoration:underline}
   .side-btn{width:100%;text-align:center}
   .side-btn.ghost{background:transparent;border-color:var(--line-2);color:var(--ink-2);font-size:.84rem}
   .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
@@ -379,6 +380,7 @@ const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set(); let statusTimer=null;
+let baselineRunId=0, watching=false, watchUntil=0;
 const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['messaged']],
   ['referred','Referred',['referred']],['applied','Applied',['applied']],
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
@@ -480,17 +482,35 @@ function ghToken(){try{return (JSON.parse(localStorage.getItem(GH_KEY))||{}).tok
 async function ghFetch(path,opts){const g=gh();const h=Object.assign({'Accept':'application/vnd.github+json'},(opts&&opts.headers)||{});
   const t=ghToken();if(t)h.Authorization='Bearer '+t;
   try{return await fetch('https://api.github.com'+path,Object.assign({},opts,{headers:h}));}catch(e){return null;}}
-function setStatusUI(cls,text){
-  ['sdotSide'].forEach(id=>{const d=document.getElementById(id);if(d)d.className='sdot '+cls;});
-  const s=document.getElementById('statusSide');if(s)s.textContent=text;}
-async function refreshStatus(){
+function setStatusUI(cls,text,url){
+  const d=document.getElementById('sdotSide');if(d)d.className='sdot '+cls;
+  const s=document.getElementById('statusSide');if(!s)return;
+  s.innerHTML=url?`<a href="${url}" target="_blank" rel="noopener">${esc(text)}</a>`:esc(text);
+}
+async function fetchLatestRun(){
   const g=gh();const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs?per_page=1`);
-  if(!r||!r.ok){setStatusUI('','status unavailable');return;}
-  const run=((await r.json()).workflow_runs||[])[0];
-  if(!run){setStatusUI('','no runs yet');return;}
-  if(run.status!=='completed'){setStatusUI('run','running · '+timeAgo(run.run_started_at||run.created_at));
-    clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,15000);}
-  else{const ok=run.conclusion==='success';setStatusUI(ok?'ok':'fail',(ok?'run ok':run.conclusion||'failed')+' · '+timeAgo(run.updated_at));}
+  if(!r||!r.ok)return {error:true};
+  return {run:((await r.json()).workflow_runs||[])[0]||null};
+}
+async function refreshStatus(){
+  clearTimeout(statusTimer);
+  const {error,run}=await fetchLatestRun();
+  if(error){setStatusUI('','status unavailable');return;}
+  if(!run){setStatusUI(watching?'run':'','no runs yet');return;}
+  // Just dispatched? Keep showing "queued" until a run newer than the pre-dispatch baseline appears.
+  if(watching && run.id<=baselineRunId){
+    if(Date.now()<watchUntil){setStatusUI('run','queued…');statusTimer=setTimeout(refreshStatus,3000);return;}
+    watching=false; // give up waiting; fall through to whatever the latest run is
+  }
+  if(watching && run.id>baselineRunId)watching=false; // the new run has registered
+  if(run.status!=='completed'){
+    const verb=run.status==='queued'?'queued':'running';
+    setStatusUI('run',verb+' · '+timeAgo(run.run_started_at||run.created_at),run.html_url);
+    statusTimer=setTimeout(refreshStatus,6000);
+  }else{
+    const ok=run.conclusion==='success';
+    setStatusUI(ok?'ok':'fail',(ok?'run ok':run.conclusion||'failed')+' · '+timeAgo(run.updated_at),run.html_url);
+  }
 }
 const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Send digest','email top picks now'],
   ['discover','Discovery sweep','find new H-1B companies'],['tidy','Re-tidy','drop stale + recompute']];
@@ -522,9 +542,12 @@ function renderSettings(){
 function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();refreshStatus();toast('GitHub disconnected');}
 async function ghDispatch(mode){if(!ghToken()){connectGitHub();return;}
   const g=gh();
+  const {run:prev}=await fetchLatestRun();          // baseline: dispatch API returns no run id
   const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
     {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:g.ref,inputs:{mode}})});
-  if(r&&r.status===204){toast('Triggered: '+mode);setTimeout(refreshStatus,2500);}
+  if(r&&r.status===204){toast('Triggered: '+mode);
+    baselineRunId=prev?prev.id:0;watching=true;watchUntil=Date.now()+45000;
+    setStatusUI('run','queued…');clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,2000);}
   else if(r&&r.status===401){toast('Token rejected — reconnect GitHub');}
   else toast('Trigger failed'+(r?` (${r.status})`:''));}
 function connectGitHub(){openRunner();
