@@ -48,14 +48,19 @@
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
   code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:.05em .35em}
 
-  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--surface) 88%,transparent);
-    backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
-    border-bottom:1px solid var(--line);padding:.65rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-  .brand{display:flex;align-items:baseline;gap:.45rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
-  .nav{display:flex;gap:.2rem;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px}
-  .nav a{padding:.32rem .8rem;border-radius:7px;font-size:.85rem;color:var(--ink-2);font-weight:500}
-  .nav a:hover{text-decoration:none;color:var(--ink)}
-  .nav a.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--surface) 82%,transparent);
+    backdrop-filter:saturate(1.5) blur(12px);-webkit-backdrop-filter:saturate(1.5) blur(12px);
+    border-bottom:1px solid var(--line);padding:.7rem 1.5rem;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.5rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.02em}
+  .brand .logo{display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .brand:hover .logo{transform:rotate(-14deg) scale(1.12)}
+  .nav{display:flex;gap:1.5rem;align-items:center;align-self:stretch}
+  .nav a{position:relative;padding:.3rem .1rem;font-size:.9rem;color:var(--muted);font-weight:500;text-decoration:none;letter-spacing:-.005em;transition:color .18s}
+  .nav a:hover{text-decoration:none;color:var(--ink-2)}
+  .nav a.on{color:var(--ink);font-weight:600}
+  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-.62rem;height:2px;border-radius:2px;background:var(--accent);
+    transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.4,0,.2,1)}
+  .nav a.on::after{transform:scaleX(1)}
   .meta{color:var(--muted);font-size:.8rem}
 
   button{font:inherit;font-size:.86rem;cursor:pointer;border:1px solid var(--line-2);background:var(--surface);
@@ -68,6 +73,20 @@
 
   main{padding:2.1rem 1.4rem 5rem;max-width:1060px;margin:0 auto}
   .screen[hidden]{display:none}
+  .browse-all{text-align:center;margin-top:2rem}
+  .browse-all a{font-size:.9rem;font-weight:500}
+
+  /* ===== motion ===== */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes gaugeDraw{from{stroke-dashoffset:var(--c)}}
+  @media (prefers-reduced-motion:no-preference){
+    .screen:not([hidden])>*{animation:fadeUp .5s cubic-bezier(.22,1,.36,1) both}
+    .screen:not([hidden])>*:nth-child(1){animation-delay:.02s}
+    .screen:not([hidden])>*:nth-child(2){animation-delay:.10s}
+    .screen:not([hidden])>*:nth-child(3){animation-delay:.18s}
+    .screen:not([hidden])>*:nth-child(4){animation-delay:.26s}
+    .gauge circle.arc{animation:gaugeDraw .95s cubic-bezier(.4,0,.2,1)}
+  }
   .hint{background:var(--accent-soft);color:var(--ink-2);border-left:3px solid var(--accent);
     border-radius:9px;padding:.7rem .9rem;font-size:.83rem;margin-bottom:1.2rem;line-height:1.5}
   .hint b{color:var(--ink)}
@@ -223,13 +242,13 @@
 </head>
 <body>
 <header>
-  <h1 class="brand"><span>🎯</span> Job Hunter</h1>
+  <h1 class="brand"><span class="logo">🎯</span> Job Hunter</h1>
   <nav class="nav">
     <a href="#/" id="navHome">Cockpit</a>
     <a href="#/jobs" id="navJobs">Jobs</a>
   </nav>
-  <div class="meta" id="meta"></div>
   <div class="grow"></div>
+  <span class="meta" id="meta"></span>
   <button id="themeBtn" class="icon" title="Toggle light / dark">◐</button>
   <button id="runnerBtn" title="Load private data / connect GitHub">▶ Run script</button>
 </header>
@@ -264,7 +283,6 @@
           <li><b>Copy the referral message</b> — send it to a contact, or use a search link.</li>
           <li><b>Apply, then set the status</b> — jobs move through your funnel and your score climbs.</li>
         </ol>
-        <p class="ihelp">Automations run ~every 30 min (or trigger them below once GitHub is connected). Load your private contacts via <b>▶ Run script</b>. Browse everything on the <b>Jobs</b> tab.</p>
       </div>
       <div class="hero">
         <div class="hero-top">
@@ -286,12 +304,7 @@
       <div class="autobody" id="autobody"></div>
     </div>
 
-    <section class="section" id="queueSection">
-      <div class="section-h"><h2>⚡ Needs you now</h2><span class="count" id="queueCount"></span></div>
-      <div class="queue" id="queue"></div>
-    </section>
-
-    <p style="text-align:center"><a href="#/jobs" id="allJobsLink">Browse all jobs →</a></p>
+    <p class="browse-all"><a href="#/jobs">Browse all jobs →</a></p>
   </section>
 
   <!-- ===== JOBS (list) ===== -->
@@ -387,17 +400,25 @@ function computeScore(){
   const score=Math.round(factors.reduce((a,f)=>a+f.v*f.w,0));
   return {score,factors};
 }
-function scoreColor(n){return n>=67?'var(--good)':n>=34?'var(--mid)':'var(--bad)';}
+let lastScore=0, countRAF=null;
+function animateCount(el,from,to){
+  if(!el) return;
+  if(window.matchMedia && !matchMedia('(prefers-reduced-motion:no-preference)').matches){el.textContent=to;return;}
+  cancelAnimationFrame(countRAF);
+  const dur=700,t0=performance.now();
+  (function step(now){const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(from+(to-from)*e);if(p<1)countRAF=requestAnimationFrame(step);})(performance.now());
+}
 function renderScore(){
   const {score,factors}=computeScore();
   const R=72,C=2*Math.PI*R,off=C*(1-score/100),col='var(--accent)';
   document.getElementById('gauge').innerHTML=
     `<svg width="168" height="168" viewBox="0 0 168 168">
       <circle cx="84" cy="84" r="${R}" fill="none" stroke="var(--surface-2)" stroke-width="14"/>
-      <circle cx="84" cy="84" r="${R}" fill="none" stroke="${col}" stroke-width="14" stroke-linecap="round"
-        stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}"/>
-    </svg><div class="num"><b style="color:${col}">${score}</b><small>out of 100</small></div>`;
-  // weakest factor drives the tip
+      <circle class="arc" cx="84" cy="84" r="${R}" fill="none" stroke="${col}" stroke-width="14" stroke-linecap="round"
+        style="--c:${C.toFixed(1)};stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${off.toFixed(1)}"/>
+    </svg><div class="num"><b id="scoreNum" style="color:${col}">${score}</b><small>out of 100</small></div>`;
+  animateCount(document.getElementById('scoreNum'), lastScore, score); lastScore=score;
   const weak=[...factors].sort((a,b)=>a.v-b.v)[0];
   const tips={Outcomes:'Land responses & interviews to climb fastest.',Applications:'Send more applications toward your target.',
     Competitiveness:'Add the missing keywords to sharpen your resume.',Momentum:'Take a few actions this week to keep momentum.',Readiness:'Load your network and clear overdue follow-ups.'};
@@ -405,9 +426,10 @@ function renderScore(){
   document.getElementById('factors').innerHTML=factors.map(f=>{
     const pct=Math.round(f.v*100);
     return `<div class="factor"><div class="fl">${f.k}</div>
-      <div class="track"><i style="width:${pct}%"></i></div>
+      <div class="track"><i data-w="${pct}" style="width:0"></i></div>
       <div class="fv">${f.note}</div></div>`;
   }).join('');
+  requestAnimationFrame(()=>document.querySelectorAll('#factors .track i').forEach(el=>{el.style.width=el.dataset.w+'%';}));
 }
 
 // ---------- GitHub automation ----------
@@ -559,7 +581,7 @@ function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
   document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';}
 
 // ---------- render orchestration + routing ----------
-function renderHome(){renderScore();renderAuto();renderQueue();}
+function renderHome(){renderScore();renderAuto();}
 function renderJobs(){
   renderFunnel();renderFilters();
   const jobs=visibleJobs();document.getElementById('count').textContent=`${jobs.length} shown`;
