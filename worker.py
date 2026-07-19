@@ -196,6 +196,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "job_count": len(public_jobs),
             "app_url": app_url,
             "min_fit_score": cfg["match"]["min_fit_score"],
+            "github": cfg.get("github", {}),
         },
         "summary": {
             "best_match": ({

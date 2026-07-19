@@ -6,6 +6,13 @@
     "private_json": "data/private.local.json"
   },
 
+  "github": {
+    "owner": "priandproper",
+    "repo": "job-hunter",
+    "workflow": "hunt.yml",
+    "ref": "main"
+  },
+
   "sources": {
     "tracker_db": "../job-search/tracker/jobs.db",
     "scanner_seen": "../job-search/scanner/seen_jobs.json"

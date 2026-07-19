@@ -14,9 +14,9 @@
     --good:#0e8a0e; --good-soft:rgba(14,138,14,.10);
     --mid:#b06f1e;  --mid-soft:rgba(176,111,30,.12);
     --bad:#c0392b;  --bad-soft:rgba(192,57,43,.09);
-    --ring:0 1px 2px rgba(11,11,11,.04), 0 1px 1px rgba(11,11,11,.03);
+    --ring:0 1px 2px rgba(11,11,11,.04),0 1px 1px rgba(11,11,11,.03);
     --ring-hover:0 4px 14px rgba(11,11,11,.07);
-    --r:14px; --r-sm:9px;
+    --r:16px; --r-sm:9px;
   }
   @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
     color-scheme:dark;
@@ -25,8 +25,8 @@
     --line:rgba(255,255,255,.10); --line-2:#2c2c2a;
     --accent:#4f97ea; --accent-soft:rgba(79,151,234,.16);
     --good:#39c039; --good-soft:rgba(57,192,57,.15);
-    --mid:#e0a030;  --mid-soft:rgba(224,160,48,.16);
-    --bad:#ef6b5f;  --bad-soft:rgba(239,107,95,.15);
+    --mid:#e0a030; --mid-soft:rgba(224,160,48,.16);
+    --bad:#ef6b5f; --bad-soft:rgba(239,107,95,.15);
     --ring:0 1px 2px rgba(0,0,0,.4); --ring-hover:0 6px 20px rgba(0,0,0,.5);
   }}
   :root[data-theme="dark"]{
@@ -36,173 +36,87 @@
     --line:rgba(255,255,255,.10); --line-2:#2c2c2a;
     --accent:#4f97ea; --accent-soft:rgba(79,151,234,.16);
     --good:#39c039; --good-soft:rgba(57,192,57,.15);
-    --mid:#e0a030;  --mid-soft:rgba(224,160,48,.16);
-    --bad:#ef6b5f;  --bad-soft:rgba(239,107,95,.15);
+    --mid:#e0a030; --mid-soft:rgba(224,160,48,.16);
+    --bad:#ef6b5f; --bad-soft:rgba(239,107,95,.15);
     --ring:0 1px 2px rgba(0,0,0,.4); --ring-hover:0 6px 20px rgba(0,0,0,.5);
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--plane);color:var(--ink);
-    font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
   ::selection{background:var(--accent-soft)}
   .grow{flex:1}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:.05em .35em}
 
   header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--surface) 88%,transparent);
     backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
-    border-bottom:1px solid var(--line);padding:.7rem 1.4rem;display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
-  .brand{display:flex;align-items:baseline;gap:.5rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
-  .brand .pin{font-size:1.05rem}
-  .meta{color:var(--muted);font-size:.8rem;letter-spacing:.01em}
+    border-bottom:1px solid var(--line);padding:.65rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:baseline;gap:.45rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
+  .nav{display:flex;gap:.2rem;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px}
+  .nav a{padding:.32rem .8rem;border-radius:7px;font-size:.85rem;color:var(--ink-2);font-weight:500}
+  .nav a:hover{text-decoration:none;color:var(--ink)}
+  .nav a.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
+  .meta{color:var(--muted);font-size:.8rem}
 
   button{font:inherit;font-size:.86rem;cursor:pointer;border:1px solid var(--line-2);background:var(--surface);
     color:var(--ink);border-radius:var(--r-sm);padding:.44rem .8rem;transition:all .14s ease}
-  button:hover{border-color:var(--muted);background:var(--surface-2)}
+  button:hover:not(:disabled){border-color:var(--muted);background:var(--surface-2)}
   button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
   button.primary:hover{filter:brightness(1.06);background:var(--accent)}
   button.icon{padding:.44rem .6rem}
-  button:disabled{opacity:.5;cursor:default}
+  button:disabled{opacity:.45;cursor:default}
 
-  main{padding:1.4rem 1.4rem 5rem;max-width:1160px;margin:0 auto}
-
-  /* ---- stat tiles ---- */
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.85rem;margin-bottom:1.15rem}
-  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-    padding:1rem 1.1rem;box-shadow:var(--ring);position:relative;overflow:hidden}
-  .stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.85}
-  .stat.s-good::before{background:var(--good)} .stat.s-plain::before{opacity:0}
-  .stat .k{color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
-  .stat .v{font-size:1.85rem;font-weight:700;margin-top:.28rem;line-height:1;letter-spacing:-.02em}
-  .stat .s{color:var(--ink-2);font-size:.82rem;margin-top:.35rem;line-height:1.35}
-
-  /* ---- panels ---- */
-  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-    padding:1.15rem 1.25rem;margin-bottom:1.15rem;box-shadow:var(--ring)}
-  .panel h2{margin:0 0 .25rem;font-size:.98rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:.45rem}
-  .panel .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .95rem;max-width:70ch}
-  .leader{display:flex;flex-wrap:wrap;gap:.5rem}
-  .kw{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line-2);
-    border-radius:999px;padding:.28rem .4rem .28rem .72rem;font-size:.83rem;background:var(--surface);
-    color:var(--ink-2);transition:all .14s ease}
-  .kw:hover{border-color:var(--muted);color:var(--ink)}
-  .kw b{background:var(--mid-soft);color:var(--mid);font-weight:700;border-radius:999px;
-    font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
-
-  /* ---- filters ---- */
-  .filters{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:1.1rem;align-items:center}
-  .seg{display:inline-flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);
-    border-radius:11px;padding:3px;flex-wrap:wrap}
-  .seg button{border:1px solid transparent;background:transparent;border-radius:8px;padding:.34rem .7rem;
-    font-size:.82rem;color:var(--ink-2)}
-  .seg button:hover{background:var(--surface);color:var(--ink)}
-  .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);
-    box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
-  .seg button span{opacity:.55;font-variant-numeric:tabular-nums;margin-left:.15rem}
-  .count{color:var(--muted);font-size:.83rem}
-
-  /* ---- job cards ---- */
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-    padding:1.15rem 1.25rem;margin-bottom:1rem;box-shadow:var(--ring);transition:box-shadow .16s ease,border-color .16s ease}
-  .card:hover{box-shadow:var(--ring-hover);border-color:var(--line-2)}
-  .card.applied{opacity:.62}
-  .top{display:flex;gap:1rem;align-items:flex-start}
-  .top .t{flex:1;min-width:0}
-  .role{font-size:1.08rem;font-weight:700;margin:0 0 .22rem;letter-spacing:-.01em;line-height:1.25}
-  .co{color:var(--muted);font-size:.85rem}
-  .scores{display:flex;gap:1.1rem;flex-shrink:0}
-  .scorebox{text-align:center;min-width:52px}
-  .scorebox .n{font-size:1.55rem;font-weight:700;line-height:1;letter-spacing:-.02em}
-  .scorebox .l{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.28rem;font-weight:600}
-  .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
-
-  .badges{display:flex;gap:.4rem;flex-wrap:wrap;margin:.85rem 0 .1rem;align-items:center}
-  .chip{border-radius:7px;padding:.16rem .5rem;font-size:.74rem;font-weight:600;white-space:nowrap;
-    background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
-  .chip.variant{background:var(--accent-soft);color:var(--accent);border-color:transparent}
-  .chip.spon{background:var(--mid-soft);color:var(--mid);border-color:transparent}
-  .chip.kwd{background:transparent;color:var(--muted)}
-
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1rem}
-  @media (max-width:740px){.grid{grid-template-columns:1fr}}
-  .box{border:1px solid var(--line);background:var(--surface-2);border-radius:11px;padding:.85rem .9rem}
-  .box h3{margin:0 0 .55rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-  .miss{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
-  .miss span{background:var(--bad-soft);color:var(--bad);border-radius:6px;padding:.13rem .48rem;font-size:.76rem;font-weight:500}
-  .miss.none span{background:var(--good-soft);color:var(--good)}
-  .msg{width:100%;min-height:118px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;
-    padding:.6rem .7rem;font:12.5px/1.55 inherit;background:var(--surface);color:var(--ink);transition:border-color .14s}
-  .msg:focus{outline:none;border-color:var(--accent)}
-  .rowbtns{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap;align-items:center}
-
-  .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column}
-  .refs li{display:flex;gap:.6rem;align-items:center;font-size:.87rem;padding:.42rem 0;border-top:1px solid var(--line)}
-  .refs li:first-child{border-top:none;padding-top:.1rem}
-  .refs .who{flex:1;min-width:0}
-  .refs .who b{font-weight:600}
-  .refs .pos{color:var(--muted);font-size:.78rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .tag{font-size:.63rem;font-weight:700;padding:.09rem .4rem;border-radius:5px;text-transform:uppercase;letter-spacing:.03em;vertical-align:middle;margin-left:.15rem}
-  .tag.in{background:var(--good-soft);color:var(--good)}
-  .tag.ap{background:var(--accent-soft);color:var(--accent)}
-  .tag.se{background:var(--mid-soft);color:var(--mid)}
-
-  .foot{display:flex;gap:.7rem;align-items:center;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);flex-wrap:wrap}
-  .status{display:flex;align-items:center;gap:.5rem;font-size:.83rem;color:var(--muted)}
-  .status select{font:inherit;font-size:.83rem;padding:.36rem .55rem;border-radius:8px;border:1px solid var(--line-2);
-    background:var(--surface);color:var(--ink);cursor:pointer}
-
-  .hint{background:var(--accent-soft);color:var(--ink-2);border:1px solid transparent;border-left:3px solid var(--accent);
-    border-radius:9px;padding:.7rem .9rem;font-size:.83rem;margin-bottom:1.15rem;line-height:1.5}
+  main{padding:1.5rem 1.4rem 5rem;max-width:1080px;margin:0 auto}
+  .screen[hidden]{display:none}
+  .hint{background:var(--accent-soft);color:var(--ink-2);border-left:3px solid var(--accent);
+    border-radius:9px;padding:.7rem .9rem;font-size:.83rem;margin-bottom:1.2rem;line-height:1.5}
   .hint b{color:var(--ink)}
-  .empty{text-align:center;color:var(--muted);padding:3.5rem 1rem;line-height:1.6}
-  .more{text-align:center;margin-top:1.3rem}
-  .more button{padding:.55rem 1.3rem;font-weight:600}
-  .more button span{color:var(--muted);font-weight:400}
-  code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);
-    border:1px solid var(--line);border-radius:5px;padding:.05em .35em}
 
-  .toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(8px);
-    background:var(--ink);color:var(--plane);padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;
-    opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  /* ===== hero score ===== */
+  .hero{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);
+    padding:1.6rem;margin-bottom:1.2rem;display:grid;grid-template-columns:auto 1fr;gap:1.8rem;align-items:center}
+  @media (max-width:640px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+  .gauge{position:relative;width:168px;height:168px;flex-shrink:0}
+  .gauge svg{transform:rotate(-90deg)}
+  .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .num b{font-size:3rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .gauge .num small{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:.2rem}
+  .hero-r{min-width:0;width:100%}
+  .hero-r h2{margin:0 0 .1rem;font-size:1.05rem;font-weight:700}
+  .hero-r .tip{color:var(--ink-2);font-size:.85rem;margin:0 0 1rem}
+  .factors{display:flex;flex-direction:column;gap:.6rem}
+  .factor{display:grid;grid-template-columns:118px 1fr auto;gap:.7rem;align-items:center;font-size:.82rem}
+  .factor .fl{color:var(--ink-2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .track{height:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+  .track i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .5s ease}
+  .factor .fv{color:var(--muted);font-size:.75rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  .modal{position:fixed;inset:0;z-index:50;background:rgba(11,11,11,.5);backdrop-filter:blur(3px);
-    display:flex;align-items:center;justify-content:center;padding:1rem;animation:fade .15s ease}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  .modal-box{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);
-    padding:1.35rem 1.45rem;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-  .modal-box h2{margin:0 0 .35rem;font-size:1.08rem;font-weight:700}
-  .modal-box .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem;line-height:1.55}
-  .runner-code{width:100%;min-height:160px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;
-    padding:.7rem .8rem;background:var(--surface-2);color:var(--ink);
-    font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
-  .runner-code:focus{outline:none;border-color:var(--accent)}
-  .filebtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);
-    border-radius:var(--r-sm);padding:.44rem .8rem;cursor:pointer;font-size:.86rem;transition:all .14s}
-  .filebtn:hover{border-color:var(--muted);background:var(--surface-2)}
+  /* ===== automation panel ===== */
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);margin-bottom:1.2rem}
+  .panel-hd{display:flex;align-items:center;gap:.6rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .panel-hd h2{margin:0;font-size:1rem;font-weight:700;letter-spacing:-.01em}
+  .autostat{display:flex;align-items:center;gap:.5rem;font-size:.84rem;color:var(--ink-2);margin-left:auto}
+  .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
+  .sdot.run{background:var(--accent);animation:pulse 1.6s infinite}
+  .sdot.ok{background:var(--good)} .sdot.fail{background:var(--bad)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,120,214,.5)}70%{box-shadow:0 0 0 6px rgba(42,120,214,0)}100%{box-shadow:0 0 0 0 rgba(42,120,214,0)}}
+  .autobody{padding:1rem 1.2rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .autobody .note{color:var(--muted);font-size:.8rem;width:100%;margin-bottom:.1rem}
+  .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.6rem .85rem;min-width:130px}
+  .auto-btn b{font-weight:600;font-size:.86rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
 
-  /* ================= COCKPIT ================= */
-  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1rem}
-  .cell{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.85rem 1rem;box-shadow:var(--ring);display:flex;flex-direction:column;gap:.2rem}
-  .cell .ck{color:var(--muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;display:flex;align-items:center;gap:.4rem}
-  .cell .cv{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;line-height:1.05}
-  .cell .cv.good{color:var(--good)}
-  .cell .cs{color:var(--ink-2);font-size:.78rem;line-height:1.3}
-  .live{width:8px;height:8px;border-radius:50%;background:var(--good);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,138,14,.45)}70%{box-shadow:0 0 0 6px rgba(14,138,14,0)}100%{box-shadow:0 0 0 0 rgba(14,138,14,0)}}
-
-  .funnel{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+  /* ===== sections / funnel / queue (shared) ===== */
+  .section{margin-bottom:1.5rem}
+  .section-h{display:flex;align-items:baseline;gap:.6rem;margin:0 0 .75rem;flex-wrap:wrap}
+  .section-h h2{font-size:1.02rem;font-weight:700;margin:0;letter-spacing:-.01em}
+  .section-h .count{margin-left:auto;color:var(--muted);font-size:.83rem}
+  .funnel{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.3rem}
   .stage{flex:1;min-width:96px;background:var(--surface);border:1px solid var(--line);border-radius:11px;
     padding:.65rem .8rem;box-shadow:var(--ring);cursor:pointer;transition:border-color .14s}
   .stage:hover{border-color:var(--muted)}
   .stage.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
   .stage .sn{font-size:1.4rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
   .stage .sl{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:.3rem;font-weight:600}
-
-  .section{margin-bottom:1.5rem}
-  .section-h{display:flex;align-items:baseline;gap:.6rem;margin:0 0 .75rem}
-  .section-h h2{font-size:1.02rem;font-weight:700;margin:0;letter-spacing:-.01em}
-  .section-h .count{margin-left:auto}
 
   .queue{display:flex;flex-direction:column;gap:.55rem}
   .qitem{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
@@ -214,7 +128,16 @@
   .qwhy{color:var(--mid);font-weight:600}
   .qbtns{display:flex;gap:.4rem;flex-wrap:wrap}
   .qbtns button,.qbtns a button{font-size:.8rem;padding:.36rem .7rem}
+  .tag{font-size:.63rem;font-weight:700;padding:.09rem .4rem;border-radius:5px;text-transform:uppercase;letter-spacing:.03em;margin-left:.15rem}
+  .tag.in{background:var(--good-soft);color:var(--good)} .tag.ap{background:var(--accent-soft);color:var(--accent)}
+  .tag.se{background:var(--mid-soft);color:var(--mid)}
 
+  /* ===== jobs screen ===== */
+  .seg{display:inline-flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:3px;flex-wrap:wrap}
+  .seg button{border:1px solid transparent;background:transparent;border-radius:8px;padding:.34rem .7rem;font-size:.82rem;color:var(--ink-2)}
+  .seg button:hover{background:var(--surface);color:var(--ink)}
+  .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
+  .seg button span{opacity:.55;font-variant-numeric:tabular-nums;margin-left:.15rem}
   .rowlist{display:flex;flex-direction:column;gap:.4rem}
   .jobrow{background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--ring);overflow:hidden;transition:border-color .14s}
   .jobrow:hover{border-color:var(--line-2)}
@@ -228,42 +151,82 @@
   .rinfo{flex:1;min-width:0}
   .rtitle{font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .rmeta{color:var(--muted);font-size:.77rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.05rem}
-  .rscore{font-weight:700;font-size:.92rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:38px}
+  .rscore{font-weight:700;font-size:.92rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:40px}
   .rscore small{display:block;font-size:.56rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:.1rem}
+  .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
   .rstatus{font-size:.7rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:.14rem .5rem;flex-shrink:0;text-transform:capitalize}
   @media (max-width:620px){.rstatus{display:none}}
   .chev-r{color:var(--muted);flex-shrink:0;transition:transform .15s;font-size:.8rem}
-  .jobrow.open .chev-r{transform:rotate(90deg)}
-  .jobrow.open{border-color:var(--line-2)}
+  .jobrow.open .chev-r{transform:rotate(90deg)} .jobrow.open{border-color:var(--line-2)}
   .rdetail{border-top:1px solid var(--line);padding:.95rem;display:none}
   .jobrow.open .rdetail{display:block}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+  @media (max-width:740px){.grid{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line);background:var(--surface-2);border-radius:11px;padding:.85rem .9rem}
+  .box h3{margin:0 0 .55rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  .miss{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
+  .miss span{background:var(--bad-soft);color:var(--bad);border-radius:6px;padding:.13rem .48rem;font-size:.76rem}
+  .miss.none span{background:var(--good-soft);color:var(--good)}
+  .msg{width:100%;min-height:110px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;padding:.6rem .7rem;
+    font:12.5px/1.55 inherit;background:var(--surface);color:var(--ink)}
+  .msg:focus{outline:none;border-color:var(--accent)}
+  .rowbtns{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap;align-items:center}
+  .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column}
+  .refs li{display:flex;gap:.6rem;align-items:center;font-size:.87rem;padding:.42rem 0;border-top:1px solid var(--line)}
+  .refs li:first-child{border-top:none} .refs .who{flex:1;min-width:0} .refs .who b{font-weight:600}
+  .refs .pos{color:var(--muted);font-size:.78rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .foot{display:flex;gap:.7rem;align-items:center;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);flex-wrap:wrap}
+  .status{display:flex;align-items:center;gap:.5rem;font-size:.83rem;color:var(--muted)}
+  .status select{font:inherit;font-size:.83rem;padding:.36rem .55rem;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
+  .co{color:var(--muted);font-size:.85rem}
+  .more{text-align:center;margin-top:1.3rem}
+  .more button{padding:.55rem 1.3rem;font-weight:600} .more button span{color:var(--muted);font-weight:400}
+  .empty{text-align:center;color:var(--muted);padding:2.5rem 1rem;line-height:1.6}
 
-  .panel.collapsible{padding:0;overflow:hidden}
-  .panel-toggle{width:100%;text-align:left;border:none;background:transparent;padding:.95rem 1.2rem;
-    display:flex;align-items:center;gap:.5rem;font-size:.98rem;font-weight:700;color:var(--ink);border-radius:0}
+  .collapsible{overflow:hidden;margin-top:1.4rem}
+  .panel-toggle{width:100%;text-align:left;border:none;background:transparent;padding:.95rem 1.2rem;display:flex;align-items:center;gap:.5rem;font-size:.98rem;font-weight:700;color:var(--ink);border-radius:0}
   .panel-toggle:hover{background:var(--surface-2)}
   .panel-toggle .chev{margin-left:auto;color:var(--muted);transition:transform .15s;font-size:.8rem}
   .panel-toggle.open .chev{transform:rotate(90deg)}
   .panel-body{padding:0 1.2rem 1.15rem}
+  .panel-body .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem}
+  .leader{display:flex;flex-wrap:wrap;gap:.5rem}
+  .kw{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line-2);border-radius:999px;padding:.28rem .4rem .28rem .72rem;font-size:.83rem;background:var(--surface);color:var(--ink-2)}
+  .kw b{background:var(--mid-soft);color:var(--mid);font-weight:700;border-radius:999px;font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
+
+  .toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(8px);background:var(--ink);color:var(--plane);
+    padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(11,11,11,.5);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:1rem}
+  .modal-box{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);padding:1.35rem 1.45rem;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .modal-box h2{margin:0 0 .35rem;font-size:1.08rem;font-weight:700}
+  .modal-box .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem;line-height:1.55}
+  .runner-code{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:.7rem .8rem;background:var(--surface-2);color:var(--ink);font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
+  .runner-code:focus{outline:none;border-color:var(--accent)}
+  .filebtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r-sm);padding:.44rem .8rem;cursor:pointer;font-size:.86rem}
+  .filebtn:hover{border-color:var(--muted);background:var(--surface-2)}
 </style>
 </head>
 <body>
 <header>
-  <h1 class="brand"><span class="pin">🎯</span> Job Hunter</h1>
-  <div class="meta" id="meta">loading…</div>
+  <h1 class="brand"><span>🎯</span> Job Hunter</h1>
+  <nav class="nav">
+    <a href="#/" id="navHome">Cockpit</a>
+    <a href="#/jobs" id="navJobs">Jobs</a>
+  </nav>
+  <div class="meta" id="meta"></div>
   <div class="grow"></div>
   <button id="themeBtn" class="icon" title="Toggle light / dark">◐</button>
-  <button id="runnerBtn" title="Paste a one-off script (e.g. scripts/inject.local.js) to load private data into this browser">▶ Run script</button>
-  <button id="reloadBtn" class="primary">↻ Reload</button>
+  <button id="runnerBtn" title="Load private data / connect GitHub">▶ Run script</button>
 </header>
 
 <div class="modal" id="runnerModal" style="display:none">
   <div class="modal-box">
-    <h2>▶ Run a one-off script</h2>
-    <p class="sub">Paste the contents of a generated <code>*.local.js</code> script — e.g.
-      <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone,
-      referral contacts) into this browser's local storage. It runs entirely on your
-      machine; nothing is uploaded. Only paste scripts you generated and trust.</p>
+    <h2 id="runnerTitle">▶ Run a one-off script</h2>
+    <p class="sub" id="runnerHelp">Paste a generated <code>*.local.js</code> script — e.g.
+      <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone, referral
+      contacts) into this browser's local storage. It runs entirely on your machine; nothing is
+      uploaded. Only paste scripts you generated and trust.</p>
     <textarea id="runnerCode" class="runner-code" placeholder="Paste your script here…" spellcheck="false"></textarea>
     <div class="rowbtns">
       <button class="primary" onclick="runScript()">Run script</button>
@@ -277,376 +240,357 @@
 <main>
   <div id="hint" class="hint" style="display:none"></div>
 
-  <!-- automation status strip -->
-  <section class="strip" id="strip"></section>
+  <!-- ===== COCKPIT (home) ===== -->
+  <section id="screen-home" class="screen">
+    <div class="hero">
+      <div class="gauge" id="gauge"></div>
+      <div class="hero-r">
+        <h2>Job Hunt Score</h2>
+        <p class="tip" id="scoreTip"></p>
+        <div class="factors" id="factors"></div>
+      </div>
+    </div>
 
-  <!-- your pipeline funnel -->
-  <div class="funnel" id="funnel"></div>
+    <div class="panel">
+      <div class="panel-hd">
+        <h2>⚙️ Automation</h2>
+        <div class="autostat"><span class="sdot" id="sdot"></span><span id="autostatus">checking…</span></div>
+      </div>
+      <div class="autobody" id="autobody"></div>
+    </div>
 
-  <!-- the daily cockpit: what needs you now -->
-  <section class="section" id="queueSection">
-    <div class="section-h"><h2>⚡ Needs you now</h2><span class="count" id="queueCount"></span></div>
-    <div class="queue" id="queue"></div>
+    <section class="section" id="queueSection">
+      <div class="section-h"><h2>⚡ Needs you now</h2><span class="count" id="queueCount"></span></div>
+      <div class="queue" id="queue"></div>
+    </section>
+
+    <p style="text-align:center"><a href="#/jobs" id="allJobsLink">Browse all jobs →</a></p>
   </section>
 
-  <!-- collapsible skill-gap panel -->
-  <div class="panel collapsible" id="gapPanel">
-    <button class="panel-toggle" id="gapToggle">📊 What you're missing<span class="chev">▸</span></button>
-    <div class="panel-body" id="gapBody" style="display:none">
-      <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first — your highest-leverage skills to add.</p>
-      <div class="leader" id="leader"></div>
-    </div>
-  </div>
-
-  <!-- full job list as compact rows -->
-  <section class="section">
+  <!-- ===== JOBS (list) ===== -->
+  <section id="screen-jobs" class="screen" hidden>
+    <div class="funnel" id="funnel"></div>
     <div class="section-h"><h2>All jobs</h2>
-      <div class="filters" style="margin:0"><div class="seg" id="statusFilter"></div></div>
+      <div class="seg" id="statusFilter"></div>
       <span class="count" id="count"></span>
     </div>
     <div id="list" class="rowlist"></div>
+
+    <div class="panel collapsible" id="gapPanel">
+      <button class="panel-toggle" id="gapToggle">📊 What you're missing<span class="chev">▸</span></button>
+      <div class="panel-body" id="gapBody" style="display:none">
+        <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first — your highest-leverage skills to add.</p>
+        <div class="leader" id="leader"></div>
+      </div>
+    </div>
   </section>
 </main>
 
 <div class="toast" id="toast"></div>
 
 <script>
+// ---------- constants / state ----------
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
-const STATUS_KEY="job-hunter:status:v1";
-const PRIVATE_KEY="job-hunter:private:v1";
-const SEEN_KEY="job-hunter:seen:v1";
-let DOC={jobs:[],meta:{},summary:{}};
-let filter="active";
-let newIds=new Set();       // job ids new since last visit
-const openRows=new Set();   // expanded job rows (preserved across re-render)
-
-// Days after which an un-progressed job needs a follow-up nudge, by status.
+const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
+      SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
+const TARGET_APPS=20, OUTCOME_GOAL=6;   // score calibration
+const PAGE=40;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
+let newIds=new Set(); const openRows=new Set();
+let statusTimer=null;
 
-// Funnel stages -> which raw statuses roll up into each.
-const FUNNEL=[
-  ['new','New',['new','resume ready']], ['messaged','Messaged',['messaged']],
-  ['referred','Referred',['referred']], ['applied','Applied',['applied']],
-  ['interview','Interviewing',['screen','interview']], ['offer','Offers',['offer']],
-];
-// Predicate per filter key (funnel keys + active/all/archived/rejected).
+const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['messaged']],
+  ['referred','Referred',['referred']],['applied','Applied',['applied']],
+  ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
 const FILTER_GROUPS={
-  active:j=>!['archived','rejected'].includes(jobStatus(j.id)),
-  all:()=>true,
-  archived:j=>jobStatus(j.id)==='archived',
-  rejected:j=>jobStatus(j.id)==='rejected',
-  new:j=>['new','resume ready'].includes(jobStatus(j.id)),
-  messaged:j=>jobStatus(j.id)==='messaged',
-  referred:j=>jobStatus(j.id)==='referred',
-  applied:j=>jobStatus(j.id)==='applied',
-  interview:j=>['screen','interview'].includes(jobStatus(j.id)),
-  offer:j=>jobStatus(j.id)==='offer',
-};
+  active:j=>!['archived','rejected'].includes(jobStatus(j.id)), all:()=>true,
+  archived:j=>jobStatus(j.id)==='archived', rejected:j=>jobStatus(j.id)==='rejected',
+  new:j=>['new','resume ready'].includes(jobStatus(j.id)), messaged:j=>jobStatus(j.id)==='messaged',
+  referred:j=>jobStatus(j.id)==='referred', applied:j=>jobStatus(j.id)==='applied',
+  interview:j=>['screen','interview'].includes(jobStatus(j.id)), offer:j=>jobStatus(j.id)==='offer'};
 
-function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');
-  setTimeout(()=>el.classList.remove('show'),1600);}
+// ---------- helpers ----------
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1700);}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function firstName(n){return (n||'').replace(/^🔎.*/,'').trim().split(/\s+/)[0]||'there';}
 function personalize(msg,name){return msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' ');}
-
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
-function setStatusLS(id,status){const s=getStatuses();s[id]={status,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(s));}
-function getPrivate(){try{return JSON.parse(localStorage.getItem(PRIVATE_KEY))||{}}catch{return{}}}
+function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));}
 function jobStatus(id){return (getStatuses()[id]||{}).status||'new';}
 function jobStatusTs(id){return (getStatuses()[id]||{}).ts||null;}
 function daysSince(ts){return ts?(Date.now()-new Date(ts).getTime())/86400000:null;}
+function getPrivate(){try{return JSON.parse(localStorage.getItem(PRIVATE_KEY))||{}}catch{return{}}}
 function jobRefs(id){return (getPrivate().referrals||{})[id]||[];}
-
-function timeAgo(iso){
-  if(!iso) return '—';
-  const t=new Date(String(iso).replace(' ','T')).getTime();
-  if(isNaN(t)) return iso;
-  const mins=Math.max(0,Math.round((Date.now()-t)/60000));
-  if(mins<60) return mins+'m ago';
-  const h=Math.round(mins/60); if(h<24) return h+'h ago';
-  return Math.round(h/24)+'d ago';
-}
-// "New since last visit": diff current ids against the set stored last load.
-function computeNew(){
-  let seen; try{seen=new Set(JSON.parse(localStorage.getItem(SEEN_KEY))||[])}catch{seen=new Set()}
-  const cur=(DOC.jobs||[]).map(j=>j.id);
-  newIds = seen.size ? new Set(cur.filter(id=>!seen.has(id))) : new Set();
-  localStorage.setItem(SEEN_KEY, JSON.stringify(cur));
-}
-
-// The public jobs.json carries resume_core WITHOUT email/phone. If you've loaded
-// your private data, merge those in and build the import URL here in the browser
-// (raw url-encoded JSON — unicode-safe). Otherwise fall back to the PII-free URL.
-function buildImportUrl(job){
-  const contact=(getPrivate().contact)||{};
-  if((!contact.email && !contact.phone) || !job.resume_core) return job.import_url||'#';
-  const core=JSON.parse(JSON.stringify(job.resume_core));
-  core.contact={...core.contact, ...contact};
-  const app=((DOC.meta||{}).app_url||'').replace(/\/$/,'');
-  return app+'/?import='+encodeURIComponent(JSON.stringify(core));
-}
-
-async function load(){
-  try{
-    const r=await fetch('jobs.json?_='+Date.now());
-    if(!r.ok) throw new Error(r.status);
-    DOC=await r.json();
-  }catch(e){
-    document.getElementById('list').innerHTML=
-      '<div class="empty">Couldn\'t load <code>jobs.json</code>.<br>Serve this folder over http (e.g. <code>python3 -m http.server</code> in <code>docs/</code>) or run <code>python3 worker.py</code> first.</div>';
-    return;
-  }
-  computeNew();
-  render();
-}
-
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
-
-// ----- status strip: what the automation did -----
-function renderStrip(){
-  const m=DOC.meta||{}, s=DOC.summary||{}, priv=getPrivate();
-  const conn=priv.connections_loaded||0;
-  const cells=[
-    {k:'<span class="live"></span> Automation', v:'Running', s:'last run '+timeAgo(DOC.generated_at), good:true},
-    {k:'🆕 New since last visit', v:newIds.size, s:newIds.size?'fresh matches — see below':'all caught up'},
-    {k:'Ready to send', v:(m.job_count||0), s:'resumes + messages drafted'},
-    {k:'Network', v:conn?conn+' contacts':'not loaded', s:conn?'referrers available':'click ▶ Run script'},
-  ];
-  document.getElementById('strip').innerHTML=cells.map(c=>
-    `<div class="cell"><div class="ck">${c.k}</div><div class="cv ${c.good?'good':''}">${esc(String(c.v))}</div><div class="cs">${c.s}</div></div>`).join('');
+function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
+  const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
+function buildImportUrl(job){
+  const c=(getPrivate().contact)||{};
+  if((!c.email&&!c.phone)||!job.resume_core)return job.import_url||'#';
+  const core=JSON.parse(JSON.stringify(job.resume_core));core.contact={...core.contact,...c};
+  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(core));
 }
+function computeNew(){let seen;try{seen=new Set(JSON.parse(localStorage.getItem(SEEN_KEY))||[])}catch{seen=new Set()}
+  const cur=(DOC.jobs||[]).map(j=>j.id);newIds=seen.size?new Set(cur.filter(id=>!seen.has(id))):new Set();
+  localStorage.setItem(SEEN_KEY,JSON.stringify(cur));}
 
-// ----- funnel: your real pipeline (also acts as a stage filter) -----
-function renderFunnel(){
-  const counts={}; (DOC.jobs||[]).forEach(j=>{const st=jobStatus(j.id);counts[st]=(counts[st]||0)+1;});
-  document.getElementById('funnel').innerHTML=FUNNEL.map(([key,label,group])=>{
-    const n=group.reduce((a,st)=>a+(counts[st]||0),0);
-    return `<div class="stage ${filter===key?'on':''}" onclick="setFilter('${key}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;
+// ---------- job hunt score ----------
+function computeScore(){
+  const jobs=DOC.jobs||[], sts=getStatuses();
+  const top=[...jobs].sort((a,b)=>b.fit_score-a.fit_score).slice(0,10);
+  const comp=top.length?top.reduce((a,j)=>a+j.ats_score,0)/top.length/100:0;
+  const cnt=s=>jobs.filter(j=>jobStatus(j.id)===s).length;
+  const appCount=['applied','screen','interview','offer'].reduce((a,s)=>a+cnt(s),0);
+  const apps=Math.min(1,appCount/TARGET_APPS);
+  const outcomesRaw=cnt('screen')*1+cnt('interview')*2+cnt('offer')*4+cnt('referred')*0.5;
+  const outcomes=Math.min(1,outcomesRaw/OUTCOME_GOAL);
+  const now=Date.now();let recent=0;Object.values(sts).forEach(v=>{if(v&&v.ts&&(now-new Date(v.ts).getTime())/86400000<=7)recent++;});
+  const momentum=Math.min(1,recent/5);
+  const priv=getPrivate();
+  const overdue=jobs.filter(j=>{const s=jobStatus(j.id),d=daysSince(jobStatusTs(j.id));return FOLLOWUP[s]!=null&&d!=null&&d>=FOLLOWUP[s];}).length;
+  const readiness=0.5*(priv.connections_loaded?1:0)+0.5*(overdue===0?1:0);
+  const factors=[
+    {k:'Outcomes',v:outcomes,w:30,note:`${cnt('interview')+cnt('screen')} interviews · ${cnt('offer')} offers`},
+    {k:'Applications',v:apps,w:20,note:`${appCount}/${TARGET_APPS} sent`},
+    {k:'Competitiveness',v:comp,w:20,note:'resume vs market'},
+    {k:'Momentum',v:momentum,w:15,note:`${recent} actions this week`},
+    {k:'Readiness',v:readiness,w:15,note:overdue?`${overdue} follow-ups due`:'prep on track'},
+  ];
+  const score=Math.round(factors.reduce((a,f)=>a+f.v*f.w,0));
+  return {score,factors};
+}
+function scoreColor(n){return n>=67?'var(--good)':n>=34?'var(--mid)':'var(--bad)';}
+function renderScore(){
+  const {score,factors}=computeScore();
+  const R=72,C=2*Math.PI*R,off=C*(1-score/100),col=scoreColor(score);
+  document.getElementById('gauge').innerHTML=
+    `<svg width="168" height="168" viewBox="0 0 168 168">
+      <circle cx="84" cy="84" r="${R}" fill="none" stroke="var(--surface-2)" stroke-width="14"/>
+      <circle cx="84" cy="84" r="${R}" fill="none" stroke="${col}" stroke-width="14" stroke-linecap="round"
+        stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}"/>
+    </svg><div class="num"><b style="color:${col}">${score}</b><small>out of 100</small></div>`;
+  // weakest factor drives the tip
+  const weak=[...factors].sort((a,b)=>a.v-b.v)[0];
+  const tips={Outcomes:'Land responses & interviews to climb fastest.',Applications:'Send more applications toward your target.',
+    Competitiveness:'Add the missing keywords to sharpen your resume.',Momentum:'Take a few actions this week to keep momentum.',Readiness:'Load your network and clear overdue follow-ups.'};
+  document.getElementById('scoreTip').textContent='Biggest lever right now: '+(tips[weak.k]||'');
+  document.getElementById('factors').innerHTML=factors.map(f=>{
+    const pct=Math.round(f.v*100);
+    return `<div class="factor"><div class="fl">${f.k}</div>
+      <div class="track"><i style="width:${pct}%"></i></div>
+      <div class="fv">${f.note}</div></div>`;
   }).join('');
 }
 
-// ----- action queue: the only list that matters daily -----
+// ---------- GitHub automation ----------
+function gh(){return (DOC.meta&&DOC.meta.github)||{owner:'priandproper',repo:'job-hunter',workflow:'hunt.yml',ref:'main'};}
+function ghToken(){try{return (JSON.parse(localStorage.getItem(GH_KEY))||{}).token||''}catch{return ''}}
+async function ghFetch(path,opts){
+  const g=gh();const h=Object.assign({'Accept':'application/vnd.github+json'},(opts&&opts.headers)||{});
+  const t=ghToken();if(t)h.Authorization='Bearer '+t;
+  try{return await fetch('https://api.github.com'+path,Object.assign({},opts,{headers:h}));}catch(e){return null;}
+}
+async function refreshStatus(){
+  const g=gh();
+  const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs?per_page=1`);
+  const sdot=document.getElementById('sdot'),txt=document.getElementById('autostatus');
+  if(!r||!r.ok){sdot.className='sdot';txt.textContent='status unavailable';return;}
+  const run=((await r.json()).workflow_runs||[])[0];
+  if(!run){sdot.className='sdot';txt.textContent='no runs yet';return;}
+  if(run.status!=='completed'){
+    sdot.className='sdot run';txt.textContent=`running · started ${timeAgo(run.run_started_at||run.created_at)}`;
+    clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,15000);
+  }else{
+    const ok=run.conclusion==='success';
+    sdot.className='sdot '+(ok?'ok':'fail');
+    txt.textContent=`${ok?'last run succeeded':'last run '+(run.conclusion||'failed')} · ${timeAgo(run.updated_at)}`;
+  }
+}
+const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Send digest','email top picks now'],
+  ['discover','Discovery sweep','find new H-1B companies'],['tidy','Re-tidy','drop stale + recompute']];
+function renderAuto(){
+  const hasTok=!!ghToken();
+  const note=hasTok
+    ? '<div class="note">Triggers a GitHub Actions run. Watch the status above.</div>'
+    : '<div class="note">🔒 Connect GitHub to enable one-click automations (status shows without it).</div>';
+  const btns=AUTOS.map(([mode,label,sub])=>
+    `<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
+  const connect=`<button class="${hasTok?'':'primary'}" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'🔗 Connect GitHub'}</button>`;
+  document.getElementById('autobody').innerHTML=note+btns+connect;
+}
+async function ghDispatch(mode){
+  if(!ghToken()){connectGitHub();return;}
+  const g=gh();
+  const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
+    {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:g.ref,inputs:{mode}})});
+  if(r&&r.status===204){toast('▶ Triggered: '+mode);setTimeout(refreshStatus,2500);}
+  else if(r&&r.status===401){toast('Token rejected — reconnect GitHub');}
+  else toast('Trigger failed'+(r?` (${r.status})`:''));
+}
+function connectGitHub(){
+  openRunner();
+  document.getElementById('runnerTitle').textContent='🔗 Connect GitHub';
+  document.getElementById('runnerHelp').innerHTML='Create a <b>fine-grained</b> personal access token scoped to <b>only the job-hunter repo</b> with <b>Actions: Read and write</b> (nothing else). Replace <code>PASTE_TOKEN_HERE</code> below and click Run. It is stored only in this browser and never committed.';
+  document.getElementById('runnerCode').value=
+    "// GitHub token — fine-grained, job-hunter repo only, Actions: read/write.\n"+
+    "localStorage.setItem('"+GH_KEY+"', JSON.stringify({ token: 'PASTE_TOKEN_HERE' }));\n"+
+    "location.reload();";
+}
+
+// ---------- action queue ----------
 function actionQueue(){
-  const jobs=DOC.jobs||[]; const items=[];
-  jobs.forEach(j=>{                                   // follow-ups that are due
-    const st=jobStatus(j.id), d=daysSince(jobStatusTs(j.id));
-    if(FOLLOWUP[st]!=null && d!=null && d>=FOLLOWUP[st])
-      items.push({job:j, follow:true, why:`${st} ${Math.floor(d)}d ago — follow up`});
-  });
-  const fresh=jobs.filter(j=>jobStatus(j.id)==='new')  // top new to act on
+  const jobs=DOC.jobs||[],items=[];
+  jobs.forEach(j=>{const st=jobStatus(j.id),d=daysSince(jobStatusTs(j.id));
+    if(FOLLOWUP[st]!=null&&d!=null&&d>=FOLLOWUP[st])items.push({job:j,follow:true,why:`${st} ${Math.floor(d)}d ago — follow up`});});
+  const fresh=jobs.filter(j=>jobStatus(j.id)==='new')
     .sort((a,b)=>(Number(newIds.has(b.id))-Number(newIds.has(a.id)))||(b.fit_score-a.fit_score));
-  fresh.slice(0,5).forEach(j=>items.push({job:j, follow:false, isNew:newIds.has(j.id)}));
+  fresh.slice(0,5).forEach(j=>items.push({job:j,follow:false,isNew:newIds.has(j.id)}));
   return items;
 }
 function renderQueue(){
-  const items=actionQueue(), q=document.getElementById('queue');
+  const items=actionQueue(),q=document.getElementById('queue');
   document.getElementById('queueCount').textContent=items.length?`${items.length} to act on`:'';
-  if(!items.length){q.innerHTML='<div class="empty" style="padding:1.6rem">🎉 Nothing needs you right now. New matches land here as the automation finds them.</div>';return;}
-  q.innerHTML=items.map(it=>{
-    const j=it.job;
+  if(!items.length){q.innerHTML='<div class="empty">🎉 Nothing needs you right now. New matches land here as the automation finds them.</div>';return;}
+  q.innerHTML=items.map(it=>{const j=it.job;
     const why=it.follow?`<span class="qwhy">⏰ ${esc(it.why)}</span>`:(it.isNew?'<span class="tag ap">new</span>':'');
     const primary=it.follow
-      ? `<button class="primary" onclick="copyText(followupText(DOC.jobs.find(x=>x.id==='${j.id}')))">Copy follow-up</button>`
-      : `<a href="${esc(buildImportUrl(j))}" target="_blank" rel="noopener"><button class="primary">Open resume</button></a>`;
-    return `<div class="qitem ${it.follow?'follow':''}">
-      <div class="qmain">
-        <div class="qtitle">${esc(j.company)} — ${esc(j.title)}</div>
-        <div class="qsub">fit ${j.fit_score} · ATS ${j.ats_score}% · ${esc(j.location||'')} ${why}</div>
-      </div>
+      ?`<button class="primary" onclick="copyText(followupText(DOC.jobs.find(x=>x.id==='${j.id}')))">Copy follow-up</button>`
+      :`<a href="${esc(buildImportUrl(j))}" target="_blank" rel="noopener"><button class="primary">Open resume</button></a>`;
+    return `<div class="qitem ${it.follow?'follow':''}"><div class="qmain">
+      <div class="qtitle">${esc(j.company)} — ${esc(j.title)}</div>
+      <div class="qsub">fit ${j.fit_score} · ATS ${j.ats_score}% · ${esc(j.location||'')} ${why}</div></div>
       <div class="qbtns">${primary}
         <a href="${esc(j.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a>
-        <button onclick="expandJob('${j.id}')">Details</button>
-      </div></div>`;
+        <button onclick="expandJob('${j.id}')">Details</button></div></div>`;
   }).join('');
 }
 
-function renderLeader(){
-  const lb=(DOC.summary||{}).missing_leaderboard||[];
-  document.getElementById('leader').innerHTML= lb.length
-    ? lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join('')
-    : '<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';
+// ---------- jobs screen ----------
+function renderFunnel(){
+  const counts={};(DOC.jobs||[]).forEach(j=>{const s=jobStatus(j.id);counts[s]=(counts[s]||0)+1;});
+  document.getElementById('funnel').innerHTML=FUNNEL.map(([key,label,grp])=>{
+    const n=grp.reduce((a,s)=>a+(counts[s]||0),0);
+    return `<div class="stage ${filter===key?'on':''}" onclick="setFilter('${key}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;
+  }).join('');
 }
-
 function renderFilters(){
-  const jobs=DOC.jobs||[];
-  const c=pred=>jobs.filter(pred).length;
+  const jobs=DOC.jobs||[],c=p=>jobs.filter(p).length;
   const opts=[['active','Active',c(FILTER_GROUPS.active)],['all','All',jobs.length],
     ['archived','Archived',c(FILTER_GROUPS.archived)],['rejected','Passed',c(FILTER_GROUPS.rejected)]];
-  document.getElementById('statusFilter').innerHTML=opts.map(([k,label,n])=>
-    `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${label}<span>${n}</span></button>`).join('');
+  document.getElementById('statusFilter').innerHTML=opts.map(([k,l,n])=>
+    `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${l}<span>${n}</span></button>`).join('');
 }
-const PAGE=40;
-let shownCount=PAGE;
-function setFilter(f){filter=f;shownCount=PAGE;render();}
+function setFilter(f){filter=f;shownCount=PAGE;location.hash='#/jobs';renderJobs();}
 function visibleJobs(){return (DOC.jobs||[]).filter(FILTER_GROUPS[filter]||FILTER_GROUPS.all);}
-
 function refItem(job,r){
-  const tag=r.kind==='in_network'?'<span class="tag in">in network</span>'
-    :r.kind==='apollo'?'<span class="tag ap">apollo</span>':'<span class="tag se">search</span>';
+  const tag=r.kind==='in_network'?'<span class="tag in">in network</span>':r.kind==='apollo'?'<span class="tag ap">apollo</span>':'<span class="tag se">search</span>';
   const link=r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">open</a>`:'';
   const useBtn=r.kind==='search'?'':`<button onclick="useName('${job.id}',this)" data-name="${esc(r.name)}">use</button>`;
   return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;
 }
-
-// compact one-line row; detail is filled lazily on first expand (keeps DOM light)
 function jobRow(job){
-  const st=jobStatus(job.id);
-  const isNew=newIds.has(job.id)&&st==='new';
-  return `<div class="jobrow" id="row-${job.id}">
-    <div class="rhead" onclick="toggleRow('${job.id}')">
-      <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo">
-        <div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag ap">new</span>':''}</div>
-        <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div>
-      </div>
-      <div class="rscore">${job.fit_score}<small>fit</small></div>
-      <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
-      <span class="rstatus">${esc(st)}</span>
-      <span class="chev-r">▸</span>
-    </div>
-    <div class="rdetail" id="detail-${job.id}"></div>
-  </div>`;
+  const st=jobStatus(job.id),isNew=newIds.has(job.id)&&st==='new';
+  return `<div class="jobrow" id="row-${job.id}"><div class="rhead" onclick="toggleRow('${job.id}')">
+    <span class="dot s-${st.replace(/ /g,'-')}"></span>
+    <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag ap">new</span>':''}</div>
+      <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div></div>
+    <div class="rscore">${job.fit_score}<small>fit</small></div>
+    <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
+    <span class="rstatus">${esc(st)}</span><span class="chev-r">▸</span></div>
+    <div class="rdetail" id="detail-${job.id}"></div></div>`;
 }
-
 function detailHtml(job){
   const missing=job.missing_keywords||[];
-  const missHtml=missing.length
-    ? '<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>'
-    : '<div class="miss none"><span>✓ covers every requested keyword</span></div>';
+  const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   const jdNote=job.jd_available?'':' <span class="co">(title-only)</span>';
-  const refs=jobRefs(job.id).slice();
-  refs.push({name:'🔎 Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
+  const refs=jobRefs(job.id).slice();refs.push({name:'🔎 Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
   const people=refs.filter(r=>r.kind!=='search');
-  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'
-    +(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click ▶ Run script to add yours.</div>');
-  const statusSel=`<select onchange="setStatus('${job.id}',this.value)">`+
-    STATUSES.map(s=>`<option ${s===jobStatus(job.id)?'selected':''}>${s}</option>`).join('')+`</select>`;
+  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click ▶ Run script.</div>');
+  const sel=`<select onchange="setStatus('${job.id}',this.value)">`+STATUSES.map(s=>`<option ${s===jobStatus(job.id)?'selected':''}>${s}</option>`).join('')+`</select>`;
   return `<div class="grid">
-      <div class="box"><h3>❌ Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
-        <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
-      <div class="box"><h3>✉️ Referral message — ready to copy</h3>
-        <textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
-        <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div>
-    </div>
-    <div class="box" style="margin-top:.85rem"><h3>🤝 Who can refer you (${people.length} ${people.length===1?'person':'people'})</h3>${refsHtml}</div>
-    <div class="foot"><span class="status">Status: ${statusSel}</span><div class="grow"></div>
+    <div class="box"><h3>❌ Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
+      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
+    <div class="box"><h3>✉️ Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
+      <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div></div>
+    <div class="box" style="margin-top:.85rem"><h3>🤝 Who can refer you (${people.length})</h3>${refsHtml}</div>
+    <div class="foot"><span class="status">Status: ${sel}</span><div class="grow"></div>
       <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;
 }
+function fillDetail(id){const d=document.getElementById('detail-'+id);if(d&&!d.dataset.filled){d.innerHTML=detailHtml(DOC.jobs.find(j=>j.id===id));d.dataset.filled='1';}}
+function toggleRow(id){const row=document.getElementById('row-'+id);const open=row.classList.toggle('open');if(open){openRows.add(id);fillDetail(id);}else openRows.delete(id);}
+function expandJob(id){filter='all';location.hash='#/jobs';const idx=visibleJobs().findIndex(j=>j.id===id);if(idx>=0&&idx>=shownCount)shownCount=Math.ceil((idx+1)/PAGE)*PAGE;openRows.add(id);renderJobs();requestAnimationFrame(()=>{const r=document.getElementById('row-'+id);if(r)r.scrollIntoView({behavior:'smooth',block:'center'});});}
 
-function fillDetail(id){
-  const d=document.getElementById('detail-'+id);
-  if(d && !d.dataset.filled){ d.innerHTML=detailHtml(DOC.jobs.find(j=>j.id===id)); d.dataset.filled='1'; }
-}
-function toggleRow(id){
-  const row=document.getElementById('row-'+id);
-  const open=row.classList.toggle('open');
-  if(open){ openRows.add(id); fillDetail(id); } else openRows.delete(id);
-}
-// open a specific job from the action queue (switch to All, page to it, expand)
-function expandJob(id){
-  filter='all';
-  const idx=visibleJobs().findIndex(j=>j.id===id);
-  if(idx>=0 && idx>=shownCount) shownCount=Math.ceil((idx+1)/PAGE)*PAGE;
-  openRows.add(id);
-  render();
-  requestAnimationFrame(()=>{const row=document.getElementById('row-'+id);if(row)row.scrollIntoView({behavior:'smooth',block:'center'});});
-}
-
-function render(){
-  const m=DOC.meta||{};
-  document.getElementById('meta').textContent=
-    `${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
-  const priv=getPrivate(), hint=document.getElementById('hint');
-  if(!priv.connections_loaded){
-    hint.style.display='block';
-    hint.innerHTML='Referrer names + your email/phone are private, so they aren\'t in the public data. Click <b>▶ Run script</b> and paste <code>scripts/inject.local.js</code> to load them into this browser. Search links + resumes work without it.';
-  } else hint.style.display='none';
-
-  renderStrip();renderFunnel();renderQueue();renderLeader();renderFilters();
-
-  const jobs=visibleJobs();
-  document.getElementById('count').textContent=`${jobs.length} shown`;
-  const list=document.getElementById('list');
-  if(!jobs.length){ list.innerHTML='<div class="empty">No jobs in this view.</div>'; return; }
-  const slice=jobs.slice(0,shownCount), remaining=jobs.length-slice.length;
-  list.innerHTML=slice.map(jobRow).join('')
-    +(remaining>0?`<div class="more"><button id="moreBtn">Show ${Math.min(PAGE,remaining)} more <span>· ${remaining} remaining</span></button></div>`:'');
-  const mb=document.getElementById('moreBtn');
-  if(mb) mb.addEventListener('click',()=>{shownCount+=PAGE;render();});
-  // re-apply any rows the user had expanded (survives re-render)
-  openRows.forEach(id=>{const row=document.getElementById('row-'+id);if(row){row.classList.add('open');fillDetail(id);}});
-}
-
-function useName(jobId,btn){
-  const name=btn.getAttribute('data-name');
-  const job=DOC.jobs.find(j=>j.id===jobId);
-  document.getElementById('msg-'+jobId).value=personalize(job.referral_message,name);
-  document.getElementById('who-'+jobId).textContent='personalized for '+firstName(name);
-}
+function useName(jobId,btn){const name=btn.getAttribute('data-name');const job=DOC.jobs.find(j=>j.id===jobId);
+  document.getElementById('msg-'+jobId).value=personalize(job.referral_message,name);document.getElementById('who-'+jobId).textContent='personalized for '+firstName(name);}
 function copyText(t){navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard'));}
-function copyMsg(jobId){const ta=document.getElementById('msg-'+jobId);ta.select();copyText(ta.value);}
-function followupText(job){
-  return `Hi — just following up on my earlier note about the ${job.title} role at ${job.company}. `
-    +`I'm still very interested and would love to move things forward. Happy to share anything that helps. Thanks!`;
+function copyMsg(id){const ta=document.getElementById('msg-'+id);ta.select();copyText(ta.value);}
+function followupText(job){return `Hi — just following up on my earlier note about the ${job.title} role at ${job.company}. I'm still very interested and would love to move things forward. Happy to share anything that helps. Thanks!`;}
+function setStatus(id,s){setStatusLS(id,s);toast('Status → '+s);render();}
+
+function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
+  document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';}
+
+// ---------- render orchestration + routing ----------
+function renderHint(){const priv=getPrivate(),hint=document.getElementById('hint');
+  if(!priv.connections_loaded){hint.style.display='block';
+    hint.innerHTML='Referrer names + your email/phone are private, so they aren\'t in the public data. Click <b>▶ Run script</b> and paste <code>scripts/inject.local.js</code> to load them into this browser.';}
+  else hint.style.display='none';}
+function renderHome(){renderScore();renderAuto();renderQueue();}
+function renderJobs(){
+  renderFunnel();renderFilters();
+  const jobs=visibleJobs();document.getElementById('count').textContent=`${jobs.length} shown`;
+  const list=document.getElementById('list');
+  if(!jobs.length){list.innerHTML='<div class="empty">No jobs in this view.</div>';renderLeader();return;}
+  const slice=jobs.slice(0,shownCount),rem=jobs.length-slice.length;
+  list.innerHTML=slice.map(jobRow).join('')+(rem>0?`<div class="more"><button id="moreBtn">Show ${Math.min(PAGE,rem)} more <span>· ${rem} remaining</span></button></div>`:'');
+  const mb=document.getElementById('moreBtn');if(mb)mb.addEventListener('click',()=>{shownCount+=PAGE;renderJobs();});
+  openRows.forEach(id=>{const r=document.getElementById('row-'+id);if(r){r.classList.add('open');fillDetail(id);}});
+  renderLeader();
 }
-function setStatus(jobId,status){
-  setStatusLS(jobId,status);toast('Status → '+status);
-  render(); // refresh strip, funnel, queue, and the row's status pill together
+function render(){
+  document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
+  renderHint();
+  if(location.hash.startsWith('#/jobs'))renderJobs();else renderHome();
+}
+function route(){
+  const onJobs=location.hash.startsWith('#/jobs');
+  document.getElementById('screen-home').hidden=onJobs;
+  document.getElementById('screen-jobs').hidden=!onJobs;
+  document.getElementById('navHome').classList.toggle('on',!onJobs);
+  document.getElementById('navJobs').classList.toggle('on',onJobs);
+  render();
+}
+window.addEventListener('hashchange',route);
+
+async function load(){
+  try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
+  catch(e){document.getElementById('queue').innerHTML='<div class="empty">Couldn\'t load <code>jobs.json</code>. Serve <code>docs/</code> over http or run <code>python3 worker.py</code>.</div>';return;}
+  computeNew();route();refreshStatus();
 }
 
-// ----- In-app one-off script runner -----------------------------------------
-// Runs a pasted *.local.js script in this page so a non-technical user never has
-// to open dev tools. It only ever touches localStorage on this browser; nothing
-// is sent anywhere. (Equivalent to pasting the script into the console.)
-function openRunner(){document.getElementById('runnerModal').style.display='flex';
-  document.getElementById('runnerOut').textContent='';document.getElementById('runnerCode').focus();}
-function closeRunner(){document.getElementById('runnerModal').style.display='none';}
-function runScript(){
-  const code=document.getElementById('runnerCode').value.trim();
-  const out=document.getElementById('runnerOut');
+// ---------- one-off script runner ----------
+function openRunner(){document.getElementById('runnerModal').style.display='flex';document.getElementById('runnerOut').textContent='';}
+function resetRunner(){document.getElementById('runnerTitle').textContent='▶ Run a one-off script';
+  document.getElementById('runnerHelp').innerHTML='Paste a generated <code>*.local.js</code> script — e.g. <code>scripts/inject.local.js</code> — to load your sensitive data into this browser. Nothing is uploaded.';
+  document.getElementById('runnerCode').value='';}
+function closeRunner(){document.getElementById('runnerModal').style.display='none';resetRunner();}
+function runScript(){const code=document.getElementById('runnerCode').value.trim(),out=document.getElementById('runnerOut');
   if(!code){out.textContent='Paste a script first.';return;}
-  try{
-    (new Function(code))();               // execute in page context
-    out.textContent='✓ ran';
-    // The generated inject script ends with location.reload(); if a script
-    // doesn't reload, refresh the view so loaded data shows immediately.
-    render();
-    toast('Script ran');
-  }catch(e){ out.textContent='Error: '+e.message; }
-}
-document.getElementById('runnerBtn').addEventListener('click',openRunner);
-document.getElementById('runnerModal').addEventListener('click',e=>{
-  if(e.target.id==='runnerModal') closeRunner();
-});
-// Convenience: pick a *.local.js / .json file to fill the textarea (then Run).
-document.getElementById('privFile').addEventListener('change',ev=>{
-  const f=ev.target.files[0];if(!f)return;
-  const rd=new FileReader();
-  rd.onload=()=>{document.getElementById('runnerCode').value=rd.result;
-    document.getElementById('runnerOut').textContent='Loaded '+f.name+' — click Run script.';};
-  rd.readAsText(f);
-});
+  try{(new Function(code))();out.textContent='✓ ran';render();renderAuto();toast('Script ran');}catch(e){out.textContent='Error: '+e.message;}}
+document.getElementById('runnerBtn').addEventListener('click',()=>{resetRunner();openRunner();});
+document.getElementById('runnerModal').addEventListener('click',e=>{if(e.target.id==='runnerModal')closeRunner();});
+document.getElementById('privFile').addEventListener('change',ev=>{const f=ev.target.files[0];if(!f)return;const rd=new FileReader();
+  rd.onload=()=>{document.getElementById('runnerCode').value=rd.result;document.getElementById('runnerOut').textContent='Loaded '+f.name+' — click Run script.';};rd.readAsText(f);});
 
-document.getElementById('reloadBtn').addEventListener('click',()=>{load().then(()=>toast('Reloaded'));});
+// gap toggle
+document.getElementById('gapToggle').addEventListener('click',function(){const b=document.getElementById('gapBody');const open=b.style.display==='none';b.style.display=open?'block':'none';this.classList.toggle('open',open);});
 
-// collapsible skill-gap panel (collapsed by default to keep the cockpit clean)
-document.getElementById('gapToggle').addEventListener('click',function(){
-  const body=document.getElementById('gapBody');
-  const open=body.style.display==='none';
-  body.style.display=open?'block':'none';
-  this.classList.toggle('open',open);
-});
-
-// ----- Light / dark theme toggle (persisted; overrides OS preference) --------
-const THEME_KEY='job-hunter:theme';
+// theme
 (function(){const t=localStorage.getItem(THEME_KEY);if(t)document.documentElement.setAttribute('data-theme',t);})();
-document.getElementById('themeBtn').addEventListener('click',()=>{
-  const cur=document.documentElement.getAttribute('data-theme');
-  const isDark = cur ? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  const next = isDark ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme',next);
-  localStorage.setItem(THEME_KEY,next);
-});
+document.getElementById('themeBtn').addEventListener('click',()=>{const cur=document.documentElement.getAttribute('data-theme');
+  const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const next=dark?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);});
 
 load();
 </script>

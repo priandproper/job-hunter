@@ -8,7 +8,12 @@ name: hunt
 on:
   schedule:
     - cron: "*/30 * * * *"      # every 30 min (GitHub may delay under load)
-  workflow_dispatch: {}          # run on demand from the Actions tab
+  workflow_dispatch:             # triggerable from the dashboard (or Actions tab)
+    inputs:
+      mode:
+        description: "refresh | digest | discover | tidy"
+        required: false
+        default: "refresh"
   push:
     branches: [main]             # redeploy when you change code/content
 
@@ -42,6 +47,9 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
+          # "Send digest now" from the app forces a top-picks email regardless of
+          # whether the jobs are new since the last alert.
+          HUNT_MODE: ${{ github.event.inputs.mode }}
         run: python3 scripts/notify.py
 
       - name: Persist state (dedup + discovered companies)

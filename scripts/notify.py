@@ -41,8 +41,15 @@ def main() -> int:
     except Exception:
         MIN = MIN_FIT
 
-    fresh = [j for j in doc.get("jobs", [])
-             if j["id"] not in seen and j.get("fit_score", 0) >= MIN]
+    # "Send digest now" (mode=digest) force-sends the current top picks even if
+    # they were already alerted; otherwise only genuinely-new jobs go out.
+    force = os.environ.get("HUNT_MODE", "").strip() == "digest"
+    if force:
+        fresh = sorted((j for j in doc.get("jobs", []) if j.get("fit_score", 0) >= MIN),
+                       key=lambda j: j.get("fit_score", 0), reverse=True)[:8]
+    else:
+        fresh = [j for j in doc.get("jobs", [])
+                 if j["id"] not in seen and j.get("fit_score", 0) >= MIN]
     if not fresh:
         print("notify: no new jobs above the alert threshold")
         return 0
