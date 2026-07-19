@@ -92,6 +92,18 @@
     color:var(--bg);padding:.55rem .9rem;border-radius:10px;font-size:.85rem;opacity:0;
     transition:opacity .2s;pointer-events:none}
   .toast.show{opacity:1}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);
+    display:flex;align-items:center;justify-content:center;padding:1rem}
+  .modal-box{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:1.2rem 1.3rem;max-width:640px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+  .modal-box h2{margin:0 0 .3rem;font-size:1.05rem}
+  .modal-box .sub{color:var(--muted);font-size:.83rem;margin:0 0 .8rem}
+  .runner-code{width:100%;min-height:160px;resize:vertical;border:1px solid var(--line);
+    border-radius:8px;padding:.6rem .7rem;background:var(--bg);color:var(--ink);
+    font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+  .filebtn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:8px;padding:.4rem .7rem;cursor:pointer;font-size:.9rem}
+  .filebtn:hover{filter:brightness(.97)}
 </style>
 </head>
 <body>
@@ -99,10 +111,26 @@
   <h1><span class="pin">📌</span> Job Hunter</h1>
   <div class="meta" id="meta">loading…</div>
   <div class="grow"></div>
-  <button id="privBtn" title="Load your git-ignored data/private.local.json into this browser">🔒 Load private data</button>
-  <input type="file" id="privFile" accept="application/json" style="display:none">
+  <button id="runnerBtn" title="Paste a one-off script (e.g. scripts/inject.local.js) to load private data into this browser">▶ Run one-off script</button>
   <button id="reloadBtn" class="primary">↻ Reload</button>
 </header>
+
+<div class="modal" id="runnerModal" style="display:none">
+  <div class="modal-box">
+    <h2>▶ Run a one-off script</h2>
+    <p class="sub">Paste the contents of a generated <code>*.local.js</code> script — e.g.
+      <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone,
+      referral contacts) into this browser's local storage. It runs entirely on your
+      machine; nothing is uploaded. Only paste scripts you generated and trust.</p>
+    <textarea id="runnerCode" class="runner-code" placeholder="Paste your script here…" spellcheck="false"></textarea>
+    <div class="rowbtns">
+      <button class="primary" onclick="runScript()">Run script</button>
+      <label class="filebtn">Load from file…<input type="file" id="privFile" accept="application/javascript,application/json,.js,.json" style="display:none"></label>
+      <button onclick="closeRunner()">Close</button>
+      <span class="co" id="runnerOut"></span>
+    </div>
+  </div>
+</div>
 
 <main>
   <div id="hint" class="hint" style="display:none"></div>
@@ -180,7 +208,7 @@ function renderStats(){
     ['Matching jobs', m.job_count||0, 'fit ≥ '+(m.min_fit_score||0)],
     ['Best resume match', bm?bm.ats_score+'%':'—', bm?esc(bm.variant)+' → '+esc(bm.company):'run the worker'],
     ['Missing keywords', (s.missing_leaderboard||[]).length, 'distinct, across all jobs'],
-    ['Private data', conn?conn+' contacts':'not loaded', conn?'in-network referrers':'click 🔒 Load private data'],
+    ['Private data', conn?conn+' contacts':'not loaded', conn?'in-network referrers':'click ▶ Run one-off script'],
   ];
   document.getElementById('stats').innerHTML=cards.map(([k,v,sub])=>
     `<div class="stat"><div class="k">${esc(k)}</div><div class="v">${esc(String(v))}</div><div class="s">${esc(sub)}</div></div>`).join('');
@@ -233,7 +261,7 @@ function card(job){
     url:job.linkedin_search,kind:'search'});
   const people=refs.filter(r=>r.kind!=='search');
   const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'
-    +(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded. Use the search link, or click 🔒 Load private data.</div>');
+    +(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded. Use the search link, or click ▶ Run one-off script.</div>');
 
   const statusSel=`<select onchange="setStatus('${job.id}',this.value)">`+
     STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')+`</select>`;
@@ -289,7 +317,7 @@ function render(){
   const hint=document.getElementById('hint');
   if(!(priv.connections_loaded)){
     hint.style.display='block';
-    hint.innerHTML='Referrer names are private, so they aren\'t in the public data. Click <b>🔒 Load private data</b> and pick your git-ignored <code>data/private.local.json</code> to see in-network contacts. Search links work without it.';
+    hint.innerHTML='Referrer names + your email/phone are private, so they aren\'t in the public data. Click <b>▶ Run one-off script</b> and paste <code>scripts/inject.local.js</code> to load them into this browser. Search links + resumes work without it.';
   } else hint.style.display='none';
   renderStats();renderLeader();renderFilters();
   const jobs=visibleJobs();
@@ -314,18 +342,36 @@ function setStatus(jobId,status){
   renderStats();renderFilters();
 }
 
-// Load the git-ignored private.local.json into localStorage (no upload anywhere).
-document.getElementById('privBtn').addEventListener('click',()=>document.getElementById('privFile').click());
+// ----- In-app one-off script runner -----------------------------------------
+// Runs a pasted *.local.js script in this page so a non-technical user never has
+// to open dev tools. It only ever touches localStorage on this browser; nothing
+// is sent anywhere. (Equivalent to pasting the script into the console.)
+function openRunner(){document.getElementById('runnerModal').style.display='flex';
+  document.getElementById('runnerOut').textContent='';document.getElementById('runnerCode').focus();}
+function closeRunner(){document.getElementById('runnerModal').style.display='none';}
+function runScript(){
+  const code=document.getElementById('runnerCode').value.trim();
+  const out=document.getElementById('runnerOut');
+  if(!code){out.textContent='Paste a script first.';return;}
+  try{
+    (new Function(code))();               // execute in page context
+    out.textContent='✓ ran';
+    // The generated inject script ends with location.reload(); if a script
+    // doesn't reload, refresh the view so loaded data shows immediately.
+    render();
+    toast('Script ran');
+  }catch(e){ out.textContent='Error: '+e.message; }
+}
+document.getElementById('runnerBtn').addEventListener('click',openRunner);
+document.getElementById('runnerModal').addEventListener('click',e=>{
+  if(e.target.id==='runnerModal') closeRunner();
+});
+// Convenience: pick a *.local.js / .json file to fill the textarea (then Run).
 document.getElementById('privFile').addEventListener('change',ev=>{
   const f=ev.target.files[0];if(!f)return;
   const rd=new FileReader();
-  rd.onload=()=>{
-    try{
-      const d=JSON.parse(rd.result);
-      localStorage.setItem(PRIVATE_KEY,JSON.stringify({referrals:d.referrals||{},connections_loaded:d.connections_loaded||0,contact:d.contact||{}}));
-      toast('Private data loaded ('+(d.connections_loaded||0)+' contacts)');render();
-    }catch(e){toast('Could not read that file');}
-  };
+  rd.onload=()=>{document.getElementById('runnerCode').value=rd.result;
+    document.getElementById('runnerOut').textContent='Loaded '+f.name+' — click Run script.';};
   rd.readAsText(f);
 });
 

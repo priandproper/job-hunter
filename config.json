@@ -12,7 +12,7 @@
   },
 
   "resume_builder": {
-    "profile_json": "../resume-builder/src/data/profile.json",
+    "profile_json": "data/profile.json",
     "app_url": "https://priandproper.github.io/resume-builder",
     "import_encoding": "raw"
   },

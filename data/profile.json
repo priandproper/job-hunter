@@ -1,0 +1,583 @@
+{
+  "contact": {
+    "fullName": "Priyanka Tambe",
+    "headline": "",
+    "email": "",
+    "phone": "",
+    "location": "Boston, MA",
+    "linkedin": "",
+    "github": ""
+  },
+  "education": [
+    {
+      "institution": "Babson College",
+      "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+      "location": "Boston, MA",
+      "startDate": "",
+      "endDate": "May 2026",
+      "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+    },
+    {
+      "institution": "Indian Institute of Technology Madras",
+      "degree": "MBA, Marketing & Strategy",
+      "location": "Chennai, India",
+      "startDate": "",
+      "endDate": "",
+      "details": ""
+    },
+    {
+      "institution": "Mumbai University",
+      "degree": "B.E., Electronics & Telecommunications",
+      "location": "Mumbai, India",
+      "startDate": "",
+      "endDate": "",
+      "details": ""
+    }
+  ],
+  "experiences": [
+    {
+      "id": "glidely",
+      "company": "Glidely Inc.",
+      "location": "San Francisco, CA",
+      "titles": [
+        "MBA Intern - Sales & Marketing Analytics",
+        "MBA Intern - Product Marketing & GTM",
+        "Sales & Marketing Analytics Intern"
+      ],
+      "startDate": "Jun 2025",
+      "endDate": "Aug 2025",
+      "bullets": [
+        "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+        "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+        "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+        "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+        "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion.",
+        "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
+        "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%.",
+        "Rebuilt self-serve onboarding messaging and activation flows, running experiments on the signup funnel (SQL, Tableau) that lifted self-serve signup conversion 75% and lead-to-demo conversion ~30%.",
+        "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; built segment-specific acquisition playbooks that more than doubled booked meetings (from ~10/week to ~5/day).",
+        "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
+        "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%.",
+        "Spearheaded 40+ structured discovery conversations with C-suite prospects to pressure-test the Ideal Customer Profile (ICP), validating critical buyer pain points that directly shifted the cross-functional product roadmap.",
+        "Accelerated top-of-funnel pipeline velocity by authoring segment-specific outbound messaging frameworks and localized sales playbooks, lifting LinkedIn outbound acceptance rates to 25%+.",
+        "Optimized the lead-to-demo pipeline to drive a 30% lift in baseline conversion by engineering real-time funnel analytics dashboards via SQL and Tableau to diagnose system bottlenecks.",
+        "Formulated a scalable PLG user-activation and API monetization framework, resulting in a 75% increase in self-serve signup conversions by aligning product telemetry with targeted marketing sequences."
+      ]
+    },
+    {
+      "id": "infosys-finacle",
+      "company": "Infosys Finacle (Banking SaaS)",
+      "location": "Bangalore, India",
+      "titles": [
+        "Marketing & Analytics Specialist",
+        "Product Marketing & Analytics Specialist"
+      ],
+      "startDate": "Mar 2022",
+      "endDate": "Dec 2024",
+      "bullets": [
+        "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+        "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+        "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+        "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+        "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals.",
+        "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+        "Managed funnel metrics end to end (MQL→SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
+        "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%.",
+        "Owned acquisition and lifecycle marketing for 100+ enterprise banking clients across 50+ markets - built segmentation and messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+        "Built Finacle's first pulse-analytics dashboard (SQL, Tableau) to measure campaign performance and communicate results to senior leadership, winning the Best Internal Campaign Award.",
+        "Created battlecards and monetization deep-dives for 50+ account executives across banking markets, cutting sales-cycle length ~15%.",
+        "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
+        "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
+        "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award.",
+        "Surpassed global pipeline distribution targets by executing multi-channel account-based marketing (ABM) campaigns across 50+ countries, securing a 28% conversion uplift across 100+ enterprise banking clients.",
+        "Collaborated with enterprise sales leadership to accelerate pipeline growth, utilizing Salesforce and Eloqua to design named-account targeting parameters and structured outbound follow-up cadences.",
+        "Cultivated high-value executive relationships and accelerated late-stage deals by orchestrating 10+ executive roundtables and customer briefings, securing a sustainable customer retention loop.",
+        "Amplified market share and data-driven brand positioning by 2.4x in brand recall, designing Finacle's first pulse-analytics strategy using SQL and Tableau to capture the Best Internal Campaign Award.",
+        "Equipped 50+ global account executives with competitive battlecards and product monetization deep-dives, reducing the sales cycle length by 15% through formalized sales enablement asset deployments."
+      ]
+    },
+    {
+      "id": "neurealm",
+      "company": "Neurealm",
+      "location": "Remote",
+      "titles": [
+        "Lead Consultant, Product Marketing",
+        "Product Marketing Consultant"
+      ],
+      "startDate": "Jul 2021",
+      "endDate": "Mar 2022",
+      "bullets": [
+        "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+        "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+        "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality.",
+        "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
+        "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%.",
+        "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned messaging, content, and enablement, and delivered 80+ tailored CIO/CTO presentations.",
+        "Ran win/loss analysis and competitive positioning that lifted win rates ~10%.",
+        "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
+        "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%.",
+        "Influenced cross-regional software procurement decisions across EMEA, APAC, and North America by delivering 80+ tailored product presentations to enterprise CIOs and CTOs.",
+        "Catalyzed a 40% expansion in digital website engagement and elevated inbound pipeline quality by authoring technical thought-leadership content, executive briefing materials, and product point-of-view (POV) articles.",
+        "Sharpened global competitive positioning strategies, yielding a 10% lift in competitive win-rates by directing comprehensive win/loss analyses and rigorous product benchmarking studies.",
+        "Coordinated cross-functional product launch strategies alongside Product Management and Engineering teams, establishing optimized frameworks to drive immediate target monetization post-release."
+      ]
+    },
+    {
+      "id": "yes-bank-foundation",
+      "company": "YES Bank Foundation",
+      "location": "Mumbai, India",
+      "titles": [
+        "Marketing Manager"
+      ],
+      "startDate": "Jul 2016",
+      "endDate": "Dec 2018",
+      "bullets": [
+        "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+        "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+        "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award.",
+        "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels.",
+        "Ran donor-acquisition campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using A/B testing and conversion-rate optimization on acquisition funnels.",
+        "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels.",
+        "Multiplied organizational digital footprints by 200%, securing 50M+ impressions across digital channels by scaling integrated, multi-channel GTM programs across 20+ non-profit partnerships.",
+        "Generated ~$35K USD in online capital acquisition campaigns, implementing rigorous conversion-rate optimization (CRO) methodologies across donor acquisition funnels.",
+        "Unified cross-functional operational frameworks across marketing, legal, and finance divisions, earning the prestigious YES League of Excellency Award for measurable project delivery impact."
+      ]
+    }
+  ],
+  "summaries": [
+    "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+    "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+    "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
+    "Data-driven B2B Go-to-Market (GTM) and technology professional with an MBA in Business Analytics and a proven track record of accelerating pipeline growth. Expert in crafting high-impact product positioning, localized messaging frameworks, and executing multi-channel account-based marketing (ABM) campaigns. Highly skilled in cross-functional collaboration, full-funnel data analytics, and conducting strategic discovery to capture buyer insights and scale market expansion."
+  ],
+  "skillSets": [
+    {
+      "name": "Marketing & Business Analyst",
+      "groups": [
+        {
+          "name": "Analytics & Data",
+          "items": ["SQL", "Tableau", "Microsoft Excel (advanced)", "customer segmentation", "cohort & funnel analysis", "A/B testing & experiment design", "KPI reporting & dashboard development", "AI-assisted analytics"]
+        },
+        {
+          "name": "Business Analysis",
+          "items": ["Requirements gathering", "KPI definition", "stakeholder management", "report automation", "business intelligence", "data-driven decision making"]
+        },
+        {
+          "name": "Marketing & GTM",
+          "items": ["Campaign measurement", "account-based marketing (ABM)", "customer lifecycle analysis (acquisition, activation, retention)", "competitive benchmarking", "go-to-market strategy"]
+        },
+        {
+          "name": "Platforms",
+          "items": ["Salesforce (CRM)", "HubSpot", "Eloqua", "LinkedIn Sales Navigator", "Apollo.io"]
+        }
+      ]
+    },
+    {
+      "name": "Transparency / Mktg Mgr",
+      "groups": [
+        {
+          "name": "Demand & GTM",
+          "items": ["Account-Based Marketing (ABM)", "Demand Generation", "Multi-Channel Campaigns", "Go-to-Market Strategy", "Positioning & Messaging", "Segmentation"]
+        },
+        {
+          "name": "Content & Enablement",
+          "items": ["Content Strategy", "Case Studies & Sales Collateral", "Competitive Intelligence", "Sales Enablement"]
+        },
+        {
+          "name": "Analytics & Tools",
+          "items": ["Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)", "A/B Testing", "Attribution", "SQL", "Tableau", "Power BI", "Salesforce", "Eloqua", "HubSpot", "Google Analytics (GA4)"]
+        }
+      ]
+    },
+    {
+      "name": "Payments PMM",
+      "groups": [
+        {
+          "name": "Product Marketing",
+          "items": ["Acquisition Campaigns", "Lifecycle Marketing", "Onboarding & Activation", "Segmentation", "Branded Content", "Positioning & Messaging"]
+        },
+        {
+          "name": "Experimentation & Analytics",
+          "items": ["A/B & Multivariate Testing", "SQL", "Tableau", "Power BI", "Google Analytics (GA4)"]
+        },
+        {
+          "name": "Domain & Tools",
+          "items": ["Financial Services / Payments", "Banking SaaS", "Salesforce", "Eloqua", "HubSpot", "Excel"]
+        }
+      ]
+    },
+    {
+      "name": "Business PMM",
+      "groups": [
+        {
+          "name": "GTM & Product Marketing",
+          "items": ["Go-to-Market Strategy", "Positioning & Messaging", "Product Launch", "Competitive Intelligence", "Buyer & Market Research"]
+        },
+        {
+          "name": "Content & Enablement",
+          "items": ["Case Studies", "Sales Decks & Collateral", "Battlecards", "Webinars"]
+        },
+        {
+          "name": "Analytics & Tools",
+          "items": ["SQL", "Tableau", "Power BI", "Salesforce", "Eloqua", "HubSpot", "Google Analytics (GA4)"]
+        }
+      ]
+    },
+    {
+      "name": "Data-Driven GTM (CV)",
+      "groups": [
+        {
+          "name": "Skills",
+          "items": ["Salesforce (CRM)", "Eloqua", "HubSpot", "SQL", "Tableau", "Power BI", "Google Analytics (GA4)", "Microsoft Office Suite (Excel, Word, PowerPoint)", "Lead Qualification", "Outbound Prospecting", "Discovery Conversations", "Full-Funnel Analytics", "Account-Based Marketing (ABM)", "Go-to-Market Strategy"]
+        },
+        {
+          "name": "Interests",
+          "items": ["Digital Transformation", "Enterprise SaaS Trends", "Machine Learning Applications", "Cross-Functional Team Leadership"]
+        }
+      ]
+    }
+  ],
+  "prebuilt": [
+    {
+      "label": "Marketing & Business Analyst",
+      "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+      "headline": "",
+      "skills": [
+        {
+          "name": "Analytics & Data",
+          "items": ["SQL", "Tableau", "Microsoft Excel (advanced)", "customer segmentation", "cohort & funnel analysis", "A/B testing & experiment design", "KPI reporting & dashboard development", "AI-assisted analytics"]
+        },
+        {
+          "name": "Business Analysis",
+          "items": ["Requirements gathering", "KPI definition", "stakeholder management", "report automation", "business intelligence", "data-driven decision making"]
+        },
+        {
+          "name": "Marketing & GTM",
+          "items": ["Campaign measurement", "account-based marketing (ABM)", "customer lifecycle analysis (acquisition, activation, retention)", "competitive benchmarking", "go-to-market strategy"]
+        },
+        {
+          "name": "Platforms",
+          "items": ["Salesforce (CRM)", "HubSpot", "Eloqua", "LinkedIn Sales Navigator", "Apollo.io"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Glidely Inc.",
+          "title": "MBA Intern - Sales & Marketing Analytics",
+          "location": "San Francisco, CA",
+          "startDate": "Jun 2025",
+          "endDate": "Aug 2025",
+          "highlights": [
+            "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+            "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+            "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+            "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+            "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+          ]
+        },
+        {
+          "company": "Infosys Finacle (Banking SaaS / Fintech)",
+          "title": "Marketing & Analytics Specialist",
+          "location": "India",
+          "startDate": "Mar 2022",
+          "endDate": "Dec 2024",
+          "highlights": [
+            "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+            "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+            "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+            "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+            "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+          ]
+        },
+        {
+          "company": "Neurealm",
+          "title": "Lead Consultant, Product Marketing",
+          "location": "India",
+          "startDate": "Jul 2021",
+          "endDate": "Mar 2022",
+          "highlights": [
+            "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+            "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+            "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+          ]
+        },
+        {
+          "company": "YES Bank Foundation",
+          "title": "Marketing Manager",
+          "location": "India",
+          "startDate": "Jul 2016",
+          "endDate": "Dec 2018",
+          "highlights": [
+            "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+            "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+            "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Amazon Transparency — Marketing Manager",
+      "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+      "headline": "",
+      "skills": [
+        {
+          "name": "Demand & GTM",
+          "items": ["Account-Based Marketing (ABM)", "Demand Generation", "Multi-Channel Campaigns", "Go-to-Market Strategy", "Positioning & Messaging", "Segmentation"]
+        },
+        {
+          "name": "Content & Enablement",
+          "items": ["Content Strategy", "Case Studies & Sales Collateral", "Competitive Intelligence", "Sales Enablement"]
+        },
+        {
+          "name": "Analytics & Tools",
+          "items": ["Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)", "A/B Testing", "Attribution", "SQL", "Tableau", "Power BI", "Salesforce", "Eloqua", "HubSpot", "Google Analytics (GA4)"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Glidely Inc.",
+          "title": "MBA Intern - Product Marketing & GTM",
+          "location": "San Francisco, CA",
+          "startDate": "Jun 2025",
+          "endDate": "Aug 2025",
+          "highlights": [
+            "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
+            "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
+          ]
+        },
+        {
+          "company": "Infosys Finacle (Banking SaaS)",
+          "title": "Product Marketing & Analytics Specialist",
+          "location": "Bangalore, India",
+          "startDate": "Mar 2022",
+          "endDate": "Dec 2024",
+          "highlights": [
+            "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+            "Managed funnel metrics end to end (MQL→SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
+            "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
+          ]
+        },
+        {
+          "company": "Neurealm",
+          "title": "Product Marketing Consultant",
+          "location": "Remote",
+          "startDate": "Jul 2021",
+          "endDate": "Mar 2022",
+          "highlights": [
+            "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
+            "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
+          ]
+        },
+        {
+          "company": "YES Bank Foundation",
+          "title": "Marketing Manager",
+          "location": "Mumbai, India",
+          "startDate": "Jul 2016",
+          "endDate": "Dec 2018",
+          "highlights": [
+            "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Amazon Payments — PMM",
+      "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+      "headline": "",
+      "skills": [
+        {
+          "name": "Product Marketing",
+          "items": ["Acquisition Campaigns", "Lifecycle Marketing", "Onboarding & Activation", "Segmentation", "Branded Content", "Positioning & Messaging"]
+        },
+        {
+          "name": "Experimentation & Analytics",
+          "items": ["A/B & Multivariate Testing", "SQL", "Tableau", "Power BI", "Google Analytics (GA4)"]
+        },
+        {
+          "name": "Domain & Tools",
+          "items": ["Financial Services / Payments", "Banking SaaS", "Salesforce", "Eloqua", "HubSpot", "Excel"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Glidely Inc.",
+          "title": "MBA Intern - Product Marketing & GTM",
+          "location": "San Francisco, CA",
+          "startDate": "Jun 2025",
+          "endDate": "Aug 2025",
+          "highlights": [
+            "Rebuilt self-serve onboarding messaging and activation flows, running experiments on the signup funnel (SQL, Tableau) that lifted self-serve signup conversion 75% and lead-to-demo conversion ~30%.",
+            "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; built segment-specific acquisition playbooks that more than doubled booked meetings (from ~10/week to ~5/day)."
+          ]
+        },
+        {
+          "company": "Infosys Finacle (Banking SaaS)",
+          "title": "Product Marketing & Analytics Specialist",
+          "location": "Bangalore, India",
+          "startDate": "Mar 2022",
+          "endDate": "Dec 2024",
+          "highlights": [
+            "Owned acquisition and lifecycle marketing for 100+ enterprise banking clients across 50+ markets - built segmentation and messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+            "Built Finacle's first pulse-analytics dashboard (SQL, Tableau) to measure campaign performance and communicate results to senior leadership, winning the Best Internal Campaign Award.",
+            "Created battlecards and monetization deep-dives for 50+ account executives across banking markets, cutting sales-cycle length ~15%."
+          ]
+        },
+        {
+          "company": "Neurealm",
+          "title": "Product Marketing Consultant",
+          "location": "Remote",
+          "startDate": "Jul 2021",
+          "endDate": "Mar 2022",
+          "highlights": [
+            "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned messaging, content, and enablement, and delivered 80+ tailored CIO/CTO presentations.",
+            "Ran win/loss analysis and competitive positioning that lifted win rates ~10%."
+          ]
+        },
+        {
+          "company": "YES Bank Foundation",
+          "title": "Marketing Manager",
+          "location": "Mumbai, India",
+          "startDate": "Jul 2016",
+          "endDate": "Dec 2018",
+          "highlights": [
+            "Ran donor-acquisition campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using A/B testing and conversion-rate optimization on acquisition funnels."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Amazon Business — PMM",
+      "summary": "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
+      "headline": "",
+      "skills": [
+        {
+          "name": "GTM & Product Marketing",
+          "items": ["Go-to-Market Strategy", "Positioning & Messaging", "Product Launch", "Competitive Intelligence", "Buyer & Market Research"]
+        },
+        {
+          "name": "Content & Enablement",
+          "items": ["Case Studies", "Sales Decks & Collateral", "Battlecards", "Webinars"]
+        },
+        {
+          "name": "Analytics & Tools",
+          "items": ["SQL", "Tableau", "Power BI", "Salesforce", "Eloqua", "HubSpot", "Google Analytics (GA4)"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Glidely Inc.",
+          "title": "MBA Intern - Product Marketing & GTM",
+          "location": "San Francisco, CA",
+          "startDate": "Jun 2025",
+          "endDate": "Aug 2025",
+          "highlights": [
+            "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
+            "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%."
+          ]
+        },
+        {
+          "company": "Infosys Finacle (Banking SaaS)",
+          "title": "Product Marketing & Analytics Specialist",
+          "location": "Bangalore, India",
+          "startDate": "Mar 2022",
+          "endDate": "Dec 2024",
+          "highlights": [
+            "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
+            "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
+            "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award."
+          ]
+        },
+        {
+          "company": "Neurealm",
+          "title": "Product Marketing Consultant",
+          "location": "Remote",
+          "startDate": "Jul 2021",
+          "endDate": "Mar 2022",
+          "highlights": [
+            "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
+            "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%."
+          ]
+        },
+        {
+          "company": "YES Bank Foundation",
+          "title": "Marketing Manager",
+          "location": "Mumbai, India",
+          "startDate": "Jul 2016",
+          "endDate": "Dec 2018",
+          "highlights": [
+            "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Data-Driven GTM (CV)",
+      "summary": "Data-driven B2B Go-to-Market (GTM) and technology professional with an MBA in Business Analytics and a proven track record of accelerating pipeline growth. Expert in crafting high-impact product positioning, localized messaging frameworks, and executing multi-channel account-based marketing (ABM) campaigns. Highly skilled in cross-functional collaboration, full-funnel data analytics, and conducting strategic discovery to capture buyer insights and scale market expansion.",
+      "headline": "",
+      "skills": [
+        {
+          "name": "Skills",
+          "items": ["Salesforce (CRM)", "Eloqua", "HubSpot", "SQL", "Tableau", "Power BI", "Google Analytics (GA4)", "Microsoft Office Suite (Excel, Word, PowerPoint)", "Lead Qualification", "Outbound Prospecting", "Discovery Conversations", "Full-Funnel Analytics", "Account-Based Marketing (ABM)", "Go-to-Market Strategy"]
+        },
+        {
+          "name": "Interests",
+          "items": ["Digital Transformation", "Enterprise SaaS Trends", "Machine Learning Applications", "Cross-Functional Team Leadership"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Glidely Inc.",
+          "title": "Sales & Marketing Analytics Intern",
+          "location": "San Francisco, CA",
+          "startDate": "Jun 2025",
+          "endDate": "Aug 2025",
+          "highlights": [
+            "Spearheaded 40+ structured discovery conversations with C-suite prospects to pressure-test the Ideal Customer Profile (ICP), validating critical buyer pain points that directly shifted the cross-functional product roadmap.",
+            "Accelerated top-of-funnel pipeline velocity by authoring segment-specific outbound messaging frameworks and localized sales playbooks, lifting LinkedIn outbound acceptance rates to 25%+.",
+            "Optimized the lead-to-demo pipeline to drive a 30% lift in baseline conversion by engineering real-time funnel analytics dashboards via SQL and Tableau to diagnose system bottlenecks.",
+            "Formulated a scalable PLG user-activation and API monetization framework, resulting in a 75% increase in self-serve signup conversions by aligning product telemetry with targeted marketing sequences."
+          ]
+        },
+        {
+          "company": "Infosys Finacle (Banking SaaS)",
+          "title": "Marketing & Analytics Specialist",
+          "location": "Bangalore, India",
+          "startDate": "Mar 2022",
+          "endDate": "Dec 2024",
+          "highlights": [
+            "Surpassed global pipeline distribution targets by executing multi-channel account-based marketing (ABM) campaigns across 50+ countries, securing a 28% conversion uplift across 100+ enterprise banking clients.",
+            "Collaborated with enterprise sales leadership to accelerate pipeline growth, utilizing Salesforce and Eloqua to design named-account targeting parameters and structured outbound follow-up cadences.",
+            "Cultivated high-value executive relationships and accelerated late-stage deals by orchestrating 10+ executive roundtables and customer briefings, securing a sustainable customer retention loop.",
+            "Amplified market share and data-driven brand positioning by 2.4x in brand recall, designing Finacle's first pulse-analytics strategy using SQL and Tableau to capture the Best Internal Campaign Award.",
+            "Equipped 50+ global account executives with competitive battlecards and product monetization deep-dives, reducing the sales cycle length by 15% through formalized sales enablement asset deployments."
+          ]
+        },
+        {
+          "company": "Neurealm",
+          "title": "Lead Consultant, Product Marketing",
+          "location": "Remote",
+          "startDate": "Jul 2021",
+          "endDate": "Mar 2022",
+          "highlights": [
+            "Influenced cross-regional software procurement decisions across EMEA, APAC, and North America by delivering 80+ tailored product presentations to enterprise CIOs and CTOs.",
+            "Catalyzed a 40% expansion in digital website engagement and elevated inbound pipeline quality by authoring technical thought-leadership content, executive briefing materials, and product point-of-view (POV) articles.",
+            "Sharpened global competitive positioning strategies, yielding a 10% lift in competitive win-rates by directing comprehensive win/loss analyses and rigorous product benchmarking studies.",
+            "Coordinated cross-functional product launch strategies alongside Product Management and Engineering teams, establishing optimized frameworks to drive immediate target monetization post-release."
+          ]
+        },
+        {
+          "company": "YES Bank Foundation",
+          "title": "Marketing Manager",
+          "location": "Mumbai, India",
+          "startDate": "Jul 2016",
+          "endDate": "Dec 2018",
+          "highlights": [
+            "Multiplied organizational digital footprints by 200%, securing 50M+ impressions across digital channels by scaling integrated, multi-channel GTM programs across 20+ non-profit partnerships.",
+            "Generated ~$35K USD in online capital acquisition campaigns, implementing rigorous conversion-rate optimization (CRO) methodologies across donor acquisition funnels.",
+            "Unified cross-functional operational frameworks across marketing, legal, and finance divisions, earning the prestigious YES League of Excellency Award for measurable project delivery impact."
+          ]
+        }
+      ]
+    }
+  ]
+}

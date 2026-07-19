@@ -50,12 +50,11 @@ Nothing sensitive is ever committed. The public `docs/jobs.json` contains resume
 git-ignored local files (`data/contact.local.json`, `data/private.local.json`) and
 get into the dashboard two ways, both browser-local:
 
-- **One-off console script (primary).** Each `worker.py` run regenerates
-  `scripts/inject.local.js` (git-ignored) with your PII baked in. Open the
-  dashboard, open the browser console (F12 → Console), paste the whole file, Enter.
-  It writes your PII to `localStorage` on that browser only.
-- **File picker (alternative).** Click **🔒 Load private data** and pick
-  `data/private.local.json`.
+- **In-app script runner (primary).** Each `worker.py` run regenerates
+  `scripts/inject.local.js` (git-ignored) with your PII baked in. On the dashboard
+  click **▶ Run one-off script**, paste the file's contents, and hit **Run script** —
+  no dev tools needed. It writes your PII to `localStorage` on that browser only,
+  nothing is uploaded. (The same modal has a **Load from file…** shortcut.)
 
 Once loaded, the dashboard merges your email/phone into each resume link **in the
 browser** when you click *Open resume in builder* — so the full resume opens, but
@@ -105,8 +104,14 @@ python3 worker.py                 # full local build (public + private)
 python3 worker.py --public        # public jobs.json only (what Actions runs)
 python3 worker.py --no-discovery  # offline/fast: skip discovery + ATS fetch
 python3 worker.py --min-fit 45    # raise the match bar (default 30)
+./scripts/sync-profile.sh         # refresh data/profile.json from the resume-builder
 ./schedule.sh install             # local cron alternative to GitHub Actions
 ```
+
+> **Note:** the worker reads resume variants from `data/profile.json`, a vendored
+> copy of the resume-builder's library — so it works in GitHub Actions, where the
+> sibling `../resume-builder` repo isn't checked out. After editing your resumes in
+> the builder, run `./scripts/sync-profile.sh` and commit the change.
 
 ## Files
 
