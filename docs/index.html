@@ -155,6 +155,16 @@
   .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.65rem .9rem;min-width:132px;border-radius:11px}
   .auto-btn b{font-weight:600;font-size:.87rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
 
+  /* ============ SETTINGS ============ */
+  .set-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.5rem 1.6rem;max-width:680px}
+  .set-hd{display:flex;align-items:flex-start;gap:1rem;justify-content:space-between}
+  .set-hd h2{margin:0 0 .35rem;font-size:1.15rem;letter-spacing:-.02em}
+  .set-hd .sub{margin:0;color:var(--muted);font-size:.86rem;line-height:1.5;max-width:44ch}
+  .conn{flex-shrink:0;display:inline-flex;align-items:center;gap:.4rem;padding:.32rem .7rem;border-radius:999px;font-size:.76rem;font-weight:600;white-space:nowrap}
+  .conn::before{content:"";width:8px;height:8px;border-radius:50%}
+  .conn.ok{color:var(--good);background:var(--good-soft)} .conn.ok::before{background:var(--good)}
+  .conn.off{color:var(--muted);background:var(--surface-2)} .conn.off::before{background:var(--muted)}
+
   /* ============ FUNNEL ============ */
   .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
   @media (max-width:640px){.funnel{grid-template-columns:repeat(3,1fr)}}
@@ -274,6 +284,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>
         <span>Jobs</span>
       </a>
+      <a href="#/settings" data-nav="settings" id="navSettings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </a>
     </nav>
     <div class="side-foot">
       <div class="side-status"><span class="sdot" id="sdotSide"></span><span id="statusSide">checking…</span></div>
@@ -331,6 +345,11 @@
             <div class="leader" id="leader"></div>
           </div>
         </div>
+      </section>
+
+      <!-- ===== SETTINGS ===== -->
+      <section id="screen-settings" class="screen" hidden>
+        <div id="setbody"></div>
       </section>
     </main>
   </div>
@@ -478,11 +497,29 @@ const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Sen
 function renderAuto(){
   const hasTok=!!ghToken();
   const note=hasTok?'Triggers a GitHub Actions run — watch the live status in the sidebar.'
-    :'Connect GitHub to enable one-click automations (live status shows without it).';
+    :'Connect GitHub in <a href="#/settings">Settings</a> to enable one-click automations (live status shows without it).';
   const btns=AUTOS.map(([mode,label,sub])=>`<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
-  const connect=`<button class="${hasTok?'':'primary'}" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'Connect GitHub'}</button>`;
-  document.getElementById('autobody').innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${btns}${connect}</div>`;
+  document.getElementById('autobody').innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${btns}</div>`;
 }
+function renderSettings(){
+  const hasTok=!!ghToken();
+  const g=gh();
+  document.getElementById('setbody').innerHTML=`
+    <div class="set-card">
+      <div class="set-hd">
+        <div>
+          <h2>GitHub connection</h2>
+          <p class="sub">Connect the <code>${g.owner}/${g.repo}</code> repo to trigger one-click automations (refresh, digest, discovery) and see live run status in the sidebar. Your token is stored only in this browser and never committed.</p>
+        </div>
+        <span class="conn ${hasTok?'ok':'off'}">${hasTok?'Connected':'Not connected'}</span>
+      </div>
+      <div class="rowbtns">
+        <button class="primary" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'Connect GitHub'}</button>
+        ${hasTok?'<button onclick="disconnectGitHub()">Disconnect</button>':''}
+      </div>
+    </div>`;
+}
+function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();refreshStatus();toast('GitHub disconnected');}
 async function ghDispatch(mode){if(!ghToken()){connectGitHub();return;}
   const g=gh();
   const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
@@ -565,16 +602,24 @@ function renderJobs(){
   openRows.forEach(id=>{const r=document.getElementById('row-'+id);if(r){r.classList.add('open');fillDetail(id);}});
   renderLeader();
 }
+function currentView(){
+  const h=location.hash;
+  if(h.startsWith('#/jobs'))return 'jobs';
+  if(h.startsWith('#/settings'))return 'settings';
+  return 'home';
+}
 function render(){
   document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
-  if(location.hash.startsWith('#/jobs'))renderJobs();else renderHome();
+  const v=currentView();
+  if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();else renderHome();
 }
 function route(){
-  const onJobs=location.hash.startsWith('#/jobs');
-  document.getElementById('screen-home').hidden=onJobs;
-  document.getElementById('screen-jobs').hidden=!onJobs;
-  document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===(onJobs?'jobs':'home')));
-  document.getElementById('pageTitle').textContent=onJobs?'Jobs':'Cockpit';
+  const v=currentView();
+  document.getElementById('screen-home').hidden=v!=='home';
+  document.getElementById('screen-jobs').hidden=v!=='jobs';
+  document.getElementById('screen-settings').hidden=v!=='settings';
+  document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===v));
+  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':'Cockpit';
   render();
 }
 window.addEventListener('hashchange',route);
