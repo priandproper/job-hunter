@@ -5,9 +5,9 @@ Compares the freshly-built docs/jobs.json against docs/seen.json (the ids we've
 already alerted on) and emails a summary of new, high-fit jobs via Gmail.
 
 Credentials come from GitHub Actions **Secrets** (never committed):
-    GMAIL_USER              your gmail address
-    GMAIL_APP_PASSWORD      a Gmail App Password (not your login password)
-    ALERT_TO                where to send alerts (defaults to GMAIL_USER)
+    GMAIL_USER   / GMAIL_USERNAME   your gmail address
+    GMAIL_APP_PASSWORD / GMAIL_PASS a Gmail App Password (not your login password)
+    ALERT_TO                        where to send alerts (defaults to the gmail user)
 
 With no credentials present it prints what it *would* send and exits 0, so local
 runs and forks don't fail.
@@ -64,8 +64,8 @@ def main() -> int:
         lines.append("")
     body = "\n".join(lines)
 
-    user = os.environ.get("GMAIL_USER")
-    pw = os.environ.get("GMAIL_APP_PASSWORD")
+    user = os.environ.get("GMAIL_USER") or os.environ.get("GMAIL_USERNAME")
+    pw = os.environ.get("GMAIL_APP_PASSWORD") or os.environ.get("GMAIL_PASS")
     to = os.environ.get("ALERT_TO") or user
 
     if not (user and pw and to):

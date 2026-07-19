@@ -44,8 +44,10 @@ jobs:
 
       - name: Email alerts for new jobs
         env:
-          GMAIL_USER: ${{ secrets.GMAIL_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          # notify.py reads GMAIL_USER / GMAIL_APP_PASSWORD; the repo secrets are
+          # named GMAIL_USERNAME / GMAIL_PASS, so we map them here.
+          GMAIL_USER: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_PASS }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
           # "Send digest now" from the app forces a top-picks email regardless of
           # whether the jobs are new since the last alert.
