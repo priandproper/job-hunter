@@ -76,8 +76,6 @@
   .side-nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
   .side-nav a.on svg{opacity:1}
   .side-foot{margin-top:auto;display:flex;flex-direction:column;gap:.55rem}
-  .side-status{display:flex;align-items:center;gap:.55rem;font-size:.79rem;color:var(--ink-2);padding:.55rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
-  .side-status a{color:inherit;text-decoration:none} .side-status a:hover{text-decoration:underline}
   .side-btn{width:100%;text-align:center}
   .side-btn.ghost{background:transparent;border-color:var(--line-2);color:var(--ink-2);font-size:.84rem}
   .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
@@ -102,7 +100,7 @@
     .side-nav{flex-direction:row;gap:.2rem}
     .side-nav a{padding:.45rem .7rem}
     .side-foot{margin:0 0 0 auto;flex-direction:row;align-items:center;gap:.4rem}
-    .side-status{display:none}.side-btn{width:auto}.side-btn span{display:none}
+    .side-btn{width:auto}.side-btn span{display:none}
     .topbar{padding:1rem 1.2rem}.topbar h1{font-size:1.4rem}
     main{padding:1.4rem 1.2rem 4rem}
   }
@@ -155,6 +153,15 @@
   .auto-grid{display:flex;gap:.55rem;flex-wrap:wrap;align-items:stretch}
   .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.65rem .9rem;min-width:132px;border-radius:11px}
   .auto-btn b{font-weight:600;font-size:.87rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
+  .auto-item{display:flex;flex-direction:column;gap:.35rem;min-width:132px}
+  .auto-item .auto-btn{width:100%;min-width:0}
+  .auto-st-wrap{min-height:1.05rem;padding-left:.15rem}
+  .auto-st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:var(--muted);text-decoration:none}
+  a.auto-st:hover{text-decoration:underline}
+  .auto-st .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex-shrink:0}
+  .auto-st.run{color:var(--accent)} .auto-st.run .dot{background:var(--accent);animation:pulse 1.5s infinite}
+  .auto-st.ok{color:var(--good)} .auto-st.ok .dot{background:var(--good)}
+  .auto-st.fail{color:var(--bad)} .auto-st.fail .dot{background:var(--bad)}
 
   /* ============ SETTINGS ============ */
   .set-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.5rem 1.6rem;max-width:680px}
@@ -291,7 +298,6 @@
       </a>
     </nav>
     <div class="side-foot">
-      <div class="side-status"><span class="sdot" id="sdotSide"></span><span id="statusSide">checking…</span></div>
       <button id="runnerBtn" class="side-btn" title="Load private data / connect GitHub">Run script</button>
       <button id="themeBtn" class="side-btn ghost" title="Toggle light / dark">◐ <span>Theme</span></button>
     </div>
@@ -375,12 +381,13 @@
 <script>
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
-      SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1";
+      SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
+      RUNS_KEY="job-hunter:runs:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
-let newIds=new Set(); const openRows=new Set(); let statusTimer=null;
-let baselineRunId=0, watching=false, watchUntil=0;
+let newIds=new Set(); const openRows=new Set();
+let runs={}, runsTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['messaged']],
   ['referred','Referred',['referred']],['applied','Applied',['applied']],
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
@@ -482,44 +489,63 @@ function ghToken(){try{return (JSON.parse(localStorage.getItem(GH_KEY))||{}).tok
 async function ghFetch(path,opts){const g=gh();const h=Object.assign({'Accept':'application/vnd.github+json'},(opts&&opts.headers)||{});
   const t=ghToken();if(t)h.Authorization='Bearer '+t;
   try{return await fetch('https://api.github.com'+path,Object.assign({},opts,{headers:h}));}catch(e){return null;}}
-function setStatusUI(cls,text,url){
-  const d=document.getElementById('sdotSide');if(d)d.className='sdot '+cls;
-  const s=document.getElementById('statusSide');if(!s)return;
-  s.innerHTML=url?`<a href="${url}" target="_blank" rel="noopener">${esc(text)}</a>`:esc(text);
-}
+// ----- per-action run tracking -----
+function loadRuns(){try{runs=JSON.parse(localStorage.getItem(RUNS_KEY))||{}}catch{runs={}}}
+function saveRuns(){try{localStorage.setItem(RUNS_KEY,JSON.stringify(runs))}catch{}}
+function runActive(e){return e && e.status!=='completed';}
+function anyActive(){return Object.values(runs).some(runActive);}
 async function fetchLatestRun(){
   const g=gh();const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs?per_page=1`);
   if(!r||!r.ok)return {error:true};
   return {run:((await r.json()).workflow_runs||[])[0]||null};
 }
-async function refreshStatus(){
-  clearTimeout(statusTimer);
-  const {error,run}=await fetchLatestRun();
-  if(error){setStatusUI('','status unavailable');return;}
-  if(!run){setStatusUI(watching?'run':'','no runs yet');return;}
-  // Just dispatched? Keep showing "queued" until a run newer than the pre-dispatch baseline appears.
-  if(watching && run.id<=baselineRunId){
-    if(Date.now()<watchUntil){setStatusUI('run','queued…');statusTimer=setTimeout(refreshStatus,3000);return;}
-    watching=false; // give up waiting; fall through to whatever the latest run is
+async function fetchRun(id){
+  const g=gh();const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs/${id}`);
+  if(!r||!r.ok)return null;
+  return await r.json();
+}
+function applyRun(e,run){e.id=run.id;e.url=run.html_url;e.status=run.status;e.conclusion=run.conclusion;
+  e.started=run.run_started_at||run.created_at||e.started;e.updated=run.updated_at;}
+// One ticker updates every in-flight action, then re-renders and reschedules while any is active.
+async function refreshRuns(){
+  clearTimeout(runsTimer);
+  for(const mode of Object.keys(runs)){
+    const e=runs[mode];if(!runActive(e))continue;
+    if(!e.id){                                   // dispatch API returns no id — wait for a run newer than baseline
+      const {run}=await fetchLatestRun();
+      if(run && run.id>(e.baseline||0))applyRun(e,run);
+      else if(Date.now()-(e.since||0)>60000){e.status='completed';e.conclusion='unknown';} // give up after 60s
+    }else{
+      const run=await fetchRun(e.id);if(run)applyRun(e,run);
+    }
   }
-  if(watching && run.id>baselineRunId)watching=false; // the new run has registered
-  if(run.status!=='completed'){
-    const verb=run.status==='queued'?'queued':'running';
-    setStatusUI('run',verb+' · '+timeAgo(run.run_started_at||run.created_at),run.html_url);
-    statusTimer=setTimeout(refreshStatus,6000);
-  }else{
-    const ok=run.conclusion==='success';
-    setStatusUI(ok?'ok':'fail',(ok?'run ok':run.conclusion||'failed')+' · '+timeAgo(run.updated_at),run.html_url);
-  }
+  saveRuns();renderAuto();
+  if(anyActive())runsTimer=setTimeout(refreshRuns,6000);
+}
+function runBadge(mode){
+  const e=runs[mode];if(!e)return '';
+  let cls,txt;
+  if(e.status==='completed'){const ok=e.conclusion==='success';cls=ok?'ok':'fail';
+    txt=(ok?'done':(e.conclusion||'failed'))+' · '+timeAgo(e.updated||e.since);}
+  else if(!e.id||e.status==='queued'){cls='run';txt='queued…';}
+  else{cls='run';txt='running · '+timeAgo(e.started||e.since);}
+  const inner=`<span class="dot"></span>${esc(txt)}`;
+  return e.url?`<a class="auto-st ${cls}" href="${e.url}" target="_blank" rel="noopener">${inner}</a>`
+             :`<span class="auto-st ${cls}">${inner}</span>`;
 }
 const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Send digest','email top picks now'],
   ['discover','Discovery sweep','find new H-1B companies'],['tidy','Re-tidy','drop stale + recompute']];
 function renderAuto(){
+  const box=document.getElementById('autobody');if(!box)return;
   const hasTok=!!ghToken();
-  const note=hasTok?'Triggers a GitHub Actions run — watch the live status in the sidebar.'
-    :'Connect GitHub in <a href="#/settings">Settings</a> to enable one-click automations (live status shows without it).';
-  const btns=AUTOS.map(([mode,label,sub])=>`<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
-  document.getElementById('autobody').innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${btns}</div>`;
+  const note=hasTok?'Trigger any action — each shows its own live status below until it finishes.'
+    :'Connect GitHub in <a href="#/settings">Settings</a> to enable one-click automations.';
+  const items=AUTOS.map(([mode,label,sub])=>
+    `<div class="auto-item">
+      <button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>
+      <div class="auto-st-wrap">${runBadge(mode)}</div>
+    </div>`).join('');
+  box.innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${items}</div>`;
 }
 function renderSettings(){
   const hasTok=!!ghToken();
@@ -529,7 +555,7 @@ function renderSettings(){
       <div class="set-hd">
         <div>
           <h2>GitHub connection</h2>
-          <p class="sub">Connect the <code>${g.owner}/${g.repo}</code> repo to trigger one-click automations (refresh, digest, discovery) and see live run status in the sidebar. Your token is stored only in this browser and never committed.</p>
+          <p class="sub">Connect the <code>${g.owner}/${g.repo}</code> repo to trigger one-click automations (refresh, digest, discovery) — each shows its own live status on the Cockpit. Your token is stored only in this browser and never committed.</p>
         </div>
         <span class="conn ${hasTok?'ok':'off'}">${hasTok?'Connected':'Not connected'}</span>
       </div>
@@ -539,15 +565,16 @@ function renderSettings(){
       </div>
     </div>`;
 }
-function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();refreshStatus();toast('GitHub disconnected');}
+function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();toast('GitHub disconnected');}
 async function ghDispatch(mode){if(!ghToken()){connectGitHub();return;}
   const g=gh();
+  if(runActive(runs[mode])){toast('That action is already running');return;}
   const {run:prev}=await fetchLatestRun();          // baseline: dispatch API returns no run id
   const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
     {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:g.ref,inputs:{mode}})});
   if(r&&r.status===204){toast('Triggered: '+mode);
-    baselineRunId=prev?prev.id:0;watching=true;watchUntil=Date.now()+45000;
-    setStatusUI('run','queued…');clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,2000);}
+    runs[mode]={id:null,url:null,status:'queued',conclusion:null,baseline:prev?prev.id:0,since:Date.now(),started:null,updated:null};
+    saveRuns();renderAuto();clearTimeout(runsTimer);runsTimer=setTimeout(refreshRuns,2000);}
   else if(r&&r.status===401){toast('Token rejected — reconnect GitHub');}
   else toast('Trigger failed'+(r?` (${r.status})`:''));}
 function connectGitHub(){openRunner();
@@ -649,7 +676,7 @@ window.addEventListener('hashchange',route);
 async function load(){
   try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
   catch(e){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}
-  computeNew();route();refreshStatus();
+  computeNew();loadRuns();route();if(anyActive())refreshRuns();
 }
 
 // ----- runner -----
