@@ -48,6 +48,21 @@ def load_config() -> dict:
     return json.loads((REPO_ROOT / "config.json").read_text())
 
 
+def _too_old(job: dict, max_age_days: int, today: _dt.date) -> bool:
+    """Auto-tidy: drop postings older than max_age_days. Unparseable/absent dates
+    are kept (we don't guess). max_age_days <= 0 disables the filter."""
+    if not max_age_days or max_age_days <= 0:
+        return False
+    raw = (job.get("posted_at") or "").strip()
+    if not raw:
+        return False
+    try:
+        d = _dt.datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+    except (ValueError, TypeError):
+        return False
+    return (today - d).days > max_age_days
+
+
 def _natural_key(job: dict) -> tuple:
     # Dedupe by company + title only. Many ATS feeds post the same role once per
     # location; keying on location too would leave those as duplicate cards.
@@ -116,10 +131,16 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     missing_counter = Counter()
     kept = 0
     total_ref = 0
+    tidied = 0
+    today = _dt.date.today()
+    max_age = cfg["match"].get("max_age_days", 0)
 
     for job in all_jobs:
         m = match_mod.match_job(job, profile)
         if not match_mod.passes_filters(job, m, cfg["match"]):
+            continue
+        if _too_old(job, max_age, today):   # auto-tidy stale postings
+            tidied += 1
             continue
         kept += 1
 
@@ -194,7 +215,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     pub_path = (REPO_ROOT / cfg["output"]["public_json"]).resolve()
     pub_path.parent.mkdir(parents=True, exist_ok=True)
     pub_path.write_text(json.dumps(doc, indent=2))
-    log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}")
+    log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}"
+        + (f"; auto-tidied {tidied} stale" if tidied else ""))
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "
         f"({best['best_variant'] if best else '—'}); "
         f"{len(missing_counter)} distinct missing keyword(s)")

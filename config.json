@@ -31,7 +31,8 @@
 
   "match": {
     "min_fit_score": 30,
-    "exclude_sponsorship": ["No"]
+    "exclude_sponsorship": ["No"],
+    "max_age_days": 45
   },
 
   "referrals": {
