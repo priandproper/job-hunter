@@ -169,6 +169,8 @@
   .conn::before{content:"";width:8px;height:8px;border-radius:50%}
   .conn.ok{color:var(--good);background:var(--good-soft)} .conn.ok::before{background:var(--good)}
   .conn.off{color:var(--muted);background:var(--surface-2)} .conn.off::before{background:var(--muted)}
+  .set-card .txt{width:100%;margin:.2rem 0 .7rem;padding:.6rem .75rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
+  .set-card .txt:focus{outline:none;border-color:var(--accent)}
 
   /* ============ INBOX PROPOSALS ============ */
   .inbox-card{margin-bottom:1.6rem;padding:1.3rem 1.4rem;border-left:3px solid var(--accent)}
@@ -396,7 +398,7 @@
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
-      RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1";
+      RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
@@ -593,6 +595,20 @@ function renderSettings(){
         <button class="primary" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'Connect GitHub'}</button>
         ${hasTok?'<button onclick="disconnectGitHub()">Disconnect</button>':''}
       </div>
+    </div>
+    <div class="set-card" style="margin-top:1.2rem">
+      <div class="set-hd">
+        <div>
+          <h2>Application inbox</h2>
+          <p class="sub">Scan <code>${esc((JSON.parse(localStorage.getItem(PRIVATE_KEY)||'{}').contact||{}).email||'your Gmail')}</code> for application / interview / rejection emails and propose status updates — entirely in this browser via <b>read-only</b> Gmail access. Paste your Google OAuth <b>Client ID</b> (it's public, not a secret). See setup steps in the README.</p>
+        </div>
+      </div>
+      <input id="gmailCid" class="txt" placeholder="1234-abcd.apps.googleusercontent.com" value="${esc(gmailCfg().client_id||'')}">
+      <div class="rowbtns">
+        <button class="primary" onclick="scanInbox()">Scan inbox</button>
+        <button onclick="saveGmailCid()">Save Client ID</button>
+        <span class="co" id="scanStatus"></span>
+      </div>
     </div>`;
 }
 function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();toast('GitHub disconnected');}
@@ -704,6 +720,93 @@ function renderInbox(){
 }
 function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
   document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword.</span>';}
+
+// ----- Gmail inbox scan (in-browser, OAuth read-only; nothing leaves the browser) -----
+function gmailCfg(){try{return JSON.parse(localStorage.getItem(GMAIL_KEY))||{}}catch{return{}}}
+function saveGmailCid(){const v=(document.getElementById('gmailCid').value||'').trim();
+  localStorage.setItem(GMAIL_KEY,JSON.stringify({client_id:v}));toast(v?'Client ID saved':'Client ID cleared');}
+function setScanStatus(t){const s=document.getElementById('scanStatus');if(s)s.textContent=t;}
+function loadGIS(){return new Promise((res,rej)=>{
+  if(window.google&&google.accounts&&google.accounts.oauth2)return res();
+  const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.defer=true;
+  s.onload=()=>res();s.onerror=()=>rej(new Error('could not load Google sign-in'));document.head.appendChild(s);});}
+function getGmailToken(clientId){return new Promise((res,rej)=>{
+  const tc=google.accounts.oauth2.initTokenClient({client_id:clientId,
+    scope:'https://www.googleapis.com/auth/gmail.readonly',
+    callback:r=>{(r&&r.access_token)?res(r.access_token):rej(new Error((r&&r.error)||'no token'));}});
+  tc.requestAccessToken({prompt:''});});}
+async function gmailApi(path,token){const r=await fetch('https://gmail.googleapis.com/gmail/v1/users/me'+path,
+    {headers:{Authorization:'Bearer '+token}});
+  if(!r.ok)throw new Error('Gmail API '+r.status);return r.json();}
+function b64url(s){try{return decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));}
+  catch{try{return atob(s.replace(/-/g,'+').replace(/_/g,'/'));}catch{return '';}}}
+function mailText(payload){
+  const plain=p=>{if(!p)return '';if(p.mimeType==='text/plain'&&p.body&&p.body.data)return b64url(p.body.data);
+    if(p.parts)for(const c of p.parts){const t=plain(c);if(t)return t;}return '';};
+  const html=p=>{if(!p)return '';if(p.mimeType==='text/html'&&p.body&&p.body.data)return b64url(p.body.data);
+    if(p.parts)for(const c of p.parts){const t=html(c);if(t)return t;}return '';};
+  let t=plain(payload)||html(payload).replace(/<[^>]+>/g,' ');
+  return t.replace(/\s+/g,' ').slice(0,4000);}
+function mailHdr(h,name){const x=(h||[]).find(e=>e.name.toLowerCase()===name.toLowerCase());return x?x.value:'';}
+function parseFrom(v){const m=v.match(/^(.*?)<([^>]+)>/);return m?{name:m[1].replace(/"/g,'').trim(),addr:m[2].trim()}:{name:'',addr:(v||'').trim()};}
+const INBOX_ATS=new Set(['greenhouse.io','greenhouse-mail.io','lever.co','hire.lever.co','myworkday.com',
+  'myworkdayjobs.com','ashbyhq.com','smartrecruiters.com','icims.com','jobvite.com','taleo.net',
+  'successfactors.com','workable.com','breezy.hr','bamboohr.com']);
+const INBOX_RULES=[
+  ['rejected',0.9,[/we('| ha)ve decided (to|not)/,/not (be )?(moving|proceeding|advancing) forward/,/move forward with other candidates/,/will not be moving forward/,/unfortunately,? (we|after)/,/position has been filled/,/pursuing other candidates/,/not (be )?selected for/,/regret to inform/]],
+  ['offer',0.75,[/pleased to (extend|offer)/,/offer of employment/,/we('| a)re excited to offer/,/your (job )?offer/,/formal offer/]],
+  ['interview',0.8,[/(schedule|set up|book|arrange) (a|your|some) (time|call|chat|interview|conversation)/,/invite you to (an )?interview/,/like to (interview|speak|chat|connect)/,/phone screen/,/next (round|step|stage)/,/availability (for|this)/,/interview (invitation|request)/,/move you (forward|to the next)/]],
+  ['applied',0.6,[/thank(s| you) for (applying|your (application|interest))/,/we('| ha)ve received your application/,/application (has been )?received/,/successfully (applied|submitted)/,/received your application/,/your application (to|for|has been)/]],
+];
+function classifyEmail(subject,body){const hay=(subject+'\n'+body).toLowerCase();
+  for(const [st,conf,pats] of INBOX_RULES)if(pats.some(p=>p.test(hay)))return{status:st,conf};return{status:null,conf:0};}
+function normCompany(s){return (s||'').toLowerCase()
+  .replace(/[,\.]?\s+(inc|llc|ltd|corp|co|company|technologies|technology|labs|software|group|holdings|global)\.?$/,'')
+  .replace(/[^a-z0-9]+/g,' ').trim();}
+function matchJob(fromName,fromDomain,subject,body){
+  const parts=fromDomain.split('.'),domainWord=parts.length>=2?parts[parts.length-2]:fromDomain;
+  const isAts=INBOX_ATS.has(fromDomain)||[...INBOX_ATS].some(d=>fromDomain.endsWith('.'+d));
+  const hay=(fromName+' '+subject+' '+body.slice(0,1200)).toLowerCase();
+  let best=null,bestScore=0;
+  for(const j of (DOC.jobs||[])){const cn=normCompany(j.company);if(!cn)continue;let score=0;
+    if(!isAts&&cn.replace(/ /g,'')===normCompany(domainWord).replace(/ /g,''))score+=5;
+    if(hay.includes(cn))score+=3;
+    if(score){const tw=[...new Set((j.title||'').toLowerCase().match(/[a-z]+/g)||[])].filter(w=>w.length>3);
+      score+=tw.filter(w=>hay.includes(w)).length*0.1;}
+    if(score>bestScore){best=j;bestScore=score;}}
+  return bestScore>=3?best:null;}
+async function scanInbox(){
+  const cid=(gmailCfg().client_id||'').trim();
+  if(!cid){setScanStatus('Add your Gmail OAuth Client ID first.');toast('Add your Gmail Client ID first');return;}
+  try{setScanStatus('Loading Google sign-in…');await loadGIS();}
+  catch{setScanStatus('Could not load Google sign-in.');return;}
+  let token;
+  try{setScanStatus('Waiting for Google authorization…');token=await getGmailToken(cid);}
+  catch(e){setScanStatus('Authorization cancelled or failed ('+e.message+').');return;}
+  try{
+    setScanStatus('Scanning inbox…');
+    const list=await gmailApi('/messages?q='+encodeURIComponent('newer_than:30d')+'&maxResults=80',token);
+    const ids=(list.messages||[]).map(m=>m.id);const byJob={};
+    for(let i=0;i<ids.length;i++){
+      if(i%10===0)setScanStatus(`Scanning inbox… ${i}/${ids.length}`);
+      let msg;try{msg=await gmailApi('/messages/'+ids[i]+'?format=full',token);}catch{continue;}
+      const H=(msg.payload||{}).headers,subject=mailHdr(H,'Subject'),from=parseFrom(mailHdr(H,'From'));
+      const fromDomain=from.addr.includes('@')?from.addr.split('@')[1].toLowerCase():'';
+      const body=mailText(msg.payload||{});
+      const {status,conf}=classifyEmail(subject,body);if(!status)continue;
+      const job=matchJob(from.name,fromDomain,subject,body);if(!job)continue;
+      const ts=new Date(parseInt(msg.internalDate||'0',10)||Date.now()).toISOString();
+      const cand={id:job.id,company:job.company||'',title:job.title||'',detected:status,confidence:conf,
+        email_ts:ts,subject:subject.slice(0,160),from:from.addr};
+      const prev=byJob[job.id];
+      if(!prev||conf>prev.confidence||(conf===prev.confidence&&ts>prev.email_ts))byJob[job.id]=cand;
+    }
+    const found=Object.values(byJob);
+    saveInbox(getInbox().filter(p=>!byJob[p.id]).concat(found));   // replace by id, keep other un-reviewed
+    setScanStatus(`Done — ${found.length} proposal(s). Review them on the Cockpit.`);
+    toast(`Inbox scan: ${found.length} update(s)`);render();
+  }catch(e){setScanStatus('Scan failed: '+e.message);}
+}
 
 // ----- render / routing -----
 function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}

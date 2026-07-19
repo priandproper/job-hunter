@@ -61,22 +61,39 @@ browser** when you click *Open resume in builder* — so the full resume opens, 
 your contact PII was never in the committed/public data. Statuses/notes also live
 in `localStorage`.
 
-## Sync statuses from your application inbox (`scripts/inbox_scan.py`)
+## Sync statuses from your application inbox
 
-Keep job statuses in step with your email — locally, never in the cloud. The scanner
-reads your applying Gmail over IMAP, classifies messages (application received /
-interview / rejection / offer), matches each to a tracked job, and writes a
-git-ignored `scripts/inbox.local.js`:
+Keep job statuses in step with your email — always in your browser or on your machine,
+never in the cloud/public repo. Either path classifies messages (application received /
+interview / rejection / offer), matches each to a tracked job, and surfaces them on the
+Cockpit as **Inbox updates** you Accept or Dismiss. Nothing is applied automatically,
+and a status you set by hand is never silently overwritten.
+
+### Option A — In the browser (`Settings → Application inbox`)
+
+One-click, no terminal. Uses the **Gmail API over OAuth** (read-only) — the token lives
+in your browser, calls go straight from your browser to Google, proposals land in
+`localStorage`. Free for personal use; no billing account. One-time setup:
+
+1. **[console.cloud.google.com](https://console.cloud.google.com)** → create a project → **APIs & Services → Library** → enable **Gmail API**.
+2. **OAuth consent screen** → User type **External** → add the `.../auth/gmail.readonly` scope → add your Gmail as a **Test user** (keeps the app free in "Testing" mode; you re-consent ~weekly).
+3. **Credentials → Create credentials → OAuth client ID** → type **Web application** → under *Authorized JavaScript origins* add `https://priandproper.github.io` → create.
+4. Copy the **Client ID** (ends in `.apps.googleusercontent.com`) and paste it into **Settings → Application inbox → Save Client ID**, then hit **Scan inbox**.
+
+The Client ID is public by design (not a secret) and is stored only in `localStorage`.
+Note: OAuth needs a real web origin, so this works on the deployed Pages site, not a
+`file://` copy.
+
+### Option B — Local script, no OAuth (`scripts/inbox_scan.py`)
+
+Reads your applying Gmail over **IMAP** with a Gmail **App Password**, writes a
+git-ignored `scripts/inbox.local.js` you load via the dashboard's **Run script** modal.
 
 ```bash
 # creds via env or .secrets.json: IMAP_USER + IMAP_APP_PASSWORD (a Gmail App Password)
 python3 scripts/inbox_scan.py            # scan last 30 days
 python3 scripts/inbox_scan.py --demo     # try the classifier on built-in samples
 ```
-
-Load the generated file through the dashboard's **Run script** modal. Detected
-changes appear on the Cockpit as **Inbox updates** you Accept or Dismiss — nothing is
-applied automatically, and a status you set by hand is never silently overwritten.
 
 ## Setup
 
