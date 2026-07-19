@@ -6,178 +6,175 @@
 <title>Job Hunter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:light;
-    --plane:#f7f7f8; --surface:#ffffff; --surface-2:#f4f4f5;
-    --ink:#18181b; --ink-2:#3f3f46; --muted:#63636c;
-    --line:rgba(24,24,27,.09); --line-2:#dcdce0;
-    --accent:#6366f1; --accent-ink:#fff; --accent-soft:rgba(99,102,241,.09);
-    --good:#3f9142; --good-soft:rgba(63,145,66,.09);
-    --mid:#9a6a12;  --mid-soft:rgba(154,106,18,.10);
-    --bad:#b4302a;  --bad-soft:rgba(180,48,42,.07);
-    --ring:0 1px 2px rgba(24,24,27,.03);
-    --ring-hover:0 4px 16px rgba(24,24,27,.06);
-    --r:14px; --r-sm:9px;
+    --plane:#eeeef2; --surface:#ffffff; --surface-2:#f4f4f7;
+    --ink:#0c0c12; --ink-2:#3a3a45; --muted:#6b6b78;
+    --line:rgba(12,12,18,.08); --line-2:#e5e5ea;
+    --accent:#4f46e5; --accent-2:#7c3aed; --accent-ink:#fff; --accent-soft:rgba(79,70,229,.10);
+    --good:#0f9d58; --good-soft:rgba(15,157,88,.10);
+    --mid:#b45309;  --mid-soft:rgba(245,158,11,.15);
+    --bad:#dc2626;  --bad-soft:rgba(220,38,38,.09);
+    --dotmid:#f59e0b;
+    --ring:0 1px 2px rgba(12,12,18,.05),0 1px 3px rgba(12,12,18,.04);
+    --ring-lg:0 10px 34px rgba(12,12,18,.09),0 2px 8px rgba(12,12,18,.05);
+    --r:16px; --r-sm:10px;
   }
   @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
     color-scheme:dark;
-    --plane:#0a0a0b; --surface:#141416; --surface-2:#1c1c1f;
-    --ink:#f5f5f6; --ink-2:#bfbfc7; --muted:#95959f;
-    --line:rgba(255,255,255,.11); --line-2:#2e2e33;
-    --accent:#818cf8; --accent-ink:#0a0a0b; --accent-soft:rgba(129,140,248,.15);
-    --good:#4ade80; --good-soft:rgba(74,222,128,.13);
-    --mid:#d1a054; --mid-soft:rgba(209,160,84,.14);
-    --bad:#f87171; --bad-soft:rgba(248,113,113,.13);
-    --ring:0 1px 2px rgba(0,0,0,.5); --ring-hover:0 6px 22px rgba(0,0,0,.6);
+    --plane:#08080b; --surface:#131318; --surface-2:#1c1c23;
+    --ink:#f5f5f8; --ink-2:#c3c3ce; --muted:#82828e;
+    --line:rgba(255,255,255,.08); --line-2:#2a2a33;
+    --accent:#7d78ff; --accent-2:#a855f7; --accent-ink:#0a0a0d; --accent-soft:rgba(125,120,255,.16);
+    --good:#34d399; --good-soft:rgba(52,211,153,.14);
+    --mid:#fbbf24; --mid-soft:rgba(245,158,11,.16);
+    --bad:#f87171; --bad-soft:rgba(248,113,113,.14);
+    --dotmid:#fbbf24;
+    --ring:0 1px 2px rgba(0,0,0,.5); --ring-lg:0 12px 40px rgba(0,0,0,.6);
   }}
   :root[data-theme="dark"]{
     color-scheme:dark;
-    --plane:#0a0a0b; --surface:#141416; --surface-2:#1c1c1f;
-    --ink:#f5f5f6; --ink-2:#bfbfc7; --muted:#95959f;
-    --line:rgba(255,255,255,.11); --line-2:#2e2e33;
-    --accent:#818cf8; --accent-ink:#0a0a0b; --accent-soft:rgba(129,140,248,.15);
-    --good:#4ade80; --good-soft:rgba(74,222,128,.13);
-    --mid:#d1a054; --mid-soft:rgba(209,160,84,.14);
-    --bad:#f87171; --bad-soft:rgba(248,113,113,.13);
-    --ring:0 1px 2px rgba(0,0,0,.5); --ring-hover:0 6px 22px rgba(0,0,0,.6);
+    --plane:#08080b; --surface:#131318; --surface-2:#1c1c23;
+    --ink:#f5f5f8; --ink-2:#c3c3ce; --muted:#82828e;
+    --line:rgba(255,255,255,.08); --line-2:#2a2a33;
+    --accent:#7d78ff; --accent-2:#a855f7; --accent-ink:#0a0a0d; --accent-soft:rgba(125,120,255,.16);
+    --good:#34d399; --good-soft:rgba(52,211,153,.14);
+    --mid:#fbbf24; --mid-soft:rgba(245,158,11,.16);
+    --bad:#f87171; --bad-soft:rgba(248,113,113,.14);
+    --dotmid:#fbbf24;
+    --ring:0 1px 2px rgba(0,0,0,.5); --ring-lg:0 12px 40px rgba(0,0,0,.6);
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--plane);color:var(--ink);
     font:15px/1.5 'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
-    -webkit-font-smoothing:antialiased;font-feature-settings:"cv11","ss01";letter-spacing:-.006em}
+    -webkit-font-smoothing:antialiased;letter-spacing:-.006em}
   ::selection{background:var(--accent-soft)}
-  .grow{flex:1}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .grow{flex:1}
   code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:.05em .35em}
-
-  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--surface) 82%,transparent);
-    backdrop-filter:saturate(1.5) blur(12px);-webkit-backdrop-filter:saturate(1.5) blur(12px);
-    border-bottom:1px solid var(--line);padding:.7rem 1.5rem;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
-  .brand{display:flex;align-items:center;gap:.5rem;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.02em}
-  .brand .logo{display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
-  .brand:hover .logo{transform:rotate(-14deg) scale(1.12)}
-  .nav{display:flex;gap:1.5rem;align-items:center;align-self:stretch}
-  .nav a{position:relative;padding:.3rem .1rem;font-size:.9rem;color:var(--muted);font-weight:500;text-decoration:none;letter-spacing:-.005em;transition:color .18s}
-  .nav a:hover{text-decoration:none;color:var(--ink-2)}
-  .nav a.on{color:var(--ink);font-weight:600}
-  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-.62rem;height:2px;border-radius:2px;background:var(--accent);
-    transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.4,0,.2,1)}
-  .nav a.on::after{transform:scaleX(1)}
-  .meta{color:var(--muted);font-size:.8rem}
-
-  button{font:inherit;font-size:.86rem;cursor:pointer;border:1px solid var(--line-2);background:var(--surface);
-    color:var(--ink);border-radius:var(--r-sm);padding:.44rem .8rem;transition:all .14s ease}
+  button{font:inherit;font-size:.87rem;cursor:pointer;border:1px solid var(--line-2);background:var(--surface);
+    color:var(--ink);border-radius:var(--r-sm);padding:.48rem .85rem;font-weight:500;transition:all .14s ease}
   button:hover:not(:disabled){border-color:var(--muted);background:var(--surface-2)}
-  button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
-  button.primary:hover{filter:brightness(1.06);background:var(--accent)}
-  button.icon{padding:.44rem .6rem}
-  button:disabled{opacity:.6;cursor:default}
+  button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent;font-weight:600;box-shadow:0 2px 10px var(--accent-soft)}
+  button.primary:hover{filter:brightness(1.08)}
+  button:disabled{opacity:.55;cursor:default}
 
-  main{padding:2.1rem 1.4rem 5rem;max-width:1060px;margin:0 auto}
+  /* ============ APP SHELL ============ */
+  .app{display:flex;min-height:100vh}
+  .sidebar{width:236px;flex-shrink:0;position:sticky;top:0;align-self:flex-start;height:100vh;
+    display:flex;flex-direction:column;padding:1.3rem 1rem;border-right:1px solid var(--line);background:var(--surface)}
+  .side-brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;letter-spacing:-.03em;padding:.1rem .55rem 1.5rem}
+  .side-brand .mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 3px 10px var(--accent-soft);flex-shrink:0}
+  .side-nav{display:flex;flex-direction:column;gap:.25rem}
+  .side-nav a{display:flex;align-items:center;gap:.75rem;padding:.62rem .7rem;border-radius:10px;color:var(--ink-2);font-weight:500;font-size:.92rem;text-decoration:none;transition:all .14s}
+  .side-nav a svg{width:18px;height:18px;opacity:.75;flex-shrink:0}
+  .side-nav a:hover{background:var(--surface-2);color:var(--ink);text-decoration:none}
+  .side-nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .side-nav a.on svg{opacity:1}
+  .side-foot{margin-top:auto;display:flex;flex-direction:column;gap:.55rem}
+  .side-status{display:flex;align-items:center;gap:.55rem;font-size:.79rem;color:var(--ink-2);padding:.55rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+  .side-btn{width:100%;text-align:center}
+  .side-btn.ghost{background:transparent;border-color:var(--line-2);color:var(--ink-2);font-size:.84rem}
+  .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
+  .sdot.run{background:var(--accent);animation:pulse 1.5s infinite}
+  .sdot.ok{background:var(--good)} .sdot.fail{background:var(--bad)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)}70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+  .content{flex:1;min-width:0;display:flex;flex-direction:column}
+  .topbar{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--plane) 84%,transparent);
+    backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);
+    border-bottom:1px solid var(--line);padding:1.15rem 2rem;display:flex;align-items:flex-end;gap:1rem}
+  .topbar h1{margin:0;font-size:1.7rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+  .topbar .meta{margin:0;color:var(--muted);font-size:.82rem;padding-bottom:.15rem}
+  main{padding:2rem 2rem 5rem;max-width:1020px;width:100%}
   .screen[hidden]{display:none}
-  .browse-all{text-align:center;margin-top:2rem}
-  .browse-all a{font-size:.9rem;font-weight:500}
 
-  /* ===== motion ===== */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-  @keyframes gaugeDraw{from{stroke-dashoffset:var(--c)}}
-  @media (prefers-reduced-motion:no-preference){
-    .screen:not([hidden])>*{animation:fadeUp .5s cubic-bezier(.22,1,.36,1) both}
-    .screen:not([hidden])>*:nth-child(1){animation-delay:.02s}
-    .screen:not([hidden])>*:nth-child(2){animation-delay:.10s}
-    .screen:not([hidden])>*:nth-child(3){animation-delay:.18s}
-    .screen:not([hidden])>*:nth-child(4){animation-delay:.26s}
-    .gauge circle.arc{animation:gaugeDraw .95s cubic-bezier(.4,0,.2,1)}
+  @media (max-width:880px){
+    .app{flex-direction:column}
+    .sidebar{width:auto;height:auto;position:sticky;flex-direction:row;align-items:center;gap:.4rem;
+      padding:.7rem 1rem;border-right:none;border-bottom:1px solid var(--line);z-index:20}
+    .side-brand{padding:0;margin-right:.4rem;font-size:1rem}
+    .side-nav{flex-direction:row;gap:.2rem}
+    .side-nav a{padding:.45rem .7rem}
+    .side-foot{margin:0 0 0 auto;flex-direction:row;align-items:center;gap:.4rem}
+    .side-status{display:none}.side-btn{width:auto}.side-btn span{display:none}
+    .topbar{padding:1rem 1.2rem}.topbar h1{font-size:1.4rem}
+    main{padding:1.4rem 1.2rem 4rem}
   }
-  .hint{background:var(--accent-soft);color:var(--ink-2);border-left:3px solid var(--accent);
-    border-radius:9px;padding:.7rem .9rem;font-size:.83rem;margin-bottom:1.2rem;line-height:1.5}
-  .hint b{color:var(--ink)}
 
-  /* ===== hero score ===== */
-  /* intro + score, open (no card) and side by side on desktop */
-  .top2{display:grid;grid-template-columns:1.08fr .92fr;gap:2.4rem;margin-bottom:1.7rem;
-    padding-bottom:1.7rem;border-bottom:1px solid var(--line);align-items:start}
-  @media (max-width:860px){.top2{grid-template-columns:1fr;gap:1.8rem}}
-  .intro{padding:.1rem 0}
-  .intro h2{margin:0 0 .65rem;font-size:1.5rem;font-weight:700;letter-spacing:-.025em;line-height:1.15}
-  .intro p{color:var(--ink-2);font-size:.92rem;line-height:1.6;margin:0 0 1.15rem}
-  .facts{margin:0;display:flex;flex-direction:column}
-  .facts>div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.72rem 0;border-top:1px solid var(--line)}
-  .facts>div:first-child{border-top:none;padding-top:.2rem}
-  .facts dt{margin:0;color:var(--ink-2);font-size:.9rem}
-  .facts dd{margin:0;font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:right}
-  .facts dd.hl{color:var(--accent)}
-  .hero{padding:.1rem 0;display:flex;flex-direction:column;gap:1.5rem;justify-content:center}
-  .hero-top{display:flex;align-items:center;gap:1.5rem}
+  /* ============ SHARED ============ */
+  .eyebrow{display:flex;align-items:center;gap:.55rem;margin:0 0 .9rem;font-size:.98rem;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .eyebrow::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent);flex-shrink:0}
+  .eyebrow.warm::before{background:var(--mid)}
+  .section{margin-bottom:2rem}
+  .section-h{display:flex;align-items:center;gap:.6rem;margin:0 0 .95rem}
+  .section-h .count{margin-left:auto;color:var(--muted);font-size:.82rem}
+
+  /* ============ HERO: score + at a glance ============ */
+  .top2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2rem}
+  @media (max-width:820px){.top2{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.4rem}
+  .card.hero{box-shadow:var(--ring-lg);display:flex;flex-direction:column;gap:1.3rem}
+  .hero-top{display:flex;align-items:center;gap:1.4rem}
   @media (max-width:420px){.hero-top{flex-direction:column;text-align:center}}
-  .gauge{position:relative;width:168px;height:168px;flex-shrink:0}
+  .gauge{position:relative;width:150px;height:150px;flex-shrink:0}
   .gauge svg{transform:rotate(-90deg)}
   .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .gauge .num b{font-size:3rem;font-weight:700;letter-spacing:-.03em;line-height:1}
-  .gauge .num small{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:.2rem}
-  .hero-r{min-width:0;width:100%}
-  .hero-r h2{margin:0 0 .1rem;font-size:1.05rem;font-weight:700}
-  .hero-r .tip{color:var(--ink-2);font-size:.85rem;margin:0 0 1rem}
-  .factors{display:flex;flex-direction:column;gap:.6rem}
-  .factor{display:grid;grid-template-columns:118px 1fr auto;gap:.7rem;align-items:center;font-size:.82rem}
+  .gauge .num b{font-size:2.9rem;font-weight:800;letter-spacing:-.04em;line-height:1;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gauge .num small{font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-weight:700;margin-top:.25rem}
+  .hero-r h2{margin:0 0 .25rem;font-size:1.15rem;font-weight:800;letter-spacing:-.02em}
+  .hero-r .tip{color:var(--ink-2);font-size:.86rem;margin:0;line-height:1.45}
+  .factors{display:flex;flex-direction:column;gap:.62rem}
+  .factor{display:grid;grid-template-columns:118px 1fr auto;gap:.75rem;align-items:center;font-size:.82rem}
   .factor .fl{color:var(--ink-2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .track{height:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
-  .track i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .5s ease}
-  .factor .fv{color:var(--muted);font-size:.75rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .track i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:99px;transition:width .6s cubic-bezier(.22,1,.36,1)}
+  .factor .fv{color:var(--muted);font-size:.76rem;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  /* ===== automation panel ===== */
-  .panel{margin-bottom:1.6rem}
-  .panel-hd{display:flex;align-items:center;gap:.6rem;padding:0 0 .75rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  .panel-hd h2{margin:0;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2)}
-  .autostat{display:flex;align-items:center;gap:.5rem;font-size:.84rem;color:var(--ink-2);margin-left:auto}
-  .sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
-  .sdot.run{background:var(--accent);animation:pulse 1.6s infinite}
-  .sdot.ok{background:var(--good)} .sdot.fail{background:var(--bad)}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,120,214,.5)}70%{box-shadow:0 0 0 6px rgba(42,120,214,0)}100%{box-shadow:0 0 0 0 rgba(42,120,214,0)}}
-  .autobody{padding:.95rem 0 0;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-  .autobody .note{color:var(--muted);font-size:.8rem;width:100%;margin-bottom:.1rem}
-  .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.6rem .85rem;min-width:130px}
-  .auto-btn b{font-weight:600;font-size:.86rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
+  .glance h2{margin:0 0 .2rem;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+  .glance p{color:var(--ink-2);font-size:.85rem;margin:0 0 1rem;line-height:1.45}
+  .facts{margin:0;display:flex;flex-direction:column}
+  .facts>div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.72rem 0;border-top:1px solid var(--line)}
+  .facts>div:first-child{border-top:none;padding-top:.1rem}
+  .facts dt{margin:0;color:var(--ink-2);font-size:.88rem}
+  .facts dd{margin:0;font-weight:700;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:right}
+  .facts dd.hl{color:var(--accent)}
+  .facts dd.warn{color:var(--mid)}
+  .facts dd .pill{display:inline-block;background:var(--mid-soft);color:var(--mid);border-radius:99px;padding:.05rem .5rem;font-size:.8rem}
 
-  /* ===== sections / funnel / queue (shared) ===== */
-  .section{margin-bottom:1.5rem}
-  .section-h{display:flex;align-items:baseline;gap:.6rem;margin:0 0 .75rem;flex-wrap:wrap}
-  .section-h h2{font-size:.76rem;font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2)}
-  .section-h .count{margin-left:auto;color:var(--muted);font-size:.8rem}
-  .funnel{display:flex;gap:1.6rem;flex-wrap:wrap;margin-bottom:1.6rem;padding:.2rem 0 1.1rem;border-bottom:1px solid var(--line)}
-  .stage{background:none;border:none;box-shadow:none;padding:0;cursor:pointer}
-  .stage .sn{font-size:1.55rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;transition:color .14s}
-  .stage:hover .sn{color:var(--accent)}
+  /* ============ AUTOMATION ============ */
+  .auto{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.3rem 1.4rem;margin-bottom:2rem}
+  .auto-hd{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}
+  .auto-note{color:var(--muted);font-size:.82rem;margin:.2rem 0 .95rem}
+  .auto-grid{display:flex;gap:.55rem;flex-wrap:wrap;align-items:stretch}
+  .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.65rem .9rem;min-width:132px;border-radius:11px}
+  .auto-btn b{font-weight:600;font-size:.87rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
+
+  /* ============ FUNNEL ============ */
+  .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
+  @media (max-width:640px){.funnel{grid-template-columns:repeat(3,1fr)}}
+  .stage{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--ring);
+    padding:.8rem .9rem;cursor:pointer;transition:all .14s;border-top:2px solid transparent}
+  .stage:hover{border-color:var(--line-2);transform:translateY(-1px)}
+  .stage.on{border-top-color:var(--accent);background:var(--accent-soft)}
+  .stage .sn{font-size:1.6rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
   .stage.on .sn{color:var(--accent)}
-  .stage .sl{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.35rem;font-weight:600}
-  .stage.on .sl{color:var(--accent)}
+  .stage .sl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.35rem;font-weight:600}
 
-  .queue{display:flex;flex-direction:column;gap:.55rem}
-  .qitem{background:var(--surface);border:1px solid var(--line);border-left:2px solid var(--accent);
-    border-radius:10px;padding:.85rem 1rem;display:flex;gap:.9rem;align-items:center;flex-wrap:wrap}
-  .qitem.follow{border-left-color:var(--mid)}
-  .qmain{flex:1;min-width:210px}
-  .qtitle{font-weight:600;font-size:1rem;letter-spacing:-.01em}
-  .qsub{color:var(--muted);font-size:.8rem;margin-top:.18rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
-  .qwhy{color:var(--mid);font-weight:600}
-  .qbtns{display:flex;gap:.4rem;flex-wrap:wrap}
-  .qbtns button,.qbtns a button{font-size:.8rem;padding:.36rem .7rem}
-  .tag{font-size:.63rem;font-weight:700;padding:.09rem .4rem;border-radius:5px;text-transform:uppercase;letter-spacing:.03em;margin-left:.15rem}
-  .tag.in{background:var(--good-soft);color:var(--good)} .tag.ap{background:var(--accent-soft);color:var(--accent)}
-  .tag.se{background:var(--mid-soft);color:var(--mid)}
-
-  /* ===== jobs screen ===== */
+  /* ============ JOB ROWS ============ */
   .seg{display:inline-flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:3px;flex-wrap:wrap}
-  .seg button{border:1px solid transparent;background:transparent;border-radius:8px;padding:.34rem .7rem;font-size:.82rem;color:var(--ink-2)}
+  .seg button{border:1px solid transparent;background:transparent;border-radius:8px;padding:.34rem .7rem;font-size:.82rem;color:var(--ink-2);font-weight:500}
   .seg button:hover{background:var(--surface);color:var(--ink)}
-  .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);box-shadow:0 1px 2px rgba(11,11,11,.06);font-weight:600}
+  .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);box-shadow:0 1px 2px rgba(12,12,18,.06);font-weight:600}
   .seg button span{opacity:.55;font-variant-numeric:tabular-nums;margin-left:.15rem}
-  .rowlist{display:flex;flex-direction:column;gap:.4rem}
-  .jobrow{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .14s}
+  .rowlist{display:flex;flex-direction:column;gap:.45rem}
+  .jobrow{background:var(--surface);border:1px solid var(--line);border-radius:11px;overflow:hidden;transition:border-color .14s;border-left:3px solid transparent}
   .jobrow:hover{border-color:var(--line-2)}
-  .rhead{display:flex;align-items:center;gap:.75rem;padding:.6rem .85rem;cursor:pointer}
+  .jobrow.is-new{border-left-color:var(--mid)}
+  .rhead{display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;cursor:pointer}
   .rhead:hover{background:var(--surface-2)}
   .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--muted)}
   .dot.s-new{background:var(--accent)} .dot.s-resume-ready{background:var(--accent)}
@@ -185,26 +182,30 @@
   .dot.s-messaged{background:var(--mid)} .dot.s-referred{background:var(--mid)}
   .dot.s-rejected{background:var(--bad)} .dot.s-archived{background:var(--line-2)}
   .rinfo{flex:1;min-width:0}
-  .rtitle{font-weight:600;font-size:.94rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
-  .rmeta{color:var(--muted);font-size:.77rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.05rem}
-  .rscore{font-weight:700;font-size:.92rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:40px}
-  .rscore small{display:block;font-size:.56rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:.1rem}
+  .rtitle{font-weight:600;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+  .rmeta{color:var(--muted);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.08rem}
+  .rscore{font-weight:800;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:42px;letter-spacing:-.02em}
+  .rscore small{display:block;font-size:.55rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:.12rem}
   .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
   .rstatus{font-size:.7rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:.14rem .5rem;flex-shrink:0;text-transform:capitalize}
-  @media (max-width:620px){.rstatus{display:none}}
+  @media (max-width:600px){.rstatus{display:none}}
   .chev-r{color:var(--muted);flex-shrink:0;transition:transform .15s;font-size:.8rem}
   .jobrow.open .chev-r{transform:rotate(90deg)} .jobrow.open{border-color:var(--line-2)}
-  .rdetail{border-top:1px solid var(--line);padding:.95rem;display:none}
+  .rdetail{border-top:1px solid var(--line);padding:.95rem;display:none;background:var(--surface-2)}
   .jobrow.open .rdetail{display:block}
+  .tag{font-size:.62rem;font-weight:800;padding:.1rem .42rem;border-radius:5px;text-transform:uppercase;letter-spacing:.04em;margin-left:.15rem}
+  .tag.new{background:var(--mid-soft);color:var(--mid)}
+  .tag.in{background:var(--good-soft);color:var(--good)} .tag.ap{background:var(--accent-soft);color:var(--accent)}
+  .tag.se{background:var(--mid-soft);color:var(--mid)}
+
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
   @media (max-width:740px){.grid{grid-template-columns:1fr}}
-  .box{border:1px solid var(--line);background:var(--surface-2);border-radius:11px;padding:.85rem .9rem}
-  .box h3{margin:0 0 .55rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  .box{border:1px solid var(--line);background:var(--surface);border-radius:11px;padding:.85rem .9rem}
+  .box h3{margin:0 0 .55rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
   .miss{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
   .miss span{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:.13rem .48rem;font-size:.76rem}
-  .miss.none span{background:var(--surface-2);color:var(--good);border-color:transparent}
-  .msg{width:100%;min-height:110px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;padding:.6rem .7rem;
-    font:12.5px/1.55 inherit;background:var(--surface);color:var(--ink)}
+  .miss.none span{background:var(--good-soft);color:var(--good);border-color:transparent}
+  .msg{width:100%;min-height:110px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;padding:.6rem .7rem;font:12.5px/1.55 inherit;background:var(--surface);color:var(--ink)}
   .msg:focus{outline:none;border-color:var(--accent)}
   .rowbtns{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap;align-items:center}
   .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column}
@@ -219,51 +220,124 @@
   .more button{padding:.55rem 1.3rem;font-weight:600} .more button span{color:var(--muted);font-weight:400}
   .empty{text-align:center;color:var(--muted);padding:2.5rem 1rem;line-height:1.6}
 
-  .collapsible{overflow:hidden;margin-top:1.5rem;border-top:1px solid var(--line)}
-  .panel-toggle{width:100%;text-align:left;border:none;background:transparent;padding:.95rem 0;display:flex;align-items:center;gap:.5rem;
-    font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);border-radius:0}
-  .panel-toggle:hover{color:var(--ink-2)}
+  .collapsible{margin-top:1.6rem;border-top:1px solid var(--line)}
+  .panel-toggle{width:100%;text-align:left;border:none;background:transparent;padding:1rem 0;display:flex;align-items:center;gap:.55rem;
+    font-size:.98rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .panel-toggle::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent)}
+  .panel-toggle:hover{color:var(--accent)}
   .panel-toggle .chev{margin-left:auto;color:var(--muted);transition:transform .15s;font-size:.8rem}
   .panel-toggle.open .chev{transform:rotate(90deg)}
   .panel-body{padding:0 0 1.15rem}
   .panel-body .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem}
   .leader{display:flex;flex-wrap:wrap;gap:.5rem}
   .kw{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line-2);border-radius:999px;padding:.28rem .4rem .28rem .72rem;font-size:.83rem;background:var(--surface);color:var(--ink-2)}
-  .kw b{background:var(--mid-soft);color:var(--mid);font-weight:700;border-radius:999px;font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
+  .kw b{background:var(--mid-soft);color:var(--mid);font-weight:800;border-radius:999px;font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
+  .browse-all{text-align:center;margin-top:2rem}
+  .browse-all a{font-size:.9rem;font-weight:600}
 
   .toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(8px);background:var(--ink);color:var(--plane);
-    padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+    padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:var(--ring-lg)}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  .modal{position:fixed;inset:0;z-index:50;background:rgba(11,11,11,.5);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:1rem}
-  .modal-box{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);padding:1.35rem 1.45rem;max-width:640px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-  .modal-box h2{margin:0 0 .35rem;font-size:1.08rem;font-weight:700}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(8,8,11,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
+  .modal-box{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);padding:1.4rem 1.5rem;max-width:640px;width:100%;box-shadow:var(--ring-lg)}
+  .modal-box h2{margin:0 0 .35rem;font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
   .modal-box .sub{color:var(--ink-2);font-size:.84rem;margin:0 0 .9rem;line-height:1.55}
   .runner-code{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:.7rem .8rem;background:var(--surface-2);color:var(--ink);font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
   .runner-code:focus{outline:none;border-color:var(--accent)}
-  .filebtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r-sm);padding:.44rem .8rem;cursor:pointer;font-size:.86rem}
+  .filebtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r-sm);padding:.48rem .85rem;cursor:pointer;font-size:.86rem}
   .filebtn:hover{border-color:var(--muted);background:var(--surface-2)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes gaugeDraw{from{stroke-dashoffset:var(--c)}}
+  @media (prefers-reduced-motion:no-preference){
+    main:not([hidden]) .screen:not([hidden])>*{animation:fadeUp .5s cubic-bezier(.22,1,.36,1) both}
+    .screen:not([hidden])>*:nth-child(1){animation-delay:.02s}
+    .screen:not([hidden])>*:nth-child(2){animation-delay:.1s}
+    .screen:not([hidden])>*:nth-child(3){animation-delay:.18s}
+    .screen:not([hidden])>*:nth-child(4){animation-delay:.26s}
+    .gauge circle.arc{animation:gaugeDraw .95s cubic-bezier(.4,0,.2,1)}
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1 class="brand">Job Hunter</h1>
-  <nav class="nav">
-    <a href="#/" id="navHome">Cockpit</a>
-    <a href="#/jobs" id="navJobs">Jobs</a>
-  </nav>
-  <div class="grow"></div>
-  <span class="meta" id="meta"></span>
-  <button id="themeBtn" class="icon" title="Toggle light / dark">◐</button>
-  <button id="runnerBtn" title="Load private data / connect GitHub">Run script</button>
-</header>
+<div class="app">
+  <aside class="sidebar">
+    <div class="side-brand"><span class="mark"></span> Job Hunter</div>
+    <nav class="side-nav">
+      <a href="#/" data-nav="home" id="navHome">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></svg>
+        <span>Cockpit</span>
+      </a>
+      <a href="#/jobs" data-nav="jobs" id="navJobs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>
+        <span>Jobs</span>
+      </a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-status"><span class="sdot" id="sdotSide"></span><span id="statusSide">checking…</span></div>
+      <button id="runnerBtn" class="side-btn" title="Load private data / connect GitHub">Run script</button>
+      <button id="themeBtn" class="side-btn ghost" title="Toggle light / dark">◐ <span>Theme</span></button>
+    </div>
+  </aside>
+
+  <div class="content">
+    <header class="topbar">
+      <h1 id="pageTitle">Cockpit</h1>
+      <div class="grow"></div>
+      <p class="meta" id="meta"></p>
+    </header>
+    <main>
+      <!-- ===== COCKPIT ===== -->
+      <section id="screen-home" class="screen">
+        <div class="top2">
+          <div class="card hero">
+            <div class="hero-top">
+              <div class="gauge" id="gauge"></div>
+              <div class="hero-r">
+                <h2>Job Hunt Score</h2>
+                <p class="tip" id="scoreTip"></p>
+              </div>
+            </div>
+            <div class="factors" id="factors"></div>
+          </div>
+          <div class="card glance">
+            <h2>At a glance</h2>
+            <p>Where your search stands right now — refreshed automatically as new roles are found.</p>
+            <dl class="facts" id="overview"></dl>
+          </div>
+        </div>
+
+        <div class="auto">
+          <div class="auto-hd"><span class="eyebrow">Automation</span></div>
+          <div id="autobody"></div>
+        </div>
+
+        <p class="browse-all"><a href="#/jobs">Browse all jobs →</a></p>
+      </section>
+
+      <!-- ===== JOBS ===== -->
+      <section id="screen-jobs" class="screen" hidden>
+        <div class="funnel" id="funnel"></div>
+        <div class="section-h"><span class="eyebrow">All jobs</span>
+          <div class="seg" id="statusFilter"></div><span class="count" id="count"></span>
+        </div>
+        <div id="list" class="rowlist"></div>
+        <div class="collapsible" id="gapPanel">
+          <button class="panel-toggle" id="gapToggle">What you're missing<span class="chev">▸</span></button>
+          <div class="panel-body" id="gapBody" style="display:none">
+            <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first — your highest-leverage skills to add.</p>
+            <div class="leader" id="leader"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
 
 <div class="modal" id="runnerModal" style="display:none">
   <div class="modal-box">
     <h2 id="runnerTitle">Run a one-off script</h2>
-    <p class="sub" id="runnerHelp">Paste a generated <code>*.local.js</code> script — e.g.
-      <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone, referral
-      contacts) into this browser's local storage. It runs entirely on your machine; nothing is
-      uploaded. Only paste scripts you generated and trust.</p>
+    <p class="sub" id="runnerHelp">Paste a generated <code>*.local.js</code> script — e.g. <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone, referral contacts) into this browser's local storage. It runs entirely on your machine; nothing is uploaded. Only paste scripts you generated and trust.</p>
     <textarea id="runnerCode" class="runner-code" placeholder="Paste your script here…" spellcheck="false"></textarea>
     <div class="rowbtns">
       <button class="primary" onclick="runScript()">Run script</button>
@@ -274,71 +348,16 @@
   </div>
 </div>
 
-<main>
-  <!-- ===== COCKPIT (home) ===== -->
-  <section id="screen-home" class="screen">
-    <div class="top2">
-      <div class="intro">
-        <h2>At a glance</h2>
-        <p>Where your search stands right now — refreshed automatically as new roles are found.</p>
-        <dl class="facts" id="overview"></dl>
-      </div>
-      <div class="hero">
-        <div class="hero-top">
-          <div class="gauge" id="gauge"></div>
-          <div class="hero-r">
-            <h2>Job Hunt Score</h2>
-            <p class="tip" id="scoreTip"></p>
-          </div>
-        </div>
-        <div class="factors" id="factors"></div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-hd">
-        <h2>Automation</h2>
-        <div class="autostat"><span class="sdot" id="sdot"></span><span id="autostatus">checking…</span></div>
-      </div>
-      <div class="autobody" id="autobody"></div>
-    </div>
-
-    <p class="browse-all"><a href="#/jobs">Browse all jobs →</a></p>
-  </section>
-
-  <!-- ===== JOBS (list) ===== -->
-  <section id="screen-jobs" class="screen" hidden>
-    <div class="funnel" id="funnel"></div>
-    <div class="section-h"><h2>All jobs</h2>
-      <div class="seg" id="statusFilter"></div>
-      <span class="count" id="count"></span>
-    </div>
-    <div id="list" class="rowlist"></div>
-
-    <div class="panel collapsible" id="gapPanel">
-      <button class="panel-toggle" id="gapToggle">What you're missing<span class="chev">▸</span></button>
-      <div class="panel-body" id="gapBody" style="display:none">
-        <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first — your highest-leverage skills to add.</p>
-        <div class="leader" id="leader"></div>
-      </div>
-    </div>
-  </section>
-</main>
-
 <div class="toast" id="toast"></div>
 
 <script>
-// ---------- constants / state ----------
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
-const TARGET_APPS=20, OUTCOME_GOAL=6;   // score calibration
-const PAGE=40;
+const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
-let newIds=new Set(); const openRows=new Set();
-let statusTimer=null;
-
+let newIds=new Set(); const openRows=new Set(); let statusTimer=null;
 const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['messaged']],
   ['referred','Referred',['referred']],['applied','Applied',['applied']],
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
@@ -349,7 +368,6 @@ const FILTER_GROUPS={
   referred:j=>jobStatus(j.id)==='referred', applied:j=>jobStatus(j.id)==='applied',
   interview:j=>['screen','interview'].includes(jobStatus(j.id)), offer:j=>jobStatus(j.id)==='offer'};
 
-// ---------- helpers ----------
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1700);}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function firstName(n){return (n||'').replace(/^Search LinkedIn.*/,'').trim().split(/\s+/)[0]||'there';}
@@ -364,17 +382,15 @@ function jobRefs(id){return (getPrivate().referrals||{})[id]||[];}
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
 function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
   const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
-function buildImportUrl(job){
-  const c=(getPrivate().contact)||{};
+function buildImportUrl(job){const c=(getPrivate().contact)||{};
   if((!c.email&&!c.phone)||!job.resume_core)return job.import_url||'#';
   const core=JSON.parse(JSON.stringify(job.resume_core));core.contact={...core.contact,...c};
-  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(core));
-}
+  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(core));}
 function computeNew(){let seen;try{seen=new Set(JSON.parse(localStorage.getItem(SEEN_KEY))||[])}catch{seen=new Set()}
   const cur=(DOC.jobs||[]).map(j=>j.id);newIds=seen.size?new Set(cur.filter(id=>!seen.has(id))):new Set();
   localStorage.setItem(SEEN_KEY,JSON.stringify(cur));}
 
-// ---------- job hunt score ----------
+// ----- score -----
 function computeScore(){
   const jobs=DOC.jobs||[], sts=getStatuses();
   const top=[...jobs].sort((a,b)=>b.fit_score-a.fit_score).slice(0,10);
@@ -382,8 +398,7 @@ function computeScore(){
   const cnt=s=>jobs.filter(j=>jobStatus(j.id)===s).length;
   const appCount=['applied','screen','interview','offer'].reduce((a,s)=>a+cnt(s),0);
   const apps=Math.min(1,appCount/TARGET_APPS);
-  const outcomesRaw=cnt('screen')*1+cnt('interview')*2+cnt('offer')*4+cnt('referred')*0.5;
-  const outcomes=Math.min(1,outcomesRaw/OUTCOME_GOAL);
+  const outcomes=Math.min(1,(cnt('screen')*1+cnt('interview')*2+cnt('offer')*4+cnt('referred')*0.5)/OUTCOME_GOAL);
   const now=Date.now();let recent=0;Object.values(sts).forEach(v=>{if(v&&v.ts&&(now-new Date(v.ts).getTime())/86400000<=7)recent++;});
   const momentum=Math.min(1,recent/5);
   const priv=getPrivate();
@@ -396,131 +411,94 @@ function computeScore(){
     {k:'Momentum',v:momentum,w:15,note:`${recent} actions this week`},
     {k:'Readiness',v:readiness,w:15,note:overdue?`${overdue} follow-ups due`:'prep on track'},
   ];
-  const score=Math.round(factors.reduce((a,f)=>a+f.v*f.w,0));
-  return {score,factors};
+  return {score:Math.round(factors.reduce((a,f)=>a+f.v*f.w,0)),factors};
 }
 let lastScore=0, countRAF=null;
-function animateCount(el,from,to){
-  if(!el) return;
-  if(window.matchMedia && !matchMedia('(prefers-reduced-motion:no-preference)').matches){el.textContent=to;return;}
-  cancelAnimationFrame(countRAF);
-  const dur=700,t0=performance.now();
-  (function step(now){const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
-    el.textContent=Math.round(from+(to-from)*e);if(p<1)countRAF=requestAnimationFrame(step);})(performance.now());
-}
+function animateCount(el,from,to){if(!el)return;
+  if(window.matchMedia&&!matchMedia('(prefers-reduced-motion:no-preference)').matches){el.textContent=to;return;}
+  cancelAnimationFrame(countRAF);const dur=700,t0=performance.now();
+  (function step(now){const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e);if(p<1)countRAF=requestAnimationFrame(step);})(performance.now());}
 function renderScore(){
   const {score,factors}=computeScore();
-  const R=72,C=2*Math.PI*R,off=C*(1-score/100),col='var(--accent)';
+  const R=66,C=2*Math.PI*R,off=C*(1-score/100);
   document.getElementById('gauge').innerHTML=
-    `<svg width="168" height="168" viewBox="0 0 168 168">
-      <circle cx="84" cy="84" r="${R}" fill="none" stroke="var(--surface-2)" stroke-width="14"/>
-      <circle class="arc" cx="84" cy="84" r="${R}" fill="none" stroke="${col}" stroke-width="14" stroke-linecap="round"
+    `<svg width="150" height="150" viewBox="0 0 150 150">
+      <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" style="stop-color:var(--accent)"/><stop offset="100%" style="stop-color:var(--accent-2)"/></linearGradient></defs>
+      <circle cx="75" cy="75" r="${R}" fill="none" stroke="var(--surface-2)" stroke-width="13"/>
+      <circle class="arc" cx="75" cy="75" r="${R}" fill="none" stroke="url(#sg)" stroke-width="13" stroke-linecap="round"
         style="--c:${C.toFixed(1)};stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${off.toFixed(1)}"/>
-    </svg><div class="num"><b id="scoreNum" style="color:${col}">${score}</b><small>out of 100</small></div>`;
-  animateCount(document.getElementById('scoreNum'), lastScore, score); lastScore=score;
+    </svg><div class="num"><b id="scoreNum">${score}</b><small>out of 100</small></div>`;
+  animateCount(document.getElementById('scoreNum'),lastScore,score);lastScore=score;
   const weak=[...factors].sort((a,b)=>a.v-b.v)[0];
   const tips={Outcomes:'Land responses & interviews to climb fastest.',Applications:'Send more applications toward your target.',
     Competitiveness:'Add the missing keywords to sharpen your resume.',Momentum:'Take a few actions this week to keep momentum.',Readiness:'Load your network and clear overdue follow-ups.'};
-  document.getElementById('scoreTip').textContent='Biggest lever right now: '+(tips[weak.k]||'');
-  document.getElementById('factors').innerHTML=factors.map(f=>{
-    const pct=Math.round(f.v*100);
-    return `<div class="factor"><div class="fl">${f.k}</div>
-      <div class="track"><i data-w="${pct}" style="width:0"></i></div>
-      <div class="fv">${f.note}</div></div>`;
-  }).join('');
+  document.getElementById('scoreTip').textContent='Biggest lever: '+(tips[weak.k]||'');
+  document.getElementById('factors').innerHTML=factors.map(f=>{const pct=Math.round(f.v*100);
+    return `<div class="factor"><div class="fl">${f.k}</div><div class="track"><i data-w="${pct}" style="width:0"></i></div><div class="fv">${f.note}</div></div>`;}).join('');
   requestAnimationFrame(()=>document.querySelectorAll('#factors .track i').forEach(el=>{el.style.width=el.dataset.w+'%';}));
 }
+function renderOverview(){
+  const jobs=DOC.jobs||[], bm=(DOC.summary||{}).best_match;
+  const companies=new Set(jobs.map(j=>j.company)).size;
+  const nu=newIds.size;
+  const rows=[
+    ['Active matches', jobs.length, ''],
+    ['Companies tracked', companies, ''],
+    ['Strongest match', bm?`${bm.company} · ${bm.ats_score}% ATS`:'—', 'hl'],
+    ['New since last visit', nu?`<span class="pill">${nu}</span>`:'0', nu?'warn':''],
+    ['Last scan', timeAgo(DOC.generated_at), ''],
+  ];
+  const el=document.getElementById('overview');
+  if(el) el.innerHTML=rows.map(([k,v,cls])=>`<div><dt>${esc(k)}</dt><dd class="${cls}">${cls==='warn'&&v.indexOf('pill')>-1?v:esc(String(v))}</dd></div>`).join('');
+}
 
-// ---------- GitHub automation ----------
+// ----- GitHub automation -----
 function gh(){return (DOC.meta&&DOC.meta.github)||{owner:'priandproper',repo:'job-hunter',workflow:'hunt.yml',ref:'main'};}
 function ghToken(){try{return (JSON.parse(localStorage.getItem(GH_KEY))||{}).token||''}catch{return ''}}
-async function ghFetch(path,opts){
-  const g=gh();const h=Object.assign({'Accept':'application/vnd.github+json'},(opts&&opts.headers)||{});
+async function ghFetch(path,opts){const g=gh();const h=Object.assign({'Accept':'application/vnd.github+json'},(opts&&opts.headers)||{});
   const t=ghToken();if(t)h.Authorization='Bearer '+t;
-  try{return await fetch('https://api.github.com'+path,Object.assign({},opts,{headers:h}));}catch(e){return null;}
-}
+  try{return await fetch('https://api.github.com'+path,Object.assign({},opts,{headers:h}));}catch(e){return null;}}
+function setStatusUI(cls,text){
+  ['sdotSide'].forEach(id=>{const d=document.getElementById(id);if(d)d.className='sdot '+cls;});
+  const s=document.getElementById('statusSide');if(s)s.textContent=text;}
 async function refreshStatus(){
-  const g=gh();
-  const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs?per_page=1`);
-  const sdot=document.getElementById('sdot'),txt=document.getElementById('autostatus');
-  if(!r||!r.ok){sdot.className='sdot';txt.textContent='status unavailable';return;}
+  const g=gh();const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/runs?per_page=1`);
+  if(!r||!r.ok){setStatusUI('','status unavailable');return;}
   const run=((await r.json()).workflow_runs||[])[0];
-  if(!run){sdot.className='sdot';txt.textContent='no runs yet';return;}
-  if(run.status!=='completed'){
-    sdot.className='sdot run';txt.textContent=`running · started ${timeAgo(run.run_started_at||run.created_at)}`;
-    clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,15000);
-  }else{
-    const ok=run.conclusion==='success';
-    sdot.className='sdot '+(ok?'ok':'fail');
-    txt.textContent=`${ok?'last run succeeded':'last run '+(run.conclusion||'failed')} · ${timeAgo(run.updated_at)}`;
-  }
+  if(!run){setStatusUI('','no runs yet');return;}
+  if(run.status!=='completed'){setStatusUI('run','running · '+timeAgo(run.run_started_at||run.created_at));
+    clearTimeout(statusTimer);statusTimer=setTimeout(refreshStatus,15000);}
+  else{const ok=run.conclusion==='success';setStatusUI(ok?'ok':'fail',(ok?'run ok':run.conclusion||'failed')+' · '+timeAgo(run.updated_at));}
 }
 const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Send digest','email top picks now'],
   ['discover','Discovery sweep','find new H-1B companies'],['tidy','Re-tidy','drop stale + recompute']];
 function renderAuto(){
   const hasTok=!!ghToken();
-  const note=hasTok
-    ? '<div class="note">Triggers a GitHub Actions run. Watch the status above.</div>'
-    : '<div class="note">Connect GitHub to enable one-click automations (status shows without it).</div>';
-  const btns=AUTOS.map(([mode,label,sub])=>
-    `<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
+  const note=hasTok?'Triggers a GitHub Actions run — watch the live status in the sidebar.'
+    :'Connect GitHub to enable one-click automations (live status shows without it).';
+  const btns=AUTOS.map(([mode,label,sub])=>`<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
   const connect=`<button class="${hasTok?'':'primary'}" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'Connect GitHub'}</button>`;
-  document.getElementById('autobody').innerHTML=note+btns+connect;
+  document.getElementById('autobody').innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${btns}${connect}</div>`;
 }
-async function ghDispatch(mode){
-  if(!ghToken()){connectGitHub();return;}
+async function ghDispatch(mode){if(!ghToken()){connectGitHub();return;}
   const g=gh();
   const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
     {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:g.ref,inputs:{mode}})});
   if(r&&r.status===204){toast('Triggered: '+mode);setTimeout(refreshStatus,2500);}
   else if(r&&r.status===401){toast('Token rejected — reconnect GitHub');}
-  else toast('Trigger failed'+(r?` (${r.status})`:''));
-}
-function connectGitHub(){
-  openRunner();
+  else toast('Trigger failed'+(r?` (${r.status})`:''));}
+function connectGitHub(){openRunner();
   document.getElementById('runnerTitle').textContent='Connect GitHub';
   document.getElementById('runnerHelp').innerHTML='Create a <b>fine-grained</b> personal access token scoped to <b>only the job-hunter repo</b> with <b>Actions: Read and write</b> (nothing else). Replace <code>PASTE_TOKEN_HERE</code> below and click Run. It is stored only in this browser and never committed.';
-  document.getElementById('runnerCode').value=
-    "// GitHub token — fine-grained, job-hunter repo only, Actions: read/write.\n"+
-    "localStorage.setItem('"+GH_KEY+"', JSON.stringify({ token: 'PASTE_TOKEN_HERE' }));\n"+
-    "location.reload();";
-}
+  document.getElementById('runnerCode').value="// GitHub token — fine-grained, job-hunter repo only, Actions: read/write.\nlocalStorage.setItem('"+GH_KEY+"', JSON.stringify({ token: 'PASTE_TOKEN_HERE' }));\nlocation.reload();";}
 
-// ---------- action queue ----------
-function actionQueue(){
-  const jobs=DOC.jobs||[],items=[];
-  jobs.forEach(j=>{const st=jobStatus(j.id),d=daysSince(jobStatusTs(j.id));
-    if(FOLLOWUP[st]!=null&&d!=null&&d>=FOLLOWUP[st])items.push({job:j,follow:true,why:`${st} ${Math.floor(d)}d ago — follow up`});});
-  const fresh=jobs.filter(j=>jobStatus(j.id)==='new')
-    .sort((a,b)=>(Number(newIds.has(b.id))-Number(newIds.has(a.id)))||(b.fit_score-a.fit_score));
-  fresh.slice(0,5).forEach(j=>items.push({job:j,follow:false,isNew:newIds.has(j.id)}));
-  return items;
-}
-function renderQueue(){
-  const items=actionQueue(),q=document.getElementById('queue');
-  document.getElementById('queueCount').textContent=items.length?`${items.length} to act on`:'';
-  if(!items.length){q.innerHTML='<div class="empty">Nothing needs you right now. New matches land here as the automation finds them.</div>';return;}
-  q.innerHTML=items.map(it=>{const j=it.job;
-    const why=it.follow?`<span class="qwhy">⏰ ${esc(it.why)}</span>`:(it.isNew?'<span class="tag ap">new</span>':'');
-    const primary=it.follow
-      ?`<button class="primary" onclick="copyText(followupText(DOC.jobs.find(x=>x.id==='${j.id}')))">Copy follow-up</button>`
-      :`<a href="${esc(buildImportUrl(j))}" target="_blank" rel="noopener"><button class="primary">Open resume</button></a>`;
-    return `<div class="qitem ${it.follow?'follow':''}"><div class="qmain">
-      <div class="qtitle">${esc(j.company)} — ${esc(j.title)}</div>
-      <div class="qsub">fit ${j.fit_score} · ATS ${j.ats_score}% · ${esc(j.location||'')} ${why}</div></div>
-      <div class="qbtns">${primary}
-        <a href="${esc(j.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a>
-        <button onclick="expandJob('${j.id}')">Details</button></div></div>`;
-  }).join('');
-}
-
-// ---------- jobs screen ----------
+// ----- jobs -----
 function renderFunnel(){
   const counts={};(DOC.jobs||[]).forEach(j=>{const s=jobStatus(j.id);counts[s]=(counts[s]||0)+1;});
   document.getElementById('funnel').innerHTML=FUNNEL.map(([key,label,grp])=>{
     const n=grp.reduce((a,s)=>a+(counts[s]||0),0);
-    return `<div class="stage ${filter===key?'on':''}" onclick="setFilter('${key}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;
-  }).join('');
+    return `<div class="stage ${filter===key?'on':''}" onclick="setFilter('${key}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;}).join('');
 }
 function renderFilters(){
   const jobs=DOC.jobs||[],c=p=>jobs.filter(p).length;
@@ -535,19 +513,17 @@ function refItem(job,r){
   const tag=r.kind==='in_network'?'<span class="tag in">in network</span>':r.kind==='apollo'?'<span class="tag ap">apollo</span>':'<span class="tag se">search</span>';
   const link=r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">open</a>`:'';
   const useBtn=r.kind==='search'?'':`<button onclick="useName('${job.id}',this)" data-name="${esc(r.name)}">use</button>`;
-  return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;
-}
+  return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;}
 function jobRow(job){
   const st=jobStatus(job.id),isNew=newIds.has(job.id)&&st==='new';
-  return `<div class="jobrow" id="row-${job.id}"><div class="rhead" onclick="toggleRow('${job.id}')">
+  return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}"><div class="rhead" onclick="toggleRow('${job.id}')">
     <span class="dot s-${st.replace(/ /g,'-')}"></span>
-    <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag ap">new</span>':''}</div>
+    <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}</div>
       <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div></div>
     <div class="rscore">${job.fit_score}<small>fit</small></div>
     <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
     <span class="rstatus">${esc(st)}</span><span class="chev-r">▸</span></div>
-    <div class="rdetail" id="detail-${job.id}"></div></div>`;
-}
+    <div class="rdetail" id="detail-${job.id}"></div></div>`;}
 function detailHtml(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
@@ -563,36 +539,18 @@ function detailHtml(job){
       <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div></div>
     <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>
     <div class="foot"><span class="status">Status: ${sel}</span><div class="grow"></div>
-      <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;
-}
+      <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;}
 function fillDetail(id){const d=document.getElementById('detail-'+id);if(d&&!d.dataset.filled){d.innerHTML=detailHtml(DOC.jobs.find(j=>j.id===id));d.dataset.filled='1';}}
 function toggleRow(id){const row=document.getElementById('row-'+id);const open=row.classList.toggle('open');if(open){openRows.add(id);fillDetail(id);}else openRows.delete(id);}
-function expandJob(id){filter='all';location.hash='#/jobs';const idx=visibleJobs().findIndex(j=>j.id===id);if(idx>=0&&idx>=shownCount)shownCount=Math.ceil((idx+1)/PAGE)*PAGE;openRows.add(id);renderJobs();requestAnimationFrame(()=>{const r=document.getElementById('row-'+id);if(r)r.scrollIntoView({behavior:'smooth',block:'center'});});}
-
 function useName(jobId,btn){const name=btn.getAttribute('data-name');const job=DOC.jobs.find(j=>j.id===jobId);
   document.getElementById('msg-'+jobId).value=personalize(job.referral_message,name);document.getElementById('who-'+jobId).textContent='personalized for '+firstName(name);}
 function copyText(t){navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard'));}
 function copyMsg(id){const ta=document.getElementById('msg-'+id);ta.select();copyText(ta.value);}
-function followupText(job){return `Hi — just following up on my earlier note about the ${job.title} role at ${job.company}. I'm still very interested and would love to move things forward. Happy to share anything that helps. Thanks!`;}
 function setStatus(id,s){setStatusLS(id,s);toast('Status → '+s);render();}
-
 function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
   document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword.</span>';}
 
-// ---------- render orchestration + routing ----------
-function renderOverview(){
-  const jobs=DOC.jobs||[], bm=(DOC.summary||{}).best_match;
-  const companies=new Set(jobs.map(j=>j.company)).size;
-  const rows=[
-    ['Active matches', jobs.length, false],
-    ['Companies tracked', companies, false],
-    ['Strongest match', bm?`${bm.company} · ${bm.ats_score}% ATS`:'—', true],
-    ['New since last visit', newIds.size, false],
-    ['Last scan', timeAgo(DOC.generated_at), false],
-  ];
-  const el=document.getElementById('overview');
-  if(el) el.innerHTML=rows.map(([k,v,hl])=>`<div><dt>${esc(k)}</dt><dd class="${hl?'hl':''}">${esc(String(v))}</dd></div>`).join('');
-}
+// ----- render / routing -----
 function renderHome(){renderScore();renderOverview();renderAuto();}
 function renderJobs(){
   renderFunnel();renderFilters();
@@ -613,19 +571,18 @@ function route(){
   const onJobs=location.hash.startsWith('#/jobs');
   document.getElementById('screen-home').hidden=onJobs;
   document.getElementById('screen-jobs').hidden=!onJobs;
-  document.getElementById('navHome').classList.toggle('on',!onJobs);
-  document.getElementById('navJobs').classList.toggle('on',onJobs);
+  document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===(onJobs?'jobs':'home')));
+  document.getElementById('pageTitle').textContent=onJobs?'Jobs':'Cockpit';
   render();
 }
 window.addEventListener('hashchange',route);
-
 async function load(){
   try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
-  catch(e){document.getElementById('queue').innerHTML='<div class="empty">Couldn\'t load <code>jobs.json</code>. Serve <code>docs/</code> over http or run <code>python3 worker.py</code>.</div>';return;}
+  catch(e){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}
   computeNew();route();refreshStatus();
 }
 
-// ---------- one-off script runner ----------
+// ----- runner -----
 function openRunner(){document.getElementById('runnerModal').style.display='flex';document.getElementById('runnerOut').textContent='';}
 function resetRunner(){document.getElementById('runnerTitle').textContent='Run a one-off script';
   document.getElementById('runnerHelp').innerHTML='Paste a generated <code>*.local.js</code> script — e.g. <code>scripts/inject.local.js</code> — to load your sensitive data into this browser. Nothing is uploaded.';
@@ -638,16 +595,11 @@ document.getElementById('runnerBtn').addEventListener('click',()=>{resetRunner()
 document.getElementById('runnerModal').addEventListener('click',e=>{if(e.target.id==='runnerModal')closeRunner();});
 document.getElementById('privFile').addEventListener('change',ev=>{const f=ev.target.files[0];if(!f)return;const rd=new FileReader();
   rd.onload=()=>{document.getElementById('runnerCode').value=rd.result;document.getElementById('runnerOut').textContent='Loaded '+f.name+' — click Run script.';};rd.readAsText(f);});
-
-// gap toggle
 document.getElementById('gapToggle').addEventListener('click',function(){const b=document.getElementById('gapBody');const open=b.style.display==='none';b.style.display=open?'block':'none';this.classList.toggle('open',open);});
-
-// theme
 (function(){const t=localStorage.getItem(THEME_KEY);if(t)document.documentElement.setAttribute('data-theme',t);})();
 document.getElementById('themeBtn').addEventListener('click',()=>{const cur=document.documentElement.getAttribute('data-theme');
   const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const next=dark?'light':'dark';
   document.documentElement.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);});
-
 load();
 </script>
 </body>
