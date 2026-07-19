@@ -152,12 +152,9 @@
   .auto-note{color:var(--muted);font-size:.82rem;margin:.2rem 0 .95rem}
   .auto-grid{display:flex;gap:.55rem;flex-wrap:wrap;align-items:stretch}
   .auto-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.65rem .9rem;min-width:132px;border-radius:11px}
-  .auto-btn b{font-weight:600;font-size:.87rem} .auto-btn span{font-size:.72rem;color:var(--muted)}
-  .auto-item{display:flex;flex-direction:column;gap:.35rem;min-width:132px}
-  .auto-item .auto-btn{width:100%;min-width:0}
-  .auto-st-wrap{min-height:1.05rem;padding-left:.15rem}
-  .auto-st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:var(--muted);text-decoration:none}
-  a.auto-st:hover{text-decoration:underline}
+  .auto-btn b{font-weight:600;font-size:.87rem} .auto-btn .auto-sub{font-size:.72rem;color:var(--muted)}
+  .auto-st-line{min-height:1.05rem;margin-top:.15rem;display:flex;align-items:center}
+  .auto-st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:var(--muted);transition:opacity .3s}
   .auto-st .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex-shrink:0}
   .auto-st.run{color:var(--accent)} .auto-st.run .dot{background:var(--accent);animation:pulse 1.5s infinite}
   .auto-st.ok{color:var(--good)} .auto-st.ok .dot{background:var(--good)}
@@ -387,7 +384,8 @@ const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
-let runs={}, runsTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
+let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
+const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
 const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['messaged']],
   ['referred','Referred',['referred']],['applied','Applied',['applied']],
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
@@ -506,6 +504,8 @@ async function fetchRun(id){
 }
 function applyRun(e,run){e.id=run.id;e.url=run.html_url;e.status=run.status;e.conclusion=run.conclusion;
   e.started=run.run_started_at||run.created_at||e.started;e.updated=run.updated_at;}
+function markDone(e,conclusion){e.status='completed';if(conclusion!==undefined)e.conclusion=conclusion;
+  if(!e.doneAt)e.doneAt=Date.now();}
 // One ticker updates every in-flight action, then re-renders and reschedules while any is active.
 async function refreshRuns(){
   clearTimeout(runsTimer);
@@ -513,14 +513,29 @@ async function refreshRuns(){
     const e=runs[mode];if(!runActive(e))continue;
     if(!e.id){                                   // dispatch API returns no id — wait for a run newer than baseline
       const {run}=await fetchLatestRun();
-      if(run && run.id>(e.baseline||0))applyRun(e,run);
-      else if(Date.now()-(e.since||0)>60000){e.status='completed';e.conclusion='unknown';} // give up after 60s
+      if(run && run.id>(e.baseline||0)){applyRun(e,run);if(e.status==='completed')markDone(e);}
+      else if(Date.now()-(e.since||0)>60000)markDone(e,'unknown'); // give up after 60s
     }else{
-      const run=await fetchRun(e.id);if(run)applyRun(e,run);
+      const run=await fetchRun(e.id);if(run){applyRun(e,run);if(e.status==='completed')markDone(e);}
     }
   }
   saveRuns();renderAuto();
   if(anyActive())runsTimer=setTimeout(refreshRuns,6000);
+  else armDismiss();
+}
+// Clears finished statuses once they've been visible for RUN_TTL, one timer for the soonest.
+function armDismiss(){
+  clearTimeout(dismissTimer);
+  const now=Date.now();let soonest=Infinity,changed=false;
+  for(const mode of Object.keys(runs)){
+    const e=runs[mode];if(!e||e.status!=='completed')continue;
+    if(!e.doneAt)e.doneAt=now;
+    const left=e.doneAt+RUN_TTL-now;
+    if(left<=0){delete runs[mode];changed=true;}
+    else soonest=Math.min(soonest,left);
+  }
+  if(changed){saveRuns();renderAuto();}
+  if(soonest!==Infinity)dismissTimer=setTimeout(armDismiss,soonest+50);
 }
 function runBadge(mode){
   const e=runs[mode];if(!e)return '';
@@ -529,22 +544,20 @@ function runBadge(mode){
     txt=(ok?'done':(e.conclusion||'failed'))+' · '+timeAgo(e.updated||e.since);}
   else if(!e.id||e.status==='queued'){cls='run';txt='queued…';}
   else{cls='run';txt='running · '+timeAgo(e.started||e.since);}
-  const inner=`<span class="dot"></span>${esc(txt)}`;
-  return e.url?`<a class="auto-st ${cls}" href="${e.url}" target="_blank" rel="noopener">${inner}</a>`
-             :`<span class="auto-st ${cls}">${inner}</span>`;
+  return `<span class="auto-st ${cls}"><span class="dot"></span>${esc(txt)}</span>`;
 }
 const AUTOS=[['refresh','Refresh jobs','re-scan feeds + rebuild'],['digest','Send digest','email top picks now'],
   ['discover','Discovery sweep','find new H-1B companies'],['tidy','Re-tidy','drop stale + recompute']];
 function renderAuto(){
   const box=document.getElementById('autobody');if(!box)return;
   const hasTok=!!ghToken();
-  const note=hasTok?'Trigger any action — each shows its own live status below until it finishes.'
+  const note=hasTok?'Trigger any action — each shows its own live status until it finishes.'
     :'Connect GitHub in <a href="#/settings">Settings</a> to enable one-click automations.';
   const items=AUTOS.map(([mode,label,sub])=>
-    `<div class="auto-item">
-      <button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>
-      <div class="auto-st-wrap">${runBadge(mode)}</div>
-    </div>`).join('');
+    `<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')">
+      <b>${label}</b><span class="auto-sub">${sub}</span>
+      <span class="auto-st-line">${runBadge(mode)}</span>
+    </button>`).join('');
   box.innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${items}</div>`;
 }
 function renderSettings(){
@@ -676,7 +689,7 @@ window.addEventListener('hashchange',route);
 async function load(){
   try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
   catch(e){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}
-  computeNew();loadRuns();route();if(anyActive())refreshRuns();
+  computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
 }
 
 // ----- runner -----
