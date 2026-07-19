@@ -49,9 +49,10 @@ def load_config() -> dict:
 
 
 def _natural_key(job: dict) -> tuple:
+    # Dedupe by company + title only. Many ATS feeds post the same role once per
+    # location; keying on location too would leave those as duplicate cards.
     return ((job.get("company") or "").strip().lower(),
-            (job.get("title") or "").strip().lower(),
-            (job.get("location") or "").strip().lower())
+            (job.get("title") or "").strip().lower())
 
 
 def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:

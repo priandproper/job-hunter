@@ -34,6 +34,57 @@ LANE_TERMS = [
 
 _TAG_RE = re.compile(r"<[^>]+>")
 
+# Titles carrying any of these are dropped: too senior for a manager-level
+# candidate, or a different function entirely (engineering/design). Mirrors the
+# seniority/role exclusions the upstream scanner already used. Config can
+# override via match.exclude_title_terms.
+DEFAULT_EXCLUDE_TITLE_TERMS = [
+    "vp", "v.p.", "vice president", "svp", "evp", "head of", "director",
+    "chief", "cmo", "president", "principal", "intern", "internship",
+    "co-op", "co op", "apprentice", "fellow", "trainee",
+    "engineer", "engineering", "software", "data scientist", "designer",
+    "architect",
+]
+
+
+def excluded_title(title: str | None, terms) -> bool:
+    t = (title or "").lower()
+    return any(term in t for term in terms)
+
+
+# Location filtering (candidate needs US / US-remote roles for H-1B sponsorship).
+# A role is dropped only if it names a non-US location AND has no US marker — so
+# multi-location roles like "SF, NYC, Toronto, Remote in the US" are kept.
+NONUS_LOCATION_TERMS = [
+    "india", "london", "uk", "united kingdom", "ireland", "dublin", "emea",
+    "apac", "germany", "berlin", "munich", "france", "paris", "spain", "madrid",
+    "barcelona", "portugal", "lisbon", "poland", "krakow", "warsaw", "netherlands",
+    "amsterdam", "australia", "sydney", "melbourne", "singapore", "tokyo", "japan",
+    "korea", "seoul", "toronto", "canada", "vancouver", "ontario", "british columbia",
+    "quebec", "montreal", "mexico", "guadalajara", "brazil", "sao paulo", "israel",
+    "tel aviv", "dubai", "uae", "latam", "philippines", "manila", "hyderabad",
+    "bangalore", "bengaluru", "pune", "delhi", "mumbai", "chennai", "gurgaon", "noida",
+]
+US_LOCATION_TERMS = [
+    "united states", "usa", "u.s.", "u.s.a", ", ma", ", ny", ", ca", ", wa",
+    ", il", ", tx", ", co", ", ga", ", dc", ", va", ", nc", ", az", ", or",
+    ", fl", ", pa", ", mn", ", oh", ", ut", ", md", ", nj", ", tn",
+    "massachusetts", "new york", "nyc", "boston", "cambridge", "san francisco",
+    "seattle", "chicago", "austin", "denver", "atlanta", "los angeles", "brooklyn",
+    "remote in the us", "remote - us", "us remote", "remote, us", "remote us",
+]
+
+
+def location_ok(location: str | None, nonus=None, us=None) -> bool:
+    if not location:
+        return True  # unknown location → keep rather than over-filter
+    loc = location.lower()
+    nonus = nonus if nonus is not None else NONUS_LOCATION_TERMS
+    us = us if us is not None else US_LOCATION_TERMS
+    if any(t in loc for t in nonus) and not any(t in loc for t in us):
+        return False
+    return True
+
 
 def _clean(text: str | None) -> str:
     if not text:
@@ -94,5 +145,10 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
     if match["fit_score"] < cfg_match.get("min_fit_score", 30):
         return False
     if (job.get("sponsorship") or "").strip() in cfg_match.get("exclude_sponsorship", []):
+        return False
+    terms = cfg_match.get("exclude_title_terms", DEFAULT_EXCLUDE_TITLE_TERMS)
+    if excluded_title(job.get("title"), terms):
+        return False
+    if not location_ok(job.get("location")):
         return False
     return True
