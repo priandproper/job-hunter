@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Job Hunter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:light;
@@ -42,7 +45,8 @@
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--plane);color:var(--ink);
-    font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    font:15px/1.5 'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;font-feature-settings:"cv11","ss01";letter-spacing:-.006em}
   ::selection{background:var(--accent-soft)}
   .grow{flex:1}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
@@ -99,12 +103,12 @@
   .intro{padding:.1rem 0}
   .intro h2{margin:0 0 .65rem;font-size:1.5rem;font-weight:700;letter-spacing:-.025em;line-height:1.15}
   .intro p{color:var(--ink-2);font-size:.92rem;line-height:1.6;margin:0 0 1.15rem}
-  .steps{margin:0 0 1.15rem;padding-left:1.2rem;display:flex;flex-direction:column;gap:.6rem}
-  .steps li{font-size:.89rem;line-height:1.5;color:var(--ink-2);padding-left:.2rem}
-  .steps li b{color:var(--ink);font-weight:600}
-  .steps li::marker{color:var(--accent);font-weight:700}
-  .ihelp{font-size:.82rem;color:var(--muted)!important;margin:0!important;line-height:1.55}
-  .ihelp b{color:var(--ink-2)}
+  .facts{margin:0;display:flex;flex-direction:column}
+  .facts>div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.72rem 0;border-top:1px solid var(--line)}
+  .facts>div:first-child{border-top:none;padding-top:.2rem}
+  .facts dt{margin:0;color:var(--ink-2);font-size:.9rem}
+  .facts dd{margin:0;font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:right}
+  .facts dd.hl{color:var(--accent)}
   .hero{padding:.1rem 0;display:flex;flex-direction:column;gap:1.5rem;justify-content:center}
   .hero-top{display:flex;align-items:center;gap:1.5rem}
   @media (max-width:420px){.hero-top{flex-direction:column;text-align:center}}
@@ -242,7 +246,7 @@
 </head>
 <body>
 <header>
-  <h1 class="brand"><span class="logo">🎯</span> Job Hunter</h1>
+  <h1 class="brand">Job Hunter</h1>
   <nav class="nav">
     <a href="#/" id="navHome">Cockpit</a>
     <a href="#/jobs" id="navJobs">Jobs</a>
@@ -250,12 +254,12 @@
   <div class="grow"></div>
   <span class="meta" id="meta"></span>
   <button id="themeBtn" class="icon" title="Toggle light / dark">◐</button>
-  <button id="runnerBtn" title="Load private data / connect GitHub">▶ Run script</button>
+  <button id="runnerBtn" title="Load private data / connect GitHub">Run script</button>
 </header>
 
 <div class="modal" id="runnerModal" style="display:none">
   <div class="modal-box">
-    <h2 id="runnerTitle">▶ Run a one-off script</h2>
+    <h2 id="runnerTitle">Run a one-off script</h2>
     <p class="sub" id="runnerHelp">Paste a generated <code>*.local.js</code> script — e.g.
       <code>scripts/inject.local.js</code> — to load your sensitive data (email, phone, referral
       contacts) into this browser's local storage. It runs entirely on your machine; nothing is
@@ -275,14 +279,9 @@
   <section id="screen-home" class="screen">
     <div class="top2">
       <div class="intro">
-        <h2>Your job hunt, on autopilot</h2>
-        <p>Job Hunter scans H-1B-friendly companies, tailors a resume for every match, drafts a referral message, and finds who can refer you — then scores where you stand.</p>
-        <ol class="steps">
-          <li><b>Check "Needs you now"</b> — the few jobs worth acting on today.</li>
-          <li><b>Open the resume</b> — review the tailored version and download the PDF.</li>
-          <li><b>Copy the referral message</b> — send it to a contact, or use a search link.</li>
-          <li><b>Apply, then set the status</b> — jobs move through your funnel and your score climbs.</li>
-        </ol>
+        <h2>At a glance</h2>
+        <p>Where your search stands right now — refreshed automatically as new roles are found.</p>
+        <dl class="facts" id="overview"></dl>
       </div>
       <div class="hero">
         <div class="hero-top">
@@ -298,7 +297,7 @@
 
     <div class="panel">
       <div class="panel-hd">
-        <h2>⚙️ Automation</h2>
+        <h2>Automation</h2>
         <div class="autostat"><span class="sdot" id="sdot"></span><span id="autostatus">checking…</span></div>
       </div>
       <div class="autobody" id="autobody"></div>
@@ -317,7 +316,7 @@
     <div id="list" class="rowlist"></div>
 
     <div class="panel collapsible" id="gapPanel">
-      <button class="panel-toggle" id="gapToggle">📊 What you're missing<span class="chev">▸</span></button>
+      <button class="panel-toggle" id="gapToggle">What you're missing<span class="chev">▸</span></button>
       <div class="panel-body" id="gapBody" style="display:none">
         <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first — your highest-leverage skills to add.</p>
         <div class="leader" id="leader"></div>
@@ -353,7 +352,7 @@ const FILTER_GROUPS={
 // ---------- helpers ----------
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1700);}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
-function firstName(n){return (n||'').replace(/^🔎.*/,'').trim().split(/\s+/)[0]||'there';}
+function firstName(n){return (n||'').replace(/^Search LinkedIn.*/,'').trim().split(/\s+/)[0]||'there';}
 function personalize(msg,name){return msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' ');}
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
 function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));}
@@ -462,10 +461,10 @@ function renderAuto(){
   const hasTok=!!ghToken();
   const note=hasTok
     ? '<div class="note">Triggers a GitHub Actions run. Watch the status above.</div>'
-    : '<div class="note">🔒 Connect GitHub to enable one-click automations (status shows without it).</div>';
+    : '<div class="note">Connect GitHub to enable one-click automations (status shows without it).</div>';
   const btns=AUTOS.map(([mode,label,sub])=>
     `<button class="auto-btn" ${hasTok?'':'disabled'} onclick="ghDispatch('${mode}')"><b>${label}</b><span>${sub}</span></button>`).join('');
-  const connect=`<button class="${hasTok?'':'primary'}" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'🔗 Connect GitHub'}</button>`;
+  const connect=`<button class="${hasTok?'':'primary'}" onclick="connectGitHub()">${hasTok?'Reconnect GitHub':'Connect GitHub'}</button>`;
   document.getElementById('autobody').innerHTML=note+btns+connect;
 }
 async function ghDispatch(mode){
@@ -473,13 +472,13 @@ async function ghDispatch(mode){
   const g=gh();
   const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/workflows/${g.workflow}/dispatches`,
     {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ref:g.ref,inputs:{mode}})});
-  if(r&&r.status===204){toast('▶ Triggered: '+mode);setTimeout(refreshStatus,2500);}
+  if(r&&r.status===204){toast('Triggered: '+mode);setTimeout(refreshStatus,2500);}
   else if(r&&r.status===401){toast('Token rejected — reconnect GitHub');}
   else toast('Trigger failed'+(r?` (${r.status})`:''));
 }
 function connectGitHub(){
   openRunner();
-  document.getElementById('runnerTitle').textContent='🔗 Connect GitHub';
+  document.getElementById('runnerTitle').textContent='Connect GitHub';
   document.getElementById('runnerHelp').innerHTML='Create a <b>fine-grained</b> personal access token scoped to <b>only the job-hunter repo</b> with <b>Actions: Read and write</b> (nothing else). Replace <code>PASTE_TOKEN_HERE</code> below and click Run. It is stored only in this browser and never committed.';
   document.getElementById('runnerCode').value=
     "// GitHub token — fine-grained, job-hunter repo only, Actions: read/write.\n"+
@@ -500,7 +499,7 @@ function actionQueue(){
 function renderQueue(){
   const items=actionQueue(),q=document.getElementById('queue');
   document.getElementById('queueCount').textContent=items.length?`${items.length} to act on`:'';
-  if(!items.length){q.innerHTML='<div class="empty">🎉 Nothing needs you right now. New matches land here as the automation finds them.</div>';return;}
+  if(!items.length){q.innerHTML='<div class="empty">Nothing needs you right now. New matches land here as the automation finds them.</div>';return;}
   q.innerHTML=items.map(it=>{const j=it.job;
     const why=it.follow?`<span class="qwhy">⏰ ${esc(it.why)}</span>`:(it.isNew?'<span class="tag ap">new</span>':'');
     const primary=it.follow
@@ -553,16 +552,16 @@ function detailHtml(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   const jdNote=job.jd_available?'':' <span class="co">(title-only)</span>';
-  const refs=jobRefs(job.id).slice();refs.push({name:'🔎 Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
+  const refs=jobRefs(job.id).slice();refs.push({name:'Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
   const people=refs.filter(r=>r.kind!=='search');
-  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click ▶ Run script.</div>');
+  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click Run script.</div>');
   const sel=`<select onchange="setStatus('${job.id}',this.value)">`+STATUSES.map(s=>`<option ${s===jobStatus(job.id)?'selected':''}>${s}</option>`).join('')+`</select>`;
   return `<div class="grid">
-    <div class="box"><h3>❌ Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
+    <div class="box"><h3>Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
       <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
-    <div class="box"><h3>✉️ Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
+    <div class="box"><h3>Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
       <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div></div>
-    <div class="box" style="margin-top:.85rem"><h3>🤝 Who can refer you (${people.length})</h3>${refsHtml}</div>
+    <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>
     <div class="foot"><span class="status">Status: ${sel}</span><div class="grow"></div>
       <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;
 }
@@ -578,10 +577,23 @@ function followupText(job){return `Hi — just following up on my earlier note a
 function setStatus(id,s){setStatusLS(id,s);toast('Status → '+s);render();}
 
 function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
-  document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';}
+  document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword.</span>';}
 
 // ---------- render orchestration + routing ----------
-function renderHome(){renderScore();renderAuto();}
+function renderOverview(){
+  const jobs=DOC.jobs||[], bm=(DOC.summary||{}).best_match;
+  const companies=new Set(jobs.map(j=>j.company)).size;
+  const rows=[
+    ['Active matches', jobs.length, false],
+    ['Companies tracked', companies, false],
+    ['Strongest match', bm?`${bm.company} · ${bm.ats_score}% ATS`:'—', true],
+    ['New since last visit', newIds.size, false],
+    ['Last scan', timeAgo(DOC.generated_at), false],
+  ];
+  const el=document.getElementById('overview');
+  if(el) el.innerHTML=rows.map(([k,v,hl])=>`<div><dt>${esc(k)}</dt><dd class="${hl?'hl':''}">${esc(String(v))}</dd></div>`).join('');
+}
+function renderHome(){renderScore();renderOverview();renderAuto();}
 function renderJobs(){
   renderFunnel();renderFilters();
   const jobs=visibleJobs();document.getElementById('count').textContent=`${jobs.length} shown`;
@@ -615,7 +627,7 @@ async function load(){
 
 // ---------- one-off script runner ----------
 function openRunner(){document.getElementById('runnerModal').style.display='flex';document.getElementById('runnerOut').textContent='';}
-function resetRunner(){document.getElementById('runnerTitle').textContent='▶ Run a one-off script';
+function resetRunner(){document.getElementById('runnerTitle').textContent='Run a one-off script';
   document.getElementById('runnerHelp').innerHTML='Paste a generated <code>*.local.js</code> script — e.g. <code>scripts/inject.local.js</code> — to load your sensitive data into this browser. Nothing is uploaded.';
   document.getElementById('runnerCode').value='';}
 function closeRunner(){document.getElementById('runnerModal').style.display='none';resetRunner();}
