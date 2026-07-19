@@ -170,6 +170,22 @@
   .conn.ok{color:var(--good);background:var(--good-soft)} .conn.ok::before{background:var(--good)}
   .conn.off{color:var(--muted);background:var(--surface-2)} .conn.off::before{background:var(--muted)}
 
+  /* ============ INBOX PROPOSALS ============ */
+  .inbox-card{margin-bottom:1.6rem;padding:1.3rem 1.4rem;border-left:3px solid var(--accent)}
+  .inbox-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.4rem}
+  .inbox-hd .sub{margin:.1rem 0 0;color:var(--muted);font-size:.82rem;max-width:52ch}
+  .inbox-hd-btns{display:flex;gap:.5rem;flex-shrink:0}
+  .inbox-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0;border-top:1px solid var(--line)}
+  .inbox-co{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+  .inbox-sub{color:var(--ink-2);font-size:.82rem;margin-top:.1rem}
+  .inbox-mail{color:var(--muted);font-size:.75rem;margin-top:.2rem}
+  .inbox-btns{display:flex;gap:.45rem;flex-shrink:0}
+  .inbox-co .pill{font-size:.68rem;font-weight:700;padding:.14rem .5rem;border-radius:999px;text-transform:capitalize;background:var(--accent-soft);color:var(--accent)}
+  .inbox-co .st-rejected{background:var(--bad-soft);color:var(--bad)}
+  .inbox-co .st-offer{background:var(--good-soft);color:var(--good)}
+  .inbox-co .st-applied{background:var(--mid-soft);color:var(--mid)}
+  @media (max-width:640px){.inbox-row{flex-direction:column;align-items:flex-start}}
+
   /* ============ FUNNEL ============ */
   .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
   @media (max-width:640px){.funnel{grid-template-columns:repeat(3,1fr)}}
@@ -309,6 +325,7 @@
     <main>
       <!-- ===== COCKPIT ===== -->
       <section id="screen-home" class="screen">
+        <div id="inboxReview"></div>
         <div class="top2">
           <div class="card hero">
             <div class="hero-top">
@@ -379,7 +396,7 @@
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
-      RUNS_KEY="job-hunter:runs:v1";
+      RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
@@ -649,11 +666,47 @@ function useName(jobId,btn){const name=btn.getAttribute('data-name');const job=D
 function copyText(t){navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard'));}
 function copyMsg(id){const ta=document.getElementById('msg-'+id);ta.select();copyText(ta.value);}
 function setStatus(id,s){setStatusLS(id,s);toast('Status → '+s);render();}
+
+// ----- inbox proposals (from scripts/inbox.local.js — propose, you confirm) -----
+function getInbox(){try{return JSON.parse(localStorage.getItem(INBOX_KEY))||[]}catch{return[]}}
+function saveInbox(a){try{localStorage.setItem(INBOX_KEY,JSON.stringify(a))}catch{}}
+// Only surface proposals whose job still exists and whose status would actually change.
+function pendingInbox(){const byId={};(DOC.jobs||[]).forEach(j=>byId[j.id]=j);
+  return getInbox().filter(p=>byId[p.id]&&p.detected&&p.detected!==jobStatus(p.id));}
+function dropInbox(id){saveInbox(getInbox().filter(p=>p.id!==id));}
+function acceptInbox(id){const p=getInbox().find(x=>x.id===id);if(p){setStatusLS(p.id,p.detected);toast('Status → '+p.detected);}dropInbox(id);render();}
+function dismissInbox(id){dropInbox(id);renderInbox();}
+function acceptAllInbox(){pendingInbox().forEach(p=>setStatusLS(p.id,p.detected));saveInbox(getInbox().filter(p=>!pendingInbox().some(q=>q.id===p.id)));toast('Applied inbox updates');render();}
+function clearInbox(){saveInbox([]);renderInbox();}
+function renderInbox(){
+  const box=document.getElementById('inboxReview');if(!box)return;
+  const items=pendingInbox();
+  if(!items.length){box.innerHTML='';return;}
+  const rows=items.map(p=>`<div class="inbox-row">
+      <div class="inbox-main">
+        <div class="inbox-co">${esc(p.company)} <span class="pill st-${esc(p.detected).replace(/[^a-z]/g,'')}">${esc(p.detected)}</span></div>
+        <div class="inbox-sub">${esc(p.title||'')}</div>
+        <div class="inbox-mail">“${esc(p.subject||'')}” · ${esc(p.from||'')}</div>
+      </div>
+      <div class="inbox-btns">
+        <button class="primary" onclick="acceptInbox('${p.id}')">Accept</button>
+        <button onclick="dismissInbox('${p.id}')">Dismiss</button>
+      </div>
+    </div>`).join('');
+  box.innerHTML=`<div class="card inbox-card">
+      <div class="inbox-hd">
+        <div><span class="eyebrow">Inbox updates</span>
+        <p class="sub">Detected from your application inbox — accept to update the job's status, or dismiss.</p></div>
+        <div class="inbox-hd-btns">${items.length>1?'<button class="primary" onclick="acceptAllInbox()">Accept all</button>':''}<button onclick="clearInbox()">Clear</button></div>
+      </div>
+      ${rows}
+    </div>`;
+}
 function renderLeader(){const lb=(DOC.summary||{}).missing_leaderboard||[];
   document.getElementById('leader').innerHTML=lb.length?lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join(''):'<span class="co">No gaps found — your variants cover every requested keyword.</span>';}
 
 // ----- render / routing -----
-function renderHome(){renderScore();renderOverview();renderAuto();}
+function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
 function renderJobs(){
   renderFunnel();renderFilters();
   const jobs=visibleJobs();document.getElementById('count').textContent=`${jobs.length} shown`;

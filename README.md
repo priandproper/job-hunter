@@ -61,6 +61,23 @@ browser** when you click *Open resume in builder* — so the full resume opens, 
 your contact PII was never in the committed/public data. Statuses/notes also live
 in `localStorage`.
 
+## Sync statuses from your application inbox (`scripts/inbox_scan.py`)
+
+Keep job statuses in step with your email — locally, never in the cloud. The scanner
+reads your applying Gmail over IMAP, classifies messages (application received /
+interview / rejection / offer), matches each to a tracked job, and writes a
+git-ignored `scripts/inbox.local.js`:
+
+```bash
+# creds via env or .secrets.json: IMAP_USER + IMAP_APP_PASSWORD (a Gmail App Password)
+python3 scripts/inbox_scan.py            # scan last 30 days
+python3 scripts/inbox_scan.py --demo     # try the classifier on built-in samples
+```
+
+Load the generated file through the dashboard's **Run script** modal. Detected
+changes appear on the Cockpit as **Inbox updates** you Accept or Dismiss — nothing is
+applied automatically, and a status you set by hand is never silently overwritten.
+
 ## Setup
 
 ```bash
