@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Hunter</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg:#f6f7f9; --card:#fff; --ink:#1a1d21; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#2563eb; --accent-ink:#fff; --ok:#1a7f37; --okbg:#dcfce7;
+    --warn:#b45309; --warnbg:#fef3c7; --bad:#b91c1c; --badbg:#fee2e2;
+    --chip:#eef2ff; --chipink:#3730a3;
+  }
+  @media (prefers-color-scheme: dark){ :root{
+    --bg:#0f1115; --card:#181b21; --ink:#e6e8eb; --muted:#9aa1ac; --line:#2a2f37;
+    --chip:#1e2740; --chipink:#a5b4fc; --okbg:#0f3d24; --warnbg:#3a2c07; --badbg:#3d1519; }}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,system-ui,"Segoe UI",sans-serif}
+  header{position:sticky;top:0;z-index:10;background:var(--card);
+    border-bottom:1px solid var(--line);padding:.8rem 1.25rem;display:flex;
+    align-items:center;gap:1rem;flex-wrap:wrap}
+  header h1{font-size:1.1rem;margin:0;font-weight:700}
+  header h1 .pin{color:var(--accent)}
+  .meta{color:var(--muted);font-size:.82rem}
+  .grow{flex:1}
+  button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);
+    color:var(--ink);border-radius:8px;padding:.4rem .7rem}
+  button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  button:hover{filter:brightness(.97)} button:disabled{opacity:.5;cursor:default}
+  main{padding:1.1rem 1.25rem 4rem;max-width:1180px;margin:0 auto}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;margin-bottom:1.1rem}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem}
+  .stat .k{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+  .stat .v{font-size:1.5rem;font-weight:800;margin-top:.15rem}
+  .stat .s{color:var(--muted);font-size:.82rem;margin-top:.1rem}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:1rem 1.1rem;margin-bottom:1.1rem}
+  .panel h2{margin:0 0 .2rem;font-size:1rem}
+  .panel .sub{color:var(--muted);font-size:.83rem;margin:0 0 .7rem}
+  .leader{display:flex;flex-wrap:wrap;gap:.45rem}
+  .kw{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);
+    border-radius:999px;padding:.2rem .6rem;font-size:.82rem;background:var(--badbg);color:var(--bad)}
+  .kw b{background:var(--bad);color:#fff;border-radius:999px;font-size:.72rem;padding:.02rem .42rem}
+  .filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+  .filters .seg{display:flex;gap:.25rem;flex-wrap:wrap}
+  .filters button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .count{color:var(--muted);font-size:.85rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:1rem 1.1rem;margin-bottom:1rem;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card.applied{opacity:.72}
+  .top{display:flex;gap:.6rem;align-items:flex-start}
+  .top .t{flex:1;min-width:0}
+  .role{font-size:1.06rem;font-weight:700;margin:0 0 .15rem}
+  .co{color:var(--muted);font-size:.9rem}
+  .scorebox{text-align:center;min-width:74px}
+  .scorebox .n{font-size:1.5rem;font-weight:800;line-height:1}
+  .scorebox .l{font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .ats-hi{color:var(--ok)} .ats-mid{color:var(--warn)} .ats-lo{color:var(--bad)}
+  .badges{display:flex;gap:.4rem;flex-wrap:wrap;margin:.55rem 0 .1rem}
+  .chip{background:var(--chip);color:var(--chipink);border-radius:999px;
+    padding:.12rem .55rem;font-size:.75rem;font-weight:600;white-space:nowrap}
+  .chip.fit{background:var(--okbg);color:var(--ok)}
+  .chip.new{background:var(--accent);color:#fff}
+  .chip.spon{background:var(--warnbg);color:var(--warn)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:.9rem}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem}
+  .box h3{margin:0 0 .5rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .miss{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:.2rem}
+  .miss span{background:var(--badbg);color:var(--bad);border-radius:6px;padding:.08rem .42rem;font-size:.76rem}
+  .miss.none span{background:var(--okbg);color:var(--ok)}
+  .msg{width:100%;min-height:112px;resize:vertical;border:1px solid var(--line);border-radius:8px;
+    padding:.5rem .6rem;font:13px/1.5 inherit;background:var(--bg);color:var(--ink)}
+  .rowbtns{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap;align-items:center}
+  .refs{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+  .refs li{display:flex;gap:.5rem;align-items:center;font-size:.86rem}
+  .refs .who{flex:1;min-width:0}
+  .refs .pos{color:var(--muted);font-size:.8rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag{font-size:.66rem;font-weight:700;padding:.05rem .4rem;border-radius:5px}
+  .tag.in{background:var(--okbg);color:var(--ok)} .tag.ap{background:var(--chip);color:var(--chipink)}
+  .tag.se{background:var(--warnbg);color:var(--warn)}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .foot{display:flex;gap:.5rem;align-items:center;margin-top:.9rem;flex-wrap:wrap}
+  .status select{font:inherit;padding:.35rem .5rem;border-radius:8px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink)}
+  .hint{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:.5rem .7rem;
+    font-size:.82rem;margin-bottom:1rem}
+  .empty{text-align:center;color:var(--muted);padding:3rem 1rem}
+  .toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--ink);
+    color:var(--bg);padding:.55rem .9rem;border-radius:10px;font-size:.85rem;opacity:0;
+    transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="pin">📌</span> Job Hunter</h1>
+  <div class="meta" id="meta">loading…</div>
+  <div class="grow"></div>
+  <button id="privBtn" title="Load your git-ignored data/private.local.json into this browser">🔒 Load private data</button>
+  <input type="file" id="privFile" accept="application/json" style="display:none">
+  <button id="reloadBtn" class="primary">↻ Reload</button>
+</header>
+
+<main>
+  <div id="hint" class="hint" style="display:none"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="panel" id="gapPanel">
+    <h2>📊 What you're missing — across all matching jobs</h2>
+    <p class="sub">Keywords the job descriptions ask for that none of your resume variants cover, most-requested first. These are the highest-leverage skills to add.</p>
+    <div class="leader" id="leader"></div>
+  </div>
+
+  <div class="filters">
+    <div class="seg" id="statusFilter"></div>
+    <div class="grow"></div>
+    <span class="count" id="count"></span>
+  </div>
+  <div id="list"></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STATUSES=["new","resume ready","message sent","referred","applied","archived"];
+const STATUS_KEY="job-hunter:status:v1";
+const PRIVATE_KEY="job-hunter:private:v1";
+let DOC={jobs:[],meta:{},summary:{}};
+let filter="active";
+
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),1600);}
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function firstName(n){return (n||'').replace(/^🔎.*/,'').trim().split(/\s+/)[0]||'there';}
+function personalize(msg,name){return msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' ');}
+
+function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
+function setStatusLS(id,status){const s=getStatuses();s[id]={...(s[id]||{}),status};localStorage.setItem(STATUS_KEY,JSON.stringify(s));}
+function getPrivate(){try{return JSON.parse(localStorage.getItem(PRIVATE_KEY))||{}}catch{return{}}}
+function jobStatus(id){return (getStatuses()[id]||{}).status||'new';}
+function jobRefs(id){return (getPrivate().referrals||{})[id]||[];}
+
+// The public jobs.json carries resume_core WITHOUT email/phone. If you've loaded
+// your private data, merge those in and build the import URL here in the browser
+// (raw url-encoded JSON — unicode-safe). Otherwise fall back to the PII-free URL.
+function buildImportUrl(job){
+  const contact=(getPrivate().contact)||{};
+  if((!contact.email && !contact.phone) || !job.resume_core) return job.import_url||'#';
+  const core=JSON.parse(JSON.stringify(job.resume_core));
+  core.contact={...core.contact, ...contact};
+  const app=((DOC.meta||{}).app_url||'').replace(/\/$/,'');
+  return app+'/?import='+encodeURIComponent(JSON.stringify(core));
+}
+
+async function load(){
+  try{
+    const r=await fetch('jobs.json?_='+Date.now());
+    if(!r.ok) throw new Error(r.status);
+    DOC=await r.json();
+  }catch(e){
+    document.getElementById('list').innerHTML=
+      '<div class="empty">Couldn\'t load <code>jobs.json</code>.<br>Serve this folder over http (e.g. <code>python3 -m http.server</code> in <code>docs/</code>) or run <code>python3 worker.py</code> first.</div>';
+    return;
+  }
+  render();
+}
+
+function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
+
+function renderStats(){
+  const s=DOC.summary||{}, m=DOC.meta||{};
+  const bm=s.best_match;
+  const priv=getPrivate();
+  const conn=priv.connections_loaded||0;
+  const cards=[
+    ['Matching jobs', m.job_count||0, 'fit ≥ '+(m.min_fit_score||0)],
+    ['Best resume match', bm?bm.ats_score+'%':'—', bm?esc(bm.variant)+' → '+esc(bm.company):'run the worker'],
+    ['Missing keywords', (s.missing_leaderboard||[]).length, 'distinct, across all jobs'],
+    ['Private data', conn?conn+' contacts':'not loaded', conn?'in-network referrers':'click 🔒 Load private data'],
+  ];
+  document.getElementById('stats').innerHTML=cards.map(([k,v,sub])=>
+    `<div class="stat"><div class="k">${esc(k)}</div><div class="v">${esc(String(v))}</div><div class="s">${esc(sub)}</div></div>`).join('');
+}
+
+function renderLeader(){
+  const lb=(DOC.summary||{}).missing_leaderboard||[];
+  document.getElementById('leader').innerHTML= lb.length
+    ? lb.map(x=>`<span class="kw">${esc(x.keyword)} <b>${x.count}</b></span>`).join('')
+    : '<span class="co">No gaps found — your variants cover every requested keyword. 🎉</span>';
+}
+
+function renderFilters(){
+  const jobs=DOC.jobs||[];
+  const counts={active:0,all:jobs.length};STATUSES.forEach(s=>counts[s]=0);
+  jobs.forEach(j=>{const st=jobStatus(j.id);counts[st]=(counts[st]||0)+1;if(st!=='archived')counts.active++;});
+  const opts=[["active","Active"],["all","All"]].concat(STATUSES.map(s=>[s,s]));
+  document.getElementById('statusFilter').innerHTML=opts.map(([k,label])=>
+    `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${esc(label)} <span style="opacity:.6">${counts[k]||0}</span></button>`).join('');
+}
+function setFilter(f){filter=f;render();}
+function visibleJobs(){
+  const jobs=DOC.jobs||[];
+  if(filter==='all')return jobs;
+  if(filter==='active')return jobs.filter(j=>jobStatus(j.id)!=='archived');
+  return jobs.filter(j=>jobStatus(j.id)===filter);
+}
+
+function refItem(job,r){
+  const tag=r.kind==='in_network'?'<span class="tag in">in network</span>'
+    :r.kind==='apollo'?'<span class="tag ap">apollo</span>':'<span class="tag se">search</span>';
+  const link=r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">open</a>`:'';
+  const useBtn=r.kind==='search'?'':`<button onclick="useName('${job.id}',this)" data-name="${esc(r.name)}">use</button>`;
+  return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;
+}
+
+function card(job){
+  const st=jobStatus(job.id);
+  const kws=(job.title_keywords||[]).map(k=>`<span class="chip">${esc(k)}</span>`).join('');
+  const spon=job.sponsorship&&job.sponsorship!=='Unknown'?`<span class="chip spon">visa: ${esc(job.sponsorship)}</span>`:'';
+  const missing=job.missing_keywords||[];
+  const missHtml=missing.length
+    ? '<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>'
+    : '<div class="miss none"><span>✓ covers every requested keyword</span></div>';
+  const jdNote=job.jd_available?'':' <span class="co">(title-only — no JD text)</span>';
+
+  // referrals from localStorage private data + the always-present search link
+  const refs=jobRefs(job.id).slice();
+  refs.push({name:'🔎 Search LinkedIn for people at '+job.company,position:'opens a people search you can browse',
+    url:job.linkedin_search,kind:'search'});
+  const people=refs.filter(r=>r.kind!=='search');
+  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'
+    +(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded. Use the search link, or click 🔒 Load private data.</div>');
+
+  const statusSel=`<select onchange="setStatus('${job.id}',this.value)">`+
+    STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')+`</select>`;
+
+  return `<div class="card ${st==='applied'?'applied':''}" id="card-${job.id}">
+    <div class="top">
+      <div class="t">
+        <p class="role">${esc(job.title)}</p>
+        <div class="co">${esc(job.company)} · ${esc(job.location||'')} ${job.posted_at?'· posted '+esc(String(job.posted_at).slice(0,10)):''}</div>
+      </div>
+      <div class="scorebox"><div class="n ${atsClass(job.ats_score)}">${job.ats_score}%</div><div class="l">ATS match</div></div>
+      <div class="scorebox"><div class="n">${job.fit_score}</div><div class="l">fit</div></div>
+    </div>
+    <div class="badges">${spon}<span class="chip">${esc(job.best_variant||job.variant_label||'')}</span>${kws}</div>
+
+    <div class="grid">
+      <div class="box">
+        <h3>❌ Missing keywords — best variant: ${esc(job.best_variant||'')}${jdNote}</h3>
+        ${missHtml}
+        <div class="rowbtns">
+          <a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>✉️ Referral message — ready to copy</h3>
+        <textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
+        <div class="rowbtns">
+          <button class="primary" onclick="copyMsg('${job.id}')">Copy message</button>
+          <span class="co" id="who-${job.id}"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:.9rem">
+      <h3>🤝 Who can refer you (${people.length} ${people.length===1?'person':'people'})</h3>
+      ${refsHtml}
+    </div>
+
+    <div class="foot">
+      <span class="status">Status: ${statusSel}</span>
+      <div class="grow"></div>
+      <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const m=DOC.meta||{};
+  document.getElementById('meta').textContent=
+    `generated ${DOC.generated_at||'—'} · ${m.job_count||0} jobs`;
+  const priv=getPrivate();
+  const hint=document.getElementById('hint');
+  if(!(priv.connections_loaded)){
+    hint.style.display='block';
+    hint.innerHTML='Referrer names are private, so they aren\'t in the public data. Click <b>🔒 Load private data</b> and pick your git-ignored <code>data/private.local.json</code> to see in-network contacts. Search links work without it.';
+  } else hint.style.display='none';
+  renderStats();renderLeader();renderFilters();
+  const jobs=visibleJobs();
+  document.getElementById('count').textContent=`${jobs.length} job${jobs.length!==1?'s':''}`;
+  document.getElementById('list').innerHTML=jobs.length?jobs.map(card).join(''):
+    '<div class="empty">No jobs in this view.</div>';
+}
+
+function useName(jobId,btn){
+  const name=btn.getAttribute('data-name');
+  const job=DOC.jobs.find(j=>j.id===jobId);
+  document.getElementById('msg-'+jobId).value=personalize(job.referral_message,name);
+  document.getElementById('who-'+jobId).textContent='personalized for '+firstName(name);
+}
+function copyMsg(jobId){
+  const ta=document.getElementById('msg-'+jobId);ta.select();
+  navigator.clipboard.writeText(ta.value).then(()=>toast('Referral message copied'));
+}
+function setStatus(jobId,status){
+  setStatusLS(jobId,status);toast('Status → '+status);
+  const c=document.getElementById('card-'+jobId);if(c)c.classList.toggle('applied',status==='applied');
+  renderStats();renderFilters();
+}
+
+// Load the git-ignored private.local.json into localStorage (no upload anywhere).
+document.getElementById('privBtn').addEventListener('click',()=>document.getElementById('privFile').click());
+document.getElementById('privFile').addEventListener('change',ev=>{
+  const f=ev.target.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const d=JSON.parse(rd.result);
+      localStorage.setItem(PRIVATE_KEY,JSON.stringify({referrals:d.referrals||{},connections_loaded:d.connections_loaded||0,contact:d.contact||{}}));
+      toast('Private data loaded ('+(d.connections_loaded||0)+' contacts)');render();
+    }catch(e){toast('Could not read that file');}
+  };
+  rd.readAsText(f);
+});
+
+document.getElementById('reloadBtn').addEventListener('click',()=>{load().then(()=>toast('Reloaded'));});
+load();
+</script>
+</body>
+</html>

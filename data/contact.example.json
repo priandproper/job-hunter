@@ -1,0 +1,5 @@
+{
+  "_comment": "Copy this to data/contact.local.json (git-ignored) and fill in your PII. These fields are merged into the resume only in your browser — they never enter the committed jobs.json.",
+  "email": "you@example.com",
+  "phone": "(555) 123-4567"
+}

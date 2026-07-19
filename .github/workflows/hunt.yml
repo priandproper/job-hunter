@@ -1,0 +1,70 @@
+name: hunt
+
+# Builds the data, emails new-job alerts, and deploys the dashboard to GitHub
+# Pages — for repos whose Pages Source is set to "GitHub Actions" (this deploys
+# the docs/ folder as a Pages artifact rather than serving a branch folder).
+# No PII touches the cloud: only public job data is generated here.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"      # every 30 min (GitHub may delay under load)
+  workflow_dispatch: {}          # run on demand from the Actions tab
+  push:
+    branches: [main]             # redeploy when you change code/content
+
+permissions:
+  contents: write                # persist state files (seen.json, companies.json)
+  pages: write                   # deploy to Pages
+  id-token: write                # required by deploy-pages
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build public jobs.json
+        run: python3 worker.py --public
+
+      - name: Email alerts for new jobs
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: python3 scripts/notify.py
+
+      - name: Persist state (dedup + discovered companies)
+        run: |
+          git config user.name  "job-hunter-bot"
+          git config user.email "job-hunter-bot@users.noreply.github.com"
+          git add docs/jobs.json docs/seen.json data/companies.json
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            # [skip ci] stops this bot commit from re-triggering the push event.
+            git commit -m "chore: refresh job data [skip ci]"
+            # Non-fatal: a push race must not block the Pages deploy below.
+            git push || echo "push failed (continuing to deploy)"
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - name: Upload dashboard as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

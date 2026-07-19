@@ -1,0 +1,71 @@
+{
+  "companies_file": "data/companies.json",
+
+  "output": {
+    "public_json": "docs/jobs.json",
+    "private_json": "data/private.local.json"
+  },
+
+  "sources": {
+    "tracker_db": "../job-search/tracker/jobs.db",
+    "scanner_seen": "../job-search/scanner/seen_jobs.json"
+  },
+
+  "resume_builder": {
+    "profile_json": "../resume-builder/src/data/profile.json",
+    "app_url": "https://priandproper.github.io/resume-builder",
+    "import_encoding": "raw"
+  },
+
+  "alerts": {
+    "min_fit_for_alert": 55
+  },
+
+  "contact_public": {
+    "fullName": "Priyanka Tambe",
+    "location": "Boston, MA",
+    "linkedin": "linkedin.com/in/priyankatam",
+    "github": "github.com/priandproper"
+  },
+  "contact_pii_file": "data/contact.local.json",
+
+  "match": {
+    "min_fit_score": 30,
+    "exclude_sponsorship": ["No"]
+  },
+
+  "referrals": {
+    "connections_csv": "data/connections.csv",
+    "max_contacts_per_job": 8,
+    "target_titles": [
+      "product marketing", "marketing manager", "growth marketing",
+      "demand generation", "recruiter", "talent acquisition"
+    ],
+    "company_aliases": {
+      "hubspot": ["hubspot", "hubspot jobs"],
+      "infosys finacle": ["infosys", "finacle", "edgeverve"],
+      "neurealm": ["neurealm", "gavs", "gavs technologies"]
+    }
+  },
+
+  "apollo": {
+    "enabled": true,
+    "api_key_env": "APOLLO_API_KEY",
+    "secrets_file": ".secrets.json",
+    "per_job_limit": 5
+  },
+
+  "discovery": {
+    "enabled": true,
+    "jsearch_api_key_env": "JSEARCH_API_KEY",
+    "secrets_file": ".secrets.json",
+    "min_interval_minutes": 180,
+    "results_pages": 1,
+    "queries": [
+      "product marketing manager in Boston, Massachusetts",
+      "product marketing manager in New York, New York",
+      "go to market marketing manager remote United States",
+      "marketing analytics manager remote United States"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+# Secrets (API keys) — never commit
+.secrets.json
+
+# PII — never commit. Third-party contacts, your own contact PII, private
+# localStorage payload, and the generated one-off console-inject script.
+data/connections.csv
+data/private.local.json
+data/contact.local.json
+scripts/*.local.js
+
+# Logs
+worker.log
+
+__pycache__/
+*.pyc
+.DS_Store
