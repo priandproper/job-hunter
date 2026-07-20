@@ -18,9 +18,13 @@ With only --company it targets your highest-FIT role there; pass --job to pick a
 or --list to browse a company's roles by fit first.
 
   # In the dashboard: People -> Export (saves people.local.json into data/), then:
-  python3 scripts/reach_out.py --company Datadog --list           # see the roles, by fit
-  python3 scripts/reach_out.py --company Datadog --job "Product Marketing Manager"
+  python3 scripts/reach_out.py --company Datadog --list           # roles + ids, by fit
+  python3 scripts/reach_out.py --id <job-id>                      # exact — recommended
+  python3 scripts/reach_out.py --company Datadog --job "Product Marketing Manager - APM"
   python3 scripts/reach_out.py --company Twilio --top 5 --out data/reachout.md
+
+Tip: --id is the reliable selector (title matching is fuzzy). Get an id from --list or
+the dashboard job URL (…/#/job/<id>).
 """
 
 import argparse
@@ -45,25 +49,40 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
 
 
-def find_job(jobs, company, title):
-    """Best-matching job + all candidates. With a title, rank by word overlap then
-    fit; without one, rank by fit_score (so 'just --company' picks your best match)."""
+def _title_score(query, job):
+    """Higher = better title match. Exact > substring > shared words."""
+    qt, jt = _norm(query), _norm(job.get("title", ""))
+    if not qt:
+        return 0
+    if jt == qt:
+        return 1000
+    if qt in jt or jt in qt:
+        return 500
+    return len(set(qt.split()) & set(jt.split())) * 10
+
+
+def find_job(jobs, company, title, job_id=""):
+    """Resolve a job. --id is exact. Else filter by company, then rank by an exact/
+    substring/word-overlap title score (fit as tie-break), or by fit if no title."""
+    if job_id:
+        j = next((x for x in jobs if x.get("id") == job_id), None)
+        return j, ([j] if j else [])
     cands = jobs
     if company:
         nc = _norm(company)
         cands = [j for j in jobs if nc and nc in _norm(j.get("company", ""))]
     if title:
-        toks = set(_norm(title).split())
-        cands = sorted(cands, key=lambda j: (len(toks & set(_norm(j.get("title", "")).split())),
-                                             j.get("fit_score", 0)), reverse=True)
+        cands = sorted(cands, key=lambda j: (_title_score(title, j), j.get("fit_score", 0)),
+                       reverse=True)
     else:
         cands = sorted(cands, key=lambda j: j.get("fit_score", 0), reverse=True)
     return (cands[0] if cands else None), cands
 
 
-def _job_line(j):
+def _job_line(j, with_id=False):
     loc = f" ({j.get('location')})" if j.get("location") else ""
-    return f"{j.get('title')} @ {j.get('company')}{loc}  ·  fit {j.get('fit_score', '?')}"
+    tag = f"  [id {j.get('id')}]" if with_id else ""
+    return f"{j.get('title')} @ {j.get('company')}{loc}  ·  fit {j.get('fit_score', '?')}{tag}"
 
 
 _REC_RE = re.compile(r"recruit|talent acquisition|talent partner|sourcer|talent acquisition", re.I)
@@ -206,49 +225,64 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--company", default="", help="company name (recommended)")
     ap.add_argument("--job", default="", help="job title (or part of it)")
+    ap.add_argument("--id", dest="job_id", default="", help="exact job id (from --list or the dashboard URL #/job/<id>)")
     ap.add_argument("--people", default=str(PEOPLE))
     ap.add_argument("--resume", default="", help="resume JSON file (else the job's resume_core)")
     ap.add_argument("--top", type=int, default=3, help="how many people to draft for")
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--out", default="", help="also write the results to this markdown file")
     ap.add_argument("--list", action="store_true",
-                    help="just list the matching roles (fit-ranked) and exit — don't draft")
+                    help="just list the matching roles (fit-ranked, with ids) and exit — don't draft")
     args = ap.parse_args()
 
     if not __import__("shutil").which("claude"):
         print("reach_out: the `claude` CLI is required (and you must be logged in).")
         return 2
-    if not (args.company or args.job):
-        print("reach_out: pass --company and/or --job.")
+    if not (args.company or args.job or args.job_id):
+        print("reach_out: pass --id, or --company and/or --job.")
         return 2
 
     doc = json.loads(JOBS.read_text())
-    job, cands = find_job(doc.get("jobs", []), args.company, args.job)
+    job, cands = find_job(doc.get("jobs", []), args.company, args.job, args.job_id)
     if not job:
-        print(f"reach_out: no job matched company={args.company!r} job={args.job!r}.")
+        who = f"id={args.job_id!r}" if args.job_id else f"company={args.company!r} job={args.job!r}"
+        print(f"reach_out: no job matched {who}.")
         return 1
 
-    # --list: browse the company's roles by fit (to choose which one to reach out about).
+    # --list: browse roles by fit, with ids to copy (to target one exactly with --id).
     if args.list:
         print(f"{len(cands)} matching role(s), best-fit first:\n")
         for c in cands[:25]:
-            print("  - " + _job_line(c))
-        print("\nRe-run with --job \"<title>\" to draft outreach for a specific one.")
+            print("  - " + _job_line(c, with_id=True))
+        print("\nRe-run with  --id <id>  (exact) or  --job \"<title>\"  to draft for one.")
         return 0
 
-    # Be explicit about WHICH job we picked and why — this script drafts outreach for
-    # ONE job you choose; it does not decide which roles fit you (that's fit_score /
-    # the 'Best for me' sort / the Cockpit 'What to work on').
-    if args.job:
-        print("Matched job: " + _job_line(job))
+    # Be explicit about WHICH job we picked — this drafts outreach for ONE job you choose;
+    # it doesn't decide which roles fit you (that's fit_score / 'Best for me' / Cockpit).
+    if args.job_id:
+        print("Selected job (by id): " + _job_line(job, with_id=True))
+    elif args.job:
+        print("Matched job: " + _job_line(job, with_id=True))
+        if _title_score(args.job, job) < 500:
+            print("  ⚠ weak title match — if this isn't the role you meant, use --list to get its"
+                  " exact id, then --id <id>.")
     else:
         print(f"No --job given → drafting for your highest-FIT {args.company or job.get('company')} "
-              f"role:\n  {_job_line(job)}")
-    if len(cands) > 1:
-        label = "Other close matches" if args.job else f"Other {job.get('company')} roles (re-run with --job to target one)"
-        print(f"  {label}:")
-        for c in cands[1:6]:
-            print("    - " + _job_line(c))
+              f"role:\n  {_job_line(job, with_id=True)}")
+    # "Other roles" — when a title was given, only show ones that actually share it (avoid
+    # surfacing unrelated high-fit jobs). Without a title, show the company's other roles.
+    if not args.job_id and len(cands) > 1:
+        others = cands[1:]
+        if args.job:
+            others = [c for c in others if _title_score(args.job, c) > 0][:6]
+            label = "Other roles matching that title"
+        else:
+            others = others[:6]
+            label = f"Other {job.get('company')} roles (re-run with --id or --job to target one)"
+        if others:
+            print(f"  {label}:")
+            for c in others:
+                print("    - " + _job_line(c, with_id=True))
 
     ppath = Path(args.people)
     if not ppath.exists():
