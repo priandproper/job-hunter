@@ -220,6 +220,10 @@
   .set-card .txt:focus{outline:none;border-color:var(--accent)}
   .set-card textarea.txt{min-height:52px;resize:vertical;line-height:1.5}
   .set-card label{display:flex;flex-direction:column;gap:.15rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .imp-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1rem 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .imp-info{flex:1;min-width:230px}
+  .imp-info .sub{margin:.3rem 0 .45rem}
+  .imp-info b{font-size:.92rem}
   .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
   @media (max-width:640px){.pgrid{grid-template-columns:1fr}}
 
@@ -522,7 +526,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MARK_KEY="job-hunter:marked:v1", ANTHROPIC_KEY="job-hunter:anthropic:v1",
       TAILORED_KEY="job-hunter:tailored:v1", PRUNE_KEY="job-hunter:pruned:v1",
       BUILDER_RESUMES_KEY="resume-builder:resumes:v1",  // same origin as the builder
-      MYRESUME_KEY="job-hunter:myresume:v1";            // your current best resume (JSON)
+      MYRESUME_KEY="job-hunter:myresume:v1",            // your current best resume (JSON)
+      CONNCO_KEY="job-hunter:conncos:v1";               // connection name -> company (for message matching)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
@@ -961,6 +966,7 @@ function renderSettings(){
         <span class="co" id="scanStatus"></span>
       </div>
     </div>
+    ${importCard()}
     ${personaCard()}
     ${claudeCard()}
     ${resumeCard()}`;
@@ -1003,6 +1009,98 @@ function resumeCard(){
     <div class="rowbtns"><button class="primary" onclick="saveMyResume()">Save resume</button>
       ${saved?'<button onclick="clearMyResume()">Clear</button>':''}
       <span class="co" id="myResumeStatus">${saved?('Saved'+(label?' · '+label:'')+(ts?' · '+timeAgo(ts):'')):''}</span></div>
+  </div>`;
+}
+// ===== In-dashboard data imports (parse LinkedIn exports in-browser, no terminal) =====
+function parseCsv(text){                       // RFC-ish CSV → array of string[] rows (handles quotes/newlines)
+  const s=(text||'').replace(/\r\n/g,'\n').replace(/\r/g,'\n');const rows=[];let f='',row=[],q=false;
+  for(let i=0;i<s.length;i++){const ch=s[i];
+    if(q){ if(ch==='"'){ if(s[i+1]==='"'){f+='"';i++;} else q=false; } else f+=ch; }
+    else { if(ch==='"')q=true; else if(ch===','){row.push(f);f='';} else if(ch==='\n'){row.push(f);rows.push(row);row=[];f='';} else f+=ch; } }
+  if(f.length||row.length){row.push(f);rows.push(row);}
+  return rows;
+}
+function findHeader(rows,needle){for(let i=0;i<Math.min(rows.length,10);i++){if(rows[i].some(c=>(c||'').trim().toLowerCase()===needle))return i;}return 0;}
+function rowsToObjects(rows,hi){const hdr=rows[hi].map(h=>(h||'').trim().toLowerCase());
+  return rows.slice(hi+1).filter(r=>r.some(c=>(c||'').trim())).map(r=>{const o={};hdr.forEach((h,i)=>o[h]=(r[i]||'').trim());return o;});}
+function normCompany(s){s=(s||'').toLowerCase().replace(/[^a-z0-9 ]+/g,' ')
+  .replace(/\b(inc|incorporated|llc|ltd|limited|corp|corporation|co|company|technologies|technology|labs|software|group|holdings|plc|gmbh|sa|nv|global)\b/g,' ');
+  return s.replace(/\s+/g,' ').trim();}
+function seniorityRank(p){p=(p||'').toLowerCase();
+  if(/recruit|talent acquisition|sourcer|people ops/.test(p))return 5;
+  if(/vp|vice president|chief|head of|director/.test(p))return 4;
+  if(/lead|principal|senior manager|manager/.test(p))return 3;
+  if(/marketing|growth|product|gtm|brand|analyst/.test(p))return 2;return 1;}
+function hashSig(str){let h=0x811c9dc5;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,0x01000193);}return (h>>>0).toString(16)+'-'+str.length.toString(16);}
+function meName(){try{const r=getMyResume();if(r&&r.contact&&r.contact.fullName)return r.contact.fullName;}catch{}
+  const j=(DOC.jobs||[]).find(x=>x.resume_core&&x.resume_core.contact&&x.resume_core.contact.fullName);
+  return j?j.resume_core.contact.fullName:'';}
+
+function importConnectionsFile(file){if(!file)return;const rd=new FileReader();
+  rd.onload=()=>{try{
+    const objs=rowsToObjects(...(r=>[r,findHeader(r,'first name')])(parseCsv(rd.result)));
+    const conns=objs.map(o=>({name:((o['first name']||'')+' '+(o['last name']||'')).trim(),url:o['url']||'',
+      email:o['email address']||'',company:o['company']||'',position:o['position']||'',connected_on:o['connected on']||''}))
+      .filter(c=>c.name&&c.company);
+    const ref={};(DOC.jobs||[]).forEach(j=>{const targ=normCompany(j.company);if(!targ)return;
+      const hits=conns.filter(c=>{const cn=normCompany(c.company);return cn&&(cn===targ||cn.indexOf(targ)>=0||targ.indexOf(cn)>=0);})
+        .map(c=>({name:c.name,position:c.position,company:c.company,url:c.url,email:c.email,connected_on:c.connected_on,kind:'in_network',rank:seniorityRank(c.position)}))
+        .sort((a,b)=>b.rank-a.rank).slice(0,8);
+      if(hits.length)ref[j.id]=hits;});
+    const conncos={};conns.forEach(c=>{conncos[c.name.toLowerCase()]=c.company;});
+    localStorage.setItem(CONNCO_KEY,JSON.stringify(conncos));
+    const priv=getPrivate();priv.referrals=ref;priv.connections_loaded=conns.length;
+    localStorage.setItem(PRIVATE_KEY,JSON.stringify(priv));
+    toast(`Imported ${conns.length} connection(s) → referrers for ${Object.keys(ref).length} job(s)`);renderSettings();
+  }catch(e){toast('Could not read that CSV');}};rd.readAsText(file);}
+
+function importMessagesFile(file){if(!file)return;
+  const me=(((document.getElementById('impMe')||{}).value||'')||meName()).trim().toLowerCase();
+  const rd=new FileReader();rd.onload=()=>{try{
+    const rows=parseCsv(rd.result);const objs=rowsToObjects(rows,findHeader(rows,'from'));
+    const byCo={};[...(DOC.jobs||[])].sort((a,b)=>(b.fit_score||0)-(a.fit_score||0))
+      .forEach(j=>{const k=normCompany(j.company);if(k)(byCo[k]=byCo[k]||[]).push(j);});
+    const keys=Object.keys(byCo);let conncos={};try{conncos=JSON.parse(localStorage.getItem(CONNCO_KEY))||{}}catch{}
+    const cur=getOutreach();let sent=0,matched=0;
+    objs.forEach(o=>{const from=(o['from']||o['sender']||'').toLowerCase();
+      if(me&&from.indexOf(me)<0)return;sent++;
+      const to=(o['to']||o['recipient']||'').trim(),content=(o['content']||o['message']||o['body']||'').trim();
+      if(!content)return;const c=content.toLowerCase();
+      let cand=keys.find(k=>k&&c.indexOf(k)>=0)||'';
+      if(!cand){const comp=conncos[to.toLowerCase()];cand=comp?normCompany(comp):'';}
+      const job=(byCo[cand]||[])[0];if(!job)return;
+      const ts=o['date']||o['sent at']||o['timestamp']||'',sig=hashSig(to+'|'+ts+'|'+content.slice(0,200));
+      const arr=cur[job.id]=cur[job.id]||[];if(arr.some(r=>r.sig===sig))return;
+      arr.push({to,message:content.slice(0,1500),ts,channel:'linkedin',source:'linkedin-export',sig});matched++;});
+    saveOutreach(cur);
+    toast(me?`${sent} sent · matched ${matched} to job(s)`:'Set your name first so we can find messages you sent');renderSettings();
+  }catch(e){toast('Could not read that CSV');}};rd.readAsText(file);}
+
+function saveContactPii(){const email=((document.getElementById('cpiiEmail')||{}).value||'').trim();
+  const phone=((document.getElementById('cpiiPhone')||{}).value||'').trim();
+  const priv=getPrivate();priv.contact={...(priv.contact||{}),email,phone};
+  localStorage.setItem(PRIVATE_KEY,JSON.stringify(priv));toast('Contact details saved');renderSettings();}
+
+function importCard(){
+  const priv=getPrivate();const nconn=priv.connections_loaded||0;
+  const nout=Object.values(getOutreach()).reduce((a,l)=>a+(l?l.length:0),0);
+  const c=priv.contact||{};
+  return `<div class="set-card" style="margin-top:1.2rem">
+    <div class="set-hd"><div><h2>Import your data</h2>
+      <p class="sub">Upload your LinkedIn data exports (Settings → Data Privacy → Get a copy of your data) — they're parsed and matched to your jobs right here, no terminal. Everything stays in this browser.</p>
+    </div></div>
+    <div class="imp-row"><div class="imp-info"><b>LinkedIn Connections</b> <span class="conn ${nconn?'ok':'off'}">${nconn?nconn+' loaded':'not loaded'}</span>
+      <p class="sub">Populates “Who can refer you” on each job.</p></div>
+      <label class="filebtn">Choose Connections.csv<input type="file" accept=".csv,text/csv" style="display:none" onchange="importConnectionsFile(this.files[0])"></label></div>
+    <div class="imp-row"><div class="imp-info"><b>LinkedIn Messages</b> <span class="conn ${nout?'ok':'off'}">${nout?nout+' logged':'none yet'}</span>
+      <p class="sub">Matches messages you sent to jobs by company → each job's Outreach log.</p>
+      <input id="impMe" class="txt" style="max-width:320px" placeholder="Your name (as in the FROM column)" value="${esc(meName())}"></div>
+      <label class="filebtn">Choose messages.csv<input type="file" accept=".csv,text/csv" style="display:none" onchange="importMessagesFile(this.files[0])"></label></div>
+    <div class="imp-row"><div class="imp-info"><b>Contact details</b> <span class="conn ${c.email?'ok':'off'}">${c.email?'set':'not set'}</span>
+      <p class="sub">Merged into resume links in your browser only — never committed.</p>
+      <input id="cpiiEmail" class="txt" style="max-width:320px" placeholder="you@example.com" value="${esc(c.email||'')}">
+      <input id="cpiiPhone" class="txt" style="max-width:320px" placeholder="(555) 123-4567" value="${esc(c.phone||'')}"></div>
+      <button class="primary" onclick="saveContactPii()">Save</button></div>
   </div>`;
 }
 function personaGistObj(){try{return JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}}catch{return{}}}
