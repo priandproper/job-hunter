@@ -261,6 +261,8 @@
   .or-msg{color:var(--ink-2);font-size:.78rem;line-height:1.5}
   .or-del{flex-shrink:0;border:none;background:transparent;color:var(--muted);padding:.15rem .35rem;font-size:.8rem;border-radius:6px}
   .or-del:hover{background:var(--bad-soft);color:var(--bad)}
+  .tailored-note{margin-top:.75rem;padding:.7rem .85rem;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));border-radius:10px;font-size:.82rem;font-weight:600;color:var(--accent)}
+  .tailored-note .rowbtns{margin-top:.55rem}
 
   /* ============ FUNNEL ============ */
   .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
@@ -494,7 +496,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1",
       MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1",
       PERSONA_KEY="job-hunter:persona:v1", PERSONA_GIST_KEY="job-hunter:persona_gist:v1",
-      MARK_KEY="job-hunter:marked:v1";
+      MARK_KEY="job-hunter:marked:v1", ANTHROPIC_KEY="job-hunter:anthropic:v1",
+      TAILORED_KEY="job-hunter:tailored:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
@@ -530,6 +533,86 @@ function buildImportUrl(job){const c=(getPrivate().contact)||{};
   if((!c.email&&!c.phone)||!job.resume_core)return job.import_url||'#';
   const core=JSON.parse(JSON.stringify(job.resume_core));core.contact={...core.contact,...c};
   return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(core));}
+// Build a builder import URL from an arbitrary resume core (e.g. a Claude-tailored one),
+// merging in the locally-loaded contact PII if present.
+function importUrlFromCore(core){const c=(getPrivate().contact)||{};
+  const merged=JSON.parse(JSON.stringify(core));merged.contact={...(merged.contact||{}),...c};
+  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(merged));}
+
+// ----- Tailor a resume to a job with the Claude API (key stays in this browser) -----
+function anthropicCfg(){try{return JSON.parse(localStorage.getItem(ANTHROPIC_KEY))||{}}catch{return{}}}
+function saveAnthropic(){const key=(document.getElementById('claudeKey')||{}).value||'';
+  const model=(document.getElementById('claudeModel')||{}).value||'claude-opus-4-8';
+  localStorage.setItem(ANTHROPIC_KEY,JSON.stringify({key:key.trim(),model}));
+  toast(key.trim()?'Claude API key saved':'Claude API key cleared');}
+function getTailored(){try{return JSON.parse(localStorage.getItem(TAILORED_KEY))||{}}catch{return{}}}
+function tailoredFor(id){return getTailored()[id]||null;}
+function saveTailored(id,core){const t=getTailored();t[id]={core,ts:new Date().toISOString()};localStorage.setItem(TAILORED_KEY,JSON.stringify(t));}
+function discardTailored(id){const t=getTailored();delete t[id];localStorage.setItem(TAILORED_KEY,JSON.stringify(t));renderJobPage(id);}
+function setTailorStatus(id,txt){const el=document.getElementById('tailorStatus-'+id);if(el)el.textContent=txt;}
+// Fixed resume shape → guaranteed-valid JSON via structured outputs.
+const RESUME_SCHEMA={type:"object",additionalProperties:false,
+  required:["label","contact","summary","experience","education","skills"],
+  properties:{
+    label:{type:"string"},
+    contact:{type:"object",additionalProperties:false,
+      required:["fullName","headline","email","phone","location","linkedin","github"],
+      properties:{fullName:{type:"string"},headline:{type:"string"},email:{type:"string"},phone:{type:"string"},location:{type:"string"},linkedin:{type:"string"},github:{type:"string"}}},
+    summary:{type:"string"},
+    experience:{type:"array",items:{type:"object",additionalProperties:false,
+      required:["company","title","location","startDate","endDate","highlights"],
+      properties:{company:{type:"string"},title:{type:"string"},location:{type:"string"},startDate:{type:"string"},endDate:{type:"string"},highlights:{type:"array",items:{type:"string"}}}}},
+    education:{type:"array",items:{type:"object",additionalProperties:false,
+      required:["institution","degree","location","startDate","endDate","details"],
+      properties:{institution:{type:"string"},degree:{type:"string"},location:{type:"string"},startDate:{type:"string"},endDate:{type:"string"},details:{type:"string"}}}},
+    skills:{type:"array",items:{type:"object",additionalProperties:false,required:["name","items"],
+      properties:{name:{type:"string"},items:{type:"array",items:{type:"string"}}}}}}};
+async function tailorResume(id){
+  const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
+  const key=(anthropicCfg().key||'').trim();
+  if(!key){toast('Add your Claude API key in Settings');location.hash='#/settings';return;}
+  const core=job.resume_core;if(!core){toast('No resume data for this job');return;}
+  const model=anthropicCfg().model||'claude-opus-4-8';
+  setTailorStatus(id,'Tailoring with Claude…');
+  const p=getPersona();
+  const sys="You tailor a candidate's resume to a specific job. Return ONLY a JSON resume object matching the provided schema and the SAME structure as the current resume. Rules: keep contact and education exactly as given (factual); within each experience entry keep company, title, location, and dates unchanged. You MAY rewrite the summary, rewrite each experience 'highlights' bullet, adjust contact.headline, and reorder/surface skills to align with the target job. Never invent employers, titles, dates, degrees, metrics, or accomplishments the candidate did not have — only rephrase and emphasize what is genuinely there, weaving in the job's keywords where they authentically apply.";
+  const user=`CURRENT RESUME (JSON):\n${JSON.stringify(core)}\n\nTARGET JOB\nTitle: ${job.title}\nCompany: ${job.company}\nKeywords the job description asks for: ${(job.requested_keywords||[]).join(', ')||'(none captured)'}\nKeywords currently missing from the resume: ${(job.missing_keywords||[]).join(', ')||'(none)'}\n`
+    +(p.roles&&p.roles.length?`Candidate target roles: ${p.roles.join(', ')}\n`:'')
+    +(p.skills&&p.skills.length?`Candidate skills/tools: ${p.skills.join(', ')}\n`:'')
+    +(p.projects?`Candidate projects/highlights: ${p.projects}\n`:'')
+    +`\nReturn the tailored resume as JSON, closely aligned to this job.`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model,max_tokens:8000,system:sys,
+        output_config:{format:{type:'json_schema',schema:RESUME_SCHEMA}},
+        messages:[{role:'user',content:user}]})});
+    if(!r.ok){let m='HTTP '+r.status;try{const e=await r.json();m=(e.error&&e.error.message)||m;}catch{}
+      setTailorStatus(id,r.status===401?'Failed: invalid API key':'Failed: '+m);return;}
+    const data=await r.json();
+    if(data.stop_reason==='refusal'){setTailorStatus(id,'Claude declined this request.');return;}
+    const txt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    let tailored;try{tailored=JSON.parse(txt);}catch{setTailorStatus(id,'Model returned invalid JSON — try again.');return;}
+    saveTailored(id,tailored);setTailorStatus(id,'');renderJobPage(id);toast('Resume tailored ✨');
+  }catch(e){setTailorStatus(id,'Network error: '+e.message);}
+}
+function resumeBox(job){
+  const missing=job.missing_keywords||[];
+  const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
+  const t=tailoredFor(job.id);
+  const tailoredHtml=t
+    ? `<div class="tailored-note">✨ Tailored to this job${t.ts?' · '+timeAgo(t.ts):''}
+        <div class="rowbtns"><a href="${esc(importUrlFromCore(t.core))}" target="_blank" rel="noopener"><button class="primary">Open tailored resume →</button></a>
+        <button onclick="copyText(JSON.stringify(tailoredFor('${job.id}').core,null,2))">Copy JSON</button>
+        <button onclick="discardTailored('${job.id}')">Discard</button></div></div>`
+    : '';
+  return `<div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
+    <div class="rowbtns">
+      <a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a>
+      <button onclick="tailorResume('${job.id}')">✨ Tailor with Claude</button>
+      <span class="co" id="tailorStatus-${job.id}"></span>
+    </div>${tailoredHtml}</div>`;
+}
 function computeNew(){let seen;try{seen=new Set(JSON.parse(localStorage.getItem(SEEN_KEY))||[])}catch{seen=new Set()}
   const cur=(DOC.jobs||[]).map(j=>j.id);newIds=seen.size?new Set(cur.filter(id=>!seen.has(id))):new Set();
   localStorage.setItem(SEEN_KEY,JSON.stringify(cur));}
@@ -724,8 +807,23 @@ function renderSettings(){
         <span class="co" id="scanStatus"></span>
       </div>
     </div>
-    ${personaCard()}`;
+    ${personaCard()}
+    ${claudeCard()}`;
   verifyPersonaVar();   // best-effort auto-hide the setup note if the variable is already set
+}
+function claudeCard(){
+  const c=anthropicCfg();
+  const models=[['claude-opus-4-8','Opus 4.8 — best'],['claude-sonnet-5','Sonnet 5 — faster/cheaper'],['claude-haiku-4-5','Haiku 4.5 — cheapest']];
+  return `<div class="set-card" style="margin-top:1.2rem">
+    <div class="set-hd"><div>
+      <h2>Claude API — resume tailoring</h2>
+      <p class="sub">Powers <b>✨ Tailor with Claude</b> on each job page — it rewrites your resume to align with the job. Your API key is stored only in this browser (never committed) and sent only to <code>api.anthropic.com</code>. It's a billing credential — only use a key you're comfortable keeping in this browser.</p>
+    </div><span class="conn ${c.key?'ok':'off'}">${c.key?'Key set':'No key'}</span></div>
+    <input id="claudeKey" class="txt" type="password" autocomplete="off" placeholder="sk-ant-…" value="${esc(c.key||'')}">
+    <label>Model<select id="claudeModel" class="txt">${models.map(([v,l])=>`<option value="${v}" ${(c.model||'claude-opus-4-8')===v?'selected':''}>${esc(l)}</option>`).join('')}</select></label>
+    <div class="rowbtns"><button class="primary" onclick="saveAnthropic()">Save</button>
+      <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" class="ovlink" style="color:var(--muted);font-size:.82rem;align-self:center">Get an API key ↗</a></div>
+  </div>`;
 }
 function personaGistObj(){try{return JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}}catch{return{}}}
 function personaGistId(){return personaGistObj().id||'';}
@@ -1130,8 +1228,7 @@ function renderJobPage(id){
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
       <div class="jp-mail">${mailHtml}</div></div>
-    <div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
-      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
+    ${resumeBox(job)}
     ${outreachHtml(job)}`;
 }
 

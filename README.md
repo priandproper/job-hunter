@@ -61,6 +61,21 @@ browser** when you click *Open resume in builder* — so the full resume opens, 
 your contact PII was never in the committed/public data. Statuses/notes also live
 in `localStorage`.
 
+## Tailor a resume to a job with Claude (`Settings → Claude API`)
+
+Each job page has a **✨ Tailor with Claude** button. It sends your current resume for
+that job plus the job's title/company/keywords to the **Claude API** (Messages API,
+`claude-opus-4-8` by default) and gets back a resume rewritten to align with the role —
+summary, experience bullets, headline, and skill emphasis, without inventing anything.
+The result opens straight in the resume builder or copies as JSON.
+
+- Add your **Anthropic API key** in Settings — it's stored only in this browser (never
+  committed) and sent only to `api.anthropic.com` (direct browser access). It's a
+  billing credential; only use a key you're comfortable keeping in the browser.
+- Output is constrained with structured outputs to the builder's exact resume schema,
+  so it's guaranteed-valid JSON. Contact and education are kept factual; only genuinely
+  applicable keywords are woven in.
+
 ## Your profile / persona (tune what gets scraped)
 
 **Settings → Your profile** lets you set what a good job looks like — years, seniority,
