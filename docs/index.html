@@ -380,6 +380,37 @@
   .jd-body{white-space:pre-wrap;font-size:.88rem;line-height:1.6;color:var(--ink-2);max-height:440px;overflow:auto;margin-top:.55rem;padding:.75rem .85rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
   .paste-parse{margin:.2rem 0 .8rem;padding:.6rem;border:1px dashed var(--line-2);border-radius:10px;background:var(--surface-2)}
   .paste-parse textarea{width:100%;min-height:64px;font:inherit;font-size:.84rem;margin-bottom:.5rem}
+  /* Profile ROI */
+  .roi-card{margin-top:1.1rem}
+  .roi-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .roi-hd .sub{margin:.2rem 0 0;max-width:60ch}
+  .roi-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+  .roi-chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:600;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);cursor:pointer}
+  .roi-chip:hover{border-color:var(--accent);color:var(--accent)}
+  .roi-chip span{font-size:.7rem;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:0 .38rem;font-weight:800}
+  .roi-score{display:flex;align-items:center;gap:1rem;margin:1rem 0;padding:.8rem 1rem;border-radius:12px;background:var(--surface-2);border:1px solid var(--line-2)}
+  .roi-num{font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .roi-num small{font-size:.9rem;color:var(--muted);font-weight:600}
+  .roi-sum{font-weight:600;font-size:.96rem;margin-bottom:.15rem}
+  .roi-sec{margin-top:1.1rem}
+  .roi-sec h3{margin:0 0 .5rem;font-size:.98rem}
+  .roi-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+  @media (max-width:760px){.roi-cols{grid-template-columns:1fr}}
+  .roi-moves{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+  .roi-move{display:flex;gap:.7rem;align-items:flex-start}
+  .roi-rank{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:.78rem;font-weight:800;display:grid;place-items:center;margin-top:.1rem}
+  .roi-move-t{font-weight:650;font-size:.92rem}
+  .roi-eff{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:.05rem .35rem;border-radius:5px;margin-left:.3rem}
+  .eff-low{background:var(--accent-soft);color:var(--accent)} .eff-medium{background:var(--mid-soft);color:var(--mid)} .eff-high{background:var(--surface-2);color:var(--muted);border:1px solid var(--line-2)}
+  .roi-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem}
+  .roi-list>li{padding-bottom:.55rem;border-bottom:1px solid var(--line-2)}
+  .roi-list>li:last-child{border-bottom:none}
+  .roi-dem{font-size:.72rem;color:var(--accent);font-weight:700;margin-left:.3rem}
+  .roi-unlock{font-size:.82rem;color:var(--ink-2);margin-top:.2rem;font-style:italic}
+  .reframes .roi-cur{color:var(--muted);font-size:.85rem}
+  .reframes .roi-sug{font-weight:600;margin-top:.15rem}
+  .roi-reframe.flag{border-left:3px solid var(--mid,#c90);padding-left:.6rem}
+  .roi-verify{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--mid,#c90);margin-bottom:.15rem}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
@@ -513,6 +544,8 @@
             <dl class="facts" id="overview"></dl>
           </div>
         </div>
+
+        <div id="profileRoi"></div>
 
         <div class="auto">
           <div class="auto-hd"><span class="eyebrow">Automation</span></div>
@@ -678,7 +711,9 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MANUAL_KEY="job-hunter:manual:v1",                // jobs you logged yourself (merged into the list)
       PEOPLE_KEY="job-hunter:people:v1",                // your private people directory (contacts ↔ jobs)
       COMPANIES_KEY="job-hunter:companies:v1",          // companies you added to the watchlist
-      COMPANIES_GIST_KEY="job-hunter:companies_gist:v1";// published-watchlist gist id + setup state
+      COMPANIES_GIST_KEY="job-hunter:companies_gist:v1",// published-watchlist gist id + setup state
+      PROFILEROI_KEY="job-hunter:profileroi:v1",        // cached "what to work on" analysis
+      RESUME_GIST_KEY="job-hunter:resume_gist:v1";      // published-resume gist id + setup state
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
@@ -2171,7 +2206,129 @@ function renderJobPage(id){
 }
 
 // ----- render / routing -----
-function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
+function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderAuto();}
+
+// ===== Profile ROI — "what to work on" from your resume + the real JDs =====
+// Deep-reads your top-fit jobs' full JDs against your best resume and returns a
+// prioritized, highest-ROI plan (skills, projects, reframings, study). Runs in the
+// browser with your Claude key; the CI worker produces the same shape (meta.profile_roi).
+const PROFILE_ROI_SCHEMA={type:'object',additionalProperties:false,
+  properties:{
+    completeness_score:{type:'integer'},
+    summary:{type:'string'},
+    top_moves:{type:'array',items:{type:'object',additionalProperties:false,
+      properties:{title:{type:'string'},type:{type:'string'},why:{type:'string'},effort:{type:'string'},impact:{type:'string'}},
+      required:['title','type','why','effort','impact']}},
+    skills_to_learn:{type:'array',items:{type:'object',additionalProperties:false,
+      properties:{skill:{type:'string'},demand:{type:'string'},note:{type:'string'}},required:['skill','demand','note']}},
+    projects_to_build:{type:'array',items:{type:'object',additionalProperties:false,
+      properties:{name:{type:'string'},description:{type:'string'},unlocks:{type:'string'},keywords:{type:'array',items:{type:'string'}}},
+      required:['name','description','unlocks','keywords']}},
+    resume_reframes:{type:'array',items:{type:'object',additionalProperties:false,
+      properties:{current:{type:'string'},suggested:{type:'string'},defensible:{type:'boolean'}},
+      required:['current','suggested','defensible']}},
+    study_plan:{type:'array',items:{type:'object',additionalProperties:false,
+      properties:{topic:{type:'string'},why:{type:'string'}},required:['topic','why']}}},
+  required:['completeness_score','summary','top_moves','skills_to_learn','projects_to_build','resume_reframes','study_plan']};
+const PROFILE_ROI_SYS=`You are a sharp, honest career and resume coach for a job seeker. Using their current resume and the REAL job descriptions they're targeting, produce a prioritized, highest-ROI plan to make their profile more competitive for these roles. Return ONLY JSON matching the schema.
+
+Rules:
+- Ground every recommendation in the actual JDs. In "why"/"demand", cite how many of the target roles want it (e.g. "12 of 20 roles ask for SQL").
+- Rank by ROI = (how many target jobs it helps) x (impact) / (effort). Put the biggest wins first.
+- skills_to_learn and projects_to_build must be things the candidate can genuinely acquire. Each project should unlock concrete, truthful resume bullets and cover specific JD keywords (list them).
+- resume_reframes: "current" = how the resume reads now (or the gap); "suggested" = a stronger phrasing. Set defensible=true when it's a truthful re-emphasis of what the candidate clearly did. Set defensible=false for bolder phrasings that ASSUME plausible-but-unverified experience — write those as a template the candidate must verify is true before using. NEVER fabricate employers, job titles, dates, or degrees.
+- completeness_score (0-100) = how ready this profile is for the target roles.
+- "type" is one of: skill, project, reframe, study. "effort" is one of: low, medium, high.`;
+function topFitJobs(n){
+  return (DOC.jobs||[]).filter(j=>cleanJd(j.excerpt||'').length>200)
+    .slice().sort((a,b)=>(b.fit_score||0)-(a.fit_score||0)).slice(0,n);
+}
+function profileRoiUser(){
+  const resume=getMyResume()||(((DOC.jobs||[]).find(j=>j.resume_core)||{}).resume_core)||{};
+  const p=getPersona(), jobs=topFitJobs(20);
+  const lead=((DOC.summary||{}).missing_leaderboard||[]).slice(0,20).map(k=>`${k.keyword}: ${k.count}`).join(', ');
+  let s='CURRENT RESUME (JSON):\n'+JSON.stringify(resume)+'\n\n';
+  s+='CANDIDATE FOCUS\n';
+  if((p.roles||[]).length)s+='- Target roles: '+p.roles.join(', ')+'\n';
+  if((p.skills||[]).length)s+='- Known skills/tools: '+p.skills.join(', ')+'\n';
+  if(p.years)s+='- Years of experience: '+p.years+'\n';
+  s+='\nMOST-REQUESTED SKILLS THE RESUME IS MISSING (across ALL target jobs — keyword: #jobs)\n'+(lead||'(none computed)')+'\n';
+  s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (full descriptions)\n`;
+  jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+cleanJd(j.excerpt||'').slice(0,2200)+'\n';});
+  s+='\nProduce the highest-ROI plan as JSON only.';
+  return s;
+}
+function getProfileRoi(){try{return JSON.parse(localStorage.getItem(PROFILEROI_KEY))||null}catch{return null}}
+function saveProfileRoi(o){try{localStorage.setItem(PROFILEROI_KEY,JSON.stringify(o))}catch{}}
+async function runProfileRoi(){
+  const cfg=anthropicCfg(), key=(cfg.key||'').trim();
+  if(!key){toast('Add your Claude API key in Settings to generate this');location.hash='#/settings';return;}
+  if(!getMyResume()){toast('Set your best resume (JSON) in Settings first');location.hash='#/settings';return;}
+  const st=document.getElementById('roiStatus');if(st)st.textContent='Analyzing your top matches…';
+  const btn=document.getElementById('roiRun');if(btn)btn.disabled=true;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:cfg.model||'claude-opus-4-8',max_tokens:6000,system:PROFILE_ROI_SYS,
+        output_config:{format:{type:'json_schema',schema:PROFILE_ROI_SCHEMA}},
+        messages:[{role:'user',content:profileRoiUser()}]})});
+    if(!r.ok){let m='HTTP '+r.status;try{const e=await r.json();m=(e.error&&e.error.message)||m;}catch{}
+      if(st)st.textContent=r.status===401?'Invalid API key':'Failed: '+m;if(btn)btn.disabled=false;return;}
+    const data=await r.json();
+    if(data.stop_reason==='refusal'){if(st)st.textContent='Claude declined this request.';if(btn)btn.disabled=false;return;}
+    const txt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    let rep;try{rep=JSON.parse(txt);}catch{if(st)st.textContent='Model returned invalid JSON — try again.';if(btn)btn.disabled=false;return;}
+    saveProfileRoi({report:rep,ts:new Date().toISOString(),jobs:topFitJobs(20).length,source:'browser'});
+    toast('Profile analysis ready ✨');renderProfileRoi();
+  }catch(e){if(st)st.textContent='Network error: '+e.message;if(btn)btn.disabled=false;}
+}
+function roiMovesHtml(rep){
+  const typeIcon={skill:'📚',project:'🛠️',reframe:'✍️',study:'🎓'};
+  const moves=(rep.top_moves||[]).map((m,i)=>`<li class="roi-move">
+    <span class="roi-rank">${i+1}</span>
+    <div><div class="roi-move-t">${typeIcon[m.type]||'•'} ${esc(m.title)} <span class="roi-eff eff-${esc(m.effort)}">${esc(m.effort)} effort</span></div>
+      <div class="co">${esc(m.why)}${m.impact?` · <b>${esc(m.impact)}</b>`:''}</div></div></li>`).join('');
+  const skills=(rep.skills_to_learn||[]).map(s=>`<li><b>${esc(s.skill)}</b> <span class="roi-dem">${esc(s.demand)}</span><div class="co">${esc(s.note)}</div></li>`).join('');
+  const projs=(rep.projects_to_build||[]).map(p=>`<li><b>${esc(p.name)}</b><div class="co">${esc(p.description)}</div>
+    ${p.unlocks?`<div class="roi-unlock">Unlocks: ${esc(p.unlocks)}</div>`:''}
+    ${(p.keywords||[]).length?`<div class="jd-kw">${p.keywords.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:''}</li>`).join('');
+  const refr=(rep.resume_reframes||[]).map(f=>`<li class="roi-reframe ${f.defensible?'ok':'flag'}">
+    ${f.defensible?'':'<span class="roi-verify">⚠ verify before using</span>'}
+    <div class="roi-cur">Now: ${esc(f.current)}</div><div class="roi-sug">→ ${esc(f.suggested)}</div></li>`).join('');
+  const study=(rep.study_plan||[]).map(s=>`<li><b>${esc(s.topic)}</b><div class="co">${esc(s.why)}</div></li>`).join('');
+  return `
+    ${moves?`<div class="roi-sec"><h3>Highest-ROI moves</h3><ol class="roi-moves">${moves}</ol></div>`:''}
+    <div class="roi-cols">
+      ${skills?`<div class="roi-sec"><h3>📚 Skills to learn</h3><ul class="roi-list">${skills}</ul></div>`:''}
+      ${projs?`<div class="roi-sec"><h3>🛠️ Projects to build</h3><ul class="roi-list">${projs}</ul></div>`:''}
+    </div>
+    ${refr?`<div class="roi-sec"><h3>✍️ Resume reframes</h3><ul class="roi-list reframes">${refr}</ul></div>`:''}
+    ${study?`<div class="roi-sec"><h3>🎓 What to study</h3><ul class="roi-list">${study}</ul></div>`:''}`;
+}
+function renderProfileRoi(){
+  const el=document.getElementById('profileRoi');if(!el)return;
+  const stored=getProfileRoi(), lead=((DOC.summary||{}).missing_leaderboard||[]);
+  const hasResume=!!getMyResume();
+  // Deterministic quick-win list (works with no key): most-demanded missing skills.
+  const quick=lead.slice(0,8).map(k=>`<button class="roi-chip" onclick="query='${esc(k.keyword)}';location.hash='#/jobs';route()">${esc(k.keyword)}<span>${k.count}</span></button>`).join('');
+  const head=`<div class="roi-hd"><div><span class="eyebrow">What to work on</span>
+      <p class="sub">Your best resume, read against the full descriptions of your top-fit jobs — the highest-ROI ways to become a stronger candidate.</p></div>
+      <button class="primary" id="roiRun" onclick="runProfileRoi()">${stored?'↻ Re-analyze':'✨ Analyze my profile'}</button></div>
+    <span class="co" id="roiStatus"></span>
+    ${!hasResume?'<p class="co">Tip: set your best resume (JSON) in <a href="#/settings">Settings</a> for a resume-aware analysis.</p>':''}`;
+  if(!stored){
+    el.innerHTML=`<div class="card roi-card">${head}
+      ${quick?`<div class="roi-sec"><h3>Most-demanded skills you're missing</h3><p class="co">Across all your target jobs (count = how many ask for it). Click to see those jobs.</p><div class="roi-chips">${quick}</div></div>`:''}
+      <p class="co" style="margin-top:.6rem">Hit <b>Analyze my profile</b> for a full plan: ranked moves, projects to build, resume reframings, and a study list.</p></div>`;
+    return;
+  }
+  const rep=stored.report;
+  el.innerHTML=`<div class="card roi-card">${head}
+    <div class="roi-score"><div class="roi-num">${rep.completeness_score}<small>/100</small></div>
+      <div><div class="roi-sum">${esc(rep.summary||'')}</div>
+        <div class="co">Based on your top ${stored.jobs||'?'} matches · ${timeAgo(stored.ts)}${stored.source==='ci'?' · from CI':''}</div></div></div>
+    ${roiMovesHtml(rep)}</div>`;
+}
 function renderPruneBanner(){
   const el=document.getElementById('pruneBanner');if(!el)return;
   const n=Object.keys(getPruned()).length;
