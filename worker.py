@@ -87,6 +87,34 @@ def _roi_stale(prev, hours) -> bool:
     return (_dt.datetime.now() - t).total_seconds() / 3600 >= float(hours)
 
 
+def _enrich_sig(job: dict) -> str:
+    import re
+    c = re.sub(r"[^a-z0-9]+", " ", (job.get("company") or "").lower()).strip()
+    t = re.sub(r"[^a-z0-9]+", " ", (job.get("title") or "").lower()).strip()
+    return f"{c}|{t}"
+
+
+def _apply_enrichment(jobs: list[dict]) -> int:
+    """Merge data/enrichment.json (from scripts/enrich_jobs.py) into jobs. No file -> 0."""
+    path = REPO_ROOT / "data" / "enrichment.json"
+    try:
+        store = json.loads(path.read_text()).get("by_sig", {})
+    except (OSError, json.JSONDecodeError):
+        return 0
+    n = 0
+    for j in jobs:
+        e = store.get(_enrich_sig(j))
+        if not e:
+            continue
+        j["enrichment"] = e
+        if isinstance(e.get("boston_score"), int):
+            j["boston_score"] = e["boston_score"]
+        if e.get("sponsorship") in ("Yes", "No"):
+            j["sponsorship"] = e["sponsorship"]
+        n += 1
+    return n
+
+
 def _natural_key(job: dict) -> tuple:
     # Dedupe by company + title only. Many ATS feeds post the same role once per
     # location; keying on location too would leave those as duplicate cards.
@@ -238,6 +266,12 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             if referrers:
                 private[job["id"]] = referrers
                 total_ref += len(referrers)
+
+    # Re-merge locally-computed enrichment (scripts/enrich_jobs.py, keyed by company+
+    # title signature) so it survives cloud rebuilds. No file -> no-op.
+    n_enriched = _apply_enrichment(public_jobs)
+    if n_enriched:
+        log(f"        enrich    — merged enrichment into {n_enriched} job(s)")
 
     public_jobs.sort(key=lambda j: (j["fit_score"], j["ats_score"]), reverse=True)
 

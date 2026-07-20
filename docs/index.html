@@ -379,6 +379,19 @@
   .jd-kw{display:flex;flex-wrap:wrap;gap:.3rem;margin:.55rem 0}
   .jd-kw span{font-size:.7rem;font-weight:600;padding:.1rem .45rem;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
   .jd-body{white-space:pre-wrap;font-size:.88rem;line-height:1.6;color:var(--ink-2);max-height:440px;overflow:auto;margin-top:.55rem;padding:.75rem .85rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
+  .jd-kw.tools span{background:var(--mid-soft);color:var(--mid)}
+  /* Job enrichment */
+  .boston-badge{font-size:.74rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .enr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.7rem 1.2rem;margin-top:.5rem}
+  .enr-f{display:flex;flex-direction:column;gap:.15rem}
+  .enr-f>span{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .enr-f>b{font-size:.95rem;font-weight:600}
+  .spon{display:inline-block;width:fit-content;padding:.05rem .5rem;border-radius:6px;font-size:.9rem;font-weight:700}
+  .spon-good{background:var(--good-soft,var(--accent-soft));color:var(--good,var(--accent))}
+  .spon-bad{background:var(--bad-soft,#fdecec);color:var(--bad,#d33)}
+  .spon-mid{background:var(--mid-soft);color:var(--mid)}
+  .enr-sec{margin-top:.7rem}
+  .enr-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:block;margin-bottom:.3rem}
   .paste-parse{margin:.2rem 0 .8rem;padding:.6rem;border:1px dashed var(--line-2);border-radius:10px;background:var(--surface-2)}
   .paste-parse textarea{width:100%;min-height:64px;font:inherit;font-size:.84rem;margin-bottom:.5rem}
   /* Profile ROI */
@@ -958,6 +971,28 @@ function jdCard(job){
     <p class="co">The full posting — the source of truth for what to emphasize, what projects to build, and what to tell recruiters. “What to focus on” turns it into concrete guidance.</p>
     ${kw.length?`<div class="jd-kw">${kw.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:''}
     <div class="jd-body">${esc(jd)}</div></div>`;
+}
+// Claude-derived metadata (scripts/enrich_jobs.py): sponsorship, skills/tools/prefs,
+// seniority/years, Boston proximity, persona fit. Only shows when the job has it.
+function enrichmentCard(job){
+  const e=job.enrichment;if(!e)return '';
+  const spon=e.sponsorship||'Unknown', sc=spon==='Yes'?'good':spon==='No'?'bad':'mid';
+  const chips=(arr,cls)=>(arr||[]).length?`<div class="jd-kw ${cls||''}">${arr.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:'';
+  const yrs=(e.min_years!=null||e.max_years!=null)?`${e.min_years??'?'}${e.max_years!=null?'–'+e.max_years:'+'} yrs`:'';
+  const num=v=>Number.isInteger(v);
+  return `<div class="box"><div class="jd-hd"><h3>✨ Enrichment</h3>
+      ${num(e.boston_score)?`<span class="boston-badge">📍 Boston ${e.boston_score}</span>`:''}</div>
+    <p class="co">Claude read the full JD (and your persona) to pull out what matters. Sort the Jobs list by <b>Closest to Boston</b> to rank by location.</p>
+    <div class="enr-grid">
+      <div class="enr-f"><span>Sponsorship</span><b class="spon spon-${sc}">${esc(spon)}</b>${e.sponsorship_evidence?`<div class="co">“${esc(e.sponsorship_evidence)}”</div>`:''}</div>
+      ${(e.seniority||yrs)?`<div class="enr-f"><span>Seniority / experience</span><b>${esc(e.seniority||'—')}${yrs?' · '+yrs:''}</b></div>`:''}
+      ${num(e.boston_score)?`<div class="enr-f"><span>Boston proximity</span><b>${e.boston_score}/100</b>${e.boston_note?`<div class="co">${esc(e.boston_note)}</div>`:''}</div>`:''}
+      ${num(e.persona_fit)?`<div class="enr-f"><span>Persona fit</span><b>${e.persona_fit}/100</b>${e.persona_note?`<div class="co">${esc(e.persona_note)}</div>`:''}</div>`:''}
+    </div>
+    ${(e.skills||[]).length?`<div class="enr-sec"><span class="enr-lbl">Skills the role wants</span>${chips(e.skills)}</div>`:''}
+    ${(e.tools||[]).length?`<div class="enr-sec"><span class="enr-lbl">Tools</span>${chips(e.tools,'tools')}</div>`:''}
+    ${(e.preferences||[]).length?`<div class="enr-sec"><span class="enr-lbl">Preferences / nice-to-haves</span>${chips(e.preferences)}</div>`:''}
+  </div>`;
 }
 function applyPastedResume(id){
   const el=document.getElementById('pasteJson-'+id);const raw=(el&&el.value||'').trim();
@@ -1667,7 +1702,7 @@ function personaFits(job){
 function toggleHidePoor(v){hidePoor=v;shownCount=PAGE;renderJobs();}
 function toggleHideReposts(v){hideReposts=v;shownCount=PAGE;renderJobs();}
 // ----- sorting (best-for-me / relevance / recency / ATS / new) -----
-const SORTS=[['persona','Best for me'],['relevance','Relevance'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
+const SORTS=[['persona','Best for me'],['relevance','Relevance'],['boston','Closest to Boston'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
@@ -1676,6 +1711,7 @@ function sortJobs(jobs){
   else if(sortBy==='recent')a.sort((x,y)=>mf(y)-mf(x)||_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
   else if(sortBy==='ats')a.sort((x,y)=>mf(y)-mf(x)||y.ats_score-x.ats_score||y.fit_score-x.fit_score);
   else if(sortBy==='fresh')a.sort((x,y)=>mf(y)-mf(x)||(newIds.has(y.id)-newIds.has(x.id))||_seenMs(y)-_seenMs(x)||y.fit_score-x.fit_score);
+  else if(sortBy==='boston')a.sort((x,y)=>mf(y)-mf(x)||((y.boston_score??-1)-(x.boston_score??-1))||y.fit_score-x.fit_score);
   else a.sort((x,y)=>mf(y)-mf(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);   // relevance (default)
   return a;
 }
@@ -2360,6 +2396,7 @@ function renderJobPage(id){
         <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
       </div>
       <p class="co" style="margin:.5rem 0 0">Open the LinkedIn posting to check when it was posted / whether it's a repost.</p></div>
+    ${enrichmentCard(job)}
     ${jdCard(job)}
     ${resumeBox(job)}
     ${peopleCard(job)}
