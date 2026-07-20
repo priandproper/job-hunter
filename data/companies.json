@@ -319,6 +319,376 @@
       "hq": "Vancouver, WA (remote-friendly)",
       "source": "seed:scanner",
       "active": true
+    },
+    {
+      "name": "Coinbase",
+      "ats": "greenhouse",
+      "slug": "coinbase",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Databricks",
+      "ats": "greenhouse",
+      "slug": "databricks",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Robinhood",
+      "ats": "greenhouse",
+      "slug": "robinhood",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Dropbox",
+      "ats": "greenhouse",
+      "slug": "dropbox",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Reddit",
+      "ats": "greenhouse",
+      "slug": "reddit",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Pinterest",
+      "ats": "greenhouse",
+      "slug": "pinterest",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Asana",
+      "ats": "greenhouse",
+      "slug": "asana",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Figma",
+      "ats": "greenhouse",
+      "slug": "figma",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "GitLab",
+      "ats": "greenhouse",
+      "slug": "gitlab",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "HashiCorp",
+      "ats": "greenhouse",
+      "slug": "hashicorp",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Confluent",
+      "ats": "greenhouse",
+      "slug": "confluent",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Elastic",
+      "ats": "greenhouse",
+      "slug": "elastic",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Cloudflare",
+      "ats": "greenhouse",
+      "slug": "cloudflare",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Samsara",
+      "ats": "greenhouse",
+      "slug": "samsara",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Benchling",
+      "ats": "greenhouse",
+      "slug": "benchling",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Lattice",
+      "ats": "greenhouse",
+      "slug": "lattice",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Plaid",
+      "ats": "greenhouse",
+      "slug": "plaid",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Chime",
+      "ats": "greenhouse",
+      "slug": "chime",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Flexport",
+      "ats": "greenhouse",
+      "slug": "flexport",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "DoorDash",
+      "ats": "greenhouse",
+      "slug": "doordash",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Opendoor",
+      "ats": "greenhouse",
+      "slug": "opendoor",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "NerdWallet",
+      "ats": "greenhouse",
+      "slug": "nerdwallet",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Checkr",
+      "ats": "greenhouse",
+      "slug": "checkr",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Carta",
+      "ats": "greenhouse",
+      "slug": "carta",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "MongoDB",
+      "ats": "greenhouse",
+      "slug": "mongodb",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "SoFi",
+      "ats": "greenhouse",
+      "slug": "SoFi",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Rippling",
+      "ats": "greenhouse",
+      "slug": "rippling",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Airbnb",
+      "ats": "greenhouse",
+      "slug": "airbnb",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Instacart",
+      "ats": "greenhouse",
+      "slug": "instacart",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Snowflake",
+      "ats": "greenhouse",
+      "slug": "snowflakecomputing",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Verkada",
+      "ats": "greenhouse",
+      "slug": "verkada",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Scale AI",
+      "ats": "greenhouse",
+      "slug": "scaleai",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Linear",
+      "ats": "ashby",
+      "slug": "linear",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Vanta",
+      "ats": "ashby",
+      "slug": "vanta",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Deel",
+      "ats": "ashby",
+      "slug": "deel",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Netlify",
+      "ats": "lever",
+      "slug": "netlify",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
+    },
+    {
+      "name": "Kraken",
+      "ats": "lever",
+      "slug": "kraken",
+      "h1b": null,
+      "h1b_note": "pending verification",
+      "hq": "",
+      "source": "seed:curated-batch",
+      "active": true
     }
   ]
 }

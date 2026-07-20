@@ -40,6 +40,10 @@ jobs:
           python-version: "3.12"
 
       - name: Build public jobs.json
+        env:
+          # Optional: enables JSearch discovery + posting ingestion (adds ~hundreds of
+          # jobs). Without the secret, discovery no-ops and the ATS feeds still run.
+          JSEARCH_API_KEY: ${{ secrets.JSEARCH_API_KEY }}
         run: python3 worker.py --public
 
       - name: Email alerts for new jobs
@@ -60,7 +64,7 @@ jobs:
         run: |
           git config user.name  "job-hunter-bot"
           git config user.email "job-hunter-bot@users.noreply.github.com"
-          git add docs/jobs.json docs/seen.json data/companies.json
+          git add docs/jobs.json docs/seen.json data/companies.json data/job_pool.json
           if git diff --cached --quiet; then
             echo "no changes to commit"
           else

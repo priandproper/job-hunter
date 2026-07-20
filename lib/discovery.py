@@ -80,6 +80,51 @@ def _jsearch(query: str, api_key: str, page: int = 1) -> list[dict]:
     return data.get("data", []) or []
 
 
+def _norm_jsearch(posting: dict) -> dict:
+    """Turn a JSearch posting into the pipeline's normalized job dict."""
+    city = posting.get("job_city") or ""
+    state = posting.get("job_state") or ""
+    country = posting.get("job_country") or ""
+    loc = ", ".join(x for x in (city, state, country) if x)
+    url = posting.get("job_apply_link") or posting.get("job_google_link") or ""
+    return ats._norm(
+        posting.get("employer_name", ""), posting.get("job_title", ""), loc,
+        url, "jsearch", "", posting.get("job_posted_at_datetime_utc", "") or "",
+        posting.get("job_description", "") or "")
+
+
+def fetch_postings(config: dict, repo_root: Path, log=print) -> list[dict]:
+    """Ingest JSearch job postings directly as jobs (paginated). No key/net -> []."""
+    disc = config.get("discovery", {})
+    if not disc.get("enabled"):
+        return []
+    secrets_file = (repo_root / disc.get("secrets_file", "")).resolve() \
+        if disc.get("secrets_file") else None
+    api_key = secrets_mod.get_key(disc.get("jsearch_api_key_env", ""), secrets_file)
+    if not api_key:
+        return []
+    pages = max(1, int(disc.get("results_pages", 1)))
+    queries = disc.get("queries", [])
+    out, seen = [], set()
+    for query in queries:
+        for page in range(1, pages + 1):
+            try:
+                postings = _jsearch(query, api_key, page)
+            except Exception as e:
+                log(f"        postings  — jsearch '{query[:28]}...' p{page} failed: {e}")
+                break  # stop paging this query on error
+            if not postings:
+                break
+            for posting in postings:
+                j = _norm_jsearch(posting)
+                if j["company"] and j["title"] and j["id"] not in seen:
+                    seen.add(j["id"])
+                    out.append(j)
+    if out:
+        log(f"        postings  — +{len(out)} job(s) from JSearch ({len(queries)} queries x {pages}p)")
+    return out
+
+
 def discover_companies(config: dict, repo_root: Path, log=print) -> dict:
     """Find new employers via job boards, verify H-1B, merge into companies.json.
 

@@ -34,6 +34,7 @@ from lib import gap as gap_mod
 from lib import jobs as jobs_mod
 from lib import match as match_mod
 from lib import payload as payload_mod
+from lib import pool as pool_mod
 from lib import profile as profile_mod
 from lib import referrals as ref_mod
 
@@ -71,6 +72,7 @@ def _natural_key(job: dict) -> tuple:
 
 
 def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
+    """Fetch fresh postings from every source, then union into the ever-expanding pool."""
     jobs = jobs_mod.load_jobs(cfg, REPO_ROOT)  # tracker/scanner (empty in Actions)
     log(f"[2/6] ingest    — {len(jobs)} job(s) from scanner/tracker")
     if do_discovery:
@@ -82,12 +84,22 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
             jobs.extend(new)
         if fetched:
             log(f"        ingest    — +{fetched} from {len(scannable)} company ATS feed(s)")
-    by_key: dict[tuple, dict] = {}
-    for j in jobs:
-        k = _natural_key(j)
-        if k not in by_key or len(j.get("excerpt") or "") > len(by_key[k].get("excerpt") or ""):
-            by_key[k] = j
-    return list(by_key.values())
+        postings = disc_mod.fetch_postings(cfg, REPO_ROOT, log)  # JSearch job boards
+        jobs.extend(postings)
+
+    # Ever-expanding pool: union this run's fetch with everything seen before, dedup,
+    # age out stale, cap. Persists (committed) so the list grows across runs.
+    m = cfg.get("match", {})
+    pool_path = (REPO_ROOT / cfg.get("pool_file", "data/job_pool.json")).resolve()
+    prior = pool_mod.load_pool(pool_path)
+    merged, stats = pool_mod.merge(
+        prior, jobs, _now(),
+        max_age_days=cfg.get("pool_max_age_days", m.get("max_age_days", 45)),
+        max_size=cfg.get("pool_max_size", 4000))
+    pool_mod.save_pool(pool_path, merged, _now())
+    log(f"        pool      — {stats['total']} in pool "
+        f"(+{stats['added']} new, -{stats['aged_out']} aged out this run)")
+    return merged
 
 
 def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=print) -> dict:
@@ -135,8 +147,9 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     today = _dt.date.today()
     max_age = cfg["match"].get("max_age_days", 0)
 
+    extra_terms = cfg["match"].get("extra_lane_terms", [])
     for job in all_jobs:
-        m = match_mod.match_job(job, profile)
+        m = match_mod.match_job(job, profile, extra_terms)
         if not match_mod.passes_filters(job, m, cfg["match"]):
             continue
         if _too_old(job, max_age, today):   # auto-tidy stale postings

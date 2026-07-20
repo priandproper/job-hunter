@@ -54,8 +54,15 @@ def main() -> int:
         print("notify: no new jobs above the alert threshold")
         return 0
 
-    lines = [f"Job Hunter found {len(fresh)} new match(es):\n"]
-    for j in fresh:
+    # Cap the email to the strongest matches (all `fresh` are still marked seen below,
+    # so a big backlog never floods a single email or re-alerts next run).
+    MAX_IN_EMAIL = 25
+    show = sorted(fresh, key=lambda j: j.get("fit_score", 0), reverse=True)[:MAX_IN_EMAIL]
+    header = f"Job Hunter found {len(fresh)} new match(es)"
+    if len(fresh) > len(show):
+        header += f" (top {len(show)} shown)"
+    lines = [header + ":\n"]
+    for j in show:
         lines.append(f"• {j['company']} — {j['title']}")
         lines.append(f"    fit {j['fit_score']} · ATS {j['ats_score']}% ({j.get('best_variant','')})")
         if j.get("missing_keywords"):

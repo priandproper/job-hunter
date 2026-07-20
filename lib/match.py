@@ -96,7 +96,7 @@ def _count_terms(text: str, terms) -> list[str]:
     return [t for t in terms if t in text]
 
 
-def match_job(job: dict, profile) -> dict:
+def match_job(job: dict, profile, extra_terms=None) -> dict:
     """Return a match result: fit score, best variant, and the evidence behind it.
 
     Fit is normalized to ~0-100 and robust to missing excerpts (many ATS feeds
@@ -110,8 +110,9 @@ def match_job(job: dict, profile) -> dict:
     excerpt = _clean(job.get("excerpt"))
     full = f"{title} {excerpt}"
 
-    title_hits = _count_terms(title, LANE_TERMS)
-    excerpt_hits = _count_terms(excerpt, LANE_TERMS)
+    lane = LANE_TERMS + list(extra_terms or [])   # config can broaden the lane
+    title_hits = _count_terms(title, lane)
+    excerpt_hits = _count_terms(excerpt, lane)
 
     title_pts = min(60, len(title_hits) * 30)
     excerpt_pts = min(25, len(set(excerpt_hits) - set(title_hits)) * 3)

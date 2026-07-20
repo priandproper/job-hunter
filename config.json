@@ -41,8 +41,21 @@
   "match": {
     "min_fit_score": 30,
     "exclude_sponsorship": ["No"],
-    "max_age_days": 45
+    "max_age_days": 45,
+    "extra_lane_terms": [
+      "marketing", "content marketing", "seo", "sem", "paid media",
+      "social media", "communications", "public relations", "pr",
+      "events marketing", "webinar", "community", "influencer",
+      "product manager", "product management", "program manager",
+      "operations", "strategy", "partnerships", "business development",
+      "sales", "account executive", "customer success", "solutions",
+      "data analyst", "insights analyst", "marketing coordinator",
+      "marketing specialist", "digital marketing", "ecommerce"
+    ]
   },
+  "pool_file": "data/job_pool.json",
+  "pool_max_age_days": 45,
+  "pool_max_size": 4000,
 
   "referrals": {
     "connections_csv": "data/connections.csv",
@@ -70,12 +83,20 @@
     "jsearch_api_key_env": "JSEARCH_API_KEY",
     "secrets_file": ".secrets.json",
     "min_interval_minutes": 180,
-    "results_pages": 1,
+    "results_pages": 3,
     "queries": [
-      "product marketing manager in Boston, Massachusetts",
+      "product marketing manager United States",
+      "product marketing manager remote United States",
+      "go to market manager United States",
+      "marketing manager United States",
+      "growth marketing manager United States",
+      "demand generation manager United States",
+      "marketing analytics manager remote United States",
+      "content marketing manager United States",
+      "marketing operations manager United States",
       "product marketing manager in New York, New York",
-      "go to market marketing manager remote United States",
-      "marketing analytics manager remote United States"
+      "product marketing manager in Boston, Massachusetts",
+      "product marketing manager in San Francisco, California"
     ]
   }
 }
