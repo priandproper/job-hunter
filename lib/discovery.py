@@ -68,7 +68,10 @@ def verify_h1b(company_name: str) -> tuple[bool | None, str]:
 # ---- job-board discovery (JSearch) ------------------------------------------
 
 def _jsearch(query: str, api_key: str, page: int = 1) -> list[dict]:
-    params = urllib.parse.urlencode({"query": query, "page": page, "num_pages": 1})
+    # country=us pre-filters to United States postings server-side (the candidate
+    # needs US / US-remote roles for H-1B sponsorship).
+    params = urllib.parse.urlencode(
+        {"query": query, "page": page, "num_pages": 1, "country": "us"})
     url = f"https://jsearch.p.rapidapi.com/search?{params}"
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
@@ -116,6 +119,11 @@ def fetch_postings(config: dict, repo_root: Path, log=print) -> list[dict]:
             if not postings:
                 break
             for posting in postings:
+                # Hard US gate: skip any posting whose country is set and isn't US
+                # (server-side country=us still lets the odd non-US role slip through).
+                country = (posting.get("job_country") or "").strip().upper()
+                if country and country not in ("US", "USA", "UNITED STATES"):
+                    continue
                 j = _norm_jsearch(posting)
                 if j["company"] and j["title"] and j["id"] not in seen:
                     seen.add(j["id"])

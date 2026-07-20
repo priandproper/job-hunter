@@ -42,13 +42,17 @@
     "min_fit_score": 30,
     "exclude_sponsorship": ["No"],
     "max_age_days": 45,
+    "experience": {
+      "analyst_max_years": 2,
+      "default_max_years": 4
+    },
     "extra_lane_terms": [
       "marketing", "content marketing", "seo", "sem", "paid media",
       "social media", "communications", "public relations", "pr",
       "events marketing", "webinar", "community", "influencer",
       "product manager", "product management", "program manager",
-      "operations", "strategy", "partnerships", "business development",
-      "sales", "account executive", "customer success", "solutions",
+      "operations", "strategy", "partnerships",
+      "customer success", "solutions",
       "data analyst", "insights analyst", "marketing coordinator",
       "marketing specialist", "digital marketing", "ecommerce"
     ]
@@ -94,6 +98,11 @@
       "marketing analytics manager remote United States",
       "content marketing manager United States",
       "marketing operations manager United States",
+      "marketing analyst United States",
+      "marketing analyst remote United States",
+      "business analyst marketing United States",
+      "marketing data analyst United States",
+      "growth analyst United States",
       "product marketing manager in New York, New York",
       "product marketing manager in Boston, Massachusetts",
       "product marketing manager in San Francisco, California"
