@@ -240,8 +240,9 @@
   .rscore{font-weight:800;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:42px;letter-spacing:-.02em}
   .rscore small{display:block;font-size:.55rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:.12rem}
   .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
-  .rstatus{font-size:.7rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:.14rem .5rem;flex-shrink:0;text-transform:capitalize}
-  @media (max-width:600px){.rstatus{display:none}}
+  .rstatus-sel{font:inherit;font-size:.72rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:7px;padding:.22rem .45rem;flex-shrink:0;text-transform:capitalize;cursor:pointer;max-width:130px}
+  .rstatus-sel:hover{border-color:var(--line-2)}
+  @media (max-width:600px){.rstatus-sel{max-width:96px}}
   .chev-r{color:var(--muted);flex-shrink:0;transition:transform .15s;font-size:.8rem}
   .jobrow.open .chev-r{transform:rotate(90deg)} .jobrow.open{border-color:var(--line-2)}
   .rdetail{border-top:1px solid var(--line);padding:1.1rem;display:none;background:var(--surface-2)}
@@ -681,23 +682,15 @@ function jobRow(job){
       <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div></div>
     <div class="rscore">${job.fit_score}<small>fit</small></div>
     <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
-    <span class="rstatus">${esc(st)}</span><span class="chev-r">▸</span></div>
+    <select class="rstatus-sel" onclick="event.stopPropagation()" onchange="event.stopPropagation();setStatus('${job.id}',this.value)">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select><span class="chev-r">▸</span></div>
     <div class="rdetail" id="detail-${job.id}"></div></div>`;}
 function detailHtml(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   const jdNote=job.jd_available?'':' <span class="co">(title-only)</span>';
-  const refs=jobRefs(job.id).slice();refs.push({name:'Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
-  const people=refs.filter(r=>r.kind!=='search');
-  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click Run script.</div>');
-  const sel=`<select onchange="setStatus('${job.id}',this.value)">`+STATUSES.map(s=>`<option ${s===jobStatus(job.id)?'selected':''}>${s}</option>`).join('')+`</select>`;
-  return `<div class="grid">
-    <div class="box"><h3>Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
+  return `<div class="box"><h3>Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
       <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
-    <div class="box"><h3>Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
-      <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div></div>
-    <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>
-    <div class="foot"><span class="status">Status: ${sel}</span><div class="grow"></div>
+    <div class="foot"><div class="grow"></div>
       <button onclick="openJob('${job.id}')">Open full page ↗</button>
       <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;}
 function fillDetail(id){const d=document.getElementById('detail-'+id);if(d&&!d.dataset.filled){d.innerHTML=detailHtml(DOC.jobs.find(j=>j.id===id));d.dataset.filled='1';}}
@@ -860,12 +853,8 @@ function renderJobPage(id){
   }else{
     mailHtml='<p class="co">No application emails detected for this company yet. Run <b>Scan inbox</b> from <a href="#/settings">Settings</a>.</p>';
   }
-  const sel=`<select onchange="setStatus('${job.id}',this.value)">`+STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')+`</select>`;
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
-  const refs=jobRefs(job.id).slice();refs.push({name:'Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
-  const people=refs.filter(r=>r.kind!=='search');
-  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click Run script.</div>');
   box.innerHTML=`
     <p class="back"><a href="#/jobs">← All jobs</a></p>
     <div class="jp-head">
@@ -876,15 +865,9 @@ function renderJobPage(id){
     </div>
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
-      <div class="jp-mail">${mailHtml}</div>
-      <div class="foot"><span class="status">Set status: ${sel}</span></div></div>
-    <div class="grid">
-      <div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
-        <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
-      <div class="box"><h3>Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
-        <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div>
-    </div>
-    <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>`;
+      <div class="jp-mail">${mailHtml}</div></div>
+    <div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
+      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>`;
 }
 
 // ----- render / routing -----
