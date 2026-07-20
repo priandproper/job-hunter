@@ -333,6 +333,8 @@
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:start}
   @media (max-width:740px){.grid{grid-template-columns:1fr}}
   .box{border:1px solid var(--line);background:var(--surface);border-radius:13px;padding:1.05rem 1.15rem;box-shadow:var(--ring)}
+  #jobPage>.box{margin-bottom:1rem}          /* consistent gap between all job-page cards */
+  .tag.repost{background:var(--mid-soft);color:var(--mid)}
   .box h3{margin:0 0 .75rem;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800}
   .miss{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
   .miss span{background:var(--accent-soft);color:var(--accent);border:none;border-radius:7px;padding:.22rem .58rem;font-size:.77rem;font-weight:600}
@@ -531,7 +533,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       TAILORED_KEY="job-hunter:tailored:v1", PRUNE_KEY="job-hunter:pruned:v1",
       BUILDER_RESUMES_KEY="resume-builder:resumes:v1",  // same origin as the builder
       MYRESUME_KEY="job-hunter:myresume:v1",            // your current best resume (JSON)
-      CONNCO_KEY="job-hunter:conncos:v1";               // connection name -> company (for message matching)
+      CONNCO_KEY="job-hunter:conncos:v1",               // connection name -> company (for message matching)
+      REPOST_KEY="job-hunter:repost:v1";                // jobs you've manually flagged as reposts
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
@@ -560,6 +563,12 @@ function jobStatusTs(id){return (getStatuses()[id]||{}).ts||null;}
 function daysSince(ts){return ts?(Date.now()-new Date(ts).getTime())/86400000:null;}
 function getPrivate(){try{return JSON.parse(localStorage.getItem(PRIVATE_KEY))||{}}catch{return{}}}
 function jobRefs(id){return (getPrivate().referrals||{})[id]||[];}
+// Manual "this posting is a repost" flag + a LinkedIn jobs-search link to check it.
+function getReposts(){try{return JSON.parse(localStorage.getItem(REPOST_KEY))||{}}catch{return{}}}
+function isRepost(id){return !!getReposts()[id];}
+function toggleRepost(id){const o=getReposts();if(o[id])delete o[id];else o[id]=new Date().toISOString();
+  localStorage.setItem(REPOST_KEY,JSON.stringify(o));toast(o[id]?'Marked as repost':'Repost tag removed');renderJobPage(id);}
+function ljJobsUrl(job){return 'https://www.linkedin.com/jobs/search/?keywords='+encodeURIComponent(((job.title||'')+' '+(job.company||'')).trim());}
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
 function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
   const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
@@ -1310,7 +1319,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -1541,7 +1550,7 @@ function renderJobPage(id){
     <p class="back"><a href="#/jobs">← All jobs</a></p>
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
-      <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
+      <div><h2>${esc(job.title)} ${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>
@@ -1550,7 +1559,12 @@ function renderJobPage(id){
     </div>
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
-      <div class="jp-mail">${mailHtml}</div></div>
+      <div class="jp-mail">${mailHtml}</div>
+      <div class="rowbtns" style="margin-top:.75rem">
+        <a href="${esc(ljJobsUrl(job))}" target="_blank" rel="noopener"><button>Find this posting on LinkedIn ↗</button></a>
+        <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
+      </div>
+      <p class="co" style="margin:.5rem 0 0">Open the LinkedIn posting to check when it was posted / whether it's a repost.</p></div>
     ${resumeBox(job)}
     ${outreachHtml(job)}`;
 }
