@@ -336,6 +336,28 @@
   #jobPage>.box{margin-bottom:1rem}          /* consistent gap between all job-page cards */
   .tag.repost{background:var(--mid-soft);color:var(--mid)}
   .tag.manual{background:var(--accent-soft);color:var(--accent)}
+  .tag.rel{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0;font-weight:700}
+  /* People */
+  .avatar{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--mid))}
+  .ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem}
+  .ptag{font-size:.68rem;font-weight:600;padding:.08rem .4rem;border-radius:5px;background:var(--surface-2);border:1px solid var(--line-2);color:var(--ink-2)}
+  .pfgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.7rem 1.2rem}
+  .pf{display:flex;flex-direction:column;gap:.12rem}
+  .pf span{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .pf b{font-size:.9rem;font-weight:600;color:var(--ink)}
+  .pnotes{white-space:pre-wrap;font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+  .pjob{border:1px solid var(--line-2);border-radius:10px;padding:.6rem .75rem;margin:.5rem 0;background:var(--surface-2)}
+  .pjob-h{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+  .pjob-t{flex:1;min-width:0;font-weight:600;font-size:.9rem}
+  .pjob-t .co{font-weight:400}
+  .outreach-ctl{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.55rem}
+  .txt.sm{padding:.32rem .5rem;font-size:.8rem;width:auto;max-width:200px}
+  .primary.sm,button.sm{padding:.34rem .7rem;font-size:.8rem}
+  .linklike{background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;text-decoration:underline;padding:.2rem}
+  .linklike:hover{color:var(--bad)}
+  .link-results{max-height:280px;overflow:auto;margin-top:.5rem;display:flex;flex-direction:column;gap:.4rem}
+  .link-row{display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
+  .link-row .lr-who{flex:1;min-width:0;font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
@@ -427,6 +449,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>
         <span>Jobs</span>
       </a>
+      <a href="#/people" data-nav="people" id="navPeople">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>People</span>
+      </a>
       <a href="#/settings" data-nav="settings" id="navSettings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         <span>Settings</span>
@@ -512,6 +538,24 @@
       <section id="screen-job" class="screen" hidden>
         <div id="jobPage"></div>
       </section>
+
+      <!-- ===== PEOPLE DIRECTORY ===== -->
+      <section id="screen-people" class="screen" hidden>
+        <div class="jobsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="peopleSearch" type="search" placeholder="Search people — name, company, title, tag" oninput="setPeopleQuery(this.value)" autocomplete="off">
+        </div>
+        <div class="section-h"><span class="eyebrow">People</span>
+          <button class="addjobbtn" onclick="openPersonModal()" title="Add a person to your directory">+ Add a person</button>
+          <span class="count" id="peopleCount"></span>
+        </div>
+        <div id="peopleList" class="rowlist"></div>
+      </section>
+
+      <!-- ===== SINGLE PERSON ===== -->
+      <section id="screen-person" class="screen" hidden>
+        <div id="personPage"></div>
+      </section>
     </main>
   </div>
 </div>
@@ -549,6 +593,46 @@
   </div>
 </div>
 
+<div class="modal" id="personModal" style="display:none">
+  <div class="modal-box">
+    <h2 id="personModalTitle">Add a person</h2>
+    <p class="sub">Everything about this person stays in <b>this browser only</b> (localStorage) — never uploaded, never committed. The more you note, the better the outreach prompts.</p>
+    <input type="hidden" id="pmId">
+    <div class="hm-grid">
+      <input class="txt" id="pmName" placeholder="Full name *">
+      <input class="txt" id="pmTitle" placeholder="Title / role (e.g. Director, Growth Marketing)">
+      <input class="txt" id="pmCompany" placeholder="Company">
+      <select class="txt" id="pmSeniority"></select>
+      <select class="txt" id="pmRelationship"></select>
+      <input class="txt" id="pmLinkedin" placeholder="LinkedIn URL">
+      <input class="txt" id="pmEmail" placeholder="Email">
+      <input class="txt" id="pmLocation" placeholder="Location">
+    </div>
+    <input class="txt" id="pmTags" placeholder="Tags (comma-separated: recruiter, warm, alum…)" style="margin-top:.55rem">
+    <input class="txt" id="pmHowKnown" placeholder="How you know them (e.g. former Babson classmate, spoke at a webinar)" style="margin-top:.55rem">
+    <textarea class="runner-code" id="pmNotes" style="min-height:80px;font-family:inherit;font-size:.86rem;margin-top:.55rem" placeholder="Notes — anything useful for personalizing outreach (their focus areas, mutual connections, recent posts)…"></textarea>
+    <div class="rowbtns" style="margin-top:.7rem">
+      <button class="primary" onclick="savePerson()">Save person</button>
+      <button onclick="closePersonModal()">Cancel</button>
+      <span class="co" id="pmStatus"></span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="linkPersonModal" style="display:none">
+  <div class="modal-box">
+    <h2>Add a person to this job</h2>
+    <p class="sub" id="lpJobLabel"></p>
+    <input type="hidden" id="lpJobId">
+    <input class="txt" id="lpSearch" placeholder="Search your people…" oninput="renderLinkResults()" autocomplete="off">
+    <div id="lpResults" class="link-results"></div>
+    <div class="rowbtns" style="margin-top:.7rem">
+      <button onclick="openPersonModal(null,document.getElementById('lpJobId').value)">+ Create a new person</button>
+      <button onclick="closeLinkPerson()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -565,7 +649,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       CONNCO_KEY="job-hunter:conncos:v1",               // connection name -> company (for message matching)
       REPOST_KEY="job-hunter:repost:v1",                // jobs you've manually flagged as reposts
       HM_KEY="job-hunter:hm:v1",                        // hiring-manager details + drafted intro per job
-      MANUAL_KEY="job-hunter:manual:v1";                // jobs you logged yourself (merged into the list)
+      MANUAL_KEY="job-hunter:manual:v1",                // jobs you logged yourself (merged into the list)
+      PEOPLE_KEY="job-hunter:people:v1";                // your private people directory (contacts ↔ jobs)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
@@ -1592,6 +1677,231 @@ function logOutreach(id){
 }
 function delOutreach(id,idx){const o=getOutreach();if(o[id]){o[id].splice(idx,1);if(!o[id].length)delete o[id];saveOutreach(o);renderJobPage(id);}}
 // ----- Reach the hiring manager: their details + a referral-aware intro -----
+// ===== People — a private, in-browser directory of contacts linked to jobs =====
+// Everything here lives in localStorage only (PEOPLE_KEY). Never uploaded/committed
+// — third-party PII stays on the user's machine. A person is an entity with a
+// many-to-many link to jobs; the association carries a per-job role.
+const PERSON_SENIORITY=['','Individual contributor','Manager','Senior Manager','Director','Senior Director','VP','Head of','C-level','Founder','Recruiter','Other'];
+const PERSON_RELATIONSHIP=[['1st','1st-degree (connected)'],['2nd','2nd-degree'],['colleague','Former colleague'],['alum','Alum / school'],['recruiter','Recruiter'],['friend','Friend'],['unknown','Not connected']];
+const JOB_ROLES=['hiring manager','recruiter','referrer','team member','connection','decision maker'];
+const MSG_TYPES=[['linkedin_connect','LinkedIn connect note'],['referral','Referral request'],['cold_email','Cold email'],['warm_intro','Warm intro / catch-up'],['thank_you','Thank-you note']];
+let peopleQuery='';
+function getPeople(){try{return JSON.parse(localStorage.getItem(PEOPLE_KEY))||[]}catch{return[]}}
+function savePeople(a){try{localStorage.setItem(PEOPLE_KEY,JSON.stringify(a))}catch{}}
+function personById(id){return getPeople().find(p=>p.id===id)||null;}
+function newPersonId(){return 'person-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function relLabel(v){const m=PERSON_RELATIONSHIP.find(r=>r[0]===v);return m?m[1]:'';}
+function jobObjById(id){return (DOC.jobs||[]).find(j=>j.id===id)||null;}
+function peopleForJob(jobId){return getPeople().map(p=>{const a=(p.jobs||[]).find(x=>x.id===jobId);return a?{person:p,role:a.role}:null;}).filter(Boolean);}
+function personJobs(p){return (p.jobs||[]).map(a=>({job:jobObjById(a.id),role:a.role,id:a.id}));}
+
+// ---- create / edit modal ----
+function fillSelect(id,opts,val){const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=opts.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${v===(val||'')?'selected':''}>${esc(l||'—')}</option>`;}).join('');}
+function openPersonModal(id,linkJobId){
+  const p=id?personById(id):null;
+  document.getElementById('personModalTitle').textContent=p?'Edit person':'Add a person';
+  const set=(f,v)=>{const e=document.getElementById(f);if(e)e.value=v||'';};
+  set('pmId',p&&p.id);set('pmName',p&&p.name);set('pmTitle',p&&p.title);set('pmCompany',p&&p.company);
+  set('pmLinkedin',p&&p.linkedin);set('pmEmail',p&&p.email);set('pmLocation',p&&p.location);
+  set('pmTags',p&&(p.tags||[]).join(', '));set('pmHowKnown',p&&p.howKnown);set('pmNotes',p&&p.notes);
+  fillSelect('pmSeniority',PERSON_SENIORITY.map(s=>[s,s||'Seniority…']),p&&p.seniority);
+  fillSelect('pmRelationship',[['','Relationship…'],...PERSON_RELATIONSHIP],p&&p.relationship);
+  document.getElementById('pmStatus').textContent='';
+  document.getElementById('personModal').dataset.linkJob=linkJobId||'';
+  if(linkJobId)closeLinkPerson();
+  document.getElementById('personModal').style.display='flex';document.getElementById('pmName').focus();
+}
+function closePersonModal(){document.getElementById('personModal').style.display='none';}
+function savePerson(){
+  const v=id=>((document.getElementById(id)||{}).value||'').trim();
+  const name=v('pmName');
+  if(!name){document.getElementById('pmStatus').textContent='Name is required.';return;}
+  const tags=v('pmTags').split(',').map(s=>s.trim()).filter(Boolean);
+  const id=v('pmId'), now=new Date().toISOString(), people=getPeople();
+  let p=id?people.find(x=>x.id===id):null;
+  if(!p){p={id:newPersonId(),jobs:[],createdAt:now};people.unshift(p);}
+  Object.assign(p,{name,title:v('pmTitle'),company:v('pmCompany'),seniority:v('pmSeniority'),
+    relationship:v('pmRelationship'),linkedin:v('pmLinkedin'),email:v('pmEmail'),location:v('pmLocation'),
+    tags,howKnown:v('pmHowKnown'),notes:v('pmNotes'),updatedAt:now});
+  const linkJob=document.getElementById('personModal').dataset.linkJob;
+  if(linkJob&&!(p.jobs||[]).some(a=>a.id===linkJob))(p.jobs=p.jobs||[]).push({id:linkJob,role:'connection'});
+  savePeople(people);closePersonModal();
+  document.getElementById('personModal').dataset.linkJob='';toast('Person saved');
+  const view=currentView();
+  if(linkJob&&view==='job')renderJobPage(jobPageId());
+  else if(view==='person')renderPersonPage(personPageId());
+  else if(view==='people')renderPeople();
+}
+function deletePerson(id){if(!confirm('Remove this person from your directory? This only affects this browser.'))return;
+  savePeople(getPeople().filter(p=>p.id!==id));toast('Person removed');location.hash='#/people';route();}
+
+// ---- link person <-> job ----
+function openLinkPerson(jobId){
+  const job=jobObjById(jobId);
+  document.getElementById('lpJobId').value=jobId;
+  document.getElementById('lpJobLabel').textContent=job?`${job.title} · ${job.company}`:'';
+  document.getElementById('lpSearch').value='';
+  document.getElementById('linkPersonModal').style.display='flex';
+  renderLinkResults();document.getElementById('lpSearch').focus();
+}
+function closeLinkPerson(){document.getElementById('linkPersonModal').style.display='none';}
+function renderLinkResults(){
+  const q=(document.getElementById('lpSearch').value||'').toLowerCase().trim();
+  const jobId=document.getElementById('lpJobId').value;
+  const linked=new Set(peopleForJob(jobId).map(x=>x.person.id));
+  let ppl=getPeople().filter(p=>!linked.has(p.id));
+  if(q)ppl=ppl.filter(p=>((p.name||'')+' '+(p.company||'')+' '+(p.title||'')).toLowerCase().includes(q));
+  const el=document.getElementById('lpResults');
+  if(!getPeople().length){el.innerHTML='<p class="co">No people in your directory yet — create your first below.</p>';return;}
+  if(!ppl.length){el.innerHTML='<p class="co">No unlinked matches. Create a new person below.</p>';return;}
+  el.innerHTML=ppl.slice(0,8).map(p=>`<div class="link-row"><div class="lr-who"><b>${esc(p.name)}</b><span class="co"> ${esc(p.title||'')}${p.company?' · '+esc(p.company):''}</span></div>
+    <select class="txt sm lp-role" data-pid="${p.id}">${JOB_ROLES.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
+    <button class="primary sm" onclick="linkExisting('${p.id}')">Link</button></div>`).join('');
+}
+function linkExisting(pid){
+  const jobId=document.getElementById('lpJobId').value;
+  const roleSel=document.querySelector('.lp-role[data-pid="'+pid+'"]');
+  const role=roleSel?roleSel.value:'connection';
+  const people=getPeople(),p=people.find(x=>x.id===pid);if(!p)return;
+  if(!(p.jobs||[]).some(a=>a.id===jobId))(p.jobs=p.jobs||[]).push({id:jobId,role});
+  savePeople(people);closeLinkPerson();toast('Linked');
+  if(currentView()==='job')renderJobPage(jobPageId());else renderPeople();
+}
+function unlinkPerson(pid,jobId){
+  const people=getPeople(),p=people.find(x=>x.id===pid);if(!p)return;
+  p.jobs=(p.jobs||[]).filter(a=>a.id!==jobId);savePeople(people);toast('Unlinked');
+  const view=currentView();
+  if(view==='job')renderJobPage(jobPageId());else if(view==='person')renderPersonPage(personPageId());else renderPeople();
+}
+function setJobRole(pid,jobId,role){
+  const people=getPeople(),p=people.find(x=>x.id===pid);if(!p)return;
+  const a=(p.jobs||[]).find(x=>x.id===jobId);if(a){a.role=role;savePeople(people);}
+}
+
+// ---- directory + person page render ----
+function setPeopleQuery(q){peopleQuery=q;renderPeople();}
+function personCardRow(p){
+  const njobs=(p.jobs||[]).length, sub=[p.title,p.company].filter(Boolean).join(' · ');
+  const tags=(p.tags||[]).slice(0,4).map(t=>`<span class="ptag">${esc(t)}</span>`).join('');
+  return `<div class="jobrow"><a class="rhead" href="#/person/${p.id}">
+    <span class="avatar">${esc((p.name||'?').trim().slice(0,1).toUpperCase())}</span>
+    <div class="rinfo"><div class="rtitle">${esc(p.name)}${p.relationship?` <span class="tag rel">${esc(relLabel(p.relationship))}</span>`:''}</div>
+      <div class="rmeta">${esc(sub||'—')}</div>${tags?`<div class="ptags">${tags}</div>`:''}</div>
+    <div class="rscore">${njobs}<small>job${njobs===1?'':'s'}</small></div></a></div>`;
+}
+function renderPeople(){
+  const q=peopleQuery.trim().toLowerCase();
+  let ppl=getPeople();
+  if(q)ppl=ppl.filter(p=>((p.name||'')+' '+(p.company||'')+' '+(p.title||'')+' '+((p.tags||[]).join(' '))).toLowerCase().includes(q));
+  ppl=ppl.slice().sort((a,b)=>(a.name||'').toLowerCase().localeCompare((b.name||'').toLowerCase()));
+  const cnt=document.getElementById('peopleCount');if(cnt)cnt.textContent=`${ppl.length} ${ppl.length===1?'person':'people'}`;
+  const el=document.getElementById('peopleList');if(!el)return;
+  el.innerHTML=ppl.length?ppl.map(personCardRow).join(''):
+    (getPeople().length?'<div class="empty">No matches.</div>':'<div class="empty">No people yet. Add hiring managers, recruiters, or anyone you might reach out to — then link them to jobs from a job page.</div>');
+}
+function personPageId(){return decodeURIComponent(location.hash.replace(/^#\/person\//,''));}
+function renderPersonPage(id){
+  const box=document.getElementById('personPage');if(!box)return;
+  const p=personById(id);
+  if(!p){box.innerHTML='<p class="back"><a href="#/people">← People</a></p><div class="empty">Person not found.</div>';return;}
+  const rows=[['Title',p.title],['Company',p.company],['Seniority',p.seniority],['Relationship',relLabel(p.relationship)],['Location',p.location],['Email',p.email],['How you know them',p.howKnown]].filter(r=>r[1]);
+  const info=rows.map(([k,v])=>`<div class="pf"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
+  const tags=(p.tags||[]).map(t=>`<span class="ptag">${esc(t)}</span>`).join('');
+  const jobs=personJobs(p);
+  const jobsHtml=jobs.length?jobs.map(({job,role,id})=>`<div class="pjob">
+      <div class="pjob-h"><div class="pjob-t">${job?`<a href="#/job/${job.id}">${esc(job.title)}</a><span class="co"> ${esc(job.company||'')}</span>`:'<span class="co">(job no longer in the current list)</span>'}</div>
+        <select class="txt sm" onchange="setJobRole('${p.id}','${id}',this.value)">${JOB_ROLES.map(r=>`<option ${r===role?'selected':''}>${r}</option>`).join('')}</select>
+        <button class="linklike" onclick="unlinkPerson('${p.id}','${id}')">unlink</button></div>
+      ${job?outreachControls(p,job):''}</div>`).join(''):'<p class="co">Not linked to any job yet. Open a job and use “+ Add a person”.</p>';
+  box.innerHTML=`<p class="back"><a href="#/people">← People</a></p>
+    <div class="jp-head"><div><h2>${esc(p.name)} ${p.relationship?`<span class="tag rel">${esc(relLabel(p.relationship))}</span>`:''}</h2>
+      <p class="jp-sub">${esc([p.title,p.company].filter(Boolean).join(' · ')||'—')}</p>${tags?`<div class="ptags">${tags}</div>`:''}</div>
+      <div class="jp-scores">
+        ${p.linkedin?`<a href="${esc(p.linkedin)}" target="_blank" rel="noopener"><button>LinkedIn ↗</button></a>`:''}
+        <button class="markbtn lg" onclick="openPersonModal('${p.id}')">✎ Edit</button>
+        <button class="markbtn lg hidebtn" onclick="deletePerson('${p.id}')">🗑 Delete</button></div></div>
+    ${info?`<div class="box"><div class="pfgrid">${info}</div></div>`:''}
+    ${p.notes?`<div class="box"><h3>Notes</h3><p class="pnotes">${esc(p.notes)}</p></div>`:''}
+    <div class="box"><h3>Jobs &amp; outreach</h3>${jobsHtml}</div>`;
+}
+
+// ---- outreach prompt (model-agnostic; copy → paste into Claude/ChatGPT/Gemini) ----
+function outreachControls(p,job){
+  const uid=p.id+'_'+job.id;
+  return `<div class="outreach-ctl">
+    <select class="txt sm" id="mt_${uid}">${MSG_TYPES.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+    <button class="primary sm" onclick="copyOutreachPrompt('${p.id}','${job.id}')">Copy outreach prompt</button>
+  </div>`;
+}
+function copyOutreachPrompt(pid,jobId){
+  const p=personById(pid),job=jobObjById(jobId);if(!p||!job)return;
+  const sel=document.getElementById('mt_'+pid+'_'+jobId), type=sel?sel.value:'linkedin_connect';
+  copyText(outreachPrompt(p,job,type));toast('Outreach prompt copied — paste into Claude / ChatGPT / Gemini');
+}
+function outreachPrompt(p,job,type){
+  const per=getPersona(), me=meName()||'the candidate';
+  const typeLabel=(MSG_TYPES.find(t=>t[0]===type)||[,'message'])[1];
+  const channel=type==='cold_email'?'Email':(type==='linkedin_connect'?'LinkedIn connection-request note':'LinkedIn message');
+  const assoc=(p.jobs||[]).find(a=>a.id===job.id);
+  const L=[];
+  L.push(`You are an expert at writing concise, warm, high-response-rate professional outreach. Write a ${typeLabel} that ${me} will send to the person described below, about the specific job below. Output ONLY the message text — no preamble or explanation`+(type==='cold_email'?' (include a "Subject:" line, then the body).':'.'));
+  L.push('');
+  L.push('FORMAT & TONE');
+  L.push(`- Channel: ${channel}.`);
+  if(type==='linkedin_connect')L.push('- Hard limit ~300 characters. Warm but direct; no filler.');
+  if(type==='cold_email')L.push('- 120–160 words. One clear call to action.');
+  L.push('- Genuine and specific; respect their time. No clichés, no buzzword salad, no fake flattery.');
+  L.push('- Personalize using ONLY the details given — never invent facts. American English. Exactly one ask.');
+  L.push('');
+  L.push('SENDER (the candidate)');
+  L.push(`- Name: ${me}`);
+  if((per.roles||[]).length)L.push(`- Target roles / focus: ${per.roles.join(', ')}`);
+  if((per.skills||[]).length)L.push(`- Key skills / tools: ${per.skills.join(', ')}`);
+  if((per.years||0)>0)L.push(`- Years of experience: ${per.years}`);
+  if(per.projects)L.push(`- Highlights / proof points: ${per.projects}`);
+  L.push('');
+  L.push('RECIPIENT');
+  L.push(`- Name: ${p.name}`);
+  if(p.title)L.push(`- Title: ${p.title}`);
+  if(p.company)L.push(`- Company: ${p.company}`);
+  if(p.seniority)L.push(`- Seniority: ${p.seniority}`);
+  if(p.relationship)L.push(`- Relationship to sender: ${relLabel(p.relationship)}`);
+  if(assoc&&assoc.role)L.push(`- Their role for this job: ${assoc.role}`);
+  if(p.howKnown)L.push(`- How the sender knows them: ${p.howKnown}`);
+  if(p.notes)L.push(`- Notes / context: ${p.notes}`);
+  L.push('');
+  L.push('THE JOB');
+  L.push(`- Title: ${job.title}`);
+  L.push(`- Company: ${job.company}`);
+  if(job.location)L.push(`- Location: ${job.location}`);
+  const kw=(job.requested_keywords||[]).slice(0,8).join(', ');if(kw)L.push(`- Role emphasizes: ${kw}`);
+  if(job.url)L.push(`- Posting: ${job.url}`);
+  const exc=(job.excerpt||'').trim();if(exc)L.push(`- Description excerpt: ${exc.slice(0,600)}`);
+  L.push('');
+  L.push('GOAL');
+  L.push('- '+({linkedin_connect:'Open a relationship and signal genuine, specific interest in the role and fit; invite a short reply.',
+    referral:"Politely ask whether they'd be open to referring the sender for this role (or pointing to the right person), making it easy to say yes; offer to send a resume or a short blurb.",
+    cold_email:'Introduce the sender, tie their background to this specific role, and ask for a brief chat or a referral.',
+    warm_intro:'Reconnect warmly given the existing relationship, mention the role, and ask for advice or a referral.',
+    thank_you:'Thank them (e.g. after a call or a referral) and reaffirm interest and fit in a specific, non-generic way.'}[type]||'Write an effective, personalized message toward the sender’s goal.'));
+  return L.join('\n');
+}
+function peopleCard(job){
+  const linked=peopleForJob(job.id);
+  const rows=linked.map(({person,role})=>`<div class="pjob"><div class="pjob-h">
+      <div class="pjob-t"><a href="#/person/${person.id}">${esc(person.name)}</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span> <span class="tag rel">${esc(role)}</span></div>
+      <select class="txt sm" onchange="setJobRole('${person.id}','${job.id}',this.value)">${JOB_ROLES.map(r=>`<option ${r===role?'selected':''}>${r}</option>`).join('')}</select>
+      <button class="linklike" onclick="unlinkPerson('${person.id}','${job.id}')">unlink</button></div>
+      ${outreachControls(person,job)}</div>`).join('');
+  return `<div class="box"><h3>People</h3>
+    <p class="co">Anyone connected to this job — hiring manager, recruiter, referrer, or a contact who works there. Link them, then generate a tailored outreach prompt. Stored in this browser only.</p>
+    ${rows||'<p class="co">No one linked yet.</p>'}
+    <div class="rowbtns" style="margin-top:.6rem"><button class="primary" onclick="openLinkPerson('${job.id}')">+ Add a person</button>
+      <a class="li-search" href="${esc(ljPeopleUrl(job,null))}" target="_blank" rel="noopener">Find people at ${esc(job.company)} on LinkedIn ↗</a></div>
+  </div>`;
+}
+
 function getHM(){try{return JSON.parse(localStorage.getItem(HM_KEY))||{}}catch{return{}}}
 function hmFor(id){return getHM()[id]||{};}
 function hmVal(x){return ((document.getElementById(x)||{}).value||'').trim();}
@@ -1719,6 +2029,7 @@ function renderJobPage(id){
       </div>
       <p class="co" style="margin:.5rem 0 0">Open the LinkedIn posting to check when it was posted / whether it's a repost.</p></div>
     ${resumeBox(job)}
+    ${peopleCard(job)}
     ${hmCard(job)}
     ${outreachHtml(job)}`;
 }
@@ -1752,13 +2063,17 @@ function currentView(){
   if(h.startsWith('#/job/'))return 'job';
   if(h.startsWith('#/jobs'))return 'jobs';
   if(h.startsWith('#/settings'))return 'settings';
+  if(h.startsWith('#/person/'))return 'person';
+  if(h.startsWith('#/people'))return 'people';
   return 'home';
 }
 function render(){
   document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
   const v=currentView();
   if(v==='job')renderJobPage(jobPageId());
-  else if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();else renderHome();
+  else if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();
+  else if(v==='people')renderPeople();else if(v==='person')renderPersonPage(personPageId());
+  else renderHome();
 }
 function route(){
   const v=currentView();
@@ -1766,10 +2081,12 @@ function route(){
   document.getElementById('screen-jobs').hidden=v!=='jobs';
   document.getElementById('screen-settings').hidden=v!=='settings';
   document.getElementById('screen-job').hidden=v!=='job';
-  // keep "Jobs" highlighted while drilled into a single job
-  const navFor=v==='job'?'jobs':v;
+  document.getElementById('screen-people').hidden=v!=='people';
+  document.getElementById('screen-person').hidden=v!=='person';
+  // keep "Jobs" highlighted while drilled into a job, "People" while in a person
+  const navFor=v==='job'?'jobs':v==='person'?'people':v;
   document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===navFor));
-  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':v==='job'?'Job':'Cockpit';
+  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':v==='job'?'Job':v==='people'?'People':v==='person'?'Person':'Cockpit';
   render();
 }
 window.addEventListener('hashchange',route);
