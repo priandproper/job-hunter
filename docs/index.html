@@ -335,10 +335,13 @@
   .box{border:1px solid var(--line);background:var(--surface);border-radius:13px;padding:1.05rem 1.15rem;box-shadow:var(--ring)}
   #jobPage>.box{margin-bottom:1rem}          /* consistent gap between all job-page cards */
   .tag.repost{background:var(--mid-soft);color:var(--mid)}
+  .tag.manual{background:var(--accent-soft);color:var(--accent)}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
   .hm-grid .txt:focus{outline:none;border-color:var(--accent)}
+  .addjobbtn{font-size:.78rem;font-weight:600;padding:.34rem .7rem;border-radius:8px;border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .addjobbtn:hover{background:var(--accent);color:#fff;border-color:transparent}
   .box h3{margin:0 0 .75rem;font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800}
   .miss{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
   .miss span{background:var(--accent-soft);color:var(--accent);border:none;border-radius:7px;padding:.22rem .58rem;font-size:.77rem;font-weight:600}
@@ -479,6 +482,7 @@
           <input id="jobSearch" type="search" placeholder="Search — all words must match (e.g. analyst marketing business)" oninput="setQuery(this.value)" autocomplete="off">
         </div>
         <div class="section-h"><span class="eyebrow">All jobs</span>
+          <button class="addjobbtn" onclick="openAddJob()" title="Log a job you found elsewhere">+ Add a job</button>
           <div class="seg" id="statusFilter"></div>
           <button class="prunebtn" onclick="pruneOffPersona()" title="Hide jobs that don't match your profile persona">✂ Prune off-persona</button>
           <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
@@ -525,6 +529,25 @@
   </div>
 </div>
 
+<div class="modal" id="addJobModal" style="display:none">
+  <div class="modal-box">
+    <h2>Add a job</h2>
+    <p class="sub">Log a job you found elsewhere so it lives here with everything else — status, tailored resume, outreach, and hiring-manager tools.</p>
+    <div class="hm-grid">
+      <input class="txt" id="ajTitle" placeholder="Job title *">
+      <input class="txt" id="ajCompany" placeholder="Company *">
+      <input class="txt" id="ajLocation" placeholder="Location (optional)">
+      <input class="txt" id="ajUrl" placeholder="Posting URL (optional)">
+    </div>
+    <textarea class="runner-code" id="ajJd" style="min-height:96px;font-family:inherit;font-size:.86rem" placeholder="Paste the job description (optional) — used in the resume-tailoring prompt"></textarea>
+    <div class="rowbtns" style="margin-top:.7rem">
+      <button class="primary" onclick="createJob()">Add job</button>
+      <button onclick="closeAddJob()">Cancel</button>
+      <span class="co" id="ajStatus"></span>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -540,7 +563,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MYRESUME_KEY="job-hunter:myresume:v1",            // your current best resume (JSON)
       CONNCO_KEY="job-hunter:conncos:v1",               // connection name -> company (for message matching)
       REPOST_KEY="job-hunter:repost:v1",                // jobs you've manually flagged as reposts
-      HM_KEY="job-hunter:hm:v1";                        // hiring-manager details + drafted intro per job
+      HM_KEY="job-hunter:hm:v1",                        // hiring-manager details + drafted intro per job
+      MANUAL_KEY="job-hunter:manual:v1";                // jobs you logged yourself (merged into the list)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, query="", shownCount=PAGE;
@@ -575,6 +599,37 @@ function isRepost(id){return !!getReposts()[id];}
 function toggleRepost(id){const o=getReposts();if(o[id])delete o[id];else o[id]=new Date().toISOString();
   localStorage.setItem(REPOST_KEY,JSON.stringify(o));toast(o[id]?'Marked as repost':'Repost tag removed');renderJobPage(id);}
 function ljJobsUrl(job){return 'https://www.linkedin.com/jobs/search/?keywords='+encodeURIComponent(((job.title||'')+' '+(job.company||'')).trim());}
+
+// ----- Manually logged jobs (stored in this browser, merged into the list) -----
+function getManualJobs(){try{return JSON.parse(localStorage.getItem(MANUAL_KEY))||[]}catch{return[]}}
+function saveManualJobs(a){try{localStorage.setItem(MANUAL_KEY,JSON.stringify(a))}catch{}}
+function mergeManualJobs(){const m=getManualJobs();if(!m.length)return;
+  const have=new Set((DOC.jobs||[]).map(j=>j.id));
+  DOC.jobs=[...m.filter(j=>!have.has(j.id)),...(DOC.jobs||[])];}
+function newJobId(){return 'manual-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function openAddJob(){document.getElementById('addJobModal').style.display='flex';
+  ['ajTitle','ajCompany','ajLocation','ajUrl','ajJd'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  document.getElementById('ajStatus').textContent='';document.getElementById('ajTitle').focus();}
+function closeAddJob(){document.getElementById('addJobModal').style.display='none';}
+function createJob(){
+  const title=hmVal('ajTitle'),company=hmVal('ajCompany'),loc=hmVal('ajLocation'),url=hmVal('ajUrl');
+  const jd=((document.getElementById('ajJd')||{}).value||'').trim();
+  if(!title||!company){document.getElementById('ajStatus').textContent='Title and company are required.';return;}
+  const id=newJobId();
+  const job={id,company,title,location:loc,url,source:'manual',manual:true,
+    fit_score:0,ats_score:0,best_variant:'',variant_label:'',
+    missing_keywords:[],requested_keywords:[],title_keywords:[],
+    excerpt:jd,jd_available:!!jd,posted_at:new Date().toISOString(),min_years:null,sponsorship:'Unknown',
+    resume_core:getMyResume()||null,import_url:'',
+    referral_message:`Hi there — hope you're doing well! I saw that ${company} is hiring for a ${title} role${url?` (${url})`:''}, and it lines up closely with my background in B2B marketing, GTM, and analytics. Since you're at ${company}, would you be open to referring me or pointing me to the right person on the team? Happy to send my resume and a quick blurb to make it easy. Thanks so much!`,
+    linkedin_search:'https://www.linkedin.com/search/results/people/?keywords='+encodeURIComponent('"'+company+'"')};
+  const arr=getManualJobs();arr.unshift(job);saveManualJobs(arr);
+  DOC.jobs=[job,...(DOC.jobs||[])];
+  closeAddJob();toast('Job added');location.hash='#/job/'+id;route();}
+function deleteManualJob(id){if(!confirm('Remove this manually-added job?'))return;
+  saveManualJobs(getManualJobs().filter(j=>j.id!==id));
+  DOC.jobs=(DOC.jobs||[]).filter(j=>j.id!==id);
+  location.hash='#/jobs';route();toast('Job removed');}
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
 function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
   const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
@@ -1294,12 +1349,12 @@ const SORTS=[['persona','Best for me'],['relevance','Relevance'],['recent','Most
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
-  const a=[...jobs];
-  if(sortBy==='persona')a.sort((x,y)=>personaScore(y)-personaScore(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);
-  else if(sortBy==='recent')a.sort((x,y)=>_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
-  else if(sortBy==='ats')a.sort((x,y)=>y.ats_score-x.ats_score||y.fit_score-x.fit_score);
-  else if(sortBy==='fresh')a.sort((x,y)=>(newIds.has(y.id)-newIds.has(x.id))||_seenMs(y)-_seenMs(x)||y.fit_score-x.fit_score);
-  else a.sort((x,y)=>y.fit_score-x.fit_score||y.ats_score-x.ats_score);   // relevance (default)
+  const a=[...jobs],mf=j=>j.manual?1:0;   // jobs you logged yourself pin to the top
+  if(sortBy==='persona')a.sort((x,y)=>mf(y)-mf(x)||personaScore(y)-personaScore(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);
+  else if(sortBy==='recent')a.sort((x,y)=>mf(y)-mf(x)||_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
+  else if(sortBy==='ats')a.sort((x,y)=>mf(y)-mf(x)||y.ats_score-x.ats_score||y.fit_score-x.fit_score);
+  else if(sortBy==='fresh')a.sort((x,y)=>mf(y)-mf(x)||(newIds.has(y.id)-newIds.has(x.id))||_seenMs(y)-_seenMs(x)||y.fit_score-x.fit_score);
+  else a.sort((x,y)=>mf(y)-mf(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);   // relevance (default)
   return a;
 }
 function setSort(v){sortBy=v;shownCount=PAGE;renderJobs();}
@@ -1329,7 +1384,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -1617,10 +1672,11 @@ function renderJobPage(id){
     <p class="back"><a href="#/jobs">← All jobs</a></p>
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
-      <div><h2>${esc(job.title)} ${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
+      <div><h2>${esc(job.title)} ${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>
+        ${job.manual?`<button class="markbtn lg hidebtn" title="Remove this manually-added job" onclick="deleteManualJob('${job.id}')">🗑 Delete</button>`:''}
         ${isPruned(job.id)?'':`<button class="markbtn lg hidebtn" title="Not interested — don't show this again" onclick="hideJob('${job.id}')">✕ Not interested</button>`}
         <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Apply ↗</button></a></div>
     </div>
@@ -1688,8 +1744,9 @@ function route(){
 window.addEventListener('hashchange',route);
 async function load(){
   try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
-  catch(e){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}
-  computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
+  catch(e){DOC={jobs:[],meta:{},summary:{}};
+    if(!getManualJobs().length){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}}
+  mergeManualJobs();computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
 }
 
 // ----- runner -----
