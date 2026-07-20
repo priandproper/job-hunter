@@ -129,6 +129,7 @@
   .markbtn:hover{border-color:var(--mid);color:var(--mid)}
   .markbtn.on{color:var(--mid);border-color:transparent;background:var(--mid-soft)}
   .markbtn.lg{font-size:.82rem;font-weight:600;padding:.42rem .7rem}
+  .hidebtn:hover{border-color:var(--bad);color:var(--bad);background:var(--bad-soft)}
   .rolebar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:0 0 1.2rem}
   .rolelabel{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:.25rem}
   .rolechip{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.34rem .72rem;font-size:.8rem;color:var(--ink-2);font-weight:500;display:inline-flex;align-items:center;gap:.4rem;transition:all .13s}
@@ -1136,7 +1137,11 @@ function matchesQuery(job){const q=query.trim().toLowerCase();
 function getPruned(){try{return JSON.parse(localStorage.getItem(PRUNE_KEY))||{}}catch{return{}}}
 function isPruned(id){return !!getPruned()[id];}
 function savePruned(o){try{localStorage.setItem(PRUNE_KEY,JSON.stringify(o))}catch{}}
-function unprune(id){const o=getPruned();delete o[id];savePruned(o);render();}
+function unprune(id,ev){if(ev)ev.stopPropagation();const o=getPruned();delete o[id];savePruned(o);render();}
+// Manual, per-job "don't show this again" — reuses the reversible pruned set.
+function hideJob(id,ev){if(ev){ev.stopPropagation();ev.preventDefault();}
+  const o=getPruned();o[id]=new Date().toISOString();savePruned(o);
+  toast("Hidden — you won't see this again");render();}
 function unpruneAll(){savePruned({});toast('Restored all pruned jobs');render();}
 function pruneOffPersona(){
   if(!personaSet()){toast('Set your profile (persona) in Settings first');location.hash='#/settings';return;}
@@ -1210,6 +1215,9 @@ function jobRow(job){
     </a>
     <div class="rctl">
       <button class="markbtn ${isMarked(job.id)?'on':''}" title="Mark to revisit" onclick="toggleMark('${job.id}',event)">${isMarked(job.id)?'★':'☆'}</button>
+      ${isPruned(job.id)
+        ? `<button class="markbtn" title="Restore — show this again" onclick="unprune('${job.id}',event)">↩</button>`
+        : `<button class="markbtn hidebtn" title="Not interested — don't show this again" onclick="hideJob('${job.id}',event)">✕</button>`}
       <select class="rstatus-sel" onchange="setStatus('${job.id}',this.value)">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select>
       <a class="chev-r" href="${href}" aria-label="Open job">→</a>
     </div></div>`;}
@@ -1418,12 +1426,13 @@ function renderJobPage(id){
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   box.innerHTML=`
     <p class="back"><a href="#/jobs">← All jobs</a></p>
-    ${isPruned(job.id)?`<div class="prune-banner">✂ This job was pruned as off-persona. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
+    ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
       <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>
+        ${isPruned(job.id)?'':`<button class="markbtn lg hidebtn" title="Not interested — don't show this again" onclick="hideJob('${job.id}')">✕ Not interested</button>`}
         <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Apply ↗</button></a></div>
     </div>
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
@@ -1439,7 +1448,7 @@ function renderPruneBanner(){
   const el=document.getElementById('pruneBanner');if(!el)return;
   const n=Object.keys(getPruned()).length;
   el.innerHTML=(filter==='pruned'&&n)
-    ? `<div class="prune-banner">✂ ${n} job(s) pruned as off-persona — restored jobs return to their normal views.
+    ? `<div class="prune-banner">✂ ${n} job(s) hidden — restored jobs return to their normal views.
         <button class="primary" onclick="unpruneAll()">Restore all</button></div>`
     : '';
 }
