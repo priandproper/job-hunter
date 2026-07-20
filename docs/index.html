@@ -358,6 +358,20 @@
   .link-results{max-height:280px;overflow:auto;margin-top:.5rem;display:flex;flex-direction:column;gap:.4rem}
   .link-row{display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
   .link-row .lr-who{flex:1;min-width:0;font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* Company watchlist */
+  .co-add{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .co-add .txt{flex:1;min-width:160px}
+  .co-h{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:1rem 0 .4rem}
+  .co-list{display:flex;flex-direction:column;gap:.2rem}
+  .co-list.scroll{max-height:300px;overflow:auto;border:1px solid var(--line-2);border-radius:9px;padding:.4rem}
+  .co-row{display:flex;align-items:center;gap:.6rem;padding:.3rem .35rem;border-radius:7px}
+  .co-row:hover{background:var(--surface-2)}
+  .co-name{flex:1;min-width:0;font-size:.86rem;font-weight:600;color:var(--ink);text-align:left;background:none;border:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  button.co-name.jumpco{cursor:pointer}
+  button.co-name.jumpco:hover{color:var(--accent)}
+  .co-dim{color:var(--muted);font-weight:400;font-size:.78rem}
+  .co-ats{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:.08rem .4rem;border-radius:5px;background:var(--surface-2);border:1px solid var(--line-2);color:var(--muted)}
+  .co-ats.on{background:var(--good-soft,var(--accent-soft));color:var(--good,var(--accent))}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
@@ -650,7 +664,9 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       REPOST_KEY="job-hunter:repost:v1",                // jobs you've manually flagged as reposts
       HM_KEY="job-hunter:hm:v1",                        // hiring-manager details + drafted intro per job
       MANUAL_KEY="job-hunter:manual:v1",                // jobs you logged yourself (merged into the list)
-      PEOPLE_KEY="job-hunter:people:v1";                // your private people directory (contacts ↔ jobs)
+      PEOPLE_KEY="job-hunter:people:v1",                // your private people directory (contacts ↔ jobs)
+      COMPANIES_KEY="job-hunter:companies:v1",          // companies you added to the watchlist
+      COMPANIES_GIST_KEY="job-hunter:companies_gist:v1";// published-watchlist gist id + setup state
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
@@ -1144,6 +1160,7 @@ function renderSettings(){
     </div>
     ${importCard()}
     ${personaCard()}
+    ${companiesCard()}
     ${claudeCard()}
     ${resumeCard()}`;
   verifyPersonaVar();   // best-effort auto-hide the setup note if the variable is already set
@@ -1339,6 +1356,73 @@ function personaCard(){
       ? `<p class="sub" style="margin-top:.6rem;color:var(--good)">✓ Runner configured. <a href="#/settings" onclick="setPersonaConfigured(false);renderSettings();return false" class="ovlink" style="color:var(--muted)">show setup again</a></p>`
       : `<p class="sub" style="margin-top:.6rem">Runner setup (one-time): add an Actions <b>variable</b> <code>PERSONA_GIST_ID</code> = <code>${esc(gid)}</code> (repo → Settings → Secrets and variables → Actions → Variables), and ensure your token has <b>Gists: read/write</b>. <a href="#/settings" onclick="setPersonaConfigured(true);renderSettings();return false" class="ovlink" style="color:var(--accent)">I've added it — hide</a></p>`)
       :''}
+  </div>`;
+}
+// ===== Company watchlist — the list the scraper watches + your own additions =====
+function getUserCompanies(){try{return JSON.parse(localStorage.getItem(COMPANIES_KEY))||[]}catch{return[]}}
+function saveUserCompanies(a){try{localStorage.setItem(COMPANIES_KEY,JSON.stringify(a))}catch{}}
+function addUserCompany(){
+  const name=((document.getElementById('ucName')||{}).value||'').trim();
+  const url=((document.getElementById('ucUrl')||{}).value||'').trim();
+  if(!name){toast('Company name required');return;}
+  const a=getUserCompanies();
+  if(a.some(c=>(c.name||'').toLowerCase()===name.toLowerCase())){toast('Already in your list');return;}
+  a.push({name,url});saveUserCompanies(a);toast('Company added — publish to fold it into the scan');renderSettings();
+}
+function removeUserCompany(i){const a=getUserCompanies();a.splice(i,1);saveUserCompanies(a);renderSettings();}
+function jumpToCompany(name){companyFilter=name;location.hash='#/jobs';route();}
+function companiesGistObj(){try{return JSON.parse(localStorage.getItem(COMPANIES_GIST_KEY))||{}}catch{return{}}}
+function companiesGistId(){return companiesGistObj().id||'';}
+function setCompaniesGistId(id){const o=companiesGistObj();
+  localStorage.setItem(COMPANIES_GIST_KEY,JSON.stringify({id,configured:o.id===id?o.configured:false}));}
+function companiesConfigured(){return !!companiesGistObj().configured;}
+function setCompaniesConfigured(v){const o=companiesGistObj();o.configured=v;localStorage.setItem(COMPANIES_GIST_KEY,JSON.stringify(o));}
+async function publishCompanies(){
+  if(!ghToken()){toast('Connect GitHub first');return;}
+  const gid=companiesGistId();
+  const body={description:'job-hunter company watchlist (published from the dashboard)',public:true,
+    files:{'companies.json':{content:JSON.stringify({companies:getUserCompanies()},null,2)}}};
+  const r=await ghFetch(gid?`/gists/${gid}`:'/gists',{method:gid?'PATCH':'POST',
+    headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(r&&r.ok){const j=await r.json();setCompaniesGistId(j.id);toast('Company watchlist published to Gist');renderSettings();}
+  else if(r&&(r.status===403||r.status===404)){toast('Token needs Gists: read/write — reconnect with that scope');}
+  else toast('Publish failed'+(r?` (${r.status})`:''));
+}
+function companiesSetupNote(gid){
+  return companiesConfigured()
+    ? `<p class="sub" style="margin-top:.5rem;color:var(--good)">✓ Runner configured. <a href="#/settings" onclick="setCompaniesConfigured(false);renderSettings();return false" class="ovlink" style="color:var(--muted)">show setup again</a></p>`
+    : `<p class="sub" style="margin-top:.5rem">Runner setup (one-time): add an Actions <b>variable</b> <code>COMPANIES_GIST_ID</code> = <code>${esc(gid)}</code> (repo → Settings → Secrets and variables → Actions → Variables); token needs <b>Gists: read/write</b>. <a href="#/settings" onclick="setCompaniesConfigured(true);renderSettings();return false" class="ovlink" style="color:var(--accent)">I've added it — hide</a></p>`;
+}
+function companiesCard(){
+  const scraper=(DOC.meta&&DOC.meta.companies)||[];
+  const user=getUserCompanies(), gid=companiesGistId();
+  const jobCos=new Set((DOC.jobs||[]).map(j=>(j.company||'').trim().toLowerCase()));
+  const scraperRows=scraper.map(c=>`<div class="co-row">
+    <button class="co-name jumpco" data-co="${esc(c.name)}" onclick="jumpToCompany(this.dataset.co)" title="Show ${esc(c.name)} jobs">${esc(c.name)}${jobCos.has(c.name.toLowerCase())?'':' <span class="co-dim">· no current jobs</span>'}</button>
+    <span class="co-ats ${c.active?'on':''}">${esc(c.ats||'no ats')}</span>
+    ${c.careers_url?`<a class="linklike" href="${esc(c.careers_url)}" target="_blank" rel="noopener">careers ↗</a>`:''}
+  </div>`).join('');
+  const userRows=user.map((c,i)=>`<div class="co-row">
+    <span class="co-name">${esc(c.name)}</span>
+    ${c.url?`<a class="linklike" href="${esc(c.url)}" target="_blank" rel="noopener">careers ↗</a>`:'<span class="co-ats">no URL — add one to scan</span>'}
+    <button class="linklike" onclick="removeUserCompany(${i})">remove</button>
+  </div>`).join('');
+  return `<div class="set-card" style="margin-top:1.2rem">
+    <div class="set-hd"><div>
+      <h2>Companies watched${scraper.length?` (${scraper.length})`:''}</h2>
+      <p class="sub">The companies your scraper checks every run. It auto-discovers new H-1B-sponsoring employers, and you can add your own — give a careers URL (Greenhouse / Lever / Ashby) so they can be scanned. <b>Publish to Gist</b> and the cloud scraper folds your additions in (mirrors your persona). Click a company to see its jobs.</p>
+    </div></div>
+    <div class="co-add">
+      <input class="txt" id="ucName" placeholder="Company name">
+      <input class="txt" id="ucUrl" placeholder="Careers URL (e.g. https://boards.greenhouse.io/acme)">
+      <button class="primary" onclick="addUserCompany()">Add</button>
+    </div>
+    ${user.length?`<h3 class="co-h">Your additions (${user.length})</h3><div class="co-list">${userRows}</div>
+      <div class="rowbtns" style="margin-top:.6rem"><button onclick="publishCompanies()">Publish to Gist</button>
+        <span class="co">${gid?'Gist: '+esc(gid):'not published yet'}</span></div>
+      ${gid?companiesSetupNote(gid):''}`:'<p class="co" style="margin-top:.5rem">No additions yet — add a company above to extend the scan.</p>'}
+    <h3 class="co-h">Scraper list</h3>
+    <div class="co-list scroll">${scraperRows||'<p class="co">No company list in the latest data yet — it appears after the next scraper run.</p>'}</div>
   </div>`;
 }
 function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();toast('GitHub disconnected');}

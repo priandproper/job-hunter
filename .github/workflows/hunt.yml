@@ -47,6 +47,9 @@ jobs:
           # Your dashboard-published persona Gist id (Actions variable) — folds your
           # profile into matching so the scrape keeps only jobs that fit you.
           PERSONA_GIST_ID: ${{ vars.PERSONA_GIST_ID }}
+          # Your dashboard-published company-watchlist Gist id (Actions variable) —
+          # folds companies you add in the app into the scan.
+          COMPANIES_GIST_ID: ${{ vars.COMPANIES_GIST_ID }}
         run: python3 worker.py --public
 
       - name: Email alerts for new jobs

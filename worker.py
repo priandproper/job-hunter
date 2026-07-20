@@ -29,6 +29,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib import apollo as apollo_mod
 from lib import ats as ats_mod
+from lib import companies_gist as cgist_mod
 from lib import discovery as disc_mod
 from lib import gap as gap_mod
 from lib import jobs as jobs_mod
@@ -113,6 +114,12 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         cfg["match"] = persona_mod.apply(persona, cfg["match"])
         log(f"[0/6] persona   — applied ({len(persona.get('roles', []))} role(s), "
             f"{len(persona.get('skills', []))} skill(s), min_fit={cfg['match'].get('min_fit_score')})")
+
+    # Fold user-added companies (published to a Gist from the dashboard) into the scan
+    # list, so a company you add in the app becomes scannable. No id/net -> no-op.
+    cg = cgist_mod.merge(cfg, REPO_ROOT)
+    if cg["added"]:
+        log(f"[0/6] companies — +{cg['added']} user-added from gist ({cg['listed']} listed)")
 
     if do_discovery:
         summary = disc_mod.discover_companies(cfg, REPO_ROOT, log)
@@ -211,6 +218,16 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
 
     public_jobs.sort(key=lambda j: (j["fit_score"], j["ats_score"]), reverse=True)
 
+    # Company watchlist — the set the scraper is looking at, surfaced so the dashboard
+    # can list it (and link into the Jobs company filter). Slim + PII-free.
+    watch = disc_mod.load_companies((REPO_ROOT / cfg["companies_file"]).resolve())
+    meta_companies = [{
+        "name": c.get("name", ""), "ats": c.get("ats", ""),
+        "active": bool(c.get("active")), "source": c.get("source", ""),
+        "careers_url": cgist_mod.careers_url(c),
+    } for c in watch if c.get("name")]
+    meta_companies.sort(key=lambda c: c["name"].lower())
+
     # Aggregate "what am I missing" analysis across all jobs.
     best = max(public_jobs, key=lambda j: j["ats_score"], default=None)
     doc = {
@@ -220,6 +237,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "app_url": app_url,
             "min_fit_score": cfg["match"]["min_fit_score"],
             "github": cfg.get("github", {}),
+            "companies": meta_companies,
+            "company_count": len(meta_companies),
         },
         "summary": {
             "best_match": ({
