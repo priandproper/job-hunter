@@ -7,6 +7,8 @@ data/connections.csv
 data/private.local.json
 data/contact.local.json
 scripts/*.local.js
+data/linkedin_paste.txt
+data/people.local.csv
 
 # Logs
 worker.log

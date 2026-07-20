@@ -337,6 +337,7 @@
   .tag.repost{background:var(--mid-soft);color:var(--mid)}
   .tag.manual{background:var(--accent-soft);color:var(--accent)}
   .tag.rel{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0;font-weight:700}
+  .tag.net{background:var(--accent-soft);color:var(--accent);text-transform:none;letter-spacing:0;font-weight:700}
   /* People */
   .avatar{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--mid))}
   .ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem}
@@ -602,6 +603,8 @@
         </div>
         <div class="section-h"><span class="eyebrow">People</span>
           <button class="addjobbtn" onclick="openPersonModal()" title="Add a person to your directory">+ Add a person</button>
+          <label class="addjobbtn" style="cursor:pointer" title="Import a people CSV (e.g. from scripts/linkedin_people.py)">⬆ Import CSV<input type="file" id="peopleCsvFile" accept=".csv,text/csv" style="display:none" onchange="importPeopleCsv(this.files[0]);this.value=''"></label>
+          <button class="addjobbtn" onclick="dedupePeople()" title="Merge duplicate people">⇉ Merge duplicates</button>
           <span class="count" id="peopleCount"></span>
         </div>
         <div id="peopleList" class="rowlist"></div>
@@ -668,6 +671,7 @@
       <input class="txt" id="pmEmail" placeholder="Email">
       <input class="txt" id="pmLocation" placeholder="Location">
     </div>
+    <input class="txt" id="pmPast" placeholder="Past companies (comma-separated: Salesforce, Twilio, HubSpot) — powers networking paths" style="margin-top:.55rem;width:100%">
     <input class="txt" id="pmTags" placeholder="Tags (comma-separated: recruiter, warm, alum…)" style="margin-top:.55rem;width:100%">
     <input class="txt" id="pmHowKnown" placeholder="How you know them (e.g. former Babson classmate, spoke at a webinar)" style="margin-top:.55rem;width:100%">
     <textarea class="runner-code" id="pmNotes" style="min-height:80px;font-family:inherit;font-size:.86rem;margin-top:.55rem" placeholder="Notes — anything useful for personalizing outreach (their focus areas, mutual connections, recent posts)…"></textarea>
@@ -1907,6 +1911,118 @@ function jobObjById(id){return (DOC.jobs||[]).find(j=>j.id===id)||null;}
 function peopleForJob(jobId){return getPeople().map(p=>{const a=(p.jobs||[]).find(x=>x.id===jobId);return a?{person:p,role:a.role}:null;}).filter(Boolean);}
 function personJobs(p){return (p.jobs||[]).map(a=>({job:jobObjById(a.id),role:a.role,id:a.id}));}
 
+// ---- strong dedup: match on LinkedIn URL, else normalized name + company ----
+function normName(s){return (s||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();}
+function _liKey(u){return (u||'').trim().toLowerCase().replace(/^https?:\/\/(www\.)?/,'').replace(/\/+$/,'');}
+function findDupPerson(people,cand){
+  const cli=_liKey(cand.linkedin), cn=normName(cand.name), cc=normCompany(cand.company||'');
+  return people.find(x=>{
+    if(cand.id&&x.id===cand.id)return false;
+    const xli=_liKey(x.linkedin);
+    if(cli&&xli&&cli===xli)return true;                    // same LinkedIn = same person
+    if(cn&&normName(x.name)===cn){                          // same name...
+      const xc=normCompany(x.company||'');
+      if(!cc||!xc||cc===xc)return true;                    // ...same/uncertain current company
+      if(cc&&(x.past_companies||[]).some(c=>normCompany(c)===cc))return true;  // ...or they worked there
+    }
+    return false;
+  })||null;
+}
+function mergePerson(dst,src){                              // src's non-empty scalars win; arrays union
+  ['name','title','company','seniority','relationship','linkedin','email','location','howKnown','notes']
+    .forEach(k=>{if(src[k])dst[k]=src[k];});
+  dst.tags=[...new Set([...(dst.tags||[]),...(src.tags||[])])];
+  dst.past_companies=[...new Set([...(dst.past_companies||[]),...(src.past_companies||[])])];
+  (src.jobs||[]).forEach(a=>{if(!(dst.jobs||[]).some(b=>b.id===a.id))(dst.jobs=dst.jobs||[]).push(a);});
+  dst.updatedAt=new Date().toISOString();return dst;
+}
+function dedupePeople(){
+  const people=getPeople(), out=[]; let merged=0;
+  for(const p of people){const dup=findDupPerson(out,p);if(dup){mergePerson(dup,p);merged++;}else out.push(p);}
+  if(merged){savePeople(out);toast(`Merged ${merged} duplicate(s)`);}else toast('No duplicates found');
+  renderPeople();
+}
+function importPeopleCsv(file){
+  if(!file)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    let rows;try{rows=parseCsv(rd.result);}catch{toast('Could not read CSV');return;}
+    if(!rows||rows.length<2){toast('CSV looks empty');return;}
+    const hdr=rows[0].map(h=>(h||'').trim().toLowerCase().replace(/\s+/g,'_'));
+    const col=(...names)=>{for(const n of names){const i=hdr.indexOf(n);if(i>=0)return i;}return -1;};
+    const ix={name:col('name','full_name'),title:col('title','role','headline'),company:col('company','current_company'),
+      past:col('past_companies','past','previous_companies'),seniority:col('seniority'),location:col('location'),
+      linkedin:col('linkedin','linkedin_url','url','profile'),email:col('email'),relationship:col('relationship'),
+      tags:col('tags'),how:col('how_known','how_you_know_them','how'),notes:col('notes')};
+    if(ix.name<0){toast('CSV needs a "name" column');return;}
+    const splitList=s=>(s||'').split(/[;,|]/).map(x=>x.trim()).filter(Boolean);
+    const people=getPeople(); let added=0,merged=0;
+    rows.slice(1).forEach(r=>{
+      const g=i=>(i>=0&&i<r.length?(r[i]||'').trim():'');
+      const name=g(ix.name);if(!name)return;
+      const fields={name,title:g(ix.title),company:g(ix.company),seniority:g(ix.seniority),
+        relationship:g(ix.relationship),linkedin:g(ix.linkedin),email:g(ix.email),location:g(ix.location),
+        tags:splitList(g(ix.tags)),past_companies:splitList(g(ix.past)),howKnown:g(ix.how),notes:g(ix.notes)};
+      const dup=findDupPerson(people,fields);
+      if(dup){mergePerson(dup,{...fields,jobs:[]});merged++;}
+      else{const now=new Date().toISOString();people.unshift({id:newPersonId(),jobs:[],createdAt:now,updatedAt:now,...fields});added++;}
+    });
+    savePeople(people);toast(`Imported ${added} new · merged ${merged}`);renderPeople();
+  };
+  rd.readAsText(file);
+}
+
+// ---- networking paths: people who work (or worked) at a job's company ----
+const REL_RANK={'1st':6,colleague:5,alum:4,friend:3,'2nd':2,recruiter:1,unknown:0};
+function relRank(p){return REL_RANK[p&&p.relationship]||0;}
+function networkingPaths(job){
+  const jc=normCompany(job.company||'');if(!jc)return [];
+  return getPeople().map(p=>{
+    const current=normCompany(p.company||'')===jc;
+    const past=(p.past_companies||[]).some(c=>normCompany(c)===jc);
+    return (current||past)?{person:p,current,past}:null;
+  }).filter(Boolean).sort((a,b)=>(b.current-a.current)||relRank(b.person)-relRank(a.person));
+}
+function copyNetworkPrompt(pid,jobId){
+  const p=personById(pid),job=jobObjById(jobId);if(!p||!job)return;
+  copyText(networkPrompt(p,job));toast('Intro-ask prompt copied — paste into Claude / ChatGPT / Gemini');
+}
+function networkPrompt(p,job){
+  const me=meName()||'the candidate', per=getPersona();
+  const cur=normCompany(p.company||'')===normCompany(job.company||'');
+  const L=[];
+  L.push(`You are helping ${me} network toward a referral. Write a short, warm, low-pressure message to ${p.name} about a role at ${job.company}. Output ONLY the message text — no preamble.`);
+  L.push('');
+  L.push('THE ASK');
+  if(cur)L.push(`- ${p.name} currently works at ${job.company}. Ask if they'd be open to referring ${me} for the role below (or pointing to the right person). Make it easy to say yes; offer to send a resume + a short blurb.`);
+  else L.push(`- ${p.name} previously worked at ${job.company}. Ask whether they still know anyone there who could refer ${me} for the role below, or if they'd make a quick intro. Acknowledge it's been a while; no pressure.`);
+  L.push('- Warm, specific, brief. Exactly one ask. No clichés or fake flattery. American English.');
+  L.push('');
+  L.push(`SENDER: ${me}`+((per.roles||[]).length?` — targeting ${per.roles.join(', ')}`:'')+((per.years||0)>0?` (${per.years}y exp)`:''));
+  if(per.projects)L.push(`- Proof points: ${per.projects}`);
+  L.push('');
+  L.push(`CONTACT: ${p.name}`+(p.title?`, ${p.title}`:'')+(p.company?` @ ${p.company}`:''));
+  if(p.relationship)L.push(`- Relationship: ${relLabel(p.relationship)}`);
+  if(p.howKnown)L.push(`- How the sender knows them: ${p.howKnown}`);
+  if((p.past_companies||[]).length)L.push(`- Past companies: ${p.past_companies.join(', ')}`);
+  if(p.notes)L.push(`- Notes: ${p.notes}`);
+  L.push('');
+  L.push(`ROLE: ${job.title} at ${job.company}`+(job.location?` (${job.location})`:''));
+  if(job.url)L.push(`- Posting: ${job.url}`);
+  return L.join('\n');
+}
+function networkCard(job){
+  const paths=networkingPaths(job);
+  if(!paths.length)return '';
+  const rows=paths.map(({person,current})=>`<div class="pjob"><div class="pjob-h">
+      <div class="pjob-t"><a href="#/person/${person.id}">${esc(person.name)}</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span>
+        <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div>
+      <button class="primary sm" onclick="copyNetworkPrompt('${person.id}','${job.id}')">Copy intro-ask</button></div></div>`).join('');
+  return `<div class="box"><h3>🔗 Networking paths to ${esc(job.company)}</h3>
+    <p class="co">People in your directory who work — or used to work — at ${esc(job.company)}: your warmest routes to a referral. Ask a former employee who they still know there and network your way in.</p>
+    ${rows}</div>`;
+}
+
 // ---- create / edit modal ----
 function fillSelect(id,opts,val){const el=document.getElementById(id);if(!el)return;
   el.innerHTML=opts.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${v===(val||'')?'selected':''}>${esc(l||'—')}</option>`;}).join('');}
@@ -1917,6 +2033,7 @@ function openPersonModal(id,linkJobId){
   set('pmId',p&&p.id);set('pmName',p&&p.name);set('pmTitle',p&&p.title);set('pmCompany',p&&p.company);
   set('pmLinkedin',p&&p.linkedin);set('pmEmail',p&&p.email);set('pmLocation',p&&p.location);
   set('pmTags',p&&(p.tags||[]).join(', '));set('pmHowKnown',p&&p.howKnown);set('pmNotes',p&&p.notes);
+  set('pmPast',p&&(p.past_companies||[]).join(', '));
   fillSelect('pmSeniority',PERSON_SENIORITY.map(s=>[s,s||'Seniority…']),p&&p.seniority);
   fillSelect('pmRelationship',[['','Relationship…'],...PERSON_RELATIONSHIP],p&&p.relationship);
   document.getElementById('pmStatus').textContent='';
@@ -1930,10 +2047,11 @@ function closePersonModal(){document.getElementById('personModal').style.display
 // can see; Claude just structures it. One paste instead of typing every field.
 const PERSON_SCHEMA={type:'object',additionalProperties:false,
   properties:{name:{type:'string'},title:{type:'string'},company:{type:'string'},
+    past_companies:{type:'array',items:{type:'string'}},
     seniority:{type:'string'},location:{type:'string'},email:{type:'string'},
     linkedin:{type:'string'},howKnown:{type:'string'},notes:{type:'string'},
     tags:{type:'array',items:{type:'string'}}},
-  required:['name','title','company','seniority','location','email','linkedin','howKnown','notes','tags']};
+  required:['name','title','company','past_companies','seniority','location','email','linkedin','howKnown','notes','tags']};
 async function parsePersonPaste(){
   const raw=((document.getElementById('pmPaste')||{}).value||'').trim();
   const st=document.getElementById('pmParseStatus');
@@ -1942,7 +2060,7 @@ async function parsePersonPaste(){
   if(!key){st.innerHTML='Add your Claude API key in <a href="#/settings">Settings</a> to auto-fill (or just type the fields).';return;}
   const url=((document.getElementById('pmLinkedin')||{}).value||'').trim();
   st.textContent='Parsing with Claude…';
-  const sys="Extract structured contact facts from the pasted text (a LinkedIn profile, bio, or email signature). Return ONLY JSON matching the schema. Use empty strings for anything not stated — never guess or invent. 'seniority' must be one of: Individual contributor, Manager, Senior Manager, Director, Senior Director, VP, Head of, C-level, Founder, Recruiter, Other — or empty. 'notes' = a 1–2 sentence summary of their focus areas useful for personalizing outreach. 'tags' = a few short lowercase labels (e.g. recruiter, alum, warm).";
+  const sys="Extract structured contact facts from the pasted text (a LinkedIn profile, bio, or email signature). Return ONLY JSON matching the schema. Use empty strings/arrays for anything not stated — never guess or invent. 'company' = their CURRENT employer. 'past_companies' = an array of the OTHER companies in their Experience section (previous employers), most recent first, company names only. 'seniority' must be one of: Individual contributor, Manager, Senior Manager, Director, Senior Director, VP, Head of, C-level, Founder, Recruiter, Other — or empty. 'notes' = a 1–2 sentence summary of their focus areas useful for personalizing outreach. 'tags' = a few short lowercase labels (e.g. recruiter, alum, warm).";
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
       headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
@@ -1958,6 +2076,7 @@ async function parsePersonPaste(){
     const set=(id,v)=>{const e=document.getElementById(id);if(e&&v)e.value=v;};
     set('pmName',f.name);set('pmTitle',f.title);set('pmCompany',f.company);set('pmLocation',f.location);
     set('pmEmail',f.email);set('pmHowKnown',f.howKnown);set('pmNotes',f.notes);
+    if((f.past_companies||[]).length)set('pmPast',f.past_companies.join(', '));
     if(f.linkedin&&!url)set('pmLinkedin',f.linkedin);
     if(f.seniority){const sel=document.getElementById('pmSeniority');if(sel)sel.value=f.seniority;}
     if((f.tags||[]).length)set('pmTags',f.tags.join(', '));
@@ -1966,19 +2085,24 @@ async function parsePersonPaste(){
 }
 function savePerson(){
   const v=id=>((document.getElementById(id)||{}).value||'').trim();
+  const splitList=s=>s.split(',').map(x=>x.trim()).filter(Boolean);
   const name=v('pmName');
   if(!name){document.getElementById('pmStatus').textContent='Name is required.';return;}
-  const tags=v('pmTags').split(',').map(s=>s.trim()).filter(Boolean);
-  const id=v('pmId'), now=new Date().toISOString(), people=getPeople();
-  let p=id?people.find(x=>x.id===id):null;
-  if(!p){p={id:newPersonId(),jobs:[],createdAt:now};people.unshift(p);}
-  Object.assign(p,{name,title:v('pmTitle'),company:v('pmCompany'),seniority:v('pmSeniority'),
+  const fields={name,title:v('pmTitle'),company:v('pmCompany'),seniority:v('pmSeniority'),
     relationship:v('pmRelationship'),linkedin:v('pmLinkedin'),email:v('pmEmail'),location:v('pmLocation'),
-    tags,howKnown:v('pmHowKnown'),notes:v('pmNotes'),updatedAt:now});
+    tags:splitList(v('pmTags')),past_companies:splitList(v('pmPast')),howKnown:v('pmHowKnown'),notes:v('pmNotes')};
+  const id=v('pmId'), now=new Date().toISOString(), people=getPeople();
+  let p=id?people.find(x=>x.id===id):null, mergedInto=false;
+  if(p){Object.assign(p,fields,{updatedAt:now});}
+  else{
+    const dup=findDupPerson(people,fields);
+    if(dup){p=mergePerson(dup,{...fields,jobs:[]});mergedInto=true;}
+    else{p={id:newPersonId(),jobs:[],createdAt:now,updatedAt:now,...fields};people.unshift(p);}
+  }
   const linkJob=document.getElementById('personModal').dataset.linkJob;
   if(linkJob&&!(p.jobs||[]).some(a=>a.id===linkJob))(p.jobs=p.jobs||[]).push({id:linkJob,role:'connection'});
   savePeople(people);closePersonModal();
-  document.getElementById('personModal').dataset.linkJob='';toast('Person saved');
+  document.getElementById('personModal').dataset.linkJob='';toast(mergedInto?'Merged into existing person':'Person saved');
   const view=currentView();
   if(linkJob&&view==='job')renderJobPage(jobPageId());
   else if(view==='person')renderPersonPage(personPageId());
@@ -2056,7 +2180,7 @@ function renderPersonPage(id){
   const box=document.getElementById('personPage');if(!box)return;
   const p=personById(id);
   if(!p){box.innerHTML='<p class="back"><a href="#/people">← People</a></p><div class="empty">Person not found.</div>';return;}
-  const rows=[['Title',p.title],['Company',p.company],['Seniority',p.seniority],['Relationship',relLabel(p.relationship)],['Location',p.location],['Email',p.email],['How you know them',p.howKnown]].filter(r=>r[1]);
+  const rows=[['Title',p.title],['Company',p.company],['Previously at',(p.past_companies||[]).join(', ')],['Seniority',p.seniority],['Relationship',relLabel(p.relationship)],['Location',p.location],['Email',p.email],['How you know them',p.howKnown]].filter(r=>r[1]);
   const info=rows.map(([k,v])=>`<div class="pf"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
   const tags=(p.tags||[]).map(t=>`<span class="ptag">${esc(t)}</span>`).join('');
   const jobs=personJobs(p);
@@ -2235,6 +2359,7 @@ function renderJobPage(id){
     ${jdCard(job)}
     ${resumeBox(job)}
     ${peopleCard(job)}
+    ${networkCard(job)}
     ${outreachHtml(job)}`;
 }
 
