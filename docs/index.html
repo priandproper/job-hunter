@@ -624,6 +624,7 @@
         </div>
         <div class="section-h"><span class="eyebrow">People</span>
           <button class="addjobbtn" onclick="openPersonModal()" title="Add a person to your directory">+ Add a person</button>
+          <button class="addjobbtn" onclick="copyConvertCommand()" title="Copy the terminal command that turns your pasted LinkedIn text (data/linkedin_paste.txt) into a People CSV">⌘ Copy convert command</button>
           <label class="addjobbtn" style="cursor:pointer" title="Import a people CSV (e.g. from scripts/linkedin_people.py)">⬆ Import CSV<input type="file" id="peopleCsvFile" accept=".csv,text/csv" style="display:none" onchange="importPeopleCsv(this.files[0]);this.value=''"></label>
           <button class="addjobbtn" onclick="dedupePeople()" title="Merge duplicate people">⇉ Merge duplicates</button>
           <button class="addjobbtn" onclick="exportPeople()" title="Download people.local.json for the reach-out script">⬇ Export</button>
@@ -2092,7 +2093,12 @@ function copyReachCommand(jobId){
   const job=jobObjById(jobId);
   const n=Math.max(3,(networkingPaths(job)||[]).length,(peopleForJob(jobId)||[]).length);
   copyText(`python3 scripts/reach_out.py --id ${jobId} --top ${n} --out data/reachout.md`);
-  toast('Command copied — paste it in your terminal to draft the messages');
+  toast('Command copied — first run ⬇ Export on the People page, then run it (the script reads that file, not the browser)');
+}
+// Copy the terminal command that turns pasted LinkedIn text into a People CSV.
+function copyConvertCommand(){
+  copyText('python3 scripts/linkedin_people.py');
+  toast('Convert command copied — paste LinkedIn profiles into data/linkedin_paste.txt (separated by a line of ---), run it, then ⬆ Import CSV');
 }
 function networkCard(job){
   const paths=networkingPaths(job);
