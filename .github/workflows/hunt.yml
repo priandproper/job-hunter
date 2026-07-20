@@ -83,7 +83,9 @@ jobs:
         run: |
           git config user.name  "job-hunter-bot"
           git config user.email "job-hunter-bot@users.noreply.github.com"
-          git add docs/jobs.json docs/seen.json docs/roi_seen.json data/companies.json data/job_pool.json
+          git add docs/jobs.json docs/seen.json data/companies.json data/job_pool.json
+          # roi_seen.json only exists once a profile-ROI email has been sent — optional.
+          git add docs/roi_seen.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "no changes to commit"
           else
