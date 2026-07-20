@@ -233,6 +233,16 @@
   .mailrow .st-rejected{background:var(--bad-soft);color:var(--bad)}
   .mailrow .st-offer{background:var(--good-soft);color:var(--good)}
   .mailrow .st-applied{background:var(--mid-soft);color:var(--mid)}
+  .or-to-in{flex:1;min-width:140px;padding:.5rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.83rem}
+  .or-to-in:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+  .orlist{list-style:none;margin:0 0 .8rem;padding:0;display:flex;flex-direction:column;gap:.5rem}
+  .orlist li{display:flex;gap:.6rem;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:.6rem .75rem}
+  .or-main{flex:1;min-width:0}
+  .or-to{font-weight:600;font-size:.85rem;display:flex;align-items:center;gap:.45rem}
+  .or-meta{color:var(--muted);font-size:.72rem;margin:.1rem 0 .25rem}
+  .or-msg{color:var(--ink-2);font-size:.78rem;line-height:1.5}
+  .or-del{flex-shrink:0;border:none;background:transparent;color:var(--muted);padding:.15rem .35rem;font-size:.8rem;border-radius:6px}
+  .or-del:hover{background:var(--bad-soft);color:var(--bad)}
 
   /* ============ FUNNEL ============ */
   .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
@@ -452,7 +462,7 @@ const STATUSES=["new","resume ready","messaged","referred","applied","screen","i
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
       RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1",
-      MAIL_KEY="job-hunter:mail:v1";
+      MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", shownCount=PAGE;
@@ -902,6 +912,38 @@ function saveMailLog(byJob){const log=getMailLog();
   for(const id of Object.keys(byJob)){const p=byJob[id];log[id]={detected:p.detected,email_ts:p.email_ts,subject:p.subject,from:p.from};}
   try{localStorage.setItem(MAIL_KEY,JSON.stringify(log));}catch{}}
 const APPLIED_STATES=new Set(['applied','screen','interview','offer','rejected']);
+// ----- outreach log (referral messages YOU sent — logged locally, nothing scraped) -----
+function getOutreach(){try{return JSON.parse(localStorage.getItem(OUTREACH_KEY))||{}}catch{return{}}}
+function saveOutreach(o){try{localStorage.setItem(OUTREACH_KEY,JSON.stringify(o))}catch{}}
+function jobOutreach(id){return getOutreach()[id]||[];}
+function logOutreach(id){
+  const msg=(document.getElementById('orMsg-'+id)||{}).value||'';
+  const to=((document.getElementById('orTo-'+id)||{}).value||'').trim();
+  if(!msg.trim()){toast('Nothing to log');return;}
+  const o=getOutreach();(o[id]=o[id]||[]).push({to,message:msg.trim(),ts:new Date().toISOString(),channel:'linkedin',source:'manual'});
+  saveOutreach(o);
+  const cur=jobStatus(id);if(cur==='new'||cur==='resume ready')setStatusLS(id,'messaged');
+  toast('Outreach logged'+(cur==='new'||cur==='resume ready'?' → messaged':''));
+  renderJobPage(id);
+}
+function delOutreach(id,idx){const o=getOutreach();if(o[id]){o[id].splice(idx,1);if(!o[id].length)delete o[id];saveOutreach(o);renderJobPage(id);}}
+function outreachHtml(job){
+  const list=jobOutreach(job.id);
+  const rows=list.length?'<ul class="orlist">'+list.map((r,i)=>`<li>
+      <div class="or-main"><div class="or-to">${esc(r.to||'(recipient not noted)')}<span class="tag ${r.source==='linkedin-export'?'ap':'in'}">${r.source==='linkedin-export'?'imported':r.channel||'sent'}</span></div>
+      <div class="or-meta">${r.ts?timeAgo(r.ts):''}</div>
+      <div class="or-msg">${esc((r.message||'').slice(0,200))}${(r.message||'').length>200?'…':''}</div></div>
+      <button class="or-del" title="Remove" onclick="delOutreach('${job.id}',${i})">✕</button></li>`).join('')+'</ul>':'';
+  const empty=list.length?'':'<p class="co">No outreach logged yet. Draft below, send it on LinkedIn/email, then log it here.</p>';
+  return `<div class="box"><h3>Outreach — referral messages (${list.length})</h3>
+    ${empty}${rows}
+    <textarea class="msg" id="orMsg-${job.id}">${esc(job.referral_message||'')}</textarea>
+    <div class="rowbtns">
+      <input class="txt or-to-in" id="orTo-${job.id}" placeholder="Recipient (e.g. Rahul Mehta)">
+      <button class="primary" onclick="logOutreach('${job.id}')">Log as sent</button>
+      <button onclick="copyText(document.getElementById('orMsg-${job.id}').value)">Copy</button>
+    </div></div>`;
+}
 function openJob(id){location.hash='#/job/'+id;}
 function jobPageId(){return decodeURIComponent(location.hash.replace(/^#\/job\//,''));}
 function renderJobPage(id){
@@ -936,7 +978,8 @@ function renderJobPage(id){
       <p class="jp-applied">${appliedLine}</p>
       <div class="jp-mail">${mailHtml}</div></div>
     <div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
-      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>`;
+      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
+    ${outreachHtml(job)}`;
 }
 
 // ----- render / routing -----
