@@ -48,6 +48,27 @@ VOCAB = [
     "product-led growth", "plg", "saas", "b2b", "enterprise",
 ]
 
+# The "missing keywords" surfaced on the dashboard should be TECHNICAL — concrete
+# tools, platforms, and quantitative/analytical methods — not soft concepts or
+# adjectives (adoption, retention, cross-functional, growth marketing, positioning,
+# brand, gtm, saas…). Only terms in this set can appear as a missing keyword.
+TECHNICAL = frozenset({
+    # tools & platforms
+    "sql", "tableau", "power bi", "looker", "ga4", "google analytics", "excel",
+    "python", "salesforce", "hubspot", "marketo", "eloqua", "pardot", "apollo",
+    "clay", "sales navigator", "crm", "cms",
+    # quantitative / analytical methods
+    "analytics", "data-driven", "a/b testing", "experimentation", "attribution",
+    "forecasting", "segmentation",
+    # martech channels with technical execution
+    "email marketing", "abm", "account-based marketing",
+})
+
+
+def _tech(terms):
+    return [t for t in terms if t in TECHNICAL]
+
+
 _TAG_RE = re.compile(r"<[^>]+>")
 
 
@@ -98,12 +119,14 @@ def analyze(job, profile) -> dict:
             "missing": res["missing"],
         })
     per_variant.sort(key=lambda x: x["score"], reverse=True)
+    for pv in per_variant:                    # show only technical gaps per variant
+        pv["missing"] = _tech(pv["missing"])
     best = per_variant[0] if per_variant else {"label": None, "score": 0, "missing": []}
     return {
         "requested_keywords": requested,
-        "ats_score": best["score"],
+        "ats_score": best["score"],           # coverage of ALL requested terms
         "best_variant": best["label"],
-        "missing_keywords": best["missing"],
+        "missing_keywords": best["missing"],   # technical-only (filtered above)
         "per_variant": per_variant,
         "jd_available": bool((job.get("excerpt") or "").strip()),
     }

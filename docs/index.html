@@ -522,7 +522,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       PERSONA_KEY="job-hunter:persona:v1", PERSONA_GIST_KEY="job-hunter:persona_gist:v1",
       MARK_KEY="job-hunter:marked:v1", ANTHROPIC_KEY="job-hunter:anthropic:v1",
       TAILORED_KEY="job-hunter:tailored:v1", PRUNE_KEY="job-hunter:pruned:v1",
-      BUILDER_RESUMES_KEY="resume-builder:resumes:v1";  // same origin as the builder
+      BUILDER_RESUMES_KEY="resume-builder:resumes:v1",  // same origin as the builder
+      MYRESUME_KEY="job-hunter:myresume:v1";            // your current best resume (JSON)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
@@ -566,11 +567,16 @@ function importUrlFromCore(core){const c=(getPrivate().contact)||{};
 
 // ----- Copy-prompt flow: build a full tailoring prompt, paste the JSON back -----
 function builderResumes(){try{return JSON.parse(localStorage.getItem(BUILDER_RESUMES_KEY))||[]}catch{return[]}}
-// The resume to tailor: prefer the matching resume you saved in the builder (same
-// origin — carries id/website/timestamps so the tailored one updates in place),
-// else fall back to the worker's variant core with your contact PII merged in.
+// Your current best resume, pasted as JSON in Settings (highest priority source).
+function getMyResume(){try{const o=JSON.parse(localStorage.getItem(MYRESUME_KEY));return (o&&o.core)||null;}catch{return null;}}
+// The resume to tailor: (1) your best resume from Settings, else (2) the matching
+// resume saved in the builder (same origin — carries id/website/timestamps so the
+// tailored one updates in place), else (3) the worker's variant core. Contact PII
+// is merged in from your locally-loaded private data.
 function currentResumeFor(job){
   const c=(getPrivate().contact)||{};
+  const mine=getMyResume();
+  if(mine){const copy=JSON.parse(JSON.stringify(mine));copy.contact={...(copy.contact||{}),...c};return copy;}
   const saved=builderResumes();
   let r=saved.find(x=>x.label && (x.label===job.best_variant || x.label===job.variant_label)) || saved[0];
   if(r){const copy=JSON.parse(JSON.stringify(r));copy.contact={...(copy.contact||{}),...c};return copy;}
@@ -708,7 +714,7 @@ const RESUME_SCHEMA={type:"object",additionalProperties:false,
       properties:{name:{type:"string"},items:{type:"array",items:{type:"string"}}}}}}};
 async function tailorResume(id){
   const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
-  const core=job.resume_core;if(!core){toast('No resume data for this job');return;}
+  const core=currentResumeFor(job);if(!core){toast('No resume data for this job');return;}
   const key=(anthropicCfg().key||'').trim();
   const model=anthropicCfg().model||'claude-opus-4-8';
   const p=getPersona();
@@ -957,7 +963,8 @@ function renderSettings(){
       </div>
     </div>
     ${personaCard()}
-    ${claudeCard()}`;
+    ${claudeCard()}
+    ${resumeCard()}`;
   verifyPersonaVar();   // best-effort auto-hide the setup note if the variable is already set
 }
 function claudeCard(){
@@ -972,6 +979,31 @@ function claudeCard(){
     <label>Model<select id="claudeModel" class="txt">${models.map(([v,l])=>`<option value="${v}" ${(c.model||'claude-opus-4-8')===v?'selected':''}>${esc(l)}</option>`).join('')}</select></label>
     <div class="rowbtns"><button class="primary" onclick="saveAnthropic()">Save</button>
       <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener" class="ovlink" style="color:var(--muted);font-size:.82rem;align-self:center">Get an API key ↗</a></div>
+  </div>`;
+}
+function saveMyResume(){
+  const el=document.getElementById('myResume');const raw=(el&&el.value||'').trim();
+  const st=document.getElementById('myResumeStatus');
+  if(!raw){localStorage.removeItem(MYRESUME_KEY);toast('Best resume cleared');renderSettings();return;}
+  let core;try{core=JSON.parse(raw);}catch(e){if(st)st.textContent='Not valid JSON — paste the whole object.';return;}
+  if(!core||!core.contact||!Array.isArray(core.experience)){if(st)st.textContent='Does not look like a resume (needs contact + experience[]).';return;}
+  localStorage.setItem(MYRESUME_KEY,JSON.stringify({core,ts:new Date().toISOString()}));
+  toast('Best resume saved');renderSettings();
+}
+function clearMyResume(){localStorage.removeItem(MYRESUME_KEY);toast('Best resume cleared');renderSettings();}
+function resumeCard(){
+  let saved=null,ts='';try{const o=JSON.parse(localStorage.getItem(MYRESUME_KEY));if(o&&o.core){saved=o.core;ts=o.ts||'';}}catch{}
+  const pretty=saved?JSON.stringify(saved,null,2):'';
+  const label=saved&&saved.label?esc(saved.label):'';
+  return `<div class="set-card" style="margin-top:1.2rem">
+    <div class="set-hd"><div>
+      <h2>Best resume (JSON)</h2>
+      <p class="sub">Paste your current best resume as JSON (the resume-builder's <b>Export JSON</b>). It becomes the base for <b>Copy prompt</b> and <b>Tailor with Claude</b> on every job page — so every prompt starts from your latest resume. Stored only in this browser.</p>
+    </div><span class="conn ${saved?'ok':'off'}">${saved?'Set':'Not set'}</span></div>
+    <textarea id="myResume" class="txt" spellcheck="false" style="min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px" placeholder='{"schemaVersion":1,"id":"…","label":"…","contact":{…},"summary":"…","experience":[…],"education":[…],"projects":[],"skills":[…]}'>${esc(pretty)}</textarea>
+    <div class="rowbtns"><button class="primary" onclick="saveMyResume()">Save resume</button>
+      ${saved?'<button onclick="clearMyResume()">Clear</button>':''}
+      <span class="co" id="myResumeStatus">${saved?('Saved'+(label?' · '+label:'')+(ts?' · '+timeAgo(ts):'')):''}</span></div>
   </div>`;
 }
 function personaGistObj(){try{return JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}}catch{return{}}}
