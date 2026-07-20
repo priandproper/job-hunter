@@ -762,7 +762,9 @@ const FILTER_GROUPS={
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1700);}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function firstName(n){return (n||'').replace(/^Search LinkedIn.*/,'').trim().split(/\s+/)[0]||'there';}
-function personalize(msg,name){return msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' ');}
+// Referral asks are capped at 300 chars (short enough for a LinkedIn connection note).
+function capMsg(s,limit){limit=limit||300;s=(s||'').trim();if(s.length<=limit)return s;return s.slice(0,limit-1).replace(/\s+\S*$/,'').replace(/[ ,.\-]+$/,'')+'…';}
+function personalize(msg,name){return capMsg(msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' '));}
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
 function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));cacheJobById(id);}
 function jobStatus(id){return (getStatuses()[id]||{}).status||'new';}
@@ -816,7 +818,7 @@ function createJob(){
     missing_keywords:[],requested_keywords:[],title_keywords:[],
     excerpt:jd,jd_available:!!jd,posted_at:new Date().toISOString(),min_years:null,sponsorship:'Unknown',
     resume_core:getMyResume()||null,import_url:'',
-    referral_message:`Hi there — hope you're doing well! I saw that ${company} is hiring for a ${title} role${url?` (${url})`:''}, and it lines up closely with my background in B2B marketing, GTM, and analytics. Since you're at ${company}, would you be open to referring me or pointing me to the right person on the team? Happy to send my resume and a quick blurb to make it easy. Thanks so much!`,
+    referral_message:capMsg(`Hi there — I saw ${company} is hiring a ${title} and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at ${company}, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!`),
     linkedin_search:'https://www.linkedin.com/search/results/people/?keywords='+encodeURIComponent('"'+company+'"')};
   const arr=getManualJobs();arr.unshift(job);saveManualJobs(arr);
   DOC.jobs=[job,...(DOC.jobs||[])];

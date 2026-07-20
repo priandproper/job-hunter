@@ -158,17 +158,30 @@ def build_referrals(company: str, connections: list[Connection], cfg: dict,
     return referrers[: cfg.get("max_contacts_per_job", 8)]
 
 
-def draft_message(contact: dict, job: dict, candidate_name: str) -> str:
-    """A short, ready-to-send referral ask. Staged, never sent automatically."""
-    first = (contact.get("name") or "there").split()[0]
+MSG_LIMIT = 300
+
+
+def draft_message(contact: dict, job: dict, candidate_name: str, limit: int = MSG_LIMIT) -> str:
+    """A short, ready-to-send referral ask, capped at `limit` chars (default 300 —
+    short enough for a LinkedIn connection note). Staged, never sent automatically."""
+    first = (contact.get("name") or "there").split()[0] or "there"
     company = job.get("company", "your company")
     title = job.get("title", "the role")
-    url = job.get("url", "")
-    return (
-        f"Hi {first} — hope you're doing well! I saw that {company} is hiring "
-        f"for a {title} role ({url}), and it lines up closely with my background "
-        f"in B2B marketing, GTM, and analytics. Since you're at {company}, would "
-        f"you be open to referring me or pointing me to the right person on the "
-        f"team? Happy to send my resume and a quick blurb to make it easy. "
-        f"Thanks so much!\n\n— {candidate_name}"
-    )
+    sig = f"\n\n— {candidate_name}"
+
+    def build(t: str) -> str:
+        return (
+            f"Hi {first} — I saw {company} is hiring a {t} and it lines up with my "
+            f"background in B2B marketing, GTM, and analytics. Since you're at "
+            f"{company}, would you be open to referring me or pointing me to the "
+            f"right person? Happy to share my resume. Thanks!"
+        ) + sig
+
+    msg = build(title)
+    if len(msg) > limit:
+        # The title is the only long variable part — trim it so the ask stays coherent.
+        room = len(title) - (len(msg) - limit) - 1
+        msg = build((title[:room].rstrip(" ,.-") + "…") if room > 0 else "role")
+    if len(msg) > limit:                    # final hard guarantee
+        msg = msg[: limit - 1].rstrip() + "…"
+    return msg
