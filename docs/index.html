@@ -472,12 +472,13 @@
         <div class="funnel" id="funnel"></div>
         <div class="jobsearch">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="jobSearch" type="search" placeholder="Search title, company, location…" oninput="setQuery(this.value)" autocomplete="off">
+          <input id="jobSearch" type="search" placeholder="Search — all words must match (e.g. analyst marketing business)" oninput="setQuery(this.value)" autocomplete="off">
         </div>
         <div class="section-h"><span class="eyebrow">All jobs</span>
           <div class="seg" id="statusFilter"></div>
           <button class="prunebtn" onclick="pruneOffPersona()" title="Hide jobs that don't match your profile persona">✂ Prune off-persona</button>
           <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
+          <label class="hidepoor"><input type="checkbox" id="hideReposts" onchange="toggleHideReposts(this.checked)"> Hide reposts</label>
           <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
           <span class="count" id="count"></span>
         </div>
@@ -537,7 +538,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       REPOST_KEY="job-hunter:repost:v1";                // jobs you've manually flagged as reposts
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, query="", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -1242,8 +1243,11 @@ function toggleMark(id,ev){if(ev)ev.stopPropagation();
   const m=getMarked();if(m[id])delete m[id];else m[id]=new Date().toISOString();
   localStorage.setItem(MARK_KEY,JSON.stringify(m));toast(m[id]?'Marked to revisit ★':'Unmarked');render();}
 function setQuery(q){query=q;shownCount=PAGE;renderJobs();}
-function matchesQuery(job){const q=query.trim().toLowerCase();
-  return !q||((job.title||'')+' '+(job.company||'')+' '+(job.location||'')).toLowerCase().includes(q);}
+// Multi-keyword AND search: every whitespace-separated word must appear (any order).
+function matchesQuery(job){const toks=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if(!toks.length)return true;
+  const hay=((job.title||'')+' '+(job.company||'')+' '+(job.location||'')).toLowerCase();
+  return toks.every(t=>hay.includes(t));}
 // ----- prune off-persona jobs (client-side, reversible) -----
 function getPruned(){try{return JSON.parse(localStorage.getItem(PRUNE_KEY))||{}}catch{return{}}}
 function isPruned(id){return !!getPruned()[id];}
@@ -1279,6 +1283,7 @@ function personaFits(job){
   return personaScore(job)>0;
 }
 function toggleHidePoor(v){hidePoor=v;shownCount=PAGE;renderJobs();}
+function toggleHideReposts(v){hideReposts=v;shownCount=PAGE;renderJobs();}
 // ----- sorting (best-for-me / relevance / recency / ATS / new) -----
 const SORTS=[['persona','Best for me'],['relevance','Relevance'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
@@ -1583,6 +1588,7 @@ function renderJobs(){
   renderFunnel();renderFilters();renderRoleFilters();renderSort();renderPruneBanner();
   let jobs=visibleJobs();
   if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
+  if(hideReposts)jobs=jobs.filter(j=>!isRepost(j.id));
   jobs=sortJobs(jobs);document.getElementById('count').textContent=`${jobs.length} shown`;
   const list=document.getElementById('list');
   if(!jobs.length){list.innerHTML='<div class="empty">No jobs in this view.</div>';renderLeader();return;}
