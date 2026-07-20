@@ -337,6 +337,7 @@
   .tag.repost{background:var(--mid-soft);color:var(--mid)}
   .tag.manual{background:var(--accent-soft);color:var(--accent)}
   .tag.stale{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  .tag.enriched{background:var(--accent-soft);color:var(--accent)}
   .stale-note{margin:0 0 1rem;padding:.7rem .9rem;border-radius:10px;background:var(--mid-soft);border:1px solid color-mix(in srgb,var(--mid) 30%,var(--line));border-left:3px solid var(--mid);font-size:.83rem;color:var(--ink-2);line-height:1.5}
   .tag.rel{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0;font-weight:700}
   .tag.net{background:var(--accent-soft);color:var(--accent);text-transform:none;letter-spacing:0;font-weight:700}
@@ -590,6 +591,7 @@
           <button class="prunebtn" onclick="pruneOffPersona()" title="Hide jobs that don't match your profile persona">✂ Prune off-persona</button>
           <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
           <label class="hidepoor"><input type="checkbox" id="hideReposts" onchange="toggleHideReposts(this.checked)"> Hide reposts</label>
+          <label class="hidepoor"><input type="checkbox" id="enrichedOnly" onchange="toggleEnrichedOnly(this.checked)"> ✨ Enriched only</label>
           <label class="sortsel"><span>Company</span><select id="companyFilter" onchange="setCompany(this.value)"></select></label>
           <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
           <span class="count" id="count"></span>
@@ -744,7 +746,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       JOBCACHE_KEY="job-hunter:jobcache:v1";            // snapshot of viewed/tracked jobs (survive scrape churn)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, enrichedOnly=false, companyFilter="all", query="", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -1743,6 +1745,7 @@ function personaFits(job){
 }
 function toggleHidePoor(v){hidePoor=v;shownCount=PAGE;renderJobs();}
 function toggleHideReposts(v){hideReposts=v;shownCount=PAGE;renderJobs();}
+function toggleEnrichedOnly(v){enrichedOnly=v;shownCount=PAGE;renderJobs();}
 // ----- sorting (best-for-me / relevance / recency / ATS / new) -----
 const SORTS=[['persona','Best for me'],['relevance','Relevance'],['boston','Closest to Boston'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
@@ -1797,7 +1800,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2645,6 +2648,7 @@ function renderJobs(){
   let jobs=visibleJobs();
   if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
   if(hideReposts)jobs=jobs.filter(j=>!isRepost(j.id));
+  if(enrichedOnly)jobs=jobs.filter(j=>!!j.enrichment);
   if(companyFilter!=='all')jobs=jobs.filter(j=>(j.company||'').trim()===companyFilter);
   jobs=sortJobs(jobs);document.getElementById('count').textContent=`${jobs.length} shown`;
   const list=document.getElementById('list');
