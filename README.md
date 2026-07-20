@@ -61,6 +61,14 @@ browser** when you click *Open resume in builder* — so the full resume opens, 
 your contact PII was never in the committed/public data. Statuses/notes also live
 in `localStorage`.
 
+## Highest-leverage keywords (Cockpit)
+
+The Cockpit shows a **Highest-leverage keywords** card: the skills job descriptions
+request most across all scraped roles that **none of your résumé variants cover yet**
+(from `docs/jobs.json` → `summary.missing_leaderboard`, built by `lib/gap.py`). Ranked by
+how many jobs ask for each, with a bar per keyword — click one to see those jobs. Adding
+these to a résumé variant is the single biggest lever to raise match/ATS scores.
+
 ## Tailor a resume to a job with Claude (`Settings → Claude API`)
 
 Each job page has a **✨ Tailor with Claude** button. It sends your current resume for
@@ -81,8 +89,10 @@ The result opens straight in the resume builder or copies as JSON.
 **Settings → Your profile** lets you set what a good job looks like — years, seniority,
 target roles, skills/tools, projects, title exclusions, min fit. It works two ways:
 
-- **In the app, instantly** — a *Best for me* sort ranks by persona-relevance, and a
-  *Hide poor fits* toggle drops jobs that don't match your roles/skills.
+- **In the app, instantly** — a *Best for me* sort ranks by persona-relevance, a
+  *Hide poor fits* toggle drops jobs that don't match your roles/skills, and
+  **✂ Prune off-persona** (Jobs header) permanently hides jobs that don't fit
+  (reversible — they move to a **Pruned** tab with *Restore all*).
 - **In the cloud scrape** — click **Publish to Gist** and the app writes `persona.json`
   to a **public Gist** via your token (needs **Gists: read/write** on the token). The
   runner reads it (`lib/persona.py`) and folds it into matching — roles + skills raise

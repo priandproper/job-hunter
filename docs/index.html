@@ -117,6 +117,10 @@
   .sortsel select{font:inherit;font-size:.82rem;padding:.32rem .55rem;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
   .hidepoor{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--ink-2);cursor:pointer}
   .hidepoor input{accent-color:var(--accent);cursor:pointer}
+  .prunebtn{font-size:.78rem;font-weight:600;padding:.34rem .7rem;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2)}
+  .prunebtn:hover{border-color:var(--bad);color:var(--bad);background:var(--bad-soft)}
+  .prune-banner{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin:0 0 1rem;padding:.7rem .9rem;border-radius:10px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--mid);font-size:.85rem;color:var(--ink-2)}
+  .prune-banner button{margin-left:auto}
   .jobsearch{position:relative;margin:0 0 1.1rem}
   .jobsearch svg{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
   .jobsearch input{width:100%;padding:.7rem .8rem .7rem 2.4rem;border:1px solid var(--line-2);border-radius:11px;background:var(--surface);color:var(--ink);font:inherit;font-size:.9rem}
@@ -351,6 +355,16 @@
   .kw b{background:var(--mid-soft);color:var(--mid);font-weight:800;border-radius:999px;font-size:.72rem;min-width:1.35rem;text-align:center;padding:.1rem .4rem;font-variant-numeric:tabular-nums}
   .browse-all{text-align:center;margin-top:2rem}
   .browse-all a{font-size:.9rem;font-weight:600}
+  .ki-card{padding:1.3rem 1.4rem;margin-bottom:2rem}
+  .ki-sub{color:var(--muted);font-size:.84rem;margin:.25rem 0 1.1rem;max-width:72ch;line-height:1.55}
+  .ki-list{display:flex;flex-direction:column;gap:.35rem}
+  .ki-row{display:flex;align-items:center;gap:.85rem;width:100%;text-align:left;border:none;background:transparent;padding:.32rem .35rem;border-radius:9px;cursor:pointer;transition:background .12s}
+  .ki-row:hover{background:var(--surface-2)}
+  .ki-kw{flex:0 0 38%;font-size:.86rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ki-bar{flex:1;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+  .ki-bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .ki-n{flex:0 0 auto;font-size:.78rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.2ch;text-align:right}
+  @media (max-width:640px){.ki-kw{flex-basis:46%}}
 
   .toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(8px);background:var(--ink);color:var(--plane);
     padding:.6rem 1rem;border-radius:10px;font-size:.85rem;font-weight:500;opacity:0;transition:all .2s ease;pointer-events:none;box-shadow:var(--ring-lg)}
@@ -428,6 +442,8 @@
           </div>
         </div>
 
+        <div id="keywordInsights"></div>
+
         <div class="auto">
           <div class="auto-hd"><span class="eyebrow">Automation</span></div>
           <div id="autobody"></div>
@@ -445,11 +461,13 @@
         </div>
         <div class="section-h"><span class="eyebrow">All jobs</span>
           <div class="seg" id="statusFilter"></div>
+          <button class="prunebtn" onclick="pruneOffPersona()" title="Hide jobs that don't match your profile persona">✂ Prune off-persona</button>
           <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
           <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
           <span class="count" id="count"></span>
         </div>
         <div class="rolebar" id="roleFilter"></div>
+        <div id="pruneBanner"></div>
         <div id="list" class="rowlist"></div>
         <div class="collapsible" id="gapPanel">
           <button class="panel-toggle" id="gapToggle">What you're missing<span class="chev">▸</span></button>
@@ -497,7 +515,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1",
       PERSONA_KEY="job-hunter:persona:v1", PERSONA_GIST_KEY="job-hunter:persona_gist:v1",
       MARK_KEY="job-hunter:marked:v1", ANTHROPIC_KEY="job-hunter:anthropic:v1",
-      TAILORED_KEY="job-hunter:tailored:v1";
+      TAILORED_KEY="job-hunter:tailored:v1", PRUNE_KEY="job-hunter:pruned:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, query="", shownCount=PAGE;
@@ -509,7 +527,7 @@ const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['mess
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
 const FILTER_GROUPS={
   active:j=>!['archived','rejected'].includes(jobStatus(j.id)), all:()=>true,
-  saved:j=>isMarked(j.id),
+  saved:j=>isMarked(j.id), pruned:j=>isPruned(j.id),
   archived:j=>jobStatus(j.id)==='archived', rejected:j=>jobStatus(j.id)==='rejected',
   new:j=>['new','resume ready'].includes(jobStatus(j.id)), messaged:j=>jobStatus(j.id)==='messaged',
   referred:j=>jobStatus(j.id)==='referred', applied:j=>jobStatus(j.id)==='applied',
@@ -913,9 +931,11 @@ function renderFunnel(){
 }
 function renderFilters(){
   const jobs=DOC.jobs||[],c=p=>jobs.filter(p).length;
+  const nPruned=c(FILTER_GROUPS.pruned);
   const opts=[['active','Active',c(FILTER_GROUPS.active)],['all','All',jobs.length],
     ['saved','★ Saved',c(FILTER_GROUPS.saved)],
     ['archived','Archived',c(FILTER_GROUPS.archived)],['rejected','Passed',c(FILTER_GROUPS.rejected)]];
+  if(nPruned||filter==='pruned')opts.push(['pruned','✂ Pruned',nPruned]);
   document.getElementById('statusFilter').innerHTML=opts.map(([k,l,n])=>
     `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${l}<span>${n}</span></button>`).join('');
 }
@@ -935,7 +955,11 @@ function roleType(job){
   if(/market/.test(t))return 'Marketing';
   return 'Other';
 }
-function statusJobs(){return (DOC.jobs||[]).filter(j=>(FILTER_GROUPS[filter]||FILTER_GROUPS.all)(j)&&matchesQuery(j));}
+function statusJobs(){return (DOC.jobs||[]).filter(j=>{
+  if(!matchesQuery(j))return false;
+  if(filter==='pruned')return isPruned(j.id);            // the Pruned tab shows only pruned
+  return !isPruned(j.id)&&(FILTER_GROUPS[filter]||FILTER_GROUPS.all)(j);  // everywhere else, hide pruned
+});}
 function visibleJobs(){const base=statusJobs();return roleFilter==='all'?base:base.filter(j=>roleType(j)===roleFilter);}
 function setRole(r){roleFilter=r;shownCount=PAGE;renderJobs();}
 // ----- mark to revisit + text search -----
@@ -947,6 +971,21 @@ function toggleMark(id,ev){if(ev)ev.stopPropagation();
 function setQuery(q){query=q;shownCount=PAGE;renderJobs();}
 function matchesQuery(job){const q=query.trim().toLowerCase();
   return !q||((job.title||'')+' '+(job.company||'')+' '+(job.location||'')).toLowerCase().includes(q);}
+// ----- prune off-persona jobs (client-side, reversible) -----
+function getPruned(){try{return JSON.parse(localStorage.getItem(PRUNE_KEY))||{}}catch{return{}}}
+function isPruned(id){return !!getPruned()[id];}
+function savePruned(o){try{localStorage.setItem(PRUNE_KEY,JSON.stringify(o))}catch{}}
+function unprune(id){const o=getPruned();delete o[id];savePruned(o);render();}
+function unpruneAll(){savePruned({});toast('Restored all pruned jobs');render();}
+function pruneOffPersona(){
+  if(!personaSet()){toast('Set your profile (persona) in Settings first');location.hash='#/settings';return;}
+  // Prune the jobs that don't fit the persona and aren't already pruned/saved.
+  const o=getPruned();let n=0;
+  (DOC.jobs||[]).forEach(j=>{if(!o[j.id]&&!isMarked(j.id)&&!personaFits(j)){o[j.id]=new Date().toISOString();n++;}});
+  if(!n){toast('Nothing to prune — everything left fits your profile');return;}
+  savePruned(o);shownCount=PAGE;render();
+  toast(`Pruned ${n} off-persona job(s) — see the Pruned tab to restore`);
+}
 // ----- persona (your profile; drives client-side relevance + the cloud scrape) -----
 function getPersona(){try{return JSON.parse(localStorage.getItem(PERSONA_KEY))||{}}catch{return{}}}
 function savePersona(p){try{localStorage.setItem(PERSONA_KEY,JSON.stringify(p))}catch{}}
@@ -1218,6 +1257,7 @@ function renderJobPage(id){
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   box.innerHTML=`
     <p class="back"><a href="#/jobs">← All jobs</a></p>
+    ${isPruned(job.id)?`<div class="prune-banner">✂ This job was pruned as off-persona. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
       <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
@@ -1232,10 +1272,40 @@ function renderJobPage(id){
     ${outreachHtml(job)}`;
 }
 
+// ----- highest-leverage keyword insights (Cockpit) -----
+function searchKeyword(i){
+  const kw=(((DOC.summary||{}).missing_leaderboard||[])[i]||{}).keyword||'';if(!kw)return;
+  filter='active';roleFilter='all';query=kw;shownCount=PAGE;location.hash='#/jobs';route();
+  const s=document.getElementById('jobSearch');if(s)s.value=kw;
+}
+function renderKeywordInsights(){
+  const box=document.getElementById('keywordInsights');if(!box)return;
+  const lb=((DOC.summary||{}).missing_leaderboard||[]).slice(0,12);
+  if(!lb.length){box.innerHTML='';return;}
+  const max=lb[0].count||1, total=(DOC.jobs||[]).length;
+  const rows=lb.map((x,i)=>`<button class="ki-row" onclick="searchKeyword(${i})" title="Find jobs mentioning “${esc(x.keyword)}”">
+      <span class="ki-kw">${esc(x.keyword)}</span>
+      <span class="ki-bar"><span style="width:${Math.max(6,Math.round(x.count/max*100))}%"></span></span>
+      <span class="ki-n">${x.count}</span></button>`).join('');
+  box.innerHTML=`<div class="card ki-card">
+    <div class="ki-hd"><span class="eyebrow">Highest-leverage keywords</span></div>
+    <p class="ki-sub">Skills the job descriptions ask for most across the ${total} scraped roles — but that <b>none of your résumé variants cover yet</b>. Adding these is your single biggest lever to raise match rates. Ranked by how many jobs request each; click one to see those jobs.</p>
+    <div class="ki-list">${rows}</div>
+  </div>`;
+}
+
 // ----- render / routing -----
-function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
+function renderHome(){renderInbox();renderKeywordInsights();renderScore();renderOverview();renderAuto();}
+function renderPruneBanner(){
+  const el=document.getElementById('pruneBanner');if(!el)return;
+  const n=Object.keys(getPruned()).length;
+  el.innerHTML=(filter==='pruned'&&n)
+    ? `<div class="prune-banner">✂ ${n} job(s) pruned as off-persona — restored jobs return to their normal views.
+        <button class="primary" onclick="unpruneAll()">Restore all</button></div>`
+    : '';
+}
 function renderJobs(){
-  renderFunnel();renderFilters();renderRoleFilters();renderSort();
+  renderFunnel();renderFilters();renderRoleFilters();renderSort();renderPruneBanner();
   let jobs=visibleJobs();
   if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
   jobs=sortJobs(jobs);document.getElementById('count').textContent=`${jobs.length} shown`;
