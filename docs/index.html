@@ -352,6 +352,8 @@
   .pjob-t{flex:1;min-width:0;font-weight:600;font-size:.9rem}
   .pjob-t .co{font-weight:400}
   .outreach-ctl{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.55rem}
+  .msg-ctl{display:inline-flex;align-items:center;gap:.4rem;margin-top:.45rem;flex-wrap:wrap}
+  .msg-done{font-size:.82rem;font-weight:700;color:var(--good,var(--accent));white-space:nowrap}
   .txt.sm{padding:.32rem .5rem;font-size:.8rem;width:auto;max-width:200px}
   .primary.sm,button.sm{padding:.34rem .7rem;font-size:.8rem}
   .linklike{background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;text-decoration:underline;padding:.2rem}
@@ -1922,6 +1924,31 @@ const APPLIED_STATES=new Set(['applied','screen','interview','offer','rejected']
 function getOutreach(){try{return JSON.parse(localStorage.getItem(OUTREACH_KEY))||{}}catch{return{}}}
 function saveOutreach(o){try{localStorage.setItem(OUTREACH_KEY,JSON.stringify(o))}catch{}}
 function jobOutreach(id){return getOutreach()[id]||[];}
+// Mark that you've messaged a specific person about a job: logs it (with a timestamp,
+// shown in the Outreach section) and bumps the job status new/resume-ready → messaged.
+function personMessagedAt(pid,jobId){
+  const hits=(jobOutreach(jobId)||[]).filter(x=>x.personId===pid);
+  return hits.length?hits[hits.length-1].ts:null;
+}
+function markMessaged(pid,jobId){
+  const p=personById(pid),o=getOutreach();
+  (o[jobId]=o[jobId]||[]).push({to:(p&&p.name)||'Contact',personId:pid,ts:new Date().toISOString(),channel:'linkedin',source:'networking'});
+  saveOutreach(o);
+  const cur=jobStatus(jobId),bump=(cur==='new'||cur==='resume ready');
+  if(bump)setStatusLS(jobId,'messaged');
+  toast('Logged as messaged'+(bump?' → status: messaged':''));renderJobPage(jobId);
+}
+function unmarkMessaged(pid,jobId){
+  const o=getOutreach();
+  if(o[jobId]){o[jobId]=o[jobId].filter(x=>x.personId!==pid);if(!o[jobId].length)delete o[jobId];saveOutreach(o);}
+  toast('Unmarked as messaged');renderJobPage(jobId);
+}
+function messagedControl(pid,jobId){
+  const ts=personMessagedAt(pid,jobId);
+  return ts
+    ? `<span class="msg-done" title="Logged as messaged">✓ messaged ${timeAgo(ts)}</span><button class="linklike" onclick="unmarkMessaged('${pid}','${jobId}')">undo</button>`
+    : `<button class="primary sm" onclick="markMessaged('${pid}','${jobId}')">✓ Mark messaged</button>`;
+}
 function logOutreach(id){
   const msg=(document.getElementById('orMsg-'+id)||{}).value||'';
   const to=((document.getElementById('orTo-'+id)||{}).value||'').trim();
@@ -2051,7 +2078,8 @@ function networkCard(job){
   if(!paths.length)return '';
   const rows=paths.map(({person,current})=>`<div class="pjob"><div class="pjob-h">
       <div class="pjob-t"><a href="${esc(personLiUrl(person))}" target="_blank" rel="noopener" title="Open their LinkedIn to message them">${esc(person.name)} ↗</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span>
-        <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div></div></div>`).join('');
+        <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div>
+      <div class="msg-ctl">${messagedControl(person.id,job.id)}</div></div></div>`).join('');
   return `<div class="box"><div class="jd-hd"><h3>🔗 Networking paths to ${esc(job.company)}</h3>
       <button class="sm" onclick="copyReachCommand('${job.id}')" title="Copy the terminal command that drafts ready-to-send messages for these people">⌘ Copy reach-out command</button></div>
     <p class="co">People in your directory who work — or used to work — at ${esc(job.company)}: your warmest routes to a referral. Click a name to open their LinkedIn and message them, or copy the reach-out command to draft the messages in your terminal.</p>
@@ -2303,7 +2331,7 @@ function peopleCard(job){
       <div class="pjob-t"><a href="#/person/${person.id}">${esc(person.name)}</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span> <span class="tag rel">${esc(role)}</span></div>
       <select class="txt sm" onchange="setJobRole('${person.id}','${job.id}',this.value)">${JOB_ROLES.map(r=>`<option ${r===role?'selected':''}>${r}</option>`).join('')}</select>
       <button class="linklike" onclick="unlinkPerson('${person.id}','${job.id}')">unlink</button></div>
-      ${outreachControls(person,job)}</div>`).join('');
+      ${outreachControls(person,job)}<div class="msg-ctl">${messagedControl(person.id,job.id)}</div></div>`).join('');
   return `<div class="box"><h3>People</h3>
     <p class="co">Anyone connected to this job — hiring manager, recruiter, referrer, or a contact who works there. Link them, then generate a tailored outreach prompt. Stored in this browser only.</p>
     ${rows||'<p class="co">No one linked yet.</p>'}
