@@ -622,6 +622,7 @@
           <button class="addjobbtn" onclick="openPersonModal()" title="Add a person to your directory">+ Add a person</button>
           <label class="addjobbtn" style="cursor:pointer" title="Import a people CSV (e.g. from scripts/linkedin_people.py)">⬆ Import CSV<input type="file" id="peopleCsvFile" accept=".csv,text/csv" style="display:none" onchange="importPeopleCsv(this.files[0]);this.value=''"></label>
           <button class="addjobbtn" onclick="dedupePeople()" title="Merge duplicate people">⇉ Merge duplicates</button>
+          <button class="addjobbtn" onclick="exportPeople()" title="Download people.local.json for the reach-out script">⬇ Export</button>
           <span class="count" id="peopleCount"></span>
         </div>
         <div id="peopleList" class="rowlist"></div>
@@ -1975,6 +1976,14 @@ function mergePerson(dst,src){                              // src's non-empty s
   dst.past_companies=[...new Set([...(dst.past_companies||[]),...(src.past_companies||[])])];
   (src.jobs||[]).forEach(a=>{if(!(dst.jobs||[]).some(b=>b.id===a.id))(dst.jobs=dst.jobs||[]).push(a);});
   dst.updatedAt=new Date().toISOString();return dst;
+}
+function exportPeople(){
+  const ppl=getPeople();
+  if(!ppl.length){toast('No people to export yet');return;}
+  const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),people:ppl},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='people.local.json';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  toast('Exported people.local.json — save it into your repo’s data/ folder for the reach-out script');
 }
 function dedupePeople(){
   const people=getPeople(), out=[]; let merged=0;

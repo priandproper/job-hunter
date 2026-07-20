@@ -9,6 +9,8 @@ data/contact.local.json
 scripts/*.local.js
 data/linkedin_paste.txt
 data/people.local.csv
+data/people.local.json
+data/reachout*.md
 
 # Logs
 worker.log
