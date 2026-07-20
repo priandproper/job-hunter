@@ -2032,34 +2032,8 @@ function networkingPaths(job){
     return (current||past)?{person:p,current,past}:null;
   }).filter(Boolean).sort((a,b)=>(b.current-a.current)||relRank(b.person)-relRank(a.person));
 }
-function copyNetworkPrompt(pid,jobId){
-  const p=personById(pid),job=jobObjById(jobId);if(!p||!job)return;
-  copyText(networkPrompt(p,job));toast('Intro-ask prompt copied — paste into Claude / ChatGPT / Gemini');
-}
-function networkPrompt(p,job){
-  const me=meName()||'the candidate', per=getPersona();
-  const cur=normCompany(p.company||'')===normCompany(job.company||'');
-  const L=[];
-  L.push(`You are helping ${me} network toward a referral. Write a short, warm, low-pressure message to ${p.name} about a role at ${job.company}. Output ONLY the message text — no preamble.`);
-  L.push('');
-  L.push('THE ASK');
-  if(cur)L.push(`- ${p.name} currently works at ${job.company}. Ask if they'd be open to referring ${me} for the role below (or pointing to the right person). Make it easy to say yes; offer to send a resume + a short blurb.`);
-  else L.push(`- ${p.name} previously worked at ${job.company}. Ask whether they still know anyone there who could refer ${me} for the role below, or if they'd make a quick intro. Acknowledge it's been a while; no pressure.`);
-  L.push('- Warm, specific, brief. Exactly one ask. No clichés or fake flattery. American English.');
-  L.push('');
-  L.push(`SENDER: ${me}`+((per.roles||[]).length?` — targeting ${per.roles.join(', ')}`:'')+((per.years||0)>0?` (${per.years}y exp)`:''));
-  if(per.projects)L.push(`- Proof points: ${per.projects}`);
-  L.push('');
-  L.push(`CONTACT: ${p.name}`+(p.title?`, ${p.title}`:'')+(p.company?` @ ${p.company}`:''));
-  if(p.relationship)L.push(`- Relationship: ${relLabel(p.relationship)}`);
-  if(p.howKnown)L.push(`- How the sender knows them: ${p.howKnown}`);
-  if((p.past_companies||[]).length)L.push(`- Past companies: ${p.past_companies.join(', ')}`);
-  if(p.notes)L.push(`- Notes: ${p.notes}`);
-  L.push('');
-  L.push(`ROLE: ${job.title} at ${job.company}`+(job.location?` (${job.location})`:''));
-  if(job.url)L.push(`- Posting: ${job.url}`);
-  return L.join('\n');
-}
+// (copyNetworkPrompt/networkPrompt removed — the per-person "Copy intro-ask" button
+//  is superseded by the LinkedIn links + the "Copy reach-out command" button.)
 // LinkedIn URL for a person — their saved profile, else a name+company people search.
 function personLiUrl(p){
   if(p&&p.linkedin)return p.linkedin;
@@ -2077,8 +2051,7 @@ function networkCard(job){
   if(!paths.length)return '';
   const rows=paths.map(({person,current})=>`<div class="pjob"><div class="pjob-h">
       <div class="pjob-t"><a href="${esc(personLiUrl(person))}" target="_blank" rel="noopener" title="Open their LinkedIn to message them">${esc(person.name)} ↗</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span>
-        <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div>
-      <button class="primary sm" onclick="copyNetworkPrompt('${person.id}','${job.id}')">Copy intro-ask</button></div></div>`).join('');
+        <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div></div></div>`).join('');
   return `<div class="box"><div class="jd-hd"><h3>🔗 Networking paths to ${esc(job.company)}</h3>
       <button class="sm" onclick="copyReachCommand('${job.id}')" title="Copy the terminal command that drafts ready-to-send messages for these people">⌘ Copy reach-out command</button></div>
     <p class="co">People in your directory who work — or used to work — at ${esc(job.company)}: your warmest routes to a referral. Click a name to open their LinkedIn and message them, or copy the reach-out command to draft the messages in your terminal.</p>
