@@ -487,6 +487,7 @@
           <button class="prunebtn" onclick="pruneOffPersona()" title="Hide jobs that don't match your profile persona">✂ Prune off-persona</button>
           <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
           <label class="hidepoor"><input type="checkbox" id="hideReposts" onchange="toggleHideReposts(this.checked)"> Hide reposts</label>
+          <label class="sortsel"><span>Company</span><select id="companyFilter" onchange="setCompany(this.value)"></select></label>
           <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
           <span class="count" id="count"></span>
         </div>
@@ -567,7 +568,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MANUAL_KEY="job-hunter:manual:v1";                // jobs you logged yourself (merged into the list)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, query="", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -1374,6 +1375,19 @@ function sortJobs(jobs){
   return a;
 }
 function setSort(v){sortBy=v;shownCount=PAGE;renderJobs();}
+function setCompany(v){companyFilter=v;shownCount=PAGE;renderJobs();}
+// Company selector — options are the companies present in the current job set
+// (deduped, alphabetical, with counts), plus the currently-selected one even if it
+// has 0 jobs in the active view so the choice never silently vanishes.
+function renderCompanyFilter(){
+  const el=document.getElementById('companyFilter');if(!el)return;
+  const counts={};(DOC.jobs||[]).forEach(j=>{const c=(j.company||'').trim();if(c)counts[c]=(counts[c]||0)+1;});
+  if(companyFilter!=='all'&&!(companyFilter in counts))counts[companyFilter]=0;
+  const names=Object.keys(counts).sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+  el.innerHTML=`<option value="all">All companies</option>`+
+    names.map(n=>`<option value="${esc(n)}" ${companyFilter===n?'selected':''}>${esc(n)} (${counts[n]})</option>`).join('');
+  el.value=companyFilter;
+}
 function renderSort(){
   const el=document.getElementById('sortBy');if(!el)return;
   if(!el.options.length)el.innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
@@ -1720,10 +1734,11 @@ function renderPruneBanner(){
     : '';
 }
 function renderJobs(){
-  renderFunnel();renderFilters();renderRoleFilters();renderSort();renderPruneBanner();
+  renderFunnel();renderFilters();renderRoleFilters();renderSort();renderCompanyFilter();renderPruneBanner();
   let jobs=visibleJobs();
   if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
   if(hideReposts)jobs=jobs.filter(j=>!isRepost(j.id));
+  if(companyFilter!=='all')jobs=jobs.filter(j=>(j.company||'').trim()===companyFilter);
   jobs=sortJobs(jobs);document.getElementById('count').textContent=`${jobs.length} shown`;
   const list=document.getElementById('list');
   if(!jobs.length){list.innerHTML='<div class="empty">No jobs in this view.</div>';renderLeader();return;}
