@@ -1,0 +1,1941 @@
+{
+ "count": 78,
+ "by_sig": {
+  "verkada|growth marketing": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "growth marketing",
+    "demand generation",
+    "account-based marketing",
+    "campaign strategy",
+    "go-to-market strategy",
+    "content creation",
+    "cross-functional collaboration"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [
+    "experience in content creation and campaign ideation",
+    "background in growth/demand gen/enterprise/revenue marketing",
+    "0-to-1 startup marketing or biz ops/strategy experience"
+   ],
+   "seniority": "Manager",
+   "min_years": 2,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "San Mateo, CA, required in-office \u2014 far West Coast onsite",
+   "persona_fit": 60,
+   "persona_note": "B2B growth/demand gen fit, but onsite-only West Coast role"
+  },
+  "twilio|global events marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "event marketing",
+    "audience acquisition",
+    "campaign strategy",
+    "segmentation",
+    "email marketing",
+    "funnel/performance marketing",
+    "copywriting"
+   ],
+   "tools": [
+    "Marketo"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in the US",
+   "persona_fit": 70,
+   "persona_note": "Strong B2B campaign/marketing fit, event-marketing focus"
+  },
+  "verkada|sales strategy and operations division lead": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "sales strategy",
+    "sales operations",
+    "cross-functional leadership",
+    "analytics",
+    "stakeholder management",
+    "process/workflow improvement"
+   ],
+   "tools": [
+    "SQL",
+    "Salesforce",
+    "Looker",
+    "Tableau",
+    "R",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Senior Manager",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "NYC onsite \u2014 Northeast but not a true Boston commute",
+   "persona_fit": 55,
+   "persona_note": "Analytics-heavy but sales ops, not core marketing"
+  },
+  "verkada|sales strategy and operations associate": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "sales operations",
+    "reporting",
+    "analytics",
+    "sales enablement",
+    "process improvement"
+   ],
+   "tools": [
+    "SQL",
+    "Salesforce",
+    "Looker",
+    "Tableau",
+    "R",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "San Mateo, CA onsite \u2014 far West Coast",
+   "persona_fit": 45,
+   "persona_note": "Sales ops associate, limited marketing overlap"
+  },
+  "verkada|sales strategy operations renewals associate sr": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "sales operations",
+    "renewals/retention analytics",
+    "SQL data pulls",
+    "workflow automation",
+    "cross-functional project management"
+   ],
+   "tools": [
+    "SQL",
+    "Salesforce",
+    "Google Sheets",
+    "Looker",
+    "Tableau",
+    "R",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "San Mateo, CA onsite \u2014 far West Coast",
+   "persona_fit": 45,
+   "persona_note": "Sales ops/renewals focus, limited marketing overlap"
+  },
+  "instacart|media analytics manager measurement attribution": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "experimentation design",
+    "attribution modeling",
+    "causal measurement",
+    "advertiser-facing analytics",
+    "cross-functional partnership"
+   ],
+   "tools": [
+    "SQL",
+    "Python",
+    "R"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 0,
+   "boston_note": "Remote, but Canada-only (ON/AB/BC/NS)",
+   "persona_fit": 70,
+   "persona_note": "Strong analytics/measurement fit, but Canada-based role"
+  },
+  "asana|senior product marketing manager asana service management": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM strategy development",
+    "messaging and positioning",
+    "product launch management",
+    "sales enablement content (battlecards, pitch decks)",
+    "cross-functional partnership (Product, Sales, Partnerships)",
+    "competitive positioning",
+    "customer success storytelling"
+   ],
+   "tools": [],
+   "preferences": [
+    "8-12 years B2B PMM experience",
+    "ITSM/ESM or AI-powered product experience",
+    "curiosity about AI tools"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 8,
+   "max_years": 12,
+   "boston_score": 40,
+   "boston_note": "Hybrid onsite (SF/NYC/Vancouver), not commutable from Boston",
+   "persona_fit": 78,
+   "persona_note": "Strong senior B2B PMM/GTM role"
+  },
+  "asana|marketing operations manager strategy": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "marketing operations",
+    "funnel and conversion analysis",
+    "forecasting",
+    "cross-functional alignment (Sales, Finance, Data Science)",
+    "lead scoring and routing",
+    "dashboarding and reporting"
+   ],
+   "tools": [],
+   "preferences": [
+    "5+ years Marketing Ops or GTM Strategy in B2B SaaS",
+    "strong analytical and presentation skills"
+   ],
+   "seniority": "Manager",
+   "min_years": 5,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF hybrid onsite, far from Boston",
+   "persona_fit": 68,
+   "persona_note": "Marketing ops/analytics fit, less PMM-focused"
+  },
+  "gong|gtm strategy planning manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM strategy",
+    "data analysis",
+    "executive reporting",
+    "forecasting",
+    "cross-functional collaboration (Finance, HR, GTM Ops)"
+   ],
+   "tools": [
+    "SQL",
+    "Tableau",
+    "R"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 40,
+   "boston_note": "Multi-city onsite (incl. NYC), no remote/Boston option",
+   "persona_fit": 62,
+   "persona_note": "GTM/RevOps analytics, data-heavy rather than PMM"
+  },
+  "vanta|senior growth marketing campaigns manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "demand generation strategy",
+    "integrated campaign planning",
+    "ABM strategy",
+    "budget management",
+    "channel mix optimization",
+    "MQL/pipeline reporting",
+    "mentoring junior marketers"
+   ],
+   "tools": [
+    "HubSpot"
+   ],
+   "preferences": [
+    "8+ years B2B SaaS demand gen/growth marketing experience",
+    "AI tool fluency"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 8,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote U.S.",
+   "persona_fit": 78,
+   "persona_note": "Strong growth/demand gen marketing fit"
+  },
+  "zoominfo|technical solutions consultant revops": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "pre-sales solution consulting",
+    "technical product demos",
+    "requirements-to-solution mapping",
+    "cross-functional collaboration (Solution Consultants, Product Management, Enablement, CS)",
+    "problem-solving"
+   ],
+   "tools": [
+    "CRM",
+    "Eloqua",
+    "HubSpot",
+    "Marketo"
+   ],
+   "preferences": [
+    "3+ years pre-sales/technical sales in SaaS or Enterprise tech"
+   ],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 92,
+   "boston_note": "Waltham, MA \u2014 eastern Boston suburb",
+   "persona_fit": 48,
+   "persona_note": "Technical pre-sales/RevOps, tangential to marketing/analytics"
+  },
+  "attentive|senior partner marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "partner marketing strategy",
+    "integration messaging/narratives",
+    "content creation (solution briefs, landing pages)",
+    "launch playbook development",
+    "cross-functional partnership (Product, Partnerships, Marketing)"
+   ],
+   "tools": [
+    "Snowflake",
+    "Movable Ink",
+    "Shopify"
+   ],
+   "preferences": [],
+   "seniority": "Senior IC",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Distributed U.S. workforce, remote-friendly",
+   "persona_fit": 76,
+   "persona_note": "Solid PMM-adjacent partner marketing fit"
+  },
+  "braze|senior product marketing manager orchestration": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "go-to-market strategy",
+    "product positioning",
+    "messaging development",
+    "buyer persona research",
+    "market/competitive/customer research",
+    "storytelling",
+    "cross-functional GTM enablement",
+    "AI messaging alignment"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 40,
+   "boston_note": "Chicago onsite, not Boston-commutable",
+   "persona_fit": 30,
+   "persona_note": "Senior title likely exceeds 1-4yr PMM cap; onsite Chicago"
+  },
+  "twilio|marketing strategy planning manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "marketing strategy & planning",
+    "data-driven insights reporting",
+    "funnel/pipeline attribution analysis",
+    "operational project management (PMO)",
+    "cross-functional stakeholder management",
+    "marketing operations"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote US",
+   "persona_fit": 65,
+   "persona_note": "marketing ops/strategy manager fits broader marketing lane; remote US"
+  },
+  "mongodb|staff product marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM narrative development",
+    "positioning & messaging",
+    "competitive/battlecard content",
+    "cross-functional partnership with compliance/product/sales",
+    "translating technical capabilities into buyer value props",
+    "sales enablement content"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Staff IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 75,
+   "boston_note": "US, remote-eligible but location unspecified",
+   "persona_fit": 20,
+   "persona_note": "Staff-level far exceeds 1-4yr PMM experience cap"
+  },
+  "twilio|staff product manager enterprise ai": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "AI product strategy & execution",
+    "agentic/automation product design",
+    "cross-functional GTM & corporate stakeholder management",
+    "workflow analysis across sales/support/finance/legal/HR"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Staff IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote US",
+   "persona_fit": 10,
+   "persona_note": "product management role, not PMM/marketing or analyst lane"
+  },
+  "datadog|customer marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "customer marketing/advocacy program design",
+    "case study & video testimonial production",
+    "customer interviewing",
+    "program performance tracking & reporting",
+    "cross-functional collaboration",
+    "review-site advocacy programs"
+   ],
+   "tools": [
+    "Salesforce",
+    "Metabase",
+    "Tableau",
+    "Excel"
+   ],
+   "preferences": [
+    "Bachelor's degree in Marketing, Business, Communications, or related field"
+   ],
+   "seniority": "IC",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 45,
+   "boston_note": "hybrid onsite NY/SF, not Boston",
+   "persona_fit": 55,
+   "persona_note": "customer marketing fits marketing lane; 4+ yrs at cap edge; hybrid location weakens fit"
+  },
+  "stripe|operations insights tax": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "root-cause/deep-dive operational analysis",
+    "statistical analysis & experimentation evaluation",
+    "metric definition & measurement rigor",
+    "dashboard/reporting infrastructure building",
+    "cross-functional partnership with operations teams"
+   ],
+   "tools": [
+    "SQL",
+    "Python",
+    "R",
+    "Looker",
+    "Tableau",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote US",
+   "persona_fit": 75,
+   "persona_note": "analyst-lane data role, remote US, strong fit if unstated years are \u22642"
+  },
+  "brex|data analyst ii": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "SQL",
+    "Python",
+    "R",
+    "data visualization",
+    "ad-hoc analysis",
+    "business intelligence"
+   ],
+   "tools": [
+    "Looker",
+    "Hex",
+    "Tableau"
+   ],
+   "preferences": [
+    "storytelling",
+    "cross-functional collaboration with Data Scientists/Engineers"
+   ],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "listing says NY but JD requires SF office 3 days/week hybrid",
+   "persona_fit": 60,
+   "persona_note": "solid analytics role, not marketing-specific"
+  },
+  "gong|senior revenue operations manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "forecasting",
+    "GTM strategy",
+    "data analysis",
+    "process optimization",
+    "executive presentations"
+   ],
+   "tools": [
+    "Gong platform",
+    "CRM",
+    "dashboards"
+   ],
+   "preferences": [
+    "experience with B2B GTM datasets",
+    "financial rigor"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 45,
+   "boston_note": "multi-city onsite (Austin/Chicago/NYC/SLC/SF), no Boston option, not remote",
+   "persona_fit": 65,
+   "persona_note": "strong RevOps/GTM analytics fit"
+  },
+  "mongodb|growth marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "lifecycle marketing",
+    "product-led growth",
+    "customer segmentation",
+    "A/B testing",
+    "customer journey mapping"
+   ],
+   "tools": [
+    "email/in-product/web messaging platforms"
+   ],
+   "preferences": [
+    "experience marketing to developers/technical audience"
+   ],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 48,
+   "boston_note": "onsite NYC or Tysons VA, no remote, Northeast but not commutable",
+   "persona_fit": 70,
+   "persona_note": "core growth/lifecycle marketing role"
+  },
+  "brex|senior marketing operations manager product led growth": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "marketing operations",
+    "attribution",
+    "event schema design",
+    "marketing automation",
+    "experimentation"
+   ],
+   "tools": [
+    "CMS",
+    "ABM tools",
+    "marketing tech stack"
+   ],
+   "preferences": [
+    "AI/agentic workflow experience"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "listing says SF but JD text says NYC office; either way onsite/hybrid, far from Boston",
+   "persona_fit": 68,
+   "persona_note": "strong marketing ops / PLG analytics fit"
+  },
+  "brex|senior marketing operations manager b2b sales": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM tech stack design",
+    "lead management",
+    "marketing automation",
+    "funnel optimization"
+   ],
+   "tools": [
+    "CRM",
+    "Clay",
+    "marketing automation platforms"
+   ],
+   "preferences": [
+    "AI/agentic workflow experience"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 32,
+   "boston_note": "listing says Seattle but JD text says NYC office; onsite/hybrid, far from Boston",
+   "persona_fit": 65,
+   "persona_note": "solid B2B marketing ops/GTM fit"
+  },
+  "airtable|senior manager marketing ai operations": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "marketing operations",
+    "AI agent development/governance",
+    "martech stack consolidation",
+    "campaign management systems"
+   ],
+   "tools": [
+    "Airtable",
+    "Hyperagent",
+    "Claude",
+    "Marketo"
+   ],
+   "preferences": [
+    "player-coach experience",
+    "hands-on AI/agent building"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "explicit Remote - US option available",
+   "persona_fit": 60,
+   "persona_note": "marketing ops role but heavy people-management/AI-eng focus"
+  },
+  "samsara|gtm business operations manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "sales performance analysis",
+    "forecasting",
+    "GTM strategy",
+    "cross-functional partnership",
+    "scaling sales organizations"
+   ],
+   "tools": [
+    "Salesforce",
+    "Tableau",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote in US (Boston not excluded)",
+   "persona_fit": 70,
+   "persona_note": "GTM ops/analytics role, solid cross-functional fit"
+  },
+  "databricks|staff technical program manager platform features": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "program management",
+    "cross-functional alignment",
+    "product launch execution",
+    "stakeholder management",
+    "process design",
+    "executive communication"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Staff",
+   "min_years": 10,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "onsite SF Bay Area, far from Boston",
+   "persona_fit": 40,
+   "persona_note": "TPM/eng-program role, only loosely GTM-adjacent"
+  },
+  "hubspot|senior product manager events data platform": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product roadmapping",
+    "cross-functional leadership",
+    "data-driven prioritization",
+    "product launch",
+    "event/behavioral data modeling"
+   ],
+   "tools": [
+    "CRM"
+   ],
+   "preferences": [],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote in US",
+   "persona_fit": 50,
+   "persona_note": "core product management, not marketing/analytics-focused"
+  },
+  "datadog|product operations manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product operations",
+    "cross-functional process design",
+    "product launch coordination",
+    "data querying/analysis",
+    "stakeholder enablement"
+   ],
+   "tools": [
+    "SQL",
+    "CRM"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "hybrid onsite NYC, Northeast but not local",
+   "persona_fit": 65,
+   "persona_note": "ops + analytics blend, cross-functional fit"
+  },
+  "lattice|gtm analytics manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "SQL",
+    "dbt data modeling",
+    "revenue/GTM analytics",
+    "dashboarding",
+    "KPI development",
+    "data quality troubleshooting"
+   ],
+   "tools": [
+    "Salesforce",
+    "Outreach",
+    "Gong",
+    "Marketo",
+    "Looker",
+    "dbt",
+    "SQL"
+   ],
+   "preferences": [
+    "Looker or other BI tool experience"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote in US",
+   "persona_fit": 88,
+   "persona_note": "strong GTM analytics + SQL/dbt match"
+  },
+  "reddit|staff product manager growth": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "SEO strategy",
+    "technical/programmatic SEO",
+    "site architecture",
+    "growth strategy",
+    "funnel optimization"
+   ],
+   "tools": [
+    "SQL"
+   ],
+   "preferences": [],
+   "seniority": "Staff",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote in US",
+   "persona_fit": 55,
+   "persona_note": "growth PM/SEO, adjacent to analytics but engineering-leaning"
+  },
+  "hubspot|staff product manager ads": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product strategy",
+    "multi-quarter roadmap ownership",
+    "cross-functional product triad leadership",
+    "paid advertising campaign strategy",
+    "ad platform API integration",
+    "privacy/measurement framework navigation",
+    "AI-driven campaign automation",
+    "positioning",
+    "metrics definition"
+   ],
+   "tools": [
+    "HubSpot CRM",
+    "Meta Ads",
+    "Google Ads",
+    "LinkedIn Ads",
+    "TikTok Ads"
+   ],
+   "preferences": [],
+   "seniority": "Staff IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote US",
+   "persona_fit": 25,
+   "persona_note": "Product Manager role, not PMM/analyst lane; staff-level seniority exceeds target band"
+  },
+  "datadog|gtm strategy operations associate": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "business/revenue operations",
+    "Salesforce reporting & dashboards",
+    "process documentation & playbooks",
+    "cross-functional workflow improvement",
+    "data integrity management",
+    "workflow automation"
+   ],
+   "tools": [
+    "Salesforce"
+   ],
+   "preferences": [
+    "experience in SaaS or high-growth technology company"
+   ],
+   "seniority": "IC",
+   "min_years": 2,
+   "max_years": 4,
+   "boston_score": 50,
+   "boston_note": "NYC onsite/hybrid \u2014 Northeast but multi-hour commute from Boston",
+   "persona_fit": 55,
+   "persona_note": "GTM operations role, experience band fits marketing lane cap but not core PMM/analyst work"
+  },
+  "databricks|sales dev ai program manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "program management",
+    "metric design & measurement",
+    "reporting & governance",
+    "benchmarking",
+    "enablement",
+    "change management",
+    "cross-functional partnership with sales/marketing ops"
+   ],
+   "tools": [
+    "Outreach"
+   ],
+   "preferences": [
+    "AI-fluent",
+    "self-starter, high ambiguity tolerance"
+   ],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "location listed only as 'United States', likely remote-friendly",
+   "persona_fit": 25,
+   "persona_note": "Sales Dev/BDR program role, adjacent to excluded sales-dev/quota-carrying lane"
+  },
+  "mercury|senior product marketing manager api agentic banking": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM strategy & ICP definition",
+    "messaging & positioning",
+    "launch planning & execution",
+    "developer/API marketing",
+    "competitive intelligence",
+    "qualitative & quantitative market research",
+    "growth experimentation"
+   ],
+   "tools": [
+    "GitHub",
+    "Discord",
+    "Hacker News",
+    "developer docs/community channels"
+   ],
+   "preferences": [
+    "experience with developer products, APIs, or AI platforms",
+    "fluency communicating with technical/developer audiences"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 8,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "remote option available (US or Canada)",
+   "persona_fit": 45,
+   "persona_note": "Direct PMM-lane match, but 8+ yr requirement exceeds target 1-4 yr experience cap"
+  },
+  "zoominfo|senior product manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "growth loop ownership",
+    "funnel/experimentation design",
+    "activation & monetization mechanics",
+    "lifecycle communication",
+    "PLG self-serve journey design",
+    "sprint-based experimentation cadence"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 90,
+   "boston_note": "Waltham, MA \u2014 Greater Boston",
+   "persona_fit": 35,
+   "persona_note": "Product Manager (growth/PLG) role, not PMM/analyst lane despite ideal Boston-area location"
+  },
+  "affirm|senior product manager shopping experiences": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "roadmap ownership",
+    "checkout/shopping experience design",
+    "incrementality & attribution testing",
+    "CAC\u2192LTV optimization",
+    "acquisition program design",
+    "funnel performance tracking",
+    "cross-functional pod leadership"
+   ],
+   "tools": [
+    "SQL",
+    "Amplitude",
+    "Claude Code/Cursor"
+   ],
+   "preferences": [
+    "prior consumer financial/regulated product experience",
+    "comfort partnering with Risk/Legal/Compliance"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "fully remote US",
+   "persona_fit": 30,
+   "persona_note": "Product Manager role, not PMM/analyst lane"
+  },
+  "asana|gtm systems and business process manager renewals and cx": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "business process improvement",
+    "requirements gathering",
+    "cross-functional stakeholder management",
+    "workflow mapping",
+    "business requirements documentation",
+    "data analysis"
+   ],
+   "tools": [
+    "Salesforce",
+    "QuadSci",
+    "Trig.ai"
+   ],
+   "preferences": [
+    "experience supporting customer-facing go-to-market teams strongly preferred"
+   ],
+   "seniority": "Manager",
+   "min_years": 7,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF office-centric hybrid (M/T/Th onsite), far from Boston",
+   "persona_fit": 20,
+   "persona_note": "RevOps/systems role requiring 7+ yrs, exceeds 1-4yr PMM/GTM band"
+  },
+  "brex|product marketing lead": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "storytelling",
+    "positioning",
+    "messaging",
+    "go-to-market strategy",
+    "cross-channel campaign creation",
+    "product launches"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Lead",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 45,
+   "boston_note": "SF or NYC hybrid (3 days onsite), no Boston option",
+   "persona_fit": 40,
+   "persona_note": "PMM lane fit but Lead title implies seniority above 1-4yr band"
+  },
+  "amplitude|web growth marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "web growth marketing",
+    "growth strategy",
+    "experimentation",
+    "conversion optimization",
+    "cross-functional collaboration",
+    "data-driven decision making"
+   ],
+   "tools": [
+    "CMS"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF onsite, far from Boston",
+   "persona_fit": 50,
+   "persona_note": "Growth marketing manager fits lane; years/level unclear"
+  },
+  "pinterest|staff technical program manager monetization data science": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "technical program management",
+    "cross-functional coordination",
+    "data science roadmap leadership",
+    "instrumentation/observability",
+    "workflow automation"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Staff",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Remote, US option listed alongside SF",
+   "persona_fit": 10,
+   "persona_note": "Technical TPM role, outside PMM/analyst lanes"
+  },
+  "verkada|product marketing manager privacy and video security": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product marketing",
+    "narrative and positioning development",
+    "technical fluency (security architecture)",
+    "product launch management",
+    "GTM enablement",
+    "customer-facing collateral creation"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "San Mateo (Bay Area) onsite, far from Boston",
+   "persona_fit": 45,
+   "persona_note": "PMM lane fit but seniority/years unstated, likely exceeds band"
+  },
+  "acquia|senior product marketing manager cloud platform drupal": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "positioning and messaging",
+    "GTM launches",
+    "sales enablement content",
+    "competitive intelligence translation"
+   ],
+   "tools": [
+    "Drupal",
+    "PaaS"
+   ],
+   "preferences": [
+    "AI-first ways of working"
+   ],
+   "seniority": "Senior",
+   "min_years": 5,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote US (company HQ in Boston, MA)",
+   "persona_fit": 25,
+   "persona_note": "PMM lane fit but explicit 5+ yrs requirement exceeds 1-4yr band"
+  },
+  "stripe|program manager gtm planning": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "project management",
+    "stakeholder management",
+    "cross-functional collaboration",
+    "process improvement",
+    "change management",
+    "business case development",
+    "risk mitigation",
+    "roadmap planning"
+   ],
+   "tools": [
+    "Excel",
+    "SQL",
+    "R",
+    "CRM"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "US-Remote option available (or Chicago onsite)",
+   "persona_fit": 60,
+   "persona_note": "GTM ops/program management with analytics, not core marketing"
+  },
+  "mercury|product marketing lead growth revenue": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM strategy",
+    "market segmentation",
+    "messaging",
+    "customer journey mapping",
+    "sales enablement",
+    "partner marketing",
+    "market research",
+    "competitive analysis",
+    "metrics/KPI tracking",
+    "team management"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Remote within US (or Canada) option",
+   "persona_fit": 85,
+   "persona_note": "Strong PMM/growth-marketing leadership match"
+  },
+  "zoominfo|senior manager product management": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "roadmap development",
+    "Agile/SAFe methodology",
+    "stakeholder alignment",
+    "backlog governance",
+    "PI planning",
+    "team management",
+    "business analysis"
+   ],
+   "tools": [
+    "Salesforce"
+   ],
+   "preferences": [],
+   "seniority": "Senior Manager",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 25,
+   "boston_note": "Remote but restricted to California residents",
+   "persona_fit": 35,
+   "persona_note": "Salesforce product management, limited marketing/analytics overlap"
+  },
+  "robinhood|futures risk program manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "risk management",
+    "risk assessment",
+    "program management",
+    "cross-functional partnership",
+    "automation",
+    "real-time monitoring systems",
+    "regulatory reporting"
+   ],
+   "tools": [
+    "Python",
+    "R",
+    "Looker",
+    "Tableau"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 40,
+   "boston_note": "Chicago onsite 5 days/week, not commutable from Boston",
+   "persona_fit": 30,
+   "persona_note": "Fintech risk program management, little marketing/analytics overlap"
+  },
+  "flexport|product data analyst": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "data analysis",
+    "product analytics",
+    "OKR translation",
+    "stakeholder communication",
+    "data modeling",
+    "insight/narrative building"
+   ],
+   "tools": [
+    "SQL",
+    "Python",
+    "R",
+    "Looker",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": 1,
+   "max_years": null,
+   "boston_score": 0,
+   "boston_note": "Shanghai, China - outside US",
+   "persona_fit": 45,
+   "persona_note": "Data analyst role, general analytics overlap but not marketing-specific"
+  },
+  "verkada|growth marketing manager channel technical programs": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM strategy",
+    "demand generation",
+    "program management",
+    "partner marketing",
+    "brand & positioning",
+    "campaign management"
+   ],
+   "tools": [
+    "CRM",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 32,
+   "boston_note": "San Mateo, CA onsite, cross-country from Boston",
+   "persona_fit": 75,
+   "persona_note": "Growth marketing manager, solid GTM/marketing fit"
+  },
+  "datadog|gtm strategy and operations associate": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "vendor management",
+    "contract negotiation",
+    "tooling strategy",
+    "cross-functional partnership",
+    "adoption/success metrics tracking",
+    "change management"
+   ],
+   "tools": [
+    "Clay",
+    "CRM",
+    "outbound sequencing platforms",
+    "data enrichment platforms",
+    "contact intelligence tools"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 60,
+   "boston_note": "NYC hybrid, Northeast but not commutable from Boston",
+   "persona_fit": 72,
+   "persona_note": "GTM ops/tooling role, adjacent to marketing ops"
+  },
+  "6sense|staff product manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product roadmap ownership",
+    "attribution/measurement strategy",
+    "AI feature strategy",
+    "cross-functional SME",
+    "positioning/battlecards"
+   ],
+   "tools": [
+    "SSP integrations",
+    "pixel-based tracking",
+    "third-party verification tools"
+   ],
+   "preferences": [],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in US",
+   "persona_fit": 50,
+   "persona_note": "Product management, not core marketing/analytics"
+  },
+  "brex|staff product manager growth": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM systems design",
+    "cross-functional leadership",
+    "AI agent workflows",
+    "funnel/pipeline optimization"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF onsite, far from Boston",
+   "persona_fit": 48,
+   "persona_note": "Product management leaning technical, weak marketing/analytics overlap"
+  },
+  "notion|product marketing manager core product": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "messaging/narrative development",
+    "launch management",
+    "sales enablement",
+    "competitive positioning",
+    "user insights"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF (or NYC) hybrid onsite, far from Boston",
+   "persona_fit": 80,
+   "persona_note": "Strong core PMM role"
+  },
+  "justworks|data analytics operations manager ai systems": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "workflow automation",
+    "data governance",
+    "operational systems design",
+    "AI tooling adoption",
+    "stakeholder management"
+   ],
+   "tools": [
+    "Tableau",
+    "Excel",
+    "R"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 60,
+   "boston_note": "NYC, Northeast but not commutable",
+   "persona_fit": 65,
+   "persona_note": "Analytics/ops manager, fits analyst lane"
+  },
+  "stripe|program manager go to market": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "program management",
+    "GTM strategy execution",
+    "pipeline hygiene",
+    "forecasting",
+    "stakeholder alignment",
+    "change management"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF onsite, far from Boston",
+   "persona_fit": 63,
+   "persona_note": "GTM program management, moderate marketing/ops overlap"
+  },
+  "mixpanel|senior customer strategy operations manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "account-level customer analysis",
+    "churn/expansion analysis",
+    "forecasting (GRR/NRR)",
+    "SQL querying",
+    "revenue operations process design",
+    "cross-functional partnership with CS leadership"
+   ],
+   "tools": [
+    "SQL",
+    "Salesforce"
+   ],
+   "preferences": [
+    "consulting background",
+    "hands-on SQL fluency",
+    "prior CS platform deployment/ownership"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "NYC hybrid \u2014 Northeast but not day-commutable from Boston",
+   "persona_fit": 25,
+   "persona_note": "CS strategy & ops role, not PMM or analyst lane"
+  },
+  "justworks|senior product marketing manager pricing packaging": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "pricing & packaging strategy",
+    "financial modeling",
+    "customer segmentation analysis",
+    "competitive benchmarking",
+    "pricing experimentation"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [
+    "comfort with ambiguity",
+    "cross-functional partnership with Finance/Product/Revenue"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": 4,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "NYC \u2014 Northeast but not day-commutable from Boston",
+   "persona_fit": 65,
+   "persona_note": "PMM lane fit; Senior title, at top of target experience range"
+  },
+  "sofi|senior lifecycle marketing manager home loans": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "lifecycle marketing strategy",
+    "multi-channel campaign design (email/push/in-app/SMS)",
+    "experimentation roadmap management",
+    "funnel/KPI analysis",
+    "campaign automation & personalization"
+   ],
+   "tools": [
+    "CRM"
+   ],
+   "preferences": [
+    "experience owning a full lifecycle vertical",
+    "comfort steering senior/exec stakeholders"
+   ],
+   "seniority": "Senior Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "Best of 3 onsite options (NY) is Northeast but not commutable; SF/Seattle far",
+   "persona_fit": 35,
+   "persona_note": "Marketing lane but leadership-scope role likely exceeds target experience cap"
+  },
+  "twilio|marketing analyst plg self serve analytics": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "PLG analytics",
+    "free-to-paid conversion analysis",
+    "usage-based cohorting",
+    "growth experimentation",
+    "dashboarding",
+    "translating business needs into technical specs"
+   ],
+   "tools": [
+    "Python",
+    "SQL"
+   ],
+   "preferences": [
+    "experience bridging marketing and data engineering",
+    "stakeholder management with sales/marketing leaders"
+   ],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote US",
+   "persona_fit": 80,
+   "persona_note": "Analyst-lane title fit, remote US; matches if years \u22642"
+  },
+  "datadog|product marketing manager apm": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "positioning & messaging",
+    "GTM narrative development",
+    "product launch support",
+    "sales enablement content creation",
+    "competitive analysis",
+    "market research synthesis"
+   ],
+   "tools": [],
+   "preferences": [
+    "familiarity with APM/observability/DevOps/cloud infrastructure",
+    "strong writing/storytelling"
+   ],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "NYC or SF hybrid \u2014 Northeast option not commutable from Boston",
+   "persona_fit": 75,
+   "persona_note": "Standard IC PMM role, strong lane fit"
+  },
+  "stripe|gtm product marketing manager commerce experiences": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "GTM enablement content development",
+    "seller-ready messaging (pitch decks, FAQs, value props)",
+    "buyer persona translation",
+    "field insight synthesis for positioning"
+   ],
+   "tools": [],
+   "preferences": [
+    "experience with checkout/commerce/payments products"
+   ],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 75,
+   "boston_note": "Listed as 'United States' with no city \u2014 likely remote-eligible",
+   "persona_fit": 80,
+   "persona_note": "GTM/PMM lane, IC title, experience within target 1-4yr range"
+  },
+  "notion|partner marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "partner/channel marketing program development",
+    "co-marketing campaign design",
+    "partner enablement content creation",
+    "MDF budget management",
+    "CRM & analytics reporting",
+    "cross-functional collaboration"
+   ],
+   "tools": [
+    "CRM"
+   ],
+   "preferences": [
+    "track record building partner/channel marketing programs"
+   ],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "SF/NYC onsite, in-office 3 days/week, far from Boston",
+   "persona_fit": 68,
+   "persona_note": "Partner/product marketing role, solid GTM fit but onsite requirement"
+  },
+  "stripe|product marketing manager growth": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "growth messaging & content strategy",
+    "user lifecycle marketing (onboarding, activation, conversion)",
+    "data analysis of user journeys/funnels",
+    "cross-functional partnership with product & engineering",
+    "storytelling"
+   ],
+   "tools": [
+    "dashboard/web/mobile product surfaces"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in the US",
+   "persona_fit": 78,
+   "persona_note": "Growth PMM role, strong marketing/GTM analytics fit"
+  },
+  "affirm|revenue operations lead": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "mid-funnel sales process ownership",
+    "territory planning & segmentation",
+    "pipeline hygiene & forecasting",
+    "cross-functional governance",
+    "process documentation & change management"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in the US",
+   "persona_fit": 72,
+   "persona_note": "RevOps/analyst lane, strong analytics/GTM fit"
+  },
+  "notion|customer experience strategy operations lead": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "CX strategy design",
+    "customer support operations & capacity planning",
+    "customer segmentation",
+    "KPI tracking (CSAT, FRT, Churn)",
+    "forecasting",
+    "project management"
+   ],
+   "tools": [
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 55,
+   "boston_note": "NYC onsite, Northeast but not daily-commutable from Boston",
+   "persona_fit": 50,
+   "persona_note": "CX ops role, adjacent to but not core marketing/analyst lane"
+  },
+  "gitlab|senior lifecycle marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "lifecycle campaign strategy & execution",
+    "email marketing & segmentation",
+    "A/B testing & QA",
+    "free-to-paid/trial-to-paid conversion program design",
+    "audience data analysis"
+   ],
+   "tools": [
+    "CRM",
+    "marketing automation platform"
+   ],
+   "preferences": [],
+   "seniority": "Manager",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in the US (also open to Canada)",
+   "persona_fit": 75,
+   "persona_note": "Lifecycle/growth marketing role, strong GTM fit"
+  },
+  "databricks|sr product manager databricks ai": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product management/roadmap ownership",
+    "technical fluency in AI/ML",
+    "SQL & product usage analytics",
+    "stakeholder storytelling",
+    "GTM partnership with engineering & sales"
+   ],
+   "tools": [
+    "SQL"
+   ],
+   "preferences": [
+    "exposure to building AI/ML or generative AI-powered products"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 5,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "Seattle onsite, far from Boston",
+   "persona_fit": 25,
+   "persona_note": "Core product management role, not a marketing/analyst fit"
+  },
+  "checkr|sr product marketing manager": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "B2B product marketing",
+    "GTM strategy",
+    "messaging",
+    "positioning",
+    "competitive intelligence",
+    "win/loss analysis",
+    "buyer research",
+    "executive-level communication",
+    "sales enablement/playbooks"
+   ],
+   "tools": [],
+   "preferences": [
+    "experience marketing to HR buyers",
+    "background in fraud detection, identity verification, risk, compliance, or security"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 6,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "Onsite Denver or SF, far from Boston",
+   "persona_fit": 40,
+   "persona_note": "PMM lane matches, but 6+ yrs exceeds candidate's 1-4yr PMM cap"
+  },
+  "stripe|technical program manager risk": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "technical program management",
+    "cross-functional planning",
+    "risk/compliance program execution",
+    "stakeholder alignment"
+   ],
+   "tools": [
+    "Python",
+    "SQL",
+    "Excel"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote US",
+   "persona_fit": 10,
+   "persona_note": "Technical TPM role, not PMM or analyst lane"
+  },
+  "samsara|global operations rotation program": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "process design",
+    "supply chain planning & forecasting",
+    "sourcing",
+    "logistics/order fulfillment",
+    "cross-functional rotation"
+   ],
+   "tools": [
+    "Salesforce",
+    "Tableau"
+   ],
+   "preferences": [
+    "recent MBA or supply-chain-focused Master's graduate (2024 or later)"
+   ],
+   "seniority": "IC",
+   "min_years": 0,
+   "max_years": 3,
+   "boston_score": 80,
+   "boston_note": "Fully remote (California-based)",
+   "persona_fit": 10,
+   "persona_note": "Ops/supply-chain rotational program, not PMM or analyst lane; requires MBA"
+  },
+  "stripe|technical program manager core infrastructure": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "technical program management",
+    "infrastructure program execution",
+    "cross-functional collaboration",
+    "KPI frameworks",
+    "technical documentation"
+   ],
+   "tools": [
+    "Excel",
+    "SQL"
+   ],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Seattle/SF/Remote \u2014 remote option available",
+   "persona_fit": 10,
+   "persona_note": "Technical TPM role, not PMM or analyst lane"
+  },
+  "cloudflare|senior product manager fintech": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product management",
+    "quote-to-cash lifecycle",
+    "cross-functional leadership",
+    "product launches",
+    "billing/ERP coordination"
+   ],
+   "tools": [
+    "Salesforce",
+    "Stripe"
+   ],
+   "preferences": [
+    "AI-native curiosity/comfort using AI tools"
+   ],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "In-office Austin, far from Boston",
+   "persona_fit": 12,
+   "persona_note": "Product manager role, not PMM or analyst lane"
+  },
+  "justworks|product manager time": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product management",
+    "regulatory/compliance domain (HR/Fintech/Healthcare)",
+    "cross-functional stakeholder collaboration",
+    "customer-facing product work"
+   ],
+   "tools": [],
+   "preferences": [],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 68,
+   "boston_note": "NYC \u2014 Northeast, not daily-commutable but relatively close",
+   "persona_fit": 12,
+   "persona_note": "Product manager role, not PMM or analyst lane"
+  },
+  "stripe|product manager link consumer": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product strategy",
+    "consumer insights",
+    "cross-functional collaboration",
+    "roadmap definition",
+    "data-informed decision making"
+   ],
+   "tools": [
+    "SQL"
+   ],
+   "preferences": [
+    "exploring how AI is changing product development",
+    "side projects using AI"
+   ],
+   "seniority": "IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Remote-US option listed",
+   "persona_fit": 35,
+   "persona_note": "Technical consumer PM role, not marketing/analytics"
+  },
+  "datadog|product manager ii application performance monitoring": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product management",
+    "observability workflows",
+    "distributed tracing",
+    "customer discovery",
+    "GTM definition",
+    "adoption/retention tracking"
+   ],
+   "tools": [
+    "Datadog APM"
+   ],
+   "preferences": [
+    "experience with AI-driven troubleshooting/agentic onboarding"
+   ],
+   "seniority": "IC",
+   "min_years": 3,
+   "max_years": null,
+   "boston_score": 50,
+   "boston_note": "NYC hybrid, not remote, not commutable from Boston",
+   "persona_fit": 35,
+   "persona_note": "Technical PM with some GTM partnership, not core marketing"
+  },
+  "databricks|sr product manager data governance": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "enterprise B2B product management",
+    "data governance",
+    "security/compliance",
+    "product roadmap",
+    "stakeholder coordination",
+    "launch planning"
+   ],
+   "tools": [
+    "Unity Catalog",
+    "Databricks Lakehouse"
+   ],
+   "preferences": [
+    "CS or related engineering background",
+    "experience with databases/data warehouses"
+   ],
+   "seniority": "Senior IC",
+   "min_years": 5,
+   "max_years": null,
+   "boston_score": 35,
+   "boston_note": "Seattle onsite, far from Boston",
+   "persona_fit": 25,
+   "persona_note": "Deep technical/enterprise governance PM, minimal marketing overlap"
+  },
+  "datadog|senior product manager agent integrations": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "roadmap ownership",
+    "prioritization",
+    "cross-functional partnership",
+    "GTM content creation",
+    "backlog management",
+    "adoption data analysis"
+   ],
+   "tools": [
+    "Datadog Agent",
+    "MySQL",
+    "Kafka",
+    "Kubernetes",
+    "Hugging Face TGI",
+    "BentoML",
+    "SAP",
+    "Oracle EBS/Fusion",
+    "Microsoft Dynamics"
+   ],
+   "preferences": [
+    "experience with AI-native workloads",
+    "ERP systems knowledge"
+   ],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 50,
+   "boston_note": "NYC hybrid, not remote, not commutable from Boston",
+   "persona_fit": 38,
+   "persona_note": "Technical integrations PM with GTM/PMM partnership work"
+  },
+  "instacart|senior product manager retailer platform": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "platform product management",
+    "enterprise deal support",
+    "cross-functional influence",
+    "brand/e-commerce theme tools",
+    "stakeholder management"
+   ],
+   "tools": [],
+   "preferences": [
+    "operational rigor",
+    "trust-building with senior executives"
+   ],
+   "seniority": "Senior IC",
+   "min_years": null,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Fully remote in the US",
+   "persona_fit": 45,
+   "persona_note": "Enterprise platform PM touching brand/GTM, not core marketing"
+  },
+  "figma|product marketing manager audience and messaging": {
+   "sponsorship": "Unknown",
+   "sponsorship_evidence": "",
+   "skills": [
+    "product marketing",
+    "messaging architecture",
+    "persona development",
+    "competitive/market intelligence",
+    "narrative development",
+    "sales enablement",
+    "XFN alignment"
+   ],
+   "tools": [],
+   "preferences": [
+    "qualitative research background",
+    "multi-product/multi-segment B2B SaaS experience"
+   ],
+   "seniority": "Manager",
+   "min_years": 5,
+   "max_years": null,
+   "boston_score": 80,
+   "boston_note": "Remote-US option listed",
+   "persona_fit": 85,
+   "persona_note": "Core B2B SaaS product marketing/messaging role"
+  }
+ }
+}
