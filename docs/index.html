@@ -110,8 +110,11 @@
   .eyebrow::before{content:"";width:3px;height:15px;border-radius:2px;background:var(--accent);flex-shrink:0}
   .eyebrow.warm::before{background:var(--mid)}
   .section{margin-bottom:2rem}
-  .section-h{display:flex;align-items:center;gap:.6rem;margin:0 0 .95rem}
-  .section-h .count{margin-left:auto;color:var(--muted);font-size:.82rem}
+  .section-h{display:flex;align-items:center;gap:.6rem;margin:0 0 .95rem;flex-wrap:wrap}
+  .section-h .count{color:var(--muted);font-size:.82rem}
+  .sortsel{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted)}
+  .sortsel span{font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:.68rem}
+  .sortsel select{font:inherit;font-size:.82rem;padding:.32rem .55rem;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
   .rolebar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:0 0 1.2rem}
   .rolelabel{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:.25rem}
   .rolechip{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.34rem .72rem;font-size:.8rem;color:var(--ink-2);font-weight:500;display:inline-flex;align-items:center;gap:.4rem;transition:all .13s}
@@ -262,8 +265,10 @@
   .seg button.on{background:var(--surface);color:var(--ink);border-color:var(--line-2);box-shadow:0 1px 2px rgba(12,12,18,.06);font-weight:600}
   .seg button span{opacity:.55;font-variant-numeric:tabular-nums;margin-left:.15rem}
   .rowlist{display:flex;flex-direction:column;gap:.45rem}
-  .jobrow{background:var(--surface);border:1px solid var(--line);border-radius:11px;overflow:hidden;transition:border-color .14s;border-left:3px solid transparent}
-  .jobrow:hover{border-color:var(--line-2)}
+  .jobrow{background:var(--surface);border:1px solid var(--line);border-radius:11px;overflow:hidden;transition:border-color .14s,box-shadow .14s;border-left:3px solid transparent;cursor:pointer}
+  .jobrow:hover{border-color:var(--line-2);box-shadow:var(--ring)}
+  .jobrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .jobrow:hover .chev-r{transform:translateX(3px);color:var(--accent)}
   .jobrow.is-new{border-left-color:var(--mid)}
   .rhead{display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;cursor:pointer}
   .rhead:hover{background:var(--surface-2)}
@@ -415,7 +420,9 @@
       <section id="screen-jobs" class="screen" hidden>
         <div class="funnel" id="funnel"></div>
         <div class="section-h"><span class="eyebrow">All jobs</span>
-          <div class="seg" id="statusFilter"></div><span class="count" id="count"></span>
+          <div class="seg" id="statusFilter"></div>
+          <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
+          <span class="count" id="count"></span>
         </div>
         <div class="rolebar" id="roleFilter"></div>
         <div id="list" class="rowlist"></div>
@@ -465,7 +472,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -739,6 +746,24 @@ function roleType(job){
 function statusJobs(){return (DOC.jobs||[]).filter(FILTER_GROUPS[filter]||FILTER_GROUPS.all);}
 function visibleJobs(){const base=statusJobs();return roleFilter==='all'?base:base.filter(j=>roleType(j)===roleFilter);}
 function setRole(r){roleFilter=r;shownCount=PAGE;renderJobs();}
+// ----- sorting (relevance / recency / ATS / new) -----
+const SORTS=[['relevance','Relevance'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
+function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
+function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
+function sortJobs(jobs){
+  const a=[...jobs];
+  if(sortBy==='recent')a.sort((x,y)=>_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
+  else if(sortBy==='ats')a.sort((x,y)=>y.ats_score-x.ats_score||y.fit_score-x.fit_score);
+  else if(sortBy==='fresh')a.sort((x,y)=>(newIds.has(y.id)-newIds.has(x.id))||_seenMs(y)-_seenMs(x)||y.fit_score-x.fit_score);
+  else a.sort((x,y)=>y.fit_score-x.fit_score||y.ats_score-x.ats_score);   // relevance (default)
+  return a;
+}
+function setSort(v){sortBy=v;shownCount=PAGE;renderJobs();}
+function renderSort(){
+  const el=document.getElementById('sortBy');if(!el)return;
+  if(!el.options.length)el.innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+  el.value=sortBy;
+}
 function renderRoleFilters(){
   const base=statusJobs(),counts={};
   base.forEach(j=>{const r=roleType(j);counts[r]=(counts[r]||0)+1;});
@@ -755,14 +780,14 @@ function refItem(job,r){
   return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;}
 function jobRow(job){
   const st=jobStatus(job.id),isNew=newIds.has(job.id)&&st==='new';
-  return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}"><div class="rhead" onclick="toggleRow('${job.id}')">
+  return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}" onclick="openJob('${job.id}')" role="link" tabindex="0" onkeydown="if(event.key==='Enter')openJob('${job.id}')">
+    <div class="rhead">
     <span class="dot s-${st.replace(/ /g,'-')}"></span>
     <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}</div>
       <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div></div>
     <div class="rscore">${job.fit_score}<small>fit</small></div>
     <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
-    <select class="rstatus-sel" onclick="event.stopPropagation()" onchange="event.stopPropagation();setStatus('${job.id}',this.value)">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select><span class="chev-r">▸</span></div>
-    <div class="rdetail" id="detail-${job.id}"></div></div>`;}
+    <select class="rstatus-sel" onclick="event.stopPropagation()" onchange="event.stopPropagation();setStatus('${job.id}',this.value)">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select><span class="chev-r">→</span></div></div>`;}
 function detailHtml(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
@@ -985,14 +1010,13 @@ function renderJobPage(id){
 // ----- render / routing -----
 function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
 function renderJobs(){
-  renderFunnel();renderFilters();renderRoleFilters();
-  const jobs=visibleJobs();document.getElementById('count').textContent=`${jobs.length} shown`;
+  renderFunnel();renderFilters();renderRoleFilters();renderSort();
+  const jobs=sortJobs(visibleJobs());document.getElementById('count').textContent=`${jobs.length} shown`;
   const list=document.getElementById('list');
   if(!jobs.length){list.innerHTML='<div class="empty">No jobs in this view.</div>';renderLeader();return;}
   const slice=jobs.slice(0,shownCount),rem=jobs.length-slice.length;
   list.innerHTML=slice.map(jobRow).join('')+(rem>0?`<div class="more"><button id="moreBtn">Show ${Math.min(PAGE,rem)} more <span>· ${rem} remaining</span></button></div>`:'');
   const mb=document.getElementById('moreBtn');if(mb)mb.addEventListener('click',()=>{shownCount+=PAGE;renderJobs();});
-  openRows.forEach(id=>{const r=document.getElementById('row-'+id);if(r){r.classList.add('open');fillDetail(id);}});
   renderLeader();
 }
 function currentView(){
