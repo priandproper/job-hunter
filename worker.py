@@ -138,18 +138,37 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
         postings = disc_mod.fetch_postings(cfg, REPO_ROOT, log)  # JSearch job boards
         jobs.extend(postings)
 
-    # Ever-expanding pool: union this run's fetch with everything seen before, dedup,
-    # age out stale, cap. Persists (committed) so the list grows across runs.
+    # Relevance gate: pool ONLY jobs that pass the match filter. The boards return
+    # thousands of off-lane roles (engineering, sales, etc.) that never surface in
+    # jobs.json; pooling them just bloats the committed file and — worse — lets the
+    # size cap evict a genuinely-good, high-fit job (whose board had a transient miss
+    # that run) to make room for off-lane noise. It then reappears next run with a
+    # reset _first_seen: the "job vanished after deploy" flicker. Keeping only passers
+    # holds the pool to the set the user actually sees, so the cap never bites and good
+    # jobs persist across runs. cfg["match"] already has the persona folded in here.
     m = cfg.get("match", {})
+    profile = profile_mod.load_profile(cfg, REPO_ROOT)
+    extra_terms = m.get("extra_lane_terms", [])
+
+    def _passes(job: dict) -> bool:
+        res = match_mod.match_job(job, profile, extra_terms)
+        return match_mod.passes_filters(job, res, m)
+
     pool_path = (REPO_ROOT / cfg.get("pool_file", "data/job_pool.json")).resolve()
     prior = pool_mod.load_pool(pool_path)
+    fresh_relevant = [j for j in jobs if _passes(j)]
+    # Re-gate the accumulated pool too, so off-lane jobs pooled before this change (or
+    # under a broader persona) are pruned rather than lingering forever.
+    prior_relevant = [j for j in prior if _passes(j)]
+    dropped = len(prior) - len(prior_relevant)
     merged, stats = pool_mod.merge(
-        prior, jobs, _now(),
+        prior_relevant, fresh_relevant, _now(),
         max_age_days=cfg.get("pool_max_age_days", m.get("max_age_days", 45)),
         max_size=cfg.get("pool_max_size", 4000))
     pool_mod.save_pool(pool_path, merged, _now())
     log(f"        pool      — {stats['total']} in pool "
-        f"(+{stats['added']} new, -{stats['aged_out']} aged out this run)")
+        f"(+{stats['added']} new, -{stats['aged_out']} aged out, "
+        f"-{dropped} off-lane pruned this run)")
     return merged
 
 
