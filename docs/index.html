@@ -587,18 +587,23 @@ const RESUME_SCHEMA={type:"object",additionalProperties:false,
       properties:{name:{type:"string"},items:{type:"array",items:{type:"string"}}}}}}};
 async function tailorResume(id){
   const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
-  const key=(anthropicCfg().key||'').trim();
-  if(!key){toast('Add your Claude API key in Settings');location.hash='#/settings';return;}
   const core=job.resume_core;if(!core){toast('No resume data for this job');return;}
+  const key=(anthropicCfg().key||'').trim();
   const model=anthropicCfg().model||'claude-opus-4-8';
-  setTailorStatus(id,'Tailoring with Claude…');
   const p=getPersona();
-  const sys="You tailor a candidate's resume to a specific job. Return ONLY a JSON resume object matching the provided schema and the SAME structure as the current resume. Rules: keep contact and education exactly as given (factual); within each experience entry keep company, title, location, and dates unchanged. You MAY rewrite the summary, rewrite each experience 'highlights' bullet, adjust contact.headline, and reorder/surface skills to align with the target job. Never invent employers, titles, dates, degrees, metrics, or accomplishments the candidate did not have — only rephrase and emphasize what is genuinely there, weaving in the job's keywords where they authentically apply.";
-  const user=`CURRENT RESUME (JSON):\n${JSON.stringify(core)}\n\nTARGET JOB\nTitle: ${job.title}\nCompany: ${job.company}\nKeywords the job description asks for: ${(job.requested_keywords||[]).join(', ')||'(none captured)'}\nKeywords currently missing from the resume: ${(job.missing_keywords||[]).join(', ')||'(none)'}\n`
+  const sys="You tailor a candidate's resume to a specific job. Return ONLY a JSON resume object with EXACTLY the same structure (same keys and nesting) as the current resume shown below — output JSON only, no prose, no markdown, no code fences. Rules: keep contact and education exactly as given (factual); within each experience entry keep company, title, location, and dates unchanged. You MAY rewrite the summary, rewrite each experience 'highlights' bullet, adjust contact.headline, and reorder/surface skills to align with the target job. Never invent employers, titles, dates, degrees, metrics, or accomplishments the candidate did not have — only rephrase and emphasize what is genuinely there, weaving in the job's keywords where they authentically apply.";
+  const user=`CURRENT RESUME (JSON — return the same shape):\n${JSON.stringify(core)}\n\nTARGET JOB\nTitle: ${job.title}\nCompany: ${job.company}\nKeywords the job description asks for: ${(job.requested_keywords||[]).join(', ')||'(none captured)'}\nKeywords currently missing from the resume: ${(job.missing_keywords||[]).join(', ')||'(none)'}\n`
     +(p.roles&&p.roles.length?`Candidate target roles: ${p.roles.join(', ')}\n`:'')
     +(p.skills&&p.skills.length?`Candidate skills/tools: ${p.skills.join(', ')}\n`:'')
     +(p.projects?`Candidate projects/highlights: ${p.projects}\n`:'')
-    +`\nReturn the tailored resume as JSON, closely aligned to this job.`;
+    +`\nReturn the tailored resume as JSON only, closely aligned to this job.`;
+  if(!key){   // no Claude API key → copy the prompt so you can paste it into any LLM
+    copyText(sys+'\n\n'+user);
+    setTailorStatus(id,'Prompt copied — paste into ChatGPT / Gemini / any LLM.');
+    toast('Tailoring prompt copied to clipboard');
+    return;
+  }
+  setTailorStatus(id,'Tailoring with Claude…');
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
       headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
@@ -624,10 +629,13 @@ function resumeBox(job){
         <button onclick="copyText(JSON.stringify(tailoredFor('${job.id}').core,null,2))">Copy JSON</button>
         <button onclick="discardTailored('${job.id}')">Discard</button></div></div>`
     : '';
+  const hasKey=!!(anthropicCfg().key||'').trim();
+  const tailorLabel=hasKey?'✨ Tailor with Claude':'📋 Copy tailoring prompt';
+  const tailorTitle=hasKey?'Rewrite this resume for the job with Claude':'No Claude API key set — copies the prompt to paste into ChatGPT, Gemini, or any LLM';
   return `<div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
     <div class="rowbtns">
       <a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a>
-      <button onclick="tailorResume('${job.id}')">✨ Tailor with Claude</button>
+      <button onclick="tailorResume('${job.id}')" title="${tailorTitle}">${tailorLabel}</button>
       <span class="co" id="tailorStatus-${job.id}"></span>
     </div>${tailoredHtml}</div>`;
 }
