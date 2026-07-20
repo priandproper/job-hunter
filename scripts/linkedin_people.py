@@ -76,35 +76,97 @@ def _claude(api_key: str, model: str, text: str) -> dict:
     return json.loads(txt)
 
 
-_JUNK = re.compile(r"^\s*(\d+(st|nd|rd|th)|·|Message|Connect|Follow|More|Contact info|"
+_JUNK = re.compile(r"^\s*(\d+(st|nd|rd|th)?|·|Message|Connect|Follow|More|Contact info|"
                    r"Pending|Open to work|Premium)\b", re.I)
+_DEGREE = re.compile(r"^·?\s*(1st|2nd|3rd)\b", re.I)
+_PRONOUN = re.compile(r"^(he/him|she/her|they/them)\b", re.I)
+# LinkedIn nav / UI chrome + section headers — never a person's name.
+_CHROME = {"home", "my network", "jobs", "messaging", "notifications", "more", "me",
+           "for business", "advertise", "message", "connect", "follow", "following",
+           "cover photo", "contact info", "highlights", "activity", "about", "experience",
+           "education", "skills", "interests", "featured", "recommendations", "posts",
+           "comments", "i'm looking for…", "i'm looking for"}
+# Everything from these markers on is OTHER people or the page footer — drop it.
+_STOP = re.compile(r"^(more profiles for you|people you may know|you might like|"
+                   r"explore premium profiles|others named|more from|linkedin corporation)\b", re.I)
+_EXP_END = {"education", "skills", "licenses & certifications", "interests",
+            "recommendations", "volunteering", "courses", "projects", "publications"}
 
 
 def _heuristic(text: str) -> dict:
-    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-    name = next((ln for ln in lines if not _JUNK.match(ln)), "")
-    headline = ""
-    for ln in lines[1:6]:
-        if " at " in ln.lower() or any(w in ln.lower() for w in ("manager", "director", "lead", "engineer", "marketing")):
-            headline = ln
+    raw = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    lines = []
+    for ln in raw:                       # cut off "other people" sections + footer
+        if _STOP.match(ln):
             break
-    company = ""
-    m = re.search(r"\bat\s+([A-Z][\w&.,'\- ]{1,40})", headline)
-    if m:
-        company = m.group(1).strip(" .,")
-    # Past companies: lines just before an employment-type/date marker in Experience.
-    past, seen_exp = [], False
+        lines.append(ln)
+
+    # Name = the line right before the connection-degree marker ("· 2nd"), skipping a
+    # pronoun line. This dodges the nav chrome at the top of a whole-page copy.
+    name = ""
     for i, ln in enumerate(lines):
-        if ln.lower() == "experience":
+        if _DEGREE.match(ln):
+            j = i - 1
+            while j >= 0 and _PRONOUN.match(lines[j]):
+                j -= 1
+            cand = lines[j] if j >= 0 else ""
+            if cand and cand.lower() not in _CHROME and not _DEGREE.match(cand) and 2 < len(cand) < 60:
+                name = cand
+                break
+    if not name:
+        name = next((ln for ln in lines if ln.lower() not in _CHROME
+                     and not _JUNK.match(ln) and 2 < len(ln) < 60), "")
+
+    # Headline = first title-ish line after the name.
+    headline = ""
+    if name in lines:
+        k = lines.index(name)
+        for ln in lines[k + 1:k + 6]:
+            if _DEGREE.match(ln) or _PRONOUN.match(ln) or ln.lower() in _CHROME:
+                continue
+            headline = re.split(r"\s*[|⎮¦│‖]|\s+#|\s+We['’]re\b", ln)[0].strip()
+            break
+
+    # Experience companies: LinkedIn prefixes each role with "<Company> logo" and/or a
+    # "<Company> · Full-time" line. First is the current employer; the rest are past.
+    companies, seen_exp = [], False
+    for ln in lines:
+        low = ln.lower()
+        if low == "experience":
             seen_exp = True
             continue
-        if seen_exp and re.search(r"·\s*(Full-time|Part-time|Contract|Internship|Freelance)", ln):
-            # The company is on THIS line, before the "·" (e.g. "Twilio · Full-time").
+        if low in _EXP_END:
+            seen_exp = False
+        if not seen_exp:
+            continue
+        cand = ""
+        if ln.endswith(" logo"):
+            cand = ln[:-5].strip()
+        elif re.search(r"·\s*(Full-time|Part-time|Contract|Internship|Freelance|Self-employed)", ln):
             cand = re.sub(r"\s*·.*$", "", ln).strip()
-            if cand and cand.lower() not in (company.lower(), name.lower()) and cand not in past:
-                past.append(cand)
+        if cand and 1 < len(cand) < 50 and cand.lower() != name.lower() and cand not in companies:
+            companies.append(cand)
+
+    company = ""
+    if companies:
+        company = companies[0]
+    else:
+        m = re.search(r"\bat\s+(.+)", headline)      # fall back to the headline's "at X"
+        if m:
+            company = re.split(r"\s*[|⎮¦│‖•]|\s+#|\s+We['’]re\b|\s{2,}", m.group(1))[0].strip(" .,-")
+    past = [c for c in companies if c.lower() != company.lower()]
+
+    # Location: a "City, …, Country/State" line near the top (before Contact info).
+    location = ""
+    for ln in lines[:30]:
+        if ln.lower() in _CHROME or ln.endswith(" logo"):
+            continue
+        if "United States" in ln or "Area" in ln or re.search(r",\s*[A-Z]{2}(\s|,|$)", ln):
+            location = ln.strip()
+            break
+
     return {"name": name, "title": headline, "company": company, "past_companies": past,
-            "seniority": "", "location": "", "linkedin": "", "email": "", "notes": "", "tags": []}
+            "seniority": "", "location": location, "linkedin": "", "email": "", "notes": "", "tags": []}
 
 
 def _row(p: dict) -> dict:
