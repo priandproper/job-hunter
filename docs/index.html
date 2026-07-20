@@ -725,9 +725,21 @@ function renderSettings(){
       </div>
     </div>
     ${personaCard()}`;
+  verifyPersonaVar();   // best-effort auto-hide the setup note if the variable is already set
 }
-function personaGistId(){try{return(JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}).id||''}catch{return''}}
-function setPersonaGistId(id){localStorage.setItem(PERSONA_GIST_KEY,JSON.stringify({id}));}
+function personaGistObj(){try{return JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}}catch{return{}}}
+function personaGistId(){return personaGistObj().id||'';}
+function setPersonaGistId(id){const o=personaGistObj();
+  localStorage.setItem(PERSONA_GIST_KEY,JSON.stringify({id,configured:o.id===id?o.configured:false}));}
+function personaConfigured(){return !!personaGistObj().configured;}
+function setPersonaConfigured(v){const o=personaGistObj();o.configured=v;localStorage.setItem(PERSONA_GIST_KEY,JSON.stringify(o));}
+// Best-effort: if the token can read Actions variables and PERSONA_GIST_ID matches
+// the current gist, auto-mark configured. Silently no-ops without the permission.
+async function verifyPersonaVar(){
+  const gid=personaGistId();if(!gid||personaConfigured()||!ghToken())return;
+  const g=gh();const r=await ghFetch(`/repos/${g.owner}/${g.repo}/actions/variables/PERSONA_GIST_ID`);
+  if(r&&r.ok){const v=await r.json();if((v.value||'').trim()===gid){setPersonaConfigured(true);renderSettings();}}
+}
 function readPersonaForm(){
   const v=id=>((document.getElementById(id)||{}).value||'');
   const list=s=>s.split(',').map(x=>x.trim()).filter(Boolean);
@@ -771,7 +783,10 @@ function personaCard(){
       <button onclick="publishPersona()">Publish to Gist</button>
       <span class="co">${gid?'Gist: '+esc(gid):'not published to a Gist yet'}</span>
     </div>
-    ${gid?`<p class="sub" style="margin-top:.6rem">Runner setup (one-time): add an Actions <b>variable</b> <code>PERSONA_GIST_ID</code> = <code>${esc(gid)}</code> (repo → Settings → Secrets and variables → Actions → Variables), and ensure your token has <b>Gists: read/write</b>.</p>`:''}
+    ${gid?(personaConfigured()
+      ? `<p class="sub" style="margin-top:.6rem;color:var(--good)">✓ Runner configured. <a href="#/settings" onclick="setPersonaConfigured(false);renderSettings();return false" class="ovlink" style="color:var(--muted)">show setup again</a></p>`
+      : `<p class="sub" style="margin-top:.6rem">Runner setup (one-time): add an Actions <b>variable</b> <code>PERSONA_GIST_ID</code> = <code>${esc(gid)}</code> (repo → Settings → Secrets and variables → Actions → Variables), and ensure your token has <b>Gists: read/write</b>. <a href="#/settings" onclick="setPersonaConfigured(true);renderSettings();return false" class="ovlink" style="color:var(--accent)">I've added it — hide</a></p>`)
+      :''}
   </div>`;
 }
 function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();toast('GitHub disconnected');}
