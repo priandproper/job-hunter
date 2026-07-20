@@ -2060,15 +2060,28 @@ function networkPrompt(p,job){
   if(job.url)L.push(`- Posting: ${job.url}`);
   return L.join('\n');
 }
+// LinkedIn URL for a person — their saved profile, else a name+company people search.
+function personLiUrl(p){
+  if(p&&p.linkedin)return p.linkedin;
+  return 'https://www.linkedin.com/search/results/people/?keywords='+encodeURIComponent(((p&&p.name||'')+' '+(p&&p.company||'')).trim());
+}
+// Copy the exact terminal command that drafts messages for this job's people.
+function copyReachCommand(jobId){
+  const job=jobObjById(jobId);
+  const n=Math.max(3,(networkingPaths(job)||[]).length,(peopleForJob(jobId)||[]).length);
+  copyText(`python3 scripts/reach_out.py --id ${jobId} --top ${n} --out data/reachout.md`);
+  toast('Command copied — paste it in your terminal to draft the messages');
+}
 function networkCard(job){
   const paths=networkingPaths(job);
   if(!paths.length)return '';
   const rows=paths.map(({person,current})=>`<div class="pjob"><div class="pjob-h">
-      <div class="pjob-t"><a href="#/person/${person.id}">${esc(person.name)}</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span>
+      <div class="pjob-t"><a href="${esc(personLiUrl(person))}" target="_blank" rel="noopener" title="Open their LinkedIn to message them">${esc(person.name)} ↗</a><span class="co"> ${esc([person.title,person.company].filter(Boolean).join(' · '))}</span>
         <span class="tag ${current?'rel':'net'}">${current?'works there now':'previously at '+esc(job.company)}</span>${person.relationship?` <span class="tag rel">${esc(relLabel(person.relationship))}</span>`:''}</div>
       <button class="primary sm" onclick="copyNetworkPrompt('${person.id}','${job.id}')">Copy intro-ask</button></div></div>`).join('');
-  return `<div class="box"><h3>🔗 Networking paths to ${esc(job.company)}</h3>
-    <p class="co">People in your directory who work — or used to work — at ${esc(job.company)}: your warmest routes to a referral. Ask a former employee who they still know there and network your way in.</p>
+  return `<div class="box"><div class="jd-hd"><h3>🔗 Networking paths to ${esc(job.company)}</h3>
+      <button class="sm" onclick="copyReachCommand('${job.id}')" title="Copy the terminal command that drafts ready-to-send messages for these people">⌘ Copy reach-out command</button></div>
+    <p class="co">People in your directory who work — or used to work — at ${esc(job.company)}: your warmest routes to a referral. Click a name to open their LinkedIn and message them, or copy the reach-out command to draft the messages in your terminal.</p>
     ${rows}</div>`;
 }
 
