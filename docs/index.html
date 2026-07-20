@@ -1297,7 +1297,40 @@ function resumeCard(){
     <div class="rowbtns"><button class="primary" onclick="saveMyResume()">Save resume</button>
       ${saved?'<button onclick="clearMyResume()">Clear</button>':''}
       <span class="co" id="myResumeStatus">${saved?('Saved'+(label?' · '+label:'')+(ts?' · '+timeAgo(ts):'')):''}</span></div>
+    <div class="co-h" style="margin-top:1rem">Publish for the daily analysis (optional)</div>
+    <p class="sub" style="margin-top:0">To run <b>What to work on</b> automatically on CI (and email it), the cloud worker needs your resume. Publish it to a Gist — <b>email and phone are stripped</b> first; only the professional content (work history, skills, summary) goes up as a JSON payload.</p>
+    <div class="rowbtns"><button onclick="publishResume()" ${saved?'':'disabled'}>Publish resume to Gist</button>
+      <span class="co">${resumeGistId()?'Gist: '+esc(resumeGistId()):'not published yet'}</span></div>
+    ${resumeGistId()?resumeGistSetupNote(resumeGistId()):''}
   </div>`;
+}
+// ---- Publish resume to a Gist (PII-stripped) so CI can do the profile-ROI analysis ----
+function resumeGistObj(){try{return JSON.parse(localStorage.getItem(RESUME_GIST_KEY))||{}}catch{return{}}}
+function resumeGistId(){return resumeGistObj().id||'';}
+function setResumeGistId(id){const o=resumeGistObj();
+  localStorage.setItem(RESUME_GIST_KEY,JSON.stringify({id,configured:o.id===id?o.configured:false}));}
+function resumeConfigured(){return !!resumeGistObj().configured;}
+function setResumeConfigured(v){const o=resumeGistObj();o.configured=v;localStorage.setItem(RESUME_GIST_KEY,JSON.stringify(o));}
+function resumeGistSetupNote(gid){
+  return resumeConfigured()
+    ? `<p class="sub" style="margin-top:.5rem;color:var(--good)">✓ Runner configured. <a href="#/settings" onclick="setResumeConfigured(false);renderSettings();return false" class="ovlink" style="color:var(--muted)">show setup again</a></p>`
+    : `<p class="sub" style="margin-top:.5rem">Runner setup (one-time): add an Actions <b>variable</b> <code>RESUME_GIST_ID</code> = <code>${esc(gid)}</code>, add an Actions <b>secret</b> <code>ANTHROPIC_API_KEY</code>, and ensure your token has <b>Gists: read/write</b>. <a href="#/settings" onclick="setResumeConfigured(true);renderSettings();return false" class="ovlink" style="color:var(--accent)">I've added them — hide</a></p>`;
+}
+async function publishResume(){
+  if(!ghToken()){toast('Connect GitHub first');return;}
+  const core=getMyResume();
+  if(!core){toast('Save your best resume first');return;}
+  // strip contact PII — publish professional content only
+  const pub=JSON.parse(JSON.stringify(core));
+  if(pub.contact){delete pub.contact.email;delete pub.contact.phone;}
+  const gid=resumeGistId();
+  const body={description:'job-hunter resume (published from the dashboard, contact PII stripped)',public:true,
+    files:{'resume.json':{content:JSON.stringify(pub,null,2)}}};
+  const r=await ghFetch(gid?`/gists/${gid}`:'/gists',{method:gid?'PATCH':'POST',
+    headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(r&&r.ok){const j=await r.json();setResumeGistId(j.id);toast('Resume published (email/phone stripped)');renderSettings();}
+  else if(r&&(r.status===403||r.status===404)){toast('Token needs Gists: read/write — reconnect with that scope');}
+  else toast('Publish failed'+(r?` (${r.status})`:''));
 }
 // ===== In-dashboard data imports (parse LinkedIn exports in-browser, no terminal) =====
 function parseCsv(text){                       // RFC-ish CSV → array of string[] rows (handles quotes/newlines)
@@ -2307,7 +2340,8 @@ function roiMovesHtml(rep){
 }
 function renderProfileRoi(){
   const el=document.getElementById('profileRoi');if(!el)return;
-  const stored=getProfileRoi(), lead=((DOC.summary||{}).missing_leaderboard||[]);
+  // Prefer a report you ran in this browser; else fall back to the CI-generated one.
+  const stored=getProfileRoi()||((DOC.meta||{}).profile_roi||null), lead=((DOC.summary||{}).missing_leaderboard||[]);
   const hasResume=!!getMyResume();
   // Deterministic quick-win list (works with no key): most-demanded missing skills.
   const quick=lead.slice(0,8).map(k=>`<button class="roi-chip" onclick="query='${esc(k.keyword)}';location.hash='#/jobs';route()">${esc(k.keyword)}<span>${k.count}</span></button>`).join('');

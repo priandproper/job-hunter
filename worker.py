@@ -22,6 +22,7 @@ Nothing is applied or sent. Stdlib only.
 import argparse
 import datetime as _dt
 import json
+import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -38,7 +39,9 @@ from lib import payload as payload_mod
 from lib import persona as persona_mod
 from lib import pool as pool_mod
 from lib import profile as profile_mod
+from lib import profile_roi as profile_roi_mod
 from lib import referrals as ref_mod
+from lib import resume_gist as resume_gist_mod
 
 REPO_ROOT = Path(__file__).resolve().parent
 
@@ -64,6 +67,24 @@ def _too_old(job: dict, max_age_days: int, today: _dt.date) -> bool:
     except (ValueError, TypeError):
         return False
     return (today - d).days > max_age_days
+
+
+def _prev_profile_roi(path: Path):
+    """Last profile-ROI report from the committed jobs.json (to carry forward / age)."""
+    try:
+        return json.loads(path.read_text()).get("meta", {}).get("profile_roi")
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def _roi_stale(prev, hours) -> bool:
+    if not prev or not prev.get("ts"):
+        return True
+    try:
+        t = _dt.datetime.fromisoformat(prev["ts"].replace("Z", "").replace(" ", "T").split("+")[0])
+    except (ValueError, TypeError):
+        return True
+    return (_dt.datetime.now() - t).total_seconds() / 3600 >= float(hours)
 
 
 def _natural_key(job: dict) -> tuple:
@@ -232,6 +253,23 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
 
     # Aggregate "what am I missing" analysis across all jobs.
     best = max(public_jobs, key=lambda j: j["ats_score"], default=None)
+    leaderboard = [{"keyword": k, "count": c} for k, c in missing_counter.most_common(20)]
+
+    # Profile-ROI — resume-aware "what to work on", gated to ~once/day (or on digest)
+    # to bound Claude cost. Carries the previous report forward when not refreshed.
+    pub_path = (REPO_ROOT / cfg["output"]["public_json"]).resolve()
+    roi_cfg = cfg.get("profile_roi", {}) or {}
+    profile_roi = _prev_profile_roi(pub_path)
+    force_roi = os.environ.get("HUNT_MODE", "").strip() == "digest"
+    if roi_cfg.get("enabled", True) and (force_roi or _roi_stale(profile_roi, roi_cfg.get("min_interval_hours", 20))):
+        resume = resume_gist_mod.load_resume(roi_cfg.get("gist_env", "RESUME_GIST_ID"))
+        fresh = profile_roi_mod.analyze(cfg, REPO_ROOT, public_jobs, leaderboard,
+                                        resume, persona or {}, now, log)
+        if fresh:
+            profile_roi = fresh
+            log(f"        profile-roi — refreshed (score "
+                f"{fresh['report'].get('completeness_score')}, {fresh['jobs']} jobs)")
+
     doc = {
         "generated_at": now,
         "meta": {
@@ -241,6 +279,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "github": cfg.get("github", {}),
             "companies": meta_companies,
             "company_count": len(meta_companies),
+            "profile_roi": profile_roi,
         },
         "summary": {
             "best_match": ({
@@ -250,14 +289,11 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
                 "title": best["title"],
                 "job_id": best["id"],
             } if best else None),
-            "missing_leaderboard": [
-                {"keyword": k, "count": c} for k, c in missing_counter.most_common(20)
-            ],
+            "missing_leaderboard": leaderboard,
         },
         "jobs": public_jobs,
     }
 
-    pub_path = (REPO_ROOT / cfg["output"]["public_json"]).resolve()
     pub_path.parent.mkdir(parents=True, exist_ok=True)
     pub_path.write_text(json.dumps(doc, indent=2))
     log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}"

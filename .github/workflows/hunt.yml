@@ -50,6 +50,11 @@ jobs:
           # Your dashboard-published company-watchlist Gist id (Actions variable) —
           # folds companies you add in the app into the scan.
           COMPANIES_GIST_ID: ${{ vars.COMPANIES_GIST_ID }}
+          # Your dashboard-published resume Gist id (Actions variable, PII-stripped) +
+          # Claude key (Actions SECRET) — power the daily profile-ROI "what to work on"
+          # analysis. Both optional: without them the analysis simply no-ops.
+          RESUME_GIST_ID: ${{ vars.RESUME_GIST_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 worker.py --public
 
       - name: Email alerts for new jobs
@@ -66,11 +71,19 @@ jobs:
           HUNT_MODE: ${{ github.event.inputs.mode }}
         run: python3 scripts/notify.py
 
+      - name: Email profile-ROI ("what to work on") when refreshed
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_PASS }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_CC: ${{ secrets.ALERT_CC }}
+        run: python3 scripts/roi_email.py
+
       - name: Persist state (dedup + discovered companies)
         run: |
           git config user.name  "job-hunter-bot"
           git config user.email "job-hunter-bot@users.noreply.github.com"
-          git add docs/jobs.json docs/seen.json data/companies.json data/job_pool.json
+          git add docs/jobs.json docs/seen.json docs/roi_seen.json data/companies.json data/job_pool.json
           if git diff --cached --quiet; then
             echo "no changes to commit"
           else

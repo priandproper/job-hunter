@@ -61,6 +61,16 @@
   "pool_max_age_days": 45,
   "pool_max_size": 4000,
 
+  "profile_roi": {
+    "enabled": true,
+    "model": "claude-opus-4-8",
+    "top_jobs": 20,
+    "min_interval_hours": 20,
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "secrets_file": ".secrets.json",
+    "gist_env": "RESUME_GIST_ID"
+  },
+
   "referrals": {
     "connections_csv": "data/connections.csv",
     "max_contacts_per_job": 8,
