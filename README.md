@@ -95,6 +95,25 @@ python3 scripts/inbox_scan.py            # scan last 30 days
 python3 scripts/inbox_scan.py --demo     # try the classifier on built-in samples
 ```
 
+## Track referral outreach (no LinkedIn scraping)
+
+LinkedIn is **never** scraped or automated (see below). Instead, outreach is tracked
+two ToS-safe ways, both surfaced in each job's **Outreach** section on its page:
+
+- **Log sends in-app** — draft the referral message, send it yourself on LinkedIn/email,
+  then hit *Log as sent* (records recipient + text + date; first log bumps status to
+  `messaged`). Stored in `localStorage`.
+- **Import your LinkedIn data export** — download *your own* messages
+  (LinkedIn → Settings → Data Privacy → Get a copy of your data → Messages), then:
+
+  ```bash
+  python3 scripts/linkedin_import.py --messages ~/Downloads/Messages.csv
+  python3 scripts/linkedin_import.py --demo      # synthetic messages, real jobs
+  ```
+
+  It matches the messages *you sent* to jobs by company and writes a git-ignored
+  `scripts/outreach.local.js` — load it via **Run script** (merges, de-duped by sig).
+
 ## Setup
 
 ```bash
