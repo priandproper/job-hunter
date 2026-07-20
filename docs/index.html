@@ -383,8 +383,12 @@
   .paste-parse textarea{width:100%;min-height:64px;font:inherit;font-size:.84rem;margin-bottom:.5rem}
   /* Profile ROI */
   .roi-card{margin-top:1.1rem}
-  .roi-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-  .roi-hd .sub{margin:.2rem 0 0;max-width:60ch}
+  .roi-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem 1.5rem;flex-wrap:wrap}
+  .roi-hd>div:first-child{flex:1 1 30ch;min-width:0}
+  .roi-hd #roiRun{flex:0 0 auto}
+  /* Keep text at a readable measure so it doesn't sprawl edge-to-edge on wide screens */
+  .roi-card .co,.roi-hd .sub{margin:.2rem 0 0;max-width:74ch}
+  .roi-moves,.roi-list.reframes,.roi-sum{max-width:80ch}
   .roi-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
   .roi-chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:600;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);cursor:pointer}
   .roi-chip:hover{border-color:var(--accent);color:var(--accent)}
