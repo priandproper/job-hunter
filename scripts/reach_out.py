@@ -12,9 +12,15 @@ Given a job (by --company / --job) it:
 
 Uses `claude -p` (your logged-in Claude plan — no API key). Stdlib only.
 
+This drafts outreach for ONE job you name — it does NOT decide which roles fit you
+(that's fit_score / the dashboard's 'Best for me' sort / the Cockpit 'What to work on').
+With only --company it targets your highest-FIT role there; pass --job to pick another,
+or --list to browse a company's roles by fit first.
+
   # In the dashboard: People -> Export (saves people.local.json into data/), then:
-  python3 scripts/reach_out.py --company Twilio --job "Events Marketing Manager"
-  python3 scripts/reach_out.py --company Datadog --top 5 --out data/reachout.md
+  python3 scripts/reach_out.py --company Datadog --list           # see the roles, by fit
+  python3 scripts/reach_out.py --company Datadog --job "Product Marketing Manager"
+  python3 scripts/reach_out.py --company Twilio --top 5 --out data/reachout.md
 """
 
 import argparse
@@ -40,16 +46,24 @@ def _norm(s: str) -> str:
 
 
 def find_job(jobs, company, title):
-    """Best-matching job + a few near candidates."""
+    """Best-matching job + all candidates. With a title, rank by word overlap then
+    fit; without one, rank by fit_score (so 'just --company' picks your best match)."""
     cands = jobs
     if company:
         nc = _norm(company)
         cands = [j for j in jobs if nc and nc in _norm(j.get("company", ""))]
     if title:
         toks = set(_norm(title).split())
-        cands = sorted(cands, key=lambda j: len(toks & set(_norm(j.get("title", "")).split())),
-                       reverse=True)
-    return (cands[0] if cands else None), cands[:6]
+        cands = sorted(cands, key=lambda j: (len(toks & set(_norm(j.get("title", "")).split())),
+                                             j.get("fit_score", 0)), reverse=True)
+    else:
+        cands = sorted(cands, key=lambda j: j.get("fit_score", 0), reverse=True)
+    return (cands[0] if cands else None), cands
+
+
+def _job_line(j):
+    loc = f" ({j.get('location')})" if j.get("location") else ""
+    return f"{j.get('title')} @ {j.get('company')}{loc}  ·  fit {j.get('fit_score', '?')}"
 
 
 def rank_people(people, job):
@@ -177,6 +191,8 @@ def main() -> int:
     ap.add_argument("--top", type=int, default=3, help="how many people to draft for")
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--out", default="", help="also write the results to this markdown file")
+    ap.add_argument("--list", action="store_true",
+                    help="just list the matching roles (fit-ranked) and exit — don't draft")
     args = ap.parse_args()
 
     if not __import__("shutil").which("claude"):
@@ -191,12 +207,28 @@ def main() -> int:
     if not job:
         print(f"reach_out: no job matched company={args.company!r} job={args.job!r}.")
         return 1
-    if len(cands) > 1 and (args.job or args.company):
-        print("Matched job: " + f"{job.get('title')} @ {job.get('company')}"
-              + (f" ({job.get('location')})" if job.get("location") else ""))
-        others = [f"{c.get('title')} @ {c.get('company')}" for c in cands[1:4]]
-        if others:
-            print("  (other close matches: " + "; ".join(others) + ")")
+
+    # --list: browse the company's roles by fit (to choose which one to reach out about).
+    if args.list:
+        print(f"{len(cands)} matching role(s), best-fit first:\n")
+        for c in cands[:25]:
+            print("  - " + _job_line(c))
+        print("\nRe-run with --job \"<title>\" to draft outreach for a specific one.")
+        return 0
+
+    # Be explicit about WHICH job we picked and why — this script drafts outreach for
+    # ONE job you choose; it does not decide which roles fit you (that's fit_score /
+    # the 'Best for me' sort / the Cockpit 'What to work on').
+    if args.job:
+        print("Matched job: " + _job_line(job))
+    else:
+        print(f"No --job given → drafting for your highest-FIT {args.company or job.get('company')} "
+              f"role:\n  {_job_line(job)}")
+    if len(cands) > 1:
+        label = "Other close matches" if args.job else f"Other {job.get('company')} roles (re-run with --job to target one)"
+        print(f"  {label}:")
+        for c in cands[1:6]:
+            print("    - " + _job_line(c))
 
     ppath = Path(args.people)
     if not ppath.exists():
