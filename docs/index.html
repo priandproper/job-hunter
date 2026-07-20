@@ -2411,18 +2411,46 @@ function profileRoiUser(){
   if((p.skills||[]).length)s+='- Known skills/tools: '+p.skills.join(', ')+'\n';
   if(p.years)s+='- Years of experience: '+p.years+'\n';
   s+='\nMOST-REQUESTED SKILLS THE RESUME IS MISSING (across ALL target jobs — keyword: #jobs)\n'+(lead||'(none computed)')+'\n';
-  s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (full descriptions)\n`;
+  s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (full descriptions — this is the context behind the skills above)\n`;
   jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+cleanJd(j.excerpt||'').slice(0,2200)+'\n';});
-  s+='\nProduce the highest-ROI plan as JSON only.';
   return s;
 }
+// A self-contained, model-agnostic prompt — copied when there's no Claude key so you
+// can paste it into any LLM and get the same concrete, JD-grounded plan.
+const PROFILE_ROI_COPY_INSTRUCTIONS=`You are a sharp, honest career and resume coach. Analyze MY resume against the REAL job descriptions I'm targeting (all included below) and give me a concrete, prioritized plan to become a stronger candidate for these specific roles. Be specific and honest — name real gaps.
+
+Rules:
+- Ground EVERY recommendation in the actual job descriptions below. When you name a skill, say how many of the roles ask for it and HOW it's used in context (not just that it's "missing"). No generic advice.
+- Rank by ROI = (how many of these jobs it helps) × impact ÷ effort. Biggest wins first.
+- Never fabricate employers, job titles, dates, or degrees. Any suggested resume line that assumes experience I'd need to confirm must be marked "⚠ verify before using".
+
+Return a clear, well-organized plan with these sections:
+1. PROFILE READINESS — a 0–100 score for how ready I am for these roles, plus 1–2 sentences on the single biggest thing holding me back.
+2. HIGHEST-ROI MOVES — a ranked list. For each: what to do, why (cite the JDs / counts), and effort (low / medium / high).
+3. SKILLS TO LEARN — the specific skills/tools these roles want that my resume lacks; for each, how many roles want it and how it's actually used in these JDs.
+4. PROJECTS TO BUILD — 2–4 portfolio projects that would close the biggest gaps; for each, the exact resume bullet(s) it would let me add and the JD keywords it covers.
+5. RESUME REWRITES — concrete rewrites/additions to my summary and experience bullets to match these roles (mark unverified ones with ⚠).
+6. WHAT TO STUDY — topics/concepts to learn, tied to what these JDs emphasize.
+7. RECRUITER TALKING POINTS — 3–4 things to say (and be ready to back up) in a screen for these roles.
+
+Here is everything you need:
+
+`;
+function profileRoiPromptText(){return PROFILE_ROI_COPY_INSTRUCTIONS+profileRoiUser();}
 function getProfileRoi(){try{return JSON.parse(localStorage.getItem(PROFILEROI_KEY))||null}catch{return null}}
 function saveProfileRoi(o){try{localStorage.setItem(PROFILEROI_KEY,JSON.stringify(o))}catch{}}
 async function runProfileRoi(){
   const cfg=anthropicCfg(), key=(cfg.key||'').trim();
-  if(!key){toast('Add your Claude API key in Settings to generate this');location.hash='#/settings';return;}
-  if(!getMyResume()){toast('Set your best resume (JSON) in Settings first');location.hash='#/settings';return;}
-  const st=document.getElementById('roiStatus');if(st)st.textContent='Analyzing your top matches…';
+  const st=document.getElementById('roiStatus');
+  // No Claude key → copy a complete, self-contained prompt for any LLM (resume +
+  // missing skills + the full JDs + instructions to return a concrete, grounded plan).
+  if(!key){
+    copyText(profileRoiPromptText());
+    if(st)st.innerHTML='✓ Detailed prompt copied — paste into Claude / ChatGPT / Gemini for your full plan. (Add a key in <a href="#/settings">Settings</a> to run it here automatically.)';
+    toast('Analysis prompt copied — paste into any LLM ✨');
+    return;
+  }
+  if(st)st.textContent='Analyzing your top matches…';
   const btn=document.getElementById('roiRun');if(btn)btn.disabled=true;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
@@ -2467,18 +2495,21 @@ function renderProfileRoi(){
   const el=document.getElementById('profileRoi');if(!el)return;
   // Prefer a report you ran in this browser; else fall back to the CI-generated one.
   const stored=getProfileRoi()||((DOC.meta||{}).profile_roi||null), lead=((DOC.summary||{}).missing_leaderboard||[]);
-  const hasResume=!!getMyResume();
-  // Deterministic quick-win list (works with no key): most-demanded missing skills.
-  const quick=lead.slice(0,8).map(k=>`<button class="roi-chip" onclick="query='${esc(k.keyword)}';location.hash='#/jobs';route()">${esc(k.keyword)}<span>${k.count}</span></button>`).join('');
+  const hasResume=!!getMyResume(), hasKey=!!(anthropicCfg().key||'').trim();
+  const runLabel=hasKey?(stored?'↻ Re-analyze':'✨ Analyze my profile'):'✨ Copy analysis prompt';
+  // Deterministic quick-win list (a rough signal): most-demanded missing skills.
+  const quick=lead.slice(0,10).map(k=>`<button class="roi-chip" onclick="query='${esc(k.keyword)}';location.hash='#/jobs';route()">${esc(k.keyword)}<span>${k.count}</span></button>`).join('');
   const head=`<div class="roi-hd"><div><span class="eyebrow">What to work on</span>
       <p class="sub">Your best resume, read against the full descriptions of your top-fit jobs — the highest-ROI ways to become a stronger candidate.</p></div>
-      <button class="primary" id="roiRun" onclick="runProfileRoi()">${stored?'↻ Re-analyze':'✨ Analyze my profile'}</button></div>
-    <span class="co" id="roiStatus"></span>
-    ${!hasResume?'<p class="co">Tip: set your best resume (JSON) in <a href="#/settings">Settings</a> for a resume-aware analysis.</p>':''}`;
+      <button class="primary" id="roiRun" onclick="runProfileRoi()">${runLabel}</button></div>
+    <span class="co" id="roiStatus"></span>`;
   if(!stored){
     el.innerHTML=`<div class="card roi-card">${head}
-      ${quick?`<div class="roi-sec"><h3>Most-demanded skills you're missing</h3><p class="co">Across all your target jobs (count = how many ask for it). Click to see those jobs.</p><div class="roi-chips">${quick}</div></div>`:''}
-      <p class="co" style="margin-top:.6rem">Hit <b>Analyze my profile</b> for a full plan: ranked moves, projects to build, resume reframings, and a study list.</p></div>`;
+      <p class="co" style="margin:.4rem 0 .2rem">${hasKey
+        ? 'Click <b>Analyze my profile</b> — Claude reads your resume against the full descriptions of your top 20 jobs and returns a concrete plan: ranked moves, skills to learn (with the context they\'re used in), projects to build, resume rewrites, and a study list.'
+        : 'Click <b>Copy analysis prompt</b> — it copies a complete, ready-to-paste prompt (your resume + the missing skills + the <b>full job descriptions</b> + instructions) so any LLM (Claude, ChatGPT, Gemini) returns a concrete plan: ranked moves, skills-in-context, projects to build, resume rewrites, and a study list. Add a Claude key in <a href="#/settings">Settings</a> to run it here automatically instead.'}</p>
+      ${!hasResume?'<p class="co">Tip: set your best resume (JSON) in <a href="#/settings">Settings</a> so the plan is resume-aware.</p>':''}
+      ${quick?`<div class="roi-sec"><h3>Rough signal: skills these jobs ask for that your resume lacks</h3><p class="co">Just frequency across your target jobs — the analysis above explains the <i>context</i> and what to actually do about each. Click a skill to see the jobs asking for it.</p><div class="roi-chips">${quick}</div></div>`:''}</div>`;
     return;
   }
   const rep=stored.report;
