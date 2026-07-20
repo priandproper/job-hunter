@@ -846,9 +846,25 @@ function resumeBox(job){
       <div class="rowbtns"><button class="primary" onclick="applyPastedResume('${job.id}')">Build resume link</button></div>
     </details>${tailoredHtml}</div>`;
 }
+// Location-agnostic identity of a posting: normalized company + title. Mirrors
+// scripts/notify.py's job_sig so a repost / re-listing / punctuation tweak of a
+// role isn't re-flagged as "new". Kept in sync with the email dedup on purpose.
+const _SIG_NOISE=new Set(['remote','hybrid','onsite','on','site','us','usa','united','states','u','s','fulltime','full','part','time','contract','temporary','temp','the','a','an']);
+function _sigStrip(s){return (s||'').normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase();}
+function jobSig(j){
+  let c=_sigStrip(j.company).trim(),prev='';
+  while(prev!==c){prev=c;c=c.replace(/[,.]?\s+(inc|incorporated|llc|ltd|limited|corp|corporation|co|company|technologies|technology|labs|software|group|holdings|global)\.?$/,'').trim();}
+  c=c.replace(/[^a-z0-9]+/g,' ').trim();
+  const t=_sigStrip(j.title).replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9]+/g,' ').split(/\s+/).filter(w=>w&&!_SIG_NOISE.has(w)).join(' ').trim();
+  return c+'|'+t;}
 function computeNew(){let seen;try{seen=new Set(JSON.parse(localStorage.getItem(SEEN_KEY))||[])}catch{seen=new Set()}
-  const cur=(DOC.jobs||[]).map(j=>j.id);newIds=seen.size?new Set(cur.filter(id=>!seen.has(id))):new Set();
-  localStorage.setItem(SEEN_KEY,JSON.stringify(cur));}
+  const jobs=DOC.jobs||[];
+  // Migrate an old id-based seen store: reset once, reseed as signatures below,
+  // flag nothing "new" this pass (already-populated jobs stay untagged).
+  if(seen.size&&![...seen].some(s=>s.includes('|')))seen=new Set();
+  const sig=new Map(jobs.map(j=>[j.id,jobSig(j)]));
+  newIds=seen.size?new Set(jobs.filter(j=>!seen.has(sig.get(j.id))).map(j=>j.id)):new Set();
+  localStorage.setItem(SEEN_KEY,JSON.stringify([...new Set(jobs.map(j=>sig.get(j.id)))]));}
 
 // ----- score -----
 function computeScore(){

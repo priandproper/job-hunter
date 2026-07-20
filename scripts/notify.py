@@ -18,6 +18,7 @@ import os
 import re
 import smtplib
 import ssl
+import unicodedata
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -34,22 +35,87 @@ def load_json(p, default):
         return default
 
 
+# ---- dedup identity -----------------------------------------------------------
+# We alert on a normalized, LOCATION-AGNOSTIC signature (company + title) rather
+# than the raw per-(company,title,location) id. That way a repost, a re-listing at
+# a different location, or a punctuation/casing/work-mode tweak of a role you were
+# already alerted on does NOT generate a fresh alert.
+def _strip_accents(s: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", s or "")
+                   if not unicodedata.combining(c))
+
+
+_COMPANY_SUFFIX = re.compile(
+    r"[,\.]?\s+(inc|incorporated|llc|l\.l\.c|ltd|limited|corp|corporation|co|company|"
+    r"technologies|technology|labs|software|group|holdings|global)\.?$", re.I)
+
+# Words that vary between repostings of the SAME role (location / work-mode /
+# employment-type noise) — dropped from the title so they don't defeat dedup.
+_TITLE_NOISE = {
+    "remote", "hybrid", "onsite", "on", "site", "us", "usa", "united", "states",
+    "u", "s", "fulltime", "full", "part", "time", "contract", "temporary", "temp",
+    "the", "a", "an",
+}
+
+
+def _norm_company(name: str) -> str:
+    s = _strip_accents((name or "").lower()).strip()
+    prev = None
+    while prev != s:            # strip stacked suffixes ("Acme Labs, Inc.")
+        prev, s = s, _COMPANY_SUFFIX.sub("", s).strip()
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def _norm_title(title: str) -> str:
+    t = _strip_accents((title or "").lower())
+    t = re.sub(r"\([^)]*\)", " ", t)          # drop "(Remote)", "(New York)", etc.
+    t = re.sub(r"[^a-z0-9]+", " ", t)          # punctuation -> space
+    return " ".join(w for w in t.split() if w not in _TITLE_NOISE).strip()
+
+
+def job_sig(job: dict) -> str:
+    return _norm_company(job.get("company", "")) + "|" + _norm_title(job.get("title", ""))
+
+
 def main() -> int:
     doc = load_json(JOBS, {"jobs": []})
+    jobs_all = doc.get("jobs", [])
     seen = set(load_json(SEEN, []))
     cfg = load_json(ROOT / "config.json", {})
     alerts = cfg.get("alerts", {}) if isinstance(cfg, dict) else {}
     MIN = alerts.get("min_fit_for_alert", MIN_FIT)
 
+    # One-time migration: seen.json used to store raw ids (no "|"). Switching to
+    # signatures would make every current job look unseen and flood a huge email,
+    # so seed the seen-set with EVERY currently-populated job — nothing already on
+    # the dashboard or in a prior email gets re-tagged — and send nothing this run.
+    if seen and not any("|" in s for s in seen):
+        seeded = sorted({job_sig(j) for j in jobs_all})
+        SEEN.write_text(json.dumps(seeded, indent=0))
+        print(f"notify: migrated dedup to signatures — seeded {len(seeded)} "
+              "already-populated job(s); no alerts sent this run")
+        return 0
+
     # "Send digest now" (mode=digest) force-sends the current top picks even if
-    # they were already alerted; otherwise only genuinely-new jobs go out.
+    # they were already alerted; otherwise only genuinely-new signatures go out.
     force = os.environ.get("HUNT_MODE", "").strip() == "digest"
     if force:
-        fresh = sorted((j for j in doc.get("jobs", []) if j.get("fit_score", 0) >= MIN),
-                       key=lambda j: j.get("fit_score", 0), reverse=True)[:8]
+        cand = [j for j in jobs_all if j.get("fit_score", 0) >= MIN]
     else:
-        fresh = [j for j in doc.get("jobs", [])
-                 if j["id"] not in seen and j.get("fit_score", 0) >= MIN]
+        cand = [j for j in jobs_all
+                if job_sig(j) not in seen and j.get("fit_score", 0) >= MIN]
+
+    # Strict per-signature dedup within the batch: keep only the highest-fit
+    # instance of each signature, so one email never lists the same role twice.
+    fresh, picked = [], set()
+    for j in sorted(cand, key=lambda j: j.get("fit_score", 0), reverse=True):
+        s = job_sig(j)
+        if s in picked:
+            continue
+        picked.add(s)
+        fresh.append(j)
+    if force:
+        fresh = fresh[:8]
     if not fresh:
         print("notify: no new jobs above the alert threshold")
         return 0
@@ -104,8 +170,8 @@ def main() -> int:
         print(f"notify: emailed {len(fresh)} job(s) to {', '.join(to_list)}"
               f"{' (cc ' + ', '.join(cc_list) + ')' if cc_list else ''}")
 
-    # Mark these ids as alerted so we don't re-send next run.
-    seen.update(j["id"] for j in fresh)
+    # Mark these signatures as alerted so we don't re-send next run.
+    seen.update(job_sig(j) for j in fresh)
     SEEN.write_text(json.dumps(sorted(seen), indent=0))
     return 0
 
