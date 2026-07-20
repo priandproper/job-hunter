@@ -675,7 +675,6 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       MYRESUME_KEY="job-hunter:myresume:v1",            // your current best resume (JSON)
       CONNCO_KEY="job-hunter:conncos:v1",               // connection name -> company (for message matching)
       REPOST_KEY="job-hunter:repost:v1",                // jobs you've manually flagged as reposts
-      HM_KEY="job-hunter:hm:v1",                        // hiring-manager details + drafted intro per job
       MANUAL_KEY="job-hunter:manual:v1",                // jobs you logged yourself (merged into the list)
       PEOPLE_KEY="job-hunter:people:v1",                // your private people directory (contacts ↔ jobs)
       COMPANIES_KEY="job-hunter:companies:v1",          // companies you added to the watchlist
@@ -2086,57 +2085,10 @@ function peopleCard(job){
   </div>`;
 }
 
-function getHM(){try{return JSON.parse(localStorage.getItem(HM_KEY))||{}}catch{return{}}}
-function hmFor(id){return getHM()[id]||{};}
+// hmVal is a generic "read a form field's trimmed value" helper (also used by the
+// add-job modal). The old per-job hiring-manager card was removed — the People
+// section supersedes it.
 function hmVal(x){return ((document.getElementById(x)||{}).value||'').trim();}
-function collectHM(){return {name:hmVal('hmName'),role:hmVal('hmRole'),seniority:hmVal('hmSeniority'),team:hmVal('hmTeam'),referredBy:hmVal('hmRef')};}
-function hmMessage(job,hm){
-  const me=meName()||'me', first=(hm.name||'').split(/\s+/)[0]||'there', p=getPersona();
-  const via=hm.referredBy?` (referred by ${hm.referredBy})`:' through a referral';
-  let teamPhrase;
-  if(hm.team){
-    let t=hm.team.trim().replace(/^(leads|heads|owns|runs|oversees|manages)\b/i,
-      m=>({leads:'lead',heads:'head',owns:'own',runs:'run',oversees:'oversee',manages:'manage'}[m.toLowerCase()]));
-    teamPhrase=/^\s*(lead|head|own|run|oversee|manage)\b/i.test(t)?t:'lead '+t;
-  } else teamPhrase=hm.role?`work as ${hm.role}`:'oversee this team';
-  const bring=((p.projects||'').trim().split(/(?<=[.!?])\s/)[0])
-    || `my background in ${(p.roles&&p.roles[0])||'B2B marketing, GTM, and analytics'}`;
-  const kw=(job.requested_keywords||[]).slice(0,3).join(', ');
-  return `Hi ${first},\n\n`
-    +`I recently applied for the ${job.title} role at ${job.company}${via}. Since you ${teamPhrase}, I wanted to reach out directly.\n\n`
-    +`What I'd bring: ${bring}. I'm especially drawn to this role because it lines up closely with ${kw||'my strengths'}, and I'm confident I could contribute quickly.\n\n`
-    +`I've formally applied and would love to be considered — happy to share my resume or a quick blurb, or hop on a short call if that's useful.\n\nThank you so much,\n${me}`;
-}
-function genHM(id){const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
-  const ta=document.getElementById('hmMsg');if(ta)ta.value=hmMessage(job,collectHM());toast('Message drafted');}
-function saveHM(id){const hm=collectHM();hm.message=(document.getElementById('hmMsg')||{}).value||'';
-  const m=getHM();m[id]=hm;localStorage.setItem(HM_KEY,JSON.stringify(m));toast('Hiring manager saved');}
-function logHMSent(id){saveHM(id);const hm=hmFor(id);const o=getOutreach();
-  (o[id]=o[id]||[]).push({to:hm.name||'Hiring manager',message:(hm.message||'').slice(0,1500),ts:new Date().toISOString(),channel:'linkedin',source:'hiring-manager'});
-  saveOutreach(o);const cur=jobStatus(id);if(cur==='new'||cur==='resume ready')setStatusLS(id,'messaged');
-  toast('Logged as sent'+(cur==='new'||cur==='resume ready'?' → messaged':''));renderJobPage(id);}
-function hmCard(job){
-  const hm=hmFor(job.id);
-  const sen=['Manager','Senior Manager','Director','Senior Director','VP','Head of','C-level','Other'];
-  const senOpts='<option value="">Seniority…</option>'+sen.map(s=>`<option ${s===(hm.seniority||'')?'selected':''}>${s}</option>`).join('');
-  const msg=hm.message||hmMessage(job,hm);
-  return `<div class="box"><h3>Reach the hiring manager</h3>
-    <p class="co">Know who owns this role? Note their details, then draft a direct intro that says what you bring, why you fit, and that you applied via a referral.</p>
-    <div class="hm-grid">
-      <input class="txt" id="hmName" placeholder="Name (e.g. Jordan Lee)" value="${esc(hm.name||'')}">
-      <input class="txt" id="hmRole" placeholder="Role / title (e.g. Director, Growth Marketing)" value="${esc(hm.role||'')}">
-      <select class="txt" id="hmSeniority">${senOpts}</select>
-      <input class="txt" id="hmTeam" placeholder="Team / position (e.g. leads the Growth team)" value="${esc(hm.team||'')}">
-      <input class="txt" id="hmRef" placeholder="Referred by (optional)" value="${esc(hm.referredBy||'')}">
-    </div>
-    <div class="rowbtns"><button onclick="genHM('${job.id}')">Generate message</button>
-      <a class="li-search" href="${esc(ljPeopleUrl(job,hm))}" target="_blank" rel="noopener">Find them on LinkedIn ↗</a></div>
-    <textarea class="msg" id="hmMsg">${esc(msg)}</textarea>
-    <div class="rowbtns"><button class="primary" onclick="copyText(document.getElementById('hmMsg').value)">Copy message</button>
-      <button onclick="logHMSent('${job.id}')">Log as sent</button>
-      <button onclick="saveHM('${job.id}')">Save</button></div>
-  </div>`;
-}
 function ljPeopleUrl(job,hm){
   const q=(hm&&hm.name?hm.name+' '+(job.company||''):(job.company||''));
   return 'https://www.linkedin.com/search/results/people/?keywords='+encodeURIComponent(q.trim());
@@ -2215,7 +2167,6 @@ function renderJobPage(id){
     ${jdCard(job)}
     ${resumeBox(job)}
     ${peopleCard(job)}
-    ${hmCard(job)}
     ${outreachHtml(job)}`;
 }
 
