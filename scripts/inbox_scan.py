@@ -42,6 +42,7 @@ SECRETS = ROOT / ".secrets.json"
 CONTACT = ROOT / "data" / "contact.local.json"
 OUT = ROOT / "scripts" / "inbox.local.js"
 INBOX_KEY = "job-hunter:inbox:v1"
+MAIL_KEY = "job-hunter:mail:v1"
 
 # Applicant-tracking-system senders: the company is in the subject/body, not the domain.
 ATS_DOMAINS = {
@@ -204,11 +205,17 @@ def messages_to_proposals(msgs, jobs):
 
 
 def write_inject(proposals):
+    payload = json.dumps(proposals)
     OUT.write_text(
         "// One-off: open your dashboard, hit \"Run script\", load this file. It stages\n"
         "// inbox-detected status changes as suggestions to Accept/Dismiss. Applies nothing\n"
         "// on its own. Git-ignored — never committed.\n"
-        f"localStorage.setItem('{INBOX_KEY}', JSON.stringify({json.dumps(proposals)}));\n"
+        f"var P = {payload};\n"
+        f"localStorage.setItem('{INBOX_KEY}', JSON.stringify(P));\n"
+        "// also record a persistent per-job signal the single-job page reads:\n"
+        "(function(){try{var log=JSON.parse(localStorage.getItem('" + MAIL_KEY + "'))||{};"
+        "P.forEach(function(p){log[p.id]={detected:p.detected,email_ts:p.email_ts,subject:p.subject,from:p.from};});"
+        "localStorage.setItem('" + MAIL_KEY + "',JSON.stringify(log));}catch(e){}})();\n"
         "location.reload();\n"
     )
 

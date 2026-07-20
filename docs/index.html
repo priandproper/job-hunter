@@ -188,6 +188,24 @@
   .inbox-co .st-applied{background:var(--mid-soft);color:var(--mid)}
   @media (max-width:640px){.inbox-row{flex-direction:column;align-items:flex-start}}
 
+  /* ============ JOB PAGE ============ */
+  .back{margin:0 0 1rem} .back a{color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500}
+  .back a:hover{color:var(--ink)}
+  .jp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1.2rem;margin-bottom:1.3rem;flex-wrap:wrap}
+  .jp-head h2{margin:0;font-size:1.5rem;letter-spacing:-.03em;line-height:1.15}
+  .jp-sub{margin:.3rem 0 0;color:var(--muted);font-size:.9rem}
+  .jp-scores{display:flex;align-items:center;gap:1rem;flex-shrink:0}
+  .jp-scores .rscore small{display:block;font-size:.6rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .jp-card{margin-bottom:1rem;padding:1.2rem 1.3rem}
+  .jp-applied{margin:.5rem 0 .9rem;font-size:.95rem}
+  .applied{font-weight:700} .applied.yes{color:var(--good)} .applied.no{color:var(--muted)}
+  .mailrow{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem .8rem;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+  .mailsub{font-size:.85rem;font-weight:600;color:var(--ink)}
+  .mailrow .pill{flex-shrink:0;font-size:.68rem;font-weight:700;padding:.14rem .5rem;border-radius:999px;text-transform:capitalize;background:var(--accent-soft);color:var(--accent)}
+  .mailrow .st-rejected{background:var(--bad-soft);color:var(--bad)}
+  .mailrow .st-offer{background:var(--good-soft);color:var(--good)}
+  .mailrow .st-applied{background:var(--mid-soft);color:var(--mid)}
+
   /* ============ FUNNEL ============ */
   .funnel{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-bottom:1.4rem}
   @media (max-width:640px){.funnel{grid-template-columns:repeat(3,1fr)}}
@@ -374,6 +392,11 @@
       <section id="screen-settings" class="screen" hidden>
         <div id="setbody"></div>
       </section>
+
+      <!-- ===== SINGLE JOB ===== -->
+      <section id="screen-job" class="screen" hidden>
+        <div id="jobPage"></div>
+      </section>
     </main>
   </div>
 </div>
@@ -398,7 +421,8 @@
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
-      RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1";
+      RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1",
+      MAIL_KEY="job-hunter:mail:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", shownCount=PAGE;
@@ -674,6 +698,7 @@ function detailHtml(job){
       <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div></div>
     <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>
     <div class="foot"><span class="status">Status: ${sel}</span><div class="grow"></div>
+      <button onclick="openJob('${job.id}')">Open full page ↗</button>
       <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;}
 function fillDetail(id){const d=document.getElementById('detail-'+id);if(d&&!d.dataset.filled){d.innerHTML=detailHtml(DOC.jobs.find(j=>j.id===id));d.dataset.filled='1';}}
 function toggleRow(id){const row=document.getElementById('row-'+id);const open=row.classList.toggle('open');if(open){openRows.add(id);fillDetail(id);}else openRows.delete(id);}
@@ -803,9 +828,63 @@ async function scanInbox(){
     }
     const found=Object.values(byJob);
     saveInbox(getInbox().filter(p=>!byJob[p.id]).concat(found));   // replace by id, keep other un-reviewed
+    saveMailLog(byJob);   // persistent per-job signal for the job page (survives accept/dismiss)
     setScanStatus(`Done — ${found.length} proposal(s). Review them on the Cockpit.`);
     toast(`Inbox scan: ${found.length} update(s)`);render();
   }catch(e){setScanStatus('Scan failed: '+e.message);}
+}
+
+// ----- single job page (consolidates status/email, resume, referrals) -----
+function getMailLog(){try{return JSON.parse(localStorage.getItem(MAIL_KEY))||{}}catch{return{}}}
+function saveMailLog(byJob){const log=getMailLog();
+  for(const id of Object.keys(byJob)){const p=byJob[id];log[id]={detected:p.detected,email_ts:p.email_ts,subject:p.subject,from:p.from};}
+  try{localStorage.setItem(MAIL_KEY,JSON.stringify(log));}catch{}}
+const APPLIED_STATES=new Set(['applied','screen','interview','offer','rejected']);
+function openJob(id){location.hash='#/job/'+id;}
+function jobPageId(){return decodeURIComponent(location.hash.replace(/^#\/job\//,''));}
+function renderJobPage(id){
+  const box=document.getElementById('jobPage');if(!box)return;
+  const job=(DOC.jobs||[]).find(j=>j.id===id);
+  if(!job){box.innerHTML='<p class="back"><a href="#/jobs">← All jobs</a></p><div class="empty">Job not found — it may have dropped off the latest scan.</div>';return;}
+  const st=jobStatus(job.id),applied=APPLIED_STATES.has(st);
+  const mail=getMailLog()[job.id],pending=getInbox().find(p=>p.id===job.id&&p.detected!==st);
+  const appliedLine=applied
+    ?`<span class="applied yes">✓ Applied</span> <span class="co">— status “${esc(st)}”${jobStatusTs(job.id)?' · '+timeAgo(jobStatusTs(job.id)):''}</span>`
+    :`<span class="applied no">Not applied yet</span> <span class="co">— status “${esc(st)}”</span>`;
+  let mailHtml;
+  if(mail){
+    mailHtml=`<div class="mailrow"><span class="pill st-${esc(mail.detected).replace(/[^a-z]/g,'')}">${esc(mail.detected)}</span>
+      <div><div class="mailsub">“${esc(mail.subject||'')}”</div>
+      <div class="co">${esc(mail.from||'')}${mail.email_ts?' · '+timeAgo(mail.email_ts):''}</div></div></div>`
+      +(pending?`<div class="rowbtns"><button class="primary" onclick="acceptInbox('${job.id}')">Accept → set “${esc(pending.detected)}”</button><button onclick="dismissInbox('${job.id}')">Dismiss</button></div>`:'');
+  }else{
+    mailHtml='<p class="co">No application emails detected for this company yet. Run <b>Scan inbox</b> from <a href="#/settings">Settings</a>.</p>';
+  }
+  const sel=`<select onchange="setStatus('${job.id}',this.value)">`+STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')+`</select>`;
+  const missing=job.missing_keywords||[];
+  const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
+  const refs=jobRefs(job.id).slice();refs.push({name:'Search LinkedIn for people at '+job.company,position:'opens a people search',url:job.linkedin_search,kind:'search'});
+  const people=refs.filter(r=>r.kind!=='search');
+  const refsHtml='<ul class="refs">'+refs.map(r=>refItem(job,r)).join('')+'</ul>'+(people.length?'':'<div class="co" style="margin-top:.4rem">No in-network contacts loaded — click Run script.</div>');
+  box.innerHTML=`
+    <p class="back"><a href="#/jobs">← All jobs</a></p>
+    <div class="jp-head">
+      <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)} · ${esc(job.location||'')}</p></div>
+      <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
+        <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
+        <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Apply ↗</button></a></div>
+    </div>
+    <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
+      <p class="jp-applied">${appliedLine}</p>
+      <div class="jp-mail">${mailHtml}</div>
+      <div class="foot"><span class="status">Set status: ${sel}</span></div></div>
+    <div class="grid">
+      <div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
+        <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
+      <div class="box"><h3>Referral message</h3><textarea class="msg" id="msg-${job.id}">${esc(job.referral_message)}</textarea>
+        <div class="rowbtns"><button class="primary" onclick="copyMsg('${job.id}')">Copy message</button><span class="co" id="who-${job.id}"></span></div></div>
+    </div>
+    <div class="box" style="margin-top:.85rem"><h3>Who can refer you (${people.length})</h3>${refsHtml}</div>`;
 }
 
 // ----- render / routing -----
@@ -823,6 +902,7 @@ function renderJobs(){
 }
 function currentView(){
   const h=location.hash;
+  if(h.startsWith('#/job/'))return 'job';
   if(h.startsWith('#/jobs'))return 'jobs';
   if(h.startsWith('#/settings'))return 'settings';
   return 'home';
@@ -830,15 +910,19 @@ function currentView(){
 function render(){
   document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
   const v=currentView();
-  if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();else renderHome();
+  if(v==='job')renderJobPage(jobPageId());
+  else if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();else renderHome();
 }
 function route(){
   const v=currentView();
   document.getElementById('screen-home').hidden=v!=='home';
   document.getElementById('screen-jobs').hidden=v!=='jobs';
   document.getElementById('screen-settings').hidden=v!=='settings';
-  document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===v));
-  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':'Cockpit';
+  document.getElementById('screen-job').hidden=v!=='job';
+  // keep "Jobs" highlighted while drilled into a single job
+  const navFor=v==='job'?'jobs':v;
+  document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===navFor));
+  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':v==='job'?'Job':'Cockpit';
   render();
 }
 window.addEventListener('hashchange',route);
