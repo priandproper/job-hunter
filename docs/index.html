@@ -115,6 +115,8 @@
   .sortsel{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted)}
   .sortsel span{font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:.68rem}
   .sortsel select{font:inherit;font-size:.82rem;padding:.32rem .55rem;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
+  .hidepoor{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--ink-2);cursor:pointer}
+  .hidepoor input{accent-color:var(--accent);cursor:pointer}
   .rolebar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:0 0 1.2rem}
   .rolelabel{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:.25rem}
   .rolechip{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.34rem .72rem;font-size:.8rem;color:var(--ink-2);font-weight:500;display:inline-flex;align-items:center;gap:.4rem;transition:all .13s}
@@ -202,6 +204,10 @@
   .conn.off{color:var(--muted);background:var(--surface-2)} .conn.off::before{background:var(--muted)}
   .set-card .txt{width:100%;margin:.2rem 0 .7rem;padding:.6rem .75rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
   .set-card .txt:focus{outline:none;border-color:var(--accent)}
+  .set-card textarea.txt{min-height:52px;resize:vertical;line-height:1.5}
+  .set-card label{display:flex;flex-direction:column;gap:.15rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+  @media (max-width:640px){.pgrid{grid-template-columns:1fr}}
 
   /* ============ INBOX PROPOSALS ============ */
   .inbox-card{margin-bottom:1.6rem;padding:1.3rem 1.4rem;border-left:3px solid var(--accent)}
@@ -421,6 +427,7 @@
         <div class="funnel" id="funnel"></div>
         <div class="section-h"><span class="eyebrow">All jobs</span>
           <div class="seg" id="statusFilter"></div>
+          <label class="hidepoor" id="hidePoorWrap" style="display:none"><input type="checkbox" id="hidePoor" onchange="toggleHidePoor(this.checked)"> Hide poor fits</label>
           <label class="sortsel"><span>Sort</span><select id="sortBy" onchange="setSort(this.value)"></select></label>
           <span class="count" id="count"></span>
         </div>
@@ -469,10 +476,11 @@ const STATUSES=["new","resume ready","messaged","referred","applied","screen","i
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
       RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1",
-      MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1";
+      MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1",
+      PERSONA_KEY="job-hunter:persona:v1", PERSONA_GIST_KEY="job-hunter:persona_gist:v1";
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, shownCount=PAGE;
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -694,7 +702,56 @@ function renderSettings(){
         <button onclick="saveGmailCid()">Save Client ID</button>
         <span class="co" id="scanStatus"></span>
       </div>
-    </div>`;
+    </div>
+    ${personaCard()}`;
+}
+function personaGistId(){try{return(JSON.parse(localStorage.getItem(PERSONA_GIST_KEY))||{}).id||''}catch{return''}}
+function setPersonaGistId(id){localStorage.setItem(PERSONA_GIST_KEY,JSON.stringify({id}));}
+function readPersonaForm(){
+  const v=id=>((document.getElementById(id)||{}).value||'');
+  const list=s=>s.split(',').map(x=>x.trim()).filter(Boolean);
+  const p={years:parseInt(v('pcYears'))||0,seniority:v('pcSeniority').trim(),
+    roles:list(v('pcRoles')),skills:list(v('pcSkills')),projects:v('pcProjects').trim(),
+    exclude:list(v('pcExclude')),locations:list(v('pcLocations')),min_fit:parseInt(v('pcMinFit'))||0};
+  savePersona(p);return p;
+}
+function savePersonaForm(){readPersonaForm();toast('Profile saved');renderSettings();}
+async function publishPersona(){
+  if(!ghToken()){toast('Connect GitHub first');return;}
+  readPersonaForm();
+  const gid=personaGistId();
+  const body={description:'job-hunter persona (published from the dashboard)',public:true,
+    files:{'persona.json':{content:JSON.stringify(getPersona(),null,2)}}};
+  const r=await ghFetch(gid?`/gists/${gid}`:'/gists',{method:gid?'PATCH':'POST',
+    headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(r&&r.ok){const j=await r.json();setPersonaGistId(j.id);toast('Persona published to Gist');renderSettings();}
+  else if(r&&(r.status===403||r.status===404)){toast('Token needs Gists: read/write — reconnect with that scope');}
+  else toast('Publish failed'+(r?` (${r.status})`:''));
+}
+function personaCard(){
+  const p=getPersona(),gid=personaGistId();
+  return `<div class="set-card" style="margin-top:1.2rem">
+    <div class="set-hd"><div>
+      <h2>Your profile (persona)</h2>
+      <p class="sub">What a good job looks like for you. It ranks and can hide jobs in the list here, and — once published to a Gist — narrows what the GitHub scraper keeps. Comma-separate the lists.</p>
+    </div></div>
+    <div class="pgrid">
+      <label>Years of experience<input class="txt" id="pcYears" type="number" min="0" value="${p.years||''}"></label>
+      <label>Seniority target<input class="txt" id="pcSeniority" placeholder="manager" value="${esc(p.seniority||'')}"></label>
+      <label>Min fit (0–100)<input class="txt" id="pcMinFit" type="number" min="0" max="100" value="${p.min_fit||''}"></label>
+    </div>
+    <label class="pfull">Target roles<input class="txt" id="pcRoles" placeholder="product marketing, growth marketing, demand generation" value="${esc((p.roles||[]).join(', '))}"></label>
+    <label class="pfull">Skills &amp; tools<input class="txt" id="pcSkills" placeholder="gtm, positioning, sql, hubspot, salesforce" value="${esc((p.skills||[]).join(', '))}"></label>
+    <label class="pfull">Exclude titles<input class="txt" id="pcExclude" placeholder="director, vp, engineer, intern" value="${esc((p.exclude||[]).join(', '))}"></label>
+    <label class="pfull">Locations<input class="txt" id="pcLocations" placeholder="remote, boston, new york" value="${esc((p.locations||[]).join(', '))}"></label>
+    <label class="pfull">Projects / highlights<textarea class="txt" id="pcProjects" rows="2" placeholder="Led GTM for X; built an attribution model…">${esc(p.projects||'')}</textarea></label>
+    <div class="rowbtns">
+      <button class="primary" onclick="savePersonaForm()">Save profile</button>
+      <button onclick="publishPersona()">Publish to Gist</button>
+      <span class="co">${gid?'Gist: '+esc(gid):'not published to a Gist yet'}</span>
+    </div>
+    ${gid?`<p class="sub" style="margin-top:.6rem">Runner setup (one-time): add an Actions <b>variable</b> <code>PERSONA_GIST_ID</code> = <code>${esc(gid)}</code> (repo → Settings → Secrets and variables → Actions → Variables), and ensure your token has <b>Gists: read/write</b>.</p>`:''}
+  </div>`;
 }
 function disconnectGitHub(){localStorage.removeItem(GH_KEY);renderSettings();renderAuto();toast('GitHub disconnected');}
 async function ghDispatch(mode){if(!ghToken()){connectGitHub();return;}
@@ -746,13 +803,30 @@ function roleType(job){
 function statusJobs(){return (DOC.jobs||[]).filter(FILTER_GROUPS[filter]||FILTER_GROUPS.all);}
 function visibleJobs(){const base=statusJobs();return roleFilter==='all'?base:base.filter(j=>roleType(j)===roleFilter);}
 function setRole(r){roleFilter=r;shownCount=PAGE;renderJobs();}
-// ----- sorting (relevance / recency / ATS / new) -----
-const SORTS=[['relevance','Relevance'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
+// ----- persona (your profile; drives client-side relevance + the cloud scrape) -----
+function getPersona(){try{return JSON.parse(localStorage.getItem(PERSONA_KEY))||{}}catch{return{}}}
+function savePersona(p){try{localStorage.setItem(PERSONA_KEY,JSON.stringify(p))}catch{}}
+function personaTerms(){const p=getPersona();return[...(p.roles||[]),...(p.skills||[])].map(s=>(s||'').toLowerCase().trim()).filter(Boolean);}
+function personaSet(){return personaTerms().length>0;}
+function personaScore(job){
+  const terms=personaTerms();if(!terms.length)return 0;
+  const hay=((job.title||'')+' '+(job.company||'')+' '+(job.title_keywords||[]).join(' ')+' '+(job.requested_keywords||[]).join(' ')).toLowerCase();
+  let s=0;for(const t of terms)if(hay.includes(t))s++;return s;
+}
+function personaFits(job){
+  const ex=(getPersona().exclude||[]).map(x=>(x||'').toLowerCase().trim()).filter(Boolean);
+  if(ex.some(x=>(job.title||'').toLowerCase().includes(x)))return false;
+  return personaScore(job)>0;
+}
+function toggleHidePoor(v){hidePoor=v;shownCount=PAGE;renderJobs();}
+// ----- sorting (best-for-me / relevance / recency / ATS / new) -----
+const SORTS=[['persona','Best for me'],['relevance','Relevance'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
   const a=[...jobs];
-  if(sortBy==='recent')a.sort((x,y)=>_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
+  if(sortBy==='persona')a.sort((x,y)=>personaScore(y)-personaScore(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);
+  else if(sortBy==='recent')a.sort((x,y)=>_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
   else if(sortBy==='ats')a.sort((x,y)=>y.ats_score-x.ats_score||y.fit_score-x.fit_score);
   else if(sortBy==='fresh')a.sort((x,y)=>(newIds.has(y.id)-newIds.has(x.id))||_seenMs(y)-_seenMs(x)||y.fit_score-x.fit_score);
   else a.sort((x,y)=>y.fit_score-x.fit_score||y.ats_score-x.ats_score);   // relevance (default)
@@ -763,6 +837,8 @@ function renderSort(){
   const el=document.getElementById('sortBy');if(!el)return;
   if(!el.options.length)el.innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
   el.value=sortBy;
+  const hp=document.getElementById('hidePoorWrap');
+  if(hp){hp.style.display=personaSet()?'inline-flex':'none';const cb=document.getElementById('hidePoor');if(cb)cb.checked=hidePoor;}
 }
 function renderRoleFilters(){
   const base=statusJobs(),counts={};
@@ -1011,7 +1087,9 @@ function renderJobPage(id){
 function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
 function renderJobs(){
   renderFunnel();renderFilters();renderRoleFilters();renderSort();
-  const jobs=sortJobs(visibleJobs());document.getElementById('count').textContent=`${jobs.length} shown`;
+  let jobs=visibleJobs();
+  if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
+  jobs=sortJobs(jobs);document.getElementById('count').textContent=`${jobs.length} shown`;
   const list=document.getElementById('list');
   if(!jobs.length){list.innerHTML='<div class="empty">No jobs in this view.</div>';renderLeader();return;}
   const slice=jobs.slice(0,shownCount),rem=jobs.length-slice.length;

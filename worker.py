@@ -34,6 +34,7 @@ from lib import gap as gap_mod
 from lib import jobs as jobs_mod
 from lib import match as match_mod
 from lib import payload as payload_mod
+from lib import persona as persona_mod
 from lib import pool as pool_mod
 from lib import profile as profile_mod
 from lib import referrals as ref_mod
@@ -104,6 +105,14 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
 
 def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=print) -> dict:
     now = _now()
+
+    # Fold in the dashboard-published persona (public Gist) so the scrape keeps only
+    # jobs that fit you. No PERSONA_GIST_ID / no net -> unchanged.
+    persona = persona_mod.load_persona()
+    if persona:
+        cfg["match"] = persona_mod.apply(persona, cfg["match"])
+        log(f"[0/6] persona   — applied ({len(persona.get('roles', []))} role(s), "
+            f"{len(persona.get('skills', []))} skill(s), min_fit={cfg['match'].get('min_fit_score')})")
 
     if do_discovery:
         summary = disc_mod.discover_companies(cfg, REPO_ROOT, log)

@@ -44,6 +44,9 @@ jobs:
           # Optional: enables JSearch discovery + posting ingestion (adds ~hundreds of
           # jobs). Without the secret, discovery no-ops and the ATS feeds still run.
           JSEARCH_API_KEY: ${{ secrets.JSEARCH_API_KEY }}
+          # Your dashboard-published persona Gist id (Actions variable) — folds your
+          # profile into matching so the scrape keeps only jobs that fit you.
+          PERSONA_GIST_ID: ${{ vars.PERSONA_GIST_ID }}
         run: python3 worker.py --public
 
       - name: Email alerts for new jobs

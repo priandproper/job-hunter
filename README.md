@@ -61,6 +61,23 @@ browser** when you click *Open resume in builder* — so the full resume opens, 
 your contact PII was never in the committed/public data. Statuses/notes also live
 in `localStorage`.
 
+## Your profile / persona (tune what gets scraped)
+
+**Settings → Your profile** lets you set what a good job looks like — years, seniority,
+target roles, skills/tools, projects, title exclusions, min fit. It works two ways:
+
+- **In the app, instantly** — a *Best for me* sort ranks by persona-relevance, and a
+  *Hide poor fits* toggle drops jobs that don't match your roles/skills.
+- **In the cloud scrape** — click **Publish to Gist** and the app writes `persona.json`
+  to a **public Gist** via your token (needs **Gists: read/write** on the token). The
+  runner reads it (`lib/persona.py`) and folds it into matching — roles + skills raise
+  relevance, exclusions hard-drop titles, min-fit tightens the keep threshold — so it
+  stops surfacing jobs that don't fit you.
+
+One-time runner setup: after publishing, add an Actions **variable**
+`PERSONA_GIST_ID = <gist id>` (repo → Settings → Secrets and variables → Actions →
+Variables). Without it, the scrape runs unchanged.
+
 ## Sync statuses from your application inbox
 
 Keep job statuses in step with your email — always in your browser or on your machine,
