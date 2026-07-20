@@ -187,6 +187,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "posted_at": job.get("posted_at", ""),
             "sponsorship": job.get("sponsorship", "Unknown"),
             "fit_score": m["fit_score"],
+            "min_years": match_mod.extract_years(job.get("excerpt")),
             "variant_label": m.get("matched_variant"),
             "title_keywords": m.get("title_keywords", []),
             "ats_score": g["ats_score"],

@@ -92,6 +92,30 @@ def _clean(text: str | None) -> str:
     return _TAG_RE.sub(" ", text).lower()
 
 
+# Minimum required years of experience, pulled from the JD. Requires an
+# "experience" context nearby so we don't match "5 years ago" etc. Returns the
+# smallest plausible figure (e.g. "5-7 years" -> 5), or None if not stated.
+_YEARS_PATTERNS = [
+    r"(\d{1,2})\s*\+?\s*(?:-|to|–|—)\s*\d{1,2}\s*years?\s+(?:of\s+)?(?:[a-z ]{0,24})?experience",
+    r"(\d{1,2})\s*\+?\s*years?\s+(?:of\s+)?(?:[a-z ]{0,24})?experience",
+    r"(?:minimum|at\s+least|min\.?|at\s+minimum)\s+(?:of\s+)?(\d{1,2})\s*\+?\s*years?",
+    r"experience[:\s].{0,20}?(\d{1,2})\s*\+?\s*years?",
+]
+
+
+def extract_years(text: str | None) -> int | None:
+    if not text:
+        return None
+    t = _TAG_RE.sub(" ", text).lower()
+    found = []
+    for p in _YEARS_PATTERNS:
+        for m in re.finditer(p, t):
+            n = int(m.group(1))
+            if 1 <= n <= 20:
+                found.append(n)
+    return min(found) if found else None
+
+
 def _count_terms(text: str, terms) -> list[str]:
     return [t for t in terms if t in text]
 

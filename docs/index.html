@@ -297,6 +297,7 @@
   .rinfo{flex:1;min-width:0}
   .rtitle{font-weight:600;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
   .rmeta{color:var(--muted);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.08rem}
+  .yrs{color:var(--ink-2);font-weight:600}
   .rscore{font-weight:800;font-size:.95rem;font-variant-numeric:tabular-nums;text-align:center;flex-shrink:0;min-width:42px;letter-spacing:-.02em}
   .rscore small{display:block;font-size:.55rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:.12rem}
   .ats-hi{color:var(--good)} .ats-mid{color:var(--mid)} .ats-lo{color:var(--bad)}
@@ -890,7 +891,7 @@ function jobRow(job){
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
       <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}</div>
-        <div class="rmeta">${esc(job.company)} · ${esc(job.location||'')}</div></div>
+        <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
     </a>
@@ -1105,7 +1106,7 @@ function renderJobPage(id){
   box.innerHTML=`
     <p class="back"><a href="#/jobs">← All jobs</a></p>
     <div class="jp-head">
-      <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)} · ${esc(job.location||'')}</p></div>
+      <div><h2>${esc(job.title)}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>
