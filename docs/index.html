@@ -336,6 +336,8 @@
   #jobPage>.box{margin-bottom:1rem}          /* consistent gap between all job-page cards */
   .tag.repost{background:var(--mid-soft);color:var(--mid)}
   .tag.manual{background:var(--accent-soft);color:var(--accent)}
+  .tag.stale{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  .stale-note{margin:0 0 1rem;padding:.7rem .9rem;border-radius:10px;background:var(--mid-soft);border:1px solid color-mix(in srgb,var(--mid) 30%,var(--line));border-left:3px solid var(--mid);font-size:.83rem;color:var(--ink-2);line-height:1.5}
   .tag.rel{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0;font-weight:700}
   .tag.net{background:var(--accent-soft);color:var(--accent);text-transform:none;letter-spacing:0;font-weight:700}
   /* People */
@@ -737,7 +739,8 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       COMPANIES_KEY="job-hunter:companies:v1",          // companies you added to the watchlist
       COMPANIES_GIST_KEY="job-hunter:companies_gist:v1",// published-watchlist gist id + setup state
       PROFILEROI_KEY="job-hunter:profileroi:v1",        // cached "what to work on" analysis
-      RESUME_GIST_KEY="job-hunter:resume_gist:v1";      // published-resume gist id + setup state
+      RESUME_GIST_KEY="job-hunter:resume_gist:v1",      // published-resume gist id + setup state
+      JOBCACHE_KEY="job-hunter:jobcache:v1";            // snapshot of viewed/tracked jobs (survive scrape churn)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
 let DOC={jobs:[],meta:{},summary:{}}, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, companyFilter="all", query="", shownCount=PAGE;
@@ -760,7 +763,7 @@ function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>'
 function firstName(n){return (n||'').replace(/^Search LinkedIn.*/,'').trim().split(/\s+/)[0]||'there';}
 function personalize(msg,name){return msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' ');}
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
-function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));}
+function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));cacheJobById(id);}
 function jobStatus(id){return (getStatuses()[id]||{}).status||'new';}
 function jobStatusTs(id){return (getStatuses()[id]||{}).ts||null;}
 function daysSince(ts){return ts?(Date.now()-new Date(ts).getTime())/86400000:null;}
@@ -779,6 +782,24 @@ function saveManualJobs(a){try{localStorage.setItem(MANUAL_KEY,JSON.stringify(a)
 function mergeManualJobs(){const m=getManualJobs();if(!m.length)return;
   const have=new Set((DOC.jobs||[]).map(j=>j.id));
   DOC.jobs=[...m.filter(j=>!have.has(j.id)),...(DOC.jobs||[])];}
+// ----- job cache: keep viewed/tracked jobs across scrape churn (~40% of ids change each refresh) -----
+function getJobCache(){try{return JSON.parse(localStorage.getItem(JOBCACHE_KEY))||{}}catch{return{}}}
+function saveJobCache(c){try{localStorage.setItem(JOBCACHE_KEY,JSON.stringify(c))}catch{}}
+function isTracked(id){return jobStatus(id)!=='new'||isMarked(id)||(getOutreach()[id]||[]).length>0||!!tailoredFor(id);}
+function pruneCache(c){ // keep every tracked job; cap merely-viewed ones to the 120 most recent
+  Object.keys(c).filter(id=>!isTracked(id)).sort((a,b)=>(c[b]._ts||0)-(c[a]._ts||0)).slice(120).forEach(id=>delete c[id]);
+  return c;}
+function cacheJobById(id){const j=(DOC.jobs||[]).find(x=>x.id===id);if(!j||j._stale||j.manual)return;
+  const c=getJobCache();const{_stale,...clean}=j;c[id]={...clean,_ts:Date.now()};saveJobCache(pruneCache(c));}
+function snapshotTracked(){const c=getJobCache();let ch=false;
+  (DOC.jobs||[]).forEach(j=>{if(!j._stale&&!j.manual&&isTracked(j.id)){const{_stale,...clean}=j;c[j.id]={...clean,_ts:Date.now()};ch=true;}});
+  if(ch)saveJobCache(pruneCache(c));}
+// Re-add jobs you're tracking that fell out of the latest scrape, so applied/messaged/
+// saved jobs (and the page you had open) never vanish. Flagged _stale for a badge.
+function mergeJobCache(){
+  const have=new Set((DOC.jobs||[]).map(j=>j.id)), c=getJobCache();
+  Object.values(c).forEach(j=>{if(!have.has(j.id)&&isTracked(j.id)){DOC.jobs.push({...j,_stale:true});have.add(j.id);}});
+}
 function newJobId(){return 'manual-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
 function openAddJob(){document.getElementById('addJobModal').style.display='flex';
   ['ajTitle','ajCompany','ajLocation','ajUrl','ajJd'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
@@ -1013,7 +1034,7 @@ function saveAnthropic(){const key=(document.getElementById('claudeKey')||{}).va
   toast(key.trim()?'Claude API key saved':'Claude API key cleared');}
 function getTailored(){try{return JSON.parse(localStorage.getItem(TAILORED_KEY))||{}}catch{return{}}}
 function tailoredFor(id){return getTailored()[id]||null;}
-function saveTailored(id,core){const t=getTailored();t[id]={core,ts:new Date().toISOString()};localStorage.setItem(TAILORED_KEY,JSON.stringify(t));}
+function saveTailored(id,core){const t=getTailored();t[id]={core,ts:new Date().toISOString()};localStorage.setItem(TAILORED_KEY,JSON.stringify(t));cacheJobById(id);}
 function discardTailored(id){const t=getTailored();delete t[id];localStorage.setItem(TAILORED_KEY,JSON.stringify(t));renderJobPage(id);}
 function setTailorStatus(id,txt){const el=document.getElementById('tailorStatus-'+id);if(el)el.textContent=txt;}
 // Fixed resume shape → guaranteed-valid JSON via structured outputs.
@@ -1661,7 +1682,7 @@ function getMarked(){try{return JSON.parse(localStorage.getItem(MARK_KEY))||{}}c
 function isMarked(id){return !!getMarked()[id];}
 function toggleMark(id,ev){if(ev)ev.stopPropagation();
   const m=getMarked();if(m[id])delete m[id];else m[id]=new Date().toISOString();
-  localStorage.setItem(MARK_KEY,JSON.stringify(m));toast(m[id]?'Marked to revisit ★':'Unmarked');render();}
+  localStorage.setItem(MARK_KEY,JSON.stringify(m));if(m[id])cacheJobById(id);toast(m[id]?'Marked to revisit ★':'Unmarked');render();}
 function setQuery(q){query=q;shownCount=PAGE;renderJobs();}
 // Multi-keyword AND search: every whitespace-separated word must appear (any order).
 function matchesQuery(job){const toks=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -1758,7 +1779,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2381,8 +2402,11 @@ function openJob(id){location.hash='#/job/'+id;}
 function jobPageId(){return decodeURIComponent(location.hash.replace(/^#\/job\//,''));}
 function renderJobPage(id){
   const box=document.getElementById('jobPage');if(!box)return;
-  const job=(DOC.jobs||[]).find(j=>j.id===id);
-  if(!job){box.innerHTML='<p class="back"><a href="#/jobs">← All jobs</a></p><div class="empty">Job not found — it may have dropped off the latest scan.</div>';return;}
+  let job=(DOC.jobs||[]).find(j=>j.id===id);
+  if(job&&!job._stale)cacheJobById(id);           // remember jobs you open, so they survive the next scrape
+  if(!job){const cached=getJobCache()[id];if(cached)job={...cached,_stale:true};}   // fall back to the snapshot
+  if(!job){box.innerHTML='<p class="back"><a href="#/jobs">← All jobs</a></p><div class="empty">Job not found — it dropped off the latest scan and wasn\'t tracked, so no local copy was kept.</div>';return;}
+  const staleNote=job._stale?`<div class="stale-note">⚠ This job is no longer in the live scan (it may have closed or aged out) — showing your saved copy. Your status, notes, and outreach are intact.</div>`:'';
   const st=jobStatus(job.id),applied=APPLIED_STATES.has(st);
   const mail=getMailLog()[job.id],pending=getInbox().find(p=>p.id===job.id&&p.detected!==st);
   const appliedLine=applied
@@ -2401,6 +2425,7 @@ function renderJobPage(id){
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   box.innerHTML=`
     <p class="back"><a href="#/jobs">← All jobs</a></p>
+    ${staleNote}
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
       <div><h2>${esc(job.title)} ${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
@@ -2641,7 +2666,7 @@ async function load(){
   try{const r=await fetch('jobs.json?_='+Date.now());if(!r.ok)throw 0;DOC=await r.json();}
   catch(e){DOC={jobs:[],meta:{},summary:{}};
     if(!getManualJobs().length){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}}
-  mergeManualJobs();computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
+  mergeManualJobs();mergeJobCache();snapshotTracked();computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
 }
 
 // ----- runner -----
