@@ -448,8 +448,6 @@
           </div>
         </div>
 
-        <div id="keywordInsights"></div>
-
         <div class="auto">
           <div class="auto-hd"><span class="eyebrow">Automation</span></div>
           <div id="autobody"></div>
@@ -1435,30 +1433,8 @@ function renderJobPage(id){
     ${outreachHtml(job)}`;
 }
 
-// ----- highest-leverage keyword insights (Cockpit) -----
-function searchKeyword(i){
-  const kw=(((DOC.summary||{}).missing_leaderboard||[])[i]||{}).keyword||'';if(!kw)return;
-  filter='active';roleFilter='all';query=kw;shownCount=PAGE;location.hash='#/jobs';route();
-  const s=document.getElementById('jobSearch');if(s)s.value=kw;
-}
-function renderKeywordInsights(){
-  const box=document.getElementById('keywordInsights');if(!box)return;
-  const lb=((DOC.summary||{}).missing_leaderboard||[]).slice(0,12);
-  if(!lb.length){box.innerHTML='';return;}
-  const max=lb[0].count||1, total=(DOC.jobs||[]).length;
-  const rows=lb.map((x,i)=>`<button class="ki-row" onclick="searchKeyword(${i})" title="Find jobs mentioning “${esc(x.keyword)}”">
-      <span class="ki-kw">${esc(x.keyword)}</span>
-      <span class="ki-bar"><span style="width:${Math.max(6,Math.round(x.count/max*100))}%"></span></span>
-      <span class="ki-n">${x.count}</span></button>`).join('');
-  box.innerHTML=`<div class="card ki-card">
-    <div class="ki-hd"><span class="eyebrow">Highest-leverage keywords</span></div>
-    <p class="ki-sub">Skills the job descriptions ask for most across the ${total} scraped roles — but that <b>none of your résumé variants cover yet</b>. Adding these is your single biggest lever to raise match rates. Ranked by how many jobs request each; click one to see those jobs.</p>
-    <div class="ki-list">${rows}</div>
-  </div>`;
-}
-
 // ----- render / routing -----
-function renderHome(){renderInbox();renderKeywordInsights();renderScore();renderOverview();renderAuto();}
+function renderHome(){renderInbox();renderScore();renderOverview();renderAuto();}
 function renderPruneBanner(){
   const el=document.getElementById('pruneBanner');if(!el)return;
   const n=Object.keys(getPruned()).length;
