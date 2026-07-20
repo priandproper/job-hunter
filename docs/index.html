@@ -2508,8 +2508,8 @@ function profileRoiUser(){
   if((p.skills||[]).length)s+='- Known skills/tools: '+p.skills.join(', ')+'\n';
   if(p.years)s+='- Years of experience: '+p.years+'\n';
   s+='\nMOST-REQUESTED SKILLS THE RESUME IS MISSING (across ALL target jobs — keyword: #jobs)\n'+(lead||'(none computed)')+'\n';
-  s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (full descriptions — this is the context behind the skills above)\n`;
-  jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+cleanJd(j.excerpt||'').slice(0,2200)+'\n';});
+  s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (descriptions trimmed to the essentials — the aggregate skill signal is the leaderboard above)\n`;
+  jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+cleanJd(j.excerpt||'').slice(0,600)+'\n';});
   return s;
 }
 // A self-contained, model-agnostic prompt — copied when there's no Claude key so you
@@ -2529,6 +2529,7 @@ Return a clear, well-organized plan with these sections:
 5. RESUME REWRITES — concrete rewrites/additions to my summary and experience bullets to match these roles (mark unverified ones with ⚠).
 6. WHAT TO STUDY — topics/concepts to learn, tied to what these JDs emphasize.
 7. RECRUITER TALKING POINTS — 3–4 things to say (and be ready to back up) in a screen for these roles.
+8. UPDATED RESUME (JSON) — output the single best updated resume for these roles as ONE JSON object inside a \`\`\`json code block, using EXACTLY the same keys and nesting as CURRENT RESUME (JSON) above — this is the format my resume builder imports, so do not add, remove, or rename keys. Keep all facts FROZEN: never invent or alter employers, titles, dates, degrees, institutions, or contact details, and keep the same experience/education entries in the same order. You MAY rewrite only the "summary", the wording of each experience "highlights" bullet, "projects" descriptions, and the ORDER/grouping of "skills"; weave in the missing keywords only where truthful. The JSON itself must be valid and comment-free. Put your review notes — what you changed and why, and anything to "⚠ verify before using" — as prose right BEFORE the code block (they're always helpful), not inside the JSON.
 
 Here is everything you need:
 
@@ -2604,7 +2605,7 @@ function renderProfileRoi(){
     el.innerHTML=`<div class="card roi-card">${head}
       <p class="co" style="margin:.4rem 0 .2rem">${hasKey
         ? 'Click <b>Analyze my profile</b> — Claude reads your resume against the full descriptions of your top 20 jobs and returns a concrete plan: ranked moves, skills to learn (with the context they\'re used in), projects to build, resume rewrites, and a study list.'
-        : 'Click <b>Copy analysis prompt</b> — it copies a complete, ready-to-paste prompt (your resume + the missing skills + the <b>full job descriptions</b> + instructions) so any LLM (Claude, ChatGPT, Gemini) returns a concrete plan: ranked moves, skills-in-context, projects to build, resume rewrites, and a study list. Add a Claude key in <a href="#/settings">Settings</a> to run it here automatically instead.'}</p>
+        : 'Click <b>Copy analysis prompt</b> — it copies a complete, ready-to-paste prompt (your resume + the missing skills + your top jobs\' descriptions + instructions) so any LLM (Claude, ChatGPT, Gemini) returns a concrete plan: ranked moves, skills-in-context, projects to build, resume rewrites, a study list, and an <b>updated resume as JSON you can paste straight into the resume builder</b>. Add a Claude key in <a href="#/settings">Settings</a> to run it here automatically instead.'}</p>
       ${!hasResume?'<p class="co">Tip: set your best resume (JSON) in <a href="#/settings">Settings</a> so the plan is resume-aware.</p>':''}
       ${quick?`<div class="roi-sec"><h3>Rough signal: skills these jobs ask for that your resume lacks</h3><p class="co">Just frequency across your target jobs — the analysis above explains the <i>context</i> and what to actually do about each. Click a skill to see the jobs asking for it.</p><div class="roi-chips">${quick}</div></div>`:''}</div>`;
     return;
