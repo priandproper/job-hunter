@@ -23,8 +23,9 @@ or --list to browse a company's roles by fit first.
   python3 scripts/reach_out.py --company Datadog --job "Product Marketing Manager - APM"
   python3 scripts/reach_out.py --company Twilio --top 5 --out data/reachout.md
 
-Tip: --id is the reliable selector (title matching is fuzzy). Get an id from --list or
-the dashboard job URL (…/#/job/<id>).
+Reads the LIVE deployed jobs.json (same data the dashboard shows) so ids from the
+dashboard URL always match — pass --local to use your working-tree docs/jobs.json.
+Tip: --id is the reliable selector (title matching is fuzzy).
 """
 
 import argparse
@@ -32,6 +33,7 @@ import json
 import re
 import subprocess
 import sys
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -43,6 +45,46 @@ REL_RANK = {"1st": 6, "colleague": 5, "alum": 4, "friend": 3, "2nd": 2,
 REL_LABEL = {"1st": "1st-degree connection", "2nd": "2nd-degree", "colleague":
              "former colleague", "alum": "school/alum connection", "friend": "friend",
              "recruiter": "recruiter", "unknown": "not yet connected"}
+
+
+def _urlopen(url: str):
+    """GET a URL, tolerating the macOS Python 'no CA bundle' issue for this public,
+    read-only fetch: try verified, then certifi, then unverified (public data only)."""
+    import ssl
+    req = urllib.request.Request(url, headers={"User-Agent": "job-hunter/reach_out"})
+    try:
+        return urllib.request.urlopen(req, timeout=15)
+    except urllib.error.URLError as e:
+        if "CERTIFICATE_VERIFY_FAILED" not in str(e):
+            raise
+    try:
+        import certifi
+        ctx = ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        ctx = ssl._create_unverified_context()
+    return urllib.request.urlopen(req, timeout=15, context=ctx)
+
+
+def _load_jobs(use_local: bool):
+    """Read the SAME data the dashboard shows: the live jobs.json from GitHub Pages
+    (so ids from the dashboard/URL always match). Falls back to local docs/jobs.json
+    when offline or --local. Returns (doc, source_label)."""
+    local = json.loads(JOBS.read_text()) if JOBS.exists() else {"jobs": []}
+    if use_local:
+        return local, "local docs/jobs.json"
+    gh = {}
+    try:
+        gh = json.loads((ROOT / "config.json").read_text()).get("github", {}) or {}
+    except (OSError, json.JSONDecodeError):
+        pass
+    if gh.get("owner") and gh.get("repo"):
+        url = f"https://{gh['owner']}.github.io/{gh['repo']}/jobs.json"
+        try:
+            with _urlopen(url + "?_=reachout") as r:
+                return json.loads(r.read().decode("utf-8", "replace")), f"live {url}"
+        except Exception as e:
+            print(f"reach_out: couldn't fetch live jobs.json ({e}); using local docs/jobs.json")
+    return local, "local docs/jobs.json"
 
 
 def _norm(s: str) -> str:
@@ -233,6 +275,8 @@ def main() -> int:
     ap.add_argument("--out", default="", help="also write the results to this markdown file")
     ap.add_argument("--list", action="store_true",
                     help="just list the matching roles (fit-ranked, with ids) and exit — don't draft")
+    ap.add_argument("--local", action="store_true",
+                    help="use local docs/jobs.json instead of the live deployed one")
     args = ap.parse_args()
 
     if not __import__("shutil").which("claude"):
@@ -242,11 +286,14 @@ def main() -> int:
         print("reach_out: pass --id, or --company and/or --job.")
         return 2
 
-    doc = json.loads(JOBS.read_text())
+    doc, src = _load_jobs(args.local)
     job, cands = find_job(doc.get("jobs", []), args.company, args.job, args.job_id)
     if not job:
         who = f"id={args.job_id!r}" if args.job_id else f"company={args.company!r} job={args.job!r}"
-        print(f"reach_out: no job matched {who}.")
+        print(f"reach_out: no job matched {who} in {src}.")
+        if args.job_id:
+            print("  That id isn't in the current scan. Use --list to find the current id, "
+                  "or --local if you meant your local docs/jobs.json.")
         return 1
 
     # --list: browse roles by fit, with ids to copy (to target one exactly with --id).
