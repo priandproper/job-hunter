@@ -13,15 +13,20 @@ Workflow:
   2. python3 scripts/linkedin_people.py            # -> data/people.local.csv
   3. Dashboard -> People -> "Import CSV".
 
-Parsing uses your Claude key if available (ANTHROPIC_API_KEY via env or .secrets.json)
-for robust extraction incl. past companies; otherwise a best-effort heuristic runs and
-you fill gaps in the dashboard. Stdlib only.
+Parser is chosen automatically: ANTHROPIC_API_KEY (env / .secrets.json) if set, else the
+Claude Code CLI (`claude -p`, uses your logged-in Max/Pro plan — no API key or billing),
+else a best-effort offline heuristic. Force one with --api / --cli / --heuristic. The
+Claude paths robustly extract the real profile (incl. past companies) from a messy
+whole-page copy; the heuristic gets the basics and you fill gaps in the dashboard.
+Stdlib only.
 """
 
 import argparse
 import csv
 import json
 import re
+import shutil
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -74,6 +79,39 @@ def _claude(api_key: str, model: str, text: str) -> dict:
         data = json.loads(r.read().decode("utf-8", "replace"))
     txt = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
     return json.loads(txt)
+
+
+# ---- Claude Code CLI (uses your logged-in plan — no API key / billing) ----
+_CLI_INSTRUCT = (_SYS + "\n\nReturn ONLY a single JSON object — no markdown, no code "
+    "fences, no prose — with EXACTLY these keys: name (string), title (string), company "
+    "(string), past_companies (array of strings), seniority (string), location (string), "
+    "linkedin (string), email (string), notes (string), tags (array of strings).\n\n"
+    "PROFILE TEXT:\n")
+
+
+def _extract_json(text: str) -> dict:
+    t = (text or "").strip()
+    if t.startswith("```"):                       # strip a ```json … ``` fence
+        t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
+        t = re.sub(r"\s*```$", "", t).strip()
+    m = re.search(r"\{.*\}", t, re.S)             # grab the JSON object
+    return json.loads(m.group(0) if m else t)
+
+
+def _claude_cli(text: str, model: str = "sonnet") -> dict:
+    """Parse a profile via `claude -p` (headless), using the signed-in Claude plan."""
+    proc = subprocess.run(
+        ["claude", "-p", "--model", model, "--output-format", "json"],
+        input=_CLI_INSTRUCT + text, capture_output=True, text=True, timeout=180)
+    if proc.returncode != 0:
+        raise RuntimeError((proc.stderr or "").strip() or f"claude exited {proc.returncode}")
+    out = (proc.stdout or "").strip()
+    try:                                          # --output-format json wraps: {…,"result":"<text>"}
+        env = json.loads(out)
+        text_out = env.get("result", out) if isinstance(env, dict) else out
+    except json.JSONDecodeError:
+        text_out = out
+    return _extract_json(text_out)
 
 
 _JUNK = re.compile(r"^\s*(\d+(st|nd|rd|th)?|·|Message|Connect|Follow|More|Contact info|"
@@ -185,7 +223,9 @@ def main() -> int:
     ap.add_argument("infile", nargs="?", default=str(IN_DEFAULT),
                     help="text file of profiles separated by a line of '---'")
     ap.add_argument("-o", "--out", default=str(OUT_DEFAULT))
-    ap.add_argument("--heuristic", action="store_true", help="skip Claude; use the heuristic parser")
+    ap.add_argument("--heuristic", action="store_true", help="skip Claude; use the offline heuristic parser")
+    ap.add_argument("--cli", action="store_true", help="force the Claude Code CLI (your logged-in plan)")
+    ap.add_argument("--api", action="store_true", help="force the Anthropic API (needs ANTHROPIC_API_KEY)")
     args = ap.parse_args()
 
     src = Path(args.infile)
@@ -197,17 +237,44 @@ def main() -> int:
         print("linkedin_people: no profiles found in the input file.")
         return 1
 
+    # Choose the parser: explicit flag wins, else API key > Claude CLI > heuristic.
     api_key = None if args.heuristic else secrets_mod.get_key("ANTHROPIC_API_KEY", SECRETS)
-    model = "claude-opus-4-8"
-    rows, used_claude = [], False
+    has_cli = shutil.which("claude") is not None
+    if args.heuristic:
+        mode = "heuristic"
+    elif args.api:
+        mode = "api"
+    elif args.cli:
+        mode = "cli"
+    elif api_key:
+        mode = "api"
+    elif has_cli:
+        mode = "cli"
+    else:
+        mode = "heuristic"
+    if mode == "api" and not api_key:
+        print("linkedin_people: --api needs ANTHROPIC_API_KEY (env or .secrets.json).")
+        return 2
+    if mode == "cli" and not has_cli:
+        print("linkedin_people: --cli needs the `claude` CLI on PATH.")
+        return 2
+    label = {"api": "Anthropic API", "cli": "Claude CLI (your plan)", "heuristic": "heuristic"}[mode]
+    print(f"linkedin_people: parsing {len(blocks)} profile(s) with {label}"
+          + (" — this can take a few seconds each" if mode == "cli" else "") + "…")
+
+    rows = []
     for i, block in enumerate(blocks, 1):
         p = None
-        if api_key:
+        if mode == "api":
             try:
-                p = _claude(api_key, model, block)
-                used_claude = True
+                p = _claude(api_key, "claude-opus-4-8", block)
             except Exception as e:
-                print(f"  profile {i}: Claude parse failed ({e}); using heuristic")
+                print(f"  profile {i}: API parse failed ({e}); using heuristic")
+        elif mode == "cli":
+            try:
+                p = _claude_cli(block)
+            except Exception as e:
+                print(f"  profile {i}: CLI parse failed ({e}); using heuristic")
         if p is None:
             p = _heuristic(block)
         if p.get("name"):
@@ -227,8 +294,7 @@ def main() -> int:
         shown = out.relative_to(ROOT)
     except ValueError:
         shown = out
-    print(f"\nlinkedin_people: wrote {len(rows)} person(s) -> {shown}"
-          f"  ({'Claude' if used_claude else 'heuristic'} parse)")
+    print(f"\nlinkedin_people: wrote {len(rows)} person(s) -> {shown}  ({label})")
     print("Next: open the dashboard -> People -> Import CSV, and pick that file.")
     return 0
 
