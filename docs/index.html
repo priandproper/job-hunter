@@ -965,6 +965,21 @@ function cleanJd(s){
   ta.innerHTML=t; t=ta.value;                  // decode a second pass (double-encoded)
   return t.replace(/[ \t\f\v]+/g,' ').replace(/\n\s*\n\s*\n+/g,'\n\n').trim();
 }
+// The substantive part of a JD for the analysis prompt: skip the company "About us"
+// marketing intro that usually opens a posting and start at the role content
+// (responsibilities / requirements), then trim to `limit`. Falls back to the top of
+// the JD when no such marker is found.
+function jdEssence(raw,limit){
+  limit=limit||700;
+  const t=cleanJd(raw||''); if(!t)return '';
+  // Section markers that signal role-specific content has begun.
+  const re=/(what you['’]?ll (do|be doing|bring|own|need)|what you will do|key responsibilities|responsibilities|requirements|qualifications|what we['’]?re looking for|who you are|in this role|your impact|about the (role|team|job|opportunity)|the opportunity|minimum qualifications|basic qualifications|preferred qualifications)/i;
+  const m=t.match(re);
+  const start=(m && m.index>60)?m.index:0;   // >60: only skip if there's a real intro to skip
+  let out=t.slice(start,start+limit).trim();
+  if(start+limit<t.length) out=out.replace(/\s+\S*$/,'')+'…';   // don't cut mid-word
+  return out;
+}
 function copyJd(id){const j=(DOC.jobs||[]).find(x=>x.id===id);if(j)copyText(cleanJd(j.excerpt||''));}
 function focusPrompt(job){
   const resume=currentResumeFor(job), p=getPersona(), jd=cleanJd(job.excerpt||'');
@@ -2509,7 +2524,7 @@ function profileRoiUser(){
   if(p.years)s+='- Years of experience: '+p.years+'\n';
   s+='\nMOST-REQUESTED SKILLS THE RESUME IS MISSING (across ALL target jobs — keyword: #jobs)\n'+(lead||'(none computed)')+'\n';
   s+=`\nTOP ${jobs.length} TARGET JOBS BY FIT (descriptions trimmed to the essentials — the aggregate skill signal is the leaderboard above)\n`;
-  jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+cleanJd(j.excerpt||'').slice(0,600)+'\n';});
+  jobs.forEach((j,i)=>{s+=`\n[${i+1}] ${j.title} @ ${j.company} — fit ${j.fit_score}, ATS ${j.ats_score}%\n`+jdEssence(j.excerpt,700)+'\n';});
   return s;
 }
 // A self-contained, model-agnostic prompt — copied when there's no Claude key so you
