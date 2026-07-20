@@ -66,39 +66,54 @@ def _job_line(j):
     return f"{j.get('title')} @ {j.get('company')}{loc}  ·  fit {j.get('fit_score', '?')}"
 
 
+_REC_RE = re.compile(r"recruit|talent acquisition|talent partner|sourcer|talent acquisition", re.I)
+
+
+def _is_recruiter(p: dict, assoc: dict | None) -> bool:
+    tags = [t.lower() for t in (p.get("tags") or [])]
+    return ("recruiter" in tags or p.get("relationship") == "recruiter"
+            or (assoc and assoc.get("role") == "recruiter")
+            or bool(_REC_RE.search(p.get("title") or "")))
+
+
 def rank_people(people, job):
     jc = _norm(job.get("company", ""))
     scored = []
     for p in people:
-        score, why, ask = 0, [], "connect"
+        score, why = 0, []
         assoc = next((a for a in (p.get("jobs") or []) if a.get("id") == job.get("id")), None)
         if assoc:
-            role = assoc.get("role", "contact")
             score += 100
-            why.append(f"linked to this job as {role}")
-            if role in ("hiring manager", "recruiter", "referrer", "decision maker"):
-                ask = "referral"
+            why.append(f"linked to this job as {assoc.get('role', 'contact')}")
         cur = bool(jc) and _norm(p.get("company", "")) == jc
         past = bool(jc) and jc in [_norm(c) for c in (p.get("past_companies") or [])]
         if cur:
             score += 60
             why.append(f"works at {job.get('company')} now")
-            ask = "referral" if ask == "connect" else ask
         elif past:
             score += 40
             why.append(f"previously at {job.get('company')}")
-            ask = "intro" if ask == "connect" else ask
         # Only people actually connected to THIS job or company qualify — relationship
         # strength / recruiter signal rank them, but don't make an unrelated contact relevant.
         if not (assoc or cur or past):
             continue
         rel = p.get("relationship", "unknown")
         score += REL_RANK.get(rel, 0) * 4
-        tags = [t.lower() for t in (p.get("tags") or [])]
-        if "recruiter" in tags or rel == "recruiter":
+        is_rec = _is_recruiter(p, assoc)
+        if is_rec:
             score += 15
         if p.get("email"):
             score += 2
+        # Ask type drives the tone: recruiters get a "consider my candidacy" ask (NOT
+        # "refer me"); peers who work there get a referral ask; former employees an intro.
+        if is_rec:
+            ask = "recruiter"
+        elif cur or (assoc and assoc.get("role") in ("hiring manager", "referrer", "decision maker")):
+            ask = "referral"
+        elif past:
+            ask = "intro"
+        else:
+            ask = "connect"
         scored.append({"score": score, "person": p, "why": why, "ask": ask})
     scored.sort(key=lambda x: x["score"], reverse=True)
     return scored
@@ -137,9 +152,14 @@ def _cli(prompt: str, model: str) -> str:
 
 
 ASK_GUIDE = {
-    "referral": "Ask whether they'd be open to referring me for this role (or pointing me to "
-                "the right person), and make it easy to say yes — offer to send my resume and a "
-                "short blurb.",
+    "recruiter": "IMPORTANT: they are a RECRUITER at the company — do NOT ask them to 'refer' "
+                 "me; that is not a recruiter's role and reads as odd. Instead, professionally ask "
+                 "whether they'd be open to reviewing / considering my candidacy for this role "
+                 "(e.g. 'would you be open to taking a look at my background for this role') and/or "
+                 "pointing me to the right person on the hiring team. Offer to send my resume.",
+    "referral": "They work at the company and are NOT a recruiter. Ask whether they'd be open to "
+                "referring me for this role, or connecting me to the right person on the team — "
+                "make it easy to say yes; offer my resume and a short blurb.",
     "intro": "They previously worked at the company. Ask whether they still know anyone there "
              "who could refer me, or would make a quick intro. Acknowledge it's been a while; no "
              "pressure.",
