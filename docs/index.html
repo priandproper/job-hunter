@@ -372,6 +372,12 @@
   .co-dim{color:var(--muted);font-weight:400;font-size:.78rem}
   .co-ats{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:.08rem .4rem;border-radius:5px;background:var(--surface-2);border:1px solid var(--line-2);color:var(--muted)}
   .co-ats.on{background:var(--good-soft,var(--accent-soft));color:var(--good,var(--accent))}
+  /* Job description */
+  .jd-hd{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap}
+  .jd-hd h3{margin:0}
+  .jd-kw{display:flex;flex-wrap:wrap;gap:.3rem;margin:.55rem 0}
+  .jd-kw span{font-size:.7rem;font-weight:600;padding:.1rem .45rem;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+  .jd-body{white-space:pre-wrap;font-size:.88rem;line-height:1.6;color:var(--ink-2);max-height:440px;overflow:auto;margin-top:.55rem;padding:.75rem .85rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
@@ -735,10 +741,11 @@ function deleteManualJob(id){if(!confirm('Remove this manually-added job?'))retu
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
 function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
   const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
-function buildImportUrl(job){const c=(getPrivate().contact)||{};
-  if((!c.email&&!c.phone)||!job.resume_core)return job.import_url||'#';
-  const core=JSON.parse(JSON.stringify(job.resume_core));core.contact={...core.contact,...c};
-  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(core));}
+// Build the builder import URL from resume_core in the browser (the base64 blob is
+// no longer shipped in jobs.json). Merges locally-loaded contact PII if present.
+function buildImportUrl(job){
+  if(!job.resume_core)return job.import_url||'#';   // manual jobs may lack a core
+  return importUrlFromCore(job.resume_core);}
 // Build a builder import URL from an arbitrary resume core (e.g. a Claude-tailored one),
 // merging in the locally-loaded contact PII if present.
 function importUrlFromCore(core){const c=(getPrivate().contact)||{};
@@ -851,11 +858,58 @@ function tailoringPrompt(job){
   if(skills) s+='\nCandidate skills/tools:        '+skills;
   if(highlights) s+='\nCandidate highlights:          '+highlights;
   if(edu) s+='\nEducation & recognition:       '+edu;
+  const jd=cleanJd(job.excerpt||'');
+  if(jd) s+='\n\nFULL JOB DESCRIPTION  (align the resume to this)\n'+jd;
   s+='\n\nReturn the tailored resume as JSON only.';
   return s;
 }
 function copyPrompt(id){const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
   copyText(tailoringPrompt(job));setTailorStatus(id,'Prompt copied — paste into Claude/ChatGPT/Gemini, then paste the JSON back below.');}
+// The full JD text on the job page + a "what to focus on" coaching prompt that turns
+// the JD into concrete resume/prep guidance (model-agnostic; copy → paste into any LLM).
+// Client-side JD cleaner — decodes entities + strips tags for data already in the pool
+// that predates the server-side clean_jd (JSearch entity-encoded markup, etc.).
+function cleanJd(s){
+  const ta=document.createElement('textarea');
+  ta.innerHTML=s||''; let t=ta.value;         // decode entities
+  t=t.replace(/<[^>]+>/g,' ');                 // strip tags
+  ta.innerHTML=t; t=ta.value;                  // decode a second pass (double-encoded)
+  return t.replace(/[ \t\f\v]+/g,' ').replace(/\n\s*\n\s*\n+/g,'\n\n').trim();
+}
+function copyJd(id){const j=(DOC.jobs||[]).find(x=>x.id===id);if(j)copyText(cleanJd(j.excerpt||''));}
+function focusPrompt(job){
+  const resume=currentResumeFor(job), p=getPersona(), jd=cleanJd(job.excerpt||'');
+  let s='You are an expert technical recruiter and resume coach. Analyze the job description below against the candidate and tell them exactly how to become a stronger, interview-worthy match. Be specific and honest — call out real gaps.\n\n';
+  s+='Return these sections:\n';
+  s+='1. SKILLS / KEYWORDS TO EMPHASIZE — the specific skills, tools, and phrases from this JD the candidate should surface; flag which are currently missing from their resume.\n';
+  s+='2. RESUME BULLETS TO ADD OR REWRITE — 4–6 concrete, quantified STAR-style bullets the candidate could put in past experience to align with this role. Base them on the candidate\'s real background; mark anything they would need to substantiate.\n';
+  s+='3. PROJECTS / PROOF TO BUILD — 2–3 portfolio projects or proof points that would close the biggest gaps.\n';
+  s+='4. RECRUITER TALKING POINTS — 3–4 things to say (and be ready to back up) in a recruiter screen for this role.\n';
+  s+='5. GAPS / RISKS — where the candidate is weakest for this role, and how to mitigate.\n\n';
+  s+='JOB\nTitle: '+(job.title||'')+'\nCompany: '+(job.company||'')+'\n';
+  const kw=(job.requested_keywords||[]).join(', ');if(kw)s+='ATS keywords requested: '+kw+'\n';
+  const miss=(job.missing_keywords||[]).join(', ');if(miss)s+='Keywords missing from the current resume: '+miss+'\n';
+  if(jd)s+='\nJOB DESCRIPTION\n'+jd+'\n';
+  s+='\nCANDIDATE RESUME (JSON)\n'+JSON.stringify(resume);
+  if((p.roles||[]).length)s+='\n\nCandidate target roles: '+p.roles.join(', ');
+  if((p.skills||[]).length)s+='\nCandidate skills/tools: '+p.skills.join(', ');
+  if(p.projects)s+='\nCandidate highlights: '+p.projects;
+  return s;
+}
+function copyFocusPrompt(id){const job=(DOC.jobs||[]).find(j=>j.id===id);if(!job)return;
+  copyText(focusPrompt(job));toast('Focus prompt copied — paste into Claude / ChatGPT / Gemini');}
+function jdCard(job){
+  const jd=cleanJd(job.excerpt||'');
+  const kw=(job.requested_keywords||[]);
+  if(!jd)return `<div class="box"><h3>Job description</h3><p class="co">No description captured for this posting yet — open the posting to read it, or it will fill in on the next scraper run.</p>
+    <div class="rowbtns" style="margin-top:.5rem"><a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="sm">Open posting ↗</button></a></div></div>`;
+  return `<div class="box"><div class="jd-hd"><h3>Job description</h3>
+    <div class="rowbtns"><button class="primary sm" onclick="copyFocusPrompt('${job.id}')">✨ What to focus on</button>
+      <button class="sm" onclick="copyJd('${job.id}')">Copy JD</button></div></div>
+    <p class="co">The full posting — the source of truth for what to emphasize, what projects to build, and what to tell recruiters. “What to focus on” turns it into concrete guidance.</p>
+    ${kw.length?`<div class="jd-kw">${kw.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:''}
+    <div class="jd-body">${esc(jd)}</div></div>`;
+}
 function applyPastedResume(id){
   const el=document.getElementById('pasteJson-'+id);const raw=(el&&el.value||'').trim();
   if(!raw){toast('Paste the tailored JSON first');return;}
@@ -2112,6 +2166,7 @@ function renderJobPage(id){
         <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
       </div>
       <p class="co" style="margin:.5rem 0 0">Open the LinkedIn posting to check when it was posted / whether it's a repost.</p></div>
+    ${jdCard(job)}
     ${resumeBox(job)}
     ${peopleCard(job)}
     ${hmCard(job)}

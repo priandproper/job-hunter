@@ -179,8 +179,10 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
 
         # resume_core carries NO email/phone (contact_public only). The dashboard
         # merges those in-browser from your loaded private data before opening.
+        # NOTE: the builder import URL is NOT stored here — it's fully derivable from
+        # resume_core, and the base64 blob was ~half of jobs.json. The dashboard
+        # builds it client-side (buildImportUrl), which frees room for the full JD.
         resume_core = payload_mod.build_resume_input(job, m["variant_obj"], profile, contact_public)
-        imp_url = payload_mod.import_url(resume_core, app_url, encoding)
         message = ref_mod.draft_message({"name": ""}, job, contact_name)
         search_link = ref_mod.linkedin_search_url(job["company"], titles)
 
@@ -203,7 +205,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "requested_keywords": g["requested_keywords"],
             "per_variant": g["per_variant"],
             "jd_available": g["jd_available"],
-            "import_url": imp_url,
+            "excerpt": job.get("excerpt", ""),   # (near-)full JD text — what to align to
             "resume_core": resume_core,
             "referral_message": message,
             "linkedin_search": search_link,

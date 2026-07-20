@@ -6,12 +6,25 @@ keeps running from other sources (e.g. the tracker DB) offline.
 """
 
 import hashlib
+import html
 import json
 import re
 import urllib.request
 
 _TAG_RE = re.compile(r"<[^>]+>")
+_WS_RE = re.compile(r"[ \t\r\f\v]+")
 UA = "job-hunter/1.0 (personal job search)"
+
+
+def clean_jd(text: str) -> str:
+    """Decode HTML entities, strip tags, and tidy whitespace. Handles feeds that
+    send entity-encoded markup (e.g. JSearch's '&lt;div&gt;'), which a plain tag
+    strip would leave behind as literal text."""
+    t = html.unescape(text or "")
+    t = _TAG_RE.sub(" ", t)
+    t = html.unescape(t)                 # second pass for double-encoded entities
+    t = _WS_RE.sub(" ", t)
+    return re.sub(r"\n\s*\n\s*\n+", "\n\n", t).strip()
 
 
 def _get(url: str, timeout: float = 12.0):
@@ -30,7 +43,9 @@ def _norm(company, title, location, url, source, dept="", posted="", excerpt="")
         "company": company, "title": title, "location": location, "url": url,
         "source": source, "department": dept, "posted_at": posted,
         "sponsorship": "Unknown", "sponsorship_note": "", "salary_raw": "",
-        "tools": [], "excerpt": _TAG_RE.sub(" ", excerpt or "")[:1200],
+        # Keep the (near-)full JD so the dashboard can show what to align to. Cap
+        # generously to bound repo growth; longer wins on merge (see lib/pool.py).
+        "tools": [], "excerpt": clean_jd(excerpt)[:8000],
         "min_exp": None, "status": "new",
     }
 
