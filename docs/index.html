@@ -378,6 +378,8 @@
   .jd-kw{display:flex;flex-wrap:wrap;gap:.3rem;margin:.55rem 0}
   .jd-kw span{font-size:.7rem;font-weight:600;padding:.1rem .45rem;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
   .jd-body{white-space:pre-wrap;font-size:.88rem;line-height:1.6;color:var(--ink-2);max-height:440px;overflow:auto;margin-top:.55rem;padding:.75rem .85rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2)}
+  .paste-parse{margin:.2rem 0 .8rem;padding:.6rem;border:1px dashed var(--line-2);border-radius:10px;background:var(--surface-2)}
+  .paste-parse textarea{width:100%;min-height:64px;font:inherit;font-size:.84rem;margin-bottom:.5rem}
   .hm-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0 .35rem}
   @media (max-width:600px){.hm-grid{grid-template-columns:1fr}}
   .hm-grid .txt{width:100%;padding:.55rem .7rem;border:1px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink);font:inherit;font-size:.86rem}
@@ -617,6 +619,11 @@
   <div class="modal-box">
     <h2 id="personModalTitle">Add a person</h2>
     <p class="sub">Everything about this person stays in <b>this browser only</b> (localStorage) — never uploaded, never committed. The more you note, the better the outreach prompts.</p>
+    <div class="paste-parse">
+      <textarea class="txt" id="pmPaste" placeholder="Skip the typing: open their LinkedIn profile, select-all → copy, and paste it here (or a bio / email signature). Then click Auto-fill — Claude structures it into the fields below. (We don't scrape LinkedIn; you paste what you can see.)"></textarea>
+      <div class="rowbtns"><button onclick="parsePersonPaste()">✨ Auto-fill from paste</button>
+        <span class="co" id="pmParseStatus"></span></div>
+    </div>
     <input type="hidden" id="pmId">
     <div class="hm-grid">
       <input class="txt" id="pmName" placeholder="Full name *">
@@ -628,8 +635,8 @@
       <input class="txt" id="pmEmail" placeholder="Email">
       <input class="txt" id="pmLocation" placeholder="Location">
     </div>
-    <input class="txt" id="pmTags" placeholder="Tags (comma-separated: recruiter, warm, alum…)" style="margin-top:.55rem">
-    <input class="txt" id="pmHowKnown" placeholder="How you know them (e.g. former Babson classmate, spoke at a webinar)" style="margin-top:.55rem">
+    <input class="txt" id="pmTags" placeholder="Tags (comma-separated: recruiter, warm, alum…)" style="margin-top:.55rem;width:100%">
+    <input class="txt" id="pmHowKnown" placeholder="How you know them (e.g. former Babson classmate, spoke at a webinar)" style="margin-top:.55rem;width:100%">
     <textarea class="runner-code" id="pmNotes" style="min-height:80px;font-family:inherit;font-size:.86rem;margin-top:.55rem" placeholder="Notes — anything useful for personalizing outreach (their focus areas, mutual connections, recent posts)…"></textarea>
     <div class="rowbtns" style="margin-top:.7rem">
       <button class="primary" onclick="savePerson()">Save person</button>
@@ -1851,6 +1858,45 @@ function openPersonModal(id,linkJobId){
   document.getElementById('personModal').style.display='flex';document.getElementById('pmName').focus();
 }
 function closePersonModal(){document.getElementById('personModal').style.display='none';}
+// Auto-fill the person form from pasted profile text (LinkedIn profile, bio, email
+// signature…) using your Claude key. We do NOT scrape LinkedIn — you paste what you
+// can see; Claude just structures it. One paste instead of typing every field.
+const PERSON_SCHEMA={type:'object',additionalProperties:false,
+  properties:{name:{type:'string'},title:{type:'string'},company:{type:'string'},
+    seniority:{type:'string'},location:{type:'string'},email:{type:'string'},
+    linkedin:{type:'string'},howKnown:{type:'string'},notes:{type:'string'},
+    tags:{type:'array',items:{type:'string'}}},
+  required:['name','title','company','seniority','location','email','linkedin','howKnown','notes','tags']};
+async function parsePersonPaste(){
+  const raw=((document.getElementById('pmPaste')||{}).value||'').trim();
+  const st=document.getElementById('pmParseStatus');
+  if(!raw){st.textContent='Paste some profile text first.';return;}
+  const cfg=anthropicCfg(), key=(cfg.key||'').trim();
+  if(!key){st.innerHTML='Add your Claude API key in <a href="#/settings">Settings</a> to auto-fill (or just type the fields).';return;}
+  const url=((document.getElementById('pmLinkedin')||{}).value||'').trim();
+  st.textContent='Parsing with Claude…';
+  const sys="Extract structured contact facts from the pasted text (a LinkedIn profile, bio, or email signature). Return ONLY JSON matching the schema. Use empty strings for anything not stated — never guess or invent. 'seniority' must be one of: Individual contributor, Manager, Senior Manager, Director, Senior Director, VP, Head of, C-level, Founder, Recruiter, Other — or empty. 'notes' = a 1–2 sentence summary of their focus areas useful for personalizing outreach. 'tags' = a few short lowercase labels (e.g. recruiter, alum, warm).";
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:cfg.model||'claude-opus-4-8',max_tokens:1200,system:sys,
+        output_config:{format:{type:'json_schema',schema:PERSON_SCHEMA}},
+        messages:[{role:'user',content:`LINKEDIN URL (if any): ${url}\n\nPASTED TEXT:\n${raw}`}]})});
+    if(!r.ok){let m='HTTP '+r.status;try{const e=await r.json();m=(e.error&&e.error.message)||m;}catch{}
+      st.textContent=r.status===401?'Invalid API key':'Failed: '+m;return;}
+    const data=await r.json();
+    if(data.stop_reason==='refusal'){st.textContent='Claude declined this request.';return;}
+    const txt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    let f;try{f=JSON.parse(txt);}catch{st.textContent='Could not parse — try again.';return;}
+    const set=(id,v)=>{const e=document.getElementById(id);if(e&&v)e.value=v;};
+    set('pmName',f.name);set('pmTitle',f.title);set('pmCompany',f.company);set('pmLocation',f.location);
+    set('pmEmail',f.email);set('pmHowKnown',f.howKnown);set('pmNotes',f.notes);
+    if(f.linkedin&&!url)set('pmLinkedin',f.linkedin);
+    if(f.seniority){const sel=document.getElementById('pmSeniority');if(sel)sel.value=f.seniority;}
+    if((f.tags||[]).length)set('pmTags',f.tags.join(', '));
+    st.textContent='✓ Filled — review and Save.';
+  }catch(e){st.textContent='Network error: '+e.message;}
+}
 function savePerson(){
   const v=id=>((document.getElementById(id)||{}).value||'').trim();
   const name=v('pmName');
