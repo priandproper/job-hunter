@@ -255,8 +255,11 @@
   .jp-scores{display:flex;align-items:center;gap:1rem;flex-shrink:0}
   .jp-scores .rscore small{display:block;font-size:.6rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
   .jp-card{margin-bottom:1rem;padding:1.2rem 1.3rem}
-  .jp-applied{margin:.5rem 0 .9rem;font-size:.95rem}
+  .jp-applied{margin:.5rem 0 .5rem;font-size:.95rem}
   .applied{font-weight:700} .applied.yes{color:var(--good)} .applied.no{color:var(--muted)}
+  .jp-status{display:flex;align-items:center;gap:.7rem;margin:0 0 .9rem;flex-wrap:wrap}
+  .jp-status label{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--muted);font-weight:600}
+  .jp-status .rstatus-sel{font-size:.82rem;max-width:none;padding:.32rem .55rem}
   .mailrow{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem .8rem;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
   .mailsub{font-size:.85rem;font-weight:600;color:var(--ink)}
   .mailrow .pill{flex-shrink:0;font-size:.68rem;font-weight:700;padding:.14rem .5rem;border-radius:999px;text-transform:capitalize;background:var(--accent-soft);color:var(--accent)}
@@ -2489,6 +2492,12 @@ function renderJobPage(id){
     </div>
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
+      <div class="jp-status">
+        <label>Status
+          <select class="rstatus-sel" onchange="setStatus('${job.id}',this.value)">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${esc(s)}</option>`).join('')}</select>
+        </label>
+        ${applied?'':`<button class="primary sm" onclick="setStatus('${job.id}','applied')">✓ Mark as applied</button>`}
+      </div>
       <div class="jp-mail">${mailHtml}</div>
       <div class="rowbtns" style="margin-top:.75rem">
         <a href="${esc(ljJobsUrl(job))}" target="_blank" rel="noopener"><button>Find this posting on LinkedIn ↗</button></a>
