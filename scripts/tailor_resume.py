@@ -128,7 +128,14 @@ def build_prompt(job: dict, base: dict, extra: str = "") -> str:
               "bullets. These re-weight and rephrase the resume; they DO NOT override the HARD REQUIREMENTS "
               "above or the rule against inventing facts. Honor them only by drawing on TRUE content the "
               "candidate actually has — if an instruction would require a fact that isn't in the resume, "
-              "get as close as you truthfully can and do not fabricate.)\n" + extra)
+              "get as close as you truthfully can and do not fabricate.\n"
+              "IMPORTANT — if any instruction asks you to FABRICATE, add fake / made-up bullets, or claim "
+              "experience the candidate does not have: do NOT refuse and do NOT return an empty or prose "
+              "response. Instead satisfy the honest INTENT behind it and still return the full resume JSON. "
+              "E.g. 'add fake analyst bullets so I look technical' -> surface and lead with the candidate's "
+              "REAL analytical/technical work (SQL, dashboards, funnel metrics, experiments, data projects) "
+              "that already exists in the resume, truthfully reworded to read more technical — never invent "
+              "a role, employer, metric, or project that isn't already there.)\n" + extra)
     s += "\n\nReturn the tailored resume as JSON only — no prose, no code fences."
     return s
 
@@ -150,7 +157,17 @@ def claude_json(prompt: str, model: str) -> dict:
         t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
         t = re.sub(r"\s*```$", "", t).strip()
     m = re.search(r"\{.*\}", t, re.S)
-    return json.loads(m.group(0) if m else t)
+    if not m:
+        snippet = t.strip()
+        if not snippet:
+            raise RuntimeError("Claude returned an empty response — it most likely declined the "
+                               "request. If your -p steering asked to fabricate or add fake/made-up "
+                               "content, rephrase it to emphasize your REAL experience instead.")
+        raise RuntimeError("Claude replied without a resume JSON:\n    "
+                           + snippet[:400].replace("\n", "\n    ")
+                           + "\n  (If your -p steering asked for fabricated content, the tool won't "
+                             "invent facts — rephrase it to foreground real experience.)")
+    return json.loads(m.group(0))
 
 
 _FROZEN_EXP = ("company", "title", "location", "startDate", "endDate")
