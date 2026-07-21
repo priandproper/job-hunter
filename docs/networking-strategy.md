@@ -52,7 +52,7 @@ personal CRM for the job hunt.
 ## Build roadmap (tracking)
 
 - [x] **Alumni lane** — school-based LinkedIn Alumni URL per company on the job page; tag same-school people.
-- [ ] **Person-source paste adapters** — generalize `linkedin_people.py` to Reddit threads / community
+- [x] **Person-source paste adapters** — generalize `linkedin_people.py` to Reddit threads / community
       member lists / X searches / event attendee pages (Cmd-C → People CSV).
 - [ ] **Reddit signal ingestion** — `reddit_signals.py` watches chosen subreddits for hiring/referral posts,
       matches company+role to your jobs, adds the poster as a potential referrer.

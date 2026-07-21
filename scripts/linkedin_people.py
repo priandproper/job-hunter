@@ -24,6 +24,12 @@ Workflow:
   2. python3 scripts/linkedin_people.py            # -> data/people.local.csv
   3. Dashboard -> People -> "Import CSV".
 
+Other platforms (Reddit / X / community Slack/Discord / event attendee lists): paste the
+whole page and pass --source, and Claude extracts every person into contacts:
+  python3 scripts/linkedin_people.py data/reddit_paste.txt --source reddit
+  python3 scripts/linkedin_people.py data/event.txt --source event
+These are ToS-safe too (you paste what you can see); each person is tagged with the platform.
+
 For PROFILE blocks the parser is chosen automatically: ANTHROPIC_API_KEY (env /
 .secrets.json) if set, else the Claude Code CLI (`claude -p`, uses your logged-in
 Max/Pro plan — no API key or billing), else a best-effort offline heuristic. Force one
@@ -122,6 +128,84 @@ def _claude_cli(text: str, model: str = "sonnet") -> dict:
     except json.JSONDecodeError:
         text_out = out
     return _extract_json(text_out)
+
+
+# ---- Multi-source people extraction (Reddit / X / community / event pastes) ----
+# Any pasted blob -> a LIST of real people. Same paste-what-you-see, ToS-safe model as the
+# LinkedIn parser; handled by Claude because these formats vary too much for one regex.
+_SOURCE_HINT = {
+    "reddit": "a Reddit thread — usernames look like u/name; each person is a redditor you could DM.",
+    "x": "an X / Twitter search or thread — handles look like @name.",
+    "twitter": "an X / Twitter search or thread — handles look like @name.",
+    "community": "a Slack / Discord / newsletter community member list.",
+    "event": "an event / webinar / meetup attendee or speaker list.",
+    "other": "a web page that lists people.",
+}
+
+
+def _list_instruct(source: str) -> str:
+    hint = _SOURCE_HINT.get(source, _SOURCE_HINT["other"])
+    plat = "x" if source == "twitter" else source
+    return (
+        "From the pasted text, extract EVERY distinct real person who could be a networking "
+        "contact. The text is " + hint + " Return ONLY a JSON ARRAY (no prose, no code fences); "
+        "each element has EXACTLY these keys: name (real name if shown, else the handle/username), "
+        "title, company, location, linkedin (a linkedin.com/in URL if present else \"\"), handle "
+        "(@handle / u/username / profile URL on the source platform else \"\"), notes (1 sentence on "
+        "who they are or what they said, useful for outreach), tags (array of short lowercase labels; "
+        "ALWAYS include \"" + plat + "\"). NEVER invent a person, name, employer, or fact — use \"\" for "
+        "anything not present. Skip bots, organizations, and the reader themselves.\n\nPASTED TEXT:\n")
+
+
+def _extract_json_array(text: str) -> list:
+    t = (text or "").strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
+        t = re.sub(r"\s*```$", "", t).strip()
+    m = re.search(r"\[.*\]", t, re.S)
+    data = json.loads(m.group(0) if m else t)
+    return data if isinstance(data, list) else []
+
+
+def _claude_list_cli(text: str, source: str, model: str = "sonnet") -> list:
+    proc = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json"],
+                          input=_list_instruct(source) + text, capture_output=True, text=True, timeout=240)
+    if proc.returncode != 0:
+        raise RuntimeError((proc.stderr or "").strip() or f"claude exited {proc.returncode}")
+    out = (proc.stdout or "").strip()
+    try:
+        env = json.loads(out)
+        txt = env.get("result", out) if isinstance(env, dict) else out
+    except json.JSONDecodeError:
+        txt = out
+    return _extract_json_array(txt)
+
+
+def _claude_list_api(api_key: str, model: str, text: str, source: str) -> list:
+    body = json.dumps({"model": model, "max_tokens": 4000,
+                       "messages": [{"role": "user", "content": _list_instruct(source) + text}]}).encode("utf-8")
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
+        "content-type": "application/json", "x-api-key": api_key, "anthropic-version": "2023-06-01"})
+    with urllib.request.urlopen(req, timeout=90) as r:
+        data = json.loads(r.read().decode("utf-8", "replace"))
+    txt = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+    return _extract_json_array(txt)
+
+
+def _list_row(p: dict, source: str) -> dict:
+    """Map an extracted person to the People CSV columns."""
+    j = lambda v: "; ".join(v) if isinstance(v, list) else (v or "")
+    plat = "x" if source == "twitter" else source
+    tags = list(p.get("tags") or [])
+    if plat not in [str(t).lower() for t in tags]:
+        tags.append(plat)
+    handle = p.get("handle", "") or ""
+    linkedin = p.get("linkedin", "") or (handle if handle.startswith("http") else "")
+    how = f"{plat.capitalize()} contact" + (f" ({handle})" if handle and not handle.startswith("http") else "")
+    return {"name": p.get("name", ""), "title": p.get("title", ""), "company": p.get("company", ""),
+            "past_companies": "", "seniority": "", "location": p.get("location", ""),
+            "linkedin": linkedin, "email": "", "relationship": "unknown", "tags": j(tags),
+            "how_known": how, "notes": p.get("notes", "")}
 
 
 _JUNK = re.compile(r"^\s*(\d+(st|nd|rd|th)?|·|Message|Connect|Follow|More|Contact info|"
@@ -418,6 +502,48 @@ def _row(p: dict) -> dict:
     }
 
 
+def _write_people(rows: list, out_path: str, source_label: str) -> int:
+    out = Path(out_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COLUMNS)
+        w.writeheader()
+        w.writerows(rows)
+    shown = out.relative_to(ROOT) if out.is_relative_to(ROOT) else out
+    print(f"\nlinkedin_people: wrote {len(rows)} person(s) -> {shown}  ({source_label})")
+    print("Next: open the dashboard -> People -> Import CSV, and pick that file.")
+    return 0
+
+
+def _run_source_extract(raw_text: str, args) -> int:
+    """Extract people from a whole Reddit / X / community / event paste (via Claude)."""
+    api_key = None if args.heuristic else secrets_mod.get_key("ANTHROPIC_API_KEY", SECRETS)
+    has_cli = shutil.which("claude") is not None
+    if args.api and not api_key:
+        print("linkedin_people: --api needs ANTHROPIC_API_KEY (env or .secrets.json).")
+        return 2
+    use_api = bool(api_key) and not args.cli
+    if not use_api and not has_cli:
+        print(f"linkedin_people: reading a {args.source} paste needs the `claude` CLI or an API key "
+              "(there's no offline parser for these sources).")
+        return 2
+    engine = "Anthropic API" if use_api else "Claude CLI (your plan)"
+    print(f"linkedin_people: extracting people from a {args.source} paste with {engine}…")
+    try:
+        people = (_claude_list_api(api_key, "claude-opus-4-8", raw_text, args.source) if use_api
+                  else _claude_list_cli(raw_text, args.source))
+    except Exception as e:
+        print(f"linkedin_people: extraction failed ({e})")
+        return 1
+    rows = [_list_row(p, args.source) for p in people if p.get("name")]
+    for r in rows:
+        tail = r["company"] or r["title"] or r["how_known"]
+        print(f"  ✓ {r['name']} — {tail}")
+    if not rows:
+        print("  (no people found — is the paste from a page that lists people?)")
+    return _write_people(rows, args.out, args.source)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("infile", nargs="?", default=str(IN_DEFAULT),
@@ -426,13 +552,25 @@ def main() -> int:
     ap.add_argument("--heuristic", action="store_true", help="skip Claude; use the offline heuristic parser")
     ap.add_argument("--cli", action="store_true", help="force the Claude Code CLI (your logged-in plan)")
     ap.add_argument("--api", action="store_true", help="force the Anthropic API (needs ANTHROPIC_API_KEY)")
+    ap.add_argument("--source", default="auto",
+                    choices=["auto", "linkedin", "reddit", "x", "twitter", "community", "event", "other"],
+                    help="what you pasted. auto/linkedin = LinkedIn profiles or search results (the "
+                         "structured parser). reddit/x/community/event/other = a whole page of people that "
+                         "Claude extracts into contacts (paste a thread, a member list, an attendee list).")
     args = ap.parse_args()
 
     src = Path(args.infile)
     if not src.exists():
-        print(f"linkedin_people: create {src} — paste profiles separated by a line of '---'.")
+        print(f"linkedin_people: create {src} — paste people into it (a LinkedIn search, or a "
+              f"reddit/community/event page with --source).")
         return 2
-    blocks = [b.strip() for b in re.split(r"(?m)^\s*---+\s*$", src.read_text()) if b.strip()]
+    raw_text = src.read_text()
+
+    # Non-LinkedIn source: extract every person from the whole paste with Claude.
+    if args.source not in ("auto", "linkedin"):
+        return _run_source_extract(raw_text, args)
+
+    blocks = [b.strip() for b in re.split(r"(?m)^\s*---+\s*$", raw_text) if b.strip()]
     if not blocks:
         print("linkedin_people: no profiles found in the input file.")
         return 1
