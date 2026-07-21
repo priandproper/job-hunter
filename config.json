@@ -43,7 +43,7 @@
     "exclude_sponsorship": ["No"],
     "max_age_days": 45,
     "experience": {
-      "analyst_max_years": 2,
+      "analyst_max_years": 3,
       "default_max_years": 4
     },
     "extra_lane_terms": [
@@ -54,7 +54,11 @@
       "operations", "strategy", "partnerships",
       "customer success", "solutions",
       "data analyst", "insights analyst", "marketing coordinator",
-      "marketing specialist", "digital marketing", "ecommerce"
+      "marketing specialist", "digital marketing", "ecommerce",
+      "sales analyst", "sales operations analyst", "sales operations",
+      "sales ops", "operations analyst", "revenue analyst",
+      "revenue operations analyst", "gtm analyst", "strategy analyst",
+      "marketing analyst", "business analyst"
     ]
   },
   "pool_file": "data/job_pool.json",
@@ -111,8 +115,14 @@
       "marketing analyst United States",
       "marketing analyst remote United States",
       "business analyst marketing United States",
+      "business analyst United States",
       "marketing data analyst United States",
+      "data analyst remote United States",
       "growth analyst United States",
+      "sales analyst United States",
+      "sales operations analyst United States",
+      "revenue operations analyst United States",
+      "operations analyst United States",
       "product marketing manager in New York, New York",
       "product marketing manager in Boston, Massachusetts",
       "product marketing manager in San Francisco, California"

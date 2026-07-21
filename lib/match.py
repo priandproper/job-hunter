@@ -34,6 +34,10 @@ LANE_TERMS = [
     "business analyst", "growth analyst", "data analyst", "insights analyst",
     "product analyst", "reporting analyst", "revenue operations", "revops",
     "marketing operations", "marketing ops",
+    # Analyst lane (targeted 0–3 yrs): sales / ops / revenue analyst variants.
+    "sales analyst", "sales operations analyst", "sales operations", "sales ops",
+    "operations analyst", "revenue analyst", "revenue operations analyst",
+    "gtm analyst", "strategy analyst",
     "analytics", "data-driven", "a/b testing", "experimentation", "kpi", "roi",
     "reporting", "dashboard", "insights", "market research", "attribution",
     "sql", "tableau", "power bi", "looker", "ga4", "excel", "abm",
@@ -148,13 +152,13 @@ def extract_years(text: str | None) -> int | None:
 
 
 # Experience caps by role class. A posting is dropped when its JD states a
-# minimum ABOVE the cap for its role class. The candidate's target ranges:
-#   analyst (marketing / business / data / insights analyst): 0–2 years
-#   product marketing & other marketing roles:                1–4 years
+# minimum ABOVE the cap for its role class. The candidate's two target lanes:
+#   analyst (marketing / business / sales / sales-ops / data / insights analyst): 0–3 yrs
+#   product marketing & other marketing roles:                                    ≤4 yrs
 # Jobs that don't state a minimum are kept (we don't guess), matching the rest of
 # the pipeline's "unknown → keep" stance. Caps are overridable via config
 # match.experience.{analyst_max_years, default_max_years}.
-ANALYST_MAX_YEARS = 2
+ANALYST_MAX_YEARS = 3
 DEFAULT_MAX_YEARS = 4
 
 
@@ -163,15 +167,16 @@ def role_class(title: str | None) -> str:
     return "analyst" if "analyst" in (title or "").lower() else "marketing"
 
 
-# Analyst roles are targeted at 0–2 years, so a senior-titled analyst is out of
-# range even when the JD omits a year count. Applied to analyst-class titles only
-# (senior marketing/PMM roles are left to the year-based cap).
-_ANALYST_SENIORITY_RE = re.compile(r"\b(senior|sr|staff|lead|principal|expert)\b")
+# BOTH lanes want non-senior roles (marketing ≤4 yrs, analyst 0–3). A Senior / Sr /
+# Staff / Lead / Principal title signals more experience than either band wants —
+# even when the JD omits a year count — so such titles are dropped regardless of
+# lane. Plain "Manager" is a level name, not seniority, and is kept (e.g. "Product
+# Marketing Manager").
+_SENIORITY_RE = re.compile(r"\b(senior|sr|staff|lead|principal|expert)\b")
 
 
-def too_senior_analyst(title: str | None) -> bool:
-    t = (title or "").lower()
-    return role_class(t) == "analyst" and bool(_ANALYST_SENIORITY_RE.search(t))
+def too_senior(title: str | None) -> bool:
+    return bool(_SENIORITY_RE.search((title or "").lower()))
 
 
 def years_cap(title: str | None, cfg_match: dict) -> int:
@@ -251,6 +256,6 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
         return False
     if not experience_ok(job, cfg_match):
         return False
-    if too_senior_analyst(job.get("title")):
+    if too_senior(job.get("title")):
         return False
     return True

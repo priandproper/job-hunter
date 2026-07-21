@@ -43,11 +43,15 @@ def _post(url: str, payload: dict, timeout: float = 15.0):
         return json.loads(resp.read().decode("utf-8", "replace"))
 
 
-# Marketing-adjacent search terms reused by the free-text sources (amazon/netflix/workday).
+# Search terms for the two target lanes, reused by the free-text sources
+# (amazon/netflix/workday). Lane 1: product marketing + adjacent. Lane 2: analyst
+# (marketing / business / sales / sales-ops / data).
 _MKT_QUERIES = (
     "product marketing", "marketing manager", "marketing operations",
     "marketing analytics", "revenue operations", "demand generation",
     "go to market", "sales operations",
+    "marketing analyst", "business analyst", "sales analyst",
+    "sales operations analyst", "data analyst",
 )
 
 _US_ABBR = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
