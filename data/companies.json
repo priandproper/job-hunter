@@ -1270,6 +1270,226 @@
       "hq": "Pittsburgh, PA, USA",
       "source": "yc:W16",
       "active": true
+    },
+    {
+      "name": "ReadMe",
+      "ats": "ashby",
+      "slug": "readme",
+      "h1b": null,
+      "h1b_note": "YC W15",
+      "hq": "New York City",
+      "source": "yc:W15",
+      "active": true
+    },
+    {
+      "name": "Verge Genomics",
+      "ats": "ashby",
+      "slug": "verge-genomics",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "San Francisco",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "PickTrace",
+      "ats": "lever",
+      "slug": "picktrace",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "Los Angeles",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "Mux",
+      "ats": "ashby",
+      "slug": "mux",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "San Francisco",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Astranis",
+      "ats": "greenhouse",
+      "slug": "astranis",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "San Francisco",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Vetcove",
+      "ats": "ashby",
+      "slug": "vetcove",
+      "h1b": null,
+      "h1b_note": "YC S16",
+      "hq": "Miami, FL, USA",
+      "source": "yc:S16",
+      "active": true
+    },
+    {
+      "name": "Nova Credit",
+      "ats": "greenhouse",
+      "slug": "novacredit",
+      "h1b": null,
+      "h1b_note": "YC S16",
+      "hq": "New York City",
+      "source": "yc:S16",
+      "active": true
+    },
+    {
+      "name": "People.ai",
+      "ats": "lever",
+      "slug": "people-ai",
+      "h1b": null,
+      "h1b_note": "YC S16",
+      "hq": "San Francisco",
+      "source": "yc:S16",
+      "active": true
+    },
+    {
+      "name": "Clipboard",
+      "ats": "ashby",
+      "slug": "clipboard",
+      "h1b": null,
+      "h1b_note": "YC W17",
+      "hq": "San Francisco",
+      "source": "yc:W17",
+      "active": true
+    },
+    {
+      "name": "NanoNets",
+      "ats": "greenhouse",
+      "slug": "nanonets",
+      "h1b": null,
+      "h1b_note": "YC W17",
+      "hq": "San Francisco",
+      "source": "yc:W17",
+      "active": true
+    },
+    {
+      "name": "Long Term Stock Exchange",
+      "ats": "greenhouse",
+      "slug": "ltse",
+      "h1b": null,
+      "h1b_note": "YC S17",
+      "hq": "San Francisco",
+      "source": "yc:S17",
+      "active": true
+    },
+    {
+      "name": "Pyka",
+      "ats": "lever",
+      "slug": "pyka",
+      "h1b": null,
+      "h1b_note": "YC S17",
+      "hq": "San Francisco",
+      "source": "yc:S17",
+      "active": true
+    },
+    {
+      "name": "AssemblyAI",
+      "ats": "greenhouse",
+      "slug": "assemblyai",
+      "h1b": null,
+      "h1b_note": "YC S17",
+      "hq": "New York City",
+      "source": "yc:S17",
+      "active": true
+    },
+    {
+      "name": "May Mobility",
+      "ats": "greenhouse",
+      "slug": "maymobility",
+      "h1b": null,
+      "h1b_note": "YC S17",
+      "hq": "Ann Arbor, MI, USA",
+      "source": "yc:S17",
+      "active": true
+    },
+    {
+      "name": "Modern Health",
+      "ats": "greenhouse",
+      "slug": "modernhealth",
+      "h1b": null,
+      "h1b_note": "YC W18",
+      "hq": "San Francisco",
+      "source": "yc:W18",
+      "active": true
+    },
+    {
+      "name": "Promise",
+      "ats": "ashby",
+      "slug": "promise",
+      "h1b": null,
+      "h1b_note": "YC W18",
+      "hq": "San Francisco",
+      "source": "yc:W18",
+      "active": true
+    },
+    {
+      "name": "Weekend (fmr. Volley)",
+      "ats": "ashby",
+      "slug": "weekend",
+      "h1b": null,
+      "h1b_note": "YC W18",
+      "hq": "San Francisco",
+      "source": "yc:W18",
+      "active": true
+    },
+    {
+      "name": "Treasury Prime",
+      "ats": "greenhouse",
+      "slug": "treasuryprime",
+      "h1b": null,
+      "h1b_note": "YC W18",
+      "hq": "San Francisco",
+      "source": "yc:W18",
+      "active": true
+    },
+    {
+      "name": "RevenueCat",
+      "ats": "ashby",
+      "slug": "revenuecat",
+      "h1b": null,
+      "h1b_note": "YC S18",
+      "hq": "San Francisco",
+      "source": "yc:S18",
+      "active": true
+    },
+    {
+      "name": "Modern Treasury",
+      "ats": "ashby",
+      "slug": "moderntreasury",
+      "h1b": null,
+      "h1b_note": "YC S18",
+      "hq": "San Francisco",
+      "source": "yc:S18",
+      "active": true
+    },
+    {
+      "name": "Klarity",
+      "ats": "ashby",
+      "slug": "klarity-ai",
+      "h1b": null,
+      "h1b_note": "YC S18",
+      "hq": "San Francisco",
+      "source": "yc:S18",
+      "active": true
+    },
+    {
+      "name": "Duffel",
+      "ats": "ashby",
+      "slug": "duffel",
+      "h1b": null,
+      "h1b_note": "YC S18",
+      "hq": "London",
+      "source": "yc:S18",
+      "active": true
     }
   ]
 }
