@@ -16,6 +16,14 @@ real resume after generation, so nothing factual can drift. Output:
   python3 scripts/tailor_resume.py --id <job-id>
   python3 scripts/tailor_resume.py --company Datadog --job "Product Marketing Manager - APM"
   python3 scripts/tailor_resume.py --company Datadog --list         # find the id first
+
+Steer the tailoring with your own instructions via -p/--prompt (or just trailing words):
+  python3 scripts/tailor_resume.py --id <job-id> -p "make it more analytics-driven; add a
+      bullet on SQL funnel dashboards to the Glidely role and lead the summary with data skills"
+  python3 scripts/tailor_resume.py --id <job-id> lean harder into product marketing storytelling
+Your steering guides emphasis, tone, and which experiences/skills to foreground — it never
+overrides the truthfulness rules or the hard requirements (≥3 bullets/role, ≥1 project,
+≤2-sentence summary), and Claude won't invent facts to satisfy it.
 """
 
 import argparse
@@ -103,7 +111,7 @@ def base_resume(job: dict) -> dict:
     }
 
 
-def build_prompt(job: dict, base: dict) -> str:
+def build_prompt(job: dict, base: dict, extra: str = "") -> str:
     s = (TAILOR_INSTRUCTIONS
          + "\n\nCURRENT RESUME  (return the same shape)\n" + json.dumps(base)
          + "\n\nTARGET JOB\nTitle:    " + (job.get("title") or "")
@@ -113,6 +121,14 @@ def build_prompt(job: dict, base: dict) -> str:
     jd = ats_mod.clean_jd(job.get("excerpt") or "")
     if jd:
         s += "\n\nFULL JOB DESCRIPTION  (align the resume to this)\n" + jd[:8000]
+    extra = (extra or "").strip()
+    if extra:
+        s += ("\n\nUSER INSTRUCTIONS  (extra steering from the candidate — HIGH PRIORITY for what to "
+              "emphasize: tone, angle, which experiences/skills to foreground, and where to add or expand "
+              "bullets. These re-weight and rephrase the resume; they DO NOT override the HARD REQUIREMENTS "
+              "above or the rule against inventing facts. Honor them only by drawing on TRUE content the "
+              "candidate actually has — if an instruction would require a fact that isn't in the resume, "
+              "get as close as you truthfully can and do not fabricate.)\n" + extra)
     s += "\n\nReturn the tailored resume as JSON only — no prose, no code fences."
     return s
 
@@ -231,6 +247,13 @@ def main() -> int:
     ap.add_argument("--job", default="")
     ap.add_argument("--id", dest="job_id", default="", help="exact job id (from the dashboard URL #/job/<id>)")
     ap.add_argument("--resume", default="", help="base resume JSON file (else the job's resume_core)")
+    ap.add_argument("-p", "--prompt", dest="extra", default="",
+                    help="extra freeform steering, e.g. -p \"make it more analytics-driven; add a "
+                         "bullet on SQL dashboards to the Glidely role\". Guides emphasis/framing only "
+                         "— it never overrides the truthfulness rules or the hard requirements.")
+    ap.add_argument("extra_words", nargs="*",
+                    help="trailing words are also treated as steering (so you can skip the quotes "
+                         "after -p); combined with --prompt if both are given")
     ap.add_argument("--model", default="opus", help="Claude model for the CLI (default opus)")
     ap.add_argument("--out", default="", help="output JSON file (default data/tailored.<slug>.json)")
     ap.add_argument("--list", action="store_true", help="list matching roles (with ids) and exit")
@@ -268,8 +291,11 @@ def main() -> int:
         print("tailor_resume: no resume found for this job (empty resume_core). Pass --resume <file>.")
         return 1
 
+    extra = " ".join(x for x in ([args.extra] + list(args.extra_words)) if x).strip()
+    if extra:
+        print(f"  steering: {extra}")
     print(f"  drafting with Claude CLI ({args.model})…")
-    prompt = build_prompt(job, base)
+    prompt = build_prompt(job, base, extra)
     core, warns, fails = None, [], []
     for attempt in range(2):
         p = prompt if not fails else (prompt + "\n\nYour previous draft broke these HARD REQUIREMENTS. "
