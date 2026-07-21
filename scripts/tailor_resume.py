@@ -48,13 +48,13 @@ DATA SHAPE  ("FROZEN" = copy from the input verbatim; "EDIT" = you may rewrite)
   "id": string,                         // FROZEN
   "label": string,                      // SET to "<Company> — <Job Title>" for this application
   "contact": { "fullName","email","phone","location","website","linkedin","github" },  // FROZEN, copy exactly
-  "summary": string,                    // EDIT — rewrite to target the job (2-4 sentences)
+  "summary": string,                    // EDIT — MAX 2 sentences (see HARD REQUIREMENTS)
   "experience": [                       // Keep the SAME entries in the SAME order. Do not add, drop, merge, or reorder.
     { "company","title","location","startDate","endDate": FROZEN,
-      "highlights": [string, ...]       // EDIT — rephrase/re-emphasize; keep roughly the same number }
+      "highlights": [string, ...]       // EDIT — AT LEAST 3 per entry (see HARD REQUIREMENTS) }
   ],
   "education": [ {...} ],               // FROZEN — copy every entry and field exactly
-  "projects": [ { "name" FROZEN, "link"?, "description"? EDIT, "highlights": [..] EDIT } ],
+  "projects": [ { "name", "link"?, "description"? EDIT, "highlights": [..] EDIT } ],  // AT LEAST 1 (see HARD REQUIREMENTS)
   "skills": [ { "name": string, "items": [string, ...] } ],  // EDIT — surface job-relevant first
   "createdAt": string, "updatedAt": string   // FROZEN if present
 }
@@ -63,7 +63,6 @@ RULES
 1. FROZEN = factual. Copy character-for-character. Never alter or invent employers, titles, companies,
    locations, dates, degrees, institutions, awards, or contact details.
 2. Keep the SAME experience and education entries, in the SAME order — no adds, drops, merges, or reordering.
-   Within each experience, keep about the same number of highlights.
 3. You MAY rewrite only: "summary", the TEXT of each experience "highlights" bullet, "projects"
    descriptions/highlights, and the ORDER/grouping of "skills". Set "label" to "<Company> — <Job Title>".
 4. Truthfulness is absolute: only rephrase and re-emphasize accomplishments, metrics, and tools that are
@@ -71,7 +70,18 @@ RULES
 5. Weave the target job's keywords in where they authentically apply — prioritize the "missing keywords".
    If a keyword can't be used truthfully, omit it. Do not keyword-stuff.
 6. Skills: include only skills from the candidate's real skill set; surface the most job-relevant first.
-7. Keep each highlight tight (ideally one line) so the resume stays a single page."""
+7. Keep each highlight tight (ideally one line) so the resume stays a single page.
+
+HARD REQUIREMENTS (all must hold):
+A. SUMMARY — AT MOST 2 sentences, tight enough to fit ~3 lines (about 320 characters or fewer).
+   Never write more than 2 sentences.
+B. EXPERIENCE — EVERY experience entry has AT LEAST 3 highlights. If the source has fewer, expand
+   TRUTHFULLY: split a compound accomplishment into its parts, or surface distinct real facets of the
+   same work (scope, method, result, tools, cross-functional partners). NEVER invent a new result,
+   metric, tool, client, or responsibility just to reach 3.
+C. PROJECTS — include AT LEAST 1 project. If the input "projects" is empty, create one from a concrete
+   REAL initiative already in the candidate's experience (a launch, dashboard, campaign, or analysis they
+   actually delivered) — repackage true facts, invent nothing."""
 
 
 def base_resume(job: dict) -> dict:
@@ -159,6 +169,43 @@ def enforce_frozen(base: dict, t: dict, job: dict) -> tuple[dict, list]:
     return t, warns
 
 
+def _sentences(s: str) -> list:
+    return [x for x in re.split(r"(?<=[.!?])\s+", (s or "").strip()) if x.strip()]
+
+
+def _trim_summary(s: str) -> str:
+    """Hard guarantee: keep at most the first 2 sentences (non-fabricating — just cuts)."""
+    return " ".join(_sentences(s)[:2]).strip()
+
+
+def _requirement_failures(core: dict) -> list:
+    """The hard requirements the model must satisfy (checked after enforcement)."""
+    fails = []
+    if len(_sentences(core.get("summary", ""))) > 2:
+        fails.append("summary is more than 2 sentences")
+    thin = [e.get("title") or e.get("company") or "?"
+            for e in core.get("experience", []) if len(e.get("highlights") or []) < 3]
+    if thin:
+        fails.append("these roles need ≥3 highlights: " + ", ".join(thin))
+    if len(core.get("projects") or []) < 1:
+        fails.append("needs at least 1 project (none present)")
+    return fails
+
+
+def _clip(text: str) -> str:
+    """Copy text to the system clipboard. Returns the tool used, or '' if none."""
+    import shutil
+    for tool, cmd in (("pbcopy", ["pbcopy"]), ("wl-copy", ["wl-copy"]),
+                      ("xclip", ["xclip", "-selection", "clipboard"])):
+        if shutil.which(tool):
+            try:
+                subprocess.run(cmd, input=text, text=True, timeout=5)
+                return tool
+            except Exception:
+                return ""
+    return ""
+
+
 def import_url(core: dict) -> str:
     try:
         app = json.loads((ROOT / "config.json").read_text())["resume_builder"]["app_url"]
@@ -215,27 +262,44 @@ def main() -> int:
         return 1
 
     print(f"  drafting with Claude CLI ({args.model})…")
-    try:
-        raw = claude_json(build_prompt(job, base), args.model)
-    except Exception as e:
-        print(f"tailor_resume: Claude failed ({e})")
-        return 1
-    if not (raw.get("contact") is not None and raw.get("experience")):
-        print("tailor_resume: model output didn't look like a resume — try again.")
-        return 1
-    core, warns = enforce_frozen(base, raw, job)
+    prompt = build_prompt(job, base)
+    core, warns, fails = None, [], []
+    for attempt in range(2):
+        p = prompt if not fails else (prompt + "\n\nYour previous draft broke these HARD REQUIREMENTS. "
+                                      "Fix ALL of them (truthfully, no fabrication) and return the full JSON again:\n- "
+                                      + "\n- ".join(fails))
+        try:
+            raw = claude_json(p, args.model)
+        except Exception as e:
+            print(f"tailor_resume: Claude failed ({e})")
+            return 1
+        if not (raw.get("contact") is not None and raw.get("experience")):
+            print("tailor_resume: model output didn't look like a resume — try again.")
+            return 1
+        core, warns = enforce_frozen(base, raw, job)
+        core["summary"] = _trim_summary(core.get("summary", ""))   # guarantee ≤2 sentences
+        fails = _requirement_failures(core)
+        if not fails:
+            break
+        if attempt == 0:
+            print(f"  re-drafting to meet requirements ({'; '.join(fails)})…")
+    warns += fails   # anything still short after the retry becomes a visible warning (never fabricated to force it)
 
     out = Path(args.out) if args.out else (ROOT / "data" / f"tailored.{_slug(job.get('company',''))}-{_slug(job.get('title',''))}.json")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(core, indent=2))
     rel = out.relative_to(ROOT) if out.is_relative_to(ROOT) else out
 
+    url = import_url(core)
+    clipped = _clip(url)
     print(f"\n✓ Tailored resume written -> {rel}")
     for w in warns:
         print(f"  ⚠ {w}")
-    print("\nUse it either way:")
-    print(f"  • paste {rel} into the dashboard's \"Paste tailored JSON → build resume link\" box, or")
-    print(f"  • open this URL — the resume loads into the builder, ready for this job:\n\n{import_url(core)}\n")
+    if clipped:
+        print("\n✓ Resume-builder link copied to your clipboard — just paste it in your browser:\n")
+    else:
+        print("\nOpen this URL to load the resume into the builder:\n")
+    print(url + "\n")
     return 0
 
 
