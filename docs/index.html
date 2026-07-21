@@ -857,11 +857,6 @@ function deleteManualJob(id){if(!confirm('Remove this manually-added job?'))retu
 function atsClass(n){return n>=70?'ats-hi':n>=45?'ats-mid':'ats-lo';}
 function timeAgo(iso){if(!iso)return '—';const t=new Date(String(iso).replace(' ','T')).getTime();if(isNaN(t))return iso;
   const m=Math.max(0,Math.round((Date.now()-t)/60000));if(m<60)return m+'m ago';const h=Math.round(m/60);if(h<24)return h+'h ago';return Math.round(h/24)+'d ago';}
-// Build the builder import URL from resume_core in the browser (the base64 blob is
-// no longer shipped in jobs.json). Merges locally-loaded contact PII if present.
-function buildImportUrl(job){
-  if(!job.resume_core)return job.import_url||'#';   // manual jobs may lack a core
-  return importUrlFromCore(job.resume_core);}
 // Build a builder import URL from an arbitrary resume core (e.g. a Claude-tailored one),
 // merging in the locally-loaded contact PII if present.
 function importUrlFromCore(core){const c=(getPrivate().contact)||{};
@@ -1153,9 +1148,8 @@ function resumeBox(job){
   const hasKey=!!(anthropicCfg().key||'').trim();
   return `<div class="box"><h3>Resume — ${esc(job.best_variant||'')}</h3>${missHtml}
     <div class="rowbtns">
-      <a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a>
-      ${hasKey?`<button onclick="tailorResume('${job.id}')" title="Rewrite this resume for the job with Claude">✨ Tailor with Claude</button>`:''}
-      <button onclick="copyTailorCommand('${job.id}')" title="Copy the terminal command that generates a tailored resume JSON for this job via the Claude CLI">⌘ Copy tailor command</button>
+      ${hasKey?`<button class="primary" onclick="tailorResume('${job.id}')" title="Rewrite this resume for the job with Claude">✨ Tailor with Claude</button>`:''}
+      <button class="${hasKey?'':'primary'}" onclick="copyTailorCommand('${job.id}')" title="Copy the terminal command that generates a tailored resume JSON for this job via the Claude CLI">⌘ Copy tailor command</button>
       <span class="co" id="tailorStatus-${job.id}"></span>
     </div>${tailoredHtml}</div>`;
 }
@@ -1834,8 +1828,7 @@ function detailHtml(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
   const jdNote=job.jd_available?'':' <span class="co">(title-only)</span>';
-  return `<div class="box"><h3>Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}
-      <div class="rowbtns"><a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a></div></div>
+  return `<div class="box"><h3>Missing keywords — ${esc(job.best_variant||'')}${jdNote}</h3>${missHtml}</div>
     <div class="foot"><div class="grow"></div>
       <button onclick="openJob('${job.id}')">Open full page ↗</button>
       <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button>Apply ↗</button></a></div>`;}
