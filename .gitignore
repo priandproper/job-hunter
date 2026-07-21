@@ -19,3 +19,4 @@ __pycache__/
 *.pyc
 .DS_Store
 data/tailored*.json
+data/reddit_signals.md

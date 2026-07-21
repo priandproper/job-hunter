@@ -1,35 +1,32 @@
 {
   "companies_file": "data/companies.json",
-
   "output": {
     "public_json": "docs/jobs.json",
     "private_json": "data/private.local.json"
   },
-
   "github": {
     "owner": "priandproper",
     "repo": "job-hunter",
     "workflow": "hunt.yml",
     "ref": "main"
   },
-
   "sources": {
     "tracker_db": "../job-search/tracker/jobs.db",
     "scanner_seen": "../job-search/scanner/seen_jobs.json"
   },
-
   "resume_builder": {
     "profile_json": "data/profile.json",
     "app_url": "https://priandproper.github.io/resume-builder",
     "import_encoding": "raw"
   },
-
   "alerts": {
     "min_fit_for_alert": 55,
     "to": "priyankatambe910@gmail.com",
-    "cc": ["tambe.aniruddha3110@gmail.com", "prakashtambe5834@gmail.com"]
+    "cc": [
+      "tambe.aniruddha3110@gmail.com",
+      "prakashtambe5834@gmail.com"
+    ]
   },
-
   "contact_public": {
     "fullName": "Priyanka Tambe",
     "location": "Boston, MA",
@@ -37,34 +34,60 @@
     "github": "github.com/priandproper"
   },
   "contact_pii_file": "data/contact.local.json",
-
   "match": {
     "min_fit_score": 30,
-    "exclude_sponsorship": ["No"],
+    "exclude_sponsorship": [
+      "No"
+    ],
     "max_age_days": 45,
     "experience": {
       "analyst_max_years": 3,
       "default_max_years": 4
     },
     "extra_lane_terms": [
-      "marketing", "content marketing", "seo", "sem", "paid media",
-      "social media", "communications", "public relations", "pr",
-      "events marketing", "webinar", "community", "influencer",
-      "product manager", "product management", "program manager",
-      "operations", "strategy", "partnerships",
-      "customer success", "solutions",
-      "data analyst", "insights analyst", "marketing coordinator",
-      "marketing specialist", "digital marketing", "ecommerce",
-      "sales analyst", "sales operations analyst", "sales operations",
-      "sales ops", "operations analyst", "revenue analyst",
-      "revenue operations analyst", "gtm analyst", "strategy analyst",
-      "marketing analyst", "business analyst"
+      "marketing",
+      "content marketing",
+      "seo",
+      "sem",
+      "paid media",
+      "social media",
+      "communications",
+      "public relations",
+      "pr",
+      "events marketing",
+      "webinar",
+      "community",
+      "influencer",
+      "product manager",
+      "product management",
+      "program manager",
+      "operations",
+      "strategy",
+      "partnerships",
+      "customer success",
+      "solutions",
+      "data analyst",
+      "insights analyst",
+      "marketing coordinator",
+      "marketing specialist",
+      "digital marketing",
+      "ecommerce",
+      "sales analyst",
+      "sales operations analyst",
+      "sales operations",
+      "sales ops",
+      "operations analyst",
+      "revenue analyst",
+      "revenue operations analyst",
+      "gtm analyst",
+      "strategy analyst",
+      "marketing analyst",
+      "business analyst"
     ]
   },
   "pool_file": "data/job_pool.json",
   "pool_max_age_days": 45,
   "pool_max_size": 20000,
-
   "profile_roi": {
     "enabled": true,
     "model": "claude-opus-4-8",
@@ -74,28 +97,40 @@
     "secrets_file": ".secrets.json",
     "gist_env": "RESUME_GIST_ID"
   },
-
   "referrals": {
     "connections_csv": "data/connections.csv",
     "max_contacts_per_job": 8,
     "target_titles": [
-      "product marketing", "marketing manager", "growth marketing",
-      "demand generation", "recruiter", "talent acquisition"
+      "product marketing",
+      "marketing manager",
+      "growth marketing",
+      "demand generation",
+      "recruiter",
+      "talent acquisition"
     ],
     "company_aliases": {
-      "hubspot": ["hubspot", "hubspot jobs"],
-      "infosys finacle": ["infosys", "finacle", "edgeverve"],
-      "neurealm": ["neurealm", "gavs", "gavs technologies"]
+      "hubspot": [
+        "hubspot",
+        "hubspot jobs"
+      ],
+      "infosys finacle": [
+        "infosys",
+        "finacle",
+        "edgeverve"
+      ],
+      "neurealm": [
+        "neurealm",
+        "gavs",
+        "gavs technologies"
+      ]
     }
   },
-
   "apollo": {
     "enabled": true,
     "api_key_env": "APOLLO_API_KEY",
     "secrets_file": ".secrets.json",
     "per_job_limit": 5
   },
-
   "discovery": {
     "enabled": true,
     "jsearch_api_key_env": "JSEARCH_API_KEY",
@@ -127,5 +162,25 @@
       "product marketing manager in Boston, Massachusetts",
       "product marketing manager in San Francisco, California"
     ]
+  },
+  "reddit": {
+    "subreddits": [
+      "ProductMarketing",
+      "marketing",
+      "analytics",
+      "BusinessIntelligence",
+      "jobbit",
+      "referrals"
+    ],
+    "queries": [
+      "hiring",
+      "we're hiring",
+      "referral",
+      "product marketing",
+      "marketing analyst",
+      "business analyst"
+    ],
+    "max_age_days": 30,
+    "_note": "Free read API: create a 'script' app at reddit.com/prefs/apps, put REDDIT_CLIENT_ID/REDDIT_CLIENT_SECRET in .secrets.json"
   }
 }
