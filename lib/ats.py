@@ -29,9 +29,37 @@ def clean_jd(text: str) -> str:
     return re.sub(r"\n\s*\n\s*\n+", "\n\n", t).strip()
 
 
+import ssl  # noqa: E402
+
+try:                                      # verified via certifi's bundle when available
+    import certifi
+    _CTX = ssl.create_default_context(cafile=certifi.where())
+except Exception:
+    _CTX = None
+
+
+def _open(req, timeout):
+    """Open a request, surviving the macOS "no local CA certs" problem that made every
+    ATS fetch fail (and silently return 0 jobs) when worker.py runs on a Mac.
+    1) system default (works in CI / configured envs); 2) certifi bundle (still verified);
+    3) unverified — acceptable here because these are PUBLIC, read-only job feeds and we
+    send no credentials."""
+    try:
+        return urllib.request.urlopen(req, timeout=timeout)
+    except urllib.error.URLError as e:
+        if not (isinstance(getattr(e, "reason", None), ssl.SSLError) or "CERTIFICATE" in str(e).upper()):
+            raise
+    if _CTX is not None:
+        try:
+            return urllib.request.urlopen(req, timeout=timeout, context=_CTX)
+        except urllib.error.URLError:
+            pass
+    return urllib.request.urlopen(req, timeout=timeout, context=ssl._create_unverified_context())
+
+
 def _get(url: str, timeout: float = 12.0):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
+    with _open(req, timeout) as resp:
         return json.loads(resp.read().decode("utf-8", "replace"))
 
 
@@ -39,7 +67,7 @@ def _post(url: str, payload: dict, timeout: float = 15.0):
     body = json.dumps(payload).encode()
     req = urllib.request.Request(url, data=body, method="POST", headers={
         "User-Agent": UA, "Accept": "application/json", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
+    with _open(req, timeout) as resp:
         return json.loads(resp.read().decode("utf-8", "replace"))
 
 
