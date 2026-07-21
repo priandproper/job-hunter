@@ -60,10 +60,10 @@ DATA SHAPE  ("FROZEN" = copy from the input verbatim; "EDIT" = you may rewrite)
   "summary": string,                    // EDIT — MAX 2 sentences (see HARD REQUIREMENTS)
   "experience": [                       // Keep the SAME entries in the SAME order. Do not add, drop, merge, or reorder.
     { "company","title","location","startDate","endDate": FROZEN,
-      "highlights": [string, ...]       // EDIT — AT LEAST 3 per entry (see HARD REQUIREMENTS) }
+      "highlights": [string, ...]       // EDIT — AT LEAST 3 SUBSTANTIVE per entry (see HARD REQUIREMENTS) }
   ],
   "education": [ {...} ],               // FROZEN — copy every entry and field exactly
-  "projects": [ { "name", "link"?, "description"? EDIT, "highlights": [..] EDIT } ],  // AT LEAST 1 (see HARD REQUIREMENTS)
+  "projects": [ { "name", "link"?, "description"? EDIT, "highlights": [..] EDIT } ],  // keep ONLY the real projects from the input; may be [] (see HARD REQUIREMENTS)
   "skills": [ { "name": string, "items": [string, ...] } ],  // EDIT — surface job-relevant first
   "createdAt": string, "updatedAt": string   // FROZEN if present
 }
@@ -72,25 +72,35 @@ RULES
 1. FROZEN = factual. Copy character-for-character. Never alter or invent employers, titles, companies,
    locations, dates, degrees, institutions, awards, or contact details.
 2. Keep the SAME experience and education entries, in the SAME order — no adds, drops, merges, or reordering.
-3. You MAY rewrite only: "summary", the TEXT of each experience "highlights" bullet, "projects"
-   descriptions/highlights, and the ORDER/grouping of "skills". Set "label" to "<Company> — <Job Title>".
+3. You MAY rewrite only: "summary", the TEXT of each experience "highlights" bullet, the
+   description/highlights of the EXISTING "projects", and the ORDER/grouping of "skills". Set "label"
+   to "<Company> — <Job Title>". Do NOT add new projects.
 4. Truthfulness is absolute: only rephrase and re-emphasize accomplishments, metrics, and tools that are
    genuinely present. Never fabricate a result, and never add a skill/tool the candidate does not have.
 5. Weave the target job's keywords in where they authentically apply — prioritize the "missing keywords".
    If a keyword can't be used truthfully, omit it. Do not keyword-stuff.
 6. Skills: include only skills from the candidate's real skill set; surface the most job-relevant first.
-7. Keep each highlight tight (ideally one line) so the resume stays a single page.
+7. Each highlight is ONE substantial line — a full, specific accomplishment, not a short fragment and
+   not wrapping past a single line — so the resume stays a single page.
 
 HARD REQUIREMENTS (all must hold):
 A. SUMMARY — AT MOST 2 sentences, tight enough to fit ~3 lines (about 320 characters or fewer).
    Never write more than 2 sentences.
-B. EXPERIENCE — EVERY experience entry has AT LEAST 3 highlights. If the source has fewer, expand
-   TRUTHFULLY: split a compound accomplishment into its parts, or surface distinct real facets of the
-   same work (scope, method, result, tools, cross-functional partners). NEVER invent a new result,
-   metric, tool, client, or responsibility just to reach 3.
-C. PROJECTS — include AT LEAST 1 project. If the input "projects" is empty, create one from a concrete
-   REAL initiative already in the candidate's experience (a launch, dashboard, campaign, or analysis they
-   actually delivered) — repackage true facts, invent nothing."""
+B. EXPERIENCE — EVERY experience entry has AT LEAST 3 SUBSTANTIVE highlights, and NO entry may read
+   thinner than the others. Make each bullet a full, specific accomplishment — context/scope + what the
+   candidate did + method/tools + the outcome (with a metric when one genuinely exists) — a complete line
+   of roughly 18–30 words, never a terse fragment. BEEF UP the leaner roles so they match the depth of the
+   strongest ones: a short-tenure, consulting, or early-career role (e.g. a "Consultant" role, or an
+   earlier "Manager" role with only one source bullet) must still get 3 rich, specific bullets. Expand ONLY
+   truthfully — split a compound accomplishment into its parts, or surface distinct REAL facets of the same
+   work (scope, methodology, tools, stakeholders, results). NEVER invent a new result, metric, tool, client,
+   project, or responsibility to add depth.
+C. PROJECTS — a "project" is work that is SEPARATE from the candidate's day-to-day full-time roles: a
+   side / personal / freelance project, an academic / MBA / capstone project, a hackathon, or open-source
+   work. Tailor ONLY the real projects already in the input "projects" array. NEVER turn an accomplishment
+   that already appears (or belongs) under an EXPERIENCE entry into a "project" — duplicating full-time work
+   as a project is forbidden and looks redundant. If the input "projects" is empty, return "projects": []
+   (an empty array). Do not manufacture a project."""
 
 
 def base_resume(job: dict) -> dict:
@@ -192,12 +202,28 @@ def enforce_frozen(base: dict, t: dict, job: dict) -> tuple[dict, list]:
                 x[k] = b.get(k, "")
     else:
         warns.append(f"experience count changed ({len(be)}→{len(te)}); kept the model's — review it")
-    # project names are frozen (descriptions/highlights may change) when counts match
-    bp, tp = base.get("projects", []), t.get("projects", []) or []
-    if len(tp) == len(bp):
-        for b, x in zip(bp, tp):
-            if b.get("name"):
-                x["name"] = b["name"]
+    # Projects are frozen to the REAL project set. The model may reword each project's
+    # description/highlights, but must NOT invent projects — and especially must not
+    # manufacture one by restating a full-time-job accomplishment. If the base resume has
+    # no standalone projects, the tailored resume has none.
+    bp = base.get("projects", []) or []
+    tp = t.get("projects", []) or []
+    if not bp:
+        if tp:
+            warns.append(f"dropped {len(tp)} invented project(s) — base resume has no standalone "
+                         "projects, so none are added (a full-time accomplishment is not a project)")
+        t["projects"] = []
+    else:
+        merged = []
+        for i, b in enumerate(bp):
+            x = dict(tp[i]) if i < len(tp) else dict(b)   # take the model's tailored text by position
+            x["name"] = b.get("name", x.get("name", ""))  # name/link stay frozen to the real project
+            if b.get("link"):
+                x["link"] = b["link"]
+            merged.append(x)
+        if len(tp) != len(bp):
+            warns.append(f"projects count changed ({len(bp)}→{len(tp)}); kept the {len(bp)} real project(s)")
+        t["projects"] = merged
     for k in ("summary", "experience", "education", "projects", "skills"):
         t.setdefault(k, base.get(k, "" if k == "summary" else []))
     return t, warns
@@ -221,8 +247,6 @@ def _requirement_failures(core: dict) -> list:
             for e in core.get("experience", []) if len(e.get("highlights") or []) < 3]
     if thin:
         fails.append("these roles need ≥3 highlights: " + ", ".join(thin))
-    if len(core.get("projects") or []) < 1:
-        fails.append("needs at least 1 project (none present)")
     return fails
 
 
