@@ -783,6 +783,25 @@ function isRepost(id){return !!getReposts()[id];}
 function toggleRepost(id){const o=getReposts();if(o[id])delete o[id];else o[id]=new Date().toISOString();
   localStorage.setItem(REPOST_KEY,JSON.stringify(o));toast(o[id]?'Marked as repost':'Repost tag removed');renderJobPage(id);}
 function ljJobsUrl(job){return 'https://www.linkedin.com/jobs/search/?keywords='+encodeURIComponent(((job.title||'')+' '+(job.company||'')).trim());}
+// Boolean ("SQL-like") LinkedIn people search that surfaces likely REFERRERS for
+// this job: recruiters / talent at the company, plus peers in the same function
+// who could submit an internal referral. Biased to your 1st- & 2nd-degree network
+// (network=["F","S"]) — the people who can actually refer you, not cold strangers.
+function ljReferralUrl(job){
+  const co=(job.company||'').trim();
+  const t=(job.title||'').toLowerCase();
+  // Most-specific role family first; falls through to the broad bucket.
+  const FAMS=[['product marketing','"product marketing"'],['pmm','"product marketing"'],
+    ['product manager','"product manager"'],['product management','"product manager"'],
+    ['growth marketing','"growth marketing"'],['content marketing','"content marketing"'],
+    ['brand','"brand marketing"'],['demand gen','"demand generation"'],['marketing','marketing'],
+    ['data analyst','"data analyst"'],['business analyst','"business analyst"'],
+    ['data scientist','"data scientist"'],['analytics','analytics'],['analyst','analyst']];
+  let fam='';for(const[needle,term]of FAMS){if(t.includes(needle)){fam=term;break;}}
+  const q=`"${co}" AND (recruiter OR "talent acquisition" OR "hiring manager"${fam?` OR ${fam}`:''})`;
+  const p=new URLSearchParams({keywords:q,network:'["F","S"]',origin:'FACETED_SEARCH'});
+  return 'https://www.linkedin.com/search/results/people/?'+p.toString();
+}
 
 // ----- Manually logged jobs (stored in this browser, merged into the list) -----
 function getManualJobs(){try{return JSON.parse(localStorage.getItem(MANUAL_KEY))||[]}catch{return[]}}
@@ -2458,9 +2477,10 @@ function renderJobPage(id){
       <div class="jp-mail">${mailHtml}</div>
       <div class="rowbtns" style="margin-top:.75rem">
         <a href="${esc(ljJobsUrl(job))}" target="_blank" rel="noopener"><button>Find this posting on LinkedIn ↗</button></a>
+        <a href="${esc(ljReferralUrl(job))}" target="_blank" rel="noopener" title="Boolean LinkedIn people search — recruiters, hiring managers, and same-function peers at ${esc(job.company)}, filtered to your 1st/2nd-degree network"><button>Find referrers on LinkedIn ↗</button></a>
         <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
       </div>
-      <p class="co" style="margin:.5rem 0 0">Open the LinkedIn posting to check when it was posted / whether it's a repost.</p></div>
+      <p class="co" style="margin:.5rem 0 0">Open the posting to check when it was posted / whether it's a repost. <b>Find referrers</b> runs a boolean people search for recruiters + same-function peers at ${esc(job.company)}, biased to people you're already connected to.</p></div>
     ${enrichmentCard(job)}
     ${jdCard(job)}
     ${resumeBox(job)}
