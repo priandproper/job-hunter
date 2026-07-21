@@ -128,13 +128,19 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
     log(f"[2/6] ingest    — {len(jobs)} job(s) from scanner/tracker")
     if do_discovery:
         scannable = disc_mod.scannable_companies(cfg, REPO_ROOT)
+        log(f"        ingest    — fetching {len(scannable)} company ATS feed(s)… "
+            f"(this is the slow part — ~1–2 min, no output between updates)")
         fetched = 0
-        for c in scannable:
+        for i, c in enumerate(scannable, 1):
             new = ats_mod.fetch_company(c)
             fetched += len(new)
             jobs.extend(new)
+            if i % 15 == 0 or i == len(scannable):   # heartbeat so it never looks frozen
+                log(f"        ingest    — {i}/{len(scannable)} companies · {fetched} postings so far")
         if fetched:
             log(f"        ingest    — +{fetched} from {len(scannable)} company ATS feed(s)")
+        else:
+            log("        ingest    — 0 from ATS feeds (check network; see fetch errors above)")
         postings = disc_mod.fetch_postings(cfg, REPO_ROOT, log)  # JSearch job boards
         jobs.extend(postings)
 
