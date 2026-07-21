@@ -52,7 +52,12 @@ ATS_DOMAINS = {
     "workable.com", "breezy.hr", "bamboohr.com",
 }
 
-# Ordered strongest-signal-first: a rejection is definitive, an "applied" receipt is weak.
+# Ordered strongest-signal-first, and the ORDER is load-bearing. A rejection is
+# definitive. A GENUINE interview invite sits ABOVE the "applied" receipt so a real
+# invite that politely opens with "thanks for applying" is still an interview. The
+# SOFT interview hints sit BELOW "applied" so an automated application receipt — which
+# routinely carries boilerplate like "next steps" or "we'll schedule a conversation" —
+# is not mistaken for an interview.
 # Each rule: (status, confidence, [regexes]) — matched against subject + body.
 RULES = [
     ("rejected", 0.9, [
@@ -65,17 +70,28 @@ RULES = [
         r"pleased to (extend|offer)", r"offer of employment", r"we('| a)re excited to offer",
         r"your (job )?offer", r"formal offer",
     ]),
-    ("interview", 0.8, [
-        r"(schedule|set up|book|arrange) (a|your|some) (time|call|chat|interview|conversation)",
-        r"invite you to (an )?interview", r"like to (interview|speak|chat|connect)",
-        r"phone screen", r"next (round|step|stage)", r"availability (for|this)",
-        r"interview (invitation|request)", r"move you (forward|to the next)",
+    # STRONG interview signals: a real person inviting THIS candidate to interview.
+    ("interview", 0.85, [
+        r"invite you (to|for) (an? )?(interview|phone screen|conversation|call)",
+        r"we('| woul)d (like|love) to (interview|meet|speak) (with )?you",
+        r"interview (invitation|request)",
+        r"(please |kindly )?(share|send|provide|confirm|let us know) your availability",
+        r"(phone|video|onsite|technical) (screen|interview) (is|has been) scheduled",
+        r"(schedule|set up|book) (your|a|an) (interview|phone screen)",
+        r"book a time (with|on|using)", r"calendly\.com",
     ]),
+    # Application RECEIPT (automated). Definitive — beats the soft interview hints below.
     ("applied", 0.6, [
         r"thank(s| you) for (applying|your (application|interest))",
         r"we('| ha)ve received your application", r"application (has been )?received",
         r"successfully (applied|submitted)", r"received your application",
         r"your application (to|for|has been)",
+    ]),
+    # SOFT interview hints — only reached when the email is NOT an application receipt.
+    ("interview", 0.65, [
+        r"(schedule|set up|book|arrange) (a|your|some) (time|call|chat|conversation)",
+        r"like to (speak|chat|connect)", r"phone screen",
+        r"next (round|step|stage)", r"availability (for|this)", r"move you (forward|to the next)",
     ]),
 ]
 

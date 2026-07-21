@@ -1913,11 +1913,23 @@ function parseFrom(v){const m=v.match(/^(.*?)<([^>]+)>/);return m?{name:m[1].rep
 const INBOX_ATS=new Set(['greenhouse.io','greenhouse-mail.io','lever.co','hire.lever.co','myworkday.com',
   'myworkdayjobs.com','ashbyhq.com','smartrecruiters.com','icims.com','jobvite.com','taleo.net',
   'successfactors.com','workable.com','breezy.hr','bamboohr.com']);
+// Ordered strongest-signal-first, and the ORDER is load-bearing: a genuine interview
+// invite (below) sits ABOVE the "applied" receipt so a real invite that politely opens
+// with "thanks for applying" is still an interview; the softer interview hints sit
+// BELOW "applied" so an automated application receipt — which routinely contains
+// boilerplate like "next steps" or "we'll schedule a conversation" — is NOT mistaken
+// for an interview (the original bug: a Greenhouse "Thank you for applying!" tagged
+// Interview).
 const INBOX_RULES=[
   ['rejected',0.9,[/we('| ha)ve decided (to|not)/,/not (be )?(moving|proceeding|advancing) forward/,/move forward with other candidates/,/will not be moving forward/,/unfortunately,? (we|after)/,/position has been filled/,/pursuing other candidates/,/not (be )?selected for/,/regret to inform/]],
   ['offer',0.75,[/pleased to (extend|offer)/,/offer of employment/,/we('| a)re excited to offer/,/your (job )?offer/,/formal offer/]],
-  ['interview',0.8,[/(schedule|set up|book|arrange) (a|your|some) (time|call|chat|interview|conversation)/,/invite you to (an )?interview/,/like to (interview|speak|chat|connect)/,/phone screen/,/next (round|step|stage)/,/availability (for|this)/,/interview (invitation|request)/,/move you (forward|to the next)/]],
+  // STRONG interview signals: a real person inviting THIS candidate to interview.
+  ['interview',0.85,[/invite you (to|for) (an? )?(interview|phone screen|conversation|call)/,/we('| woul)d (like|love) to (interview|meet|speak) (with )?you/,/interview (invitation|request)/,/(please |kindly )?(share|send|provide|confirm|let us know) your availability/,/(phone|video|onsite|technical) (screen|interview) (is|has been) scheduled/,/(schedule|set up|book) (your|a|an) (interview|phone screen)/,/book a time (with|on|using)/,/calendly\.com/]],
+  // Application RECEIPT (automated "we got your application"). Definitive — beats the
+  // soft interview hints below, which these receipts often also contain.
   ['applied',0.6,[/thank(s| you) for (applying|your (application|interest))/,/we('| ha)ve received your application/,/application (has been )?received/,/successfully (applied|submitted)/,/received your application/,/your application (to|for|has been)/]],
+  // SOFT interview hints — only reached when the email is NOT an application receipt.
+  ['interview',0.65,[/(schedule|set up|book|arrange) (a|your|some) (time|call|chat|conversation)/,/like to (speak|chat|connect)/,/phone screen/,/next (round|step|stage)/,/availability (for|this)/,/move you (forward|to the next)/]],
 ];
 function classifyEmail(subject,body){const hay=(subject+'\n'+body).toLowerCase();
   for(const [st,conf,pats] of INBOX_RULES)if(pats.some(p=>p.test(hay)))return{status:st,conf};return{status:null,conf:0};}
