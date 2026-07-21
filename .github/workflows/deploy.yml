@@ -1,0 +1,37 @@
+name: deploy
+
+# Local-first setup: all data (fetch/enrich/tailor/outreach) is produced on your
+# machine and committed. This workflow does ONE thing — deploy the docs/ folder to
+# GitHub Pages whenever you push — so the dashboard at the Pages URL reflects your
+# latest local refresh. No cron, no scraping, no secrets, no bot commits.
+# (Pages Source must be set to "GitHub Actions".)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # manual redeploy from the Actions tab
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Upload dashboard as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

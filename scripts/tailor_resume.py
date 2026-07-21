@@ -2,7 +2,7 @@
 """Tailor your resume to ONE job via the Claude CLI → a ready-to-import JSON payload.
 
 Replaces the dashboard's "Copy prompt" flow. Given a job (by --id / --company / --job)
-it reads the live jobs.json (same data the dashboard shows), takes the resume the app
+it reads your local jobs.json (run worker.py locally to refresh it), takes the resume the app
 loaded for that job (job.resume_core, or --resume <file>), and asks Claude — through the
 `claude -p` CLI, your logged-in plan, no API key — to rewrite it for this role using the
 exact same rules the app uses (rephrase language, never invent facts).
@@ -180,7 +180,7 @@ def main() -> int:
     ap.add_argument("--model", default="opus", help="Claude model for the CLI (default opus)")
     ap.add_argument("--out", default="", help="output JSON file (default data/tailored.<slug>.json)")
     ap.add_argument("--list", action="store_true", help="list matching roles (with ids) and exit")
-    ap.add_argument("--local", action="store_true", help="use local docs/jobs.json instead of the live one")
+    ap.add_argument("--live", action="store_true", help="use the deployed jobs.json (GitHub Pages) instead of your local one")
     args = ap.parse_args()
 
     if not __import__("shutil").which("claude"):
@@ -190,7 +190,7 @@ def main() -> int:
         print("tailor_resume: pass --id, or --company and/or --job.")
         return 2
 
-    doc, src = ro._load_jobs(args.local)
+    doc, src = ro._load_jobs(args.live)
     job, cands = ro.find_job(doc.get("jobs", []), args.company, args.job, args.job_id)
     if not job:
         who = f"id={args.job_id!r}" if args.job_id else f"company={args.company!r} job={args.job!r}"

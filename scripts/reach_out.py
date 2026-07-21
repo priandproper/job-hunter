@@ -23,9 +23,8 @@ or --list to browse a company's roles by fit first.
   python3 scripts/reach_out.py --company Datadog --job "Product Marketing Manager - APM"
   python3 scripts/reach_out.py --company Twilio --top 5 --out data/reachout.md
 
-Reads the LIVE deployed jobs.json (same data the dashboard shows) so ids from the
-dashboard URL always match — pass --local to use your working-tree docs/jobs.json.
-Tip: --id is the reliable selector (title matching is fuzzy).
+Reads your local docs/jobs.json (the source of truth — run worker.py locally to refresh
+it); pass --live to use the deployed one instead. Tip: --id is the reliable selector.
 """
 
 import argparse
@@ -65,12 +64,12 @@ def _urlopen(url: str):
     return urllib.request.urlopen(req, timeout=15, context=ctx)
 
 
-def _load_jobs(use_local: bool):
-    """Read the SAME data the dashboard shows: the live jobs.json from GitHub Pages
-    (so ids from the dashboard/URL always match). Falls back to local docs/jobs.json
-    when offline or --local. Returns (doc, source_label)."""
+def _load_jobs(prefer_live: bool = False):
+    """Read local docs/jobs.json (the source of truth in this local-first setup — you
+    run worker.py locally to refresh it). With --live, fetch the deployed jobs.json from
+    GitHub Pages instead. Returns (doc, source_label)."""
     local = json.loads(JOBS.read_text()) if JOBS.exists() else {"jobs": []}
-    if use_local:
+    if not prefer_live:
         return local, "local docs/jobs.json"
     gh = {}
     try:
@@ -275,8 +274,8 @@ def main() -> int:
     ap.add_argument("--out", default="", help="also write the results to this markdown file")
     ap.add_argument("--list", action="store_true",
                     help="just list the matching roles (fit-ranked, with ids) and exit — don't draft")
-    ap.add_argument("--local", action="store_true",
-                    help="use local docs/jobs.json instead of the live deployed one")
+    ap.add_argument("--live", action="store_true",
+                    help="use the deployed jobs.json from GitHub Pages instead of your local one")
     args = ap.parse_args()
 
     if not __import__("shutil").which("claude"):
@@ -286,7 +285,7 @@ def main() -> int:
         print("reach_out: pass --id, or --company and/or --job.")
         return 2
 
-    doc, src = _load_jobs(args.local)
+    doc, src = _load_jobs(args.live)
     job, cands = find_job(doc.get("jobs", []), args.company, args.job, args.job_id)
     if not job:
         who = f"id={args.job_id!r}" if args.job_id else f"company={args.company!r} job={args.job!r}"

@@ -186,6 +186,9 @@
   .auto-body{display:flex;flex-direction:column;gap:.12rem}
   .auto-card b{font-weight:700;font-size:.9rem;letter-spacing:-.01em} .auto-card .auto-sub{font-size:.72rem;color:var(--muted)}
   .auto-foot{margin-top:auto;min-height:1rem;display:flex;align-items:center}
+  .cmd-copy{font-size:.62rem;font-weight:700;color:var(--muted);opacity:0;transition:opacity .16s;text-transform:uppercase;letter-spacing:.04em}
+  .auto-card:hover .cmd-copy{opacity:1}
+  .auto-cmd{margin-top:auto;width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:7px;padding:.35rem .45rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .tint-indigo .auto-ic{background:linear-gradient(135deg,#6366f1,#4f46e5)}
   .tint-amber .auto-ic{background:linear-gradient(135deg,#fbbf24,#d97706)}
   .tint-violet .auto-ic{background:linear-gradient(135deg,#c084fc,#7c3aed)}
@@ -1280,35 +1283,23 @@ const ICON_RADAR=_S+'<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16
 const ICON_SPARK=_S+'<path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></svg>';
 // Each automation is its own card: icon, tint, and animated state. To add one,
 // append here — the grid + state machine handle the rest (extensible by design).
-const AUTOS=[
-  {mode:'refresh',label:'Refresh jobs',sub:'re-scan feeds + rebuild',tint:'indigo',icon:ICON_REFRESH},
-  {mode:'digest', label:'Send digest', sub:'email top picks now',    tint:'amber', icon:ICON_MAIL},
-  {mode:'discover',label:'Discovery sweep',sub:'find new H-1B companies',tint:'violet',icon:ICON_RADAR},
-  {mode:'tidy',   label:'Re-tidy',    sub:'drop stale + recompute',  tint:'green', icon:ICON_SPARK},
+// Local-first: these run on your machine. Each card copies its terminal command.
+const LOCAL_CMDS=[
+  {label:'Refresh jobs',      sub:'fetch feeds + rebuild jobs.json',    tint:'indigo', icon:ICON_REFRESH, cmd:'python3 worker.py'},
+  {label:'Discover companies',sub:'add YC + new H-1B employers',        tint:'violet', icon:ICON_RADAR,   cmd:'python3 scripts/yc_discover.py'},
+  {label:'Enrich jobs',       sub:'sponsorship · skills · Boston score',tint:'green',  icon:ICON_SPARK,  cmd:'python3 scripts/enrich_jobs.py'},
+  {label:'Email digest',      sub:'new-job alerts (needs Gmail creds)', tint:'amber',  icon:ICON_MAIL,   cmd:'python3 scripts/notify.py'},
+  {label:'Publish',           sub:'commit + push → deploy the dashboard',tint:'indigo',icon:ICON_REFRESH,cmd:'git add -A && git commit -m "refresh" && git push'},
 ];
-function autoCardState(mode){
-  const e=runs[mode];if(!e)return {state:'',foot:''};
-  let state,cls,txt,lead;
-  if(e.status==='completed'){const ok=e.conclusion==='success';state=ok?'is-done':'is-fail';cls=ok?'ok':'fail';
-    txt=(ok?'done':(e.conclusion||'failed'))+' · '+timeAgo(e.updated||e.since);lead=`<span class="pop">${ok?'✓':'✕'}</span>`;}
-  else if(!e.id||e.status==='queued'){state='is-queued';cls='run';txt='queued…';lead='<span class="dot"></span>';}
-  else{state='is-running';cls='run';txt='running · '+timeAgo(e.started||e.since);lead='<span class="dot"></span>';}
-  return {state,foot:`<span class="auto-st ${cls}">${lead}${esc(txt)}</span>`};
-}
+function copyLocalCmd(i){const c=LOCAL_CMDS[i];if(!c)return;copyText(c.cmd);toast('Command copied — paste it in your terminal');}
 function renderAuto(){
   const box=document.getElementById('autobody');if(!box)return;
-  const hasTok=!!ghToken();
-  const note=hasTok?'Trigger any action — each shows its own live status until it finishes.'
-    :'Connect GitHub in <a href="#/settings">Settings</a> to enable one-click automations.';
-  const items=AUTOS.map(a=>{
-    const {state,foot}=autoCardState(a.mode);
-    return `<button class="auto-card tint-${a.tint} ${state}" ${hasTok?'':'disabled'} onclick="ghDispatch('${a.mode}')">
+  const items=LOCAL_CMDS.map((a,i)=>`<button class="auto-card tint-${a.tint}" onclick="copyLocalCmd(${i})" title="Copy: ${esc(a.cmd)}">
       <span class="auto-ic">${a.icon}</span>
-      <span class="auto-body"><b>${a.label}</b><span class="auto-sub">${a.sub}</span></span>
-      <span class="auto-foot">${foot}</span>
-      <span class="auto-bar"></span>
-    </button>`;}).join('');
-  box.innerHTML=`<p class="auto-note">${note}</p><div class="auto-grid">${items}</div>`;
+      <span class="auto-body"><b>${esc(a.label)} <span class="cmd-copy">⌘ copy</span></b><span class="auto-sub">${esc(a.sub)}</span></span>
+      <code class="auto-cmd">${esc(a.cmd)}</code>
+    </button>`).join('');
+  box.innerHTML=`<p class="auto-note">Everything runs on your machine now. Copy a command → paste it in your terminal. <b>Refresh</b> to pull new jobs, then <b>Publish</b> to push them live. (Resume tailoring &amp; outreach are per-job scripts — the ⌘ buttons on each job page.)</p><div class="auto-grid">${items}</div>`;
 }
 function renderSettings(){
   const hasTok=!!ghToken();
@@ -1318,7 +1309,7 @@ function renderSettings(){
       <div class="set-hd">
         <div>
           <h2>GitHub connection</h2>
-          <p class="sub">Connect the <code>${g.owner}/${g.repo}</code> repo to trigger one-click automations (refresh, digest, discovery) — each shows its own live status on the Cockpit. Your token is stored only in this browser and never committed.</p>
+          <p class="sub">Connect the <code>${g.owner}/${g.repo}</code> repo so you can <b>publish your persona &amp; company-watchlist Gists</b> below — your local <code>worker.py</code> reads them to match jobs. (Everything else runs locally now.) Your token is stored only in this browser and never committed.</p>
         </div>
         <span class="conn ${hasTok?'ok':'off'}">${hasTok?'Connected':'Not connected'}</span>
       </div>
