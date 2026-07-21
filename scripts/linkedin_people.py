@@ -226,9 +226,30 @@ _IN_LINK = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]*linkedin\.com/in/[^)\s]+)
 _ANY_MDLINK = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]+)\)")
 _DEG_RE = re.compile(r"(1st|2nd|3rd)\b", re.I)
 _DEG_ONLY = re.compile(r"^[•·\-\s]*(1st|2nd|3rd)\s*$", re.I)
+# In a plain-text paste the degree sits on the SAME line as the name: "Adam Webster  • 2nd".
+_DEG_INLINE = re.compile(r"^(.+?)\s*[•·]\s*(1st|2nd|3rd)\b", re.I)
 _MUTUAL_RE = re.compile(r"mutual connection", re.I)
-_RECRUITER_RE = re.compile(r"(recruit\w*|talent acquisition|talent partner|sourcer|\btalent\b)", re.I)
+_RECRUITER_RE = re.compile(r"(recruit\w*|talent acquisition|talent partner|sourcer|headhunter|\btalent\b)", re.I)
 _REL_FROM_DEG = {"1st": "1st", "2nd": "2nd", "3rd": "unknown"}
+# LinkedIn UI chrome that shows up between people in a plain-text paste.
+_CHROME_RE = re.compile(r"^(connect|message|follow|following|pending|more|save|view my services|"
+                        r"open to work|premium|status is (online|offline)|"
+                        r"\d[\d,.]*[kKmM]?\+?\s+followers?)$", re.I)
+
+
+def _is_chrome(s: str) -> bool:
+    return bool(_CHROME_RE.match(s.strip()))
+
+
+def _degree_anchor(line: str):
+    """(name, degree) if this line begins a person ('Name • 2nd'), else None."""
+    m = _DEG_INLINE.match(line.strip())
+    if not m:
+        return None
+    name = m.group(1).strip(" •·-")
+    if not name or _is_chrome(name) or _MUTUAL_RE.search(name):
+        return None
+    return name, m.group(2).lower()
 
 
 def _is_search_results(block: str) -> bool:
@@ -237,8 +258,11 @@ def _is_search_results(block: str) -> bool:
                if _IN_LINK.search(ln) and not _MUTUAL_RE.search(ln))
     if prof >= 2:
         return True
-    # Plain-text paste (no markdown links): fall back to counting degree markers.
-    return sum(1 for ln in block.splitlines() if _DEG_ONLY.match(ln.strip())) >= 2
+    # Plain-text paste (no markdown links): count person anchors ("Name • 2nd" lines,
+    # or a lone "· 2nd" line).
+    deg = sum(1 for ln in block.splitlines()
+              if _degree_anchor(ln) or _DEG_ONLY.match(ln.strip()))
+    return deg >= 2
 
 
 def _clean_profile_url(u: str) -> str:
@@ -271,8 +295,16 @@ def _split_headline(h: str) -> tuple:
     return title, company, past
 
 
-_CHROME_LINE = re.compile(r"^(connect|message|follow|following|pending|more|save|"
-                          r"status is (online|offline)|open to work)$", re.I)
+def _mutual_names(s: str) -> list:
+    """Names from a "<X> (and Y / and N other) mutual connection(s)" line."""
+    names = [t.strip() for t, _ in _ANY_MDLINK.findall(s)]     # markdown links, if any
+    if names:
+        return names
+    core = re.sub(r"\s+(is|are)\s+.*$", "", s)                  # drop " is/are a mutual …"
+    core = re.sub(r"\s+and\s+\d+\s+other.*$", "", core, flags=re.I)  # "… and 9 other"
+    core = re.sub(r"\s+mutual connections?.*$", "", core, flags=re.I)
+    parts = re.split(r",\s*|\s+and\s+", core)
+    return [p.strip() for p in parts if p.strip() and not re.match(r"\d+\s+other", p, re.I)]
 
 
 def _collect_md(text: str) -> list:
@@ -316,48 +348,38 @@ def _collect_md(text: str) -> list:
 
 
 def _collect_plain(text: str) -> list:
-    """Plain-text paste (no links): anchor each person on their "· 2nd" degree line.
-
-    LinkedIn plain copy lays out a card as: name (often printed twice) / degree /
-    headline / location / Connect / "<X> is a mutual connection".
+    """Plain-text paste (no links): each person is a "Name • 2nd" line followed by a
+    headline, a location, some chrome (Connect / Follow / N followers) and a
+    "<X> is a mutual connection" line — with blank lines in between.
     """
     lines = [ln.strip() for ln in text.splitlines()
              if ln.strip() and ln.strip() not in ("*", "•", "·", "-", "—")]
     n = len(lines)
-    people = []
-    for d, ln in enumerate(lines):
-        if not _DEG_ONLY.match(ln):
-            continue
-        # Name: nearest preceding line that isn't chrome / a mutual / another degree.
-        name = ""
-        j = d - 1
-        while j >= 0:
-            c = lines[j]
-            if _DEG_ONLY.match(c) or _MUTUAL_RE.search(c) or _CHROME_LINE.match(c):
+
+    # Locate every person anchor and its (name, degree).
+    anchors = []
+    for i, ln in enumerate(lines):
+        a = _degree_anchor(ln)                      # "Name • 2nd" on one line
+        if a:
+            anchors.append((i, a[0], a[1]))
+        elif _DEG_ONLY.match(ln):                   # lone "· 2nd": name is the line above
+            j = i - 1
+            while j >= 0 and (_DEG_ONLY.match(lines[j]) or _MUTUAL_RE.search(lines[j])
+                              or _is_chrome(lines[j])):
                 j -= 1
-                continue
-            name = c
-            break
-        # Headline then location: the next 2 content lines after the degree.
-        details, k = [], d + 1
-        while k < n and len(details) < 2:
+            anchors.append((i, lines[j] if j >= 0 else "", _DEG_RE.search(ln).group(1).lower()))
+
+    people = []
+    for idx, (i, name, deg) in enumerate(anchors):
+        end = anchors[idx + 1][0] if idx + 1 < len(anchors) else n
+        details, mutuals = [], []
+        for k in range(i + 1, end):
             c = lines[k]
-            if _DEG_ONLY.match(c):
-                break
-            if _MUTUAL_RE.search(c) or _CHROME_LINE.match(c):
-                k += 1
-                continue
-            details.append(c)
-            k += 1
-        # Mutuals: any "<X> is a mutual connection" up to the next person.
-        mutuals, k = [], d + 1
-        while k < n and not _DEG_ONLY.match(lines[k]):
-            if _MUTUAL_RE.search(lines[k]):
-                m = re.match(r"(.+?)\s+(?:is|are)\s+.*mutual", lines[k])
-                if m:
-                    mutuals.append(m.group(1).strip())
-            k += 1
-        people.append({"name": name, "url": "", "degree": _DEG_RE.search(ln).group(1).lower(),
+            if _MUTUAL_RE.search(c):
+                mutuals.extend(_mutual_names(c))
+            elif not _is_chrome(c) and len(details) < 2:   # headline, then location
+                details.append(c)
+        people.append({"name": name, "url": "", "degree": deg,
                        "details": details, "mutuals": mutuals})
     return people
 
