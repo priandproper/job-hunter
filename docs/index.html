@@ -2633,7 +2633,7 @@ const PROFILE_ROI_SYS=`You are a sharp, honest career and resume coach for a job
 Rules:
 - Ground every recommendation in the actual JDs. In "why"/"demand", cite how many of the target roles want it (e.g. "12 of 20 roles ask for SQL").
 - Rank by ROI = (how many target jobs it helps) x (impact) / (effort). Put the biggest wins first.
-- skills_to_learn and projects_to_build must be things the candidate can genuinely acquire. Each project should unlock concrete, truthful resume bullets and cover specific JD keywords (list them).
+- skills_to_learn and projects_to_build must be things the candidate can genuinely acquire. Give 3-5 projects_to_build, ranked by ROI. Each project must be concretely buildable (name a specific scope + the tools/tech to use), unlock concrete, truthful resume bullets, cover specific JD keywords (list them), and note a rough effort. Prefer projects that prove skills wanted by MULTIPLE roles.
 - resume_reframes: "current" = how the resume reads now (or the gap); "suggested" = a stronger phrasing. Set defensible=true when it's a truthful re-emphasis of what the candidate clearly did. Set defensible=false for bolder phrasings that ASSUME plausible-but-unverified experience — write those as a template the candidate must verify is true before using. NEVER fabricate employers, job titles, dates, or degrees.
 - completeness_score (0-100) = how ready this profile is for the target roles.
 - "type" is one of: skill, project, reframe, study. "effort" is one of: low, medium, high.`;
@@ -2668,7 +2668,7 @@ Return a clear, well-organized plan with these sections:
 1. PROFILE READINESS — a 0–100 score for how ready I am for these roles, plus 1–2 sentences on the single biggest thing holding me back.
 2. HIGHEST-ROI MOVES — a ranked list. For each: what to do, why (cite the JDs / counts), and effort (low / medium / high).
 3. SKILLS TO LEARN — the specific skills/tools these roles want that my resume lacks; for each, how many roles want it and how it's actually used in these JDs.
-4. PROJECTS TO BUILD — 2–4 portfolio projects that would close the biggest gaps; for each, the exact resume bullet(s) it would let me add and the JD keywords it covers.
+4. PROJECTS TO BUILD — 3–5 concrete, buildable portfolio projects, RANKED by ROI, that would close the biggest gaps and give me real proof for these roles. For EACH project give: (a) what to build — a specific scope and the exact tools/tech to use; (b) which JD skills/keywords it proves and how many of these roles want them; (c) the exact resume bullet(s) it would let me add (mark any that assume experience I must confirm with ⚠); (d) a rough effort/time-to-build (e.g. a weekend, ~1 week, ~2–3 weeks). Prefer projects that double as proof for MULTIPLE target roles, and lead with the single project I should start this week.
 5. RESUME REWRITES — concrete rewrites/additions to my summary and experience bullets to match these roles (mark unverified ones with ⚠).
 6. WHAT TO STUDY — topics/concepts to learn, tied to what these JDs emphasize.
 7. RECRUITER TALKING POINTS — 3–4 things to say (and be ready to back up) in a screen for these roles.
