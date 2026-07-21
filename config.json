@@ -59,7 +59,7 @@
   },
   "pool_file": "data/job_pool.json",
   "pool_max_age_days": 45,
-  "pool_max_size": 4000,
+  "pool_max_size": 20000,
 
   "profile_roi": {
     "enabled": true,

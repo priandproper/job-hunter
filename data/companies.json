@@ -889,6 +889,107 @@
    "h1b_note": "pending verification",
    "hq": "",
    "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "netflix",
+   "slug": "netflix",
+   "name": "Netflix",
+   "h1b": true,
+   "h1b_note": "large employer",
+   "hq": "Los Gatos, CA",
+   "source": "seed:custom-adapter"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "nvidia",
+   "name": "Nvidia",
+   "wd_host": "nvidia.wd5.myworkdayjobs.com",
+   "wd_tenant": "nvidia",
+   "wd_site": "NVIDIAExternalCareerSite",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "adobe",
+   "name": "Adobe",
+   "wd_host": "adobe.wd5.myworkdayjobs.com",
+   "wd_tenant": "adobe",
+   "wd_site": "external_experienced",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "autodesk",
+   "name": "Autodesk",
+   "wd_host": "autodesk.wd1.myworkdayjobs.com",
+   "wd_tenant": "autodesk",
+   "wd_site": "Ext",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "paypal",
+   "name": "PayPal",
+   "wd_host": "paypal.wd1.myworkdayjobs.com",
+   "wd_tenant": "paypal",
+   "wd_site": "jobs",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "mastercard",
+   "name": "Mastercard",
+   "wd_host": "mastercard.wd1.myworkdayjobs.com",
+   "wd_tenant": "mastercard",
+   "wd_site": "CorporateCareers",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "workday",
+   "name": "Workday",
+   "wd_host": "workday.wd5.myworkdayjobs.com",
+   "wd_tenant": "workday",
+   "wd_site": "Workday",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
+  },
+  {
+   "active": true,
+   "ats": "workday",
+   "slug": "hp",
+   "name": "HP",
+   "wd_host": "hp.wd5.myworkdayjobs.com",
+   "wd_tenant": "hp",
+   "wd_site": "ExternalCareerSite",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:workday-batch"
   }
  ]
 }
