@@ -1010,9 +1010,8 @@ function jdCard(job){
   if(!jd)return `<div class="box"><h3>Job description</h3><p class="co">No description captured for this posting yet — open the posting to read it, or it will fill in on the next scraper run.</p>
     <div class="rowbtns" style="margin-top:.5rem"><a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="sm">Open posting ↗</button></a></div></div>`;
   return `<div class="box"><div class="jd-hd"><h3>Job description</h3>
-    <div class="rowbtns"><button class="primary sm" onclick="copyFocusPrompt('${job.id}')">✨ What to focus on</button>
-      <button class="sm" onclick="copyJd('${job.id}')">Copy JD</button></div></div>
-    <p class="co">The full posting — the source of truth for what to emphasize, what projects to build, and what to tell recruiters. “What to focus on” turns it into concrete guidance.</p>
+    <div class="rowbtns"><button class="sm" onclick="copyJd('${job.id}')">Copy JD</button></div></div>
+    <p class="co">The full posting — the source of truth for what to emphasize, what projects to build, and what to tell recruiters.</p>
     ${kw.length?`<div class="jd-kw">${kw.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:''}
     <div class="jd-body">${esc(jd)}</div></div>`;
 }
@@ -1130,11 +1129,7 @@ function resumeBox(job){
       ${hasKey?`<button onclick="tailorResume('${job.id}')" title="Rewrite this resume for the job with Claude">✨ Tailor with Claude</button>`:''}
       <button onclick="copyTailorCommand('${job.id}')" title="Copy the terminal command that generates a tailored resume JSON for this job via the Claude CLI">⌘ Copy tailor command</button>
       <span class="co" id="tailorStatus-${job.id}"></span>
-    </div>
-    <details class="paste-tailored"><summary>Paste tailored JSON → build resume link</summary>
-      <textarea id="pasteJson-${job.id}" class="msg" placeholder="Paste the JSON from scripts/tailor_resume.py (data/tailored.*.json) here…" spellcheck="false"></textarea>
-      <div class="rowbtns"><button class="primary" onclick="applyPastedResume('${job.id}')">Build resume link</button></div>
-    </details>${tailoredHtml}</div>`;
+    </div>${tailoredHtml}</div>`;
 }
 // Location-agnostic identity of a posting: normalized company + title. Mirrors
 // scripts/notify.py's job_sig so a repost / re-listing / punctuation tweak of a
@@ -2388,8 +2383,7 @@ function peopleCard(job){
   return `<div class="box"><h3>People</h3>
     <p class="co">Anyone connected to this job — hiring manager, recruiter, referrer, or a contact who works there. Link them, then generate a tailored outreach prompt. Stored in this browser only.</p>
     ${rows||'<p class="co">No one linked yet.</p>'}
-    <div class="rowbtns" style="margin-top:.6rem"><button class="primary" onclick="openLinkPerson('${job.id}')">+ Add a person</button>
-      <a class="li-search" href="${esc(ljPeopleUrl(job,null))}" target="_blank" rel="noopener">Find people at ${esc(job.company)} on LinkedIn ↗</a></div>
+    <div class="rowbtns" style="margin-top:.6rem"><button class="primary" onclick="openLinkPerson('${job.id}')">+ Add a person</button></div>
   </div>`;
 }
 
@@ -2480,8 +2474,7 @@ function renderJobPage(id){
     ${jdCard(job)}
     ${resumeBox(job)}
     ${peopleCard(job)}
-    ${networkCard(job)}
-    ${outreachHtml(job)}`;
+    ${networkCard(job)}`;
 }
 
 // ----- render / routing -----
