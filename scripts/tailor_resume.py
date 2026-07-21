@@ -19,6 +19,7 @@ real resume after generation, so nothing factual can drift. Output:
 """
 
 import argparse
+import base64
 import json
 import re
 import subprocess
@@ -211,7 +212,13 @@ def import_url(core: dict) -> str:
         app = json.loads((ROOT / "config.json").read_text())["resume_builder"]["app_url"]
     except Exception:
         app = "https://priandproper.github.io/resume-builder"
-    return app.rstrip("/") + "/?import=" + urllib.parse.quote(json.dumps(core))
+    # Payload goes in the URL *hash* (#import=), not the query string. A full
+    # resume JSON is ~6–10 KB; in the query string that overflows the server's
+    # request-line limit and GitHub Pages returns "414 URI Too Long" before the
+    # app loads. The hash is never sent to the server, so it always loads. base64
+    # keeps it compact (and the builder decodes base64 UTF-8).
+    b64 = base64.b64encode(json.dumps(core, separators=(",", ":")).encode("utf-8")).decode("ascii")
+    return app.rstrip("/") + "/#import=" + urllib.parse.quote(b64)
 
 
 def _slug(s: str) -> str:

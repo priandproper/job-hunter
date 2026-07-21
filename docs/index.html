@@ -863,7 +863,10 @@ function buildImportUrl(job){
 // merging in the locally-loaded contact PII if present.
 function importUrlFromCore(core){const c=(getPrivate().contact)||{};
   const merged=JSON.parse(JSON.stringify(core));merged.contact={...(merged.contact||{}),...c};
-  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/?import='+encodeURIComponent(JSON.stringify(merged));}
+  // Payload in the URL hash (#import=), not the query string: a full resume JSON
+  // overflows the server request-line limit as a query param (GitHub Pages -> 414),
+  // but the hash is never sent to the server, so the page always loads.
+  return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/#import='+encodeURIComponent(JSON.stringify(merged));}
 
 // ----- Copy-prompt flow: build a full tailoring prompt, paste the JSON back -----
 function builderResumes(){try{return JSON.parse(localStorage.getItem(BUILDER_RESUMES_KEY))||[]}catch{return[]}}
