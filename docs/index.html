@@ -805,6 +805,27 @@ function ljReferralUrl(job){
   const p=new URLSearchParams({keywords:q,network:'["F","S"]',origin:'FACETED_SEARCH'});
   return 'https://www.linkedin.com/search/results/people/?'+p.toString();
 }
+// Your schools, from the resume the app loaded (same across jobs). Powers the alumni lane.
+function candidateSchools(){
+  const seen=new Set(), out=[];
+  for(const j of (DOC.jobs||[])){
+    for(const e of (((j.resume_core||{}).education)||[])){
+      const n=(e.institution||'').trim();
+      if(n && !seen.has(n.toLowerCase())){seen.add(n.toLowerCase());out.push(n);}
+    }
+    if(out.length)break;   // education is identical across jobs — one pass is enough
+  }
+  return out;
+}
+// Alumni-at-company people search: same-school people ARE far likelier to reply and refer.
+// Boolean "<Company>" AND ("School A" OR "School B" …), biased to your 1st/2nd-degree network.
+function ljAlumniUrl(job){
+  const co=(job.company||'').trim();
+  const schoolOr=candidateSchools().map(s=>`"${s}"`).join(' OR ');
+  const q=schoolOr?`"${co}" AND (${schoolOr})`:`"${co}"`;
+  const p=new URLSearchParams({keywords:q,network:'["F","S"]',origin:'FACETED_SEARCH'});
+  return 'https://www.linkedin.com/search/results/people/?'+p.toString();
+}
 
 // ----- Manually logged jobs (stored in this browser, merged into the list) -----
 function getManualJobs(){try{return JSON.parse(localStorage.getItem(MANUAL_KEY))||[]}catch{return[]}}
@@ -2495,6 +2516,7 @@ function renderJobPage(id){
       <div class="rowbtns" style="margin-top:.75rem">
         <a href="${esc(ljJobsUrl(job))}" target="_blank" rel="noopener"><button>Find this posting on LinkedIn ↗</button></a>
         <a href="${esc(ljReferralUrl(job))}" target="_blank" rel="noopener" title="Boolean LinkedIn people search — recruiters, hiring managers, and same-function peers at ${esc(job.company)}, filtered to your 1st/2nd-degree network"><button>Find referrers on LinkedIn ↗</button></a>
+        ${candidateSchools().length?`<a href="${esc(ljAlumniUrl(job))}" target="_blank" rel="noopener" title="People at ${esc(job.company)} who share one of your schools (${esc(candidateSchools().join(', '))}) — alumni reply and refer far more often"><button>Find alumni at ${esc(job.company)} ↗</button></a>`:''}
         <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
       </div>
       <p class="co" style="margin:.5rem 0 0">Open the posting to check when it was posted / whether it's a repost. <b>Find referrers</b> runs a boolean people search for recruiters + same-function peers at ${esc(job.company)}, biased to people you're already connected to.</p></div>
