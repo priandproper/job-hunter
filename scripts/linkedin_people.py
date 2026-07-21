@@ -1,24 +1,34 @@
 #!/usr/bin/env python3
-"""Turn pasted LinkedIn profile text into a People CSV you import on the dashboard.
+"""Turn pasted LinkedIn text into a People CSV you import on the dashboard.
 
 This is the ToS-safe way to bulk-add people: LinkedIn can't be scraped by a bot, but
-YOU can open a profile, press Cmd/Ctrl+A then Cmd/Ctrl+C, and paste what you can see.
-This script structures that text (current + PAST companies, title, location, etc.) into
-`data/people.local.csv`, which you then import on the dashboard's People page. Nothing
-is uploaded; the CSV is git-ignored and the dashboard keeps it in localStorage only.
+YOU can open a page, press Cmd/Ctrl+A then Cmd/Ctrl+C, and paste what you can see.
+Two shapes are accepted, auto-detected per block:
+
+  A) A whole SEARCH-RESULTS page — e.g. the "Find referrers on LinkedIn" search from a
+     job page. Cmd-A / Cmd-C the results and paste the WHOLE thing. Every person in the
+     list is extracted in one shot (name, profile URL, title, company, location, degree,
+     and the mutual connection who can intro you) by a fast structured parser — no Claude
+     call needed. Each person's degree becomes their relationship (2nd-degree), recruiters
+     are tagged as such, and the mutual connection lands in "how you know them".
+
+  B) A single whole PROFILE page (current + PAST companies, title, location). Separate
+     multiple profiles with a line containing only `---`. These go through Claude.
+
+Output is `data/people.local.csv`, which you import on the dashboard's People page.
+Nothing is uploaded; the CSV is git-ignored and the dashboard keeps it in localStorage.
 
 Workflow:
-  1. Paste one or more profiles into data/linkedin_paste.txt, separated by a line
-     containing only `---`.
+  1. Paste into data/linkedin_paste.txt — a search-results page, or one/more profiles
+     separated by a line of `---`. (Mix freely; each block is detected on its own.)
   2. python3 scripts/linkedin_people.py            # -> data/people.local.csv
   3. Dashboard -> People -> "Import CSV".
 
-Parser is chosen automatically: ANTHROPIC_API_KEY (env / .secrets.json) if set, else the
-Claude Code CLI (`claude -p`, uses your logged-in Max/Pro plan — no API key or billing),
-else a best-effort offline heuristic. Force one with --api / --cli / --heuristic. The
-Claude paths robustly extract the real profile (incl. past companies) from a messy
-whole-page copy; the heuristic gets the basics and you fill gaps in the dashboard.
-Stdlib only.
+For PROFILE blocks the parser is chosen automatically: ANTHROPIC_API_KEY (env /
+.secrets.json) if set, else the Claude Code CLI (`claude -p`, uses your logged-in
+Max/Pro plan — no API key or billing), else a best-effort offline heuristic. Force one
+with --api / --cli / --heuristic. Search-results blocks always use the structured parser
+(they're regular enough that Claude adds only latency). Stdlib only.
 """
 
 import argparse
@@ -207,14 +217,182 @@ def _heuristic(text: str) -> dict:
             "seniority": "", "location": location, "linkedin": "", "email": "", "notes": "", "tags": []}
 
 
+# ---- Search-results paste (many people at once) ----
+# The "Find referrers on LinkedIn" search (and any LinkedIn people search) copies as a
+# regular list: one linked name per person, then headline, then location, then a Connect
+# link and a "<X> is a mutual connection" line. That structure is reliable enough to
+# parse deterministically — faster, free, and offline vs a Claude call per person.
+_IN_LINK = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]*linkedin\.com/in/[^)\s]+)\)", re.I)
+_ANY_MDLINK = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]+)\)")
+_DEG_RE = re.compile(r"(1st|2nd|3rd)\b", re.I)
+_DEG_ONLY = re.compile(r"^[•·\-\s]*(1st|2nd|3rd)\s*$", re.I)
+_MUTUAL_RE = re.compile(r"mutual connection", re.I)
+_RECRUITER_RE = re.compile(r"(recruit\w*|talent acquisition|talent partner|sourcer|\btalent\b)", re.I)
+_REL_FROM_DEG = {"1st": "1st", "2nd": "2nd", "3rd": "unknown"}
+
+
+def _is_search_results(block: str) -> bool:
+    """Does this block list several people (a search page) rather than one profile?"""
+    prof = sum(1 for ln in block.splitlines()
+               if _IN_LINK.search(ln) and not _MUTUAL_RE.search(ln))
+    if prof >= 2:
+        return True
+    # Plain-text paste (no markdown links): fall back to counting degree markers.
+    return sum(1 for ln in block.splitlines() if _DEG_ONLY.match(ln.strip())) >= 2
+
+
+def _clean_profile_url(u: str) -> str:
+    return re.sub(r"[?#].*$", "", u).rstrip("/")
+
+
+def _split_headline(h: str) -> tuple:
+    """A LinkedIn headline -> (title, current_company, [past_companies])."""
+    h = (h or "").strip()
+    past = []
+    for m in re.finditer(r"\bEx[-\s]+([A-Z][\w.&,'’ /-]*?)(?=\s*[|•·]|$)", h):  # "Ex-PayPal"
+        c = m.group(1).strip(" .,-")
+        if c:
+            past.append(c)
+    am = re.search(r"([A-Za-z0-9.&,'’/ +-]+?)\s+alumni\b", h, re.I)                # "HubSpot & BCG alumni"
+    if am:
+        for c in re.split(r"\s*&\s*|,\s*", am.group(1)):
+            c = c.strip(" .,-")
+            if c:
+                past.append(c)
+    title, company = h, ""
+    m = re.search(r"^(.*?\S)\s*(?:\bat\b|@)\s*(.+)$", h)                          # "... at X" / "@X"
+    if m:
+        title = m.group(1).strip(" .,-")
+        company = re.split(r"\s*[|•·]\s*", m.group(2))[0]
+        company = re.sub(r"\s+alumni\b.*$", "", company, flags=re.I).strip(" .,-")
+    else:
+        title = re.split(r"\s*[|•]\s*", h)[0].strip(" .,-")                        # first segment
+    past = [c for c in dict.fromkeys(past) if c.lower() != company.lower()]
+    return title, company, past
+
+
+_CHROME_LINE = re.compile(r"^(connect|message|follow|following|pending|more|save|"
+                          r"status is (online|offline)|open to work)$", re.I)
+
+
+def _collect_md(text: str) -> list:
+    """Markdown-link paste ([Name](/in/…)): anchor each person on their profile link."""
+    people, cur = [], None
+
+    def flush():
+        nonlocal cur
+        if cur and cur["name"]:
+            people.append(cur)
+        cur = None
+
+    for raw in text.splitlines():
+        s = raw.strip()
+        if not s or s in ("*", "•", "·", "-", "—"):
+            continue
+        if _MUTUAL_RE.search(s):                       # "<X> is a mutual connection"
+            if cur is not None:
+                names = [t.strip() for t, _ in _ANY_MDLINK.findall(s)]
+                cur["mutuals"].extend(n for n in names if n)
+            continue
+        m = _IN_LINK.search(s)
+        if m:                                          # profile link -> a new person
+            flush()
+            deg = _DEG_RE.search(s.split(")", 1)[-1])  # degree sits after the link
+            cur = {"name": m.group(1).strip(), "url": _clean_profile_url(m.group(2)),
+                   "degree": deg.group(1).lower() if deg else "", "details": [], "mutuals": []}
+            continue
+        other = _ANY_MDLINK.search(s)
+        if other and "/in/" not in other.group(2):     # Connect / Follow / Message chrome
+            continue
+        if cur is None:                                # header/nav noise before the first person
+            continue
+        if _DEG_ONLY.match(s):                          # a lone "· 2nd" line
+            if not cur["degree"]:
+                cur["degree"] = _DEG_RE.search(s).group(1).lower()
+            continue
+        cur["details"].append(s)                        # headline, then location
+    flush()
+    return people
+
+
+def _collect_plain(text: str) -> list:
+    """Plain-text paste (no links): anchor each person on their "· 2nd" degree line.
+
+    LinkedIn plain copy lays out a card as: name (often printed twice) / degree /
+    headline / location / Connect / "<X> is a mutual connection".
+    """
+    lines = [ln.strip() for ln in text.splitlines()
+             if ln.strip() and ln.strip() not in ("*", "•", "·", "-", "—")]
+    n = len(lines)
+    people = []
+    for d, ln in enumerate(lines):
+        if not _DEG_ONLY.match(ln):
+            continue
+        # Name: nearest preceding line that isn't chrome / a mutual / another degree.
+        name = ""
+        j = d - 1
+        while j >= 0:
+            c = lines[j]
+            if _DEG_ONLY.match(c) or _MUTUAL_RE.search(c) or _CHROME_LINE.match(c):
+                j -= 1
+                continue
+            name = c
+            break
+        # Headline then location: the next 2 content lines after the degree.
+        details, k = [], d + 1
+        while k < n and len(details) < 2:
+            c = lines[k]
+            if _DEG_ONLY.match(c):
+                break
+            if _MUTUAL_RE.search(c) or _CHROME_LINE.match(c):
+                k += 1
+                continue
+            details.append(c)
+            k += 1
+        # Mutuals: any "<X> is a mutual connection" up to the next person.
+        mutuals, k = [], d + 1
+        while k < n and not _DEG_ONLY.match(lines[k]):
+            if _MUTUAL_RE.search(lines[k]):
+                m = re.match(r"(.+?)\s+(?:is|are)\s+.*mutual", lines[k])
+                if m:
+                    mutuals.append(m.group(1).strip())
+            k += 1
+        people.append({"name": name, "url": "", "degree": _DEG_RE.search(ln).group(1).lower(),
+                       "details": details, "mutuals": mutuals})
+    return people
+
+
+def _parse_search_results(text: str) -> list:
+    """Extract every person from a pasted LinkedIn search-results list."""
+    people = _collect_md(text) if _IN_LINK.search(text) else _collect_plain(text)
+
+    out = []
+    for c in people:
+        headline = c["details"][0] if c["details"] else ""
+        location = c["details"][1] if len(c["details"]) > 1 else ""
+        title, company, past = _split_headline(headline)
+        seniority = "Recruiter" if _RECRUITER_RE.search(headline) else ""
+        mutuals = list(dict.fromkeys(c["mutuals"]))
+        out.append({
+            "name": c["name"], "title": title, "company": company, "past_companies": past,
+            "seniority": seniority, "location": location, "linkedin": c["url"], "email": "",
+            "relationship": _REL_FROM_DEG.get(c["degree"], ""),
+            "tags": (["recruiter"] if seniority == "Recruiter" else []) + ["referral"],
+            "how_known": ("Mutual connection: " + ", ".join(mutuals)) if mutuals else "",
+            "notes": "",
+        })
+    return out
+
+
 def _row(p: dict) -> dict:
     j = lambda v: "; ".join(v) if isinstance(v, list) else (v or "")
     return {
         "name": p.get("name", ""), "title": p.get("title", ""), "company": p.get("company", ""),
         "past_companies": j(p.get("past_companies", [])), "seniority": p.get("seniority", ""),
         "location": p.get("location", ""), "linkedin": p.get("linkedin", ""),
-        "email": p.get("email", ""), "relationship": "", "tags": j(p.get("tags", [])),
-        "how_known": "", "notes": p.get("notes", ""),
+        "email": p.get("email", ""), "relationship": p.get("relationship", ""),
+        "tags": j(p.get("tags", [])), "how_known": p.get("how_known", ""),
+        "notes": p.get("notes", ""),
     }
 
 
@@ -237,33 +415,52 @@ def main() -> int:
         print("linkedin_people: no profiles found in the input file.")
         return 1
 
-    # Choose the parser: explicit flag wins, else API key > Claude CLI > heuristic.
-    api_key = None if args.heuristic else secrets_mod.get_key("ANTHROPIC_API_KEY", SECRETS)
-    has_cli = shutil.which("claude") is not None
-    if args.heuristic:
-        mode = "heuristic"
-    elif args.api:
-        mode = "api"
-    elif args.cli:
-        mode = "cli"
-    elif api_key:
-        mode = "api"
-    elif has_cli:
-        mode = "cli"
-    else:
-        mode = "heuristic"
-    if mode == "api" and not api_key:
-        print("linkedin_people: --api needs ANTHROPIC_API_KEY (env or .secrets.json).")
-        return 2
-    if mode == "cli" and not has_cli:
-        print("linkedin_people: --cli needs the `claude` CLI on PATH.")
-        return 2
-    label = {"api": "Anthropic API", "cli": "Claude CLI (your plan)", "heuristic": "heuristic"}[mode]
-    print(f"linkedin_people: parsing {len(blocks)} profile(s) with {label}"
-          + (" — this can take a few seconds each" if mode == "cli" else "") + "…")
+    # Search-results pastes are parsed structurally; single profiles go through Claude.
+    profile_blocks = [b for b in blocks if not _is_search_results(b)]
+
+    # Choose the profile parser (only needed if there are profile blocks): explicit
+    # flag wins, else API key > Claude CLI > heuristic.
+    mode = label = None
+    if profile_blocks:
+        api_key = None if args.heuristic else secrets_mod.get_key("ANTHROPIC_API_KEY", SECRETS)
+        has_cli = shutil.which("claude") is not None
+        if args.heuristic:
+            mode = "heuristic"
+        elif args.api:
+            mode = "api"
+        elif args.cli:
+            mode = "cli"
+        elif api_key:
+            mode = "api"
+        elif has_cli:
+            mode = "cli"
+        else:
+            mode = "heuristic"
+        if mode == "api" and not api_key:
+            print("linkedin_people: --api needs ANTHROPIC_API_KEY (env or .secrets.json).")
+            return 2
+        if mode == "cli" and not has_cli:
+            print("linkedin_people: --cli needs the `claude` CLI on PATH.")
+            return 2
+        label = {"api": "Anthropic API", "cli": "Claude CLI (your plan)", "heuristic": "heuristic"}[mode]
+        print(f"linkedin_people: {len(profile_blocks)} profile(s) via {label}"
+              + (" — a few seconds each" if mode == "cli" else "") + "…")
 
     rows = []
     for i, block in enumerate(blocks, 1):
+        if _is_search_results(block):
+            found = [p for p in _parse_search_results(block) if p.get("name")]
+            print(f"linkedin_people: search-results paste -> {len(found)} people (structured parser)")
+            for p in found:
+                rows.append(_row(p))
+                bits = p.get("company") or "?"
+                if p.get("seniority"):
+                    bits += f" · {p['seniority']}"
+                if p.get("how_known"):
+                    bits += f" · {p['how_known']}"
+                print(f"  ✓ {p['name']} — {bits}")
+            continue
+
         p = None
         if mode == "api":
             try:
@@ -294,7 +491,7 @@ def main() -> int:
         shown = out.relative_to(ROOT)
     except ValueError:
         shown = out
-    print(f"\nlinkedin_people: wrote {len(rows)} person(s) -> {shown}  ({label})")
+    print(f"\nlinkedin_people: wrote {len(rows)} person(s) -> {shown}  ({label or 'structured'})")
     print("Next: open the dashboard -> People -> Import CSV, and pick that file.")
     return 0
 
