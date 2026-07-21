@@ -1120,6 +1120,156 @@
       "hq": "Los Angeles",
       "source": "yc:W15",
       "active": true
+    },
+    {
+      "name": "Helion Energy",
+      "ats": "ashby",
+      "slug": "helion",
+      "h1b": null,
+      "h1b_note": "YC S14",
+      "hq": "Seattle",
+      "source": "yc:S14",
+      "active": true
+    },
+    {
+      "name": "Front",
+      "ats": "ashby",
+      "slug": "frontcareers",
+      "h1b": null,
+      "h1b_note": "YC S14",
+      "hq": "San Francisco",
+      "source": "yc:S14",
+      "active": true
+    },
+    {
+      "name": "Tempo",
+      "ats": "greenhouse",
+      "slug": "tempo",
+      "h1b": null,
+      "h1b_note": "YC W15",
+      "hq": "San Francisco",
+      "source": "yc:W15",
+      "active": true
+    },
+    {
+      "name": "Razorpay",
+      "ats": "greenhouse",
+      "slug": "razorpaysoftwareprivatelimited",
+      "h1b": null,
+      "h1b_note": "YC W15",
+      "hq": "Bengaluru",
+      "source": "yc:W15",
+      "active": true
+    },
+    {
+      "name": "Mashgin",
+      "ats": "lever",
+      "slug": "mashgin",
+      "h1b": null,
+      "h1b_note": "YC W15",
+      "hq": "San Francisco",
+      "source": "yc:W15",
+      "active": true
+    },
+    {
+      "name": "Ironclad",
+      "ats": "ashby",
+      "slug": "ironcladhq",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "San Francisco",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "Teleport",
+      "ats": "ashby",
+      "slug": "goteleport",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "San Francisco",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "GiveCampus",
+      "ats": "greenhouse",
+      "slug": "givecampus",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "Washington, DC, USA",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "Human Interest",
+      "ats": "greenhouse",
+      "slug": "humaninterest",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "San Francisco",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "Eight Sleep",
+      "ats": "ashby",
+      "slug": "eightsleep",
+      "h1b": null,
+      "h1b_note": "YC S15",
+      "hq": "New York City",
+      "source": "yc:S15",
+      "active": true
+    },
+    {
+      "name": "Outschool",
+      "ats": "greenhouse",
+      "slug": "outschool",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "San Francisco",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Tovala",
+      "ats": "lever",
+      "slug": "tovala",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "Chicago, IL, USA",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Deepgram",
+      "ats": "ashby",
+      "slug": "deepgram",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "San Francisco",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Podium",
+      "ats": "greenhouse",
+      "slug": "podium81",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "Lehi, UT, USA",
+      "source": "yc:W16",
+      "active": true
+    },
+    {
+      "name": "Gecko Robotics",
+      "ats": "ashby",
+      "slug": "gecko-robotics",
+      "h1b": null,
+      "h1b_note": "YC W16",
+      "hq": "Pittsburgh, PA, USA",
+      "source": "yc:W16",
+      "active": true
     }
   ]
 }
