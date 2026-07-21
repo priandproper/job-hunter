@@ -61,3 +61,5 @@ personal CRM for the job hunt.
       referred), next-step + due date, and drafted messages. *(Highest ROI; uses data we already collect.)*
 - [ ] **Intel enrichment** *(later)* — Glassdoor interview Qs / recent news into drafts + interview prep.
 - [ ] **Network broadcast generator** *(later)* — draft the "anyone connected at these companies?" post.
+
+<!-- refresh log: local ATS fetch restored 2026-07-21; pool 710 -->
