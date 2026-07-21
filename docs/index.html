@@ -1107,6 +1107,12 @@ async function tailorResume(id){
     saveTailored(id,tailored);setTailorStatus(id,'');renderJobPage(id);toast('Resume tailored ✨');
   }catch(e){setTailorStatus(id,'Network error: '+e.message);}
 }
+// Copy the terminal command that generates a tailored resume JSON for this job via
+// the Claude CLI (scripts/tailor_resume.py). Supersedes the old copy-a-prompt flow.
+function copyTailorCommand(id){
+  copyText(`python3 scripts/tailor_resume.py --id ${id}`);
+  toast('Command copied — paste it in your terminal to build the tailored resume JSON');
+}
 function resumeBox(job){
   const missing=job.missing_keywords||[];
   const missHtml=missing.length?'<div class="miss">'+missing.map(k=>`<span>${esc(k)}</span>`).join('')+'</div>':'<div class="miss none"><span>✓ covers every requested keyword</span></div>';
@@ -1122,11 +1128,11 @@ function resumeBox(job){
     <div class="rowbtns">
       <a href="${esc(buildImportUrl(job))}" target="_blank" rel="noopener"><button class="primary">Open resume in builder →</button></a>
       ${hasKey?`<button onclick="tailorResume('${job.id}')" title="Rewrite this resume for the job with Claude">✨ Tailor with Claude</button>`:''}
-      <button onclick="copyPrompt('${job.id}')" title="Copy a ready-to-paste tailoring prompt for Claude / ChatGPT / any LLM">Copy prompt</button>
+      <button onclick="copyTailorCommand('${job.id}')" title="Copy the terminal command that generates a tailored resume JSON for this job via the Claude CLI">⌘ Copy tailor command</button>
       <span class="co" id="tailorStatus-${job.id}"></span>
     </div>
     <details class="paste-tailored"><summary>Paste tailored JSON → build resume link</summary>
-      <textarea id="pasteJson-${job.id}" class="msg" placeholder="Paste the JSON the model returned here…" spellcheck="false"></textarea>
+      <textarea id="pasteJson-${job.id}" class="msg" placeholder="Paste the JSON from scripts/tailor_resume.py (data/tailored.*.json) here…" spellcheck="false"></textarea>
       <div class="rowbtns"><button class="primary" onclick="applyPastedResume('${job.id}')">Build resume link</button></div>
     </details>${tailoredHtml}</div>`;
 }
