@@ -5,10 +5,12 @@ Every fetch is network-guarded: on any failure it returns [] so the pipeline
 keeps running from other sources (e.g. the tracker DB) offline.
 """
 
+import datetime as _dt
 import hashlib
 import html
 import json
 import re
+import urllib.parse
 import urllib.request
 
 _TAG_RE = re.compile(r"<[^>]+>")
@@ -85,7 +87,59 @@ def _ashby(slug, name):
     return out
 
 
-_FETCHERS = {"greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby}
+# Amazon runs its own board (amazon.jobs), not Greenhouse/Lever/Ashby. Its public
+# search.json takes a free-text query, so we run a few marketing-adjacent queries and
+# union the de-duped results; the global lane filter then trims to what fits you.
+# US-only via country[]=USA (the location filter refines further).
+_AMAZON_QUERIES = (
+    "product marketing manager", "marketing manager", "marketing operations",
+    "marketing analytics", "revenue operations", "sales operations analyst",
+    "go to market strategy", "demand generation",
+)
+
+
+def _amazon_date(raw: str) -> str:
+    """amazon.jobs posts dates like 'July 15, 2026' -> ISO, so aging/sort work."""
+    try:
+        return _dt.datetime.strptime((raw or "").strip(), "%B %d, %Y").date().isoformat()
+    except (ValueError, TypeError):
+        return ""
+
+
+def _amazon(slug, name):
+    seen, out = set(), []
+    for q in _AMAZON_QUERIES:
+        url = ("https://www.amazon.jobs/en/search.json?"
+               f"base_query={urllib.parse.quote(q)}&country[]=USA&result_limit=100&sort=recent")
+        try:
+            data = _get(url)
+        except Exception:
+            continue
+        for j in data.get("jobs", []) or []:
+            # country[]=USA is loose on amazon.jobs (returns some IND/CHN roles) — enforce US.
+            cc = (j.get("country_code") or "").upper()
+            if cc and cc not in ("US", "USA"):
+                continue
+            path = j.get("job_path") or ""
+            jid = j.get("id") or path
+            if not jid or jid in seen:
+                continue
+            seen.add(jid)
+            jd = "\n\n".join(p for p in (
+                j.get("description") or j.get("description_short") or "",
+                ("Basic qualifications:\n" + j["basic_qualifications"]) if j.get("basic_qualifications") else "",
+                ("Preferred qualifications:\n" + j["preferred_qualifications"]) if j.get("preferred_qualifications") else "",
+            ) if p)
+            out.append(_norm(
+                name, j.get("title", ""),
+                j.get("normalized_location", "") or j.get("location", ""),
+                ("https://www.amazon.jobs" + path) if path else "",
+                "amazon", j.get("business_category", "") or j.get("team", ""),
+                _amazon_date(j.get("posted_date", "")), jd))
+    return out
+
+
+_FETCHERS = {"greenhouse": _greenhouse, "lever": _lever, "ashby": _ashby, "amazon": _amazon}
 
 
 def fetch_company(company: dict) -> list[dict]:

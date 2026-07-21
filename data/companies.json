@@ -1,694 +1,894 @@
 {
-  "companies": [
-    {
-      "name": "6sense",
-      "ats": "greenhouse",
-      "slug": "6sense",
-      "h1b": true,
-      "h1b_note": "FLAG: volume unconfirmed",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Acquia",
-      "ats": "greenhouse",
-      "slug": "acquia",
-      "h1b": true,
-      "h1b_note": "modest LCA/PERM history",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Affirm",
-      "ats": "greenhouse",
-      "slug": "affirm",
-      "h1b": true,
-      "h1b_note": "~105 LCAs FY2025; remote-first",
-      "hq": "San Francisco, CA (remote-first)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Airtable",
-      "ats": "greenhouse",
-      "slug": "airtable",
-      "h1b": true,
-      "h1b_note": "FLAG: volume unconfirmed",
-      "hq": "San Francisco, CA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Amplitude",
-      "ats": "greenhouse",
-      "slug": "amplitude",
-      "h1b": true,
-      "h1b_note": "files LCAs (FY2024)",
-      "hq": "San Francisco / New York",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Attentive",
-      "ats": "greenhouse",
-      "slug": "attentive",
-      "h1b": true,
-      "h1b_note": "files LCAs (FY2024)",
-      "hq": "New York, NY",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Braze",
-      "ats": "greenhouse",
-      "slug": "braze",
-      "h1b": true,
-      "h1b_note": "sponsors H1B + green cards",
-      "hq": "New York, NY",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Brex",
-      "ats": "greenhouse",
-      "slug": "brex",
-      "h1b": true,
-      "h1b_note": "~193 LCAs FY2022-2024",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "CarGurus",
-      "ats": "greenhouse",
-      "slug": "cargurus",
-      "h1b": true,
-      "h1b_note": "~16 LCAs FY2025",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Datadog",
-      "ats": "greenhouse",
-      "slug": "datadog",
-      "h1b": true,
-      "h1b_note": "~98 LCAs FY2025",
-      "hq": "New York, NY (large Boston office)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Gong",
-      "ats": "greenhouse",
-      "slug": "gongio",
-      "h1b": true,
-      "h1b_note": "FLAG: small - ~3 LCAs FY2025",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Gusto",
-      "ats": "greenhouse",
-      "slug": "gusto",
-      "h1b": true,
-      "h1b_note": "~51 LCAs FY2025",
-      "hq": "San Francisco / Denver",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Highspot",
-      "ats": "lever",
-      "slug": "highspot",
-      "h1b": true,
-      "h1b_note": "~29 LCAs FY2025",
-      "hq": "Seattle, WA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "HubSpot",
-      "ats": "greenhouse",
-      "slug": "hubspotjobs",
-      "h1b": true,
-      "h1b_note": "~54 LCAs FY2025",
-      "hq": "Cambridge, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Iterable",
-      "ats": "greenhouse",
-      "slug": "iterable",
-      "h1b": true,
-      "h1b_note": "FLAG: volume unconfirmed",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Justworks",
-      "ats": "greenhouse",
-      "slug": "justworks",
-      "h1b": true,
-      "h1b_note": "FLAG: small - ~14 LCAs FY2025",
-      "hq": "New York, NY",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Klaviyo",
-      "ats": "greenhouse",
-      "slug": "klaviyo",
-      "h1b": true,
-      "h1b_note": "~48 LCAs FY2025; sponsors regularly",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "LogRocket",
-      "ats": "lever",
-      "slug": "logrocket",
-      "h1b": true,
-      "h1b_note": "FLAG: small FY2024 LCA volume",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Mercury",
-      "ats": "greenhouse",
-      "slug": "mercury",
-      "h1b": true,
-      "h1b_note": "FLAG: small - ~9 LCAs FY2025",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Mirakl",
-      "ats": "greenhouse",
-      "slug": "mirakl",
-      "h1b": false,
-      "h1b_note": "FLAG: no clear US LCA history",
-      "hq": "Boston, MA / Paris",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Mixpanel",
-      "ats": "greenhouse",
-      "slug": "mixpanel",
-      "h1b": true,
-      "h1b_note": "sponsors H1B/green card",
-      "hq": "San Francisco, CA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Notion",
-      "ats": "ashby",
-      "slug": "notion",
-      "h1b": true,
-      "h1b_note": "~22 LCAs FY2025",
-      "hq": "San Francisco, CA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Ramp",
-      "ats": "ashby",
-      "slug": "ramp",
-      "h1b": true,
-      "h1b_note": "~30 LCAs FY2025",
-      "hq": "New York, NY",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Salesloft",
-      "ats": "greenhouse",
-      "slug": "salesloft",
-      "h1b": true,
-      "h1b_note": "FLAG: small - ~11 LCAs FY2022-2024",
-      "hq": "Atlanta, GA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "SimpliSafe",
-      "ats": "greenhouse",
-      "slug": "simplisafe",
-      "h1b": true,
-      "h1b_note": "~11 LCAs FY2025; modest",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Starburst",
-      "ats": "greenhouse",
-      "slug": "starburst",
-      "h1b": true,
-      "h1b_note": "FLAG: small - ~6 LCAs FY2025",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Stripe",
-      "ats": "greenhouse",
-      "slug": "stripe",
-      "h1b": true,
-      "h1b_note": "~292 LCAs FY2025",
-      "hq": "San Francisco / Remote hub",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Toast",
-      "ats": "greenhouse",
-      "slug": "toast",
-      "h1b": true,
-      "h1b_note": "~27 LCAs FY2025",
-      "hq": "Boston, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Twilio",
-      "ats": "greenhouse",
-      "slug": "twilio",
-      "h1b": true,
-      "h1b_note": "~984 LCAs historically",
-      "hq": "San Francisco, CA (remote-first)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Webflow",
-      "ats": "greenhouse",
-      "slug": "webflow",
-      "h1b": true,
-      "h1b_note": "FLAG: small LCA volume; remote-first",
-      "hq": "San Francisco, CA (remote-first)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Wistia",
-      "ats": "ashby",
-      "slug": "wistia",
-      "h1b": false,
-      "h1b_note": "FLAG: no clear LCA history",
-      "hq": "Cambridge, MA",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "ZoomInfo",
-      "ats": "greenhouse",
-      "slug": "zoominfo",
-      "h1b": true,
-      "h1b_note": "~233 LCAs FY2022-2024",
-      "hq": "Vancouver, WA (remote-friendly)",
-      "source": "seed:scanner",
-      "active": true
-    },
-    {
-      "name": "Coinbase",
-      "ats": "greenhouse",
-      "slug": "coinbase",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Databricks",
-      "ats": "greenhouse",
-      "slug": "databricks",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Robinhood",
-      "ats": "greenhouse",
-      "slug": "robinhood",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Dropbox",
-      "ats": "greenhouse",
-      "slug": "dropbox",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Reddit",
-      "ats": "greenhouse",
-      "slug": "reddit",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Pinterest",
-      "ats": "greenhouse",
-      "slug": "pinterest",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Asana",
-      "ats": "greenhouse",
-      "slug": "asana",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Figma",
-      "ats": "greenhouse",
-      "slug": "figma",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "GitLab",
-      "ats": "greenhouse",
-      "slug": "gitlab",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "HashiCorp",
-      "ats": "greenhouse",
-      "slug": "hashicorp",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Confluent",
-      "ats": "greenhouse",
-      "slug": "confluent",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Elastic",
-      "ats": "greenhouse",
-      "slug": "elastic",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Cloudflare",
-      "ats": "greenhouse",
-      "slug": "cloudflare",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Samsara",
-      "ats": "greenhouse",
-      "slug": "samsara",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Benchling",
-      "ats": "greenhouse",
-      "slug": "benchling",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Lattice",
-      "ats": "greenhouse",
-      "slug": "lattice",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Plaid",
-      "ats": "greenhouse",
-      "slug": "plaid",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Chime",
-      "ats": "greenhouse",
-      "slug": "chime",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Flexport",
-      "ats": "greenhouse",
-      "slug": "flexport",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "DoorDash",
-      "ats": "greenhouse",
-      "slug": "doordash",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Opendoor",
-      "ats": "greenhouse",
-      "slug": "opendoor",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "NerdWallet",
-      "ats": "greenhouse",
-      "slug": "nerdwallet",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Checkr",
-      "ats": "greenhouse",
-      "slug": "checkr",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Carta",
-      "ats": "greenhouse",
-      "slug": "carta",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "MongoDB",
-      "ats": "greenhouse",
-      "slug": "mongodb",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "SoFi",
-      "ats": "greenhouse",
-      "slug": "SoFi",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Rippling",
-      "ats": "greenhouse",
-      "slug": "rippling",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Airbnb",
-      "ats": "greenhouse",
-      "slug": "airbnb",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Instacart",
-      "ats": "greenhouse",
-      "slug": "instacart",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Snowflake",
-      "ats": "greenhouse",
-      "slug": "snowflakecomputing",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Verkada",
-      "ats": "greenhouse",
-      "slug": "verkada",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Scale AI",
-      "ats": "greenhouse",
-      "slug": "scaleai",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Linear",
-      "ats": "ashby",
-      "slug": "linear",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Vanta",
-      "ats": "ashby",
-      "slug": "vanta",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Deel",
-      "ats": "ashby",
-      "slug": "deel",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Netlify",
-      "ats": "lever",
-      "slug": "netlify",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    },
-    {
-      "name": "Kraken",
-      "ats": "lever",
-      "slug": "kraken",
-      "h1b": null,
-      "h1b_note": "pending verification",
-      "hq": "",
-      "source": "seed:curated-batch",
-      "active": true
-    }
-  ]
+ "companies": [
+  {
+   "name": "6sense",
+   "ats": "greenhouse",
+   "slug": "6sense",
+   "h1b": true,
+   "h1b_note": "FLAG: volume unconfirmed",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Acquia",
+   "ats": "greenhouse",
+   "slug": "acquia",
+   "h1b": true,
+   "h1b_note": "modest LCA/PERM history",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Affirm",
+   "ats": "greenhouse",
+   "slug": "affirm",
+   "h1b": true,
+   "h1b_note": "~105 LCAs FY2025; remote-first",
+   "hq": "San Francisco, CA (remote-first)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Airtable",
+   "ats": "greenhouse",
+   "slug": "airtable",
+   "h1b": true,
+   "h1b_note": "FLAG: volume unconfirmed",
+   "hq": "San Francisco, CA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Amplitude",
+   "ats": "greenhouse",
+   "slug": "amplitude",
+   "h1b": true,
+   "h1b_note": "files LCAs (FY2024)",
+   "hq": "San Francisco / New York",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Attentive",
+   "ats": "greenhouse",
+   "slug": "attentive",
+   "h1b": true,
+   "h1b_note": "files LCAs (FY2024)",
+   "hq": "New York, NY",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Braze",
+   "ats": "greenhouse",
+   "slug": "braze",
+   "h1b": true,
+   "h1b_note": "sponsors H1B + green cards",
+   "hq": "New York, NY",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Brex",
+   "ats": "greenhouse",
+   "slug": "brex",
+   "h1b": true,
+   "h1b_note": "~193 LCAs FY2022-2024",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "CarGurus",
+   "ats": "greenhouse",
+   "slug": "cargurus",
+   "h1b": true,
+   "h1b_note": "~16 LCAs FY2025",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Datadog",
+   "ats": "greenhouse",
+   "slug": "datadog",
+   "h1b": true,
+   "h1b_note": "~98 LCAs FY2025",
+   "hq": "New York, NY (large Boston office)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Gong",
+   "ats": "greenhouse",
+   "slug": "gongio",
+   "h1b": true,
+   "h1b_note": "FLAG: small - ~3 LCAs FY2025",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Gusto",
+   "ats": "greenhouse",
+   "slug": "gusto",
+   "h1b": true,
+   "h1b_note": "~51 LCAs FY2025",
+   "hq": "San Francisco / Denver",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Highspot",
+   "ats": "lever",
+   "slug": "highspot",
+   "h1b": true,
+   "h1b_note": "~29 LCAs FY2025",
+   "hq": "Seattle, WA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "HubSpot",
+   "ats": "greenhouse",
+   "slug": "hubspotjobs",
+   "h1b": true,
+   "h1b_note": "~54 LCAs FY2025",
+   "hq": "Cambridge, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Iterable",
+   "ats": "greenhouse",
+   "slug": "iterable",
+   "h1b": true,
+   "h1b_note": "FLAG: volume unconfirmed",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Justworks",
+   "ats": "greenhouse",
+   "slug": "justworks",
+   "h1b": true,
+   "h1b_note": "FLAG: small - ~14 LCAs FY2025",
+   "hq": "New York, NY",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Klaviyo",
+   "ats": "greenhouse",
+   "slug": "klaviyo",
+   "h1b": true,
+   "h1b_note": "~48 LCAs FY2025; sponsors regularly",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "LogRocket",
+   "ats": "lever",
+   "slug": "logrocket",
+   "h1b": true,
+   "h1b_note": "FLAG: small FY2024 LCA volume",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Mercury",
+   "ats": "greenhouse",
+   "slug": "mercury",
+   "h1b": true,
+   "h1b_note": "FLAG: small - ~9 LCAs FY2025",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Mirakl",
+   "ats": "greenhouse",
+   "slug": "mirakl",
+   "h1b": false,
+   "h1b_note": "FLAG: no clear US LCA history",
+   "hq": "Boston, MA / Paris",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Mixpanel",
+   "ats": "greenhouse",
+   "slug": "mixpanel",
+   "h1b": true,
+   "h1b_note": "sponsors H1B/green card",
+   "hq": "San Francisco, CA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Notion",
+   "ats": "ashby",
+   "slug": "notion",
+   "h1b": true,
+   "h1b_note": "~22 LCAs FY2025",
+   "hq": "San Francisco, CA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Ramp",
+   "ats": "ashby",
+   "slug": "ramp",
+   "h1b": true,
+   "h1b_note": "~30 LCAs FY2025",
+   "hq": "New York, NY",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Salesloft",
+   "ats": "greenhouse",
+   "slug": "salesloft",
+   "h1b": true,
+   "h1b_note": "FLAG: small - ~11 LCAs FY2022-2024",
+   "hq": "Atlanta, GA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "SimpliSafe",
+   "ats": "greenhouse",
+   "slug": "simplisafe",
+   "h1b": true,
+   "h1b_note": "~11 LCAs FY2025; modest",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Starburst",
+   "ats": "greenhouse",
+   "slug": "starburst",
+   "h1b": true,
+   "h1b_note": "FLAG: small - ~6 LCAs FY2025",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Stripe",
+   "ats": "greenhouse",
+   "slug": "stripe",
+   "h1b": true,
+   "h1b_note": "~292 LCAs FY2025",
+   "hq": "San Francisco / Remote hub",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Toast",
+   "ats": "greenhouse",
+   "slug": "toast",
+   "h1b": true,
+   "h1b_note": "~27 LCAs FY2025",
+   "hq": "Boston, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Twilio",
+   "ats": "greenhouse",
+   "slug": "twilio",
+   "h1b": true,
+   "h1b_note": "~984 LCAs historically",
+   "hq": "San Francisco, CA (remote-first)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Webflow",
+   "ats": "greenhouse",
+   "slug": "webflow",
+   "h1b": true,
+   "h1b_note": "FLAG: small LCA volume; remote-first",
+   "hq": "San Francisco, CA (remote-first)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Wistia",
+   "ats": "ashby",
+   "slug": "wistia",
+   "h1b": false,
+   "h1b_note": "FLAG: no clear LCA history",
+   "hq": "Cambridge, MA",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "ZoomInfo",
+   "ats": "greenhouse",
+   "slug": "zoominfo",
+   "h1b": true,
+   "h1b_note": "~233 LCAs FY2022-2024",
+   "hq": "Vancouver, WA (remote-friendly)",
+   "source": "seed:scanner",
+   "active": true
+  },
+  {
+   "name": "Coinbase",
+   "ats": "greenhouse",
+   "slug": "coinbase",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Databricks",
+   "ats": "greenhouse",
+   "slug": "databricks",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Robinhood",
+   "ats": "greenhouse",
+   "slug": "robinhood",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Dropbox",
+   "ats": "greenhouse",
+   "slug": "dropbox",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Reddit",
+   "ats": "greenhouse",
+   "slug": "reddit",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Pinterest",
+   "ats": "greenhouse",
+   "slug": "pinterest",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Asana",
+   "ats": "greenhouse",
+   "slug": "asana",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Figma",
+   "ats": "greenhouse",
+   "slug": "figma",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "GitLab",
+   "ats": "greenhouse",
+   "slug": "gitlab",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "HashiCorp",
+   "ats": "greenhouse",
+   "slug": "hashicorp",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Confluent",
+   "ats": "greenhouse",
+   "slug": "confluent",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Elastic",
+   "ats": "greenhouse",
+   "slug": "elastic",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Cloudflare",
+   "ats": "greenhouse",
+   "slug": "cloudflare",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Samsara",
+   "ats": "greenhouse",
+   "slug": "samsara",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Benchling",
+   "ats": "greenhouse",
+   "slug": "benchling",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Lattice",
+   "ats": "greenhouse",
+   "slug": "lattice",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Plaid",
+   "ats": "greenhouse",
+   "slug": "plaid",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Chime",
+   "ats": "greenhouse",
+   "slug": "chime",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Flexport",
+   "ats": "greenhouse",
+   "slug": "flexport",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "DoorDash",
+   "ats": "greenhouse",
+   "slug": "doordash",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Opendoor",
+   "ats": "greenhouse",
+   "slug": "opendoor",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "NerdWallet",
+   "ats": "greenhouse",
+   "slug": "nerdwallet",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Checkr",
+   "ats": "greenhouse",
+   "slug": "checkr",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Carta",
+   "ats": "greenhouse",
+   "slug": "carta",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "MongoDB",
+   "ats": "greenhouse",
+   "slug": "mongodb",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "SoFi",
+   "ats": "greenhouse",
+   "slug": "SoFi",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Rippling",
+   "ats": "greenhouse",
+   "slug": "rippling",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Airbnb",
+   "ats": "greenhouse",
+   "slug": "airbnb",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Instacart",
+   "ats": "greenhouse",
+   "slug": "instacart",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Snowflake",
+   "ats": "greenhouse",
+   "slug": "snowflakecomputing",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Verkada",
+   "ats": "greenhouse",
+   "slug": "verkada",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Scale AI",
+   "ats": "greenhouse",
+   "slug": "scaleai",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Linear",
+   "ats": "ashby",
+   "slug": "linear",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Vanta",
+   "ats": "ashby",
+   "slug": "vanta",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Deel",
+   "ats": "ashby",
+   "slug": "deel",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Netlify",
+   "ats": "lever",
+   "slug": "netlify",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "name": "Kraken",
+   "ats": "lever",
+   "slug": "kraken",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:curated-batch",
+   "active": true
+  },
+  {
+   "active": true,
+   "ats": "amazon",
+   "slug": "amazon",
+   "name": "Amazon",
+   "h1b": true,
+   "h1b_note": "large H-1B sponsor",
+   "hq": "Seattle, WA (+ US hubs)",
+   "source": "seed:custom-adapter"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "calendly",
+   "name": "Calendly",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "coursera",
+   "name": "Coursera",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "udemy",
+   "name": "Udemy",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "postman",
+   "name": "Postman",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "vercel",
+   "name": "Vercel",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "grafanalabs",
+   "name": "Grafana Labs",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "fivetran",
+   "name": "Fivetran",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "pendo",
+   "name": "Pendo",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "contentful",
+   "name": "Contentful",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "yext",
+   "name": "Yext",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "similarweb",
+   "name": "Similarweb",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "marqeta",
+   "name": "Marqeta",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "sigmacomputing",
+   "name": "Sigma Computing",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "anthropic",
+   "name": "Anthropic",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "remotecom",
+   "name": "Remote",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "typeform",
+   "name": "Typeform",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "greenhouse",
+   "slug": "discord",
+   "name": "Discord",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "ashby",
+   "slug": "perplexity",
+   "name": "Perplexity",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  },
+  {
+   "active": true,
+   "ats": "ashby",
+   "slug": "replit",
+   "name": "Replit",
+   "h1b": null,
+   "h1b_note": "pending verification",
+   "hq": "",
+   "source": "seed:marketing-batch"
+  }
+ ]
 }
