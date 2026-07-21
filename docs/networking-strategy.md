@@ -56,7 +56,7 @@ personal CRM for the job hunt.
       member lists / X searches / event attendee pages (Cmd-C → People CSV).
 - [x] **Reddit signal ingestion** — `reddit_signals.py` watches chosen subreddits for hiring/referral posts,
       matches company+role to your jobs, adds the poster as a potential referrer.
-- [ ] **Warm-path ranker + outreach sequencer** — per-job "best 3 paths to a referral" (mutual/alumni/peer/
+- [x] **Warm-path ranker + outreach sequencer** — per-job "best 3 paths to a referral" (mutual/alumni/peer/
       recruiter) + a follow-up tracker with stages (identified → engaged → connected → replied → intro →
       referred), next-step + due date, and drafted messages. *(Highest ROI; uses data we already collect.)*
 - [ ] **Intel enrichment** *(later)* — Glassdoor interview Qs / recent news into drafts + interview prep.

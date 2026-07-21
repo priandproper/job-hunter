@@ -176,6 +176,20 @@
   .auto{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--ring);padding:1.3rem 1.4rem;margin-bottom:2rem}
   .auto-hd{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem}
   .auto-note{color:var(--muted);font-size:.82rem;margin:.2rem 0 .95rem}
+  /* Networking cockpit card + outreach pipeline */
+  .net-card{margin-bottom:2rem}
+  .net-card .auto-hd{justify-content:space-between}
+  .net-all{font-size:.82rem;font-weight:600}
+  .net-sec{margin-top:.7rem}
+  .net-sec h4{margin:.2rem 0 .5rem;font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+  .net-row{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .net-who{font-weight:700;font-size:.92rem}
+  .net-next{flex:1 1 40%;color:var(--ink-2);font-size:.85rem;min-width:180px}
+  .net-stage{flex-shrink:0}
+  .pl-path{font-size:.92rem;margin:.1rem 0 .7rem}
+  .pl-ctl{display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end}
+  .pl-ctl label{display:flex;flex-direction:column;gap:.25rem;font-size:.75rem;color:var(--muted);font-weight:600}
+  .pl-ctl .pl-next{min-width:240px}
   .auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.7rem}
   .auto-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem;min-height:120px;border-radius:14px;text-align:left;transition:transform .16s,border-color .16s,box-shadow .16s}
   .auto-card:hover:not(:disabled){transform:translateY(-2px);border-color:var(--line-2);box-shadow:var(--ring-lg)}
@@ -575,6 +589,8 @@
         </div>
 
         <div id="profileRoi"></div>
+
+        <div id="networking"></div>
 
         <div class="auto">
           <div class="auto-hd"><span class="eyebrow">Automation</span></div>
@@ -2059,6 +2075,62 @@ function getPeople(){try{return JSON.parse(localStorage.getItem(PEOPLE_KEY))||[]
 function savePeople(a){try{localStorage.setItem(PEOPLE_KEY,JSON.stringify(a))}catch{}}
 function personById(id){return getPeople().find(p=>p.id===id)||null;}
 function newPersonId(){return 'person-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+
+// ===== Outreach pipeline (a lightweight per-person CRM: the warm-path + follow-up layer) =====
+const PL_STAGES=[['identified','Identified'],['engaged','Engaged'],['connected','Connected'],
+  ['replied','Replied'],['intro','Intro requested'],['referred','Referred'],['passed','Passed']];
+const PL_DONE=new Set(['referred','passed']);   // out of the active pipeline
+function plLabel(s){const m=PL_STAGES.find(x=>x[0]===s);return m?m[1]:'Identified';}
+function getPl(p){return (p&&p.pl)||{stage:'identified',next:'',due:'',updated:''};}
+function plSet(id,patch){const ppl=getPeople();const p=ppl.find(x=>x.id===id);if(!p)return;
+  p.pl=Object.assign(getPl(p),patch,{updated:new Date().toISOString()});savePeople(ppl);
+  toast('Pipeline saved');if(currentView()==='person')renderPersonPage(id);renderNetworking();}
+// The shared person who could introduce you (parsed from "Mutual connection: …").
+function mutualOf(p){const m=/mutual connections?:?\s*(.+)/i.exec((p&&p.howKnown)||'');
+  return m?m[1].split(',')[0].trim():'';}
+function isAlum(p){if(!p)return false;if(p.relationship==='alum')return true;
+  const hay=(((p.tags||[]).join(' '))+' '+(p.howKnown||'')+' '+(p.notes||'')).toLowerCase();
+  if(/\balum(ni)?\b/.test(hay))return true;
+  return (candidateSchools()||[]).some(s=>{const tok=(s||'').toLowerCase().replace(/\b(college|university|institute of technology|institute)\b/g,'').trim();
+    return tok.length>3 && hay.includes(tok);});}
+// Warmth: who to reach out to first. 1st/mutual/alum >> cold 2nd/unknown.
+function warmScore(p){let s=relRank(p)*10;if(mutualOf(p))s+=45;if(isAlum(p))s+=25;
+  if(p.relationship==='recruiter'||p.seniority==='Recruiter')s+=12;return s;}
+function warmPath(p){const mut=mutualOf(p);
+  if(mut)return{label:`Ask ${mut} for an intro`,why:'warmest — a mutual can vouch for you'};
+  if(p.relationship==='1st'||p.relationship==='colleague'||p.relationship==='friend')return{label:'Direct ask — you already know them',why:relLabel(p.relationship)};
+  if(isAlum(p))return{label:'Open with your shared school',why:'alumni reply & refer far more'};
+  if(p.relationship==='recruiter'||p.seniority==='Recruiter')return{label:'Ask them to review your candidacy',why:'recruiter — wants inbound'};
+  if(p.relationship==='2nd')return{label:'Engage first (comment / connect), then ask',why:'2nd-degree — warm up before asking'};
+  return{label:'Warm up before a cold ask',why:'not yet connected'};}
+function plCtl(p){const pl=getPl(p),wp=warmPath(p);
+  return `<div class="pl">
+    <div class="pl-path">→ <b>${esc(wp.label)}</b> <span class="co">${esc(wp.why)}</span></div>
+    <div class="pl-ctl">
+      <label>Stage <select class="txt sm" onchange="plSet('${p.id}',{stage:this.value})">${PL_STAGES.map(([v,l])=>`<option value="${v}" ${v===(pl.stage||'identified')?'selected':''}>${esc(l)}</option>`).join('')}</select></label>
+      <label>Next step <input class="txt sm pl-next" value="${esc(pl.next||'')}" placeholder="e.g. comment on their launch post" onchange="plSet('${p.id}',{next:this.value})"></label>
+      <label>Due <input type="date" class="txt sm" value="${esc(pl.due||'')}" onchange="plSet('${p.id}',{due:this.value})"></label>
+    </div></div>`;}
+// Cockpit "Networking" card: follow-ups due + who to reach out to next.
+function renderNetworking(){
+  const box=document.getElementById('networking');if(!box)return;
+  const ppl=getPeople().filter(p=>!PL_DONE.has(getPl(p).stage));
+  if(!getPeople().length){box.innerHTML='';return;}
+  const today=new Date().toISOString().slice(0,10);
+  const due=ppl.filter(p=>{const d=getPl(p).due;return d&&d<=today;})
+    .sort((a,b)=>(getPl(a).due||'').localeCompare(getPl(b).due||''));
+  const warm=ppl.filter(p=>warmScore(p)>0).sort((a,b)=>warmScore(b)-warmScore(a)).slice(0,6);
+  const row=p=>{const pl=getPl(p),wp=warmPath(p);
+    return `<div class="net-row"><a class="net-who" href="#/person/${p.id}">${esc(p.name)}</a>
+      <span class="co">${esc([p.title,p.company].filter(Boolean).join(' · ')||'')}</span>
+      <span class="net-next">${esc(pl.next||wp.label)}</span>
+      <span class="net-stage tag rel">${esc(plLabel(pl.stage||'identified'))}</span></div>`;};
+  box.innerHTML=`<div class="card net-card"><div class="auto-hd"><span class="eyebrow">Networking</span>
+      <a class="net-all" href="#/people">All people →</a></div>
+    ${due.length?`<div class="net-sec"><h4>⏰ Follow-ups due (${due.length})</h4>${due.slice(0,6).map(row).join('')}</div>`:''}
+    <div class="net-sec"><h4>${due.length?'Then — ':''}Who to reach out to next</h4>
+      ${warm.length?warm.map(row).join(''):'<p class="co">Add people (import a LinkedIn/Reddit paste, or link contacts on a job) to build your warm paths.</p>'}</div></div>`;
+}
 function relLabel(v){const m=PERSON_RELATIONSHIP.find(r=>r[0]===v);return m?m[1]:'';}
 function jobObjById(id){return (DOC.jobs||[]).find(j=>j.id===id)||null;}
 function peopleForJob(jobId){return getPeople().map(p=>{const a=(p.jobs||[]).find(x=>x.id===jobId);return a?{person:p,role:a.role}:null;}).filter(Boolean);}
@@ -2312,9 +2384,11 @@ function setPeopleQuery(q){peopleQuery=q;renderPeople();}
 function personCardRow(p){
   const njobs=(p.jobs||[]).length, sub=[p.title,p.company].filter(Boolean).join(' · ');
   const tags=(p.tags||[]).slice(0,4).map(t=>`<span class="ptag">${esc(t)}</span>`).join('');
+  const st=getPl(p).stage||'identified';
+  const stTag=st!=='identified'?` <span class="tag rel">${esc(plLabel(st))}</span>`:'';
   return `<div class="jobrow"><a class="rhead" href="#/person/${p.id}">
     <span class="avatar">${esc((p.name||'?').trim().slice(0,1).toUpperCase())}</span>
-    <div class="rinfo"><div class="rtitle">${esc(p.name)}${p.relationship?` <span class="tag rel">${esc(relLabel(p.relationship))}</span>`:''}</div>
+    <div class="rinfo"><div class="rtitle">${esc(p.name)}${p.relationship?` <span class="tag rel">${esc(relLabel(p.relationship))}</span>`:''}${stTag}</div>
       <div class="rmeta">${esc(sub||'—')}</div>${tags?`<div class="ptags">${tags}</div>`:''}</div>
     <div class="rscore">${njobs}<small>job${njobs===1?'':'s'}</small></div></a></div>`;
 }
@@ -2322,7 +2396,8 @@ function renderPeople(){
   const q=peopleQuery.trim().toLowerCase();
   let ppl=getPeople();
   if(q)ppl=ppl.filter(p=>((p.name||'')+' '+(p.company||'')+' '+(p.title||'')+' '+((p.tags||[]).join(' '))).toLowerCase().includes(q));
-  ppl=ppl.slice().sort((a,b)=>(a.name||'').toLowerCase().localeCompare((b.name||'').toLowerCase()));
+  // Warmest first (then name) — surfaces the best referral paths at the top.
+  ppl=ppl.slice().sort((a,b)=>warmScore(b)-warmScore(a)||(a.name||'').toLowerCase().localeCompare((b.name||'').toLowerCase()));
   const cnt=document.getElementById('peopleCount');if(cnt)cnt.textContent=`${ppl.length} ${ppl.length===1?'person':'people'}`;
   const el=document.getElementById('peopleList');if(!el)return;
   el.innerHTML=ppl.length?ppl.map(personCardRow).join(''):
@@ -2350,6 +2425,7 @@ function renderPersonPage(id){
         <button class="markbtn lg" onclick="openPersonModal('${p.id}')">✎ Edit</button>
         <button class="markbtn lg hidebtn" onclick="deletePerson('${p.id}')">🗑 Delete</button></div></div>
     ${info?`<div class="box"><div class="pfgrid">${info}</div></div>`:''}
+    <div class="box"><h3>Outreach pipeline</h3>${plCtl(p)}</div>
     ${p.notes?`<div class="box"><h3>Notes</h3><p class="pnotes">${esc(p.notes)}</p></div>`:''}
     <div class="box"><h3>Jobs &amp; outreach</h3>${jobsHtml}</div>`;
 }
@@ -2528,7 +2604,7 @@ function renderJobPage(id){
 }
 
 // ----- render / routing -----
-function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderAuto();}
+function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderNetworking();renderAuto();}
 
 // ===== Profile ROI — "what to work on" from your resume + the real JDs =====
 // Deep-reads your top-fit jobs' full JDs against your best resume and returns a
