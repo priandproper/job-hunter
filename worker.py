@@ -419,15 +419,18 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build the dashboard data files.")
     ap.add_argument("--public", action="store_true", help="public jobs.json only (Actions mode)")
     ap.add_argument("--no-discovery", action="store_true", help="skip discovery + ATS fetch")
-    ap.add_argument("--publish", action="store_true",
-                    help="after refreshing, commit + push so the LIVE dashboard updates (one-command refresh)")
+    ap.add_argument("--no-publish", action="store_true",
+                    help="local only — do NOT commit/push (default is to publish so the live site updates)")
+    ap.add_argument("--publish", action="store_true", help="(deprecated: publishing is the default now)")
     ap.add_argument("--min-fit", type=int, default=None)
     args = ap.parse_args()
     cfg = load_config()
     if args.min_fit is not None:
         cfg["match"]["min_fit_score"] = args.min_fit
     run(cfg, do_discovery=not args.no_discovery, public_only=args.public)
-    if args.publish:
+    # Publish by DEFAULT: "refresh" and "make it live" are one step now, because the
+    # split kept catching people out. Skip only for --no-publish or Actions (--public).
+    if not args.no_publish and not args.public:
         _publish()
     return 0
 
