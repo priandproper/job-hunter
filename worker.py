@@ -392,16 +392,43 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "best_ats": best["ats_score"] if best else 0}
 
 
+def _publish() -> None:
+    """Commit the refreshed data and push, so the live dashboard updates. This is the
+    step people forget after a local run — --publish folds it into the worker."""
+    import subprocess
+    files = ["docs/jobs.json", "data/job_pool.json", "docs/seen.json", "data/companies.json"]
+    subprocess.run(["git", "add", *files], cwd=REPO_ROOT)
+    st = subprocess.run(["git", "status", "--porcelain", *files], cwd=REPO_ROOT,
+                        capture_output=True, text=True).stdout.strip()
+    if not st:
+        print("publish     — nothing changed since the last publish; skipping.")
+        return
+    # NOTE: message must never contain the literal CI-skip token, or the deploy is skipped.
+    msg = "refresh: publish latest local job refresh"
+    r = subprocess.run(["git", "commit", "-m", msg], cwd=REPO_ROOT, capture_output=True, text=True)
+    if r.returncode != 0:
+        print("publish     — commit failed:", (r.stderr or r.stdout).strip()); return
+    p = subprocess.run(["git", "push"], cwd=REPO_ROOT, capture_output=True, text=True)
+    if p.returncode != 0:
+        print("publish     — push failed:", (p.stderr or p.stdout).strip()); return
+    print("publish     — pushed. The live dashboard will update in ~1–2 min "
+          "(hard-refresh the browser with Cmd+Shift+R).")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Build the dashboard data files.")
     ap.add_argument("--public", action="store_true", help="public jobs.json only (Actions mode)")
     ap.add_argument("--no-discovery", action="store_true", help="skip discovery + ATS fetch")
+    ap.add_argument("--publish", action="store_true",
+                    help="after refreshing, commit + push so the LIVE dashboard updates (one-command refresh)")
     ap.add_argument("--min-fit", type=int, default=None)
     args = ap.parse_args()
     cfg = load_config()
     if args.min_fit is not None:
         cfg["match"]["min_fit_score"] = args.min_fit
     run(cfg, do_discovery=not args.no_discovery, public_only=args.public)
+    if args.publish:
+        _publish()
     return 0
 
 
