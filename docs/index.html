@@ -190,6 +190,8 @@
   .pl-ctl{display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end}
   .pl-ctl label{display:flex;flex-direction:column;gap:.25rem;font-size:.75rem;color:var(--muted);font-weight:600}
   .pl-ctl .pl-next{min-width:240px}
+  .coach-card{margin-bottom:2rem}
+  .coach-card .rowbtns{margin-top:.3rem}
   .auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.7rem}
   .auto-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem;min-height:120px;border-radius:14px;text-align:left;transition:transform .16s,border-color .16s,box-shadow .16s}
   .auto-card:hover:not(:disabled){transform:translateY(-2px);border-color:var(--line-2);box-shadow:var(--ring-lg)}
@@ -591,6 +593,15 @@
         <div id="profileRoi"></div>
 
         <div id="networking"></div>
+
+        <div class="card coach-card">
+          <div class="auto-hd"><span class="eyebrow">Coach</span></div>
+          <p class="auto-note">Export a snapshot of your whole hunt — funnel, applications, outreach pipeline, warm paths, and recent activity — bundled with a prompt, for an LLM to grade your effort and hand you this week's prioritized action items.</p>
+          <div class="rowbtns">
+            <button class="primary" onclick="copyCoachPrompt()">📋 Copy progress review for an LLM</button>
+            <button onclick="downloadCoachJson()">⬇ Download snapshot JSON</button>
+          </div>
+        </div>
 
         <div class="auto">
           <div class="auto-hd"><span class="eyebrow">Automation</span></div>
@@ -2132,6 +2143,77 @@ function renderNetworking(){
       ${warm.length?warm.map(row).join(''):'<p class="co">Add people (import a LinkedIn/Reddit paste, or link contacts on a job) to build your warm paths.</p>'}</div></div>`;
 }
 function relLabel(v){const m=PERSON_RELATIONSHIP.find(r=>r[0]===v);return m?m[1]:'';}
+
+// ===== Coach export — a snapshot of the whole hunt (effort + funnel) for an LLM to review =====
+function coachSummary(){
+  const jobs=DOC.jobs||[], byId={};jobs.forEach(j=>byId[j.id]=j);
+  const statuses=getStatuses();
+  const funnel={};STATUSES.forEach(s=>funnel[s]=0);
+  Object.values(statuses).forEach(o=>{if(o&&o.status)funnel[o.status]=(funnel[o.status]||0)+1;});
+  const appsSent=[...APPLIED_STATES].reduce((a,s)=>a+(funnel[s]||0),0);
+  const savedCount=jobs.filter(j=>isMarked(j.id)).length;
+  const tailored=Object.keys(getTailored()||{}).length;
+  // outreach messages logged
+  const outreach=getOutreach()||{};let msgCount=0;
+  Object.values(outreach).forEach(arr=>{msgCount+=((arr||[]).length);});
+  // people + outreach pipeline
+  const ppl=getPeople();
+  const byStage={};PL_STAGES.forEach(([v])=>byStage[v]=0);
+  ppl.forEach(p=>{const st=getPl(p).stage||'identified';byStage[st]=(byStage[st]||0)+1;});
+  const today=new Date().toISOString().slice(0,10);
+  const active=ppl.filter(p=>!PL_DONE.has(getPl(p).stage||'identified'));
+  const followupsDue=active.filter(p=>{const d=getPl(p).due;return d&&d<=today;}).length;
+  const warmest=active.slice().sort((a,b)=>warmScore(b)-warmScore(a)).slice(0,10).map(p=>({
+    name:p.name,company:p.company||'',relationship:p.relationship||'',stage:getPl(p).stage||'identified',
+    next_action:warmPath(p).label,mutual:mutualOf(p)||undefined}));
+  // last-7-days activity from status-change timestamps
+  const weekAgo=Date.now()-7*864e5;
+  const recent=Object.entries(statuses).filter(([,o])=>o&&o.ts&&new Date(o.ts).getTime()>weekAgo)
+    .map(([id,o])=>({job:byId[id]?`${byId[id].company} — ${byId[id].title}`:id,status:o.status,when:o.ts}))
+    .sort((a,b)=>(b.when||'').localeCompare(a.when||'')).slice(0,25);
+  // tracked opportunities (saved or past 'new'), highest fit first
+  const tracked=jobs.filter(j=>jobStatus(j.id)!=='new'||isMarked(j.id))
+    .map(j=>({title:j.title,company:j.company,fit:j.fit_score,ats:j.ats_score,
+      status:jobStatus(j.id),saved:isMarked(j.id),tailored:!!tailoredFor(j.id)}))
+    .sort((a,b)=>(b.fit||0)-(a.fit||0)).slice(0,25);
+  const p=getPersona(),c=(getPrivate().contact)||{};
+  return {
+    generated_at:new Date().toISOString(),
+    candidate:{name:meName()||undefined,roles:p.roles||[],skills:(p.skills||[]).slice(0,24),
+      years:p.years||undefined,location:c.location||'Boston, MA'},
+    market:{jobs_available:jobs.length,last_job_refresh:DOC.generated_at||undefined,
+      most_wanted_missing_skills:((DOC.summary||{}).missing_leaderboard||[]).slice(0,12)
+        .map(k=>`${k.keyword} (${k.count} roles)`)},
+    funnel,totals:{applications_sent:appsSent,saved_jobs:savedCount,resumes_tailored:tailored,
+      outreach_messages_logged:msgCount,people_in_network:ppl.length},
+    outreach_pipeline:{by_stage:byStage,followups_due:followupsDue,warmest_paths:warmest},
+    activity_last_7_days:recent,
+    tracked_opportunities:tracked
+  };
+}
+const COACH_INSTRUCTIONS=`You are my sharp, honest job-search COACH and accountability partner. Below is a JSON snapshot exported from my personal job-search tracker. Judge my EFFORT and PERFORMANCE on the hunt itself (not my resume) and tell me the truth — then give me a tight action plan.
+
+Context you need to read the data:
+- I target two lanes, US-only: (1) Product Marketing / marketing, NON-senior (under ~4 yrs); (2) analyst roles (marketing / business / sales-ops / data), 0–3 yrs.
+- "funnel" = how many tracked jobs sit at each status (new → resume ready → messaged → referred → applied → screen → interview → offer → rejected). "totals.applications_sent" = applied or further.
+- "outreach_pipeline.by_stage" = my networking pipeline (identified → engaged → connected → replied → intro → referred). "followups_due" = people I owe a next touch NOW. "warmest_paths" = my best referral routes ranked; a "mutual" is the warmest (ask them for an intro).
+- "activity_last_7_days" = what I actually did recently. "tracked_opportunities" = jobs I've saved or acted on (fit + ATS scores, status).
+
+Give me, in this order:
+1. HONEST ASSESSMENT (2–4 sentences) — how am I really doing on effort and results? Name the SINGLE biggest bottleneck using the numbers (is it top-of-funnel volume, applications, outreach started-but-not-followed-up, or no responses?).
+2. WHAT'S WORKING vs WHAT'S STALLING — bullet each, grounded in the data.
+3. WHERE I'M LEAKING — the biggest conversion drop (e.g. lots saved but few applied; outreach identified but never advanced; applications but no screens) and why.
+4. THIS WEEK'S ACTION ITEMS — a short, PRIORITIZED, concrete checklist. Be specific: name exactly who to reach out to next (use warmest_paths, favor mutuals), which stalled applications/people to advance, and how many applications to send. Each item doable this week.
+5. ONE METRIC TO MOVE THIS WEEK — pick one number and a target.
+Be direct and specific; ground everything in the numbers. No filler, no generic advice.
+
+MY JOB-SEARCH SNAPSHOT (JSON):
+`;
+function coachPromptText(){return COACH_INSTRUCTIONS+'\n'+JSON.stringify(coachSummary(),null,2)+'\n';}
+function copyCoachPrompt(){copyText(coachPromptText());toast('Progress review copied — paste into Claude / ChatGPT / Gemini');}
+function downloadCoachJson(){const blob=new Blob([JSON.stringify(coachSummary(),null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='job-search-snapshot.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Snapshot JSON downloaded');}
 function jobObjById(id){return (DOC.jobs||[]).find(j=>j.id===id)||null;}
 function peopleForJob(jobId){return getPeople().map(p=>{const a=(p.jobs||[]).find(x=>x.id===jobId);return a?{person:p,role:a.role}:null;}).filter(Boolean);}
 function personJobs(p){return (p.jobs||[]).map(a=>({job:jobObjById(a.id),role:a.role,id:a.id}));}
