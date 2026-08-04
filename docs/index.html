@@ -323,6 +323,8 @@
   .jobrow:hover{border-color:var(--line-2);box-shadow:var(--ring)}
   .jobrow:hover .chev-r{transform:translateX(3px);color:var(--accent)}
   .jobrow.is-new{border-left-color:var(--mid)}
+  .jobrow.is-fresh{border-left-color:var(--good);background:var(--good-soft)}
+  .tag.fresh{background:var(--good-soft);color:var(--good)}
   .rhead{flex:1;min-width:0;display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;text-decoration:none;color:inherit;cursor:pointer}
   .rhead:hover{background:var(--surface-2)}
   .rhead:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
@@ -1808,6 +1810,12 @@ function toggleEnrichedOnly(v){enrichedOnly=v;shownCount=PAGE;renderJobs();}
 // ----- sorting (best-for-me / relevance / recency / ATS / new) -----
 const SORTS=[['persona','Best for me'],['relevance','Relevance'],['boston','Closest to Boston'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
+// Recency: how many days ago the role was POSTED (null if unknown). "Fresh" = last 7 days.
+function _postedDays(job){const ms=_postedMs(job);if(!ms)return null;return (Date.now()-ms)/864e5;}
+function isFresh(job){const d=_postedDays(job);return d!==null&&d<=7;}   // posted within a week
+function freshBadge(job){const d=_postedDays(job);if(d===null||d>7)return '';
+  const lbl=d<1?'today':(Math.round(d)+'d ago');
+  return `<span class="tag fresh" title="Posted ${esc(lbl)}">🆕 ${d<1?'today':'this week'}</span>`;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
   const a=[...jobs],mf=j=>j.manual?1:0;   // jobs you logged yourself pin to the top
@@ -1856,10 +1864,10 @@ function refItem(job,r){
   return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;}
 function jobRow(job){
   const st=jobStatus(job.id),isNew=newIds.has(job.id)&&st==='new',href='#/job/'+job.id;
-  return `<div class="jobrow ${isNew?'is-new':''}" id="row-${job.id}">
+  return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2654,7 +2662,7 @@ function renderJobPage(id){
     ${staleNote}
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
-      <div><h2>${esc(job.title)} ${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}</p></div>
+      <div><h2>${esc(job.title)} ${freshBadge(job)}${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}${_postedDays(job)!==null?` · <span class="co">posted ${_postedDays(job)<1?'today':Math.round(_postedDays(job))+'d ago'}</span>`:''}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>

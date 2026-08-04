@@ -64,12 +64,48 @@ DEFAULT_EXCLUDE_TITLE_TERMS = [
     "business development manager", "sales manager", "sales executive",
     "inside sales", "outside sales", "enterprise sales", "channel sales",
     "territory", "quota carrying", "quota-carrying",
+    "customer development representative", "customer development rep",
+    # Legal / tax / finance / accounting functions — out of scope (also unlikely to
+    # sponsor). Uses PHRASES like "financial analyst" (not bare "finance") so a
+    # marketing/analyst role in the finance INDUSTRY, e.g. "Marketing Analyst,
+    # Financial Services", is kept.
+    "legal", "counsel", "paralegal", "attorney", "compliance",
+    "tax", "accounting", "accountant", "bookkeep", "payroll", "auditor", "audit",
+    "controller", "treasury", "financial analyst", "finance manager", "fp&a",
+    # bare "finance" catches "Finance Business Analyst" etc. — and does NOT match
+    # "financial" (different substring), so "Marketing Analyst, Financial Services" stays.
+    "finance",
 ]
 
 
 def excluded_title(title: str | None, terms) -> bool:
     t = (title or "").lower()
     return any(term in t for term in terms)
+
+
+# Allowlist: a job is shown ONLY if its TITLE matches one of these target families.
+# Marketing lane is broad (product marketing + GTM/go-to-market + growth + generic
+# "marketing manager" and the marketing sub-functions); analyst lane is the specific
+# types the candidate wants (marketing / business / sales analyst). Everything not on
+# this list is dropped. Overridable via config match.target_role_terms.
+DEFAULT_TARGET_ROLE_TERMS = [
+    # marketing lane
+    "product marketing", "product marketer", "pmm",
+    "go-to-market", "go to market", "gtm",
+    "marketing operations", "marketing ops",
+    "growth marketing", "demand generation", "demand gen", "lifecycle marketing",
+    "content marketing", "brand marketing", "field marketing", "campaign manager",
+    "marketing manager", "marketing lead", "marketing specialist",
+    "marketing coordinator", "marketing associate", "marketing analyst",
+    # analyst lane (the specific types wanted)
+    "business analyst", "sales analyst", "sales operations analyst", "sales ops analyst",
+]
+
+
+def on_target(title: str | None, terms=None) -> bool:
+    """True only when the title matches an allowed target role family."""
+    t = (title or "").lower()
+    return any(term in t for term in (terms or DEFAULT_TARGET_ROLE_TERMS))
 
 
 # Location filtering (candidate needs US / US-remote roles for H-1B sponsorship).
@@ -249,6 +285,8 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
         return False
     if (job.get("sponsorship") or "").strip() in cfg_match.get("exclude_sponsorship", []):
         return False
+    if not on_target(job.get("title"), cfg_match.get("target_role_terms")):
+        return False   # allowlist: title must be one of the target role families
     terms = cfg_match.get("exclude_title_terms", DEFAULT_EXCLUDE_TITLE_TERMS)
     if excluded_title(job.get("title"), terms):
         return False
