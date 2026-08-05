@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-04 16:42:49",
+  "generated_at": "2026-08-05 08:09:43",
   "meta": {
-    "job_count": 143,
+    "job_count": 146,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -1055,7 +1055,7 @@
     "missing_leaderboard": [
       {
         "keyword": "marketo",
-        "count": 14
+        "count": 15
       },
       {
         "keyword": "forecasting",
@@ -1063,7 +1063,7 @@
       },
       {
         "keyword": "experimentation",
-        "count": 9
+        "count": 10
       },
       {
         "keyword": "looker",
@@ -1071,7 +1071,7 @@
       },
       {
         "keyword": "email marketing",
-        "count": 6
+        "count": 7
       },
       {
         "keyword": "attribution",
@@ -1104,6 +1104,10 @@
       {
         "keyword": "cms",
         "count": 2
+      },
+      {
+        "keyword": "crm",
+        "count": 1
       }
     ]
   },
@@ -1797,7 +1801,7 @@
       "location": "Remote - US",
       "url": "https://job-boards.greenhouse.io/twilio/jobs/8056278",
       "source": "greenhouse",
-      "posted_at": "2026-07-24T10:24:32-04:00",
+      "posted_at": "2026-08-04T17:50:44-04:00",
       "sponsorship": "Unknown",
       "fit_score": 100,
       "min_years": 3,
@@ -5687,9 +5691,9 @@
       "company": "Amazon",
       "title": "Business Analyst, Amazon Logistics, AMZL OTR Planning",
       "location": "Nashville, Tennessee, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10470746/business-analyst-amazon-logistics-amzl-otr-planning",
+      "url": "https://www.amazon.jobs/en/jobs/10467988/business-analyst-amazon-logistics-amzl-otr-planning",
       "source": "amazon",
-      "posted_at": "2026-07-10",
+      "posted_at": "2026-07-07",
       "sponsorship": "Unknown",
       "fit_score": 94,
       "min_years": 3,
@@ -6449,6 +6453,226 @@
       },
       "referral_message": "Hi there \u2014 I saw Amazon is hiring a Brand Marketing Manager, Outbound Marketing\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "5a4986ccfdb86da0",
+      "company": "Pinterest",
+      "title": "Email & Lifecycle Marketing Specialist",
+      "location": "San Francisco, CA, US; Remote, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8077735",
+      "source": "greenhouse",
+      "posted_at": "2026-08-04T18:24:54-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 94,
+      "min_years": 3,
+      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
+      "title_keywords": [
+        "lifecycle",
+        "marketing",
+        "marketing specialist"
+      ],
+      "ats_score": 74,
+      "best_variant": "Amazon Payments \u2014 PMM",
+      "missing_keywords": [
+        "crm",
+        "email marketing",
+        "experimentation"
+      ],
+      "requested_keywords": [
+        "a/b testing",
+        "analytics",
+        "b2b",
+        "brand",
+        "campaign",
+        "crm",
+        "cross-functional",
+        "email marketing",
+        "experimentation",
+        "funnel",
+        "go-to-market",
+        "launch",
+        "lifecycle",
+        "lifecycle marketing",
+        "messaging",
+        "r",
+        "reporting",
+        "salesforce",
+        "segmentation"
+      ],
+      "per_variant": [
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 74,
+          "missing": [
+            "crm",
+            "email marketing",
+            "experimentation"
+          ]
+        },
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 68,
+          "missing": [
+            "email marketing",
+            "experimentation"
+          ]
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 63,
+          "missing": [
+            "a/b testing",
+            "email marketing",
+            "experimentation",
+            "segmentation"
+          ]
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 58,
+          "missing": [
+            "crm",
+            "email marketing",
+            "experimentation"
+          ]
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 58,
+          "missing": [
+            "a/b testing",
+            "crm",
+            "email marketing",
+            "experimentation"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "About Pinterest: \n Millions of people around the world come to our platform to find creative ideas, dream about new possibilities and plan for memories that will last a lifetime. At Pinterest, we\u2019re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. \n Discover a career where you ignite innovation for millions, transform passion into growth opportunities, celebrate each other\u2019s unique experiences and embrace the\u00a0 flexibility to do your best work. Creating a career you love? It\u2019s Possible. \n At Pinterest, AI isn't just a feature, it's a powerful partner that augments our creativity and amplifies our impact, and we\u2019re looking for candidates who are excited to be a part of that. To get a complete picture of your experience and abilities, we\u2019ll explore your foundational skills and how you collaborate with AI. \n Through our interview process, what matters most is that you can always explain your approach, showing us not just what you know, but how you think. You can read more about our AI interview philosophy and how we use AI in our recruiting process here . Pinterest is looking for an Email & Lifecycle Marketing Specialist to help build and scale email and push programs for our business audiences. In this role you\u2019ll partner across Marketing, Creative, Sales, Product and IT to deliver thoughtful, data-informed campaigns that drive advertiser awareness, engagement and revenue growth. This is an exciting opportunity for someone who enjoys combining strategy, execution and analysis while helping shape growing email programs with meaningful business impact. \n \u00a0 \n What you\u2019ll do: \n \n Develop and execute email and push programs for Pinterest\u2019s business audiences that drive advertiser awareness, engagement, and revenue growth. Own the process, including brief development, collaboration with Creative on copy and design, QA, launch and reporting.\u00a0 \n Partner with Email Marketing Manager and Mid-Market Marketing Director to develop email strategies that reflect business priorities, support go-to-market initiatives and create a consistent experience for advertisers.\u00a0 \n Run a structured testing and optimization program. Conduct tests across audience signals, funnel stage, messaging, design, cadence and more. Analyze performance data, synthesize findings into actionable recommendations and continuously improve program efficiency and impact over time. \n Provide operational support for email marketing tools, including maintenance of Salesforce Account Engagement.\u00a0 \n Use AI to improve existing email processes and develop new ones as needed. Help create new templates, codify testing frameworks, improve intake and launch workflows, identify automation opportunities to make email programs more scalable. \n Maintain a high bar for quality, compliance and customer experience across all sends, including list health, deliverability best practices, data privacy laws and clear, on-brand messaging. \n\n What we\u2019re looking for: \n \n At least 3 years of experience in email, CRM or lifecycle marketing, ideally in a B2B environment. Experience supporting advertiser, sales-led, or mid-market audiences is a plus. \n Proficiency with a marketing automation platform (Salesforce Account Engagement preferred). Should be comfortable building and launching campaigns, running reports in Salesforce, maintaining data hygiene and trouble-shooting.\u00a0\u00a0\u00a0 \n Strong campaign execution skills, including campaign set up, QA, scheduling, stakeholder coordination and deployment. \n Experience with audience segmentation, targeting and personalization based on lifecycle stage, engagement signals or business priorities. \n Experimentation and analytics, including A/B testing methodology, performance reporting, insight generation, and translating results into actionable recommendations. \n Has previously partnered closely with creative teams on design and copywriting for emails. Strong eye for clear messaging, user experience and brand consistency. \n Strong cross-functional communication and collaboration skills. Partners effectively with Marketing, Sales, Product and IT stakeholders.\u00a0 \n Operational rigor and attention to detail, including documentation, QA, process discipline and comfort managing multiple campaign workflows in a fast-paced environment. \n Demonstrated ability to use AI to accelerate workflows such as intake and launch processes, copy ideation, analysis and reporting, while applying sound judgment, validating outputs and maintaining ownership of final work. \n Bachelor's degree in a related field or equivalent experience. \n\n Relocation statement \n \n This position is not eligible for relocation assistance. Visit our PinFlex page to learn more about our working model. \n\n In-office requirement statement: \n \n We recognize that the ideal environment for work is situational and may differ across departments. What this looks like day-to-day can vary based on the needs of each organization or role. \n This role will need to be in the office for in-person collaboration 1-2 times/ every 6 months and therefore can be situated anywhere in the country. \n\n #LI-PW1 \n #LI-REMOTE At Pinterest we believe the workplace should be equitable, inclusive, and inspiring for every employee. In an effort to provide greater transparency, we are sharing the base salary range for this position. The position is also eligible for equity. Final salary is based on a number of factors including location, travel, relevant prior experience, or particular skills and expertise. \n Information regarding the culture at Pinterest and benefits available for this position can be found here . US based applicants only $81,921 \u2014 $168,660 USD Our Commitment to Inclusion: \n Pinterest is an equal opportunity employer and makes employment decisions on the basis of merit. We want to have the best qualified people in every job. All qualified applicants will receive consideration for employment without regard to race, color, ancestry, national origin, religion or religious creed, sex (including pregnancy, childbirth, or related medical conditions), sexual orientation, gender, gender identity, gender expression, age, marital status, status as a protected veteran, physical or mental disability, medical condition, genetic information or characteristics (or those of a family member) or any other consideration made unlawful by applicable federal, state or local laws. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. If you require a medical or religious accommodation during the job application process, please complete\u00a0 this form for support. \n \u00a0 \n By submitting this application, I certify that all information submitted in my application and throughout the hiring process is true, accurate, and complete to the best of my knowledge. I understand that any false statement, omission, or misrepresentation may disqualify me from employment consideration or result in termination if discovered after hire.",
+      "resume_core": {
+        "label": "Pinterest \u2014 Email & Lifecycle Marketing Specialist",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
+              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
+              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Demand & GTM",
+            "items": [
+              "Account-Based Marketing (ABM)",
+              "Demand Generation",
+              "Multi-Channel Campaigns",
+              "Go-to-Market Strategy",
+              "Positioning & Messaging",
+              "Segmentation"
+            ]
+          },
+          {
+            "name": "Content & Enablement",
+            "items": [
+              "Content Strategy",
+              "Case Studies & Sales Collateral",
+              "Competitive Intelligence",
+              "Sales Enablement"
+            ]
+          },
+          {
+            "name": "Analytics & Tools",
+            "items": [
+              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
+              "A/B Testing",
+              "Attribution",
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Google Analytics (GA4)"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Pinterest is hiring a Email & Lifecycle Marketing Specialist and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Pinterest, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Pinterest%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "42cb70431b0393e9",
@@ -21969,6 +22193,213 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Elastic%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "0a744e2646fbc2df",
+      "company": "Amazon",
+      "title": "Marketing Manager, Global Builder Lofts , Developer Experience",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10492284/marketing-manager-global-builder-lofts-developer-experience",
+      "source": "amazon",
+      "posted_at": "2026-08-04",
+      "sponsorship": "Unknown",
+      "fit_score": 61,
+      "min_years": null,
+      "variant_label": "Amazon Business \u2014 PMM",
+      "title_keywords": [
+        "marketing"
+      ],
+      "ats_score": 63,
+      "best_variant": "Data-Driven GTM (CV)",
+      "missing_keywords": [
+        "marketo"
+      ],
+      "requested_keywords": [
+        "adoption",
+        "brand",
+        "campaign",
+        "conversion",
+        "crm",
+        "cross-functional",
+        "data-driven",
+        "field marketing",
+        "hubspot",
+        "insights",
+        "kpi",
+        "launch",
+        "marketo",
+        "messaging",
+        "nurture",
+        "product launch",
+        "r",
+        "reporting",
+        "storytelling"
+      ],
+      "per_variant": [
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 63,
+          "missing": [
+            "marketo"
+          ]
+        },
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 53,
+          "missing": [
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 42,
+          "missing": [
+            "crm",
+            "data-driven",
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 37,
+          "missing": [
+            "crm",
+            "data-driven",
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 32,
+          "missing": [
+            "crm",
+            "data-driven",
+            "marketo"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "AWS Developer Experience is looking for a Marketing Manager to own the end-to-end marketing strategy and digital presence for the AWS Builder Loft program globally. Builder Lofts are physical developer community spaces where builders come together for hands-on workshops, hackathons, technical talks and networking. This role is critical for driving awareness and sustained audience growth through data-driven campaigns, compelling content, and seamless integration between physical touchpoints and digital engagement. This is a high-impact role that requires a marketer who combines strong storytelling with multi-channel marketing experience, thinks globally while executing locally, and understands developer communities. We're looking for someone who has the ability to build marketing playbooks, mechanisms, and scalable frameworks that allow a fast-growing global program to operate with consistency and efficiency. You leverage AI tools and automation to multiply your impact, move faster, and continuously improve marketing performance. You will work cross-functionally with PR, community, events, developer advocacy, and product teams across different geographies to build repeatable strategies and execution frameworks for a rapidly scaling global program. Key job responsibilities - Promotion Strategy: Develop and execute the Loft promotion strategy across AWS-owned and third-party email programs, social media, web, and grassroots channels to drive awareness, events registration/attendance and returning visitors - Registration & CRM Management: Manage event registration platforms and ensure seamless data flow to marketing CRMs, maintaining data integrity and enabling automated nurture workflows. - Content Calendar & Publishing: Own the content calendar for the Builder Loft content series showcasing Loft experiences, builder stories, and hands-on learning opportunities. Coordinate with team members and external partners to drive content creation and ensure editorial quality. - KPI Tracking & Reporting: Track and report on marketing KPIs including registration conversion rates, email open/click rates, social media engagement, content reach, and web monthly active users. - Audience Analysis: Conduct demographic and cohort analysis of Loft attendees to inform programming and outreach decisions. Own attendee data analysis, identifying trends in audience composition, repeat attendance, and engagement patterns. - PR Coordination: Coordinate with AWS PR teams high-profile event announcements, ensuring consistent messaging and maximum media impact. - Localization: Lead localization efforts where necessary, adapting marketing materials, campaigns, and content for local markets while maintaining brand consistency. - Physical-to-Digital Engagement Strategy Ownership: Designing the strategy that moves builders from initial awareness and in-person attendance into sustained always-on digital engagement. - Cross-Functional Collaboration: Collaborate with the Community & Partnerships Manager on community channel promotion and co-marketing with partners. Work effectively across AWS with groups such as developer advocacy, digital marketing, field marketing, sales, and startup teams. A day in the life You start the morning working on a social media campaign highlighting the communities that the Builder Loft has been working with for the past year with the goal of acquiring new strategic partners who can host events in the space. You use an AI summarization tool to pull key information about previous campaign data, audience insights, industry trends, social media platform know-hows and feed them into the plan. Mid-morning, you join a cross-functional sync with the PR team to align on the messaging framework for an upcoming high profile Builder Loft event. After that, you're reviewing the content calendar, writing an article, and briefing your agency partner on assets needed for the next campaign sprint. In the afternoon, you're building a new campaign playbook, documenting the end-to-end process for a \"city launch\" so that when the next Builder Loft opens, there's a repeatable, high-quality execution plan ready to deploy. You close the day by organizing customer feedback you\u2019ve seen online and compiling a collection of social media posts and other coverage, sending a Slack recap to your team members with synthesized insights and trends. \n\nBasic qualifications:\n- 5+ years of professional non-internship marketing experience - Experience building, executing and scaling cross-functional programs or marketing campaigns from concept to completion - Experience in designing and producing content for a technical audience, such as Software Engineers, System Administrators, or IT professionals - Experience analyzing digital marketing campaigns, patterns and data trends to determine if they are meeting business objectives, and in turn leading recommendations to optimize - - Experience managing event registration or marketing automation platforms (e.g., Cvent, Marketo, HubSpot, or similar).\n\nPreferred qualifications:\n- Experience working within a global company, with multi-country responsibilities - - Demonstrated proficiency using AI tools to drive efficiency, personalization, and scale - - Familiarity with community-led growth strategies and grassroots marketing. - -Experience in event marketing - - Experience coordinating with PR teams on product launches or location openings. Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, NY, New York - 86,700.00 - 151,700.00 USD annually",
+      "resume_core": {
+        "label": "Amazon \u2014 Marketing Manager, Global Builder Lofts , Developer Experience",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
+              "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
+              "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
+              "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "GTM & Product Marketing",
+            "items": [
+              "Go-to-Market Strategy",
+              "Positioning & Messaging",
+              "Product Launch",
+              "Competitive Intelligence",
+              "Buyer & Market Research"
+            ]
+          },
+          {
+            "name": "Content & Enablement",
+            "items": [
+              "Case Studies",
+              "Sales Decks & Collateral",
+              "Battlecards",
+              "Webinars"
+            ]
+          },
+          {
+            "name": "Analytics & Tools",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Google Analytics (GA4)"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Marketing Manager, Global Builder Lofts , De\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "5fde3e18465de1c8",
       "company": "ZoomInfo",
       "title": "Business Consultant II, GTM",
@@ -22174,7 +22605,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Go-to-Market-Product-Manager_JR2022366",
       "source": "workday",
-      "posted_at": "Posted Yesterday",
+      "posted_at": "Posted 2 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -22369,7 +22800,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Marketing-Campaign-Manager---Open-Models_JR2022507",
       "source": "workday",
-      "posted_at": "Posted Yesterday",
+      "posted_at": "Posted 2 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -22563,7 +22994,7 @@
       "location": "San Jose",
       "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/B2B-Performance-Marketing-Specialist_R170030",
       "source": "workday",
-      "posted_at": "Posted 14 Days Ago",
+      "posted_at": "Posted 15 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -24313,7 +24744,7 @@
       "location": "6 Locations",
       "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/AMER---United-States---Oregon---Portland/Campaign-Marketing-Manager--Forma_26WD98562-1",
       "source": "workday",
-      "posted_at": "Posted 5 Days Ago",
+      "posted_at": "Posted 6 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -25673,7 +26104,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
       "source": "workday",
-      "posted_at": "Posted 7 Days Ago",
+      "posted_at": "Posted 8 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -27197,6 +27628,200 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Samsara%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "1c1d50a3cd84472c",
+      "company": "Gusto",
+      "title": "Event Marketing Manager",
+      "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/gusto/jobs/8094350",
+      "source": "greenhouse",
+      "posted_at": "2026-08-04T17:10:25-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 58,
+      "min_years": null,
+      "variant_label": "Amazon Payments \u2014 PMM",
+      "title_keywords": [
+        "marketing"
+      ],
+      "ats_score": 80,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "brand",
+        "campaign",
+        "cross-functional",
+        "data-driven",
+        "excel",
+        "funnel",
+        "go-to-market",
+        "insights",
+        "lifecycle",
+        "messaging",
+        "pipeline",
+        "positioning",
+        "project management",
+        "r",
+        "reporting"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 80,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 80,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 67,
+          "missing": [
+            "data-driven"
+          ]
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 53,
+          "missing": [
+            "data-driven",
+            "excel"
+          ]
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 47,
+          "missing": [
+            "data-driven",
+            "excel"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role: \n We're looking for an Event Marketing Manager to bring Gusto to life through bold, memorable events and experiences. \n This is a highly visible, strategic role responsible for designing, producing, and optimizing event marketing programs\u2014from trade shows and industry conferences to Gusto-owned activations and experiences. You'll plan, execute, and optimize event marketing campaigns as part of a cross-functional go-to-market team, turning strategy into on-the-ground execution that builds brand affinity and builds pipeline. \n About the Team: \n This role is part of the go-to-market team responsible for driving pipeline and fueling growth across Gusto's channels. We combine creativity, data-driven insights, and cross-functional collaboration to design campaigns that reach, engage, and convert the right audiences at scale. Together, we've helped Gusto grow to serve hundreds of thousands of customers nationwide, and we're just getting started. \n Here\u2019s what you\u2019ll do day-to-day: \n \n Collaborate with cross-functional stakeholders and leadership to set goals, develop event strategies, execute plans, and evaluate performance to drive continuous improvement over time. \n Build and manage end-to-end event campaign programs including scopes of work, resource plans, budgets, contracts, and timelines\u2014keeping everything on track and on budget. \n Leverage a deep understanding of Gusto's internal and external market positioning and target audiences to inform event decisions, from format and venue selection to messaging and audience targeting. \n Design and produce a range of event types\u2014from large-scale owned events (500+ attendees) to trade show activations, field events, and intimate customer experiences\u2014that strengthen brand affinity and accelerate funnel impact. \n Build strong relationships with external partners including industry and show organizers, agencies, and vendors, negotiating favorable terms and ensuring seamless delivery. \n Assemble the right internal and external resources for each opportunity, fostering collaboration and creative excellence with Gusto's creative teams, agencies, and production partners. \n Maintain accuracy and accountability of event budgets, evaluate results against goals, deliver wrap-up reports, and make recommendations to senior leadership for Event Marketing. \n Build upon and advocate for the event marketing and production craft and vision at Gusto\u2014championing breakthrough experience design, emerging event technology, and innovative production approaches. \n Leverage AI tools and technologies to enhance event marketing workflows\u2014from audience analysis and content personalization to post-event reporting and campaign optimization\u2014driving efficiency and deeper insights across the event lifecycle. \n \n Here\u2019s what we're looking for: \n \n A track record of producing a wide range of events (trade shows, activations, conferences, owned events for 500+ attendees, and white-glove experiences) across varying levels of complexity, scale, and design. \n A passion for event marketing and production with a willingness to roll up your sleeves and get hands-on in execution\u2014you move effortlessly between big-picture strategy and intricate operational details. \n Strong project management and communication skills with a proven ability to manage multiple stakeholders at all levels and across different geographies, keeping complex programs running on time and on budget. \n Experience managing and collaborating with internal creative teams and external agencies, driving alignment and excellence in production delivery. \n Passionate and knowledgeable about breakthrough experience design and emerging event technology, always looking for new ways to elevate the craft. \n A natural cross-functional collaborator who thrives on building and maintaining relationships across the organization to drive results. \n An intellectually curious self-starter who isn't afraid to ask questions and uses answers to bring clarity and direction to the broader team. \n AI fluency and a willingness to integrate AI-powered tools into your workflow to work smarter and unlock new possibilities. \n Comfort operating in a fast-paced, ambiguous environment while building scalable programs and processes. \n Note: this role requires frequent travel throughout North America. \n \n Compensation \n Our cash compensation amount for this role is $129,000/yr to $157,000/yr in Denver and Scottsdale and $154,000/yr to $188,000/yr for San Francisco & New York. Final offer amounts are determined by multiple factors including candidate location, experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of backgrounds, not just because it's the right thing to do, but because it makes our company stronger. If you share our values and our enthusiasm for small businesses, you will find a home at Gusto.\u00a0 \n Gusto is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Gusto considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Gusto is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. We want to see our candidates perform to the best of their ability. If you require a medical or religious accommodation at any time throughout your candidate journey, please fill out this form and a member of our team will get in touch with you. \n Gusto takes security and protection of your personal information very seriously. Please review our Fraudulent Activity Disclaimer . \n Personal information collected and processed as part of your Gusto application will be subject to\u00a0 Gusto's Applicant Privacy Notice .",
+      "resume_core": {
+        "label": "Gusto \u2014 Event Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Rebuilt self-serve onboarding messaging and activation flows, running experiments on the signup funnel (SQL, Tableau) that lifted self-serve signup conversion 75% and lead-to-demo conversion ~30%.",
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; built segment-specific acquisition playbooks that more than doubled booked meetings (from ~10/week to ~5/day)."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Owned acquisition and lifecycle marketing for 100+ enterprise banking clients across 50+ markets - built segmentation and messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Built Finacle's first pulse-analytics dashboard (SQL, Tableau) to measure campaign performance and communicate results to senior leadership, winning the Best Internal Campaign Award.",
+              "Created battlecards and monetization deep-dives for 50+ account executives across banking markets, cutting sales-cycle length ~15%."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned messaging, content, and enablement, and delivered 80+ tailored CIO/CTO presentations.",
+              "Ran win/loss analysis and competitive positioning that lifted win rates ~10%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Ran donor-acquisition campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using A/B testing and conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing",
+            "items": [
+              "Acquisition Campaigns",
+              "Lifecycle Marketing",
+              "Onboarding & Activation",
+              "Segmentation",
+              "Branded Content",
+              "Positioning & Messaging"
+            ]
+          },
+          {
+            "name": "Experimentation & Analytics",
+            "items": [
+              "A/B & Multivariate Testing",
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)"
+            ]
+          },
+          {
+            "name": "Domain & Tools",
+            "items": [
+              "Financial Services / Payments",
+              "Banking SaaS",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Excel"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Gusto is hiring a Event Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Gusto, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Gusto%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "a0d726577f531ab9",
       "company": "Stripe",
       "title": "GTM Recruiter, AMER (Fixed Term)",
@@ -27895,7 +28520,7 @@
         }
       ],
       "jd_available": true,
-      "excerpt": "MKTQ327R28 \n Event Marketing Manager, 3P & Partner Events \n As a key member of the Databricks Marketing team, you will design and execute high-impact third-party and partner events that accelerate pipeline, deepen customer relationships, and elevate the Databricks brand. In this role, you will translate business goals into an integrated event strategy, partnering closely with Sales, Product, and Marketing to deliver measurable outcomes. You will build repeatable programs and processes so our events scale efficiently as the business grows. \n Outcomes\u00a0 \n \n Business impact (pipeline & revenue): Deliver an event portfolio that consistently meets or exceeds pipeline and revenue targets, with clear attribution, reporting, and optimization plans for each program that informs go-forward investment decisions. \n Audience growth & quality: Increase the volume and quality of target accounts and qualified leads across priority events, with a focus on high-intent engagement and conversion to pipeline. \n Brand & experience effectiveness: Deliver high-impact event experiences that clearly communicate company positioning and drive measurable engagement (e.g., session attendance, booth traffic, meetings, and activations tied to target personas). \n Integrated event strategy & execution: Transform priority events into fully integrated programs (booth, content, meetings and ancillary events) that present a unified narrative, improve lead quality and increase engagement across the event lifecycle. \n Program optimization & insights: Continuously improve event performance by applying insights from year-over-year data, attendee feedback, competitive analysis, and conversion metrics to inform planning and investment decisions toward the highest-yield programs. \n Sales & stakeholder alignment: Establish and scale a repeatable engagement model with Sales and cross-functional partners, resulting in strong pre-event planning, active in-event participation, and timely post-event follow-up, with measurable improvements in stakeholder satisfaction and pipeline conversion. \n \n Competencies\u00a0 \n \n Proven event leadership experience owning end-to-end strategy and execution for complex, multi-stakeholder events that drive measurable pipeline and revenue outcomes. \n Strong command of event performance metrics, including how to set goals, forecast, and report on pipeline, lead quality, conversion, and ROI for executive and practitioner audiences. \n Demonstrated ability to partner closely with internal stakeholders, translating business priorities into event strategies and securing alignment on objectives, target accounts, follow-up plans, and success criteria. \n Experience optimizing budgets and resources, making data-informed tradeoffs while maintaining or elevating attendee experience. \n Exceptional program management and communication skills, with the ability to manage multiple concurrent events, navigate ambiguity, and influence cross-functional stakeholders at all levels. \n Deep customer and audience empathy, using insights from feedback, research, and data to continuously refine content, formats, and experiences to better serve target segments. \n \u00a0 \n Pay Range Transparency \n Databricks is committed to fair and equitable compensation practices. The pay range(s) for this role is listed below and represents the expected base salary range for non-commissionable roles or on-target earnings for commissionable roles.\u00a0 Actual compensation packages are based on several factors that are unique to each candidate, including but not limited to job-related skills, depth of experience, relevant certifications and training, and specific work location. Based on the factors above, Databricks anticipated utilizing the full width of the range. The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above. For more information regarding which range your location is in visit our page here . \n \u00a0 Zone 1 Pay Range $120,400 \u2014 $165,550 USD Zone 2 Pay Range $108,400 \u2014 $149,050 USD Zone 3 Pay Range $102,300 \u2014 $140,700 USD Zone 4 Pay Range $96,300 \u2014 $132,450 USD About Databricks \n Databricks is the data and AI company. More than 10,000 organizations worldwide \u2014 including Comcast, Cond\u00e9 Nast, Grammarly, and over 50% of the Fortune 500 \u2014 rely on the Databricks Data Intelligence Platform to unify and democratize data, analytics and AI. Databricks is headquartered in San Francisco, with offices around the globe and was founded by the original creators of Lakehouse, Apache Spark\u2122, Delta Lake and MLflow. To learn more, follow Databricks on\u00a0 Twitter ,\u00a0 LinkedIn \u00a0 and \u00a0 Facebook . Benefits At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click here . \n Our Commitment to Diversity and Inclusion \n At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics. \n Compliance \n If access to export-controlled technology or source code is required for performance of job duties, it is within Employer's discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.",
+      "excerpt": "MKTQ327R28 \n Event Marketing Manager, 3P & Partner Events \n As a key member of the Databricks Marketing team, you will design and execute high-impact third-party and partner events that accelerate pipeline, deepen customer relationships, and elevate the Databricks brand. In this role, you will translate business goals into an integrated event strategy, partnering closely with Sales, Product, and Marketing to deliver measurable outcomes. You will build repeatable programs and processes so our events scale efficiently as the business grows. \n Outcomes\u00a0 \n \n Business impact (pipeline & revenue): Deliver an event portfolio that consistently meets or exceeds pipeline and revenue targets, with clear attribution, reporting, and optimization plans for each program that informs go-forward investment decisions. \n Audience growth & quality: Increase the volume and quality of target accounts and qualified leads across priority events, with a focus on high-intent engagement and conversion to pipeline. \n Brand & experience effectiveness: Deliver high-impact event experiences that clearly communicate company positioning and drive measurable engagement (e.g., session attendance, booth traffic, meetings, and activations tied to target personas). \n Integrated event strategy & execution: Transform priority events into fully integrated programs (booth, content, meetings and ancillary events) that present a unified narrative, improve lead quality and increase engagement across the event lifecycle. \n Program optimization & insights: Continuously improve event performance by applying insights from year-over-year data, attendee feedback, competitive analysis, and conversion metrics to inform planning and investment decisions toward the highest-yield programs. \n Sales & stakeholder alignment: Establish and scale a repeatable engagement model with Sales and cross-functional partners, resulting in strong pre-event planning, active in-event participation, and timely post-event follow-up, with measurable improvements in stakeholder satisfaction and pipeline conversion. \n \n Competencies\u00a0 \n \n Proven event leadership experience owning end-to-end strategy and execution for complex, multi-stakeholder events that drive measurable pipeline and revenue outcomes. \n Strong command of event performance metrics, including how to set goals, forecast, and report on pipeline, lead quality, conversion, and ROI for executive and practitioner audiences. \n Demonstrated ability to partner closely with internal stakeholders, translating business priorities into event strategies and securing alignment on objectives, target accounts, follow-up plans, and success criteria. \n Experience optimizing budgets and resources, making data-informed tradeoffs while maintaining or elevating attendee experience. \n Exceptional program management and communication skills, with the ability to manage multiple concurrent events, navigate ambiguity, and influence cross-functional stakeholders at all levels. \n Deep customer and audience empathy, using insights from feedback, research, and data to continuously refine content, formats, and experiences to better serve target segments. \n \u00a0 \n Pay Range Transparency \n Databricks is committed to fair and equitable compensation practices. The pay range(s) for this role is listed below and represents the expected base salary range for non-commissionable roles or on-target earnings for commissionable roles.\u00a0 Actual compensation packages are based on several factors that are unique to each candidate, including but not limited to job-related skills, depth of experience, relevant certifications and training, and specific work location. Based on the factors above, Databricks anticipated utilizing the full width of the range. The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above. For more information regarding which range your location is in visit our page here . \n \u00a0 Zone 1 Pay Range $120,400 \u2014 $165,550 USD Zone 2 Pay Range $108,400 \u2014 $149,050 USD Zone 3 Pay Range $102,300 \u2014 $140,700 USD Zone 4 Pay Range $96,300 \u2014 $132,450 USD About Databricks \n Databricks is the Data and AI company. More than 20,000 organizations worldwide \u2014 including adidas, AT&T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 \u2014 rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on LinkedIn , X , YouTube , and Instagram . Benefits At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click here . \n Our Commitment to Diversity and Inclusion \n At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics. \n Compliance \n If access to export-controlled technology or source code is required for performance of job duties, it is within Employer's discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.",
       "resume_core": {
         "label": "Databricks \u2014 Event Marketing Manager, 3P & Partner",
         "contact": {
@@ -29393,7 +30018,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/GeForce-Marketing-Manager---Esports-and-Competitive-Gaming_JR2022575",
       "source": "workday",
-      "posted_at": "Posted Today",
+      "posted_at": "Posted Yesterday",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
@@ -29969,7 +30594,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Startup-Ecosystem-Campaign-Specialist---VC-and-Cloud-Partners_JR2019803",
       "source": "workday",
-      "posted_at": "Posted 6 Days Ago",
+      "posted_at": "Posted 7 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
