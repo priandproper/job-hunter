@@ -198,6 +198,28 @@
   .ref-row{display:flex;align-items:center;gap:.55rem;padding:.28rem 0;flex-wrap:wrap}
   .ref-who{font-weight:600;font-size:.88rem}
   .ref-role{flex:1 1 30%;min-width:120px;font-size:.82rem}
+  /* Today action queue */
+  .today-card{margin-bottom:1.2rem;border-left:3px solid var(--accent)}
+  .today-row{display:flex;align-items:center;gap:.8rem;padding:.7rem 0;border-top:1px solid var(--line)}
+  .today-ic{font-size:1.2rem;flex-shrink:0;width:1.6rem;text-align:center}
+  .today-main{flex:1;min-width:0}
+  .today-t{font-weight:700;font-size:.95rem}
+  .today-row .sm{flex-shrink:0}
+  /* Progress strip */
+  .prog-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;padding:.9rem 1rem}
+  .ps-cell{flex:1 1 0;min-width:80px;text-align:center;padding:.3rem .2rem;border-right:1px solid var(--line)}
+  .ps-cell:last-child{border-right:none}
+  .ps-cell b{display:block;font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .ps-cell span{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .ps-cell.good b{color:var(--good)}
+  .ps-cell.ps-meta b{color:var(--accent)}
+  /* Collapsible review/tools */
+  .more-tools{margin-bottom:1.4rem}
+  .more-tools>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding:.5rem 0;list-style:none}
+  .more-tools>summary::-webkit-details-marker{display:none}
+  .more-tools>summary::before{content:'▸ ';color:var(--accent)}
+  .more-tools[open]>summary::before{content:'▾ '}
+  .more-tools>summary:hover{color:var(--ink)}
   .auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.7rem}
   .auto-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem;min-height:120px;border-radius:14px;text-align:left;transition:transform .16s,border-color .16s,box-shadow .16s}
   .auto-card:hover:not(:disabled){transform:translateY(-2px);border-color:var(--line-2);box-shadow:var(--ring-lg)}
@@ -579,44 +601,24 @@
     <main>
       <!-- ===== COCKPIT ===== -->
       <section id="screen-home" class="screen">
+        <div id="today"></div>
         <div id="inboxReview"></div>
-        <div class="top2">
-          <div class="card hero">
-            <div class="hero-top">
-              <div class="gauge" id="gauge"></div>
-              <div class="hero-r">
-                <h2>Job Hunt Score</h2>
-                <p class="tip" id="scoreTip"></p>
-              </div>
+        <div id="progressStrip"></div>
+
+        <details class="more-tools">
+          <summary>Review &amp; tools</summary>
+          <div id="profileRoi"></div>
+          <div id="networking"></div>
+          <div id="referrals"></div>
+          <div class="card coach-card">
+            <div class="auto-hd"><span class="eyebrow">Coach</span></div>
+            <p class="auto-note">Export a snapshot of your whole hunt for an LLM to grade your effort and hand you this week's prioritized action items.</p>
+            <div class="rowbtns">
+              <button class="primary" onclick="copyCoachPrompt()">📋 Copy progress review</button>
+              <button onclick="downloadCoachJson()">⬇ Download snapshot JSON</button>
             </div>
-            <div class="factors" id="factors"></div>
           </div>
-          <div class="card glance">
-            <h2>At a glance</h2>
-            <p>Where your search stands right now — refreshed automatically as new roles are found.</p>
-            <dl class="facts" id="overview"></dl>
-          </div>
-        </div>
-
-        <div id="profileRoi"></div>
-
-        <div id="networking"></div>
-
-        <div id="referrals"></div>
-
-        <div class="card coach-card">
-          <div class="auto-hd"><span class="eyebrow">Coach</span></div>
-          <p class="auto-note">Export a snapshot of your whole hunt — funnel, applications, outreach pipeline, warm paths, and recent activity — bundled with a prompt, for an LLM to grade your effort and hand you this week's prioritized action items.</p>
-          <div class="rowbtns">
-            <button class="primary" onclick="copyCoachPrompt()">📋 Copy progress review for an LLM</button>
-            <button onclick="downloadCoachJson()">⬇ Download snapshot JSON</button>
-          </div>
-        </div>
-
-        <div class="auto">
-          <div class="auto-hd"><span class="eyebrow">Automation</span></div>
-          <div id="autobody"></div>
-        </div>
+        </details>
 
         <p class="browse-all"><a href="#/jobs">Browse all jobs →</a></p>
       </section>
@@ -2747,7 +2749,51 @@ function renderJobPage(id){
 }
 
 // ----- render / routing -----
-function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderNetworking();renderReferrals();renderAuto();}
+function renderHome(){renderToday();renderInbox();renderProgressStrip();renderProfileRoi();renderNetworking();renderReferrals();}
+
+// ===== TODAY — the one thing to look at: a prioritized action queue (~20 min) =====
+function _scrollTo(id){const el=document.getElementById(id);if(el){const d=el.closest('details');if(d)d.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function renderToday(){
+  const box=document.getElementById('today');if(!box)return;
+  const jobs=DOC.jobs||[], items=[];
+  const fresh=jobs.filter(j=>isFresh(j)&&jobStatus(j.id)==='new').sort((a,b)=>(b.fit_score||0)-(a.fit_score||0));
+  if(fresh.length) items.push({ic:'🆕',t:`${fresh.length} fresh role${fresh.length>1?'s':''} to review & apply`,
+    sub:fresh.slice(0,3).map(j=>`${j.title} · ${j.company}`).join('  •  '),cta:'Review',href:'#/jobs'});
+  let refJobs=0; jobs.forEach(j=>{if(jobStatus(j.id)==='new'&&referrersFor(j).length)refJobs++;});
+  if(refJobs) items.push({ic:'🤝',t:`${refJobs} job${refJobs>1?'s':''} with a referral path — send an ask`,
+    sub:'Ready recruiter/peer messages',cta:'Referrals',scroll:'referrals'});
+  const today=new Date().toISOString().slice(0,10);
+  const due=getPeople().filter(p=>!PL_DONE.has(getPl(p).stage||'identified')&&getPl(p).due&&getPl(p).due<=today);
+  if(due.length) items.push({ic:'⏰',t:`${due.length} follow-up${due.length>1?'s':''} due`,
+    sub:due.slice(0,3).map(p=>p.name).join(', '),cta:'People',href:'#/people'});
+  const pend=pendingInbox();
+  if(pend.length) items.push({ic:'📥',t:`${pend.length} inbox update${pend.length>1?'s':''} to confirm`,
+    sub:pend.slice(0,3).map(p=>`${p.company} → ${p.detected}`).join(', '),cta:'Review',scroll:'inboxReview'});
+  const rows=items.length?items.map(it=>`<div class="today-row">
+      <span class="today-ic">${it.ic}</span>
+      <div class="today-main"><div class="today-t">${esc(it.t)}</div>${it.sub?`<div class="co">${esc(it.sub)}</div>`:''}</div>
+      ${it.href?`<a href="${it.href}"><button class="primary sm">${it.cta} →</button></a>`
+              :`<button class="primary sm" onclick="_scrollTo('${it.scroll}')">${it.cta} →</button>`}
+    </div>`).join('')
+    :`<p class="co">✅ All caught up. Run <code>python3 worker.py</code> to pull new roles, or import people (Find referrers → Import CSV) to open referral paths.</p>`;
+  box.innerHTML=`<div class="card today-card"><div class="auto-hd"><span class="eyebrow">Today</span><span class="co">your next moves · ~20 min</span></div>${rows}</div>`;
+}
+// Compact progress strip (replaces the big gauge/glance).
+function renderProgressStrip(){
+  const box=document.getElementById('progressStrip');if(!box)return;
+  const f={};Object.values(getStatuses()).forEach(o=>{if(o&&o.status)f[o.status]=(f[o.status]||0)+1;});
+  const n=s=>f[s]||0, jobs=DOC.jobs||[];
+  const apps=['applied','screen','interview','offer','rejected'].reduce((a,s)=>a+n(s),0);
+  const cell=(v,l,cls='')=>`<div class="ps-cell ${cls}"><b>${v}</b><span>${l}</span></div>`;
+  box.innerHTML=`<div class="card prog-strip">
+    ${cell(jobs.filter(isFresh).length,'fresh 🆕')}
+    ${cell(jobs.filter(j=>isMarked(j.id)).length,'saved')}
+    ${cell(apps,'applied')}
+    ${cell(n('screen')+n('interview'),'interviewing')}
+    ${cell(n('offer'),'offers',n('offer')?'good':'')}
+    ${cell(jobs.length,'on-target',' ps-meta')}
+  </div>`;
+}
 
 // ===== Profile ROI — "what to work on" from your resume + the real JDs =====
 // Deep-reads your top-fit jobs' full JDs against your best resume and returns a
