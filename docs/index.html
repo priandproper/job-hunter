@@ -217,6 +217,23 @@
   .tag.coach-top{background:var(--good-soft);color:var(--good)}
   .tag.coach-strong{background:var(--accent-soft);color:var(--accent)}
   .tag.coach-maybe{background:var(--surface-2);color:var(--muted)}
+  /* Cockpit compact CTA -> Copilot */
+  .coach-cta{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.2rem;
+    padding:.9rem 1.1rem;text-decoration:none;color:inherit;border-left:3px solid var(--good)}
+  .coach-cta:hover{background:var(--surface-2)}
+  .cta-l{display:flex;align-items:center;gap:.75rem;min-width:0}
+  .cta-ic{font-size:1.3rem;flex-shrink:0}
+  .cta-t{font-weight:700;font-size:.95rem}
+  .cta-sub{font-size:.83rem;max-width:70ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cta-go{color:var(--accent);font-weight:700;font-size:.85rem;flex-shrink:0}
+  /* Copilot page */
+  .cop-intro h2{font-size:1.3rem}
+  .cop-flow .cop-steps{margin:.4rem 0 .3rem 1.1rem;padding:0;display:flex;flex-direction:column;gap:.7rem;font-size:.92rem}
+  .cop-flow .cop-steps li{line-height:1.5}
+  .cop-cmd{display:block;margin-top:.4rem;padding:.5rem .7rem;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;overflow-x:auto}
+  .cop-flow .rowbtns{margin:.4rem 0}
+  .cop-verdict .cp-head{font-weight:700;font-size:1rem;margin:.3rem 0}
+  .cp-pri{flex-shrink:0}
   /* Progress strip */
   .prog-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;padding:.9rem 1rem}
   .ps-cell{flex:1 1 0;min-width:80px;text-align:center;padding:.3rem .2rem;border-right:1px solid var(--line)}
@@ -589,6 +606,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>
         <span>Jobs</span>
       </a>
+      <a href="#/copilot" data-nav="copilot" id="navCopilot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h3V4a2 2 0 0 1 2-2z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9 17h6"/></svg>
+        <span>Copilot</span>
+      </a>
       <a href="#/people" data-nav="people" id="navPeople">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <span>People</span>
@@ -664,6 +685,11 @@
             <div class="leader" id="leader"></div>
           </div>
         </div>
+      </section>
+
+      <!-- ===== COPILOT ===== -->
+      <section id="screen-copilot" class="screen" hidden>
+        <div id="copilotBody"></div>
       </section>
 
       <!-- ===== SETTINGS ===== -->
@@ -2823,25 +2849,66 @@ function renderJobPage(id){
 // ----- render / routing -----
 function renderHome(){renderToday();renderCoachPicks();renderInbox();renderProgressStrip();renderProfileRoi();renderNetworking();renderReferrals();}
 
-// Claude's daily curation card — the "brain" pass over the job pool.
+// Compact cockpit CTA — the FULL Claude curation lives on the Copilot page (keeps the
+// dashboard uncluttered).
 function renderCoachPicks(){
   const box=document.getElementById('coachPicks');if(!box)return;
   if(!COACH||!(COACH.ranked||[]).length){box.innerHTML='';return;}
-  const b=COACH.briefing||{}, byId={};(DOC.jobs||[]).forEach(j=>byId[j.id]=j);
-  const picks=(b.top_ids&&b.top_ids.length?b.top_ids:(COACH.ranked||[]).slice(0,6).map(r=>r.id))
-    .map(id=>byId[id]?{job:byId[id],c:coachFor(id)}:null).filter(Boolean);
-  const flag=f=>f?`<span class="tag ${f==='hidden-gem'?'fresh':'rel'}">${esc(f)}</span>`:'';
-  const rows=picks.map(({job,c})=>`<div class="cp-row">
-      <a class="cp-who" href="#/job/${job.id}">${esc(job.title)}</a>
-      <span class="co">${esc(job.company||'')}</span>${flag(c&&c.flag)}
-      <div class="cp-why">${esc(c&&c.why||'')}</div>
-      <a href="#/job/${job.id}"><button class="primary sm">Open →</button></a>
-    </div>`).join('');
-  box.innerHTML=`<div class="card coach-picks"><div class="auto-hd"><span class="eyebrow">🧠 Coach's picks</span>
-      <span class="co">${COACH.generated_at?timeAgo(COACH.generated_at):''}</span></div>
-    ${b.headline?`<p class="cp-head">${esc(b.headline)}</p>`:''}
-    ${b.focus?`<p class="auto-note">${esc(b.focus)}</p>`:''}
-    ${rows}</div>`;
+  const b=COACH.briefing||{}, tops=(COACH.ranked||[]).filter(r=>r.tier==='top').length
+    ||(b.top_ids||[]).length||(COACH.ranked||[]).length;
+  box.innerHTML=`<a class="card coach-cta" href="#/copilot">
+      <div class="cta-l"><span class="cta-ic">🧠</span>
+        <div><div class="cta-t">Claude ranked your jobs — ${tops} top pick${tops===1?'':'s'} today</div>
+          ${b.headline?`<div class="co cta-sub">${esc(b.headline)}</div>`:''}</div></div>
+      <span class="cta-go">Open Copilot →</span>
+    </a>`;
+}
+
+// ===== Copilot view — makes the Claude-brain curation explicit: the flow + the verdict =====
+function copyCoachCmd(){copyText('python3 scripts/coach_rank.py --publish');toast('Command copied — paste it in your terminal (in the job-hunter folder)');}
+function exportJobData(){
+  const data=(DOC.jobs||[]).map(j=>({id:j.id,title:j.title,company:j.company,location:j.location,
+    fit:j.fit_score,ats:j.ats_score,posted_at:j.posted_at,missing:(j.missing_keywords||[]).slice(0,8),
+    jd:(j.excerpt||'').replace(/\s+/g,' ').slice(0,320)}));
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='jobs-for-claude.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Job data exported → jobs-for-claude.json');
+}
+function renderCopilot(){
+  const box=document.getElementById('copilotBody');if(!box)return;
+  const c=COACH, ranked=(c&&c.ranked)||[], b=(c&&c.briefing)||{}, byId={};(DOC.jobs||[]).forEach(j=>byId[j.id]=j);
+  const status=c?`Last curated ${timeAgo(c.generated_at)} · ${ranked.length} roles ranked by Claude${c.model?` (${esc(c.model)})`:''}.`
+                :'Not run yet — follow the steps below and Claude will curate your jobs.';
+  const tierTag=t=>`<span class="tag ${t==='top'?'coach-top':t==='strong'?'coach-strong':'coach-maybe'}">${t==='top'?'⭐ top':esc(t)}</span>`;
+  const flagTag=f=>f?`<span class="tag ${f==='hidden-gem'?'fresh':'rel'}">${esc(f)}</span>`:'';
+  const list=ranked.map(r=>{const j=byId[r.id];if(!j)return '';return `<div class="cp-row">
+      <a class="cp-who" href="#/job/${j.id}">${esc(j.title)}</a> <span class="co">${esc(j.company||'')}</span>
+      ${tierTag(r.tier)}${flagTag(r.flag)}<span class="co cp-pri">p${r.priority??''}</span>
+      <div class="cp-why">${esc(r.why||'')}</div></div>`;}).join('');
+  box.innerHTML=`
+    <div class="card cop-intro">
+      <h2 style="margin:.1rem 0 .4rem">🧠 Copilot</h2>
+      <p class="auto-note">Your job list is large and the keyword “fit” score is only so smart. Copilot hands the whole pool to <b>Claude Code's brain</b>, which re-ranks it with real judgment — surfacing hidden gems, flagging over-rated or sponsorship-risky roles, and writing today's plan. It writes a data file the app reads; it never changes the app's code.</p>
+      <p class="co">${status}</p>
+    </div>
+    <div class="card cop-flow">
+      <div class="auto-hd"><span class="eyebrow">Run it on demand</span></div>
+      <ol class="cop-steps">
+        <li><b>Copy the command</b> and paste it in your terminal (inside the <code>job-hunter</code> folder).
+          <div class="rowbtns"><button class="primary" onclick="copyCoachCmd()">📋 Copy command</button>
+            <button onclick="exportJobData()">⬇ Export job data (optional)</button></div>
+          <code class="cop-cmd">python3 scripts/coach_rank.py --publish</code></li>
+        <li><b>It runs Claude</b> over your jobs (~1 min), writes the ranking, and <b>pushes</b> — the live dashboard updates in ~1–2 min.</li>
+        <li><b>Refresh</b> to see Claude's verdict below, plus ⭐ badges on the Jobs list and the “🧠 Coach's rank” sort.</li>
+      </ol>
+      <p class="co">This also runs automatically every morning (right after the 8am job refresh) — the steps above are only for when you want it on demand.</p>
+    </div>
+    ${c?`<div class="card cop-verdict">
+      <div class="auto-hd"><span class="eyebrow">Claude's verdict</span><span class="co">${timeAgo(c.generated_at)}</span></div>
+      ${b.headline?`<p class="cp-head">${esc(b.headline)}</p>`:''}
+      ${b.focus?`<p class="auto-note">${esc(b.focus)}</p>`:''}
+      ${list||'<p class="co">No ranking yet.</p>'}
+    </div>`:''}`;
 }
 
 // ===== TODAY — the one thing to look at: a prioritized action queue (~20 min) =====
@@ -3091,6 +3158,7 @@ function currentView(){
   if(h.startsWith('#/job/'))return 'job';
   if(h.startsWith('#/jobs'))return 'jobs';
   if(h.startsWith('#/settings'))return 'settings';
+  if(h.startsWith('#/copilot'))return 'copilot';
   if(h.startsWith('#/person/'))return 'person';
   if(h.startsWith('#/people'))return 'people';
   return 'home';
@@ -3100,6 +3168,7 @@ function render(){
   const v=currentView();
   if(v==='job')renderJobPage(jobPageId());
   else if(v==='jobs')renderJobs();else if(v==='settings')renderSettings();
+  else if(v==='copilot')renderCopilot();
   else if(v==='people')renderPeople();else if(v==='person')renderPersonPage(personPageId());
   else renderHome();
 }
@@ -3108,13 +3177,14 @@ function route(){
   document.getElementById('screen-home').hidden=v!=='home';
   document.getElementById('screen-jobs').hidden=v!=='jobs';
   document.getElementById('screen-settings').hidden=v!=='settings';
+  document.getElementById('screen-copilot').hidden=v!=='copilot';
   document.getElementById('screen-job').hidden=v!=='job';
   document.getElementById('screen-people').hidden=v!=='people';
   document.getElementById('screen-person').hidden=v!=='person';
   // keep "Jobs" highlighted while drilled into a job, "People" while in a person
   const navFor=v==='job'?'jobs':v==='person'?'people':v;
   document.querySelectorAll('.side-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('data-nav')===navFor));
-  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':v==='job'?'Job':v==='people'?'People':v==='person'?'Person':'Cockpit';
+  document.getElementById('pageTitle').textContent=v==='jobs'?'Jobs':v==='settings'?'Settings':v==='copilot'?'Copilot':v==='job'?'Job':v==='people'?'People':v==='person'?'Person':'Cockpit';
   render();
 }
 window.addEventListener('hashchange',route);
