@@ -192,6 +192,12 @@
   .pl-ctl .pl-next{min-width:240px}
   .coach-card{margin-bottom:2rem}
   .coach-card .rowbtns{margin-top:.3rem}
+  .ref-card{margin-bottom:2rem}
+  .ref-job{padding:.6rem 0;border-top:1px solid var(--line)}
+  .ref-jt{font-weight:700;font-size:.92rem;margin-bottom:.3rem}
+  .ref-row{display:flex;align-items:center;gap:.55rem;padding:.28rem 0;flex-wrap:wrap}
+  .ref-who{font-weight:600;font-size:.88rem}
+  .ref-role{flex:1 1 30%;min-width:120px;font-size:.82rem}
   .auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.7rem}
   .auto-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem;min-height:120px;border-radius:14px;text-align:left;transition:transform .16s,border-color .16s,box-shadow .16s}
   .auto-card:hover:not(:disabled){transform:translateY(-2px);border-color:var(--line-2);box-shadow:var(--ring-lg)}
@@ -595,6 +601,8 @@
         <div id="profileRoi"></div>
 
         <div id="networking"></div>
+
+        <div id="referrals"></div>
 
         <div class="card coach-card">
           <div class="auto-hd"><span class="eyebrow">Coach</span></div>
@@ -2152,6 +2160,51 @@ function renderNetworking(){
 }
 function relLabel(v){const m=PERSON_RELATIONSHIP.find(r=>r[0]===v);return m?m[1]:'';}
 
+// ===== Referrals card — per job, who in your People directory can refer you + a ready message =====
+function _isRecruiterPerson(p){
+  return /recruit|talent|sourcer|headhunter/i.test(((p.tags||[]).join(' '))+' '+(p.title||'')+' '+(p.seniority||''))
+    || p.relationship==='recruiter';
+}
+function referralMessage(p,job){
+  const first=((p.name||'').trim().split(/\s+/)[0])||'there';
+  const co=job.company||'', title=job.title||'', me=meName()||'Me';
+  const ask=_isRecruiterPerson(p)
+    ? `Since you recruit at ${co}, would you be open to reviewing my candidacy for this role — or pointing me to the right person on the hiring team?`
+    : `Since you're at ${co}, would you be open to referring me, or pointing me to the right person? Happy to share my resume.`;
+  return `Hi ${first} — I saw ${co} is hiring a ${title} and it lines up with my background in B2B product marketing, GTM, and analytics. ${ask} Thanks so much!\n\n— ${me}`;
+}
+function referrersFor(job){   // people in your directory whose company matches this job's company
+  const jc=normCompany(job.company||''); if(!jc)return [];
+  return getPeople().filter(p=>{const pc=normCompany(p.company||'');return pc&&(pc===jc||pc.includes(jc)||jc.includes(pc));});
+}
+function copyReferralMsg(pid,jobId){
+  const p=personById(pid), job=(DOC.jobs||[]).find(j=>j.id===jobId); if(!p||!job)return;
+  copyText(referralMessage(p,job));
+}
+function renderReferrals(){
+  const box=document.getElementById('referrals'); if(!box)return;
+  if(!getPeople().length){box.innerHTML='';return;}
+  const jobs=(DOC.jobs||[]).slice().sort((a,b)=>(b.fit_score||0)-(a.fit_score||0));
+  const rows=[]; let jobsWith=0, contacts=0;
+  for(const job of jobs){
+    const refs=referrersFor(job); if(!refs.length)continue;
+    jobsWith++; contacts+=refs.length;
+    if(rows.length<8){
+      rows.push(`<div class="ref-job"><div class="ref-jt"><a href="#/job/${job.id}">${esc(job.title)}</a> <span class="co">${esc(job.company||'')} · fit ${job.fit_score||''}</span></div>
+        ${refs.slice(0,5).map(p=>`<div class="ref-row">
+          <a class="ref-who" href="#/person/${p.id}">${esc(p.name)}</a>
+          <span class="co ref-role">${esc(p.title||'')}</span>
+          <span class="tag rel">${_isRecruiterPerson(p)?'recruiter':'referral'}</span>
+          <button class="sm" onclick="copyReferralMsg('${p.id}','${job.id}')">📋 Copy message</button>
+        </div>`).join('')}</div>`);
+    }
+  }
+  box.innerHTML=`<div class="card ref-card"><div class="auto-hd"><span class="eyebrow">Referrals</span>
+      <a class="net-all" href="#/jobs">All jobs →</a></div>
+    <p class="auto-note">${jobsWith} of ${jobs.length} jobs have someone in your network who can refer you · ${contacts} contact(s). Copy a ready, recruiter-aware message per person.</p>
+    ${jobsWith?rows.join(''):'<p class="co">No overlaps yet — import people (Find referrers / Find alumni → paste → Import CSV) whose company matches your jobs, and they\'ll show up here.</p>'}</div>`;
+}
+
 // ===== Coach export — a snapshot of the whole hunt (effort + funnel) for an LLM to review =====
 function coachSummary(){
   const jobs=DOC.jobs||[], byId={};jobs.forEach(j=>byId[j.id]=j);
@@ -2694,7 +2747,7 @@ function renderJobPage(id){
 }
 
 // ----- render / routing -----
-function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderNetworking();renderAuto();}
+function renderHome(){renderInbox();renderScore();renderOverview();renderProfileRoi();renderNetworking();renderReferrals();renderAuto();}
 
 // ===== Profile ROI — "what to work on" from your resume + the real JDs =====
 // Deep-reads your top-fit jobs' full JDs against your best resume and returns a
