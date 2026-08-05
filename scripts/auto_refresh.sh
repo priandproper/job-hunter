@@ -13,6 +13,7 @@ LOG="worker.log"
 {
   echo ""
   echo "======== auto_refresh $(date) ========"
-  python3 worker.py            # worker.py publishes by default (commits + pushes)
+  python3 worker.py            # fetch fresh jobs + publish (commits + pushes)
+  python3 scripts/coach_rank.py --publish   # Claude re-ranks/curates the pool + publishes coach.json
   echo "======== done $(date) ========"
 } >> "$LOG" 2>&1
