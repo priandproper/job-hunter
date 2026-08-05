@@ -2886,25 +2886,14 @@ function renderCopilot(){
       ${tierTag(r.tier)}${flagTag(r.flag)}<span class="co cp-pri">p${r.priority??''}</span>
       <div class="cp-why">${esc(r.why||'')}</div></div>`;}).join('');
   box.innerHTML=`
-    <div class="card cop-intro">
-      <h2 style="margin:.1rem 0 .4rem">🧠 Copilot</h2>
-      <p class="auto-note">Your job list is large and the keyword “fit” score is only so smart. Copilot hands the whole pool to <b>Claude Code's brain</b>, which re-ranks it with real judgment — surfacing hidden gems, flagging over-rated or sponsorship-risky roles, and writing today's plan. It writes a data file the app reads; it never changes the app's code.</p>
-      <p class="co">${status}</p>
-    </div>
-    <div class="card cop-flow">
-      <div class="auto-hd"><span class="eyebrow">Run it on demand</span></div>
-      <ol class="cop-steps">
-        <li><b>Copy the command</b> and paste it in your terminal (inside the <code>job-hunter</code> folder).
-          <div class="rowbtns"><button class="primary" onclick="copyCoachCmd()">📋 Copy command</button>
-            <button onclick="exportJobData()">⬇ Export job data (optional)</button></div>
-          <code class="cop-cmd">python3 scripts/coach_rank.py --publish</code></li>
-        <li><b>It runs Claude</b> over your jobs (~1 min), writes the ranking, and <b>pushes</b> — the live dashboard updates in ~1–2 min.</li>
-        <li><b>Refresh</b> to see Claude's verdict below, plus ⭐ badges on the Jobs list and the “🧠 Coach's rank” sort.</li>
-      </ol>
-      <p class="co">This also runs automatically every morning (right after the 8am job refresh) — the steps above are only for when you want it on demand.</p>
+    <div class="card cop-run">
+      <div class="auto-hd"><span class="eyebrow">🧠 Copilot</span><span class="co">${status}</span></div>
+      <p class="co">Claude re-ranks your whole job pool with real judgment — hidden gems, over-rated roles, today's plan. Runs daily at 8am, or on demand:</p>
+      <div class="rowbtns"><button class="primary" onclick="copyCoachCmd()">📋 Copy command</button></div>
+      <code class="cop-cmd">python3 scripts/coach_rank.py --publish</code>
     </div>
     ${c?`<div class="card cop-verdict">
-      <div class="auto-hd"><span class="eyebrow">Claude's verdict</span><span class="co">${timeAgo(c.generated_at)}</span></div>
+      <div class="auto-hd"><span class="eyebrow">Claude's verdict</span></div>
       ${b.headline?`<p class="cp-head">${esc(b.headline)}</p>`:''}
       ${b.focus?`<p class="auto-note">${esc(b.focus)}</p>`:''}
       ${list||'<p class="co">No ranking yet.</p>'}
