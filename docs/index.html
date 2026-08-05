@@ -866,7 +866,8 @@ const FILTER_GROUPS={
   archived:j=>jobStatus(j.id)==='archived', rejected:j=>jobStatus(j.id)==='rejected',
   new:j=>['new','resume ready'].includes(jobStatus(j.id)), messaged:j=>jobStatus(j.id)==='messaged',
   referred:j=>jobStatus(j.id)==='referred', applied:j=>jobStatus(j.id)==='applied',
-  interview:j=>['screen','interview'].includes(jobStatus(j.id)), offer:j=>jobStatus(j.id)==='offer'};
+  interview:j=>['screen','interview'].includes(jobStatus(j.id)), offer:j=>jobStatus(j.id)==='offer',
+  picks:j=>!!coachFor(j.id), flagged:j=>!!flagFor(j.id)};   // Claude's recommendations / not-relevant flags
 
 function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1700);}
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -1846,11 +1847,14 @@ function renderFilters(){
   const opts=[['active','Active',c(FILTER_GROUPS.active)],['all','All',jobs.length],
     ['saved','★ Saved',c(FILTER_GROUPS.saved)],
     ['archived','Archived',c(FILTER_GROUPS.archived)],['rejected','Passed',c(FILTER_GROUPS.rejected)]];
+  const nPicks=c(FILTER_GROUPS.picks), nFlag=c(FILTER_GROUPS.flagged);
+  if(nPicks||filter==='picks')opts.push(['picks','🧠 Claude picks',nPicks]);
+  if(nFlag||filter==='flagged')opts.push(['flagged','⚑ Flagged',nFlag]);
   if(nPruned||filter==='pruned')opts.push(['pruned','✂ Pruned',nPruned]);
   document.getElementById('statusFilter').innerHTML=opts.map(([k,l,n])=>
     `<button class="${filter===k?'on':''}" onclick="setFilter('${k}')">${l}<span>${n}</span></button>`).join('');
 }
-function setFilter(f){filter=f;shownCount=PAGE;location.hash='#/jobs';renderJobs();}
+function setFilter(f){filter=f;if(f==='picks')sortBy='coach';shownCount=PAGE;location.hash='#/jobs';renderJobs();}
 // Role-type classifier — derived from the title so the broadened lane stays browsable.
 const ROLE_ORDER=['PMM','Growth','Demand Gen','Content','Brand','Ops','Analytics','Product','Marketing','Other'];
 function roleType(job){
