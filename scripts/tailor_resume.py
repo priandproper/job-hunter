@@ -214,9 +214,33 @@ def enforce_frozen(base: dict, t: dict, job: dict) -> tuple[dict, list]:
                          "projects, so none are added (a full-time accomplishment is not a project)")
         t["projects"] = []
     else:
+        # Match each real project to the model's tailored version BY NAME, not by
+        # position — the model may reorder projects (e.g. to lead with the most
+        # relevant one), and a positional merge would then attach the wrong name to
+        # the tailored text, scrambling the projects. Fall back to position only when
+        # no name matches.
+        def _pkey(s: str) -> str:
+            return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+        used: set[int] = set()
         merged = []
         for i, b in enumerate(bp):
-            x = dict(tp[i]) if i < len(tp) else dict(b)   # take the model's tailored text by position
+            bkey = _pkey(b.get("name", ""))
+            match = None
+            for j, mp in enumerate(tp):
+                if j in used:
+                    continue
+                mk = _pkey(mp.get("name", ""))
+                if bkey and mk and (mk == bkey or mk in bkey or bkey in mk):
+                    match = j
+                    break
+            if match is None and i < len(tp) and i not in used:
+                match = i  # no name match — fall back to the same position
+            if match is not None:
+                used.add(match)
+                x = dict(tp[match])
+            else:
+                x = dict(b)
             x["name"] = b.get("name", x.get("name", ""))  # name/link stay frozen to the real project
             if b.get("link"):
                 x["link"] = b["link"]
@@ -358,6 +382,13 @@ def main() -> int:
         if attempt == 0:
             print(f"  re-drafting to meet requirements ({'; '.join(fails)})…")
     warns += fails   # anything still short after the retry becomes a visible warning (never fabricated to force it)
+
+    # When tailoring from a track MASTER (--resume), give the output a unique id so a
+    # URL (#import=) load can't overwrite that master in the builder — the builder's
+    # URL-import path preserves ids. Without --resume the base is the job's resume_core
+    # and the id stays as-is (existing behaviour for the single published resume).
+    if args.resume:
+        core["id"] = "res_ext_" + (_slug(job.get("company", "")) + "-" + _slug(job.get("title", ""))).strip("-")
 
     out = Path(args.out) if args.out else (ROOT / "data" / f"tailored.{_slug(job.get('company',''))}-{_slug(job.get('title',''))}.json")
     out.parent.mkdir(parents=True, exist_ok=True)

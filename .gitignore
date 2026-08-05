@@ -21,3 +21,5 @@ __pycache__/
 data/tailored*.json
 data/reddit_signals.md
 data/referrals.local.md
+data/master-*.json
+data/job-search-summary.json
