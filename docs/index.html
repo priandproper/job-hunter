@@ -3170,17 +3170,15 @@ function renderPruneBanner(){
 function renderLegend(){
   const el=document.getElementById('jobsLegend');if(!el)return;
   const hasCoach=!!(COACH&&(COACH.ranked||[]).length);
-  const item=(sw,label)=>`<span class="lg-item">${sw}<span>${label}</span></span>`;
+  const dot=(cls,l)=>`<span class="lg-item"><span class="dot ${cls}"></span>${l}</span>`;
   const parts=[
-    item('<span class="lg-swatch fresh"></span>','green row = posted in the last 7 days'),
-    item('<span class="tag fresh">🆕 this week</span>','recent posting'),
+    dot('s-new','new'), dot('s-applied','applied'), dot('s-messaged','outreach'),
+    dot('s-rejected','passed'), dot('s-archived','archived'),
+    `<span class="lg-item"><span class="lg-swatch fresh"></span>posted &lt;7d</span>`,
   ];
   if(hasCoach)parts.push(
-    item('<span class="tag coach-top">⭐ pick</span>',"Claude's top pick (hover for why)"),
-    item('<span class="tag flag-off">⚑ off-search</span>','Claude flagged as not relevant'));
-  parts.push(
-    item('<span class="tag new">new</span>','newly found in the latest scan'),
-    item('<b>FIT</b>','role-match score · <b>ATS</b> keyword match'));
+    `<span class="lg-item"><span class="tag coach-top">⭐</span>Claude pick</span>`,
+    `<span class="lg-item"><span class="tag flag-off">⚑</span>off-search</span>`);
   el.innerHTML=`<div class="legend"><span class="lg-title">Legend</span>${parts.join('')}</div>`;
 }
 function renderJobs(){
