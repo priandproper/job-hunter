@@ -2835,7 +2835,7 @@ function _appliedToday(){
 function _goalBanner(freshNewCount, refJobs, dueCount){
   const anyNew=(DOC.jobs||[]).filter(j=>jobStatus(j.id)==='new').length;
   const pool=freshNewCount||anyNew;
-  const apps=pool>=2?2:(pool===1?1:0);          // steady 2/day, quality over volume
+  const apps=Math.min(3,pool);                  // steady 3/day target (capped by roles available)
   const refs=Math.min(3,refJobs);
   const parts=[];
   if(apps) parts.push(`<b>${apps}</b> tailored application${apps>1?'s':''}`);
