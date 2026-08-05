@@ -1,276 +1,269 @@
 {
-  "generated_at": "2026-08-05T03:41:59+00:00",
+  "generated_at": "2026-08-05T04:34:09+00:00",
   "model": "opus",
   "briefing": {
-    "headline": "Two Boston-local shots and one perfect marketing-analytics hybrid are today's real prizes \u2014 the keyword score buried all three.",
-    "focus": "Spend today's 20 minutes on the roles that sit exactly at the intersection of your two lanes AND clear the sponsorship bar: Twilio's Marketing Analyst (PLG analytics, remote-US, public co) and Amazon's AWS Marketing IDC Business Analyst are literally 'marketing funnel analyst' jobs \u2014 your SQL/Tableau/attribution stack maps 1:1. Then hit the Boston-local pair: AWS Storage PMM (Boston-based req at the largest H-1B sponsor in the US) and CarGurus B2B Marketing Specialist (right level, right city, public company). Skip the fit-100 roles from Gusto/Front/Verkada \u2014 they scored high on keywords but are SF-onsite, sponsorship-shaky, or off-lane.",
+    "headline": "Boston + remote-US is thin today, but three of them are genuine bullseyes \u2014 and the keyword score buried two of the best.",
+    "focus": "Spend the first 10 minutes on the two roles where geography, level and sponsorship all line up: CarGurus B2B Marketing Specialist (Boston, public, exactly your level) and Twilio's PLG Marketing Analyst (remote-US, and it is your analyst lane wearing a marketing title). Then fire off Stripe Capital lifecycle \u2014 your banking/fintech six years is the differentiator there, not a footnote. Everything below that is Seattle/SF relocation bets; treat Amazon and Datadog as your sponsorship insurance policy and apply broadly there, but do not let them eat the Boston roles.",
     "top_ids": [
-      "0a79abed990c8977",
-      "a4ea8aa66a4aa06e",
-      "3d60b9f8edc51296",
       "5326ec612ee4279d",
-      "16e948d09c5e75f7",
-      "64f4f2cd017d2ea8"
+      "0a79abed990c8977",
+      "e8583a28d2df7186",
+      "3d60b9f8edc51296",
+      "423a88e2e06e9425",
+      "a4ea8aa66a4aa06e"
     ]
   },
   "ranked": [
     {
+      "id": "5326ec612ee4279d",
+      "tier": "top",
+      "priority": 97,
+      "why": "Boston HQ, NASDAQ-listed (real sponsorship track record), B2B, and 'Specialist' is the right rung for 6 yrs without being senior \u2014 the rarest combination on today's board.",
+      "flag": ""
+    },
+    {
       "id": "0a79abed990c8977",
       "tier": "top",
-      "priority": 96,
-      "why": "Marketing analyst on funnel/PLG data \u2014 your two lanes in one title, remote-US, and Twilio is an established sponsor; scored only 91 because of three trivial missing keywords.",
+      "priority": 95,
+      "why": "Remote-US marketing analyst on PLG funnel data \u2014 SQL + funnel metrics + attribution is literally your resume, and Twilio sponsors at scale.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "e8583a28d2df7186",
+      "tier": "top",
+      "priority": 93,
+      "why": "Stripe Capital is lending \u2014 your six years in banking/fintech makes you a domain hire, not a generalist applicant, and it's remote-US.",
+      "flag": ""
+    },
+    {
+      "id": "3d60b9f8edc51296",
+      "tier": "top",
+      "priority": 92,
+      "why": "Demand-gen measurement frameworks inside AWS Marketing \u2014 the exact seam between your two lanes, at the most reliable H-1B sponsor in the country.",
+      "flag": ""
+    },
+    {
+      "id": "423a88e2e06e9425",
+      "tier": "top",
+      "priority": 90,
+      "why": "Customer stories and case studies are a named strength of yours and most PMMs avoid this work; Datadog is public, growing, and sponsors.",
       "flag": "hidden-gem"
     },
     {
       "id": "a4ea8aa66a4aa06e",
       "tier": "top",
-      "priority": 95,
-      "why": "A Boston-based PMM req at the #1 H-1B sponsor in the country \u2014 location, lane, and visa all solved at once; the 88 score badly undersells it.",
+      "priority": 88,
+      "why": "An AWS PMM seat physically in Boston \u2014 worth the technical-storage stretch purely on location plus Amazon's sponsorship machinery.",
       "flag": "hidden-gem"
-    },
-    {
-      "id": "3d60b9f8edc51296",
-      "tier": "top",
-      "priority": 94,
-      "why": "Demand-gen measurement frameworks and campaign dashboards \u2014 this is your marketing-funnel analytics work with Amazon's sponsorship machine behind it.",
-      "flag": ""
-    },
-    {
-      "id": "5326ec612ee4279d",
-      "tier": "top",
-      "priority": 93,
-      "why": "Boston HQ, NASDAQ-listed, 'Specialist' level matches your non-senior target, and it's B2B marketing \u2014 the strongest local-lane fit on the board.",
-      "flag": ""
     },
     {
       "id": "16e948d09c5e75f7",
-      "tier": "top",
-      "priority": 91,
-      "why": "'Associate' marketing automation manager at a public company \u2014 your Eloqua/HubSpot ops background at exactly the right level, and Yext sponsors.",
+      "tier": "strong",
+      "priority": 85,
+      "why": "'Associate' marketing ops at a public company is a clean level match, and Eloqua/HubSpot experience transfers directly; score punished it for missing Marketo, which you can learn in a week.",
       "flag": "hidden-gem"
     },
     {
+      "id": "42cb70431b0393e9",
+      "tier": "strong",
+      "priority": 84,
+      "why": "ABM is your first listed skill and this is a non-senior AWS ABM seat \u2014 unlike the Auto&Mfg one, which is secretly a Sr. req.",
+      "flag": ""
+    },
+    {
       "id": "64f4f2cd017d2ea8",
-      "tier": "top",
-      "priority": 90,
-      "why": "Associate-level GTM ops at Datadog \u2014 big reliable sponsor, Boston office exists, and the title won't screen you out for seniority.",
+      "tier": "strong",
+      "priority": 83,
+      "why": "Associate-level GTM ops at Datadog explicitly recruits from mixed backgrounds; your SQL/Salesforce/funnel stack is the whole job.",
+      "flag": ""
+    },
+    {
+      "id": "0dfd4cde0d85841f",
+      "tier": "strong",
+      "priority": 82,
+      "why": "Boston business analyst at a mid-size company you can actually get an onsite with \u2014 the 84 fit undersells how much geography matters for you.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "aa1ae6528bcbcffc",
+      "tier": "strong",
+      "priority": 81,
+      "why": "B2B product marketing at Amazon Business \u2014 closest thing to a straight-across move for a B2B PMM, with sponsorship handled.",
       "flag": ""
     },
     {
       "id": "a72296a96c6ed638",
       "tier": "strong",
-      "priority": 88,
-      "why": "Paid LinkedIn ownership with efficiency metrics \u2014 pure demand gen at associate level; the 88 score missed how cleanly your funnel/attribution work maps.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "423a88e2e06e9425",
-      "tier": "strong",
-      "priority": 87,
-      "why": "Customer stories and case studies are literally on your skills list, and Datadog is a dependable sponsor with a Boston presence.",
+      "priority": 80,
+      "why": "Associate title, paid LinkedIn ownership, measurable-efficiency framing \u2014 right level and your A/B testing and attribution work reads as proof.",
       "flag": ""
     },
     {
-      "id": "aa1ae6528bcbcffc",
+      "id": "1871cc7720fa514a",
       "tier": "strong",
-      "priority": 86,
-      "why": "Amazon Business is B2B procurement \u2014 the only Amazon PMM req where your six years of B2B positioning is the direct qualification.",
+      "priority": 79,
+      "why": "Radar is fraud/risk \u2014 banking background is a real credential here, and the role is remote-eligible.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "81389a91c62c4635",
+      "tier": "strong",
+      "priority": 77,
+      "why": "Remote-US at the ABM category leader; your ABM depth is the strongest possible signal, but 6sense is private and mid-size so the visa path is less certain.",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "0db047aa82c4c200",
+      "tier": "strong",
+      "priority": 76,
+      "why": "GTM PMM at Stripe, listed as United States, fintech-adjacent \u2014 apply even though positioning/messaging reqs there run competitive.",
       "flag": ""
     },
     {
-      "id": "42cb70431b0393e9",
+      "id": "d13590b2e66054ce",
       "tier": "strong",
-      "priority": 85,
-      "why": "ABM is your headline skill and this is the non-senior version of the AWS ABM reqs; strong sponsorship, East Coast (Arlington).",
-      "flag": "hidden-gem"
+      "priority": 75,
+      "why": "Boston, public, and Salesforce/GTM systems is a credible pivot off your ops experience \u2014 but it's a product-owner job, not marketing, so expect to argue the story.",
+      "flag": ""
     },
     {
-      "id": "0dfd4cde0d85841f",
+      "id": "ec78c5bd8839ca2c",
       "tier": "strong",
-      "priority": 84,
-      "why": "Boston analyst role at a real mid-size company \u2014 clean lane-2 fit; verify sponsorship early since SimpliSafe is PE-owned and smaller.",
-      "flag": "hidden-gem"
+      "priority": 74,
+      "why": "Second Boston CarGurus opening at the right level; brand is further from your B2B demand-gen core, so it's the backup to the B2B specialist req.",
+      "flag": ""
     },
     {
-      "id": "e8583a28d2df7186",
+      "id": "db86ee407025bf97",
       "tier": "strong",
-      "priority": 83,
-      "why": "Remote-US lifecycle marketing at Stripe Capital \u2014 your banking/fintech domain is a genuine differentiator here, not a nice-to-have.",
+      "priority": 72,
+      "why": "ABM plus partner marketing at AWS \u2014 same skill match as the NAMER ABM role, so apply to both and let the recruiter route you.",
       "flag": ""
     },
     {
       "id": "020b119bbfb90ff2",
       "tier": "strong",
-      "priority": 82,
-      "why": "GTM analytics, remote-US, and the ATS score is real \u2014 but Lattice is mid-size private, so sponsorship is the open question, not fit.",
+      "priority": 71,
+      "why": "Remote-US GTM analytics is a strong lane fit, but Lattice is private, mid-size, and 'Manager' here means owning strategy for leadership.",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "1a60245f96e76715",
-      "tier": "strong",
-      "priority": 81,
-      "why": "Posted today, MongoDB is a heavy and consistent H-1B sponsor, and lifecycle/PLG growth is squarely in your funnel wheelhouse.",
-      "flag": ""
-    },
-    {
-      "id": "8680f739a4164b25",
-      "tier": "strong",
-      "priority": 80,
-      "why": "'Audience and Messaging' is positioning and segmentation by another name \u2014 your exact craft, at a public company that sponsors.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "ec78c5bd8839ca2c",
-      "tier": "strong",
-      "priority": 79,
-      "why": "Second Boston CarGurus req at the right level \u2014 brand is a step off your B2B core, but proximity and company quality carry it.",
-      "flag": ""
-    },
-    {
-      "id": "5fde3e18465de1c8",
-      "tier": "strong",
-      "priority": 78,
-      "why": "Waltham, MA at a public GTM-data company \u2014 the 61 score is a keyword artifact; ZoomInfo's whole product is the funnel you already run.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "0db047aa82c4c200",
-      "tier": "strong",
-      "priority": 77,
-      "why": "US-wide location, Stripe sponsors, and commerce/payments GTM is where your fintech years actually count.",
-      "flag": ""
-    },
-    {
-      "id": "1c5e8ec0f912722f",
-      "tier": "strong",
-      "priority": 76,
-      "why": "Near-duplicate of the Datadog GTM ops associate req \u2014 apply to both, the teams post separately and screen separately.",
-      "flag": ""
-    },
-    {
-      "id": "97dfca77ac24d5a6",
-      "tier": "strong",
-      "priority": 75,
-      "why": "ABX is ABM \u2014 your top skill in the title, at one of the most reliable H-1B sponsors; the 60 score is just an empty JD.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "58c618c44c809351",
-      "tier": "strong",
-      "priority": 74,
-      "why": "'Specialist' level B2B performance marketing at Adobe \u2014 huge sponsor, correct seniority; the low fit score is missing-JD noise, not a real signal.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "8e5f2401ec8dd19a",
-      "tier": "strong",
-      "priority": 72,
-      "why": "AMZ-numbered reqs are the postings Amazon runs through immigration channels \u2014 the most sponsorship-transparent analyst role here, and BA II is your level.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "d13590b2e66054ce",
-      "tier": "strong",
-      "priority": 71,
-      "why": "Boston HQ, public, and Salesforce/GTM systems overlap your stack \u2014 but it's a product-owner role, so you're arguing adjacency.",
-      "flag": "stretch"
-    },
-    {
-      "id": "92bf6fc6972ef216",
+      "id": "5d45f27bdd2a1ed0",
       "tier": "strong",
       "priority": 70,
-      "why": "US-Remote GTM planning at Stripe \u2014 fintech domain plus your funnel-metrics fluency; program-manager framing keeps it non-senior.",
-      "flag": ""
+      "why": "Demand generation is the exact phrase on your resume and it's remote-US; Grafana is remote-first and open-source-flavored, so sponsorship is the open question.",
+      "flag": "sponsorship-risk"
     },
     {
       "id": "80900b99d80cd4c4",
       "tier": "strong",
-      "priority": 69,
-      "why": "Straightforward lane-2 analyst req at Amazon posted yesterday \u2014 no marketing angle, but sponsorship and volume make it a high-odds application.",
-      "flag": ""
-    },
-    {
-      "id": "99735404847d1b02",
-      "tier": "strong",
       "priority": 68,
-      "why": "Marketing ops strategy is a real lane match at a public company; SF-onsite is the cost and the 'strategy partner to leadership' framing runs senior.",
+      "why": "Clean analyst-lane req at Amazon with no seniority qualifier \u2014 Bellevue relocation is the only real cost.",
       "flag": ""
     },
     {
-      "id": "22d3fb7c6e9106f8",
-      "tier": "maybe",
+      "id": "92bf6fc6972ef216",
+      "tier": "strong",
+      "priority": 67,
+      "why": "Stripe GTM planning with a US-Remote option; program-manager framing means less marketing craft and more operating cadence, but the company quality carries it.",
+      "flag": ""
+    },
+    {
+      "id": "1a60245f96e76715",
+      "tier": "strong",
       "priority": 66,
-      "why": "Partner/ISV demand gen at AWS \u2014 good sponsorship and pipeline work, but partner marketing is a sidestep from your product-marketing core.",
+      "why": "MongoDB sponsors and NYC is commutable-adjacent, but developer lifecycle marketing is a different audience than the B2B financial buyer you know.",
       "flag": ""
-    },
-    {
-      "id": "db86ee407025bf97",
-      "tier": "maybe",
-      "priority": 65,
-      "why": "ABM plus partner marketing at AWS; solid on paper, but you're competing against internal partner-marketing lifers.",
-      "flag": ""
-    },
-    {
-      "id": "5d45f27bdd2a1ed0",
-      "tier": "maybe",
-      "priority": 63,
-      "why": "Demand gen is your core skill and it's fully remote-US, but Grafana is smaller and remote-first companies are inconsistent on sponsorship.",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "8509ae3ae4b184dd",
-      "tier": "maybe",
-      "priority": 62,
-      "why": "Public company and a legitimate GTM ops fit, but 'Remote - Houston' usually means a real geographic tie, not open remote.",
-      "flag": "over-rated"
-    },
-    {
-      "id": "81389a91c62c4635",
-      "tier": "maybe",
-      "priority": 60,
-      "why": "6sense sells ABM, so your ABM background reads as native \u2014 but it's a mid-size private firm and remote reqs there rarely carry sponsorship.",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "2416ce6b7c517d58",
-      "tier": "maybe",
-      "priority": 58,
-      "why": "Braze is martech adjacent to your Eloqua/HubSpot experience and public, but technology-partner PMM is a narrow, relationship-heavy slice.",
-      "flag": ""
-    },
-    {
-      "id": "4823d835785f29f6",
-      "tier": "maybe",
-      "priority": 56,
-      "why": "Anthropic sponsors and the brand is a career accelerator, but field marketing is SF/NYC onsite and the applicant pool is brutal.",
-      "flag": "stretch"
     },
     {
       "id": "9fd0bc1f68a87364",
       "tier": "maybe",
-      "priority": 48,
-      "why": "Scored 100 on keywords but it's health-insurance sales operations, not marketing \u2014 wrong function dressed in the right words.",
+      "priority": 64,
+      "why": "Sales ops analyst at a solid fintech-adjacent company and the 100 fit is fair on skills \u2014 but health-insurance ops is narrow and there's no East Coast site beyond NY.",
       "flag": "over-rated"
     },
     {
-      "id": "4006755fddbc121d",
+      "id": "ae3d6d28e41f1447",
       "tier": "maybe",
-      "priority": 44,
-      "why": "Fit 100 is misleading: SF-onsite, mid-size private, and the req is missing four of your strongest signals (attribution, segmentation, experimentation).",
+      "priority": 62,
+      "why": "Remote-US and Twilio sponsors, but global events management is a specialization you'd be starting from behind on versus career event marketers.",
       "flag": "over-rated"
     },
     {
-      "id": "9b3ee4b95406260d",
+      "id": "8680f739a4164b25",
       "tier": "maybe",
-      "priority": 40,
-      "why": "Perfect keyword match, weak real match \u2014 San Mateo onsite-heavy culture and no sponsorship signal make this a poor use of a slot.",
+      "priority": 61,
+      "why": "Audience and messaging is genuinely your wheelhouse and Figma is now public, but PMM reqs there draw hundreds of senior applicants.",
+      "flag": "stretch"
+    },
+    {
+      "id": "0228210f71e1787b",
+      "tier": "maybe",
+      "priority": 59,
+      "why": "Demand gen inside private-capital fintech is a strong content match; Carta's growth trajectory and sponsorship posture are the weak spots.",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "d3dc35c70396c032",
+      "tier": "maybe",
+      "priority": 57,
+      "why": "GTM strategy and planning at Gong is a good analytical fit, but no Boston or remote option and it skews toward RevOps veterans.",
+      "flag": ""
+    },
+    {
+      "id": "58c618c44c809351",
+      "tier": "maybe",
+      "priority": 55,
+      "why": "B2B performance marketing at specialist level and Adobe is a top-tier sponsor \u2014 the 60 fit is a scraping artifact from an empty JD, not a real signal.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "97dfca77ac24d5a6",
+      "tier": "maybe",
+      "priority": 53,
+      "why": "ABX is ABM by another name and Workday sponsors heavily, but Pleasanton-only and a 27-day-old posting cut the odds.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "8509ae3ae4b184dd",
+      "tier": "maybe",
+      "priority": 51,
+      "why": "Remote and freshly posted at a public IoT company, but GTM business ops is finance-flavored and the 90 ATS score oversells your match.",
       "flag": "over-rated"
+    },
+    {
+      "id": "4823d835785f29f6",
+      "tier": "maybe",
+      "priority": 49,
+      "why": "Anthropic is a magnet for far more experienced field marketers; worth one shot, not worth three of today's twenty minutes.",
+      "flag": "stretch"
     },
     {
       "id": "aebadb0b4d601f56",
       "tier": "maybe",
+      "priority": 46,
+      "why": "Kubernetes and GPU infrastructure PMM demands technical fluency you'd have to fake \u2014 the 97 fit is keyword noise from generic PMM vocabulary.",
+      "flag": "over-rated"
+    },
+    {
+      "id": "81f59feedc2ec5b9",
+      "tier": "maybe",
+      "priority": 43,
+      "why": "Associate PMM is the correct level and the low fit score is misleading, but Perplexity is SF-only and a startup visa bet.",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "a03398671ba8b677",
+      "tier": "maybe",
       "priority": 38,
-      "why": "Kubernetes/GPU infrastructure PMM demands deep technical depth your fintech background doesn't supply; the 97 score read tooling, not domain.",
+      "why": "Consumer brand campaigns for Kindle \u2014 Amazon sponsorship is the only reason this ranks; the work has nothing to do with B2B pipeline.",
+      "flag": "over-rated"
+    },
+    {
+      "id": "fe534f103dbc3078",
+      "tier": "maybe",
+      "priority": 30,
+      "why": "This is a people-manager req leading a PMM team \u2014 above your level, and the 91 score never read the word 'lead a team'.",
       "flag": "over-rated"
     }
   ]
