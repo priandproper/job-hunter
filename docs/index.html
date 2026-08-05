@@ -236,6 +236,13 @@
   .cop-verdict .cp-head{font-weight:700;font-size:1rem;margin:.3rem 0}
   .cp-pri{flex-shrink:0}
   .tag.flag-off{background:var(--bad-soft);color:var(--bad)}
+  /* Jobs legend */
+  .legend{display:flex;align-items:center;gap:.5rem 1rem;flex-wrap:wrap;margin:.2rem 0 .9rem;padding:.6rem .8rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-size:.78rem;color:var(--muted)}
+  .legend .lg-title{font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+  .lg-item{display:inline-flex;align-items:center;gap:.35rem}
+  .lg-swatch{display:inline-block;width:1.1rem;height:.8rem;border-radius:3px;border:1px solid var(--line)}
+  .lg-swatch.fresh{background:var(--good-soft);border-left:3px solid var(--good)}
+  .legend .tag{margin:0}
   .cop-flagged{margin-top:1.3rem}
   .cop-flagged>summary{cursor:pointer;font-weight:700;font-size:.9rem;list-style:none}
   .cop-flagged>summary::-webkit-details-marker{display:none}
@@ -683,6 +690,7 @@
           <span class="count" id="count"></span>
         </div>
         <div class="rolebar" id="roleFilter"></div>
+        <div id="jobsLegend"></div>
         <div id="pruneBanner"></div>
         <div id="list" class="rowlist"></div>
         <div class="collapsible" id="gapPanel">
@@ -3159,8 +3167,24 @@ function renderPruneBanner(){
         <button class="primary" onclick="unpruneAll()">Restore all</button></div>`
     : '';
 }
+function renderLegend(){
+  const el=document.getElementById('jobsLegend');if(!el)return;
+  const hasCoach=!!(COACH&&(COACH.ranked||[]).length);
+  const item=(sw,label)=>`<span class="lg-item">${sw}<span>${label}</span></span>`;
+  const parts=[
+    item('<span class="lg-swatch fresh"></span>','green row = posted in the last 7 days'),
+    item('<span class="tag fresh">🆕 this week</span>','recent posting'),
+  ];
+  if(hasCoach)parts.push(
+    item('<span class="tag coach-top">⭐ pick</span>',"Claude's top pick (hover for why)"),
+    item('<span class="tag flag-off">⚑ off-search</span>','Claude flagged as not relevant'));
+  parts.push(
+    item('<span class="tag new">new</span>','newly found in the latest scan'),
+    item('<b>FIT</b>','role-match score · <b>ATS</b> keyword match'));
+  el.innerHTML=`<div class="legend"><span class="lg-title">Legend</span>${parts.join('')}</div>`;
+}
 function renderJobs(){
-  renderFunnel();renderFilters();renderRoleFilters();renderSort();renderCompanyFilter();renderPruneBanner();
+  renderFunnel();renderFilters();renderRoleFilters();renderSort();renderCompanyFilter();renderPruneBanner();renderLegend();
   let jobs=visibleJobs();
   if(hidePoor&&personaSet())jobs=jobs.filter(personaFits);
   if(hideReposts)jobs=jobs.filter(j=>!isRepost(j.id));
