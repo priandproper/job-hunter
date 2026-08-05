@@ -227,6 +227,7 @@
   .cta-sub{font-size:.83rem;max-width:70ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .cta-go{color:var(--accent);font-weight:700;font-size:.85rem;flex-shrink:0}
   /* Copilot page */
+  .cop-run{margin-bottom:1.3rem}
   .cop-intro h2{font-size:1.3rem}
   .cop-flow .cop-steps{margin:.4rem 0 .3rem 1.1rem;padding:0;display:flex;flex-direction:column;gap:.7rem;font-size:.92rem}
   .cop-flow .cop-steps li{line-height:1.5}
@@ -2893,9 +2894,7 @@ function renderCopilot(){
       <code class="cop-cmd">python3 scripts/coach_rank.py --publish</code>
     </div>
     ${c?`<div class="card cop-verdict">
-      <div class="auto-hd"><span class="eyebrow">Claude's verdict</span></div>
-      ${b.headline?`<p class="cp-head">${esc(b.headline)}</p>`:''}
-      ${b.focus?`<p class="auto-note">${esc(b.focus)}</p>`:''}
+      <div class="auto-hd"><span class="eyebrow">Claude's picks</span></div>
       ${list||'<p class="co">No ranking yet.</p>'}
     </div>`:''}`;
 }
