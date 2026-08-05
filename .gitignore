@@ -20,3 +20,4 @@ __pycache__/
 .DS_Store
 data/tailored*.json
 data/reddit_signals.md
+data/referrals.local.md
