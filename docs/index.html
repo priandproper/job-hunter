@@ -205,6 +205,9 @@
   .today-main{flex:1;min-width:0}
   .today-t{font-weight:700;font-size:.95rem}
   .today-row .sm{flex-shrink:0}
+  .today-goal{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:.55rem .7rem;margin:.2rem 0 .3rem;background:var(--accent-soft);border-radius:9px;font-size:.9rem}
+  .today-goal .goal-prog{color:var(--muted);font-size:.82rem}
+  .applykit .rowbtns{margin-top:.3rem}
   /* Progress strip */
   .prog-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;padding:.9rem 1rem}
   .ps-cell{flex:1 1 0;min-width:80px;text-align:center;padding:.3rem .2rem;border-right:1px solid var(--line)}
@@ -1194,6 +1197,49 @@ async function tailorResume(id){
 function copyTailorCommand(id){
   copyText(`python3 scripts/tailor_resume.py --id ${id}`);
   toast('Command copied — paste it in your terminal to build the tailored resume JSON');
+}
+
+// ===== Apply kit — everything to submit a strong, tailored application in ~1 min =====
+function _lane(job){return /analyst/i.test(job.title||'')?'analyst':'product marketer';}
+function coverLetter(job){
+  const p=getPersona(), me=meName()||'[Your name]', co=job.company||'', title=job.title||'';
+  const yrs=p.years?`${p.years} years`:'several years';
+  const skills=(p.skills||[]).slice(0,3).join(', ')||'B2B marketing, GTM, and analytics';
+  const kws=(job.requested_keywords||[]).slice(0,3).join(', ');
+  return `Dear ${co} Hiring Team,
+
+I'm excited to apply for the ${title} role at ${co}. I'm a B2B ${_lane(job)} with ${yrs} across enterprise SaaS and fintech, and my experience in ${skills} maps directly to what this role needs${kws?`, including ${kws}`:''}.
+
+In past roles I've owned positioning, go-to-market, and data-driven programs end to end — turning customer and market insight into launches, sales enablement, and measurable pipeline impact. I'd bring that same ownership to ${co}.
+
+I'd welcome the chance to discuss how I can contribute to the team. Thank you for your consideration.
+
+Best regards,
+${me}`;
+}
+function screeningAnswers(job){
+  const p=getPersona(), skills=(p.skills||[]).slice(0,4).join(', ')||'B2B marketing, GTM, and analytics';
+  return `SCREENING ANSWERS — ${job.company||''} · ${job.title||''}   (edit the [bracketed] parts)
+
+• Work authorization: I'm authorized to work in the U.S. on F-1 OPT and will require visa sponsorship (H-1B) in the future. [verify / adjust to your exact status]
+• Why ${job.company||'this company'}: [1–2 sentences — reference a recent product, launch, or mission that draws you here].
+• Why this role: My background in ${skills} lines up with the ${job.title||'role'}; I'm strongest at turning customer + market insight into GTM and measurable results.
+• Earliest start date: [e.g., immediately / 2 weeks].
+• Salary expectations: [your target range, e.g., $[X]–$[Y]].
+• Location: ${job.location||'[role location]'} — [on-site / hybrid / remote; note if open to relocation].
+• Years of experience: ${p.years||'[X]'}.`;
+}
+function copyCover(id){const j=(DOC.jobs||[]).find(x=>x.id===id);if(j)copyText(coverLetter(j));}
+function copyScreening(id){const j=(DOC.jobs||[]).find(x=>x.id===id);if(j)copyText(screeningAnswers(j));}
+function applyKit(job){
+  return `<div class="box applykit"><h3>Apply kit</h3>
+    <p class="co">Everything to submit a strong, tailored application in ~1 minute — open the posting, paste each piece, tweak the [brackets], submit. (Nothing is auto-submitted.)</p>
+    <div class="rowbtns">
+      <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Open application ↗</button></a>
+      <button onclick="copyCover('${job.id}')">📋 Cover letter</button>
+      <button onclick="copyScreening('${job.id}')">📋 Screening answers</button>
+      <button onclick="copyTailorCommand('${job.id}')" title="Copy the terminal command that builds a tailored resume for this job">⌘ Tailored resume</button>
+    </div></div>`;
 }
 function resumeBox(job){
   const missing=job.missing_keywords||[];
@@ -2741,6 +2787,7 @@ function renderJobPage(id){
         <button class="markbtn ${isRepost(job.id)?'on':''}" title="Manually flag this posting as a repost" onclick="toggleRepost('${job.id}')">${isRepost(job.id)?'✓ Repost':'Mark as repost'}</button>
       </div>
       <p class="co" style="margin:.5rem 0 0">Open the posting to check when it was posted / whether it's a repost. <b>Find referrers</b> runs a boolean people search for recruiters + same-function peers at ${esc(job.company)}, biased to people you're already connected to.</p></div>
+    ${applyKit(job)}
     ${enrichmentCard(job)}
     ${jdCard(job)}
     ${resumeBox(job)}
@@ -2776,7 +2823,28 @@ function renderToday(){
               :`<button class="primary sm" onclick="_scrollTo('${it.scroll}')">${it.cta} →</button>`}
     </div>`).join('')
     :`<p class="co">✅ All caught up. Run <code>python3 worker.py</code> to pull new roles, or import people (Find referrers → Import CSV) to open referral paths.</p>`;
-  box.innerHTML=`<div class="card today-card"><div class="auto-hd"><span class="eyebrow">Today</span><span class="co">your next moves · ~20 min</span></div>${rows}</div>`;
+  box.innerHTML=`<div class="card today-card"><div class="auto-hd"><span class="eyebrow">Today</span><span class="co">your next moves · ~20 min</span></div>${_goalBanner(fresh.length,refJobs,due.length)}${rows}</div>`;
+}
+// Suggested daily plan — deliberately SMALL and quality-first (tailored apps + warm
+// outreach beat volume, especially when you need sponsorship). Shows progress on apps.
+function _appliedToday(){
+  const t=new Date().toISOString().slice(0,10);let c=0;
+  Object.values(getStatuses()).forEach(o=>{if(o&&APPLIED_STATES.has(o.status)&&(o.ts||'').slice(0,10)===t)c++;});
+  return c;
+}
+function _goalBanner(freshNewCount, refJobs, dueCount){
+  const anyNew=(DOC.jobs||[]).filter(j=>jobStatus(j.id)==='new').length;
+  const pool=freshNewCount||anyNew;
+  const apps=pool>=2?2:(pool===1?1:0);          // steady 2/day, quality over volume
+  const refs=Math.min(3,refJobs);
+  const parts=[];
+  if(apps) parts.push(`<b>${apps}</b> tailored application${apps>1?'s':''}`);
+  if(refs) parts.push(`<b>${refs}</b> referral ask${refs>1?'s':''}`);
+  if(dueCount) parts.push(`<b>${dueCount}</b> follow-up${dueCount>1?'s':''}`);
+  if(!parts.length) return '';
+  const done=_appliedToday();
+  const prog=apps?` <span class="goal-prog">${done>=apps?'✅ apps done for today':`${done}/${apps} applications done`}</span>`:'';
+  return `<div class="today-goal">🎯 <span>Today's goal: ${parts.join(' · ')}</span>${prog}</div>`;
 }
 // Compact progress strip (replaces the big gauge/glance).
 function renderProgressStrip(){
