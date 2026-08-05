@@ -235,6 +235,12 @@
   .cop-flow .rowbtns{margin:.4rem 0}
   .cop-verdict .cp-head{font-weight:700;font-size:1rem;margin:.3rem 0}
   .cp-pri{flex-shrink:0}
+  .tag.flag-off{background:var(--bad-soft);color:var(--bad)}
+  .cop-flagged{margin-top:1.3rem}
+  .cop-flagged>summary{cursor:pointer;font-weight:700;font-size:.9rem;list-style:none}
+  .cop-flagged>summary::-webkit-details-marker{display:none}
+  .cop-flagged>summary::before{content:'▸ '}
+  .cop-flagged[open]>summary::before{content:'▾ '}
   /* Progress strip */
   .prog-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;padding:.9rem 1rem}
   .ps-cell{flex:1 1 0;min-width:80px;text-align:center;padding:.3rem .2rem;border-right:1px solid var(--line)}
@@ -841,6 +847,13 @@ function coachMap(){
 }
 function coachFor(id){return coachMap()[id]||null;}
 const COACH_TIER={top:'⭐ Top pick',strong:'Strong',maybe:'Maybe'};
+// Jobs Claude flagged as NOT relevant to the search (marked, never deleted).
+let _flagMap=null;
+function flagMap(){if(_flagMap)return _flagMap;_flagMap={};(COACH&&COACH.flagged||[]).forEach(f=>{if(f.id)_flagMap[f.id]=f;});return _flagMap;}
+function flagFor(id){return flagMap()[id]||null;}
+// A job you've already acted on shouldn't be re-recommended (status lives here in the
+// browser, so the coach's picks are filtered at display time).
+function _actedOn(id){const s=jobStatus(id);return APPLIED_STATES.has(s)||s==='archived'||s==='messaged'||s==='referred'||isPruned(id);}
 let newIds=new Set(); const openRows=new Set();
 let runs={}, runsTimer=null, dismissTimer=null;   // per-action GitHub run tracking: mode -> {id,url,status,conclusion,...}
 const RUN_TTL=30000;   // finished status stays visible this long, then clears itself
@@ -1923,6 +1936,8 @@ function coachBadge(job){const c=coachFor(job.id);if(!c)return '';
   const cls=c.tier==='top'?'coach-top':(c.tier==='strong'?'coach-strong':'coach-maybe');
   const lbl=c.tier==='top'?'⭐ pick':(COACH_TIER[c.tier]||c.tier);
   return `<span class="tag ${cls}" title="${esc(c.why||'')}${c.flag?' · '+esc(c.flag):''}">${esc(lbl)}</span>`;}
+function flagBadge(job){const f=flagFor(job.id);if(!f)return '';
+  return `<span class="tag flag-off" title="Claude flagged as not relevant: ${esc(f.reason||'')}">⚑ off-search</span>`;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
   const a=[...jobs],mf=j=>j.manual?1:0;   // jobs you logged yourself pin to the top
@@ -1975,7 +1990,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${coachBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2855,11 +2870,15 @@ function renderHome(){renderToday();renderCoachPicks();renderInbox();renderProgr
 function renderCoachPicks(){
   const box=document.getElementById('coachPicks');if(!box)return;
   if(!COACH||!(COACH.ranked||[]).length){box.innerHTML='';return;}
-  const b=COACH.briefing||{}, tops=(COACH.ranked||[]).filter(r=>r.tier==='top').length
-    ||(b.top_ids||[]).length||(COACH.ranked||[]).length;
+  const b=COACH.briefing||{};
+  const open=(COACH.ranked||[]).filter(r=>!_actedOn(r.id));   // exclude jobs you've already applied to / dismissed
+  const tops=open.filter(r=>r.tier==='top').length;
+  const label=open.length===0?"You've actioned all of Claude's picks 🎉"
+    :(tops?`Claude ranked your jobs — ${tops} top pick${tops===1?'':'s'} to act on`
+          :`Claude ranked your jobs — ${open.length} still to review`);
   box.innerHTML=`<a class="card coach-cta" href="#/copilot">
       <div class="cta-l"><span class="cta-ic">🧠</span>
-        <div><div class="cta-t">Claude ranked your jobs — ${tops} top pick${tops===1?'':'s'} today</div>
+        <div><div class="cta-t">${label}</div>
           ${b.headline?`<div class="co cta-sub">${esc(b.headline)}</div>`:''}</div></div>
       <span class="cta-go">Open Copilot →</span>
     </a>`;
@@ -2882,10 +2901,13 @@ function renderCopilot(){
                 :'Not run yet — follow the steps below and Claude will curate your jobs.';
   const tierTag=t=>`<span class="tag ${t==='top'?'coach-top':t==='strong'?'coach-strong':'coach-maybe'}">${t==='top'?'⭐ top':esc(t)}</span>`;
   const flagTag=f=>f?`<span class="tag ${f==='hidden-gem'?'fresh':'rel'}">${esc(f)}</span>`:'';
-  const list=ranked.map(r=>{const j=byId[r.id];if(!j)return '';return `<div class="cp-row">
+  const shown=ranked.filter(r=>byId[r.id]&&!_actedOn(r.id));   // hide roles you've already applied to / dismissed
+  const hidden=ranked.filter(r=>byId[r.id]&&_actedOn(r.id)).length;
+  const list=shown.map(r=>{const j=byId[r.id];return `<div class="cp-row">
       <a class="cp-who" href="#/job/${j.id}">${esc(j.title)}</a> <span class="co">${esc(j.company||'')}</span>
       ${tierTag(r.tier)}${flagTag(r.flag)}<span class="co cp-pri">p${r.priority??''}</span>
-      <div class="cp-why">${esc(r.why||'')}</div></div>`;}).join('');
+      <div class="cp-why">${esc(r.why||'')}</div></div>`;}).join('')
+    +(hidden?`<p class="co" style="margin-top:.6rem">✓ ${hidden} pick${hidden>1?'s':''} you've already applied to / dismissed — hidden.</p>`:'');
   box.innerHTML=`
     <div class="card cop-run">
       <div class="auto-hd"><span class="eyebrow">🧠 Copilot</span><span class="co">${status}</span></div>
@@ -2896,7 +2918,14 @@ function renderCopilot(){
     ${c?`<div class="card cop-verdict">
       <div class="auto-hd"><span class="eyebrow">Claude's picks</span></div>
       ${list||'<p class="co">No ranking yet.</p>'}
-    </div>`:''}`;
+    </div>`:''}
+    ${(c&&(c.flagged||[]).length)?`<details class="card cop-flagged">
+      <summary>⚑ Flagged as not relevant (${c.flagged.length}) — review &amp; prune</summary>
+      <p class="co">Claude thinks these slipped through the filter and aren't a real fit. They're only marked, not deleted — open one to confirm, then “✕ Not interested” if you agree.</p>
+      ${c.flagged.map(f=>{const j=byId[f.id];if(!j)return '';return `<div class="cp-row">
+        <a class="cp-who" href="#/job/${j.id}">${esc(j.title)}</a> <span class="co">${esc(j.company||'')}</span>
+        <div class="cp-why">${esc(f.reason||'')}</div></div>`;}).join('')}
+    </details>`:''}`;
 }
 
 // ===== TODAY — the one thing to look at: a prioritized action queue (~20 min) =====

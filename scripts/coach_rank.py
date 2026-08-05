@@ -26,6 +26,14 @@ ROOT = Path(__file__).resolve().parent.parent
 JOBS = ROOT / "docs" / "jobs.json"
 OUT = ROOT / "docs" / "coach.json"
 CONFIG = ROOT / "config.json"
+HISTORY = ROOT / "data" / "coach_history.json"   # id -> times previously recommended (memory)
+
+
+def _load_history() -> dict:
+    try:
+        return json.loads(HISTORY.read_text())
+    except Exception:
+        return {}
 
 
 def _resume_context(jobs: list) -> str:
@@ -37,13 +45,14 @@ def _resume_context(jobs: list) -> str:
             f"Skills: {', '.join(skills[:24])}")
 
 
-def _compact(jobs: list) -> list:
+def _compact(jobs: list, hist: dict) -> list:
     out = []
     for j in jobs:
         out.append({
             "id": j.get("id"), "title": j.get("title", ""), "company": j.get("company", ""),
             "location": j.get("location", ""), "fit": j.get("fit_score"), "ats": j.get("ats_score"),
             "posted_at": j.get("posted_at", ""),
+            "prev": hist.get(j.get("id"), 0),   # how many prior runs already recommended this
             "missing": (j.get("missing_keywords") or [])[:8],
             "jd": re.sub(r"\s+", " ", (j.get("excerpt") or ""))[:320],
         })
@@ -63,11 +72,15 @@ _SCHEMA_NOTE = """Return ONLY one JSON object, no prose, no code fences:
       "priority": number,          // 0-100, higher = pursue first
       "why": string,               // ONE short line: the real reason
       "flag": "hidden-gem"|"over-rated"|"stretch"|"sponsorship-risk"|"" }
+  ],
+  "flagged": [                     // roles that slipped the keyword filter but are NOT relevant to the
+                                   // search — MARK them (not deleted) so they can be reviewed & removed
+    { "id": string, "reason": string }   // short reason: off-lane / wrong function / wrong level / etc.
   ]
 }"""
 
 
-def build_prompt(jobs: list) -> str:
+def build_prompt(jobs: list, hist: dict) -> str:
     return (
         "You are a sharp career strategist and recruiter for this candidate. Re-rank today's "
         "on-target jobs with REAL judgment — go beyond the keyword 'fit' score.\n\n"
@@ -79,10 +92,18 @@ def build_prompt(jobs: list) -> str:
         "company quality / growth; SPONSORSHIP-friendliness (large/established or known H-1B sponsors "
         "beat tiny startups); Boston/remote-US location; and whether the keyword score mis-rated it. "
         "REWARD roles the keyword score under-rated (hidden gems); DEMOTE generic or over-scored ones. "
-        "Be honest and specific in each 'why'.\n\n"
+        "Be honest and specific in each 'why'.\n"
+        "FRESHNESS: each job has 'prev' = how many prior daily runs you already recommended it. If a role "
+        "has a high 'prev' and is still here, the candidate likely passed on it — DEMOTE it in favor of "
+        "newer arrivals and roles you haven't pushed before, UNLESS it's still an obvious bullseye. Don't "
+        "just repeat the same list every day; surface something fresh.\n"
+        "RELEVANCE: the list is keyword-filtered but imperfect. Any role that is genuinely NOT relevant "
+        "to the candidate's two lanes (off-function despite the title, wrong seniority, a role they'd never "
+        "want) — put it in 'flagged' with a short reason. Don't delete anything; flagging just lets the "
+        "candidate review and prune. Do NOT flag a role merely for being a lower-priority but valid fit.\n\n"
         + _SCHEMA_NOTE + "\n\n"
         "TODAY'S ON-TARGET JOBS (keyword-filtered already):\n"
-        + json.dumps(_compact(jobs), separators=(",", ":"))
+        + json.dumps(_compact(jobs, hist), separators=(",", ":"))
     )
 
 
@@ -128,9 +149,11 @@ def main() -> int:
     jobs = json.loads(JOBS.read_text()).get("jobs", [])
     if not jobs:
         print("coach_rank: no jobs in docs/jobs.json — run worker.py first."); return 1
-    print(f"coach_rank: sending {len(jobs)} jobs to Claude ({args.model}) for judgment re-rank…")
+    hist = _load_history()
+    print(f"coach_rank: sending {len(jobs)} jobs to Claude ({args.model}) for judgment re-rank"
+          f"{' (with memory of '+str(len(hist))+' prior picks)' if hist else ''}…")
     try:
-        rep = claude_json(build_prompt(jobs), args.model)
+        rep = claude_json(build_prompt(jobs, hist), args.model)
     except Exception as e:
         print(f"coach_rank: Claude failed ({e})"); return 1
 
@@ -139,15 +162,25 @@ def main() -> int:
     ranked = [r for r in ranked if r["id"] in valid_ids]          # drop any hallucinated ids
     briefing = rep.get("briefing") or {}
     briefing["top_ids"] = [i for i in (briefing.get("top_ids") or []) if i in valid_ids]
+    flagged = [f for f in (rep.get("flagged") or []) if f.get("id") in valid_ids]
     from datetime import datetime, timezone
     OUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "model": args.model, "briefing": briefing, "ranked": ranked,
+        "model": args.model, "briefing": briefing, "ranked": ranked, "flagged": flagged,
     }, indent=2))
+    # Remember what we recommended so future runs can freshen instead of repeating.
+    for r in ranked:
+        hist[r["id"]] = hist.get(r["id"], 0) + 1
+    try:
+        HISTORY.parent.mkdir(parents=True, exist_ok=True)
+        HISTORY.write_text(json.dumps(hist, indent=0))
+    except Exception:
+        pass
     tiers = {}
     for r in ranked:
         tiers[r.get("tier", "?")] = tiers.get(r.get("tier", "?"), 0) + 1
-    print(f"coach_rank: ranked {len(ranked)} jobs {tiers} · {len(briefing.get('top_ids',[]))} top picks")
+    print(f"coach_rank: ranked {len(ranked)} jobs {tiers} · {len(briefing.get('top_ids',[]))} top picks "
+          f"· {len(flagged)} flagged not-relevant")
     print(f"coach_rank: headline — {briefing.get('headline','')}")
     print(f"coach_rank: wrote {OUT.relative_to(ROOT)}")
     if args.publish:
