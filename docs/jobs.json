@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-10 08:00:54",
+  "generated_at": "2026-08-10 22:21:45",
   "meta": {
-    "job_count": 162,
+    "job_count": 163,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -1055,7 +1055,7 @@
     "missing_leaderboard": [
       {
         "keyword": "marketo",
-        "count": 20
+        "count": 21
       },
       {
         "keyword": "forecasting",
@@ -1070,11 +1070,11 @@
         "count": 9
       },
       {
-        "keyword": "attribution",
+        "keyword": "email marketing",
         "count": 7
       },
       {
-        "keyword": "email marketing",
+        "keyword": "attribution",
         "count": 7
       },
       {
@@ -1119,7 +1119,7 @@
       "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA;New York, NY",
       "url": "https://job-boards.greenhouse.io/gusto/jobs/8075901",
       "source": "greenhouse",
-      "posted_at": "2026-08-06T17:14:18-04:00",
+      "posted_at": "2026-08-10T14:12:50-04:00",
       "sponsorship": "Unknown",
       "fit_score": 100,
       "min_years": null,
@@ -2289,10 +2289,10 @@
       "id": "45061b34326b80b6",
       "company": "Gusto",
       "title": "Sales Operations Analyst",
-      "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA; New York, NY",
+      "location": "Denver, CO, United States; New York, New York, United States; San Francisco, CA, United States; Scottsdale, Arizona, United States",
       "url": "https://job-boards.greenhouse.io/gusto/jobs/8105993",
       "source": "greenhouse",
-      "posted_at": "2026-08-07T16:52:26-04:00",
+      "posted_at": "2026-08-10T15:30:44-04:00",
       "sponsorship": "Unknown",
       "fit_score": 97,
       "min_years": null,
@@ -5252,7 +5252,7 @@
       "location": "San Francisco",
       "url": "https://www.asana.com/jobs/apply/7920801?gh_jid=7920801",
       "source": "greenhouse",
-      "posted_at": "2026-08-05T19:02:55-04:00",
+      "posted_at": "2026-08-10T17:08:31-04:00",
       "sponsorship": "Unknown",
       "fit_score": 94,
       "min_years": null,
@@ -8137,11 +8137,224 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "4c41f70a8d6ac63e",
+      "company": "Asana",
+      "title": "Field Marketing Manager",
+      "location": "San Francisco",
+      "url": "https://www.asana.com/jobs/apply/8113282?gh_jid=8113282",
+      "source": "greenhouse",
+      "posted_at": "2026-08-10T17:08:35-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 94,
+      "min_years": 4,
+      "variant_label": "Amazon Payments \u2014 PMM",
+      "title_keywords": [
+        "field marketing",
+        "marketing"
+      ],
+      "ats_score": 68,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [
+        "marketo"
+      ],
+      "requested_keywords": [
+        "abm",
+        "b2b",
+        "brand",
+        "campaign",
+        "cross-functional",
+        "data-driven",
+        "enterprise",
+        "excel",
+        "field marketing",
+        "go-to-market",
+        "kpi",
+        "lifecycle",
+        "lifecycle marketing",
+        "marketo",
+        "pipeline",
+        "product marketing",
+        "project management",
+        "r",
+        "reporting",
+        "roi",
+        "saas",
+        "salesforce"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 68,
+          "missing": [
+            "marketo"
+          ]
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 64,
+          "missing": [
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 59,
+          "missing": [
+            "abm",
+            "data-driven",
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 45,
+          "missing": [
+            "data-driven",
+            "excel",
+            "marketo"
+          ]
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 45,
+          "missing": [
+            "abm",
+            "data-driven",
+            "excel",
+            "marketo"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "The Asana Marketing team is responsible for fueling business growth and building a brand customers love . We create campaigns and content to attract new accounts and inspire current ones to grow with us . We continue to grow, with a global team focused on revenue and field marketing, product marketing, brand and content cre ation, advertising, and lifecycle marketing . \n As a Field Marketing Manager, you will be a critical contributor on our Revenue Marketing team, working cross-functionally to develop our go-to-market strategy and execute campaigns that create and accelerate sales pipeline . Reporting to the AMER Field Marketing Lead, you will partner closely with regional sales leaders to align marketing strategy with sales goals through a mix of digital campaigns, experiential events, executive roundtables, and ABM . You will make data-driven decisions and adapt quickly to industry imperatives to customize our marketing progr ams and maximize impact . \n This role is based in our San Francisco office with an office-centric hybrid schedule . The standard in-office days are Monday, Tuesday, and Thursday . Most Asanas have the option to work from home on Wednesdays . Working from home on Fridays depends on the type of work you do and the teams with which you partn er . If you're interviewing for this role, your recruiter will share more about the in-office requirements . \n What you\u2019ll achieve \n \n Program Ownership: Develop and own the field marketing program for North America across owned and sponsored events from concept through completion, including planning, budgeting, vendor management, and reporting . \n Pipeline Acceleration: Partner closely with revenue leaders, field sales reps, and SDRs on pre- and post-show strategies to engage target audiences and maximize pipeline generation . \n Cross-Functional Event Execution: Collaborate with internal partners on Asana-hosted events across ABM, Brand, Community, and Customer Advocacy . \n Scalable Best Practices: Establish and refine repeatable processes, templates, and best practices for regional field marketing activities . \n Performance & ROI Tracking: Own the tracking and reporting of program results, closely monitoring event KPIs, lead flow, pipeline creation, and overall program ROI . \n \n About you \n \n Demonstrates curiosity about AI tools and emerging technologies, with a willingness to learn and leverage them to enhance productivity, collaboration, or decision-making. \n 4+ years of field marketing experience, ideally for enterprise B2B/SaaS audiences . \n Deep event planning and management knowledge with a proven track record of successfully executing multifaceted events across tight timelines . \n Strong relationship-builder with the ability to lead cross-functional teams, work with executives and high-profile speakers, and drive buy-in from sales leadership . \n Operationally minded self-starter with high autonomy, strong project management skills, and the ability to adapt to fast-paced environments . \n Working knowledg e of marketing technology tools (Salesforce, Marketo, or similar platforms) and comfort utilizing data to drive campaign de cisions . \n Ability to travel regionally as needed . \n \n At Asana, we're committed to building teams that include a variety of backgrounds, per spectives, and skills, as this is critical to helping us achieve o ur mission . If you're interested in this role and don't meet every listed requirement, we still encourage you to apply . \n Wh at we\u2019ll offer \n \n Our comprehensive compensation package plays a big part in how we recognize you for the impact you have on our path to achieving our mission . We believe that compensation should be reflective of the value you crea te relative to the market value of your role . To ensure pay is fair and not impacted by biases, we're committed to looking at market value which is why we check ourselves and conduct a yearly pay equity audit . \n For this role, the estimated base salary range is between $133,000 - $151,000 . The actual base salary will vary based on various factors, including market and individual qualifications objectively assessed during the interview process . The listed range above is a guideline, and the base salary range for this role may be modified . \n In addition to base salary, your compensation package may include additional components such as equity, sales incentive pay (for most sales roles), and benefits . If you're interviewing for this role, speak with your recruiter to learn more about the total compensa tion and benefits for this role . \n We strive to provide equitable and competitive benefits packages that support our employees worldwide and include : \n \n Mental health, wellness & fitness ben efits \n Career coaching & support \n Inclusive family building benefits \n Long-term savings or retirement plans \n In-office culinary options to cater to your dietary preferences \n \n These are just some of the benefits we offer, and benefits may vary based on role, country, and local regulations . If you're interviewing for this role, speak with your Talent Acquisition Partner to learn more about the total compensation and benefits for this role . \n #LI-Hybrid About us \n Asana is a leading platform for human + AI collaboration. Millions of teams around the world rely on Asana to achieve their most important goals, faster. Asana has been named to Fortune's Best Workplaces for 7+ years and recognized by Fast Company, Forbes, and Gartner for excellence in workplace culture and innovation. We offer an exceptional office-centric culture while adopting the best elements of hybrid models to ensure that every one of our global team members can work together effortlessly. With 13+ offices all over the world, we are always looking for individuals who care about building technology that drives positive change in the world and a culture where everyone feels that they belong. \n We believe in supporting people to do their best work and thrive. Our goal is to ensure that Asana upholds an environment where all people feel that they are respected and valued, whether they are applying for an open position or working at the company. We provide equal employment opportunities to all applicants without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by law. \n Join Asana\u2019s Talent Network \u00a0to stay up to date on job opportunities and life at Asana.",
+      "resume_core": {
+        "label": "Asana \u2014 Field Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Rebuilt self-serve onboarding messaging and activation flows, running experiments on the signup funnel (SQL, Tableau) that lifted self-serve signup conversion 75% and lead-to-demo conversion ~30%.",
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; built segment-specific acquisition playbooks that more than doubled booked meetings (from ~10/week to ~5/day)."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Owned acquisition and lifecycle marketing for 100+ enterprise banking clients across 50+ markets - built segmentation and messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Built Finacle's first pulse-analytics dashboard (SQL, Tableau) to measure campaign performance and communicate results to senior leadership, winning the Best Internal Campaign Award.",
+              "Created battlecards and monetization deep-dives for 50+ account executives across banking markets, cutting sales-cycle length ~15%."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned messaging, content, and enablement, and delivered 80+ tailored CIO/CTO presentations.",
+              "Ran win/loss analysis and competitive positioning that lifted win rates ~10%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Ran donor-acquisition campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using A/B testing and conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing",
+            "items": [
+              "Acquisition Campaigns",
+              "Lifecycle Marketing",
+              "Onboarding & Activation",
+              "Segmentation",
+              "Branded Content",
+              "Positioning & Messaging"
+            ]
+          },
+          {
+            "name": "Experimentation & Analytics",
+            "items": [
+              "A/B & Multivariate Testing",
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)"
+            ]
+          },
+          {
+            "name": "Domain & Tools",
+            "items": [
+              "Financial Services / Payments",
+              "Banking SaaS",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Excel"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Asana is hiring a Field Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Asana, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Asana%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "fda4680400356986",
       "company": "Mixpanel",
       "title": "Lifecycle Marketing Manager",
-      "location": "San Francisco, US (Hybrid)",
-      "url": "https://job-boards.greenhouse.io/mixpanel/jobs/8097544",
+      "location": "New York City, US (Hybrid)",
+      "url": "https://job-boards.greenhouse.io/mixpanel/jobs/8109324",
       "source": "greenhouse",
       "posted_at": "2026-08-07T17:34:04-04:00",
       "sponsorship": "Unknown",
@@ -8219,7 +8432,7 @@
         }
       ],
       "jd_available": true,
-      "excerpt": "About Mixpanel \n Mixpanel is the leading product intelligence and analytics platform, trusted by more than 29,000 companies to help understand how people use the products they build. By combining powerful analytics with AI that knows your business, Mixpanel helps teams see what\u2019s working, diagnose what\u2019s not, and decide what to build next. Learn more at mixpanel.com . About the Team \n The Revenue Marketing team at Mixpanel is responsible for pipeline generation across paid, organic, and product-led channels. This role sits within that team as its dedicated lifecycle owner, accountable for the programs and systems that turn interest into pipeline and move high-quality leads toward a meeting. \n We're early in building a true channel team. With that comes real ownership and real influence over how this motion gets built. You won't be inheriting a mature engine, you'll be defining it. \n About the Role \n As our Lifecycle Marketing Manager, you own the always-on programs that drive conversion from handraiser to qualified meeting. That means building the nurture infrastructure, establishing best practices, and acting as a strong partner to regional campaign managers who need scalable, repeatable plays they can execute with confidence. \n This is not a volume game. Our focus is high-quality engagement with the right accounts at the right moment \u2014 and you'll be the person who architects that motion end-to-end. \n You'll work closely with Marketing Operations and Performance Marketing to define how email fits into the broader GTM stack, and you'll be a key stakeholder in how we operationalize HubSpot as our lifecycle layer. Responsibilities\u00a0 \n \n Own the lifecycle marketing program from lead capture through demo booked nurture sequencing, segmentation logic, and revenue tracking \n Build and manage always-on email programs in HubSpot, including lead nurture, re-engagement, and handraiser follow-up workflows \n Partner with Marketing Ops to define system ownership across the GTM stack and establish clear rules of engagement between lifecycle, sales outreach, and product-led touchpoints \n Collaborate with regional campaign managers to develop scalable, channel-ready lifecycle plays, reducing ad hoc execution and increasing consistency \n Define and enforce email best practices across the org, including cadence, segmentation, and suppression logic to protect deliverability and audience trust \n Instrument lifecycle performance in Mixpanel, guide building of\u00a0 dashboards that track funnel conversion, sequence performance, and influence on pipeline \n Partner with Performance Marketing on handraiser conversion strategy, aligning paid and lifecycle motions around shared pipeline goals \n Work with the Marketing Ops team to bring clarity to tool ownership and use cases, particularly across HubSpot and any overlapping systems \n \n What We're Looking For \n \n 4+ years in lifecycle, email, or demand gen marketing with clear ownership of a B2B nurture program from strategy through execution \n Hands-on experience building in HubSpot (or a comparable MAP- Marketo) \u2014 segmentation, workflows, sequences, reporting \n Strong understanding of the handraiser-to-pipeline funnel in a B2B SaaS context, with a track record of improving conversion rates \n Comfortable navigating a stack that's still being defined \u2014 you can assess what's broken, prioritize what matters, and build without waiting for perfect conditions \n Strong instincts on quality-over-volume lifecycle strategy: you know how to drive engagement without burning your audience \n Able to partner effectively with both technical (ops, engineering) and non-technical (regional marketers, field) stakeholders \n Analytical mindset, you measure what you build, and you use data to iterate \n \n Bonus Points \n \n Experience building lifecycle programs at a product-led growth company \n Background in sales-assisted + PLG hybrid motions where lifecycle bridges both \n Familiarity with Qualified or similar handraiser/chat tools \n Experience working alongside or standing up a Marketing Ops function from early stages \n \n #LI-Hybrid Compensation \n The amount listed below is the total target cash compensation (TTCC) and includes base compensation and variable compensation in the form of either a company bonus or commissions. Variable compensation type is determined by your role and level. In addition to the cash compensation provided, this position is also eligible for equity consideration and other benefits including medical, vision, and dental insurance coverage. You can view our benefits offerings here . Our salary ranges are determined by role and level and are benchmarked to the SF Bay Area Technology data cut released by Radford, a global compensation database. The range displayed represents the minimum and maximum TTCC for new hire salaries for the position across all of our US locations. To stay on top of market conditions, we refresh our salary ranges twice a year so these ranges may change in the future. Within the range, individual pay is determined by experience, job-related skills, qualifications, and other factors. If you have questions about the specific range, your recruiter can share this information. Mixpanel Compensation Range $128,500 \u2014 $173,500 USD Benefits and Perks \n \n Comprehensive Medical, Vision, and Dental Care \n Mental Wellness Benefit \n Generous Vacation Policy & Additional Company Holidays \n Enhanced Parental Leave \n Volunteer Time Off \n Additional US Benefits: Pre-Tax Benefits including 401(K), Wellness Benefit, Holiday Break \n \n *please note that benefits and perks for contract positions will vary* \n Culture Values \n \n Make Bold Bets: We choose courageous action over comfortable progress. \n Innovate with Insight: We tackle decisions with rigor and judgment - combining data, experience and collective wisdom to drive\u00a0powerful outcomes. \n One Team: We collaborate across boundaries to achieve far greater impact than any of us could accomplish alone. \n Candor with Connection: We build meaningful relationships that enable honest feedback and direct conversations. \n Champion the Customer: We seek to deeply understand our customers\u2019 needs, ensuring their success is our north star. \n Powerful Simplicity: We find elegant solutions to complex problems, making sophisticated things accessible. \n \n Why choose Mixpanel? \n We\u2019re a leader in analytics with over 9,000 customers and $277M raised from prominent investors: like Andreessen-Horowitz, Sequoia, YC, and, most recently, Bain Capital. Mixpanel\u2019s pioneering event-based data analytics platform offers a powerful yet simple solution for companies to understand user behaviors and easily track overarching company success metrics. Our accomplished teams continuously facilitate our expansion by tackling the ever-evolving challenges tied to scaling, reliability, design, and service. Choosing to work at Mixpanel means you\u2019ll be helping the world\u2019s most innovative companies learn from their data so they can make better decisions. \n Mixpanel is an equal opportunity employer supporting workforce diversity. At Mixpanel, we are focused on things that really matter\u2014our people, our customers, our partners\u2014out of a recognition that those relationships are the most valuable assets we have. We actively encourage women, people with disabilities, veterans, underrepresented minorities, and LGBTQ+ people to apply. We do not discriminate on the basis of race, religion, color, national origin, gender, gender identity or expression, sexual orientation, age, marital status, veteran status, or disability status. Pursuant to the San Francisco Fair Chance Ordinance or other similar laws that may be applicable, we will consider for employment qualified applicants with arrest and conviction records. We\u2019ve immersed ourselves in our Culture and Values as our guiding principles for the impact we want to have and the future we are building.",
+      "excerpt": "About Mixpanel \n Mixpanel is the leading product intelligence and analytics platform, trusted by more than 29,000 companies to help understand how people use the products they build. By combining powerful analytics with AI that knows your business, Mixpanel helps teams see what\u2019s working, diagnose what\u2019s not, and decide what to build next. Learn more at mixpanel.com . About the Team \n The Revenue Marketing team at Mixpanel is responsible for pipeline generation across paid, organic, and product-led channels. This role sits within that team as its dedicated lifecycle owner, accountable for the programs and systems that turn interest into pipeline and move high-quality leads toward a meeting. \n We're early in building a true channel team. With that comes real ownership and real influence over how this motion gets built. You won't be inheriting a mature engine, you'll be defining it. \n About the Role \n As our Lifecycle Marketing Manager, you own the always-on programs that drive conversion from handraiser to qualified meeting. That means building the nurture infrastructure, establishing best practices, and acting as a strong partner to regional campaign managers who need scalable, repeatable plays they can execute with confidence. \n This is not a volume game. Our focus is high-quality engagement with the right accounts at the right moment \u2014 and you'll be the person who architects that motion end-to-end. \n You'll work closely with Marketing Operations and Performance Marketing to define how email fits into the broader GTM stack, and you'll be a key stakeholder in how we operationalize HubSpot as our lifecycle layer. Responsibilities\u00a0 \n \n Own the lifecycle marketing program from lead capture through demo booked nurture sequencing, segmentation logic, and revenue tracking \n Build and manage always-on email programs in HubSpot, including lead nurture, re-engagement, and handraiser follow-up workflows \n Partner with Marketing Ops to define system ownership across the GTM stack and establish clear rules of engagement between lifecycle, sales outreach, and product-led touchpoints \n Collaborate with regional campaign managers to develop scalable, channel-ready lifecycle plays, reducing ad hoc execution and increasing consistency \n Define and enforce email best practices across the org, including cadence, segmentation, and suppression logic to protect deliverability and audience trust \n Instrument lifecycle performance in Mixpanel, guide building of\u00a0 dashboards that track funnel conversion, sequence performance, and influence on pipeline \n Partner with Performance Marketing on handraiser conversion strategy, aligning paid and lifecycle motions around shared pipeline goals \n Work with the Marketing Ops team to bring clarity to tool ownership and use cases, particularly across HubSpot and any overlapping systems \n \n What We're Looking For \n \n 4+ years in lifecycle, email, or demand gen marketing with clear ownership of a B2B nurture program from strategy through execution \n Hands-on experience building in HubSpot (or a comparable MAP- Marketo) \u2014 segmentation, workflows, sequences, reporting \n Strong understanding of the handraiser-to-pipeline funnel in a B2B SaaS context, with a track record of improving conversion rates \n Comfortable navigating a stack that's still being defined \u2014 you can assess what's broken, prioritize what matters, and build without waiting for perfect conditions \n Strong instincts on quality-over-volume lifecycle strategy: you know how to drive engagement without burning your audience \n Able to partner effectively with both technical (ops, engineering) and non-technical (regional marketers, field) stakeholders \n Analytical mindset, you measure what you build, and you use data to iterate \n \n Bonus Points \n \n Experience building lifecycle programs at a product-led growth company \n Background in sales-assisted + PLG hybrid motions where lifecycle bridges both \n Familiarity with Qualified or similar handraiser/chat tools \n Experience working alongside or standing up a Marketing Ops function from early stages \n \n #LI-Hybrid Compensation \n The amount listed below is the total target cash compensation (TTCC) and includes base compensation and variable compensation in the form of either a company bonus or commissions. Variable compensation type is determined by your role and level. In addition to the cash compensation provided, this position is also eligible for equity consideration and other benefits including medical, vision, and dental insurance coverage. You can view our benefits offerings here . Our salary ranges are determined by role and level and are benchmarked to the SF Bay Area Technology data cut released by Radford, a global compensation database. The range displayed represents the minimum and maximum TTCC for new hire salaries for the position across all of our US locations. To stay on top of market conditions, we refresh our salary ranges twice a year so these ranges may change in the future. Within the range, individual pay is determined by experience, job-related skills, qualifications, and other factors. If you have questions about the specific range, your recruiter can share this information. Mixpanel Compensation Range $128,500 \u2014 $173,500 USD Benefits and Perks \n \n Comprehensive Medical, Vision, and Dental Care \n Mental Wellness Benefit \n Generous Vacation Policy & Additional Company Holidays \n Enhanced Parental Leave \n Volunteer Time Off \n Additional US Benefits: Pre-Tax Benefits including 401(K), Wellness Benefit, Holiday Break \n \n *please note that benefits and perks for contract positions will vary* \n Culture Values \n \n Make Bold Bets: We choose courageous action over comfortable progress. \n Innovate with Insight: We tackle decisions with rigor and judgment - combining data, experience and collective wisdom to drive\u00a0powerful outcomes. \n One Team: We collaborate across boundaries to achieve far greater impact than any of us could accomplish alone. \n Candor with Connection: We build meaningful relationships that enable honest feedback and direct conversations. \n Champion the Customer: We seek to deeply understand our customers\u2019 needs, ensuring their success is our north star. \n Powerful Simplicity: We find elegant solutions to complex problems, making sophisticated things accessible. \n \n Why choose Mixpanel? \n We\u2019re a leader in analytics with over 9,000 customers and $277M invested from prominent investors: like Andreessen-Horowitz, Sequoia, YC, and, most recently, Bain Capital. Mixpanel\u2019s pioneering event-based data analytics platform offers a powerful yet simple solution for companies to understand user behaviors and easily track overarching company success metrics. Our accomplished teams continuously facilitate our expansion by tackling the ever-evolving challenges tied to scaling, reliability, design, and service. Choosing to work at Mixpanel means you\u2019ll be helping the world\u2019s most innovative companies learn from their data so they can make better decisions. \n Mixpanel is an equal opportunity employer supporting workforce diversity. At Mixpanel, we are focused on things that really matter\u2014our people, our customers, our partners\u2014out of a recognition that those relationships are the most valuable assets we have. We actively encourage women, people with disabilities, veterans, underrepresented minorities, and LGBTQ+ people to apply. We do not discriminate on the basis of race, religion, color, national origin, gender, gender identity or expression, sexual orientation, age, marital status, veteran status, or disability status. Pursuant to the San Francisco Fair Chance Ordinance or other similar laws that may be applicable, we will consider for employment qualified applicants with arrest and conviction records. We\u2019ve immersed ourselves in our Culture and Values as our guiding principles for the impact we want to have and the future we are building.",
       "resume_core": {
         "label": "Mixpanel \u2014 Lifecycle Marketing Manager",
         "contact": {
@@ -10308,7 +10521,7 @@
       "location": "San Francisco",
       "url": "https://www.asana.com/jobs/apply/8048277?gh_jid=8048277",
       "source": "greenhouse",
-      "posted_at": "2026-08-05T19:02:55-04:00",
+      "posted_at": "2026-08-10T17:08:34-04:00",
       "sponsorship": "Unknown",
       "fit_score": 91,
       "min_years": null,
@@ -19757,7 +19970,7 @@
       "location": "San Francisco",
       "url": "https://job-boards.greenhouse.io/assemblyai/jobs/4704406005",
       "source": "greenhouse",
-      "posted_at": "2026-08-03T18:17:45-04:00",
+      "posted_at": "2026-08-10T10:55:20-04:00",
       "sponsorship": "Unknown",
       "fit_score": 88,
       "min_years": 1,
@@ -21684,7 +21897,7 @@
         }
       ],
       "jd_available": true,
-      "excerpt": "At Linear, we're building the product development system for teams and agents. AI is fundamentally changing how software gets built, and we\u2019re shaping the tools this new era requires.\n\nFounded in 2019, Linear has become the platform of choice for more than 30,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products. Today, our team is distributed across North America, Europe, and Australia, and we\u2019re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.\n\nWe\u2019re hiring a Product Marketing Manager to help shape how Linear\u2019s products are brought to market and understood by customers. This role sits at the intersection of Product, Engineering, Design, CX, Sales, and Marketing, and is responsible for turning technically sophisticated product work into clear narratives, strong launches, and high-quality customer-facing experiences. You\u2019ll go deep on the product, define positioning and messaging, and drive execution across the surfaces that matter most\u2014from in-product copy and changelogs to enablement, documentation inputs, email, and launch communications. This is a hands-on role for someone who combines product judgment, excellent writing, and strong cross-functional leadership.\n\nLocation & work mode\n\nLinear is a remote-first company, with optional co-working offices in San Francisco, New York, and London. This role is open to candidates based in North America and Europe. You can work from anywhere within these regions. We value deep focus and async collaboration, with intentional moments to connect in person through team off-sites, optional co-working, and occasional travel.\n\nWhat you\u2019ll do\n\n - Develop positioning, messaging, and core narratives for feature releases, key launches, and strategic product narratives\n\n - Partner closely with Product management, Engineering, and Design to refine how products are presented across in-product and external surfaces\n\n - Create and coordinate launch deliverables such as changelogs, demos, enablement materials, email, social copy, and go-to-market communications\n\n - Equip Sales, CX, and other customer-facing teams with the context and materials they need to communicate new launches effectively\n\n - Bring customer insight, product understanding, and market context back into product and launch decisions\n\nWhat we\u2019re looking for\n\n - Exceptional writing and editorial judgment, with the ability to make complex ideas feel clear and compelling\n\n - Strong positioning and messaging skills grounded in customer problems, product truth, and differentiation\n\n - Great project management skills and ability to track large amounts of detail.\n\n - Comfort going deep on product details and building credibility with Product, Engineering, and Design\n\n - Strong judgment, ownership, and the ability to operate autonomously while maintaining a high quality bar\n\nWhat we offer\n\nWe're a small, focused team that cares deeply about the quality of our work and the people we do it with. Here's what you can expect:\n\n - Competitive salary and equity\n\n - Employee-friendly equity terms including early exercise in the US and extended exercise windows\n\n - Daily meal and coffee stipend on every workday\n\n - Paid co-working space or desk\n\n - Health coverage (based on country requirements)\n\n - 5 weeks paid vacation, plus local statutory holidays\n\n - 4 months paid parental leave\n\n - Paid month off after 4 years & every 2 years thereafter\n\n - Regular team events and off-sites\n\n - Remote-first with no required commute\n\nLearn how we think and work\n\n - A story about our mission: Read Me https://linear.app/readme\n\n - How we work: Designing remote work at Linear https://linear.app/now/designing-remote-work-at-linear\n\n - How Linear uses Linear: How our Customer Experience team works in Linear https://linear.app/now/cx-in-linear\n\n - A video series: Conversations on Quality https://linear.app/quality\n\n - Building our teams: Why and how we do work trials at Linear https://linear.app/blog/why-and-how-we-do-work-trials-at-linear\n\n - Our Series C Fundraise https://linear.app/now/building-our-way and Giving our team liquidity https://linear.app/now/giving-our-team-liquidity-through-linear-s-first-tender-offer\n\nLinear is an equal opportunity employer. We do not discriminate based on race, color, religion, gender identity or expression, sexual orientation, national origin, age, disability, veteran status, or any other protected characteristic under applicable law.",
+      "excerpt": "At Linear, we're building the product development system for teams and agents. AI is fundamentally changing how software gets built, and we\u2019re shaping the tools this new era requires.\n\nFounded in 2019, Linear has become the platform of choice for more than 40,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products. Today, our team is distributed across North America, Europe, and Australia, and we\u2019re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.\n\nWe\u2019re hiring a Product Marketing Manager to help shape how Linear\u2019s products are brought to market and understood by customers. This role sits at the intersection of Product, Engineering, Design, CX, Sales, and Marketing, and is responsible for turning technically sophisticated product work into clear narratives, strong launches, and high-quality customer-facing experiences. You\u2019ll go deep on the product, define positioning and messaging, and drive execution across the surfaces that matter most\u2014from in-product copy and changelogs to enablement, documentation inputs, email, and launch communications. This is a hands-on role for someone who combines product judgment, excellent writing, and strong cross-functional leadership.\n\nLocation & work mode\n\nLinear is a remote-first company, with optional co-working offices in San Francisco, New York, and London. This role is open to candidates based in North America and Europe. You can work from anywhere within these regions. We value deep focus and async collaboration, with intentional moments to connect in person through team off-sites, optional co-working, and occasional travel.\n\nWhat you\u2019ll do\n\n - Develop positioning, messaging, and core narratives for feature releases, key launches, and strategic product narratives\n\n - Partner closely with Product management, Engineering, and Design to refine how products are presented across in-product and external surfaces\n\n - Create and coordinate launch deliverables such as changelogs, demos, enablement materials, email, social copy, and go-to-market communications\n\n - Equip Sales, CX, and other customer-facing teams with the context and materials they need to communicate new launches effectively\n\n - Bring customer insight, product understanding, and market context back into product and launch decisions\n\nWhat we\u2019re looking for\n\n - Exceptional writing and editorial judgment, with the ability to make complex ideas feel clear and compelling\n\n - Strong positioning and messaging skills grounded in customer problems, product truth, and differentiation\n\n - Great project management skills and ability to track large amounts of detail.\n\n - Comfort going deep on product details and building credibility with Product, Engineering, and Design\n\n - Strong judgment, ownership, and the ability to operate autonomously while maintaining a high quality bar\n\nWhat we offer\n\nWe're a small, focused team that cares deeply about the quality of our work and the people we do it with. Here's what you can expect:\n\n - Competitive salary and equity\n\n - Employee-friendly equity terms including early exercise in the US and extended exercise windows\n\n - Daily meal and coffee stipend on every workday\n\n - Paid co-working space or desk\n\n - Health coverage (based on country requirements)\n\n - 5 weeks paid vacation, plus local statutory holidays\n\n - 4 months paid parental leave\n\n - Paid month off after 4 years & every 2 years thereafter\n\n - Regular team events and off-sites\n\n - Remote-first with no required commute\n\nLearn how we think and work\n\n - A story about our mission: Read Me https://linear.app/readme\n\n - How we work: Designing remote work at Linear https://linear.app/now/designing-remote-work-at-linear\n\n - How Linear uses Linear: How our Customer Experience team works in Linear https://linear.app/now/cx-in-linear\n\n - A video series: Conversations on Quality https://linear.app/quality\n\n - Building our teams: Why and how we do work trials at Linear https://linear.app/blog/why-and-how-we-do-work-trials-at-linear\n\n - Our Series C Fundraise https://linear.app/now/building-our-way and Giving our team liquidity https://linear.app/now/giving-our-team-liquidity-through-linear-s-first-tender-offer\n\nLinear is an equal opportunity employer. We do not discriminate based on race, color, religion, gender identity or expression, sexual orientation, national origin, age, disability, veteran status, or any other protected characteristic under applicable law.\n\nA note on recruitment fraud: all official Linear hiring communication comes from an @linear.app http://linear.app email address, and all open roles are listed at linear.app/careers http://linear.app/careers. We never ask candidates for payment or financial information. Suspicious messages can be reported to security@linear.app.",
       "resume_core": {
         "label": "Linear \u2014 Product Marketing Manager",
         "contact": {
@@ -27394,7 +27607,7 @@
       "location": "6 Locations",
       "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/AMER---United-States---Oregon---Portland/Campaign-Marketing-Manager--Forma_26WD98562-1",
       "source": "workday",
-      "posted_at": "Posted 11 Days Ago",
+      "posted_at": "Posted Today",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -29732,7 +29945,7 @@
       "location": "6 Locations",
       "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
       "source": "workday",
-      "posted_at": "Posted 30+ Days Ago",
+      "posted_at": "Posted Today",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -30478,7 +30691,7 @@
       "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA",
       "url": "https://job-boards.greenhouse.io/gusto/jobs/8094350",
       "source": "greenhouse",
-      "posted_at": "2026-08-06T17:14:18-04:00",
+      "posted_at": "2026-08-10T14:14:18-04:00",
       "sponsorship": "Unknown",
       "fit_score": 58,
       "min_years": null,
@@ -31089,10 +31302,10 @@
       "id": "8a4075a80b75cff7",
       "company": "Brex",
       "title": "Event Marketing Manager",
-      "location": "San Francisco, California, United States",
-      "url": "https://www.brex.com/careers/8645962002?gh_jid=8645962002",
+      "location": "Salt Lake City, Utah, United States",
+      "url": "https://www.brex.com/careers/8645963002?gh_jid=8645963002",
       "source": "greenhouse",
-      "posted_at": "2026-07-23T16:19:08-04:00",
+      "posted_at": "2026-07-23T16:24:48-04:00",
       "sponsorship": "Unknown",
       "fit_score": 58,
       "min_years": 3,
@@ -33821,6 +34034,198 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Nvidia%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "dac2334abb851cc8",
+      "company": "Autodesk",
+      "title": "Technical Marketing Manager",
+      "location": "12 Locations",
+      "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/EMEA---United-Kingdom---OffsiteHome/Technical-Marketing-Manager_26WD98219",
+      "source": "workday",
+      "posted_at": "Posted Today",
+      "sponsorship": "Unknown",
+      "fit_score": 30,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Autodesk \u2014 Technical Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Autodesk is hiring a Technical Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Autodesk, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Autodesk%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "8292b6e0ec57bab8",
       "company": "Workday",
       "title": "GTM Manager",
@@ -34012,198 +34417,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Workday is hiring a GTM Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Workday, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Workday%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "dac2334abb851cc8",
-      "company": "Autodesk",
-      "title": "Technical Marketing Manager",
-      "location": "12 Locations",
-      "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/AMER---United-States---Georgia---Atlanta---Peachtree-St-NW/Technical-Marketing-Manager_26WD98219",
-      "source": "workday",
-      "posted_at": "Posted 30+ Days Ago",
-      "sponsorship": "Unknown",
-      "fit_score": 30,
-      "min_years": null,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "marketing"
-      ],
-      "ats_score": 100,
-      "best_variant": "Marketing & Business Analyst",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "r"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 100,
-          "missing": []
-        }
-      ],
-      "jd_available": false,
-      "excerpt": "",
-      "resume_core": {
-        "label": "Autodesk \u2014 Technical Marketing Manager",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Autodesk is hiring a Technical Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Autodesk, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Autodesk%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "4bd31c678a04ff70",
