@@ -7,7 +7,8 @@
 cd "$(dirname "$0")/.." || exit 1
 
 # launchd runs with a bare PATH — add the usual tool locations + python + git + claude.
-export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+# (~/.local/bin is where the `claude` CLI lives; without it coach_rank can't call Claude.)
+export PATH="$HOME/.local/bin:/Library/Frameworks/Python.framework/Versions/3.13/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
 LOG="worker.log"
 {
