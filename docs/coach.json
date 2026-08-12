@@ -1,461 +1,388 @@
 {
-  "generated_at": "2026-08-11T17:34:15+00:00",
+  "generated_at": "2026-08-12T16:34:54+00:00",
   "model": "opus",
   "briefing": {
-    "headline": "Two Boston-based B2B marketing reqs are live at CarGurus \u2014 and the enterprise sponsors (Adobe, Workday, Nvidia) are hiding under low keyword scores.",
-    "focus": "Spend the first 10 minutes on the two Boston roles (CarGurus B2B + Brand Marketing Specialist) \u2014 local, public company, specialist-level, no relocation story to explain. Spend the next 10 on the keyword-scorer's blind spot: Adobe's B2B Performance Marketing Specialist and Workday's Paid Media & ABX Campaign Manager both scored 60 because their JDs never loaded, but 'ABX' is literally ABM and both are top-20 H-1B sponsors. Skip the Amazon 'AMZ#####' analyst postings entirely \u2014 those are PERM immigration-compliance notices, not open reqs.",
+    "headline": "Three fresh, sponsorship-safe PMM reqs landed in the last 48 hours \u2014 hit those before the Boston repeats.",
+    "focus": "Spend the first 12 minutes on Stripe's GTM PMM (Commerce) and Figma's Audience & Messaging PMM \u2014 both posted Aug 11, both large-cap H-1B sponsors, and Stripe is a direct banking/fintech domain carryover. Then take the Anthropic Product Marketing Ops req that posted today before the volume hits. Only after that, re-touch the Boston standbys (AWS Storage PMM, CarGurus) with a rewritten opener \u2014 they've been surfaced repeatedly and a fifth identical application won't change the outcome.",
     "top_ids": [
-      "5326ec612ee4279d",
+      "e6ffa8848724bd19",
+      "e668fd61ec3561f3",
+      "a5d1ed34eea314ed",
       "a4ea8aa66a4aa06e",
-      "58c618c44c809351",
-      "97dfca77ac24d5a6",
-      "81389a91c62c4635",
-      "8782c3c9a65c9ac7"
+      "2416ce6b7c517d58",
+      "079cc7591b78aefb"
     ]
   },
   "ranked": [
     {
-      "id": "5326ec612ee4279d",
+      "id": "e6ffa8848724bd19",
       "tier": "top",
-      "priority": 96,
-      "why": "Boston HQ, B2B, 'Specialist' level \u2014 the single cleanest lane+level+location match on the board; public company with a real sponsorship track record.",
-      "flag": ""
+      "priority": 97,
+      "why": "Posted yesterday, US-wide, Stripe = top-tier sponsor, and commerce/payments GTM is a straight lift from 6 years in banking/fintech.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "e668fd61ec3561f3",
+      "tier": "top",
+      "priority": 95,
+      "why": "Audience & Messaging PMM is literally segmentation + positioning \u2014 her two strongest skills \u2014 at a public company that sponsors, posted Aug 11.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "a5d1ed34eea314ed",
+      "tier": "top",
+      "priority": 92,
+      "why": "Posted today; PMM Ops blends her Eloqua/HubSpot/SFDC ops chops with PMM craft, and the 78 keyword score badly under-reads it.",
+      "flag": "hidden-gem"
     },
     {
       "id": "a4ea8aa66a4aa06e",
       "tier": "top",
-      "priority": 93,
-      "why": "PMM in Boston at the #1 H-1B sponsor in tech \u2014 rare combination; req is aging (posted 6/29) so apply now or drop it.",
+      "priority": 89,
+      "why": "The only true Boston PMM req from a guaranteed sponsor \u2014 still worth a fifth swing, but only with a rewritten storage-specific opener.",
       "flag": ""
     },
     {
-      "id": "58c618c44c809351",
+      "id": "2416ce6b7c517d58",
       "tier": "top",
-      "priority": 92,
-      "why": "Adobe scored 60 only because the JD never loaded \u2014 B2B performance marketing at Specialist level, top-tier sponsor, is a near-perfect profile match.",
+      "priority": 87,
+      "why": "Braze is martech: her Eloqua/HubSpot/GA4 stack is the product, and partner PMM rewards sales-collateral and competitive-intel work.",
       "flag": "hidden-gem"
     },
     {
-      "id": "97dfca77ac24d5a6",
+      "id": "079cc7591b78aefb",
       "tier": "top",
-      "priority": 91,
-      "why": "'ABX' is ABM under a different brand name \u2014 this is the candidate's headline skill at a company that sponsors hundreds of visas a year, and the scorer missed it completely.",
-      "flag": "hidden-gem"
+      "priority": 85,
+      "why": "Fresh Aug 11 Amazon BA req, never pushed before \u2014 clean analyst-lane entry at a company that files H-1Bs at scale.",
+      "flag": ""
     },
     {
       "id": "81389a91c62c4635",
-      "tier": "top",
-      "priority": 90,
-      "why": "6sense IS the ABM platform \u2014 selling it means the resume's top skill is the product; remote-US and never surfaced before.",
+      "tier": "strong",
+      "priority": 83,
+      "why": "6sense IS the ABM category \u2014 her ABM experience is the whole job spec, and remote-US removes the relocation problem; the 58 ATS score is noise.",
       "flag": "hidden-gem"
     },
     {
-      "id": "8782c3c9a65c9ac7",
-      "tier": "top",
-      "priority": 88,
-      "why": "Remote-USA performance marketing at a public fintech \u2014 the banking/fintech background is a differentiator here, not just background noise.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "ec78c5bd8839ca2c",
-      "tier": "top",
-      "priority": 87,
-      "why": "Second Boston CarGurus req at the same level \u2014 apply to both; brand is a slight lane stretch but proximity outweighs it.",
+      "id": "aebadb0b4d601f56",
+      "tier": "strong",
+      "priority": 82,
+      "why": "Datadog PMM at the right level, strong sponsor, and infra/AI positioning pairs with the STEM MBA in ML.",
       "flag": ""
     },
     {
       "id": "3d60b9f8edc51296",
-      "tier": "top",
-      "priority": 86,
-      "why": "Marketing analytics inside AWS demand gen \u2014 the exact intersection of both target lanes at the strongest sponsor; only demoted because it's been recommended three times.",
+      "tier": "strong",
+      "priority": 81,
+      "why": "Demand-gen measurement for AWS Marketing is the exact intersection of both lanes \u2014 still a bullseye despite four prior pushes.",
+      "flag": ""
+    },
+    {
+      "id": "97dfca77ac24d5a6",
+      "tier": "strong",
+      "priority": 78,
+      "why": "ABX is ABM by another name at a giant reliable sponsor; the keyword score of 60 is flat wrong on this one.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "58c618c44c809351",
+      "tier": "strong",
+      "priority": 77,
+      "why": "Adobe B2B performance marketing at Specialist level \u2014 right seniority, huge sponsor, and the 60 fit score is a scraping artifact.",
+      "flag": "hidden-gem"
+    },
+    {
+      "id": "1871cc7720fa514a",
+      "tier": "strong",
+      "priority": 76,
+      "why": "Radar is fraud/risk for payments \u2014 her banking domain is a genuine differentiator here, and Stripe lists remote.",
+      "flag": ""
+    },
+    {
+      "id": "423a88e2e06e9425",
+      "tier": "strong",
+      "priority": 74,
+      "why": "Customer marketing = case studies and customer proof, which she's shipped; Datadog sponsors, but four repeats means apply or drop it.",
       "flag": ""
     },
     {
       "id": "0a79abed990c8977",
       "tier": "strong",
-      "priority": 84,
-      "why": "Remote-US marketing analyst on funnel/PLG metrics \u2014 MQL-to-pipeline work the resume already owns; four runs in, so decide yes or no today.",
-      "flag": ""
-    },
-    {
-      "id": "020b119bbfb90ff2",
-      "tier": "strong",
-      "priority": 83,
-      "why": "Remote-US GTM analytics with SQL + funnel ownership; 'Manager' here is an IC title, not a people-leader step up.",
-      "flag": ""
-    },
-    {
-      "id": "8680f739a4164b25",
-      "tier": "strong",
-      "priority": 82,
-      "why": "The title is literally 'Audience and Messaging' \u2014 positioning and segmentation are the two strongest lines on the resume.",
-      "flag": ""
-    },
-    {
-      "id": "e8583a28d2df7186",
-      "tier": "strong",
-      "priority": 81,
-      "why": "Remote-US lifecycle marketing on a lending product \u2014 six years of banking domain knowledge is a real edge over generic SaaS applicants.",
-      "flag": ""
-    },
-    {
-      "id": "d13590b2e66054ce",
-      "tier": "strong",
-      "priority": 80,
-      "why": "Boston, strong sponsor, Salesforce-centric GTM systems \u2014 leans ops rather than marketing, but local roles are scarce enough to justify it.",
-      "flag": ""
-    },
-    {
-      "id": "635e14b16f7a1c04",
-      "tier": "strong",
-      "priority": 79,
-      "why": "Scored 60 on a truncated HTML blob \u2014 a payments/stablecoin PMM role is one of the best fintech-background plays on this list.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "c6039c78651b057b",
-      "tier": "strong",
-      "priority": 78,
-      "why": "Prospecting campaigns and pipeline measurement at AWS, badly under-scored at 61; demand gen is core resume territory.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "a71d165489aac636",
-      "tier": "strong",
-      "priority": 77,
-      "why": "B2B SaaS product marketing for a full product line at Amazon \u2014 the 64 score reflects vocabulary, not fit.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "0a6f811dfd1dfc9d",
-      "tier": "strong",
-      "priority": 76,
-      "why": "Remote-US regional/field marketing scored 61 for no good reason; remote US is worth a lot given the Boston base.",
-      "flag": "hidden-gem"
-    },
-    {
-      "id": "5d45f27bdd2a1ed0",
-      "tier": "strong",
-      "priority": 75,
-      "why": "Remote-US demand gen program ownership \u2014 clean lane match; Grafana is mid-size, so confirm sponsorship early.",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "5a4986ccfdb86da0",
-      "tier": "strong",
-      "priority": 74,
-      "why": "Remote-US and 'Specialist' level at a public company \u2014 one of the few roles here that is unambiguously not too senior.",
-      "flag": ""
-    },
-    {
-      "id": "33fbd2dfd4e859d7",
-      "tier": "strong",
       "priority": 73,
-      "why": "Email architecture and audience segmentation at AWS maps directly to the Eloqua/HubSpot lifecycle experience.",
+      "why": "Remote-US marketing analyst with SQL/attribution is her cleanest lane-2 title \u2014 but prev=4 says she keeps skipping it; decide today.",
       "flag": ""
     },
     {
-      "id": "89d266be6a3ba973",
+      "id": "64f4f2cd017d2ea8",
       "tier": "strong",
       "priority": 72,
-      "why": "Promotions analytics is marketing analytics with a different label \u2014 closest thing to a marketing analyst req in Amazon's BA family.",
+      "why": "Associate-level GTM ops at Datadog is correctly pitched below manager \u2014 good level fit and a real sponsor.",
       "flag": ""
-    },
-    {
-      "id": "16e948d09c5e75f7",
-      "tier": "strong",
-      "priority": 71,
-      "why": "'Associate' marketing automation manager is exactly the right level and the Eloqua skill transfers; demoted only for being pushed three runs running.",
-      "flag": ""
-    },
-    {
-      "id": "5fde3e18465de1c8",
-      "tier": "strong",
-      "priority": 70,
-      "why": "Waltham MA is commutable and the 61 score undersells it \u2014 but verify this is GTM strategy, not customer-facing professional services.",
-      "flag": "hidden-gem"
     },
     {
       "id": "a72296a96c6ed638",
       "tier": "strong",
-      "priority": 69,
-      "why": "Associate-level paid social with A/B testing and attribution ownership \u2014 right level, strong sponsor, real growth-marketing reps.",
+      "priority": 71,
+      "why": "Associate Growth Marketing on paid LinkedIn: right level, and her funnel/attribution metrics work is exactly the evaluation criteria.",
       "flag": ""
     },
     {
-      "id": "9dd98fc5aecfb43d",
+      "id": "d3e9981e390819ab",
       "tier": "strong",
-      "priority": 68,
-      "why": "Associate field marketing for the East region at Datadog \u2014 level-appropriate and the closest Datadog gets to a Boston orbit.",
+      "priority": 70,
+      "why": "Another non-senior Datadog PMM seat; applying to two Datadog PMM reqs is fine and doubles the odds of one recruiter screen.",
       "flag": ""
     },
     {
       "id": "92bf6fc6972ef216",
       "tier": "strong",
-      "priority": 67,
-      "why": "US-Remote GTM planning at a company where the fintech background reads as domain expertise rather than a pivot.",
+      "priority": 69,
+      "why": "Stripe GTM planning, US-remote, fintech domain \u2014 program-manager framing is a slight stretch from PMM but the content is GTM ops.",
+      "flag": "stretch"
+    },
+    {
+      "id": "9dd98fc5aecfb43d",
+      "tier": "strong",
+      "priority": 68,
+      "why": "Associate Field Marketing is deliberately junior and East-region \u2014 closest thing to a Boston-adjacent Datadog entry point.",
       "flag": ""
     },
     {
-      "id": "bce69ac2f87c8d90",
+      "id": "89d266be6a3ba973",
+      "tier": "strong",
+      "priority": 67,
+      "why": "Promotions analytics is marketing analytics with a different label; SQL + campaign measurement transfer directly.",
+      "flag": ""
+    },
+    {
+      "id": "1a60245f96e76715",
       "tier": "strong",
       "priority": 66,
-      "why": "Straight PMM ownership of a product launch at a strong sponsor; NYC-only and technical depth is the hurdle, not the marketing craft.",
+      "why": "MongoDB sponsors reliably and lifecycle/PLG growth is a legitimate pivot, but three prior pushes with no action.",
       "flag": ""
     },
     {
-      "id": "8509ae3ae4b184dd",
+      "id": "5326ec612ee4279d",
       "tier": "strong",
       "priority": 65,
-      "why": "Fully remote GTM business ops with funnel and pipeline analytics \u2014 public company, and the 90 ATS score means the resume parses cleanly.",
+      "why": "B2B marketing in Boston at a NASDAQ company is the best local geography on the board \u2014 the repeat count, not the fit, is the problem.",
       "flag": ""
+    },
+    {
+      "id": "f9f3123b25a7dafc",
+      "tier": "maybe",
+      "priority": 63,
+      "why": "Remote-US Stripe lifecycle growth; solid, but lifecycle/email is the thinnest part of her stack versus ABM and positioning.",
+      "flag": ""
+    },
+    {
+      "id": "020b119bbfb90ff2",
+      "tier": "maybe",
+      "priority": 62,
+      "why": "Remote-US GTM analytics is a strong lane-2 fit, though Lattice is mid-size and a slower sponsorship bet than the big names.",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "ec78c5bd8839ca2c",
+      "tier": "maybe",
+      "priority": 60,
+      "why": "Boston, right level, but brand marketing pulls away from the B2B GTM narrative she's built.",
+      "flag": ""
+    },
+    {
+      "id": "d13590b2e66054ce",
+      "tier": "maybe",
+      "priority": 58,
+      "why": "Boston and Klaviyo sponsors, but 'Product Owner, Sales Systems' is a systems-admin lane that would sidetrack the PMM track.",
+      "flag": "over-rated"
+    },
+    {
+      "id": "42cb70431b0393e9",
+      "tier": "maybe",
+      "priority": 57,
+      "why": "AWS ABM manager is a true skills match; Arlington VA relocation and three prior passes push it down, not the content.",
+      "flag": ""
+    },
+    {
+      "id": "5d45f27bdd2a1ed0",
+      "tier": "maybe",
+      "priority": 56,
+      "why": "Remote-US demand gen \u2014 her actual title-level work \u2014 but Grafana is smaller and the sponsorship path is less proven.",
+      "flag": "sponsorship-risk"
     },
     {
       "id": "0dfd4cde0d85841f",
       "tier": "maybe",
-      "priority": 62,
-      "why": "Boston analyst role, but four runs of no action suggests it's already been passed on; mid-size hardware company, sponsorship unproven.",
+      "priority": 54,
+      "why": "Boston BA role she's seen four times without acting; mid-size company means a real sponsorship question worth asking upfront.",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "2ddc8ca9f79ce13d",
+      "id": "7e22b5465049d7ef",
       "tier": "maybe",
-      "priority": 60,
-      "why": "Nvidia sponsors heavily and enterprise AI PMM is on-lane, but the technical bar and Santa Clara location both cut against it.",
-      "flag": "stretch"
+      "priority": 50,
+      "why": "Amazon BA III with an AMZ job number is a PERM/immigration-linked posting \u2014 signals sponsorship culture but rarely a live hiring req.",
+      "flag": "over-rated"
     },
     {
-      "id": "4b64859b6024cc4c",
+      "id": "16e948d09c5e75f7",
       "tier": "maybe",
-      "priority": 59,
-      "why": "Campaign management is the least technical Nvidia marketing req on the board \u2014 the best entry point into a major sponsor.",
-      "flag": "hidden-gem"
+      "priority": 48,
+      "why": "Associate marketing ops is level-perfect, but four repeats and a low ATS score mean it's not converting \u2014 last call.",
+      "flag": ""
     },
     {
       "id": "0228210f71e1787b",
       "tier": "maybe",
-      "priority": 58,
-      "why": "Demand gen at a fintech-adjacent company is a genuine fit, but four runs without action says this one isn't landing.",
+      "priority": 46,
+      "why": "Demand gen at a fintech-adjacent company fits, but a legal-vertical niche plus four prior pushes makes this the one to retire.",
       "flag": ""
-    },
-    {
-      "id": "84776954a7e7aafd",
-      "tier": "maybe",
-      "priority": 57,
-      "why": "Large established sponsor, campaign marketing on-lane, six locations \u2014 worth a low-effort application.",
-      "flag": ""
-    },
-    {
-      "id": "0e7747e69babcc13",
-      "tier": "maybe",
-      "priority": 56,
-      "why": "One of the few Amazon BA II reqs that is an actual open role rather than a PERM notice; domain is infrastructure, not marketing.",
-      "flag": ""
-    },
-    {
-      "id": "f2a460f0fb78eee7",
-      "tier": "maybe",
-      "priority": 55,
-      "why": "Growth marketing for SMB advertisers is on-lane, but OpenAI's hiring bar and SF-only make this a long shot.",
-      "flag": "stretch"
-    },
-    {
-      "id": "4823d835785f29f6",
-      "tier": "maybe",
-      "priority": 54,
-      "why": "Field marketing is a clean lane fit; extremely competitive and SF/NYC-only.",
-      "flag": "stretch"
-    },
-    {
-      "id": "db86ee407025bf97",
-      "tier": "maybe",
-      "priority": 53,
-      "why": "ABM and partner marketing at AWS \u2014 direct skill match, but Seattle-based and one of many near-identical Amazon partner reqs.",
-      "flag": ""
-    },
-    {
-      "id": "9fd0bc1f68a87364",
-      "tier": "maybe",
-      "priority": 45,
-      "why": "Scored 100 but it's insurance operations wearing an analyst title \u2014 four runs deep with no bite; treat the 100 as noise.",
-      "flag": "over-rated"
-    },
-    {
-      "id": "45061b34326b80b6",
-      "tier": "maybe",
-      "priority": 44,
-      "why": "Legitimate sales ops analytics, but no Boston or remote option and the keyword score badly overstates the marketing overlap.",
-      "flag": "over-rated"
     }
   ],
   "flagged": [
     {
       "id": "643141349d6cd9fb",
-      "reason": "Recruiting role \u2014 'GTM' in the title refers to who they'd hire, not the function."
+      "reason": "Recruiting role \u2014 off-function entirely"
     },
     {
       "id": "e021a68f8fc5ccf6",
-      "reason": "Recruiting role, not marketing or analytics."
+      "reason": "Recruiting role \u2014 off-function entirely"
     },
     {
       "id": "725aece6635a3dd6",
-      "reason": "Recruiting role, not marketing or analytics."
+      "reason": "Recruiting role \u2014 off-function entirely"
     },
     {
       "id": "a0d726577f531ab9",
-      "reason": "Recruiting role; also a fixed-term contract."
+      "reason": "Recruiting role, fixed-term contract \u2014 off-function"
     },
     {
       "id": "ab5ad3829bc8a6da",
-      "reason": "Sales recruiting role \u2014 off-function."
+      "reason": "Sales recruiting \u2014 off-function"
     },
     {
       "id": "dadfd52d7ff53d46",
-      "reason": "Recruiting role despite the Boston location."
+      "reason": "Recruiting role \u2014 'GTM' in title only"
     },
     {
       "id": "f90fe13378d851e9",
-      "reason": "Recruiting role, not marketing or analytics."
+      "reason": "Recruiting role \u2014 off-function"
     },
     {
       "id": "965065babceb7552",
-      "reason": "Recruiting role and based in Guatemala \u2014 fails both function and location."
+      "reason": "Recruiter role AND based in Guatemala \u2014 fails US-only"
     },
     {
       "id": "3aeecef0496d0d9e",
-      "reason": "Derivatives sales role with a quota, not a business/marketing analyst position."
-    },
-    {
-      "id": "868b59f43da78a05",
-      "reason": "'AMZ#####' posting = PERM labor-certification notice for immigration compliance, not a live req."
-    },
-    {
-      "id": "8e5f2401ec8dd19a",
-      "reason": "PERM immigration-compliance posting, not an open role."
-    },
-    {
-      "id": "a082928e3da9ba8e",
-      "reason": "PERM immigration-compliance posting; also BA III seniority."
-    },
-    {
-      "id": "7e22b5465049d7ef",
-      "reason": "PERM immigration-compliance posting, not an open role."
-    },
-    {
-      "id": "88c3658ec79beceb",
-      "reason": "PERM immigration-compliance posting, not an open role."
-    },
-    {
-      "id": "37712cfef46feae2",
-      "reason": "JD body says 'Sr. ABM Manager' \u2014 above the target level despite the title."
-    },
-    {
-      "id": "fe534f103dbc3078",
-      "reason": "People-manager role leading a PMM team \u2014 wrong level."
-    },
-    {
-      "id": "032fd56779572cfb",
-      "reason": "Manages a team of project managers \u2014 people leadership, wrong level and function."
-    },
-    {
-      "id": "ea9a5ce5e5c0b687",
-      "reason": "GTM leadership role for an entire org \u2014 far above target level."
-    },
-    {
-      "id": "8fab479e16b7ad49",
-      "reason": "JD describes 'de facto COO' of a vertical \u2014 executive level."
-    },
-    {
-      "id": "0ca643c7695e6872",
-      "reason": "Group Manager \u2014 leads a GTM team, wrong level."
-    },
-    {
-      "id": "96c79d23cef661d5",
-      "reason": "Group Manager, PMM \u2014 people-leadership level."
-    },
-    {
-      "id": "5ce07fffc05a799e",
-      "reason": "Manager-level PMM leading a team; also entertainment content, off-domain."
-    },
-    {
-      "id": "c001b3a7c66dce62",
-      "reason": "'Group Marketing Manager' is a senior team-lead role; crypto consumer marketing is also off-lane."
-    },
-    {
-      "id": "e886f5642b0274a1",
-      "reason": "JD asks for an 'experienced marketing leader in Energy and Utilities' \u2014 wrong level and wrong industry."
-    },
-    {
-      "id": "d8c3481ce759c4f6",
-      "reason": "Located in Europe \u2014 outside the US-only requirement."
-    },
-    {
-      "id": "5dd81b70dac2764f",
-      "reason": "France-based field marketing role \u2014 wrong geography."
-    },
-    {
-      "id": "2e89cfafeb5f03ba",
-      "reason": "Costa Rica remote \u2014 outside the US-only requirement."
-    },
-    {
-      "id": "f39e0f90e7b981b8",
-      "reason": "Solutions Architect \u2014 technical presales engineering, not marketing."
+      "reason": "Quota-carrying derivatives sales \u2014 explicitly excluded role type"
     },
     {
       "id": "49f6232555ec69b7",
-      "reason": "Partner development / sales execution role, not marketing."
-    },
-    {
-      "id": "4ec6df2c45f7e30d",
-      "reason": "Technical program management on GTM systems \u2014 engineering-adjacent, off-lane."
-    },
-    {
-      "id": "d0417c3086ff9114",
-      "reason": "Business development / partnership management, not marketing or analytics."
+      "reason": "Partner development / sales quota role, not marketing"
     },
     {
       "id": "4a6420edb4886ee0",
-      "reason": "Technical solutions / presales engineering despite the GTM label."
+      "reason": "Technical solutions / sales engineering, not marketing"
     },
     {
-      "id": "d44f4c39111ebadb",
-      "reason": "Title says Program Manager but the JD is recruiting a Product Manager for retail launches \u2014 off-function."
+      "id": "f39e0f90e7b981b8",
+      "reason": "Solutions Architect \u2014 technical presales, wrong function"
     },
     {
-      "id": "1ee13d9a4a33c89d",
-      "reason": "Product management and strategy for consumer PCs, not product marketing."
+      "id": "d66a8bb3d8df9e2e",
+      "reason": "Technical integration/implementation specialist, not marketing or analytics"
     },
     {
-      "id": "5848831a33652337",
-      "reason": "Hardware roadmap / future-product planning, not GTM marketing."
+      "id": "fafab0c23ed9f33f",
+      "reason": "Customer-facing GTM consulting delivery role, off-lane"
+    },
+    {
+      "id": "5fde3e18465de1c8",
+      "reason": "Post-sale consulting role, off-lane"
+    },
+    {
+      "id": "b52c187da40ca569",
+      "reason": "Customer success management, off-lane"
+    },
+    {
+      "id": "4ec6df2c45f7e30d",
+      "reason": "Technical program management on GTM systems \u2014 engineering-adjacent, off-lane"
+    },
+    {
+      "id": "d0417c3086ff9114",
+      "reason": "Senior partnership/BD role, wrong function and level"
+    },
+    {
+      "id": "ea9a5ce5e5c0b687",
+      "reason": "GTM leader role for AWS partner org \u2014 far above target level"
+    },
+    {
+      "id": "8fab479e16b7ad49",
+      "reason": "JD describes 'de facto COO' \u2014 executive level, wrong seniority"
+    },
+    {
+      "id": "fe534f103dbc3078",
+      "reason": "People-manager role leading a PMM team \u2014 wrong level"
+    },
+    {
+      "id": "032fd56779572cfb",
+      "reason": "People manager of project managers \u2014 wrong level and function"
+    },
+    {
+      "id": "96c79d23cef661d5",
+      "reason": "Group Manager \u2014 senior people-leadership level"
+    },
+    {
+      "id": "0ca643c7695e6872",
+      "reason": "Group Manager GTM \u2014 senior people-leadership level"
+    },
+    {
+      "id": "5ce07fffc05a799e",
+      "reason": "Manager-level PMM in entertainment content \u2014 wrong level"
+    },
+    {
+      "id": "c001b3a7c66dce62",
+      "reason": "Group Marketing Manager, crypto/Base \u2014 senior level"
+    },
+    {
+      "id": "37712cfef46feae2",
+      "reason": "JD body is for a Sr. ABM Manager despite the title \u2014 above target level"
+    },
+    {
+      "id": "e886f5642b0274a1",
+      "reason": "Requires experienced Energy & Utilities industry leader \u2014 wrong domain and level"
+    },
+    {
+      "id": "5dd81b70dac2764f",
+      "reason": "France-based field marketing \u2014 fails US-only"
+    },
+    {
+      "id": "d8c3481ce759c4f6",
+      "reason": "Europe-based \u2014 fails US-only"
+    },
+    {
+      "id": "2e89cfafeb5f03ba",
+      "reason": "Costa Rica remote \u2014 fails US-only"
     },
     {
       "id": "2b9301348a2fd72f",
-      "reason": "Consumer gaming and esports marketing \u2014 unrelated to B2B lanes."
+      "reason": "Consumer esports/gaming marketing \u2014 off-lane from B2B GTM"
     },
     {
       "id": "558137f8baf9e457",
-      "reason": "Technical marketing requiring data-center hardware engineering depth."
-    },
-    {
-      "id": "4690698bd251899f",
-      "reason": "CUDA libraries PMM requires GPU/HPC engineering background."
-    },
-    {
-      "id": "6c7a088a8e62971e",
-      "reason": "Technical PMM requiring healthcare/life-sciences domain and technical depth."
+      "reason": "Technical marketing for data center hardware \u2014 engineering-facing, off-lane"
     },
     {
       "id": "dac2334abb851cc8",
-      "reason": "Technical marketing for CAD/engineering products \u2014 requires domain engineering background."
+      "reason": "Technical marketing requiring CAD/product engineering depth \u2014 off-lane"
     },
     {
-      "id": "edb6163caac18721",
-      "reason": "Product management role, not product marketing."
+      "id": "1ee13d9a4a33c89d",
+      "reason": "Consumer PC product management, not marketing"
     },
     {
-      "id": "8292b6e0ec57bab8",
-      "reason": "No JD and a 30 keyword score \u2014 most likely a sales/GTM strategy role in the revenue org, not marketing."
+      "id": "5848831a33652337",
+      "reason": "Hardware roadmap product marketing \u2014 off-lane, likely senior"
     }
   ]
 }
