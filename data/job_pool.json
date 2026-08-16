@@ -1,6 +1,6 @@
 {
- "updated_at": "2026-08-15 08:50:38",
- "count": 184,
+ "updated_at": "2026-08-16 09:49:47",
+ "count": 180,
  "jobs": [
   {
    "id": "a35d5a286dd74158",
@@ -19,7 +19,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "c42eeddfa85ba02e",
@@ -38,7 +38,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5d00d87747c7b695",
@@ -57,7 +57,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "04a1c21ecc3ea9ea",
@@ -76,7 +76,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "05b9408d0e1d0b53",
@@ -95,7 +95,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8a7c8a167e0dc1d0",
@@ -114,7 +114,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a5858307b4ddffa0",
@@ -133,7 +133,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "39940a5d4577edfa",
@@ -152,7 +152,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "072ab0e2ddac002d",
@@ -171,7 +171,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "1eb4031c1e796dcb",
@@ -190,7 +190,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "3705b4e3ac8adcbf",
@@ -209,7 +209,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "cf2e724f04bfd41d",
@@ -228,7 +228,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "ed37de2715826db8",
@@ -247,7 +247,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "9aa9c26237ac1dd6",
@@ -266,7 +266,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "714b11ce24b10e49",
@@ -285,7 +285,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4a925aa2756ff467",
@@ -304,7 +304,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "e6ffa8848724bd19",
@@ -323,7 +323,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "fafab0c23ed9f33f",
@@ -342,7 +342,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "d66a8bb3d8df9e2e",
@@ -361,7 +361,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "b52c187da40ca569",
@@ -380,7 +380,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "23020dc5fae8cc7f",
@@ -399,7 +399,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "079cc7591b78aefb",
@@ -418,7 +418,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a5d1ed34eea314ed",
@@ -437,7 +437,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4c41f70a8d6ac63e",
@@ -456,7 +456,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-10 22:26:24",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5dd81b70dac2764f",
@@ -475,7 +475,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-10 08:43:39",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2ddc8ca9f79ce13d",
@@ -485,7 +485,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 8 Days Ago",
+   "posted_at": "Posted 9 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -494,7 +494,26 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-08 09:50:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "45061b34326b80b6",
+   "company": "Gusto",
+   "title": "Sales Operations Analyst",
+   "location": "Denver, CO - Hybrid; New York, New York, United States; San Francisco, CA - Hybrid; Scottsdale, Arizona, United States",
+   "url": "https://job-boards.greenhouse.io/gusto/jobs/8105993",
+   "source": "greenhouse",
+   "department": "Revenue Operations",
+   "posted_at": "2026-08-14T19:27:24-04:00",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy. \n AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. \n About the Role \n This is your chance to shape the foundation of a fast-growing, high-impact part of Gusto's business as a Senior Sales Operations Analyst supporting our Expansion Sales organization. You'll build the insights and AI-powered solutions that make a large, multi-team sales organization more productive \u2014 spanning our Platform Sales, Expansion AM, and New Expansion Advisor teams. You'll sit at the intersection of data, process, and execution; you'll turn real sales challenges into the tools, reports, automations, and workflows that move the numbers. \n You'll help grow revenue from Gusto's existing customer base through upsells and cross-sells. If you thrive where analytics, problem-solving, and supporting others meet, this role offers ownership, visibility, and the chance to influence how Gusto expands its relationship with the small businesses it already serves. \n About the Team \n The Expansion Sales Operations team partners closely with sales leadership to support three dynamic, fast-moving sales teams that contribute meaningfully to Gusto's growth. We think of ourselves as builders, problem solvers, and strategic partners; we turn uncertainty into clarity and fragmented processes into scalable, repeatable systems. \n Our work spans pacing and pipeline forecasting, quotas, trigger and backlog management, process design, data integrity, account and territory administration, rules of engagement, and increasingly, AI-driven optimization. We value curiosity, open communication, and a commitment to helping our reps operate efficiently and confidently across a multi-product, multi-team motion. \n Here's what you'll do day-to-day \n Analytics, Reporting & Forecasting \n \n Build, automate, and maintain reports and dashboards that track pacing, funnel metrics, trigger and backlog health, SLAs, and rep productivity; keep definitions consistent and documentation clear. \n Own the weekly forecast, CFQ closed-won ARR pacing, and probability-weighted pipeline forecast, feeding the Weekly Business Review (WBR) and Weekly Forecast Review (WFR) cadence for sales and executive leadership. \n Partner with Finance and Analytics to produce operational reporting and revenue insights across dials, connects, lead passes, self-generated opportunities, and book coverage. \n Own metric definitions and data accuracy so leaders trust the numbers they act on. \n \n Drive AI Strategy for Sales \n \n Identify and prototype AI and automation tools, such as process automation, analytics copilots, and call coaching, that remove manual friction from the sales process. \n Partner with Sales, BizTech, Product, and Enablement to embed AI into daily sales workflows, improving both efficiency and effectiveness. \n Source and lead net-new AI and automation projects, connecting data insights to process improvements that lift rep productivity. \n \n Process Design & Continuous Improvement \n \n Examine workflows and rep performance to identify bottlenecks; recommend and implement process and automation changes that improve conversion, efficiency, and the rep experience. \n Evaluate Rules of Engagement (ROE) requests and comp exception asks, applying clear rules and precedent to produce fair, consistent, and binding rulings. \n Partner with Sales Enablement to document processes, build playbooks, and drive adoption of new tools and workflows. \n \n Operational Support & Problem-Solving \n \n Provide day-to-day support to Expansion Sales leadership and reps: ad hoc data requests, process issues, and one-off investigations. \n Own account and territory administration as the business evolves: assignment and coverage upkeep, book reassignments for leave and departures, large-scale account rerouting, and segment reclassification, supported by lead-routing and round-robin (ChiliPiper) automation. \n Support onboarding and offboarding for new hires and departing reps, including roster updates, router mapping, and leave-of-absence (LOA) processing. \n Troubleshoot reporting issues, broken workflows, missing CRM data, and gaps in pipeline visibility with fast, accurate fixes \u2014 including closed-won opportunities that didn't sync and ARR discrepancies. \n \n Cross-Functional Partnership & Communication \n \n Work closely with Sales Leadership, RevOps, Finance, BizTech, and Product to keep everyone aligned and remove obstacles to progress. \n Translate sales challenges into clear business requirements; partner cross-functionally to design solutions and durable improvements. \n Keep stakeholders aligned with clear, regular updates to managers and senior leadership on timelines, risks, and outcomes. \n Act as a trusted advisor, bringing structure, insight, and clarity to complex or ambiguous problems. \n \n Here's what we're looking for \n \n 5+ years in Sales Ops, RevOps, or a similar analytical GTM role; ideally in a fast-paced SaaS or fintech environment. \n Strong Salesforce proficiency; you can spot data issues, audit pipeline problems, manage account ownership and routing, and build reports and dashboards that reps and leaders actually use. \n Analytical depth across Salesforce reports and dashboards, SQL, Tableau or Looker, and Excel/Google Sheets. \n Hands-on experience with forecasting, pipeline management, and territory or quota planning on a recurring cadence; for example, a weekly forecast feeding monthly reviews and QBRs. \n Comfort evaluating AI and automation tools and prototyping simple workflows to improve productivity. \n Excellent written and verbal communication; you simplify complex information and create alignment from frontline reps to senior directors. \n A first-principles problem solver who breaks down ambiguous issues, tests hypotheses, and builds structured solutions. \n Exceptionally organized and detail-oriented, you manage multiple projects and recurring workflows while protecting data quality and operational reliability. \n A strong partner to sales, with a track record supporting teams that have competing, fast-changing priorities. \n \n Preferred Qualifications \n \n Experience supporting an expansion, upsell, or cross-sell motion into an existing customer base, rather than net-new acquisition.",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-08-08 09:50:34",
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2e89cfafeb5f03ba",
@@ -513,7 +532,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4a8efcfe50ba68e7",
@@ -532,7 +551,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a71d165489aac636",
@@ -551,7 +570,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "9dd98fc5aecfb43d",
@@ -570,7 +589,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "fda4680400356986",
@@ -589,7 +608,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "89d266be6a3ba973",
@@ -608,7 +627,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "7e22b5465049d7ef",
@@ -627,7 +646,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "868b59f43da78a05",
@@ -646,7 +665,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "0a744e2646fbc2df",
@@ -665,7 +684,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5a4986ccfdb86da0",
@@ -684,7 +703,26 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "1c1d50a3cd84472c",
+   "company": "Gusto",
+   "title": "Event Marketing Manager",
+   "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA",
+   "url": "https://job-boards.greenhouse.io/gusto/jobs/8094350",
+   "source": "greenhouse",
+   "department": "Marketing",
+   "posted_at": "2026-08-14T19:27:24-04:00",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role: \n We're looking for an Event Marketing Manager to bring Gusto to life through bold, memorable events and experiences. \n This is a highly visible, strategic role responsible for designing, producing, and optimizing event marketing programs\u2014from trade shows and industry conferences to Gusto-owned activations and experiences. You'll plan, execute, and optimize event marketing campaigns as part of a cross-functional go-to-market team, turning strategy into on-the-ground execution that builds brand affinity and builds pipeline. \n About the Team: \n This role is part of the go-to-market team responsible for driving pipeline and fueling growth across Gusto's channels. We combine creativity, data-driven insights, and cross-functional collaboration to design campaigns that reach, engage, and convert the right audiences at scale. Together, we've helped Gusto grow to serve hundreds of thousands of customers nationwide, and we're just getting started. \n Here\u2019s what you\u2019ll do day-to-day: \n \n Collaborate with cross-functional stakeholders and leadership to set goals, develop event strategies, execute plans, and evaluate performance to drive continuous improvement over time. \n Build and manage end-to-end event campaign programs including scopes of work, resource plans, budgets, contracts, and timelines\u2014keeping everything on track and on budget. \n Leverage a deep understanding of Gusto's internal and external market positioning and target audiences to inform event decisions, from format and venue selection to messaging and audience targeting. \n Design and produce a range of event types\u2014from large-scale owned events (500+ attendees) to trade show activations, field events, and intimate customer experiences\u2014that strengthen brand affinity and accelerate funnel impact. \n Build strong relationships with external partners including industry and show organizers, agencies, and vendors, negotiating favorable terms and ensuring seamless delivery. \n Assemble the right internal and external resources for each opportunity, fostering collaboration and creative excellence with Gusto's creative teams, agencies, and production partners. \n Maintain accuracy and accountability of event budgets, evaluate results against goals, deliver wrap-up reports, and make recommendations to senior leadership for Event Marketing. \n Build upon and advocate for the event marketing and production craft and vision at Gusto\u2014championing breakthrough experience design, emerging event technology, and innovative production approaches. \n Leverage AI tools and technologies to enhance event marketing workflows\u2014from audience analysis and content personalization to post-event reporting and campaign optimization\u2014driving efficiency and deeper insights across the event lifecycle. \n \n Here\u2019s what we're looking for: \n \n A track record of producing a wide range of events (trade shows, activations, conferences, owned events for 500+ attendees, and white-glove experiences) across varying levels of complexity, scale, and design. \n A passion for event marketing and production with a willingness to roll up your sleeves and get hands-on in execution\u2014you move effortlessly between big-picture strategy and intricate operational details. \n Strong project management and communication skills with a proven ability to manage multiple stakeholders at all levels and across different geographies, keeping complex programs running on time and on budget. \n Experience managing and collaborating with internal creative teams and external agencies, driving alignment and excellence in production delivery. \n Passionate and knowledgeable about breakthrough experience design and emerging event technology, always looking for new ways to elevate the craft. \n A natural cross-functional collaborator who thrives on building and maintaining relationships across the organization to drive results. \n An intellectually curious self-starter who isn't afraid to ask questions and uses answers to bring clarity and direction to the broader team. \n AI fluency and a willingness to integrate AI-powered tools into your workflow to work smarter and unlock new possibilities. \n Comfort operating in a fast-paced, ambiguous environment while building scalable programs and processes. \n Note: this role requires frequent travel throughout North America. \n \n Compensation \n Our cash compensation amount for this role is $129,000/yr to $157,000/yr in Denver and Scottsdale and $154,000/yr to $188,000/yr for San Francisco & New York. Final offer amounts are determined by multiple factors including candidate location, experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of backgrounds, not just because it's the right thing to do, but because it makes our company stronger. If you share our values and our enthusiasm for small businesses, you will find a home at Gusto.\u00a0 \n Gusto is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Gusto considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Gusto is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. We want to see our candidates perform to the best of their ability. If you require a medical or religious accommodation at any time throughout your candidate journey, please fill out this form and a member of our team will get in touch with you. \n Gusto takes security and protection of your personal information very seriously. Please review our Fraudulent Activity Disclaimer . \n Personal information collected and processed as part of your Gusto application will be subject to\u00a0 Gusto's Applicant Privacy Notice .",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-08-05 10:23:34",
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "80900b99d80cd4c4",
@@ -703,7 +741,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "b53a072240d06d18",
@@ -722,7 +760,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2b9301348a2fd72f",
@@ -732,7 +770,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/GeForce-Marketing-Manager---Esports-and-Competitive-Gaming_JR2022575",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 11 Days Ago",
+   "posted_at": "Posted 12 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -741,7 +779,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "52eea052098023ea",
@@ -760,7 +798,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "dd8291648bcc1641",
@@ -779,7 +817,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "81389a91c62c4635",
@@ -798,7 +836,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2416ce6b7c517d58",
@@ -817,7 +855,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5326ec612ee4279d",
@@ -836,7 +874,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "e8583a28d2df7186",
@@ -855,7 +893,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "0228210f71e1787b",
@@ -874,7 +912,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "3d60b9f8edc51296",
@@ -893,7 +931,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "88c3658ec79beceb",
@@ -912,7 +950,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "3ea691d2229391b9",
@@ -931,7 +969,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8e5f2401ec8dd19a",
@@ -950,7 +988,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4a6420edb4886ee0",
@@ -969,7 +1007,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "937dade260a3da97",
@@ -988,7 +1026,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "d1d38028ccfbc834",
@@ -1007,7 +1045,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "49c2c982af5e1876",
@@ -1017,7 +1055,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 18 Days Ago",
+   "posted_at": "Posted 19 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1026,7 +1064,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4006755fddbc121d",
@@ -1045,7 +1083,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "d44f4c39111ebadb",
@@ -1064,7 +1102,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4856baca38d373e4",
@@ -1083,7 +1121,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "b0923a3fcd6bbf90",
@@ -1102,7 +1140,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "97939e8d55a38cd0",
@@ -1121,7 +1159,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "e4b3e5c5142c565d",
@@ -1140,7 +1178,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "0dfd4cde0d85841f",
@@ -1159,7 +1197,26 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "9fd0bc1f68a87364",
+   "company": "Gusto",
+   "title": "Health Insurance Sales Operations Analyst",
+   "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA;New York, NY",
+   "url": "https://job-boards.greenhouse.io/gusto/jobs/8075901",
+   "source": "greenhouse",
+   "department": "Revenue Operations",
+   "posted_at": "2026-08-14T19:27:24-04:00",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role \n This is your chance to shape the foundation of a fast-growing, high-impact part of Gusto's business as a Senior Sales Operations Analyst supporting our Health Insurance (HI) Sales team. You'll build the insights and AI-powered solutions that make a large, high-volume sales organization, supporting 80+ reps across two segments. You'll sit at the intersection of data, process, and execution; you'll turn real sales challenges into the tools, reports, automations, and workflows that move the numbers. \n You'll help grow a business segment that serves tens of thousands of small businesses through smarter, data-driven sales strategies. If you thrive where analytics, problem-solving, and supporting others meet, this role offers ownership, visibility, and the chance to influence how Gusto sells health insurance. \n About the Team \n The HI Sales Operations team partners closely with sales leadership to support two dynamic, fast-moving sales teams that contribute meaningfully to Gusto's growth. We think of ourselves as builders, problem solvers, and strategic partners; we turn uncertainty into clarity and fragmented processes into scalable, repeatable systems. \n Our work spans quotas, pipeline health, forecasting, process design, data integrity, account and territory administration, go-to-market strategy, and increasingly, AI-driven optimization. We value curiosity, open communication, and a commitment to helping 80+ sales reps operate efficiently and confidently. \n Here\u2019s what you\u2019ll do day-to-day \n Analytics, Reporting & Forecasting \n \n Build, automate, and maintain reports and dashboards that track sales performance, funnel metrics, pipeline health, SLAs, and rep productivity; keep definitions consistent and documentation clear. \n Partner with RevOps, Finance, Marketing, and Analytics to produce operational reporting, revenue insights, and forecasting models across the weekly forecast, monthly reviews, and QBR cadence. \n Own metric definitions and data accuracy so leaders trust the numbers they act on. \n \n Drive AI Strategy for Sales \n \n Identify and prototype AI and automation tools, such as content generation, analytics copilots, and call coaching, that remove manual friction from the sales process. \n Partner with Sales, BizTech, Product, and Enablement to embed AI into daily sales workflows, improving both efficiency and effectiveness. \n Source and lead net-new AI and automation projects, connecting data insights to process improvements that lift rep productivity. \n \n Process Design & Continuous Improvement \n \n Examine workflows and rep performance to identify bottlenecks; recommend and implement process and automation changes that improve conversion, efficiency, and the rep experience. \n Partner with Sales Enablement to document processes, build playbooks, and drive adoption of new tools and workflows. \n \n Operational Support & Problem-Solving \n \n Provide day-to-day support to HI Sales leadership and reps: ad hoc data requests, process issues, and one-off investigations. \n Own account and territory administration as the business evolves, assignment and coverage upkeep, book reassignments for leave and departures, large-scale account rerouting, and segment reclassification, supported by lead-routing and round-robin automation. \n Support territory, quota, and coverage planning, plus monthly sales-compensation reconciliation. \n Troubleshoot reporting issues, broken workflows, missing CRM data, and gaps in pipeline visibility with fast, accurate fixes. \n \n Cross-Functional Partnership & Communication \n \n Work closely with Sales Leadership, RevOps, Finance, BizTech, and Product to keep everyone aligned and remove obstacles to progress. \n Translate sales challenges into clear business requirements; partner cross-functionally to design solutions and durable improvements. \n Keep stakeholders aligned with clear, regular updates to managers and senior leadership on timelines, risks, and outcomes. \n Act as a trusted advisor, bringing structure, insight, and clarity to complex or ambiguous problems. \n \n Here\u2019s what we're looking for \n \n 5+ years in Sales Ops, RevOps, or a similar analytical GTM role; ideally in a fast-paced SaaS or fintech environment. \n Strong Salesforce proficiency; you can spot data issues, audit pipeline problems, manage account ownership and routing, and build reports and dashboards that reps and leaders actually use. \n Analytical depth across Salesforce reports and dashboards, SQL, Tableau or Looker, and Excel/Google Sheets. \n Hands-on experience with forecasting, pipeline management, and territory or quota planning on a recurring cadence; for example, a weekly forecast feeding monthly reviews and QBRs. \n Comfort evaluating AI and automation tools and prototyping simple workflows to improve productivity. \n Excellent written and verbal communication; you simplify complex information and create alignment from frontline reps to senior directors. \n A first-principles problem solver who breaks down ambiguous issues, tests hypotheses, and builds structured solutions. \n Exceptionally organized and detail-oriented, you manage multiple projects and recurring workflows while protecting data quality and operational reliability. \n A strong partner to sales, with a track record supporting teams that have competing, fast-changing priorities. \n \n Preferred Qualifications \n \n Experience in payroll, HR tech, or SMB SaaS go-to-market motions. \n Experience supporting a regulated or compliance-driven sales segment such as health insurance or benefits. \n Experience designing or implementing automations, AI workflows, or similar tooling. \n A track record of building cross-functional relationships across Sales, BizTech, and Analytics. \n Experience building systems to support new or evolving sales motions, with comfort in fast iteration and testing in live sales environments. \n \n #SalesOperations #RevOps #SalesOps #Salesforce #DataAnalytics #GoToMarket #SaaS #Hiring #RevenueOperations \n Our cash compensation amount for this role is $104,490/yr to $128,000/yr in Denver & Scottsdale and $127,430/yr to $155,000/yr for San Francisco & New York. Final offer amounts are determined by multiple factors including candidate location, experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of bac",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-08-02 21:41:40",
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "ec78c5bd8839ca2c",
@@ -1178,7 +1235,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a082928e3da9ba8e",
@@ -1197,7 +1254,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "dedd2fdf9f5fa93a",
@@ -1216,7 +1273,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4ec6df2c45f7e30d",
@@ -1235,7 +1292,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "970f20b604512409",
@@ -1254,7 +1311,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8a4075a80b75cff7",
@@ -1273,7 +1330,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "dadfd52d7ff53d46",
@@ -1292,7 +1349,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "c58dc098f9ac3071",
@@ -1311,7 +1368,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "64f4f2cd017d2ea8",
@@ -1330,7 +1387,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "1871cc7720fa514a",
@@ -1349,7 +1406,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 12:10:21",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "eef271eec7bd3a3d",
@@ -1368,7 +1425,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 12:10:21",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "1ea460fdf145432a",
@@ -1387,7 +1444,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 12:10:21",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "772f10ff6737134b",
@@ -1406,7 +1463,26 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 12:10:21",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "58c618c44c809351",
+   "company": "Adobe",
+   "title": "B2B Performance Marketing Specialist",
+   "location": "San Jose",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/B2B-Performance-Marketing-Specialist_R170030",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 26 Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-07-21 12:10:21",
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2461f5e85ce72f05",
@@ -1425,7 +1501,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:41:44",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "313be06e5b2594ee",
@@ -1444,7 +1520,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2de2717916e34168",
@@ -1463,7 +1539,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "2f914e859f6439c8",
@@ -1482,7 +1558,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "4690698bd251899f",
@@ -1492,7 +1568,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/CUDA-Libraries-and-Frameworks-Product-Marketing-Manager_JR2019940",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 9 Days Ago",
+   "posted_at": "Posted 10 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1501,7 +1577,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "6c7a088a8e62971e",
@@ -1520,7 +1596,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "558137f8baf9e457",
@@ -1539,7 +1615,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "277ee8ed4207443d",
@@ -1558,7 +1634,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "7a0f33e6049b7a35",
@@ -1566,25 +1642,6 @@
    "title": "Strategic Partnerships & Associations Marketing Manager, AEC",
    "location": "6 Locations",
    "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted Yesterday",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
-  },
-  {
-   "id": "dac2334abb851cc8",
-   "company": "Autodesk",
-   "title": "Technical Marketing Manager",
-   "location": "12 Locations",
-   "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/EMEA---United-Kingdom---OffsiteHome/Technical-Marketing-Manager_26WD98219",
    "source": "workday",
    "department": "",
    "posted_at": "Posted 2 Days Ago",
@@ -1596,7 +1653,83 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "dac2334abb851cc8",
+   "company": "Autodesk",
+   "title": "Technical Marketing Manager",
+   "location": "12 Locations",
+   "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/EMEA---United-Kingdom---OffsiteHome/Technical-Marketing-Manager_26WD98219",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 3 Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-07-21 03:08:34",
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "a08a385bc9fd5197",
+   "company": "Adobe",
+   "title": "Product Marketing Manager",
+   "location": "3 Locations",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Product-Marketing-Manager_R168163",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-07-21 03:08:34",
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "5339564597c3b41d",
+   "company": "Adobe",
+   "title": "Product Marketing Manager and GenAI Strategist",
+   "location": "3 Locations",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/Product-Marketing-Manager-and-GenAI-Strategist_R166382-1",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-07-21 03:08:34",
+   "_last_seen": "2026-08-16 09:49:47"
+  },
+  {
+   "id": "0ca643c7695e6872",
+   "company": "Adobe",
+   "title": "Group Manager, Creative Professional GTM",
+   "location": "San Francisco",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Group-Manager--Creative-Professional-GTM_R169580",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-07-21 03:08:34",
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "39e00f8015ccd5bc",
@@ -1615,7 +1748,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "e2320731ef3c3e02",
@@ -1634,7 +1767,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "6f535f12e5f2d3e3",
@@ -1653,7 +1786,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5d45f27bdd2a1ed0",
@@ -1672,7 +1805,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "f6e5ca25721bffb9",
@@ -1691,7 +1824,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "16e948d09c5e75f7",
@@ -1710,7 +1843,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "d0417c3086ff9114",
@@ -1729,7 +1862,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "f43884db57005953",
@@ -1748,7 +1881,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "58d577de2cf652da",
@@ -1767,7 +1900,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "81f59feedc2ec5b9",
@@ -1786,7 +1919,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "ef34eeac5cec819d",
@@ -1805,7 +1938,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "f429d09b77aa60d9",
@@ -1824,7 +1957,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "9b00880aa48da737",
@@ -1843,7 +1976,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "635e14b16f7a1c04",
@@ -1862,7 +1995,7 @@
    "min_exp": 5,
    "status": "new",
    "_first_seen": "2026-07-21 01:26:39",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5d2746a80e6d4c68",
@@ -1883,7 +2016,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 01:26:39",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "f2a460f0fb78eee7",
@@ -1906,7 +2039,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 01:26:39",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a72296a96c6ed638",
@@ -1925,7 +2058,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "423a88e2e06e9425",
@@ -1944,7 +2077,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "b7b17282a645a7cf",
@@ -1963,7 +2096,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "ebcfdc552633fc1e",
@@ -1982,7 +2115,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "ccd7c9a79ca0d221",
@@ -2001,7 +2134,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8509ae3ae4b184dd",
@@ -2020,7 +2153,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "1a60245f96e76715",
@@ -2039,7 +2172,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "9b3ee4b95406260d",
@@ -2058,7 +2191,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "5a06ee4d93c7f0cd",
@@ -2077,7 +2210,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "23d7c5db278b7755",
@@ -2096,7 +2229,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "f90fe13378d851e9",
@@ -2115,26 +2248,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
-  },
-  {
-   "id": "d8c3481ce759c4f6",
-   "company": "Linear",
-   "title": "Product Marketing Manager",
-   "location": "Europe",
-   "url": "https://jobs.ashbyhq.com/linear/b3346acf-44be-4565-b1c0-10d482d3ad4e",
-   "source": "ashby",
-   "department": "Product",
-   "posted_at": "2026-07-01T19:02:18.122+00:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "At Linear, we're building the product development system for teams and agents. AI is fundamentally changing how software gets built, and we\u2019re shaping the tools this new era requires.\n\nFounded in 2019, Linear has become the platform of choice for more than 40,000 companies (including OpenAI, Coinbase, and Ramp) to plan, build, and ship their products. Today, our team is distributed across North America, Europe, and Australia, and we\u2019re continuing to grow internationally. What unites us is relentless focus, fast execution, and a deep care for software craftsmanship.\n\nWe\u2019re hiring a Product Marketing Manager to help shape how Linear\u2019s products are brought to market and understood by customers. This role sits at the intersection of Product, Engineering, Design, CX, Sales, and Marketing, and is responsible for turning technically sophisticated product work into clear narratives, strong launches, and high-quality customer-facing experiences. You\u2019ll go deep on the product, define positioning and messaging, and drive execution across the surfaces that matter most\u2014from in-product copy and changelogs to enablement, documentation inputs, email, and launch communications. This is a hands-on role for someone who combines product judgment, excellent writing, and strong cross-functional leadership.\n\nLocation & work mode\n\nLinear is a remote-first company, with optional co-working offices in San Francisco, New York, and London. This role is open to candidates based in North America and Europe. You can work from anywhere within these regions. We value deep focus and async collaboration, with intentional moments to connect in person through team off-sites, optional co-working, and occasional travel.\n\nWhat you\u2019ll do\n\n - Develop positioning, messaging, and core narratives for feature releases, key launches, and strategic product narratives\n\n - Partner closely with Product management, Engineering, and Design to refine how products are presented across in-product and external surfaces\n\n - Create and coordinate launch deliverables such as changelogs, demos, enablement materials, email, social copy, and go-to-market communications\n\n - Equip Sales, CX, and other customer-facing teams with the context and materials they need to communicate new launches effectively\n\n - Bring customer insight, product understanding, and market context back into product and launch decisions\n\nWhat we\u2019re looking for\n\n - Exceptional writing and editorial judgment, with the ability to make complex ideas feel clear and compelling\n\n - Strong positioning and messaging skills grounded in customer problems, product truth, and differentiation\n\n - Great project management skills and ability to track large amounts of detail.\n\n - Comfort going deep on product details and building credibility with Product, Engineering, and Design\n\n - Strong judgment, ownership, and the ability to operate autonomously while maintaining a high quality bar\n\nWhat we offer\n\nWe're a small, focused team that cares deeply about the quality of our work and the people we do it with. Here's what you can expect:\n\n - Competitive salary and equity\n\n - Employee-friendly equity terms including early exercise in the US and extended exercise windows\n\n - Daily meal and coffee stipend on every workday\n\n - Paid co-working space or desk\n\n - Health coverage (based on country requirements)\n\n - 5 weeks paid vacation, plus local statutory holidays\n\n - 4 months paid parental leave\n\n - Paid month off after 4 years & every 2 years thereafter\n\n - Regular team events and off-sites\n\n - Remote-first with no required commute\n\nLearn how we think and work\n\n - A story about our mission: Read Me https://linear.app/readme\n\n - How we work: Designing remote work at Linear https://linear.app/now/designing-remote-work-at-linear\n\n - How Linear uses Linear: How our Customer Experience team works in Linear https://linear.app/now/cx-in-linear\n\n - A video series: Conversations on Quality https://linear.app/quality\n\n - Building our teams: Why and how we do work trials at Linear https://linear.app/blog/why-and-how-we-do-work-trials-at-linear\n\n - Our Series C Fundraise https://linear.app/now/building-our-way and Giving our team liquidity https://linear.app/now/giving-our-team-liquidity-through-linear-s-first-tender-offer\n\nLinear is an equal opportunity employer. We do not discriminate based on race, color, religion, gender identity or expression, sexual orientation, national origin, age, disability, veteran status, or any other protected characteristic under applicable law.\n\nA note on recruitment fraud: all official Linear hiring communication comes from an @linear.app http://linear.app email address, and all open roles are listed at linear.app/careers http://linear.app/careers. We never ask candidates for payment or financial information. Suspicious messages can be reported to security@linear.app.",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "81aaf6254b7b8e88",
@@ -2153,7 +2267,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "03a8cba4606888a6",
@@ -2172,7 +2286,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "a0d726577f531ab9",
@@ -2191,7 +2305,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "92bf6fc6972ef216",
@@ -2210,7 +2324,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "3aeecef0496d0d9e",
@@ -2229,7 +2343,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8782c3c9a65c9ac7",
@@ -2248,7 +2362,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "d13590b2e66054ce",
@@ -2267,7 +2381,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "8fab479e16b7ad49",
@@ -2286,26 +2400,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-15 08:50:38"
-  },
-  {
-   "id": "45061b34326b80b6",
-   "company": "Gusto",
-   "title": "Sales Operations Analyst",
-   "location": "Denver, CO, United States; New York, New York, United States; San Francisco, CA, United States; Scottsdale, Arizona, United States",
-   "url": "https://job-boards.greenhouse.io/gusto/jobs/8105993",
-   "source": "greenhouse",
-   "department": "Revenue Operations",
-   "posted_at": "2026-08-12T18:11:00-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy. \n AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. \n About the Role \n This is your chance to shape the foundation of a fast-growing, high-impact part of Gusto's business as a Senior Sales Operations Analyst supporting our Expansion Sales organization. You'll build the insights and AI-powered solutions that make a large, multi-team sales organization more productive \u2014 spanning our Platform Sales, Expansion AM, and New Expansion Advisor teams. You'll sit at the intersection of data, process, and execution; you'll turn real sales challenges into the tools, reports, automations, and workflows that move the numbers. \n You'll help grow revenue from Gusto's existing customer base through upsells and cross-sells. If you thrive where analytics, problem-solving, and supporting others meet, this role offers ownership, visibility, and the chance to influence how Gusto expands its relationship with the small businesses it already serves. \n About the Team \n The Expansion Sales Operations team partners closely with sales leadership to support three dynamic, fast-moving sales teams that contribute meaningfully to Gusto's growth. We think of ourselves as builders, problem solvers, and strategic partners; we turn uncertainty into clarity and fragmented processes into scalable, repeatable systems. \n Our work spans pacing and pipeline forecasting, quotas, trigger and backlog management, process design, data integrity, account and territory administration, rules of engagement, and increasingly, AI-driven optimization. We value curiosity, open communication, and a commitment to helping our reps operate efficiently and confidently across a multi-product, multi-team motion. \n Here's what you'll do day-to-day \n Analytics, Reporting & Forecasting \n \n Build, automate, and maintain reports and dashboards that track pacing, funnel metrics, trigger and backlog health, SLAs, and rep productivity; keep definitions consistent and documentation clear. \n Own the weekly forecast, CFQ closed-won ARR pacing, and probability-weighted pipeline forecast, feeding the Weekly Business Review (WBR) and Weekly Forecast Review (WFR) cadence for sales and executive leadership. \n Partner with Finance and Analytics to produce operational reporting and revenue insights across dials, connects, lead passes, self-generated opportunities, and book coverage. \n Own metric definitions and data accuracy so leaders trust the numbers they act on. \n \n Drive AI Strategy for Sales \n \n Identify and prototype AI and automation tools, such as process automation, analytics copilots, and call coaching, that remove manual friction from the sales process. \n Partner with Sales, BizTech, Product, and Enablement to embed AI into daily sales workflows, improving both efficiency and effectiveness. \n Source and lead net-new AI and automation projects, connecting data insights to process improvements that lift rep productivity. \n \n Process Design & Continuous Improvement \n \n Examine workflows and rep performance to identify bottlenecks; recommend and implement process and automation changes that improve conversion, efficiency, and the rep experience. \n Evaluate Rules of Engagement (ROE) requests and comp exception asks, applying clear rules and precedent to produce fair, consistent, and binding rulings. \n Partner with Sales Enablement to document processes, build playbooks, and drive adoption of new tools and workflows. \n \n Operational Support & Problem-Solving \n \n Provide day-to-day support to Expansion Sales leadership and reps: ad hoc data requests, process issues, and one-off investigations. \n Own account and territory administration as the business evolves: assignment and coverage upkeep, book reassignments for leave and departures, large-scale account rerouting, and segment reclassification, supported by lead-routing and round-robin (ChiliPiper) automation. \n Support onboarding and offboarding for new hires and departing reps, including roster updates, router mapping, and leave-of-absence (LOA) processing. \n Troubleshoot reporting issues, broken workflows, missing CRM data, and gaps in pipeline visibility with fast, accurate fixes \u2014 including closed-won opportunities that didn't sync and ARR discrepancies. \n \n Cross-Functional Partnership & Communication \n \n Work closely with Sales Leadership, RevOps, Finance, BizTech, and Product to keep everyone aligned and remove obstacles to progress. \n Translate sales challenges into clear business requirements; partner cross-functionally to design solutions and durable improvements. \n Keep stakeholders aligned with clear, regular updates to managers and senior leadership on timelines, risks, and outcomes. \n Act as a trusted advisor, bringing structure, insight, and clarity to complex or ambiguous problems. \n \n Here's what we're looking for \n \n 5+ years in Sales Ops, RevOps, or a similar analytical GTM role; ideally in a fast-paced SaaS or fintech environment. \n Strong Salesforce proficiency; you can spot data issues, audit pipeline problems, manage account ownership and routing, and build reports and dashboards that reps and leaders actually use. \n Analytical depth across Salesforce reports and dashboards, SQL, Tableau or Looker, and Excel/Google Sheets. \n Hands-on experience with forecasting, pipeline management, and territory or quota planning on a recurring cadence; for example, a weekly forecast feeding monthly reviews and QBRs. \n Comfort evaluating AI and automation tools and prototyping simple workflows to improve productivity. \n Excellent written and verbal communication; you simplify complex information and create alignment from frontline reps to senior directors. \n A first-principles problem solver who breaks down ambiguous issues, tests hypotheses, and builds structured solutions. \n Exceptionally organized and detail-oriented, you manage multiple projects and recurring workflows while protecting data quality and operational reliability. \n A strong partner to sales, with a track record supporting teams that have competing, fast-changing priorities. \n \n Preferred Qualifications \n \n Experience supporting an expansion, upsell, or cross-sell motion into an existing customer base, rather than net-new acquisition.",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-08-08 09:50:34",
-   "_last_seen": "2026-08-14 09:49:57"
+   "_last_seen": "2026-08-16 09:49:47"
   },
   {
    "id": "bce69ac2f87c8d90",
@@ -2346,63 +2441,6 @@
    "_last_seen": "2026-08-14 09:49:57"
   },
   {
-   "id": "1c1d50a3cd84472c",
-   "company": "Gusto",
-   "title": "Event Marketing Manager",
-   "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA",
-   "url": "https://job-boards.greenhouse.io/gusto/jobs/8094350",
-   "source": "greenhouse",
-   "department": "Marketing",
-   "posted_at": "2026-08-10T14:14:18-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role: \n We're looking for an Event Marketing Manager to bring Gusto to life through bold, memorable events and experiences. \n This is a highly visible, strategic role responsible for designing, producing, and optimizing event marketing programs\u2014from trade shows and industry conferences to Gusto-owned activations and experiences. You'll plan, execute, and optimize event marketing campaigns as part of a cross-functional go-to-market team, turning strategy into on-the-ground execution that builds brand affinity and builds pipeline. \n About the Team: \n This role is part of the go-to-market team responsible for driving pipeline and fueling growth across Gusto's channels. We combine creativity, data-driven insights, and cross-functional collaboration to design campaigns that reach, engage, and convert the right audiences at scale. Together, we've helped Gusto grow to serve hundreds of thousands of customers nationwide, and we're just getting started. \n Here\u2019s what you\u2019ll do day-to-day: \n \n Collaborate with cross-functional stakeholders and leadership to set goals, develop event strategies, execute plans, and evaluate performance to drive continuous improvement over time. \n Build and manage end-to-end event campaign programs including scopes of work, resource plans, budgets, contracts, and timelines\u2014keeping everything on track and on budget. \n Leverage a deep understanding of Gusto's internal and external market positioning and target audiences to inform event decisions, from format and venue selection to messaging and audience targeting. \n Design and produce a range of event types\u2014from large-scale owned events (500+ attendees) to trade show activations, field events, and intimate customer experiences\u2014that strengthen brand affinity and accelerate funnel impact. \n Build strong relationships with external partners including industry and show organizers, agencies, and vendors, negotiating favorable terms and ensuring seamless delivery. \n Assemble the right internal and external resources for each opportunity, fostering collaboration and creative excellence with Gusto's creative teams, agencies, and production partners. \n Maintain accuracy and accountability of event budgets, evaluate results against goals, deliver wrap-up reports, and make recommendations to senior leadership for Event Marketing. \n Build upon and advocate for the event marketing and production craft and vision at Gusto\u2014championing breakthrough experience design, emerging event technology, and innovative production approaches. \n Leverage AI tools and technologies to enhance event marketing workflows\u2014from audience analysis and content personalization to post-event reporting and campaign optimization\u2014driving efficiency and deeper insights across the event lifecycle. \n \n Here\u2019s what we're looking for: \n \n A track record of producing a wide range of events (trade shows, activations, conferences, owned events for 500+ attendees, and white-glove experiences) across varying levels of complexity, scale, and design. \n A passion for event marketing and production with a willingness to roll up your sleeves and get hands-on in execution\u2014you move effortlessly between big-picture strategy and intricate operational details. \n Strong project management and communication skills with a proven ability to manage multiple stakeholders at all levels and across different geographies, keeping complex programs running on time and on budget. \n Experience managing and collaborating with internal creative teams and external agencies, driving alignment and excellence in production delivery. \n Passionate and knowledgeable about breakthrough experience design and emerging event technology, always looking for new ways to elevate the craft. \n A natural cross-functional collaborator who thrives on building and maintaining relationships across the organization to drive results. \n An intellectually curious self-starter who isn't afraid to ask questions and uses answers to bring clarity and direction to the broader team. \n AI fluency and a willingness to integrate AI-powered tools into your workflow to work smarter and unlock new possibilities. \n Comfort operating in a fast-paced, ambiguous environment while building scalable programs and processes. \n Note: this role requires frequent travel throughout North America. \n \n Compensation \n Our cash compensation amount for this role is $129,000/yr to $157,000/yr in Denver and Scottsdale and $154,000/yr to $188,000/yr for San Francisco & New York. Final offer amounts are determined by multiple factors including candidate location, experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of backgrounds, not just because it's the right thing to do, but because it makes our company stronger. If you share our values and our enthusiasm for small businesses, you will find a home at Gusto.\u00a0 \n Gusto is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Gusto considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Gusto is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. We want to see our candidates perform to the best of their ability. If you require a medical or religious accommodation at any time throughout your candidate journey, please fill out this form and a member of our team will get in touch with you. \n Gusto takes security and protection of your personal information very seriously. Please review our Fraudulent Activity Disclaimer . \n Personal information collected and processed as part of your Gusto application will be subject to\u00a0 Gusto's Applicant Privacy Notice .",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
-   "id": "9fd0bc1f68a87364",
-   "company": "Gusto",
-   "title": "Health Insurance Sales Operations Analyst",
-   "location": "Scottsdale, AZ;Denver, CO;San Francisco, CA;New York, NY",
-   "url": "https://job-boards.greenhouse.io/gusto/jobs/8075901",
-   "source": "greenhouse",
-   "department": "Revenue Operations",
-   "posted_at": "2026-08-11T22:49:48-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role \n This is your chance to shape the foundation of a fast-growing, high-impact part of Gusto's business as a Senior Sales Operations Analyst supporting our Health Insurance (HI) Sales team. You'll build the insights and AI-powered solutions that make a large, high-volume sales organization, supporting 80+ reps across two segments. You'll sit at the intersection of data, process, and execution; you'll turn real sales challenges into the tools, reports, automations, and workflows that move the numbers. \n You'll help grow a business segment that serves tens of thousands of small businesses through smarter, data-driven sales strategies. If you thrive where analytics, problem-solving, and supporting others meet, this role offers ownership, visibility, and the chance to influence how Gusto sells health insurance. \n About the Team \n The HI Sales Operations team partners closely with sales leadership to support two dynamic, fast-moving sales teams that contribute meaningfully to Gusto's growth. We think of ourselves as builders, problem solvers, and strategic partners; we turn uncertainty into clarity and fragmented processes into scalable, repeatable systems. \n Our work spans quotas, pipeline health, forecasting, process design, data integrity, account and territory administration, go-to-market strategy, and increasingly, AI-driven optimization. We value curiosity, open communication, and a commitment to helping 80+ sales reps operate efficiently and confidently. \n Here\u2019s what you\u2019ll do day-to-day \n Analytics, Reporting & Forecasting \n \n Build, automate, and maintain reports and dashboards that track sales performance, funnel metrics, pipeline health, SLAs, and rep productivity; keep definitions consistent and documentation clear. \n Partner with RevOps, Finance, Marketing, and Analytics to produce operational reporting, revenue insights, and forecasting models across the weekly forecast, monthly reviews, and QBR cadence. \n Own metric definitions and data accuracy so leaders trust the numbers they act on. \n \n Drive AI Strategy for Sales \n \n Identify and prototype AI and automation tools, such as content generation, analytics copilots, and call coaching, that remove manual friction from the sales process. \n Partner with Sales, BizTech, Product, and Enablement to embed AI into daily sales workflows, improving both efficiency and effectiveness. \n Source and lead net-new AI and automation projects, connecting data insights to process improvements that lift rep productivity. \n \n Process Design & Continuous Improvement \n \n Examine workflows and rep performance to identify bottlenecks; recommend and implement process and automation changes that improve conversion, efficiency, and the rep experience. \n Partner with Sales Enablement to document processes, build playbooks, and drive adoption of new tools and workflows. \n \n Operational Support & Problem-Solving \n \n Provide day-to-day support to HI Sales leadership and reps: ad hoc data requests, process issues, and one-off investigations. \n Own account and territory administration as the business evolves, assignment and coverage upkeep, book reassignments for leave and departures, large-scale account rerouting, and segment reclassification, supported by lead-routing and round-robin automation. \n Support territory, quota, and coverage planning, plus monthly sales-compensation reconciliation. \n Troubleshoot reporting issues, broken workflows, missing CRM data, and gaps in pipeline visibility with fast, accurate fixes. \n \n Cross-Functional Partnership & Communication \n \n Work closely with Sales Leadership, RevOps, Finance, BizTech, and Product to keep everyone aligned and remove obstacles to progress. \n Translate sales challenges into clear business requirements; partner cross-functionally to design solutions and durable improvements. \n Keep stakeholders aligned with clear, regular updates to managers and senior leadership on timelines, risks, and outcomes. \n Act as a trusted advisor, bringing structure, insight, and clarity to complex or ambiguous problems. \n \n Here\u2019s what we're looking for \n \n 5+ years in Sales Ops, RevOps, or a similar analytical GTM role; ideally in a fast-paced SaaS or fintech environment. \n Strong Salesforce proficiency; you can spot data issues, audit pipeline problems, manage account ownership and routing, and build reports and dashboards that reps and leaders actually use. \n Analytical depth across Salesforce reports and dashboards, SQL, Tableau or Looker, and Excel/Google Sheets. \n Hands-on experience with forecasting, pipeline management, and territory or quota planning on a recurring cadence; for example, a weekly forecast feeding monthly reviews and QBRs. \n Comfort evaluating AI and automation tools and prototyping simple workflows to improve productivity. \n Excellent written and verbal communication; you simplify complex information and create alignment from frontline reps to senior directors. \n A first-principles problem solver who breaks down ambiguous issues, tests hypotheses, and builds structured solutions. \n Exceptionally organized and detail-oriented, you manage multiple projects and recurring workflows while protecting data quality and operational reliability. \n A strong partner to sales, with a track record supporting teams that have competing, fast-changing priorities. \n \n Preferred Qualifications \n \n Experience in payroll, HR tech, or SMB SaaS go-to-market motions. \n Experience supporting a regulated or compliance-driven sales segment such as health insurance or benefits. \n Experience designing or implementing automations, AI workflows, or similar tooling. \n A track record of building cross-functional relationships across Sales, BizTech, and Analytics. \n Experience building systems to support new or evolving sales motions, with comfort in fast iteration and testing in live sales environments. \n \n #SalesOperations #RevOps #SalesOps #Salesforce #DataAnalytics #GoToMarket #SaaS #Hiring #RevenueOperations \n Our cash compensation amount for this role is $104,490/yr to $128,000/yr in Denver & Scottsdale and $127,430/yr to $155,000/yr for San Francisco & New York. Final offer amounts are determined by multiple factors including candidate location, experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of bac",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
-   "id": "58c618c44c809351",
-   "company": "Adobe",
-   "title": "B2B Performance Marketing Specialist",
-   "location": "San Jose",
-   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/B2B-Performance-Marketing-Specialist_R170030",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted 24 Days Ago",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 12:10:21",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
    "id": "c434448468f9d927",
    "company": "Nvidia",
    "title": "Startup Ecosystem Campaign Manager \u2013 VC and Cloud Partners",
@@ -2411,63 +2449,6 @@
    "source": "workday",
    "department": "",
    "posted_at": "Posted 16 Days Ago",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
-   "id": "a08a385bc9fd5197",
-   "company": "Adobe",
-   "title": "Product Marketing Manager",
-   "location": "3 Locations",
-   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Product-Marketing-Manager_R168163",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted 30+ Days Ago",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
-   "id": "5339564597c3b41d",
-   "company": "Adobe",
-   "title": "Product Marketing Manager and GenAI Strategist",
-   "location": "3 Locations",
-   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/Product-Marketing-Manager-and-GenAI-Strategist_R166382-1",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted 30+ Days Ago",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-14 09:49:57"
-  },
-  {
-   "id": "0ca643c7695e6872",
-   "company": "Adobe",
-   "title": "Group Manager, Creative Professional GTM",
-   "location": "San Francisco",
-   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Group-Manager--Creative-Professional-GTM_R169580",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted 30+ Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -2745,25 +2726,6 @@
    "_last_seen": "2026-08-10 22:26:24"
   },
   {
-   "id": "37712cfef46feae2",
-   "company": "Amazon",
-   "title": "Account-Based Marketing Manager, Auto & Manufacturing, Industry Marketing ",
-   "location": "Seattle, Washington, USA",
-   "url": "https://www.amazon.jobs/en/jobs/10464057/account-based-marketing-manager-auto-manufacturing-industry-marketing",
-   "source": "amazon",
-   "department": "aws",
-   "posted_at": "2026-07-01",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Amazon Web Services is seeking a results-driven Sr. Account-Based Marketing (ABM) Marketing Manager for the Automotive & Manufacturing (Auto&Mfg) Industry to design and execute high-impact ABM programs for enterprise customers in North America and deliver the industry\u2019s largest activations and programs. This role combines strategic thinking with hands-on execution to drive measurable business outcomes through targeted marketing initiatives. The Sr. Account-Based Marketing Manager will own the end-to-end execution of select Auto&Mfg ABM programs, working backwards from customer needs to create data-driven, multi-channel campaigns, events, and executive programs that accelerate pipeline and revenue growth. This role requires project management skills, analytical capabilities, and the ability to influence cross-functional stakeholders. AWS Marketing leads the charge in cloud innovation, inspiring and empowering customers and partners to unlock their cloud potential. We shape AWS's industry perception through compelling narratives that demonstrate our leadership in AI and transformative solutions, while driving customer growth across our vast service portfolio. Our team delivers personalized, connected experiences that foster AWS adoption across diverse industries, continuously adapting our strategy to stay ahead in our digital-first world. Join our forward-thinking team to shape the future of cloud computing, contributing to strategic initiatives that respond to evolving technology, industry, and customer requirements. You'll collaborate globally to translate complex technology into clear, valuable solutions, creating impactful programs that drive AWS's growth in an inclusive, collaborative environment where diverse perspectives and bold thinking thrive. Key job responsibilities \u2022 Design and execute territory-specific ABM campaigns (1:1, 1:few) for a select subset of our Auto&Mfg accounts that align with global frameworks and drive measurable business impact \u2022 Build and maintain relationships with sales teams to understand account priorities and translate them into effective marketing programs \u2022 Analyze customer data, buying signals, and market trends to inform campaign strategy and optimization \u2022 Create and implement multi-channel programs (events, digital, direct) that deliver personalized customer experiences \u2022 Partner with regional marketing teams to ensure ABM programs complement broader field marketing efforts \u2022 Drive operational excellence through standardized processes, documentation, and best practices \u2022 Track and report on program performance, using data to optimize and scale successful approaches \u2022 Manage program budgets effectively, demonstrating frugality while maximizing impact \u2022 Collaborate with global ABM community to share learnings and adopt proven practices Success Measures: \u2022 Pipeline influence and revenue contribution from ABM accounts \u2022 Account engagement metrics and program ROI \u2022 Sales team satisfaction scores \u2022 Program execution quality and timeliness \u2022 Process improvement and best practice contributions A day in the life ABOUT AWS: Diverse Experiences Amazon values diverse experiences. Even if you do not meet all of the preferred qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn\u2019t followed a traditional path, or includes alternative experiences, don\u2019t let it stop you from applying. Why AWS Amazon Web Services (AWS) is the world\u2019s most comprehensive and broadly adopted cloud platform. We pioneered cloud computing and never stopped innovating \u2014 that\u2019s why customers from the most successful startups to Global 500 companies trust our robust suite of products and services to power their businesses. Work/Life Balance We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there\u2019s nothing we can\u2019t achieve in the cloud. Inclusive Team Culture Here at AWS, it\u2019s in our nature to learn and be curious. Our employee-led affinity groups foster a culture of inclusion that empower us to be proud of our differences. Ongoing events and learning experiences, including our Conversations on Race and Ethnicity (CORE) and AmazeCon (gender diversity) conferences, inspire us to never stop embracing our uniqueness. \n\nBasic qualifications:\n- Experience with Excel or Tableau (data manipulation, macros, charts and pivot tables) - Experience building, executing and scaling cross-functional marketing programs - Experience using data and metrics to measure impact and determine improvements - 6+ years of professional marketing experience with demonstrated success in B2B marketing - 4+ years of professional experience in the manufacturing industry - either working directly for a manufacturer or marketing technology solutions to manufacturers\n\nPreferred qualifications:\n- Experience driving direction and alignment with large cross-functional teams and agency partners - Experience designing and executing joint marketing plans with strategic alliance partners with global footprint Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, WA, Seattle - 118,200.00 - 160,000.00 USD annually",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-10 22:26:24"
-  },
-  {
    "id": "c6039c78651b057b",
    "company": "Amazon",
    "title": "Campaign Manager, AWS Cloud Sales Center (CSC) , US Customer Acquisition",
@@ -2916,25 +2878,6 @@
    "_last_seen": "2026-08-06 09:09:54"
   },
   {
-   "id": "965065babceb7552",
-   "company": "Podium",
-   "title": "GTM/ Sales Recruiter",
-   "location": "Guatemala, Guatemala",
-   "url": "https://job-boards.greenhouse.io/podium81/jobs/7940221",
-   "source": "greenhouse",
-   "department": "People Operations",
-   "posted_at": "2026-07-01T17:37:44-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "At Podium, we bring AI Employees to local businesses that turn every conversation into revenue. Trusted by 60,000+ businesses across Auto, Home Services, and Aesthetics, Podium captures and converts leads 24/7, driving both new business and repeat customers. \n In under 24 months, we crossed $100M in AI Agent ARR, scaling 300% year-over-year. During this time, we\u2019ve deployed 10,000 AI employees to empower real business outcomes for our customers. Podium is building what we believe will be the most impactful AI employee ecosystem for local business. \n Podium has been recognized as the Best AI Implementation by Inc. Magazine, highlighted by OpenAI for building revenue-driving AI Agents, and awarded the #1 AI Agent for Business Operations by G2. \n Our growth is fueled by hiring exceptional people, holding them to high standards, and creating opportunities for them to grow and make an impact. Our operating principles guide daily behavior and ensure we hire people who will thrive at Podium. If you're hungry for growth, aligned to our operating principles, and ready to get to work, you won't find a better place to learn and accelerate your career. About this opportunity: \n We are looking for a Sales/GTM Recruiter to build and scale the Sales Development team from ground up in Guatemala. In this role, you will own full-cycle recruiting, drive hiring strategies & partner with company leaders. You'll play a key role in building strong talent pipelines and driving hiring success in a fast-paced environment.\u00a0 We are looking for recruiters who are passionate about building high performing teams and love challenges, have strong business acumen & deliver best-in-class candidate experience.\u00a0\u00a0 \n What you will be doing: \n \n Own end to end hiring from sourcing to offer acceptance \n Develop and execute recruiting strategies \n Map talent and identify companies that have the best sales talent and are selling to US market \n Track and analyze trends and metrics and report on hiring progress to business leadership on a regular cadence \n Help identify and recommend scalable changes to our existing recruiting strategies \n \n What you should have: \n \n At least 3+ years of end to end recruiting experience with 2+ years of GTM / Sales recruiting, preferably in the SaaS space. \n Excellent LinkedIn sourcing and interviewing skills. \n Track record of successfully identifying and qualifying a diverse pool of candidates through LinkedIn, resume reviews, and other creative methods \n Strong verbal and written English communication and the ability to present to senior leaders.\u00a0 \n Thinks like an owner. Takes ownership and initiative. \n Strong work ethic, high sense of urgency, and ability to deliver results \n \n Benefits \n \n Competitive salary\u00a0 \n Law Benefits, Health and Life Insurance \n Free parking \n Equipment provided \n Bono 14 and Christmas bonus \n 13 paid holidays throughout the year \n Office located in Zone 10, Edificio Interamericas, Guatemala City \n \n Podium is an equal opportunity employer. Podium provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, religion, gender, national origin, sexual orientation, gender identity or expression, age, disability, genetic information, marital status or veteran status.",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 03:54:52",
-   "_last_seen": "2026-08-06 09:09:54"
-  },
-  {
    "id": "fe534f103dbc3078",
    "company": "Amazon",
    "title": "Manager, Product Marketing, Cross-Devices Marketing & Technology",
@@ -2989,25 +2932,6 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-05 10:23:34"
-  },
-  {
-   "id": "127fad19403b6cdf",
-   "company": "Amazon",
-   "title": "Media Manager, Amazon Brand Marketing, Amazon\u2019s XCM (Cross Channel, Cross Category Marketing) ",
-   "location": "Seattle, Washington, USA",
-   "url": "https://www.amazon.jobs/en/jobs/10463739/media-manager-amazon-brand-marketing-amazon-s-xcm-cross-channel-cross-category-marketing",
-   "source": "amazon",
-   "department": "north-america-stores",
-   "posted_at": "2026-07-01",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Amazon\u2019s XCM (Cross Channel, Cross Category Marketing) organization is looking for a highly-motivated Paid Media Manager to drive the media approach and investment strategies and own end-to-end media campaign management for Amazon\u2019s Retail brand marketing initiatives. This role will develop and manage consumer-facing campaigns that drive brand love with core audiences and growth opportunities. This marketer is able to think big while remaining deeply analytical, naturally curious, and capable of juggling multiple projects to drive innovative and effective plans. The ideal candidate will possess a passion for bar-raising media planning, strong bias for action, and the ability to dive deep into the details. They are a self-starter, resourceful, and find creative solutions to complex challenges. Working with media agencies and internal teams, you will apply a data-driven approach to determine and optimize channel mix for priority audiences based on business objectives and performance data. You will ensure high standards across media planning and implementation while coordinating with multiple stakeholders, including campaign program managers, marketing teams, measurement partners, and creative and content teams. As an integrated media professional, you will demonstrate strong results orientation, help develop roadmaps and goal tracking, and have experience working with industry partners and social platforms. You will combine skills as a strategist, project manager, and analyst to implement media best practices and support campaign optimization. Strong relationship building skills are essential as you'll work closely with various stakeholders across lines of business. This role will report into the Head of Media, and will be an individual contributor at this time. Key job responsibilities - Own end-to-end cross-channel media planning and execution for specific campaigns, managing external media agency and internal activation teams to translate business objectives into media campaign strategies - Partner closely with internal Retail stakeholders on the broader marketing campaign strategy as the paid media expert - Drive real-time campaign optimizations based on key KPIs and compile regular reporting from multiple sources - Develop comprehensive campaign wrap reports with strategic and actionable insights - Advise leadership and stakeholders on the reasoning behind decisions and recommendations - Leverage expertise to own projects outside of day to day campaign work that impact the media team and broader XCM org - Navigate a highly-matrixed organization and represent team with integrity and self-sufficiency - Partner with other Amazon media managers to leverage overall investment decisions and insights across the team in the most audience-driven expression possible - Contribute insights to advertising portfolio strategy and investment models About the team The central XCM org runs the largest and most performative mass marketing portfolio of investments in Amazon's biggest priority brands and businesses, from Prime Day to Super Bowl. We are a small but mighty team of 200+ strategic and creative business leaders who make and deliver our customers most loved marketing campaigns for North America and the world.\n\nBasic qualifications:\n- 6+ years of professional non-internship marketing experience - In-depth knowledge of cross-channel media strategy and experience leading complex business at an agency or or in-house with a large advertiser - Experience building and optimizing multiple, simultaneous marketing campaigns - Experience using data and metrics to drive improvements - Experience using industry media planning such as Nielsen, Kantar, Comscore, etc. - Experience managing or working within cross-functional marketing and creative teams - Self-motivated and comfortable working independently with minimal supervision - The ability to thrive in a fast-paced and deadline-driven environment - Strong verbal and written communication skills\n\nPreferred qualifications:\n- Experience in audience segmentation and targeting - Deep knowledge in auction-based media like programmatic and paid social Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Los Angeles County applicants: Job duties for this position include: work safely and cooperatively with other employees, supervisors, and staff; adhere to standards of excellence despite stressful conditions; communicate effectively and respectfully with employees, supervisors, and staff to ensure exceptional customer service; and follow all federal, state, and local laws and Company policies. Criminal history may have a direct, adverse, and negative relationship with some of the material job duties of this position. These include the duties and responsibilities listed above, as well as the abilities to adhere to company policies, exercise sound judgment, effectively manage stress and work safely and respectfully with others, exhibit trustworthiness and professionalism, and safeguard business operations and the Company\u2019s reputation. Pursuant to the Los Angeles County Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Pursuant to the San Francisco Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, CA, San Francisco - 86,700.00 - 151,700.00 USD annually USA, CA, Santa Monica - 78,800.00 - 137,900.00 USD annually USA, OR, Portland - 78,800.00 - 137,900.00 USD annually USA, WA, Seattle - 82,700.00 - 137,900.00 USD annually",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
    "_last_seen": "2026-08-05 10:23:34"
   },
   {
