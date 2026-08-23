@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-22 08:06:18",
+  "generated_at": "2026-08-23 08:09:37",
   "meta": {
-    "job_count": 205,
+    "job_count": 204,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -27681,209 +27681,6 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Anthropic%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
-      "id": "f2a460f0fb78eee7",
-      "company": "OpenAI",
-      "title": "Growth Marketing Manager, SMB Ads",
-      "location": "San Francisco",
-      "url": "https://jobs.ashbyhq.com/openai/dc503400-f7a8-4ad4-b50b-b33d2d12cc2d",
-      "source": "ashby",
-      "posted_at": "2026-07-08",
-      "sponsorship": "Unknown",
-      "fit_score": 72,
-      "min_years": null,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "growth marketing",
-        "marketing"
-      ],
-      "ats_score": 80,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "campaign",
-        "data-driven",
-        "growth marketing",
-        "launch",
-        "r"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 80,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 60,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 60,
-          "missing": [
-            "data-driven"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "data-driven"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "data-driven"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "About the Team\n\nOpenAI's Marketing team helps customers understand, adopt, and get value from OpenAI's products and platform. The SMB Ads Marketing team is building the growth engine for small and medium-sized business advertisers: helping them discover the platform, sign up, launch campaigns, understand performance, and grow spend over time.\n\nWe take a data-driven approach to understanding custom",
-      "resume_core": {
-        "label": "OpenAI \u2014 Growth Marketing Manager, SMB Ads",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw OpenAI is hiring a Growth Marketing Manager, SMB Ads and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at OpenAI, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22OpenAI%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
       "id": "81f59feedc2ec5b9",
       "company": "Perplexity",
       "title": "Associate Product Marketing Manager",
@@ -32128,7 +31925,7 @@
       "location": "Palo Alto, California, United States of America",
       "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Go-To-Market--GTM--Strategist_3158465-2",
       "source": "workday",
-      "posted_at": "Posted 4 Days Ago",
+      "posted_at": "Posted 5 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -32322,7 +32119,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
       "source": "workday",
-      "posted_at": "Posted 15 Days Ago",
+      "posted_at": "Posted 16 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -32713,7 +32510,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/CUDA-Libraries-and-Frameworks-Product-Marketing-Manager_JR2019940",
       "source": "workday",
-      "posted_at": "Posted 16 Days Ago",
+      "posted_at": "Posted 17 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36017,7 +35814,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
       "source": "workday",
-      "posted_at": "Posted 2 Days Ago",
+      "posted_at": "Posted 3 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36411,7 +36208,7 @@
       "location": "Palo Alto, California, United States of America",
       "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Growth-Marketing-Manager_3162803",
       "source": "workday",
-      "posted_at": "Posted Yesterday",
+      "posted_at": "Posted 2 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -37189,7 +36986,7 @@
       "location": "6 Locations",
       "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
       "source": "workday",
-      "posted_at": "Posted 8 Days Ago",
+      "posted_at": "Posted 9 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -41309,7 +41106,7 @@
       "location": "USA, CA, Pleasanton",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Senior-Compensation-Business-Partner--Sales_JR-0108857",
       "source": "workday",
-      "posted_at": "Posted 3 Days Ago",
+      "posted_at": "Posted 4 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
@@ -41502,7 +41299,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/GeForce-Marketing-Manager---Esports-and-Competitive-Gaming_JR2022575",
       "source": "workday",
-      "posted_at": "Posted 18 Days Ago",
+      "posted_at": "Posted 19 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
