@@ -1,6 +1,6 @@
 {
- "updated_at": "2026-08-29 10:59:05",
- "count": 217,
+ "updated_at": "2026-08-30 10:15:16",
+ "count": 212,
  "jobs": [
   {
    "id": "4d513f2dbdaf082f",
@@ -19,7 +19,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "28693282f11f5928",
@@ -38,7 +38,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "805c0cffb55f198e",
@@ -57,7 +57,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5e9bba5723a24ed3",
@@ -76,7 +76,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "7db531b103656e58",
@@ -95,7 +95,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-28 08:05:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "d88ae8b7c724b0ed",
@@ -114,7 +114,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-28 08:05:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "b04aaf00eb4cfb79",
@@ -133,7 +133,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-28 08:05:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2b8351477b6372eb",
@@ -152,7 +152,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "48b69f16033cc03f",
@@ -171,7 +171,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "cf968a8d80880acf",
@@ -190,7 +190,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "bcd1d7ceea3bcb3e",
@@ -209,7 +209,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "261d5af0086187c9",
@@ -228,7 +228,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "73a30f6c87a52f12",
@@ -247,7 +247,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "f46d44b45616cfba",
@@ -266,7 +266,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "d399a8d1c44a0f91",
@@ -285,7 +285,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5ffa138b0932b22b",
@@ -304,7 +304,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "7b2d28012026b1b0",
@@ -323,7 +323,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8103d9bfe765ac52",
@@ -342,7 +342,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "fb8ae8849d6730fe",
@@ -352,7 +352,7 @@
    "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/M-A-IT-Business-Analyst_R171422",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 5 Days Ago",
+   "posted_at": "Posted 6 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -361,7 +361,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "69ed56c2975353f5",
@@ -371,7 +371,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Manager--Go-To-Market--GTM--Associates_JR-0108463",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 5 Days Ago",
+   "posted_at": "Posted 6 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -380,7 +380,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "3c731ba73857ff66",
@@ -390,7 +390,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager--NVIDIA-NIM_JR2015402",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 5 Days Ago",
+   "posted_at": "Posted 6 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -399,7 +399,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-24 11:19:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "bcb1d4970e530a8e",
@@ -418,7 +418,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8701cb0012d6f8e3",
@@ -437,7 +437,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "15e55bcab5e68930",
@@ -456,7 +456,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "af5f9998a1077123",
@@ -475,7 +475,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "afae62471a5e4d66",
@@ -494,7 +494,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "43609f90d427914e",
@@ -504,7 +504,7 @@
    "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Growth-Marketing-Manager_3162803",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 8 Days Ago",
+   "posted_at": "Posted 9 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -513,7 +513,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "195163851ba25eca",
@@ -532,7 +532,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "0bf849e45b8fcbc7",
@@ -551,7 +551,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "6cdf2bc5fc3efec0",
@@ -570,7 +570,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "4eeb389c61108f9d",
@@ -589,7 +589,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a14189d88d94d617",
@@ -608,7 +608,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "c48cb9b680bd9e24",
@@ -627,7 +627,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "12b4f50dd9ca326e",
@@ -637,7 +637,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Senior-Compensation-Business-Partner--Sales_JR-0108857",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 10 Days Ago",
+   "posted_at": "Posted 11 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -646,7 +646,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "c483adbd7baba543",
@@ -665,7 +665,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "192b2952553585d2",
@@ -684,7 +684,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "96229a13207c8b26",
@@ -703,7 +703,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "ab3a2221c53424c1",
@@ -722,7 +722,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "be3b962b92dc9282",
@@ -741,7 +741,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "25899da2215c6cdd",
@@ -760,7 +760,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "fe6cf0251d88657f",
@@ -779,7 +779,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "daee586b63ff3557",
@@ -798,7 +798,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-17 10:26:03",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a35d5a286dd74158",
@@ -817,7 +817,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5d00d87747c7b695",
@@ -836,7 +836,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "05b9408d0e1d0b53",
@@ -855,7 +855,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a5858307b4ddffa0",
@@ -874,7 +874,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "39940a5d4577edfa",
@@ -893,7 +893,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "9aa9c26237ac1dd6",
@@ -912,7 +912,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "714b11ce24b10e49",
@@ -931,7 +931,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "e6ffa8848724bd19",
@@ -950,7 +950,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "fafab0c23ed9f33f",
@@ -969,7 +969,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "b52c187da40ca569",
@@ -988,7 +988,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "23020dc5fae8cc7f",
@@ -1007,7 +1007,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "079cc7591b78aefb",
@@ -1026,7 +1026,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "4c41f70a8d6ac63e",
@@ -1045,7 +1045,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-10 22:26:24",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5dd81b70dac2764f",
@@ -1064,7 +1064,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-10 08:43:39",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2ddc8ca9f79ce13d",
@@ -1074,7 +1074,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 22 Days Ago",
+   "posted_at": "Posted 23 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1083,7 +1083,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-08 09:50:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a71d165489aac636",
@@ -1102,7 +1102,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2e89cfafeb5f03ba",
@@ -1121,7 +1121,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "fda4680400356986",
@@ -1140,7 +1140,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "89d266be6a3ba973",
@@ -1159,7 +1159,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "7e22b5465049d7ef",
@@ -1178,7 +1178,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "868b59f43da78a05",
@@ -1197,7 +1197,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "0a744e2646fbc2df",
@@ -1216,7 +1216,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "1c1d50a3cd84472c",
@@ -1235,7 +1235,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "80900b99d80cd4c4",
@@ -1254,7 +1254,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "b53a072240d06d18",
@@ -1273,7 +1273,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2b9301348a2fd72f",
@@ -1283,7 +1283,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/GeForce-Marketing-Manager---Esports-and-Competitive-Gaming_JR2022575",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 25 Days Ago",
+   "posted_at": "Posted 26 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1292,7 +1292,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "dd8291648bcc1641",
@@ -1311,7 +1311,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "81389a91c62c4635",
@@ -1330,7 +1330,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2416ce6b7c517d58",
@@ -1349,7 +1349,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5326ec612ee4279d",
@@ -1368,7 +1368,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "e8583a28d2df7186",
@@ -1387,7 +1387,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "0228210f71e1787b",
@@ -1406,7 +1406,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "3d60b9f8edc51296",
@@ -1425,7 +1425,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "937dade260a3da97",
@@ -1444,7 +1444,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "d1d38028ccfbc834",
@@ -1463,7 +1463,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "b0923a3fcd6bbf90",
@@ -1482,7 +1482,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "97939e8d55a38cd0",
@@ -1501,7 +1501,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "e4b3e5c5142c565d",
@@ -1520,7 +1520,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "0dfd4cde0d85841f",
@@ -1539,7 +1539,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "49c2c982af5e1876",
@@ -1549,7 +1549,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 9 Days Ago",
+   "posted_at": "Posted 10 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1558,7 +1558,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "88c3658ec79beceb",
@@ -1577,7 +1577,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "ec78c5bd8839ca2c",
@@ -1596,7 +1596,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "4ec6df2c45f7e30d",
@@ -1615,7 +1615,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a082928e3da9ba8e",
@@ -1634,7 +1634,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8a4075a80b75cff7",
@@ -1653,7 +1653,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "dadfd52d7ff53d46",
@@ -1672,7 +1672,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "c58dc098f9ac3071",
@@ -1691,7 +1691,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "64f4f2cd017d2ea8",
@@ -1710,7 +1710,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "313be06e5b2594ee",
@@ -1729,7 +1729,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "4690698bd251899f",
@@ -1739,7 +1739,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/CUDA-Libraries-and-Frameworks-Product-Marketing-Manager_JR2019940",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 23 Days Ago",
+   "posted_at": "Posted 24 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1748,7 +1748,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "6c7a088a8e62971e",
@@ -1767,7 +1767,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "558137f8baf9e457",
@@ -1786,7 +1786,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "277ee8ed4207443d",
@@ -1805,7 +1805,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "7a0f33e6049b7a35",
@@ -1815,7 +1815,7 @@
    "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 15 Days Ago",
+   "posted_at": "Posted 16 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1824,7 +1824,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a08a385bc9fd5197",
@@ -1843,7 +1843,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5339564597c3b41d",
@@ -1862,7 +1862,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "0ca643c7695e6872",
@@ -1881,7 +1881,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "2de2717916e34168",
@@ -1900,7 +1900,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "39e00f8015ccd5bc",
@@ -1919,7 +1919,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "e2320731ef3c3e02",
@@ -1938,7 +1938,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "6f535f12e5f2d3e3",
@@ -1957,7 +1957,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5d45f27bdd2a1ed0",
@@ -1976,7 +1976,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "16e948d09c5e75f7",
@@ -1995,26 +1995,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
-  },
-  {
-   "id": "81f59feedc2ec5b9",
-   "company": "Perplexity",
-   "title": "Associate Product Marketing Manager",
-   "location": "San Francisco",
-   "url": "https://jobs.ashbyhq.com/perplexity/08f1a218-bdff-4cdd-aefe-0d55529b1ece",
-   "source": "ashby",
-   "department": "Marketing & Communications",
-   "posted_at": "2026-07-15T00:02:44.968+00:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Perplexity is revolutionizing how companies get work done. We are seeking an Associate Product Marketing Manager to join our team and serve as the bridge between how our products actually work and how the world learns to use them. You will develop the deepest product understanding on the team and translate it into webinars and education materials that inspire adoption and drive growth.\n\nIf you have a passion for understanding how things work, thrive in taking something complex and making it simple, and want to build a world-class product education engine that turns new users into power users, this role is for you.\n\nRESPONSIBILITIES\n\n - Know the product cold. Develop a deeper working knowledge of our products than anyone else in marketing, using every feature the day it ships, building the workflows yourself, and staying close to the teams that built them.\n\n - Turn complexity into clarity. Transform complex product capabilities into simple, specific, and accurate explanations, defining not just what we built, but how it works, when to use it, and why it matters.\n\n - Teach at scale. Own product webinars end to end, from content and live demos to delivery and follow-up, spanning onboarding series, feature deep-dives, and use-case walkthroughs.\n\n - Build the education engine. Create the product education materials our users learn from: how-to guides, demo flows, video walkthroughs, and use-case libraries that make customers materially better at their jobs.\n\n - Obsess over the user. Maintain a sharp, real-time view of what users misunderstand and where they get stuck, ensuring our education remains grounded in how people actually use the product rather than how we assume they do.\n\n - Measure outcomes, not just outputs. Tie webinars and education content to tangible activation, adoption, and retention, running lightweight experiments to iterate fast on format, content, and delivery.\n\n - Get products to launch. Own and coordinate the cross-functional workstreams that take products from built to launch, keeping teams aligned on dependencies, timelines, and the work needed to bring each launch to market.\n\nQUALIFICATIONS\n\n - 2-3 years of experience in product marketing, customer education, business development, or a related role, ideally within a high-growth technology company, or work that proves the skill regardless of title.\n\n - Proven ability to synthesize complex technical concepts into simple, specific, and provable explanations that travel across new users, power users, and admins.\n\n - Genuine obsession with product: you explore every setting, test every new feature, and can explain what a product does better than the team that built it.\n\n - Sharp teaching and storytelling skills grounded in data, with the ability to summarize how a feature works in a single sentence and demonstrate it live.\n\n - High slope: you learn unfamiliar products and domains fast, and your rate of improvement is your standout trait.\n\n - Extreme comfort delivering clarity in high-velocity, ambiguous environments.",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "ef34eeac5cec819d",
@@ -2033,7 +2014,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "423a88e2e06e9425",
@@ -2052,7 +2033,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "b7b17282a645a7cf",
@@ -2071,7 +2052,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8509ae3ae4b184dd",
@@ -2090,7 +2071,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "9b3ee4b95406260d",
@@ -2109,7 +2090,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "5a06ee4d93c7f0cd",
@@ -2128,7 +2109,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "23d7c5db278b7755",
@@ -2147,7 +2128,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "f90fe13378d851e9",
@@ -2166,7 +2147,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "a0d726577f531ab9",
@@ -2185,7 +2166,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "3aeecef0496d0d9e",
@@ -2204,7 +2185,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8782c3c9a65c9ac7",
@@ -2223,7 +2204,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "d13590b2e66054ce",
@@ -2242,7 +2223,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "8fab479e16b7ad49",
@@ -2261,7 +2242,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "81aaf6254b7b8e88",
@@ -2280,26 +2261,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
-  },
-  {
-   "id": "03a8cba4606888a6",
-   "company": "Notion",
-   "title": "Partner Marketing Manager",
-   "location": "San Francisco, California",
-   "url": "https://jobs.ashbyhq.com/notion/c1324c38-abc7-4bcf-9b62-2e1f86d5aa72",
-   "source": "ashby",
-   "department": "Marketing",
-   "posted_at": "2026-07-15T19:03:56.694+00:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "WHO WE ARE\n\nNotion is the collaborative AI workspace where teams and agents think together https://www.youtube.com/watch?v=vkpYpWfEK5s. We're building one place where your knowledge, projects, meetings, and AI tools live side by side, so work is faster, clearer, and less fragmented. Millions of individuals, small teams, and large companies run their work on Notion.\n\nNotinos (our employees) are customer zero in bringing this future of work to life. We care about craft, building things that last, and the belief that great work is still fundamentally human. Our goal isn\u2019t to ship the next feature. Each and every team of Notinos is working to set the standard for how humans work together in the AI era. From building a business\u2019s system of record to making and managing AI agents to automating away the busy work, we care deeply about giving our customers more time for their life\u2019s work.\n\nABOUT THE ROLE:\n\nNotion is building the collaborative AI workspace teams use to think, plan, and execute. Our partner ecosystem is a key multiplier for our global revenue engine. As our founding Partner Marketing Manager, you\u2019ll build the co-marketing motion with our partners\u2014designing campaigns that show the combined value of Notion + our ecosystem and turning partner enablement into measurable, partner-driven pipeline. You\u2019ll work in lockstep with Partnerships, Product Marketing, and regional sales leaders to ensure partners can tell the Notion story consistently across channels.\n\nThis role can be based in either San Francisco or New York City. We work from our offices on Mondays, Tuesdays and Thursdays (our Anchor Days) because we do our best thinking and building together in person. We\u2019re looking for someone who\u2019s excited to work alongside the team during those days. \n\nWHAT YOU'LL ACHIEVE:\n\n - Set and run Notion\u2019s partner co-marketing strategy across resellers, services partners, and strategic technology/AI partners.\n\n - Launch end-to-end joint campaigns (e.g., webinars, whitepapers, case studies, digital events) that drive partner-sourced and partner-influenced pipeline.\n\n - Build partner enablement that travels (pitch decks, one-pagers, positioning/competitive guides) so external teams can sell Notion with confidence.\n\n - Own a clear MDF operating model (intake, prioritization, budget allocation, approvals) and invest in the activations that produce the highest ROI.\n\n - Track performance and report results using CRM + marketing analytics, tying programs to pipeline and revenue.\n\nSKILLS YOU'LL NEED TO BRING: \n\n - Track record building partner/channel marketing programs from zero to repeatable motion, with clear examples and measurable outcomes.\n\n - Strong campaign and content craft: ability to translate product value into crisp partner value propositions that work across channels.\n\n - Analytical operating discipline: comfort with pipeline attribution, CRM workflows, and reporting that stands up to revenue scrutiny.\n\n - Cross-functional leadership and influence across Partnerships, Product Marketing, and Sales; strong judgment in prioritization and trade-offs.\n\n - AI-fluent working style: uses AI tools to plan, draft, analyze, QA, and scale throughput\u2014while maintaining high standards of craft.\n\nNotion is committed to providing highly competitive cash compensation, equity, and benefits. The compensation offered for this role will be based on multiple factors such as location, the role\u2019s scope and complexity, and the candidate\u2019s experience and expertise, and may vary from the range provided below. For roles based in San Francisco or New York City, the estimated base salary range for this role is $235,000-$260,000 per year.\n\nBy clicking \u201cSubmit Application\u201d, I understand and agree that Notion and its affiliates and subsidiaries will collect and process my information in accordance with Notion\u2019s Global Recruiting Privacy Policy https://notion.notion.site/Notion-Global-Recruiting-Privacy-Policy-fc3eb4e829354a26a2bb6fd5e289b550?pvs=74 and NYLL 144 https://notion.notion.site/Ashby-AI-Bias-Audit-2b0efdeead05803bbbfae159ec86c528.\n\n#LI-Onsite\n\nA NOTE ON AI\n\nYou don\u2019t need deep AI expertise for every role, but we do expect every Notino to be intellectually curious, drawn to tinkering and discovery, and excited to use AI as a real collaborator in their work. For some roles, AI fluency is a core requirement \u2014 when that\u2019s the case, we'll say so explicitly in the qualifications. People who thrive here don\u2019t treat AI as a novelty. They use it to think better, and make their work easier for others to build on.\n\nEQUAL OPPORTUNITY & ACCOMMODATIONS\n\nWe hire talented people from a wide range of backgrounds. If you\u2019re excited about this role but don\u2019t meet every bullet, we still encourage you to apply. Notion is an equal opportunity employer and does not discriminate on the basis of any legally protected characteristic. Consistent with applicable law, we will consider for employment qualified applicants with arrest and conviction records. Notion provides reasonable accommodations during the application process; if you need one, please let your recruiter know.\n\nNotion is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Notion considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Notion is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. If you need assistance or an accommodation due to a disability, please let your recruiter know.",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-08-29 10:59:05"
+   "_last_seen": "2026-08-30 10:15:16"
   },
   {
    "id": "fdaacf4daf44c957",
@@ -3195,25 +3157,6 @@
    "_last_seen": "2026-08-17 10:26:03"
   },
   {
-   "id": "f429d09b77aa60d9",
-   "company": "Amazon",
-   "title": "Program Manager, Marketing Ops, Machine Learning University",
-   "location": "Seattle, Washington, USA",
-   "url": "https://www.amazon.jobs/en/jobs/10475669/program-manager-marketing-ops-machine-learning-university",
-   "source": "amazon",
-   "department": "aws",
-   "posted_at": "2026-07-15",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Machine Learning University (MLU) is leading internal education in Generative AI, Agentic AI and Responsible AI, accelerating Amazon-wide AI transformation. We are seeking a detail-oriented, customer-obsessed Program Manager to drive marketing operations and cross-functional initiatives that amplify MLU's reach and engagement across Amazon's technical workforce. MLU's Program Manager, Marketing Operations is the operational backbone of marketing execution \u2014 managing campaigns end-to-end, coordinating cross-functional dependencies, designing scalable processes, and ensuring on-time delivery across multiple workstreams. You will partner closely with instruction, operations, and engineering to deliver high-quality marketing programs that drive awareness, enrollment, and community engagement for MLU. The ideal candidate is someone who excels at stakeholder coordination and brings a structured approach to managing complex, multi-channel programs \u2014 equally comfortable building a project plan from scratch and diving deep into operational metrics to identify improvements. Beyond core marketing responsibilities, this role provides cross-functional support to operations including course launch coordination, communications copywriting, and event logistics. Key job responsibilities (Deliver Results) Own end-to-end program management for marketing campaigns, events, and brand initiatives \u2014 from requirements gathering through execution, measurement, and retrospective. (Ownership) Manage the marketing operations calendar, ensuring cross-functional alignment on timelines, dependencies, and deliverables across campaigns, events, and product launches. (Invent and Simplify) Design and implement scalable marketing workflows and processes that improve efficiency as the program grows in volume and complexity. Drive adoption of automation tools (e.g., AI-assisted copywriting, automated recurring communications) to reduce cycle time on repetitive tasks. (Think Big) Support strategic marketing initiatives including potential program rebranding, community engagement programs, and large-scale events by managing project plans, stakeholder coordination, and go-to-market timelines. (Earns Trust) Coordinate across MLU teams (operations, product, instruction) and partner organizations to align marketing efforts with broader program goals and ensure consistent brand application. (Insist on High Standards) Maintain brand consistency across all marketing touchpoints by managing the brand portal, standards documentation, and creative review processes. (Dive Deep) Track and report on marketing program performance metrics. Analyze campaign data to identify optimization opportunities and contribute to weekly/monthly reporting on marketing impact. \n\nBasic qualifications:\n- 3+ years of program or project management experience - Experience defining and executing program requirements - Experience working cross functionally with tech and non-tech teams - Experience using data and metrics to determine and drive improvements\n\nPreferred qualifications:\n- Experience working with marketing tools including email, web analytics, CRM, and marketing automation platforms - Experience in marketing operations, campaign management, or brand management - Familiarity with AI/ML concepts or experience in a technical education environment Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, WA, Seattle - 82,700.00 - 129,800.00 USD annually",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-08-17 10:26:03"
-  },
-  {
    "id": "ebcfdc552633fc1e",
    "company": "Asana",
    "title": "GTM Systems and Business Process Manager - Renewals and CX",
@@ -3857,44 +3800,6 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 03:08:34",
-   "_last_seen": "2026-07-25 12:41:16"
-  },
-  {
-   "id": "aa1ae6528bcbcffc",
-   "company": "Amazon",
-   "title": "Product Marketing Manager, Amazon Business",
-   "location": "New York, New York, USA",
-   "url": "https://www.amazon.jobs/en/jobs/10474841/product-marketing-manager-amazon-business",
-   "source": "amazon",
-   "department": "amazon-business",
-   "posted_at": "2026-07-15",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Come be a part of a rapidly expanding $35 billion dollar global business. At Amazon Business, a fast-growing startup passionate about building solutions, we set out every day to innovate and disrupt the status quo. We stand at the intersection of tech & retail in the B2B space developing innovative purchasing and procurement solutions to help businesses and organizations thrive. At Amazon Business, we strive to be the most recognized and preferred strategic partner for smart business buying. Bring your insight, imagination and a healthy disregard for the impossible. Join us in building and celebrating the value of Amazon Business to buyers and sellers of all sizes and industries. Unlock your career potential. We are disrupting the status quo of Business to Business (B2B) by delivering new, efficient purchasing and service solutions to individual proprietors, to small-medium businesses, to global organizations (and everything in between). Are you ready for the next step in your career building on your skills as a leader, innovator, and collaborator? Do you want to be part of an organization that is developing and launching new business models? If so, the AB Third Party (AB3P) Marketing team is seeking an exceptional Product Marketing Manager to lead Go-To-Market (GTM), B2B events (HVEs and Conferences) and product marketing activities for new and existing features and programs that help our 3P Sellers grow their businesses. You will work closely with our internal stakeholders to develop messaging, positioning, and go-to-market strategy to drive awareness and activation of features. This is a highly cross-functional role that requires close partnerships with Product, Tech, Sales, Consumer, AB Customer Marketing, Legal, PR and other teams - as well as strong verbal and written communication skills. This role requires an analytical marketer with a strong sense for methods to align AB3P offerings to 3P Seller objectives, while constantly adjusting based on industry trends and feedback from sellers. You will not only define the product marketing strategy for new products, but will also develop marketing materials, including sales collateral, email and web content, case studies, and org-wide communications, to support your strategy. The ideal candidate is a self-starter who is comfortable building a business, is metrics and data driven, has a strong desire to learn and lead in a fast-paced environment. You are able to think strategically, look at the business analytically, and implement flawlessly. As a leader, the right candidate will be comfortable with executive interactions, be an excellent communicator, passionate advocate, and creative professional. You will build and inspire a positive, high-energy, results-oriented culture in our team, creating a measurable impact across Amazon Business. Key job responsibilities - Develop and execute seller-facing GTM strategies for existing and new products, features and programs to drive awareness and adoption by sellers - Create marketing materials such as email content, webinar presentations, sales enablement decks, collateral, case studies, and blog posts - Leverage a variety of channels and tools (e.g. email, webinar, website, social, infographics, video) to effectively communicate with the right target audiences - Develop case studies and datapoints to communicate the benefits of Amazon Business to sellers - Measure and report on results, identify trends or insights, and optimize campaigns accordingly to achieve KPIs - Collaborate effectively across multiple stakeholder teams--including Product, Sales, Program Management, International teams, Legal--to achieve business goals - Help gather seller feedback to drive continuous product improvement - Manage projects in a timely fashion for multiple deliverables for campaigns on competing timelines \n\nBasic qualifications:\n- 4+ years of professional non-internship marketing experience - Experience using data and metrics to drive improvements - Experience with Excel or Tableau (data manipulation, macros, charts and pivot tables) - Experience building, executing and scaling cross-functional programs or marketing campaigns from concept to completion - Experience managing and measuring marketing performance in various channels\n\nPreferred qualifications:\n- Experience managing external partners to develop marketing programs - Experience presenting ideas to various levels of an organization to gain support for initiatives Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, AZ, Tempe - 109,100.00 - 160,000.00 USD annually USA, NY, New York - 120,000.00 - 179,600.00 USD annually USA, TX, Austin - 109,100.00 - 160,000.00 USD annually USA, VA, Arlington - 109,100.00 - 160,000.00 USD annually USA, WA, Seattle - 109,100.00 - 160,000.00 USD annually",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-07-25 12:41:16"
-  },
-  {
-   "id": "b1c6bbbe3e32380d",
-   "company": "Perplexity",
-   "title": "Partner Marketing Manager",
-   "location": "San Francisco",
-   "url": "https://jobs.ashbyhq.com/perplexity/d5bc2302-202f-4596-9c4d-8720d1e79064",
-   "source": "ashby",
-   "department": "Marketing & Communications",
-   "posted_at": "2026-07-15T00:05:31.017+00:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Perplexity is revolutionizing how the world gets work done, and we do it alongside some of the most important companies in the world. We are seeking a Partner Marketing Manager to formally build that function from the ground up. You will become the face that some of Perplexity's most important partners rely on, and the person who makes our joint moments land.\n\nThis is a 0>1 role with executive exposure from day one. It has two sides. You are the relationship owner who partners trust and internal teams turn to, and you are the program manager who keeps every joint launch, event, and campaign on the rails. You'll work directly with teams across comms, product marketing, sales, and product, owning how Perplexity and its partners show up to the world together.\n\nIf you learn fast, thrive in ambiguity, and build trust with the biggest companies in the world instinctively, this role is for you.\n\nRESPONSIBILITIES\n\n - Own Perplexity's partner marketing function end to end, from joint strategy through campaign execution and reporting\n\n - Build annual joint marketing plans with our most important partners, with committed pipeline and revenue targets, and run the QBR cadence that keeps both sides accountable to them\n\n - Ensure Perplexity and our partners are both accountable. Execute, driving joint marketing ideas from concept to shipped and following through so commitments turn into real activity, not slideware\n\n - Own the joint value proposition and narrative, crafting the \"better together\" story so it is aligned across both companies, resonates with buyers, and is mutually beneficial\n\n - Execute full-funnel co-marketing with and through partners, including joint webinars, events, ABM, content syndication, email, and digital campaigns\n\n - Build partner enablement assets, including co-branded content, solution briefs, pitch decks, joint case studies, and campaign-in-a-box kits, so partner teams can sell and market with us at scale\n\n - Coordinate launch moments and joint announcements, amplifying Perplexity product launches and major industry moments through the ecosystem\n\n - Instrument measurement and attribution, tracking partner-sourced and partner-influenced pipeline in CRM, and reporting ecosystem impact to leadership.\n\n - Align the field, making sure Perplexity sales and Customer Success know about, trust, and activate partner programs so they stick\n\n - Act as connective tissue between Partnerships and BD, PMM, Demand Generation, Sales, and Comms, and serve as the primary marketing counterpart to our partners' marketing teams\n\n - Maintain strong relationships in partner organizations and Perplexity across diverse organizations\n\nWHAT WE'RE LOOKING FOR\n\n - 3+ years in B2B marketing, preferably in partner, alliance, or ecosystem marketing\n\n - Proven track record running joint go-to-market with technology and ISV partners, cloud providers, or system integrators, and shipping campaigns that generated real pipeline\n\n - A closer on accountability, with the operating discipline to build a plan, hold two organizations to it, and drive follow-through when commitments slip\n\n - Strong storyteller who can craft a joint narrative that is crisp, differentiated, and credible to buyers and executives on both sides\n\n - Full-funnel campaign operator fluent across webinars, events, ABM, content, and digital, comfortable executing hands-on rather than only directing\n\n - Analytically rigorous, with experience setting up attribution and reporting partner-sourced and influenced pipeline; comfortable in CRM and revenue operation tools\n\n - Excellent relationship builder who can be trusted while representing Perplexity's interests to partners\n\n - Autonomous self-starter who thrives in ambiguity, builds the playbook rather than waiting for one, and operates with urgency in a high-growth environment",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-21 02:49:15",
    "_last_seen": "2026-07-25 12:41:16"
   },
   {
