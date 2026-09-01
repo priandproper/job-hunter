@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-31 08:05:34",
+  "generated_at": "2026-09-01 08:14:52",
   "meta": {
-    "job_count": 209,
+    "job_count": 208,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -1062,16 +1062,16 @@
         "count": 15
       },
       {
+        "keyword": "looker",
+        "count": 11
+      },
+      {
         "keyword": "experimentation",
-        "count": 12
+        "count": 11
       },
       {
         "keyword": "python",
-        "count": 11
-      },
-      {
-        "keyword": "looker",
-        "count": 11
+        "count": 10
       },
       {
         "keyword": "attribution",
@@ -1091,7 +1091,7 @@
       },
       {
         "keyword": "segmentation",
-        "count": 5
+        "count": 4
       },
       {
         "keyword": "data-driven",
@@ -18230,245 +18230,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Amazon is hiring a Media Manager, Amazon Brand Marketing, Amazo\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "0a79abed990c8977",
-      "company": "Twilio",
-      "title": "Marketing Analyst, PLG & Self-Serve Analytics",
-      "location": "Remote - US",
-      "url": "https://job-boards.greenhouse.io/twilio/jobs/7923207",
-      "source": "greenhouse",
-      "posted_at": "2026-07-17T15:48:27-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": null,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "analytics",
-        "marketing",
-        "marketing analyst"
-      ],
-      "ats_score": 67,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [
-        "experimentation",
-        "python",
-        "segmentation"
-      ],
-      "requested_keywords": [
-        "analytics",
-        "conversion",
-        "dashboard",
-        "experimentation",
-        "funnel",
-        "gtm",
-        "insights",
-        "plg",
-        "product-led growth",
-        "python",
-        "r",
-        "reporting",
-        "saas",
-        "segmentation",
-        "sql"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 67,
-          "missing": [
-            "experimentation",
-            "python",
-            "segmentation"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 60,
-          "missing": [
-            "experimentation",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 60,
-          "missing": [
-            "experimentation",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "experimentation",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "experimentation",
-            "python"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are\u00a0 \n At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to \u00a0hundreds of thousands of businesses\u00a0 and empower millions of developers worldwide to craft personalized customer experiences. \n Our dedication to remote-first work , and strong culture of connection and global inclusion means that no matter your location, you\u2019re part of a vibrant team with diverse experiences making a global impact each day. As we continue to revolutionize how the world interacts, we\u2019re acquiring new skills and experiences that make work feel truly rewarding. Your career at Twilio is in your hands. We use Artificial Intelligence (AI) to help make our hiring process efficient. That said, every hiring decision is made by real Twilions! \n . See yourself at Twilio \n Join the team as our next Marketing Analyst, PLG & Self-Serve Analytics. \n About the job \n This position is needed to\u00a0be part of a highly visible Marketing Analytics team serving as the dedicated analytics partner for Twilio's self-serve and PLG motion, reporting into the MSA&I function (Marketing Strategy, Analytics and Innovation). You will serve as the connective tissue between GTM engineers and business teams , ensuring business goals are translated into scalable technical programs. You will own the end-to-end process of designing and iterating on high-impact sales programs and growth experiments, working with great minds across Marketing, Product, Sales, and Finance. \n Responsibilities \n In this role, you\u2019ll: \n \n Lead PLG Analytics: Own PLG analytics for Twilio's self-service business, including free-to-paid conversion, usage-based cohorting, signal-based audience development, and growth experimentation across the self-serve funnel. Build the bridge between Self Service and GTM motion to allow faster conversions \n Bridge the Technical Gap: Translate business needs into technical solutions using Python and SQL. \u00a0Collaborate with Marketing Data Engineering to take tests from pilot to production. Ensure every technical pilot/ prod development has marketing impact and is measurable and scalable \n Build Strategic Partnerships: Build relationships with sales and marketing leaders to translate hypotheses into actionable experiments and identify high-leverage use cases \n Drive Iteration: Build tight feedback loops with sales teams to validate play effectiveness and evolve dashboards, cohort models, and experimentation frameworks \n Synthesize Data: Distill complex insights into clear, concise communication for both technical and non-technical stakeholders, focusing on 1-2 succinct takeaways for executives. \n Develop Toolkits: Build and maintain analytical toolkits - scoring models, segmentation frameworks, dashboards - that help Sales and Marketing teams act on insights at scale \n \n Qualifications\u00a0 \n Twilio values diverse experiences from all kinds of industries, and we encourage everyone who meets the required qualifications to apply. If your career is just starting or hasn't followed a traditional path, don't let that stop you from considering Twilio. We are always looking for people who will bring something new to the table! \n *Required: \n \n Proven Technical Ability: Fluency in SQL and Python is essential. \n PLG/Self-Serve Experience : Prior experience with product-led growth metrics (activation rates, free-to-paid conversion, usage-based expansion) or experience in a usage-based SaaS environment \n AI/LLM Fluency: Ability to work with different Large Language Models (LLMs) to develop innovative business solutions. \n Analytical Mindset: Experience leveraging data to uncover insights and influence business strategy. \n Strategic Thinker: A passion for \"picking up the trash\", identifying problems and fixing them proactively instead of waiting for instructions. \n Education: Bachelor's degree in a quantitative or business field, or equivalent practical experience. \n \n Location \n This role will be remote, but is not eligible to be hired in CA, CT, NJ, NY, PA, WA. \n Travel\u00a0 \n We prioritize connection and opportunities to build relationships with our customers and each other. For this role, approximately 15% travel is anticipated to help you connect in-person in a meaningful way.\u00a0 \n What We Offer \n Working at Twilio offers many benefits, including competitive pay, generous time off, ample parental and wellness leave, healthcare, a retirement savings program, and much more. Offerings vary by location. \n Compensation \n *Please note this role is open to candidates outside of California, Colorado, Hawaii, Illinois, Maryland, Massachusetts, Minnesota, New Jersey, New York, Vermont, Washington D.C., and Washington State. The information below is provided for candidates hired in those locations only. \n The estimated pay ranges for this role are as follows: \n \n Based in Colorado, Hawaii, Illinois, Maryland, Massachusetts, Minnesota, Vermont or Washington D.C. : $96,640 - $120,800. \n Based in New York, New Jersey, Washington State, or California (outside of the San Francisco Bay area): $102,240 - $127,800. \n Based in the San Francisco Bay area, California: $113,600 - $142,000. \n This role may be eligible to participate in Twilio\u2019s equity plan and corporate bonus plan. All roles are generally eligible for the following benefits: health care insurance, 401(k) retirement account, paid sick time, paid personal time off, paid parental leave. \n \n The successful candidate\u2019s starting salary will be determined based on permissible, non-discriminatory factors such as skills, experience, and geographic location. \n Application deadline information\u00a0 \n Applications for this role are intended to be accepted until July 31, 2026, but may change based on business needs.\u00a0 Twilio thinks big. Do you? \n We like to solve problems, take initiative, pitch in when needed, and are always up for trying new things. That's why we seek out colleagues who embody our values \u2014 something we call Twilio Magic . Additionally, we empower employees to build positive change in their communities by supporting their volunteering and donation efforts. \n So, if you're ready to unleash your full potential, do your best work, and be the best version of yourself, apply now! If this role isn't what you're looking for, please consider other open positions. \n Twilio is proud to be an equal opportunity employer. We do not discriminate based upon race, religion, color, national origin, sex (including pregnancy, childbirth, reproductive health decisions, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, genetic information, political views or activity, or other applicable legally protected characteristics. We also consider qualified applicants with criminal histories, consistent with applicable federal, state and local law. Qualified applicants with arrest or conviction records will be considered for employment in accordance with the Los Angeles County Fair Chance Ordinance for Employers and the California Fair Chance Act. Additionally, Twilio participates in the E-Verify program in certain locations, as required by law.",
-      "resume_core": {
-        "label": "Twilio \u2014 Marketing Analyst, PLG & Self-Serve Analytics",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Twilio is hiring a Marketing Analyst, PLG & Self-Serve Analytics and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Twilio, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Twilio%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "enrichment": {
-        "sponsorship": "Unknown",
-        "sponsorship_evidence": "",
-        "skills": [
-          "PLG analytics",
-          "free-to-paid conversion analysis",
-          "usage-based cohorting",
-          "growth experimentation",
-          "dashboarding",
-          "translating business needs into technical specs"
-        ],
-        "tools": [
-          "Python",
-          "SQL"
-        ],
-        "preferences": [
-          "experience bridging marketing and data engineering",
-          "stakeholder management with sales/marketing leaders"
-        ],
-        "seniority": "IC",
-        "min_years": null,
-        "max_years": null,
-        "boston_score": 80,
-        "boston_note": "Fully remote US",
-        "persona_fit": 80,
-        "persona_note": "Analyst-lane title fit, remote US; matches if years \u22642"
-      },
-      "boston_score": 80
     },
     {
       "id": "5ffa138b0932b22b",
