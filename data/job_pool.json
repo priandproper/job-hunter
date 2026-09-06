@@ -1,7 +1,178 @@
 {
- "updated_at": "2026-09-05 13:08:02",
- "count": 202,
+ "updated_at": "2026-09-06 08:04:57",
+ "count": 207,
  "jobs": [
+  {
+   "id": "313be06e5b2594ee",
+   "company": "Netflix",
+   "title": "Ads Product Marketing Manager",
+   "location": "New York,New York,United States of America",
+   "url": "https://explore.jobs.netflix.net/careers/job/790317110266",
+   "source": "netflix",
+   "department": "Marketing",
+   "posted_at": "",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "2de2717916e34168",
+   "company": "Netflix",
+   "title": "Associate Manager, UCAN Marketing Operations",
+   "location": "Los Angeles,California,United States of America",
+   "url": "https://explore.jobs.netflix.net/careers/job/790316561268",
+   "source": "netflix",
+   "department": "Program Management",
+   "posted_at": "",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "4690698bd251899f",
+   "company": "Nvidia",
+   "title": "CUDA Libraries and Frameworks Product Marketing Manager",
+   "location": "US, CA, Santa Clara",
+   "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/CUDA-Libraries-and-Frameworks-Product-Marketing-Manager_JR2019940",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "6c7a088a8e62971e",
+   "company": "Nvidia",
+   "title": "Technical Product Marketing Manager - Healthcare and Life Sciences",
+   "location": "US, CA, Santa Clara",
+   "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Product-Marketing-Manager---Healthcare-and-Life-Sciences_JR2002885",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "558137f8baf9e457",
+   "company": "Nvidia",
+   "title": "Technical Marketing Manager - Data Center Infrastructure",
+   "location": "US, CA, Santa Clara",
+   "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Marketing-Manager---Data-Center-Infrastructure_JR1996301",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "277ee8ed4207443d",
+   "company": "Nvidia",
+   "title": "Campaign Manager, Cybersecurity",
+   "location": "US, CA, Santa Clara",
+   "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Campaign-Manager--Cybersecurity_JR2019233",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "a08a385bc9fd5197",
+   "company": "Adobe",
+   "title": "Product Marketing Manager",
+   "location": "3 Locations",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Product-Marketing-Manager_R168163",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "5339564597c3b41d",
+   "company": "Adobe",
+   "title": "Product Marketing Manager and GenAI Strategist",
+   "location": "3 Locations",
+   "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/Product-Marketing-Manager-and-GenAI-Strategist_R166382-1",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 30+ Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "7a0f33e6049b7a35",
+   "company": "Autodesk",
+   "title": "Strategic Partnerships & Associations Marketing Manager, AEC",
+   "location": "6 Locations",
+   "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
+   "source": "workday",
+   "department": "",
+   "posted_at": "Posted 23 Days Ago",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-09-06 08:04:57",
+   "_last_seen": "2026-09-06 08:04:57"
+  },
   {
    "id": "e792b757371fa40f",
    "company": "Ramp",
@@ -19,7 +190,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-05 13:08:02",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "31dfa1180b118b79",
@@ -38,7 +209,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-05 13:08:02",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "e6ffa8848724bd19",
@@ -57,7 +228,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "1871cc7720fa514a",
@@ -76,7 +247,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "7db531b103656e58",
@@ -95,7 +266,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "49503b6aa33ac8e7",
@@ -114,7 +285,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a8ddc8abdaa9847e",
@@ -133,7 +304,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "1c5e8ec0f912722f",
@@ -152,7 +323,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "824d92d73f6e51ac",
@@ -171,7 +342,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a0a82ef27566110f",
@@ -190,7 +361,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "fb106e1a5725c16b",
@@ -209,7 +380,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "d11f5f74adfb4a0a",
@@ -228,7 +399,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "9b3ee4b95406260d",
@@ -247,7 +418,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "725894adb4922154",
@@ -266,7 +437,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "ad15380f4292f43e",
@@ -285,7 +456,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "55b70f1931ceebb1",
@@ -304,7 +475,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "6d1d382a2a6558a6",
@@ -323,7 +494,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "7cd8f8884f74dce9",
@@ -342,7 +513,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "d63f422c4a77d3a0",
@@ -361,7 +532,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "9f3e12fa6c8d1854",
@@ -371,7 +542,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Marketing-Specialist_JR2024965",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 2 Days Ago",
+   "posted_at": "Posted 3 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -380,7 +551,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5748a74750d78baf",
@@ -390,7 +561,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Go-to-Market-Product-Manager---Ecosystem-ODM-Enablement_JR2002082",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 4 Days Ago",
+   "posted_at": "Posted 5 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -399,7 +570,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "951326abfdc87259",
@@ -409,7 +580,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Storytelling-Marketing--Product-Marketing-Spike-_JR-0108731",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 4 Days Ago",
+   "posted_at": "Posted 5 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -418,7 +589,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "7bf563f07c7081a8",
@@ -437,7 +608,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-09-04 08:06:09",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "4d513f2dbdaf082f",
@@ -456,7 +627,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "28693282f11f5928",
@@ -475,7 +646,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "805c0cffb55f198e",
@@ -494,7 +665,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-29 10:59:05",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "b04aaf00eb4cfb79",
@@ -513,7 +684,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-28 08:05:13",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "2b8351477b6372eb",
@@ -532,7 +703,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "48b69f16033cc03f",
@@ -551,7 +722,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "cf968a8d80880acf",
@@ -570,7 +741,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "bcd1d7ceea3bcb3e",
@@ -589,7 +760,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-27 08:05:14",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "261d5af0086187c9",
@@ -608,7 +779,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "73a30f6c87a52f12",
@@ -627,7 +798,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "f46d44b45616cfba",
@@ -646,7 +817,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-26 11:36:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5ffa138b0932b22b",
@@ -665,7 +836,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "7b2d28012026b1b0",
@@ -684,7 +855,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "8103d9bfe765ac52",
@@ -703,7 +874,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "fb8ae8849d6730fe",
@@ -713,7 +884,7 @@
    "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/M-A-IT-Business-Analyst_R171422",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 12 Days Ago",
+   "posted_at": "Posted 13 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -722,7 +893,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "69ed56c2975353f5",
@@ -732,7 +903,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Manager--Go-To-Market--GTM--Associates_JR-0108463",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 5 Days Ago",
+   "posted_at": "Posted 6 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -741,7 +912,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-25 08:20:55",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "3c731ba73857ff66",
@@ -751,7 +922,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager--NVIDIA-NIM_JR2015402",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 12 Days Ago",
+   "posted_at": "Posted 13 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -760,7 +931,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-24 11:19:34",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "bcb1d4970e530a8e",
@@ -779,7 +950,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "8701cb0012d6f8e3",
@@ -798,7 +969,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "15e55bcab5e68930",
@@ -817,7 +988,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "af5f9998a1077123",
@@ -836,7 +1007,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "afae62471a5e4d66",
@@ -855,7 +1026,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "43609f90d427914e",
@@ -865,7 +1036,7 @@
    "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Growth-Marketing-Manager_3162803",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 15 Days Ago",
+   "posted_at": "Posted 16 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -874,7 +1045,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-22 11:42:10",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "195163851ba25eca",
@@ -893,7 +1064,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "0bf849e45b8fcbc7",
@@ -912,7 +1083,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "6cdf2bc5fc3efec0",
@@ -931,7 +1102,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "4eeb389c61108f9d",
@@ -950,7 +1121,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-21 11:25:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a14189d88d94d617",
@@ -969,7 +1140,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "c48cb9b680bd9e24",
@@ -988,7 +1159,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "12b4f50dd9ca326e",
@@ -998,7 +1169,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Senior-Compensation-Business-Partner--Sales_JR-0108857",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 17 Days Ago",
+   "posted_at": "Posted 18 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1007,7 +1178,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "c483adbd7baba543",
@@ -1026,7 +1197,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "d3cfe0133e875c6c",
@@ -1036,7 +1207,7 @@
    "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Growth-Marketing-Manager_JR-0109235",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 5 Days Ago",
+   "posted_at": "Posted 6 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1045,7 +1216,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "96229a13207c8b26",
@@ -1064,7 +1235,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "ab3a2221c53424c1",
@@ -1083,7 +1254,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "be3b962b92dc9282",
@@ -1102,7 +1273,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "25899da2215c6cdd",
@@ -1121,7 +1292,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "fe6cf0251d88657f",
@@ -1140,7 +1311,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-19 11:20:49",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "daee586b63ff3557",
@@ -1159,7 +1330,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-17 10:26:03",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a35d5a286dd74158",
@@ -1178,7 +1349,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5d00d87747c7b695",
@@ -1197,7 +1368,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "05b9408d0e1d0b53",
@@ -1216,7 +1387,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-15 08:50:38",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a5858307b4ddffa0",
@@ -1235,7 +1406,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "39940a5d4577edfa",
@@ -1254,7 +1425,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-14 09:49:57",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "9aa9c26237ac1dd6",
@@ -1273,7 +1444,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-13 09:48:18",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "fafab0c23ed9f33f",
@@ -1292,7 +1463,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "23020dc5fae8cc7f",
@@ -1311,7 +1482,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "079cc7591b78aefb",
@@ -1330,7 +1501,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-12 12:32:13",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "4c41f70a8d6ac63e",
@@ -1349,7 +1520,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-10 22:26:24",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "2ddc8ca9f79ce13d",
@@ -1359,7 +1530,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 29 Days Ago",
+   "posted_at": "Posted 30 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1368,7 +1539,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-08 09:50:34",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a71d165489aac636",
@@ -1387,7 +1558,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "2e89cfafeb5f03ba",
@@ -1406,7 +1577,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-07 09:38:05",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "89d266be6a3ba973",
@@ -1425,7 +1596,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "7e22b5465049d7ef",
@@ -1444,7 +1615,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "868b59f43da78a05",
@@ -1463,7 +1634,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-06 09:09:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "1c1d50a3cd84472c",
@@ -1482,7 +1653,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-05 10:23:34",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "80900b99d80cd4c4",
@@ -1501,7 +1672,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "b53a072240d06d18",
@@ -1520,7 +1691,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "2b9301348a2fd72f",
@@ -1539,7 +1710,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "dd8291648bcc1641",
@@ -1558,7 +1729,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-04 16:48:31",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "81389a91c62c4635",
@@ -1577,7 +1748,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5326ec612ee4279d",
@@ -1596,7 +1767,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "e8583a28d2df7186",
@@ -1615,7 +1786,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "0228210f71e1787b",
@@ -1634,7 +1805,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "3d60b9f8edc51296",
@@ -1653,7 +1824,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "937dade260a3da97",
@@ -1672,7 +1843,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "d1d38028ccfbc834",
@@ -1691,7 +1862,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "b0923a3fcd6bbf90",
@@ -1710,7 +1881,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "97939e8d55a38cd0",
@@ -1729,7 +1900,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "e4b3e5c5142c565d",
@@ -1748,7 +1919,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "0dfd4cde0d85841f",
@@ -1767,7 +1938,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "49c2c982af5e1876",
@@ -1777,7 +1948,7 @@
    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
    "source": "workday",
    "department": "",
-   "posted_at": "Posted 16 Days Ago",
+   "posted_at": "Posted 17 Days Ago",
    "sponsorship": "Unknown",
    "sponsorship_note": "",
    "salary_raw": "",
@@ -1786,7 +1957,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "42cb70431b0393e9",
@@ -1805,7 +1976,26 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-02 21:41:40",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
+  },
+  {
+   "id": "2416ce6b7c517d58",
+   "company": "Braze",
+   "title": "Technology Partners Product Marketing Manager",
+   "location": "San Francisco",
+   "url": "https://job-boards.greenhouse.io/braze/jobs/8089842",
+   "source": "greenhouse",
+   "department": "Marketing",
+   "posted_at": "2026-08-21T07:33:33-04:00",
+   "sponsorship": "Unknown",
+   "sponsorship_note": "",
+   "salary_raw": "",
+   "tools": [],
+   "excerpt": "At Braze, we have found our people. We\u2019re a genuinely approachable, exceptionally kind, and intensely passionate crew. \n We seek to ignite that passion by setting high standards, championing teamwork, and creating work-life harmony as we collectively navigate rapid growth on a global scale while striving for greater equity and opportunity \u2013 inside and outside our organization. \n To flourish here, you must be prepared to set a high bar for yourself and those around you. There is always a way to contribute: Acting with autonomy, having accountability and being open to new perspectives are essential to our continued success. \n Our deep curiosity to learn and our eagerness to share diverse passions with others gives us balance and injects a one-of-a-kind vibrancy into our culture. \n If you are driven to solve exhilarating challenges and have a bias toward action in the face of change, you will be empowered to make a real impact here, with a sharp and passionate team at your back. If Braze sounds like a place where you can thrive, we can\u2019t wait to meet you. At Braze, Product Marketing sits at the center of how we bring our platform to market\u2014shaping the narratives, positioning, and go-to-market motions that connect what we build to the value our customers feel. As part of our Product Marketing team, you'll own narratives and GTM\u00a0 for the strategic technology partnerships that extend what's possible on our platform. This is a role for a builder and a storyteller: someone energized by turning complex offerings into clear, compelling go-to-market programs, and who thrives working shoulder-to-shoulder with teams across Product, Sales, Partnership, and Marketing to bring them to life. \n WHAT YOU'LL DO \n You will translate Braze's strategic technology partnerships into differentiated messaging, joint go-to-market programs, and field-ready assets that ladder up to our core platform narrative. \n This is an individual contributor role focused on strong PMM craft and cross-functional execution. You'll bring a clear understanding of how go-to-market strategies work with technology platform partners, and you'll work closely with internal cross-functional teams including Product, Partnerships, Sales, and Marketing to take initiatives from messaging through to field readiness. \n GTM Strategy & Messaging\u00a0 \n \n Develop GTM strategy based on joint business plans for strategic technology partnerships in collaboration with partner leads \n Own the messaging architecture for Braze's strategic technology partnerships (e.g., cloud hyperscalers and data platforms), ensuring each partnership ladders up to our core platform narrative and customer engagement story \n Translate platform integrations into clear, differentiated value propositions with defined customer use cases and competitive angles \n Work with Core Product Marketing to ensure technology partners are reflected accurately in product launches, campaigns, and core messaging \n \n GTM Execution & Enablement \n \n Drive joint go-to-market and co-marketing programs with technology platform partners, coordinating timelines and deliverables across internal teams \n Drive partner launch motions end-to-end: messaging, packaging, enablement materials, and field readiness \n Build and deliver core assets and enablement that actually get used in the field \n Track performance and adoption, and report results back to cross-functional stakeholders \n \n Cross-Functional Execution \n \n Work closely with Product, GTM Strategy, Sales, Marketing, and Partnership to align on priorities and execute against them \n Partner with Sales and the field to support active deals, customer conversations, and positioning \n \n What Success Looks Like \n In your first year, success means: \n \n A repeatable launch and enablement motion for technology platform partnerships, with integrations reflected consistently across launches, campaigns, and core messaging \n Trusted, productive relationships across Product, Sales, Partners, Marketing, and Services\u2014you're the person teams pull in early \n \n WHO YOU ARE \n \n A storyteller. You turn complex offerings and integrations into clear, differentiated narratives that resonate with buyers and the field alike \n A builder. You're comfortable with ambiguity and energized by creating structure, frameworks, and repeatable motions where none existed \n A collaborator. You're a sleeves-rolled-up, low-ego operator who brings cross-functional teams along and gets things shipped without direct authority \n GTM-fluent. You understand how go-to-market strategies work with technology platform partners and how to execute them in a fast-moving, matrixed organization \n \n What You Bring to the Team \n \n 7\u201310+ years in product and/or partner marketing at a growing B2B technology company, with strong product marketing (PMM) craft at the core \n A clear, practical understanding of how go-to-market strategies work with technology platform partners, including joint GTM programs, co-marketing motions, and integration launches \n Strong PMM fundamentals: messaging frameworks, competitive positioning, narrative development, and the ability to translate complex offerings and integrations into clear, buyer-ready stories \n Experience marketing technology platform partnerships (e.g., cloud hyperscalers, data platforms, and the broader SaaS/martech ecosystem) \n Experience building sales and enablement content\u2014solution briefs, battle cards, decks, playbooks\u2014that gets adopted and used by the field \n A proven ability to work closely with cross-functional teams and execute without direct authority, navigating a matrixed organization to get things shipped \n Excellent communicator, comfortable presenting to internal stakeholders and partners \n \n Nice to Have \n \n Experience in customer engagement, marketing technology, CDP, or adjacent data/SaaS categories \n \n For candidates based in the United States, the pay range for this position at the start of employment is expected to be between $123,000 and $184,000/year, with an expected On Target Earnings (OTE) between $142,000 and $211,000/year (including bonus or commission). Your exact offer may vary depending on multiple individualized factors, including market location, job-related knowledge, skills, and experience. In addition to cash compensation, this role qualifies for a comprehensive Total Rewards package that includes equity grants of restricted stock (RSUs) so that you will own a piece of our company. \n #LI-Hybrid \n WHAT WE OFFER \n Braze benefits vary by location, and we encourage you to review our specific benefits offerings for each country here . More details on benefits plans will be provided if you receive an offer of employment. \n From offering comprehensive benefits to fostering hybrid ways of working, we\u2019ve got you covered so you can prioritize work-life harmony. Braze offers benefits such as: \n \n Competitive compensation that may include equity \n Retirement and Employee Stock Purchase Plans \n Flexible paid time off \n Comprehensive benefit plans covering medical, dental, vision, life, and disability \n Family services that include fertility benefits and equal paid parental leave \n Professional development supported by formal career pathing, learning platforms, and a yearly learning stipend \n A curated in-office employee experience, designed to foster community, team connections, and innovation \n Opportunities to give back to your community, including an annual company-wide Volunteer Week and donation matching\u00a0 \n Employee Resource Groups that provide supportive communities within Braze \n Collaborative, transparent, and fun culture recognized as a Great Place to Work\u00ae \n \n ABOUT BRAZE Braze is the leading customer engagement platform that empowers brands to Be Absolutely Engaging\u2122. Braze helps brands deliver great customer experiences that drive value both for consumers and for their businesses. Built on a foundation of composable intelligence, BrazeAI\u2122 allows marketers to combine and activate AI agents, mod",
+   "min_exp": null,
+   "status": "new",
+   "_first_seen": "2026-08-02 21:41:40",
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "ec78c5bd8839ca2c",
@@ -1824,7 +2014,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "4ec6df2c45f7e30d",
@@ -1843,7 +2033,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a082928e3da9ba8e",
@@ -1862,7 +2052,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-25 12:41:16",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "dadfd52d7ff53d46",
@@ -1881,7 +2071,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "643141349d6cd9fb",
@@ -1900,7 +2090,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-22 13:24:20",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "c58dc098f9ac3071",
@@ -1919,7 +2109,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "64f4f2cd017d2ea8",
@@ -1938,7 +2128,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 13:55:01",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "39e00f8015ccd5bc",
@@ -1957,7 +2147,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "e2320731ef3c3e02",
@@ -1976,7 +2166,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "6f535f12e5f2d3e3",
@@ -1995,7 +2185,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5d45f27bdd2a1ed0",
@@ -2014,7 +2204,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "16e948d09c5e75f7",
@@ -2033,7 +2223,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "ef34eeac5cec819d",
@@ -2052,7 +2242,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-21 02:49:15",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "423a88e2e06e9425",
@@ -2071,7 +2261,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "b7b17282a645a7cf",
@@ -2090,7 +2280,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "8509ae3ae4b184dd",
@@ -2109,7 +2299,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "5a06ee4d93c7f0cd",
@@ -2128,7 +2318,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "23d7c5db278b7755",
@@ -2147,7 +2337,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a0d726577f531ab9",
@@ -2166,7 +2356,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "8782c3c9a65c9ac7",
@@ -2185,7 +2375,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "d13590b2e66054ce",
@@ -2204,7 +2394,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "8fab479e16b7ad49",
@@ -2223,7 +2413,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "81aaf6254b7b8e88",
@@ -2242,7 +2432,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "92bf6fc6972ef216",
@@ -2261,7 +2451,7 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-09-05 13:08:02"
+   "_last_seen": "2026-09-06 08:04:57"
   },
   {
    "id": "a8ae8b395c7f7c7f",
@@ -2299,25 +2489,6 @@
    "min_exp": null,
    "status": "new",
    "_first_seen": "2026-08-20 12:01:19",
-   "_last_seen": "2026-09-04 08:06:09"
-  },
-  {
-   "id": "2416ce6b7c517d58",
-   "company": "Braze",
-   "title": "Technology Partners Product Marketing Manager",
-   "location": "San Francisco",
-   "url": "https://job-boards.greenhouse.io/braze/jobs/8089842",
-   "source": "greenhouse",
-   "department": "Marketing",
-   "posted_at": "2026-08-21T07:33:33-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "At Braze, we have found our people. We\u2019re a genuinely approachable, exceptionally kind, and intensely passionate crew. \n We seek to ignite that passion by setting high standards, championing teamwork, and creating work-life harmony as we collectively navigate rapid growth on a global scale while striving for greater equity and opportunity \u2013 inside and outside our organization. \n To flourish here, you must be prepared to set a high bar for yourself and those around you. There is always a way to contribute: Acting with autonomy, having accountability and being open to new perspectives are essential to our continued success. \n Our deep curiosity to learn and our eagerness to share diverse passions with others gives us balance and injects a one-of-a-kind vibrancy into our culture. \n If you are driven to solve exhilarating challenges and have a bias toward action in the face of change, you will be empowered to make a real impact here, with a sharp and passionate team at your back. If Braze sounds like a place where you can thrive, we can\u2019t wait to meet you. At Braze, Product Marketing sits at the center of how we bring our platform to market\u2014shaping the narratives, positioning, and go-to-market motions that connect what we build to the value our customers feel. As part of our Product Marketing team, you'll own narratives and GTM\u00a0 for the strategic technology partnerships that extend what's possible on our platform. This is a role for a builder and a storyteller: someone energized by turning complex offerings into clear, compelling go-to-market programs, and who thrives working shoulder-to-shoulder with teams across Product, Sales, Partnership, and Marketing to bring them to life. \n WHAT YOU'LL DO \n You will translate Braze's strategic technology partnerships into differentiated messaging, joint go-to-market programs, and field-ready assets that ladder up to our core platform narrative. \n This is an individual contributor role focused on strong PMM craft and cross-functional execution. You'll bring a clear understanding of how go-to-market strategies work with technology platform partners, and you'll work closely with internal cross-functional teams including Product, Partnerships, Sales, and Marketing to take initiatives from messaging through to field readiness. \n GTM Strategy & Messaging\u00a0 \n \n Develop GTM strategy based on joint business plans for strategic technology partnerships in collaboration with partner leads \n Own the messaging architecture for Braze's strategic technology partnerships (e.g., cloud hyperscalers and data platforms), ensuring each partnership ladders up to our core platform narrative and customer engagement story \n Translate platform integrations into clear, differentiated value propositions with defined customer use cases and competitive angles \n Work with Core Product Marketing to ensure technology partners are reflected accurately in product launches, campaigns, and core messaging \n \n GTM Execution & Enablement \n \n Drive joint go-to-market and co-marketing programs with technology platform partners, coordinating timelines and deliverables across internal teams \n Drive partner launch motions end-to-end: messaging, packaging, enablement materials, and field readiness \n Build and deliver core assets and enablement that actually get used in the field \n Track performance and adoption, and report results back to cross-functional stakeholders \n \n Cross-Functional Execution \n \n Work closely with Product, GTM Strategy, Sales, Marketing, and Partnership to align on priorities and execute against them \n Partner with Sales and the field to support active deals, customer conversations, and positioning \n \n What Success Looks Like \n In your first year, success means: \n \n A repeatable launch and enablement motion for technology platform partnerships, with integrations reflected consistently across launches, campaigns, and core messaging \n Trusted, productive relationships across Product, Sales, Partners, Marketing, and Services\u2014you're the person teams pull in early \n \n WHO YOU ARE \n \n A storyteller. You turn complex offerings and integrations into clear, differentiated narratives that resonate with buyers and the field alike \n A builder. You're comfortable with ambiguity and energized by creating structure, frameworks, and repeatable motions where none existed \n A collaborator. You're a sleeves-rolled-up, low-ego operator who brings cross-functional teams along and gets things shipped without direct authority \n GTM-fluent. You understand how go-to-market strategies work with technology platform partners and how to execute them in a fast-moving, matrixed organization \n \n What You Bring to the Team \n \n 7\u201310+ years in product and/or partner marketing at a growing B2B technology company, with strong product marketing (PMM) craft at the core \n A clear, practical understanding of how go-to-market strategies work with technology platform partners, including joint GTM programs, co-marketing motions, and integration launches \n Strong PMM fundamentals: messaging frameworks, competitive positioning, narrative development, and the ability to translate complex offerings and integrations into clear, buyer-ready stories \n Experience marketing technology platform partnerships (e.g., cloud hyperscalers, data platforms, and the broader SaaS/martech ecosystem) \n Experience building sales and enablement content\u2014solution briefs, battle cards, decks, playbooks\u2014that gets adopted and used by the field \n A proven ability to work closely with cross-functional teams and execute without direct authority, navigating a matrixed organization to get things shipped \n Excellent communicator, comfortable presenting to internal stakeholders and partners \n \n Nice to Have \n \n Experience in customer engagement, marketing technology, CDP, or adjacent data/SaaS categories \n \n For candidates based in the United States, the pay range for this position at the start of employment is expected to be between $123,000 and $184,000/year, with an expected On Target Earnings (OTE) between $142,000 and $211,000/year (including bonus or commission). Your exact offer may vary depending on multiple individualized factors, including market location, job-related knowledge, skills, and experience. In addition to cash compensation, this role qualifies for a comprehensive Total Rewards package that includes equity grants of restricted stock (RSUs) so that you will own a piece of our company. \n #LI-Hybrid \n WHAT WE OFFER \n Braze benefits vary by location, and we encourage you to review our specific benefits offerings for each country here . More details on benefits plans will be provided if you receive an offer of employment. \n From offering comprehensive benefits to fostering hybrid ways of working, we\u2019ve got you covered so you can prioritize work-life harmony. Braze offers benefits such as: \n \n Competitive compensation that may include equity \n Retirement and Employee Stock Purchase Plans \n Flexible paid time off \n Comprehensive benefit plans covering medical, dental, vision, life, and disability \n Family services that include fertility benefits and equal paid parental leave \n Professional development supported by formal career pathing, learning platforms, and a yearly learning stipend \n A curated in-office employee experience, designed to foster community, team connections, and innovation \n Opportunities to give back to your community, including an annual company-wide Volunteer Week and donation matching\u00a0 \n Employee Resource Groups that provide supportive communities within Braze \n Collaborative, transparent, and fun culture recognized as a Great Place to Work\u00ae \n \n ABOUT BRAZE Braze is the leading customer engagement platform that empowers brands to Be Absolutely Engaging\u2122. Braze helps brands deliver great customer experiences that drive value both for consumers and for their businesses. Built on a foundation of composable intelligence, BrazeAI\u2122 allows marketers to combine and activate AI agents, mod",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-08-02 21:41:40",
    "_last_seen": "2026-09-04 08:06:09"
   },
   {
@@ -3556,25 +3727,6 @@
    "_last_seen": "2026-08-11 13:29:45"
   },
   {
-   "id": "22d3fb7c6e9106f8",
-   "company": "Amazon",
-   "title": "Partner Marketing Manager, Global ISV Partner Marketing",
-   "location": "Seattle, Washington, USA",
-   "url": "https://www.amazon.jobs/en/jobs/10481699/partner-marketing-manager-global-isv-partner-marketing",
-   "source": "amazon",
-   "department": "aws",
-   "posted_at": "2026-07-22",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "This highly visible role will work across AWS Software & Technology partners globally to develop and implement strategic plans that include building awareness, generating demand and driving pipeline and revenue. The ideal candidate will have a deep understanding of B2B marketing strategies, coupled with hands-on experience in integrated marketing, digital demand generation, and partner or alliance marketing. You will be the subject matter expert for marketing partner solutions with and through partners across sales segments and geographies. The role will partner with product, field, brand, digital, partner marketing teams and agencies to define and execute a global demand, content and campaign strategy that drives acquisition and engagement. You will develop targeted marketing programs aligned with business priorities that engage and nurture prospects throughout the buyer's journey, measuring and optimizing performance against goals and ultimately driving conversion and revenue growth. You will work closely with partners and our Geo based partner teams to help execute these programs regionally and be an expert resource on marketing processes and guidelines for partners. This role requires a proven leader with the demonstrated ability to think strategically to build and convey compelling value propositions and content with technology partners. They will work closely with partners, partner management and marketing teams to identify specific use-cases, customer personas and industry verticals to build and deliver joint value propositions for using AWS. The ideal candidate will have creative ideas, extensive analytic and data-driven customer demand generation experience and a proven track record of driving successful demand generation programs. The ability to effectively communicate across both technical and non-technical audiences is critical. You should be detail-oriented and organized, capable of handling multiple projects at once, and comfortable dealing with ambiguity and rapidly changing priorities. A solid understanding of the cloud landscape and software providers are critical to this role. At AWS we prize innovation, agility and a builder mentality. The organization is purposefully flat to enable fast decision-making and we are empowered to resolve issues, deliver new ideas and optimize existing ones that serve our customers. This is an individual contributor role that is both strategic and tactical where you will ideate, build, execute, measure, and optimize programs that deliver value to customers and partners as both the musician and the composer. This is a unique opportunity to play a key role in an incredibly fast-growing business where you will work with some of the leading technology providers. AWS gives customers secure, scalable, global cloud infrastructure while paying only for what they use. Scaling through partners is a key part of how we help customers move to cloud services that power strategic workloads. If you have an entrepreneurial spirit, a history of success creating high-impact partner marketing programs, experience with large, ISV partners, and love helping partners reach their full potential, this position might be just for you. About the team Diverse Experiences Amazon values diverse experiences. Even if you do not meet all of the preferred qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn\u2019t followed a traditional path, or includes alternative experiences, don\u2019t let it stop you from applying. Why AWS Amazon Web Services (AWS) is the world\u2019s most comprehensive and broadly adopted cloud platform. We pioneered cloud computing and never stopped innovating \u2014 that\u2019s why customers from the most successful startups to Global 500 companies trust our robust suite of products and services to power their businesses. Work/Life Balance We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there\u2019s nothing we can\u2019t achieve in the cloud. Inclusive Team Culture Here at AWS, it\u2019s in our nature to learn and be curious. Our employee-led affinity groups foster a culture of inclusion that empower us to be proud of our differences. Ongoing events and learning experiences, including our Conversations on Race and Ethnicity (CORE) and AmazeCon (gender diversity) conferences, inspire us to never stop embracing our uniqueness. Mentorship and Career Growth We\u2019re continuously raising our performance bar as we strive to become Earth\u2019s Best Employer. That\u2019s why you\u2019ll find endless knowledge-sharing, mentorship and other career-advancing resources here to help you develop into a better-rounded professional. \n\nBasic qualifications:\n- 4+ years of professional non-internship marketing experience - Experience using data and metrics to drive improvements - Experience with Excel or Tableau (data manipulation, macros, charts and pivot tables) - Experience using Microsoft Excel to manipulate and analyze data - Experience building, executing and scaling cross-functional programs or marketing campaigns from concept to completion - Experience producing marketing promotional material for Owned & Operated channels - Experience in brand identity and voice development - Experience creating brand marketing content\n\nPreferred qualifications:\n- Experience using customer research, hard data and metrics to back up assumptions, generate forecasts, and assess the efficacy of marketing programs - Experience utilizing systems and tools involving email, web, analytics, and CRM (Marketo, Tableau, Salesforce, etc.) for targeting, segmentation, reporting for demand generation Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Los Angeles County applicants: Job duties for this position include: work safely and cooperatively with other employees, supervisors, and staff; adhere to standards of excellence despite stressful conditions; communicate effectively and respectfully with employees, supervisors, and staff to ensure exceptional customer service; and follow all federal, state, and local laws and Company policies. Criminal history may have a direct, adverse, and negative relationship with some of the material job duties of this position. These include the duties and responsibilities listed above, as well as the abilities to adhere to company policies, exercise sound judgment, effectively manage stress and work safely and respectfully with others, exhibit trustworthiness and professionalism, and safeguard business operations and the Company\u2019s reputation. Pursuant to the Los Angeles County Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Pursuant to the San Francisco Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Suppor",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-22 17:05:07",
-   "_last_seen": "2026-08-10 22:26:24"
-  },
-  {
    "id": "c6039c78651b057b",
    "company": "Amazon",
    "title": "Campaign Manager, AWS Cloud Sales Center (CSC) , US Customer Acquisition",
@@ -3782,63 +3934,6 @@
    "status": "new",
    "_first_seen": "2026-07-20 19:52:32",
    "_last_seen": "2026-07-25 12:41:16"
-  },
-  {
-   "id": "aea6c43eb5fd4a7f",
-   "company": "Stripe",
-   "title": "Program Manager, Go To Market",
-   "location": "SF",
-   "url": "https://stripe.com/jobs/search?gh_jid=7922532",
-   "source": "greenhouse",
-   "department": "1170 GEO Sales HQ (NA)",
-   "posted_at": "2026-07-22T13:25:41-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014from the world's largest enterprises to the most ambitious startups\u2014use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n You'll join Stripe's Sales Strategy and Operations team, a high-impact group that helps our GTM organization execute with speed, focus, and rigor. We translate strategy into scalable operating motions across the Americas Sales org and Global Product Sales organizations, including repeatable plays, durable cadences, and clear operational performance management. A core part of our remit is supporting Stripe's Alliances and Channels organization, particularly platform partners and SIs and consultancies. We partner closely with Sales leadership, Marketing, Product, Enablement, RevOps, and Finance to remove friction, improve visibility, and drive consistent execution that accelerates growth. \n What you'll do \n As the Go-to-Market Program Manager, you'll design and drive programs that help Stripe's Sales, Partner, and Channel teams execute with clarity and consistency. You'll own end-to-end delivery for critical GTM initiatives\u2014translating strategy into scalable plays, field-ready rollouts, and durable operating cadences. You'll work closely with Sales leadership, Partner teams, Marketing, Product, Sales Enablement, RevOps, and Finance to remove friction from the selling motion, improve pipeline discipline and forecasting rigor, and accelerate partner-influenced growth. In this role, you'll create clarity while navigating ambiguity, and you'll solve complex problems while operating in a high-growth environment. \n Responsibilities \n \u2022 Strategy and execution\u2014Be accountable for building and driving large-scale GTM programs end-to-end\u2014aligning stakeholders, defining the plan and operating model, and ensuring measurable outcomes. Drive the \"full-stack\" of change management (stakeholder engagement, champions, communications, and enablement) so programs land successfully with Sales and Partners. \n \u2022 Pipeline hygiene and forecasting cadence\u2014Support operating rhythms that improve pipeline quality, stage discipline, and forecast consistency. Partner with Sales Operations and Sales leadership to drive adoption, surface risk, and ensure leaders have reliable visibility into performance drivers. \n \u2022 Global initiatives\u2014Provide central project management support on high-priority global initiatives (i.e. \"Big Rocks\" workstreams) to drive decision-making, action, visibility, accountability, and impact. \n \u2022 Partner and channel GTM\u2014Support partner-inclusive motions that embed partners into the selling process (from opportunity identification through close and expansion). Coordinate partner readiness (offers, positioning, assets, and co-selling rhythms) and enable the \"operating handshake\" across teams to reduce friction and increase speed. \n \u2022 Executive reporting and business reviews\u2014Build concise exec-ready readouts that connect program activity to outcomes (pipeline created, conversion, win rate, cycle time, and partner influence) and drive decisions in WBR, MBR, and QBR forums. \n \u2022 Program scalability and foundation\u2014Develop a roadmap for the foundational requirements to operate the program efficiently and at scale. Drive scalability through process refinement and automation, collaborating closely with critical cross-functional teams to build the needed tools, dashboards, and automation. \n \u2022 Stakeholder alignment and communication\u2014Set goals and targets for programs, run key forums and updates, and keep executives and cross-functional partners informed on progress, risks, and decisions. Build strong collaborative relationships across Stripe. \n Who you are \n We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement. \n Minimum requirements \n \u2022 4+ years of experience in program management, GTM strategy and operations, business operations, management consulting, or a related discipline \n \u2022 A strong track record of delivering complex, cross-functional programs in a changing, ambiguous environment end-to-end (from problem definition through rollout and adoption) \n \u2022 Deep problem-solving and analysis experience (solving business problems\u2014commercial, operational, financial) in a Sales-oriented environment. You must have the ability to diagnose, simplify, and structure problems and solutions while having command of \"the details\". \n \u2022 Excellent analytical, presentation, and communication experience, influencing across all levels from front lines to C-Suite. You set a high-bar in terms of communication effectiveness.\u00a0 \n \u2022 The ability to seamlessly transition from strategy, high-level to very detailed, and a willingness to \"roll up your sleeves.\" You work well under pressure, with a high degree of adaptability and flexibility in a fast-paced, rapidly changing environment. \n \u2022 Ability to influence cross-functional stakeholders to align and execute on common objectives \n Preferred qualifications \n \u2022 Experience operating with incomplete data and reprioritizing as business needs change \n \u2022 Prior experience supporting enterprise GTM motions (Sales-led and partner-led) and partnering with senior stakeholders through executive-facing cadences (QBRs, exec briefings, and account and territory planning) \n \u2022 Background in GTM programs that improve field execution\u2014such as sales plays, partner co-sell motions, enablement rollouts, pipeline discipline, or launch and readiness programs across Sales, Marketing, and Product \n \u2022 Experience partnering with Data Science or building dashboards and automation for program observability \n \u2022 Familiarity with pipeline and forecasting operating rhythms (e.g., weekly forecast, MBR and QBR inputs) and improving pipeline hygiene at scale \n \u2022 Experience partnering closely with Sales Strategy and Operations on process and tooling improvements (e.g., dashboards, workflow automation, data quality initiatives) \n \u2022 Comfort with SQL or analytics tools to interrogate program and user data \n \u2022 Prior payments or fintech experience",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-20 19:44:52",
-   "_last_seen": "2026-07-22 17:05:07"
-  },
-  {
-   "id": "e021a68f8fc5ccf6",
-   "company": "Samsara",
-   "title": "Contract Recruiter  - GTM",
-   "location": "Remote - US",
-   "url": "https://www.samsara.com/company/careers/roles/7377416?gh_jid=7377416",
-   "source": "greenhouse",
-   "department": "Recruiting",
-   "posted_at": "2026-07-22T09:22:18-04:00",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "Who we are \n Samsara (NYSE: IOT) is the pioneer of the Connected Operations\u2122 Cloud, which is a platform that enables organizations that depend on physical operations to harness Internet of Things (IoT) data to develop actionable insights and improve their operations. At Samsara, we are helping improve the safety, efficiency and sustainability of the physical operations that power our global economy. Representing more than 40% of global GDP, these industries are the infrastructure of our planet, including agriculture, construction, field services, transportation, and manufacturing \u2014 and we are excited to help digitally transform their operations at scale. \n Working at Samsara means you\u2019ll help define the future of physical operations and be on a team that\u2019s shaping an exciting array of product solutions, including Video-Based Safety, Vehicle Telematics, Apps and Driver Workflows, and Equipment Monitoring. As part of a recently public company, you\u2019ll have the autonomy and support to make an impact as we build for the long term. About the role: \n At Samsara, we believe our people are our greatest investment, and hiring is a critical part of our success. We\u2019re looking for a talented Contract Recruiter to partner closely with our growing GTM teams\u2014hiring across functions such as Customer Success, Sales Operations, Sales Programs, Renewals, Sales Data Science, and Sales Enablement\u2014to build a strong pipeline of top-tier candidates. This role is a great opportunity for someone eager to grow their career while helping scale high-performing teams in a fast-paced, high-growth environment. \n This role is open to candidates residing in the US except the San Francisco Bay Metro Area, NYC Metro Area, and Washington, D.C. Metro Area. \n \u00a0 \n You should apply if: \n \n You want to impact the industries that run our world: Your efforts will result in real-world impact\u2014helping to keep the lights on, get food into grocery stores, reduce emissions, and most importantly, ensure workers return home safely. \n You are the architect of your own career: If you put in the work, this role won\u2019t be your last at Samsara. We set up our employees for success and have built a culture that encourages rapid career development, countless opportunities to experiment and master your craft in a hyper-growth environment. \n You\u2019re energized by our opportunity: The vision we have to digitize large sectors of the global economy requires your full focus and best efforts to bring forth creative, ambitious ideas for our customers. \n You want to be with the best: At Samsara, we win together, celebrate together, and support each other. You will be surrounded by a high-calibre team that will encourage you to do your best.\u00a0 \n \n In this role, you will: \u00a0 \n \n Manage Full-Cycle Recruiting: Create and implement strategies to solve problems and build diverse pipelines across Samsara\u2019s corporate teams through sourcing, referrals, research, events, and social media. Find and engage passive candidates through creative sourcing techniques and help them envision life at Samsara. Effectively manage multiple requisitions and candidates during high-volume periods while creating and owning a flawlessly positive candidate experience \n Be a Talent Advisor: Partner closely with hiring leaders to deeply understand their teams and goals. Organize and facilitate interview debriefs and drive offer approval, extension, and negotiation. Identify closing strategies for offers and proactively provide candidates with the appropriate information to help make their decision as easy as possible \n Influence with data: \u00a0Independently address and unblock data analysis challenges. Extract and synthesize insights. Identify headwinds and tailwinds with a search.\u00a0 \n Communicate Effectively: Tailor written and verbal communication to different audiences and situations. \n Manage Stakeholders: Be seen as a trusted partner by other key cross-functional points of contact. Able to identify friction points, set appropriate expectations, and drive initiatives to overcome obstacles with a search.\u00a0 \n Be a Diversity Advocate : Develop and implement sourcing strategies and marketing programs to identify top talent and build diverse candidate pipelines. Advise on structured interview processes that mitigate unconscious bias. Coach leaders and interviewers in inclusive interviewing best practices and objective feedback.\u00a0 \n Process Excellence: Track pipeline data and provide relevant and consistent updates to hiring managers. Maintain high attention to detail when entering data into Greenhouse and other recruiting tools \n Be a Cultural Champion: Champion, role model, and embed Samsara\u2019s cultural principles (Focus on Customer Success, Build for the Long Term, Adopt a Growth Mindset, Be Inclusive, Win as a Team) as we scale globally and across new offices \n \n Minimum requirements for this role: \n \n 4+ years of recruiting experience in a fast-paced environment \n Ability to create, measure, and scale the right workflow between candidates, hiring managers, and the recruiting team \n Proven strategic sourcing skills\u00a0 \n Team player with an eye for talent who loves connecting people and opportunities \n Able to confidently represent Samsara with professionalism both internally and externally \n Target-driven, detail-oriented, approachable, and able to bring up others around you \n Previous tech experience preferred, and an unwavering ability to work in a fast-paced environment \n Familiarity with Greenhouse or equivalent ATS experience \n BA/BS degree or equivalent work experience \n The range of annual base salary for full-time employees for this position is below. Please note that base pay offered may vary depending on factors including your city of residence, job-related knowledge, skills, and experience. This role is also eligible for an initial RSU grant with no vesting cliff, and ongoing refresh opportunities tied to performance, subject to plan terms and conditions. Learn more about our total rewards and benefits below. Annual Base Salary $83,538 \u2014 $126,360 USD Total Rewards \n At Samsara, we build for the people who keep the global economy moving. We want owners, not passengers, which is why our rewards are designed to fuel high-impact builders. Our compensation program delivers above-market total compensation through a combination of base salary, performance-based bonus/variable pay, and equity (for eligible roles) in a high-growth public company. We meaningfully differentiate pay for our top performers, who have the opportunity to earn above-market compensation that can outpace the broader market over time. \n Beyond compensation, we provide the foundations that enable long-term success: a flexible, employee-led remote model, a professional development stipend, comprehensive health and parental leave plans, and more. If you\u2019re ready to build for the long term and own the outcome, your journey starts here. \n Flexible Working\u00a0 \n At Samsara, we embrace a flexible working model that caters to the diverse needs of our teams. Our offices are open for those who prefer to work in-person and we also support remote work where it aligns with our operational requirements. For certain positions, being close to one of our offices or within a specific geographic area is important to facilitate collaboration, access to resources, or alignment with our service regions. In these cases, the job description will clearly indicate any working location requirements. Our goal is to ensure that all members of our team can contribute effectively, whether they are working on-site, in a hybrid model, or fully remotely. All offers of employment are contingent upon an individual\u2019s ability to secure and maintain the legal right to work at the company and in the specified work location, if applicable. \n Belonging at Samsara \n At Samsara, we welcome everyone regardless of their background. All qualified applicants will receive consideration for employment without regard to race, color, relig",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-20 20:06:54",
-   "_last_seen": "2026-07-22 12:42:24"
-  },
-  {
-   "id": "4bd31c678a04ff70",
-   "company": "Workday",
-   "title": "GTM Associate",
-   "location": "USA, NY, New York City",
-   "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/GTM-Associate_JR-0108651",
-   "source": "workday",
-   "department": "",
-   "posted_at": "Posted Today",
-   "sponsorship": "Unknown",
-   "sponsorship_note": "",
-   "salary_raw": "",
-   "tools": [],
-   "excerpt": "",
-   "min_exp": null,
-   "status": "new",
-   "_first_seen": "2026-07-22 00:17:37",
-   "_last_seen": "2026-07-22 00:17:37"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05 08:14:12",
+  "generated_at": "2026-09-06 08:00:05",
   "meta": {
-    "job_count": 202,
+    "job_count": 207,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -1055,7 +1055,7 @@
     "missing_leaderboard": [
       {
         "keyword": "marketo",
-        "count": 28
+        "count": 27
       },
       {
         "keyword": "looker",
@@ -1063,7 +1063,7 @@
       },
       {
         "keyword": "forecasting",
-        "count": 14
+        "count": 13
       },
       {
         "keyword": "attribution",
@@ -6945,225 +6945,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Vercel is hiring a Growth Marketing Manager, Agent Stack  and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Vercel, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Vercel%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "22d3fb7c6e9106f8",
-      "company": "Amazon",
-      "title": "Partner Marketing Manager, Global ISV Partner Marketing",
-      "location": "Seattle, Washington, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10481699/partner-marketing-manager-global-isv-partner-marketing",
-      "source": "amazon",
-      "posted_at": "2026-07-22",
-      "sponsorship": "Unknown",
-      "fit_score": 97,
-      "min_years": null,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing",
-        "partner marketing"
-      ],
-      "ats_score": 57,
-      "best_variant": "Marketing & Business Analyst",
-      "missing_keywords": [
-        "marketo"
-      ],
-      "requested_keywords": [
-        "analytics",
-        "b2b",
-        "brand",
-        "brand marketing",
-        "campaign",
-        "conversion",
-        "crm",
-        "cross-functional",
-        "data-driven",
-        "demand gen",
-        "demand generation",
-        "excel",
-        "marketo",
-        "nurture",
-        "partner marketing",
-        "personas",
-        "pipeline",
-        "r",
-        "reporting",
-        "salesforce",
-        "segmentation",
-        "tableau",
-        "value proposition"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 57,
-          "missing": [
-            "marketo"
-          ]
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 57,
-          "missing": [
-            "marketo",
-            "segmentation"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 48,
-          "missing": [
-            "crm",
-            "data-driven",
-            "excel",
-            "marketo"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 48,
-          "missing": [
-            "crm",
-            "data-driven",
-            "marketo"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 43,
-          "missing": [
-            "crm",
-            "data-driven",
-            "excel",
-            "marketo"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "This highly visible role will work across AWS Software & Technology partners globally to develop and implement strategic plans that include building awareness, generating demand and driving pipeline and revenue. The ideal candidate will have a deep understanding of B2B marketing strategies, coupled with hands-on experience in integrated marketing, digital demand generation, and partner or alliance marketing. You will be the subject matter expert for marketing partner solutions with and through partners across sales segments and geographies. The role will partner with product, field, brand, digital, partner marketing teams and agencies to define and execute a global demand, content and campaign strategy that drives acquisition and engagement. You will develop targeted marketing programs aligned with business priorities that engage and nurture prospects throughout the buyer's journey, measuring and optimizing performance against goals and ultimately driving conversion and revenue growth. You will work closely with partners and our Geo based partner teams to help execute these programs regionally and be an expert resource on marketing processes and guidelines for partners. This role requires a proven leader with the demonstrated ability to think strategically to build and convey compelling value propositions and content with technology partners. They will work closely with partners, partner management and marketing teams to identify specific use-cases, customer personas and industry verticals to build and deliver joint value propositions for using AWS. The ideal candidate will have creative ideas, extensive analytic and data-driven customer demand generation experience and a proven track record of driving successful demand generation programs. The ability to effectively communicate across both technical and non-technical audiences is critical. You should be detail-oriented and organized, capable of handling multiple projects at once, and comfortable dealing with ambiguity and rapidly changing priorities. A solid understanding of the cloud landscape and software providers are critical to this role. At AWS we prize innovation, agility and a builder mentality. The organization is purposefully flat to enable fast decision-making and we are empowered to resolve issues, deliver new ideas and optimize existing ones that serve our customers. This is an individual contributor role that is both strategic and tactical where you will ideate, build, execute, measure, and optimize programs that deliver value to customers and partners as both the musician and the composer. This is a unique opportunity to play a key role in an incredibly fast-growing business where you will work with some of the leading technology providers. AWS gives customers secure, scalable, global cloud infrastructure while paying only for what they use. Scaling through partners is a key part of how we help customers move to cloud services that power strategic workloads. If you have an entrepreneurial spirit, a history of success creating high-impact partner marketing programs, experience with large, ISV partners, and love helping partners reach their full potential, this position might be just for you. About the team Diverse Experiences Amazon values diverse experiences. Even if you do not meet all of the preferred qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn\u2019t followed a traditional path, or includes alternative experiences, don\u2019t let it stop you from applying. Why AWS Amazon Web Services (AWS) is the world\u2019s most comprehensive and broadly adopted cloud platform. We pioneered cloud computing and never stopped innovating \u2014 that\u2019s why customers from the most successful startups to Global 500 companies trust our robust suite of products and services to power their businesses. Work/Life Balance We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there\u2019s nothing we can\u2019t achieve in the cloud. Inclusive Team Culture Here at AWS, it\u2019s in our nature to learn and be curious. Our employee-led affinity groups foster a culture of inclusion that empower us to be proud of our differences. Ongoing events and learning experiences, including our Conversations on Race and Ethnicity (CORE) and AmazeCon (gender diversity) conferences, inspire us to never stop embracing our uniqueness. Mentorship and Career Growth We\u2019re continuously raising our performance bar as we strive to become Earth\u2019s Best Employer. That\u2019s why you\u2019ll find endless knowledge-sharing, mentorship and other career-advancing resources here to help you develop into a better-rounded professional. \n\nBasic qualifications:\n- 4+ years of professional non-internship marketing experience - Experience using data and metrics to drive improvements - Experience with Excel or Tableau (data manipulation, macros, charts and pivot tables) - Experience using Microsoft Excel to manipulate and analyze data - Experience building, executing and scaling cross-functional programs or marketing campaigns from concept to completion - Experience producing marketing promotional material for Owned & Operated channels - Experience in brand identity and voice development - Experience creating brand marketing content\n\nPreferred qualifications:\n- Experience using customer research, hard data and metrics to back up assumptions, generate forecasts, and assess the efficacy of marketing programs - Experience utilizing systems and tools involving email, web, analytics, and CRM (Marketo, Tableau, Salesforce, etc.) for targeting, segmentation, reporting for demand generation Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Los Angeles County applicants: Job duties for this position include: work safely and cooperatively with other employees, supervisors, and staff; adhere to standards of excellence despite stressful conditions; communicate effectively and respectfully with employees, supervisors, and staff to ensure exceptional customer service; and follow all federal, state, and local laws and Company policies. Criminal history may have a direct, adverse, and negative relationship with some of the material job duties of this position. These include the duties and responsibilities listed above, as well as the abilities to adhere to company policies, exercise sound judgment, effectively manage stress and work safely and respectfully with others, exhibit trustworthiness and professionalism, and safeguard business operations and the Company\u2019s reputation. Pursuant to the Los Angeles County Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Pursuant to the San Francisco Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Suppor",
-      "resume_core": {
-        "label": "Amazon \u2014 Partner Marketing Manager, Global ISV Partner Marketing",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Partner Marketing Manager, Global ISV Partne\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "8509ae3ae4b184dd",
@@ -18280,240 +18061,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Amazon is hiring a Business Analyst III - AMZ9898510 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "aea6c43eb5fd4a7f",
-      "company": "Stripe",
-      "title": "Program Manager, Go To Market",
-      "location": "SF",
-      "url": "https://stripe.com/jobs/search?gh_jid=7922532",
-      "source": "greenhouse",
-      "posted_at": "2026-07-22T13:25:41-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": 4,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "go to market",
-        "pr",
-        "program manager"
-      ],
-      "ats_score": 70,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [
-        "forecasting"
-      ],
-      "requested_keywords": [
-        "adoption",
-        "analytics",
-        "conversion",
-        "cross-functional",
-        "dashboard",
-        "enterprise",
-        "excel",
-        "forecasting",
-        "go to market",
-        "go-to-market",
-        "gtm",
-        "launch",
-        "pipeline",
-        "positioning",
-        "project management",
-        "r",
-        "reporting",
-        "revops",
-        "sales enablement",
-        "sql"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 70,
-          "missing": [
-            "forecasting"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 65,
-          "missing": [
-            "excel",
-            "forecasting"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 60,
-          "missing": [
-            "excel",
-            "forecasting"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "forecasting"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 55,
-          "missing": [
-            "forecasting"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014from the world's largest enterprises to the most ambitious startups\u2014use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n You'll join Stripe's Sales Strategy and Operations team, a high-impact group that helps our GTM organization execute with speed, focus, and rigor. We translate strategy into scalable operating motions across the Americas Sales org and Global Product Sales organizations, including repeatable plays, durable cadences, and clear operational performance management. A core part of our remit is supporting Stripe's Alliances and Channels organization, particularly platform partners and SIs and consultancies. We partner closely with Sales leadership, Marketing, Product, Enablement, RevOps, and Finance to remove friction, improve visibility, and drive consistent execution that accelerates growth. \n What you'll do \n As the Go-to-Market Program Manager, you'll design and drive programs that help Stripe's Sales, Partner, and Channel teams execute with clarity and consistency. You'll own end-to-end delivery for critical GTM initiatives\u2014translating strategy into scalable plays, field-ready rollouts, and durable operating cadences. You'll work closely with Sales leadership, Partner teams, Marketing, Product, Sales Enablement, RevOps, and Finance to remove friction from the selling motion, improve pipeline discipline and forecasting rigor, and accelerate partner-influenced growth. In this role, you'll create clarity while navigating ambiguity, and you'll solve complex problems while operating in a high-growth environment. \n Responsibilities \n \u2022 Strategy and execution\u2014Be accountable for building and driving large-scale GTM programs end-to-end\u2014aligning stakeholders, defining the plan and operating model, and ensuring measurable outcomes. Drive the \"full-stack\" of change management (stakeholder engagement, champions, communications, and enablement) so programs land successfully with Sales and Partners. \n \u2022 Pipeline hygiene and forecasting cadence\u2014Support operating rhythms that improve pipeline quality, stage discipline, and forecast consistency. Partner with Sales Operations and Sales leadership to drive adoption, surface risk, and ensure leaders have reliable visibility into performance drivers. \n \u2022 Global initiatives\u2014Provide central project management support on high-priority global initiatives (i.e. \"Big Rocks\" workstreams) to drive decision-making, action, visibility, accountability, and impact. \n \u2022 Partner and channel GTM\u2014Support partner-inclusive motions that embed partners into the selling process (from opportunity identification through close and expansion). Coordinate partner readiness (offers, positioning, assets, and co-selling rhythms) and enable the \"operating handshake\" across teams to reduce friction and increase speed. \n \u2022 Executive reporting and business reviews\u2014Build concise exec-ready readouts that connect program activity to outcomes (pipeline created, conversion, win rate, cycle time, and partner influence) and drive decisions in WBR, MBR, and QBR forums. \n \u2022 Program scalability and foundation\u2014Develop a roadmap for the foundational requirements to operate the program efficiently and at scale. Drive scalability through process refinement and automation, collaborating closely with critical cross-functional teams to build the needed tools, dashboards, and automation. \n \u2022 Stakeholder alignment and communication\u2014Set goals and targets for programs, run key forums and updates, and keep executives and cross-functional partners informed on progress, risks, and decisions. Build strong collaborative relationships across Stripe. \n Who you are \n We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement. \n Minimum requirements \n \u2022 4+ years of experience in program management, GTM strategy and operations, business operations, management consulting, or a related discipline \n \u2022 A strong track record of delivering complex, cross-functional programs in a changing, ambiguous environment end-to-end (from problem definition through rollout and adoption) \n \u2022 Deep problem-solving and analysis experience (solving business problems\u2014commercial, operational, financial) in a Sales-oriented environment. You must have the ability to diagnose, simplify, and structure problems and solutions while having command of \"the details\". \n \u2022 Excellent analytical, presentation, and communication experience, influencing across all levels from front lines to C-Suite. You set a high-bar in terms of communication effectiveness.\u00a0 \n \u2022 The ability to seamlessly transition from strategy, high-level to very detailed, and a willingness to \"roll up your sleeves.\" You work well under pressure, with a high degree of adaptability and flexibility in a fast-paced, rapidly changing environment. \n \u2022 Ability to influence cross-functional stakeholders to align and execute on common objectives \n Preferred qualifications \n \u2022 Experience operating with incomplete data and reprioritizing as business needs change \n \u2022 Prior experience supporting enterprise GTM motions (Sales-led and partner-led) and partnering with senior stakeholders through executive-facing cadences (QBRs, exec briefings, and account and territory planning) \n \u2022 Background in GTM programs that improve field execution\u2014such as sales plays, partner co-sell motions, enablement rollouts, pipeline discipline, or launch and readiness programs across Sales, Marketing, and Product \n \u2022 Experience partnering with Data Science or building dashboards and automation for program observability \n \u2022 Familiarity with pipeline and forecasting operating rhythms (e.g., weekly forecast, MBR and QBR inputs) and improving pipeline hygiene at scale \n \u2022 Experience partnering closely with Sales Strategy and Operations on process and tooling improvements (e.g., dashboards, workflow automation, data quality initiatives) \n \u2022 Comfort with SQL or analytics tools to interrogate program and user data \n \u2022 Prior payments or fintech experience",
-      "resume_core": {
-        "label": "Stripe \u2014 Program Manager, Go To Market",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a Program Manager, Go To Market and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "enrichment": {
-        "sponsorship": "Unknown",
-        "sponsorship_evidence": "",
-        "skills": [
-          "program management",
-          "GTM strategy execution",
-          "pipeline hygiene",
-          "forecasting",
-          "stakeholder alignment",
-          "change management"
-        ],
-        "tools": [
-          "Excel"
-        ],
-        "preferences": [],
-        "seniority": "Manager",
-        "min_years": 4,
-        "max_years": null,
-        "boston_score": 35,
-        "boston_note": "SF onsite, far from Boston",
-        "persona_fit": 63,
-        "persona_note": "GTM program management, moderate marketing/ops overlap"
-      },
-      "boston_score": 35
     },
     {
       "id": "e8583a28d2df7186",
@@ -33991,13 +33538,988 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "313be06e5b2594ee",
+      "company": "Netflix",
+      "title": "Ads Product Marketing Manager",
+      "location": "New York,New York,United States of America",
+      "url": "https://explore.jobs.netflix.net/careers/job/790317110266",
+      "source": "netflix",
+      "posted_at": "",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "product marketing",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Netflix \u2014 Ads Product Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Netflix is hiring a Ads Product Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Netflix, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Netflix%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "4690698bd251899f",
+      "company": "Nvidia",
+      "title": "CUDA Libraries and Frameworks Product Marketing Manager",
+      "location": "US, CA, Santa Clara",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/CUDA-Libraries-and-Frameworks-Product-Marketing-Manager_JR2019940",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "product marketing",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Nvidia \u2014 CUDA Libraries and Frameworks Product Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Nvidia is hiring a CUDA Libraries and Frameworks Product Market\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Nvidia, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Nvidia%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "6c7a088a8e62971e",
+      "company": "Nvidia",
+      "title": "Technical Product Marketing Manager - Healthcare and Life Sciences",
+      "location": "US, CA, Santa Clara",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Product-Marketing-Manager---Healthcare-and-Life-Sciences_JR2002885",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "product marketing",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Nvidia \u2014 Technical Product Marketing Manager - Healthcare and Life Sciences",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Nvidia is hiring a Technical Product Marketing Manager - Health\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Nvidia, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Nvidia%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "a08a385bc9fd5197",
+      "company": "Adobe",
+      "title": "Product Marketing Manager",
+      "location": "3 Locations",
+      "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Francisco/Product-Marketing-Manager_R168163",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "product marketing",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Adobe \u2014 Product Marketing Manager",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Adobe is hiring a Product Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Adobe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Adobe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "5339564597c3b41d",
+      "company": "Adobe",
+      "title": "Product Marketing Manager and GenAI Strategist",
+      "location": "3 Locations",
+      "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/Product-Marketing-Manager-and-GenAI-Strategist_R166382-1",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "product marketing",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Adobe \u2014 Product Marketing Manager and GenAI Strategist",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Adobe is hiring a Product Marketing Manager and GenAI Strategist and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Adobe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Adobe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "5748a74750d78baf",
       "company": "Nvidia",
       "title": "Go-to-Market Product Manager - Customer Ecosystem and ODM Enablement",
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Go-to-Market-Product-Manager---Ecosystem-ODM-Enablement_JR2002082",
       "source": "workday",
-      "posted_at": "Posted 4 Days Ago",
+      "posted_at": "Posted 5 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -34192,7 +34714,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Manager--Go-To-Market--GTM--Associates_JR-0108463",
       "source": "workday",
-      "posted_at": "Posted 5 Days Ago",
+      "posted_at": "Posted 6 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -34386,7 +34908,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager--NVIDIA-NIM_JR2015402",
       "source": "workday",
-      "posted_at": "Posted 12 Days Ago",
+      "posted_at": "Posted 13 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -34580,7 +35102,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
       "source": "workday",
-      "posted_at": "Posted 29 Days Ago",
+      "posted_at": "Posted 30 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35359,7 +35881,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
       "source": "workday",
-      "posted_at": "Posted 16 Days Ago",
+      "posted_at": "Posted 17 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35557,7 +36079,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Storytelling-Marketing--Product-Marketing-Spike-_JR-0108731",
       "source": "workday",
-      "posted_at": "Posted 4 Days Ago",
+      "posted_at": "Posted 5 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35752,7 +36274,7 @@
       "location": "Palo Alto, California, United States of America",
       "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Growth-Marketing-Manager_3162803",
       "source": "workday",
-      "posted_at": "Posted 15 Days Ago",
+      "posted_at": "Posted 16 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35946,7 +36468,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Growth-Marketing-Manager_JR-0109235",
       "source": "workday",
-      "posted_at": "Posted 5 Days Ago",
+      "posted_at": "Posted 6 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36134,13 +36656,398 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Workday%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "2de2717916e34168",
+      "company": "Netflix",
+      "title": "Associate Manager, UCAN Marketing Operations",
+      "location": "Los Angeles,California,United States of America",
+      "url": "https://explore.jobs.netflix.net/careers/job/790316561268",
+      "source": "netflix",
+      "posted_at": "",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "marketing operations",
+        "operations"
+      ],
+      "ats_score": 0,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "marketing operations"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 0,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Netflix \u2014 Associate Manager, UCAN Marketing Operations",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Netflix is hiring a Associate Manager, UCAN Marketing Operatio\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Netflix, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Netflix%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "7a0f33e6049b7a35",
+      "company": "Autodesk",
+      "title": "Strategic Partnerships & Associations Marketing Manager, AEC",
+      "location": "6 Locations",
+      "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
+      "source": "workday",
+      "posted_at": "Posted 23 Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 60,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "partnerships"
+      ],
+      "ats_score": 0,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 0,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 0,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Autodesk \u2014 Strategic Partnerships & Associations Marketing Manager, AEC",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Autodesk is hiring a Strategic Partnerships & Associations Ma\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Autodesk, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Autodesk%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "9f3e12fa6c8d1854",
       "company": "Nvidia",
       "title": "Technical Marketing Specialist",
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Marketing-Specialist_JR2024965",
       "source": "workday",
-      "posted_at": "Posted 2 Days Ago",
+      "posted_at": "Posted 3 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36331,7 +37238,7 @@
       "location": "San Jose",
       "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/M-A-IT-Business-Analyst_R171422",
       "source": "workday",
-      "posted_at": "Posted 12 Days Ago",
+      "posted_at": "Posted 13 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -37087,191 +37994,6 @@
         ]
       },
       "referral_message": "Hi there \u2014 I saw Samsara is hiring a GTM Contract Recruiter and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Samsara, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Samsara%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "e021a68f8fc5ccf6",
-      "company": "Samsara",
-      "title": "Contract Recruiter  - GTM",
-      "location": "Remote - US",
-      "url": "https://www.samsara.com/company/careers/roles/7377416?gh_jid=7377416",
-      "source": "greenhouse",
-      "posted_at": "2026-07-22T09:22:18-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 58,
-      "min_years": 4,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "gtm"
-      ],
-      "ats_score": 100,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "cross-functional",
-        "excel",
-        "gtm",
-        "insights",
-        "pipeline",
-        "r",
-        "sales enablement"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 71,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 57,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 57,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 43,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n Samsara (NYSE: IOT) is the pioneer of the Connected Operations\u2122 Cloud, which is a platform that enables organizations that depend on physical operations to harness Internet of Things (IoT) data to develop actionable insights and improve their operations. At Samsara, we are helping improve the safety, efficiency and sustainability of the physical operations that power our global economy. Representing more than 40% of global GDP, these industries are the infrastructure of our planet, including agriculture, construction, field services, transportation, and manufacturing \u2014 and we are excited to help digitally transform their operations at scale. \n Working at Samsara means you\u2019ll help define the future of physical operations and be on a team that\u2019s shaping an exciting array of product solutions, including Video-Based Safety, Vehicle Telematics, Apps and Driver Workflows, and Equipment Monitoring. As part of a recently public company, you\u2019ll have the autonomy and support to make an impact as we build for the long term. About the role: \n At Samsara, we believe our people are our greatest investment, and hiring is a critical part of our success. We\u2019re looking for a talented Contract Recruiter to partner closely with our growing GTM teams\u2014hiring across functions such as Customer Success, Sales Operations, Sales Programs, Renewals, Sales Data Science, and Sales Enablement\u2014to build a strong pipeline of top-tier candidates. This role is a great opportunity for someone eager to grow their career while helping scale high-performing teams in a fast-paced, high-growth environment. \n This role is open to candidates residing in the US except the San Francisco Bay Metro Area, NYC Metro Area, and Washington, D.C. Metro Area. \n \u00a0 \n You should apply if: \n \n You want to impact the industries that run our world: Your efforts will result in real-world impact\u2014helping to keep the lights on, get food into grocery stores, reduce emissions, and most importantly, ensure workers return home safely. \n You are the architect of your own career: If you put in the work, this role won\u2019t be your last at Samsara. We set up our employees for success and have built a culture that encourages rapid career development, countless opportunities to experiment and master your craft in a hyper-growth environment. \n You\u2019re energized by our opportunity: The vision we have to digitize large sectors of the global economy requires your full focus and best efforts to bring forth creative, ambitious ideas for our customers. \n You want to be with the best: At Samsara, we win together, celebrate together, and support each other. You will be surrounded by a high-calibre team that will encourage you to do your best.\u00a0 \n \n In this role, you will: \u00a0 \n \n Manage Full-Cycle Recruiting: Create and implement strategies to solve problems and build diverse pipelines across Samsara\u2019s corporate teams through sourcing, referrals, research, events, and social media. Find and engage passive candidates through creative sourcing techniques and help them envision life at Samsara. Effectively manage multiple requisitions and candidates during high-volume periods while creating and owning a flawlessly positive candidate experience \n Be a Talent Advisor: Partner closely with hiring leaders to deeply understand their teams and goals. Organize and facilitate interview debriefs and drive offer approval, extension, and negotiation. Identify closing strategies for offers and proactively provide candidates with the appropriate information to help make their decision as easy as possible \n Influence with data: \u00a0Independently address and unblock data analysis challenges. Extract and synthesize insights. Identify headwinds and tailwinds with a search.\u00a0 \n Communicate Effectively: Tailor written and verbal communication to different audiences and situations. \n Manage Stakeholders: Be seen as a trusted partner by other key cross-functional points of contact. Able to identify friction points, set appropriate expectations, and drive initiatives to overcome obstacles with a search.\u00a0 \n Be a Diversity Advocate : Develop and implement sourcing strategies and marketing programs to identify top talent and build diverse candidate pipelines. Advise on structured interview processes that mitigate unconscious bias. Coach leaders and interviewers in inclusive interviewing best practices and objective feedback.\u00a0 \n Process Excellence: Track pipeline data and provide relevant and consistent updates to hiring managers. Maintain high attention to detail when entering data into Greenhouse and other recruiting tools \n Be a Cultural Champion: Champion, role model, and embed Samsara\u2019s cultural principles (Focus on Customer Success, Build for the Long Term, Adopt a Growth Mindset, Be Inclusive, Win as a Team) as we scale globally and across new offices \n \n Minimum requirements for this role: \n \n 4+ years of recruiting experience in a fast-paced environment \n Ability to create, measure, and scale the right workflow between candidates, hiring managers, and the recruiting team \n Proven strategic sourcing skills\u00a0 \n Team player with an eye for talent who loves connecting people and opportunities \n Able to confidently represent Samsara with professionalism both internally and externally \n Target-driven, detail-oriented, approachable, and able to bring up others around you \n Previous tech experience preferred, and an unwavering ability to work in a fast-paced environment \n Familiarity with Greenhouse or equivalent ATS experience \n BA/BS degree or equivalent work experience \n The range of annual base salary for full-time employees for this position is below. Please note that base pay offered may vary depending on factors including your city of residence, job-related knowledge, skills, and experience. This role is also eligible for an initial RSU grant with no vesting cliff, and ongoing refresh opportunities tied to performance, subject to plan terms and conditions. Learn more about our total rewards and benefits below. Annual Base Salary $83,538 \u2014 $126,360 USD Total Rewards \n At Samsara, we build for the people who keep the global economy moving. We want owners, not passengers, which is why our rewards are designed to fuel high-impact builders. Our compensation program delivers above-market total compensation through a combination of base salary, performance-based bonus/variable pay, and equity (for eligible roles) in a high-growth public company. We meaningfully differentiate pay for our top performers, who have the opportunity to earn above-market compensation that can outpace the broader market over time. \n Beyond compensation, we provide the foundations that enable long-term success: a flexible, employee-led remote model, a professional development stipend, comprehensive health and parental leave plans, and more. If you\u2019re ready to build for the long term and own the outcome, your journey starts here. \n Flexible Working\u00a0 \n At Samsara, we embrace a flexible working model that caters to the diverse needs of our teams. Our offices are open for those who prefer to work in-person and we also support remote work where it aligns with our operational requirements. For certain positions, being close to one of our offices or within a specific geographic area is important to facilitate collaboration, access to resources, or alignment with our service regions. In these cases, the job description will clearly indicate any working location requirements. Our goal is to ensure that all members of our team can contribute effectively, whether they are working on-site, in a hybrid model, or fully remotely. All offers of employment are contingent upon an individual\u2019s ability to secure and maintain the legal right to work at the company and in the specified work location, if applicable. \n Belonging at Samsara \n At Samsara, we welcome everyone regardless of their background. All qualified applicants will receive consideration for employment without regard to race, color, relig",
-      "resume_core": {
-        "label": "Samsara \u2014 Contract Recruiter  - GTM",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Samsara is hiring a Contract Recruiter  - GTM and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Samsara, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Samsara%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
@@ -41419,13 +42141,397 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Anthropic%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "558137f8baf9e457",
+      "company": "Nvidia",
+      "title": "Technical Marketing Manager - Data Center Infrastructure",
+      "location": "US, CA, Santa Clara",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Marketing-Manager---Data-Center-Infrastructure_JR1996301",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 30,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Nvidia \u2014 Technical Marketing Manager - Data Center Infrastructure",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Nvidia is hiring a Technical Marketing Manager - Data Center In\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Nvidia, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Nvidia%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "277ee8ed4207443d",
+      "company": "Nvidia",
+      "title": "Campaign Manager, Cybersecurity",
+      "location": "US, CA, Santa Clara",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Campaign-Manager--Cybersecurity_JR2019233",
+      "source": "workday",
+      "posted_at": "Posted 30+ Days Ago",
+      "sponsorship": "Unknown",
+      "fit_score": 30,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "campaign"
+      ],
+      "ats_score": 100,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "campaign"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": false,
+      "excerpt": "",
+      "resume_core": {
+        "label": "Nvidia \u2014 Campaign Manager, Cybersecurity",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Nvidia is hiring a Campaign Manager, Cybersecurity and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Nvidia, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Nvidia%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "12b4f50dd9ca326e",
       "company": "Workday",
       "title": "Compensation Business Partner, GTM/Customer Experience",
       "location": "USA, CA, Pleasanton",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Senior-Compensation-Business-Partner--Sales_JR-0108857",
       "source": "workday",
-      "posted_at": "Posted 17 Days Ago",
+      "posted_at": "Posted 18 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
@@ -42187,198 +43293,6 @@
         ]
       },
       "referral_message": "Hi there \u2014 I saw Workday is hiring a GTM Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Workday, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Workday%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "4bd31c678a04ff70",
-      "company": "Workday",
-      "title": "GTM Associate",
-      "location": "USA, NY, New York City",
-      "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/GTM-Associate_JR-0108651",
-      "source": "workday",
-      "posted_at": "Posted Today",
-      "sponsorship": "Unknown",
-      "fit_score": 30,
-      "min_years": null,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "gtm"
-      ],
-      "ats_score": 100,
-      "best_variant": "Amazon Transparency \u2014 Marketing Manager",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "gtm"
-      ],
-      "per_variant": [
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 0,
-          "missing": []
-        }
-      ],
-      "jd_available": false,
-      "excerpt": "",
-      "resume_core": {
-        "label": "Workday \u2014 GTM Associate",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Workday is hiring a GTM Associate and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Workday, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Workday%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     }
   ]
