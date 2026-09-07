@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-06 08:00:05",
+  "generated_at": "2026-09-07 08:00:03",
   "meta": {
-    "job_count": 207,
+    "job_count": 204,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -1055,22 +1055,18 @@
     "missing_leaderboard": [
       {
         "keyword": "marketo",
-        "count": 27
+        "count": 26
       },
       {
         "keyword": "looker",
-        "count": 14
-      },
-      {
-        "keyword": "forecasting",
         "count": 13
       },
       {
-        "keyword": "attribution",
-        "count": 11
+        "keyword": "forecasting",
+        "count": 12
       },
       {
-        "keyword": "python",
+        "keyword": "attribution",
         "count": 11
       },
       {
@@ -1078,8 +1074,8 @@
         "count": 11
       },
       {
-        "keyword": "email marketing",
-        "count": 7
+        "keyword": "python",
+        "count": 9
       },
       {
         "keyword": "clay",
@@ -1087,6 +1083,10 @@
       },
       {
         "keyword": "excel",
+        "count": 6
+      },
+      {
+        "keyword": "email marketing",
         "count": 6
       },
       {
@@ -13854,190 +13854,6 @@
       "boston_score": 80
     },
     {
-      "id": "dd8291648bcc1641",
-      "company": "Amazon",
-      "title": "Product Marketing Manager - Tech, AWS Observability",
-      "location": "Seattle, Washington, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10491497/product-marketing-manager-tech-aws-observability",
-      "source": "amazon",
-      "posted_at": "2026-08-04",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": null,
-      "variant_label": "Amazon Business \u2014 PMM",
-      "title_keywords": [
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 83,
-      "best_variant": "Amazon Business \u2014 PMM",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "analytics",
-        "campaign",
-        "competitive intelligence",
-        "gtm",
-        "launch",
-        "messaging",
-        "positioning",
-        "product launch",
-        "product marketing",
-        "r",
-        "value proposition"
-      ],
-      "per_variant": [
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 83,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 75,
-          "missing": []
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 75,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 67,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 50,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Are you a tech-savvy storyteller who can translate complex cloud solutions into compelling customer value? At AWS, we're seeking a Product Marketing Manager who can shape the future of AWS Observability portfolio. Observability has never mattered more. As organizations deploy AI applications, foundation models, and autonomous agents into production, they need to understand not just whether infrastructure is healthy, but whether their AI is reasoning correctly, whether model performance is drifting, and whether systems can self-heal before customers notice. The infrastructure behind this processes quadrillions of data points daily. This is the new frontier, and you'll be at the center of it. In this role, you'll work backwards from customer needs to influence strategy across the portfolio. We're looking for someone who can dive deep into how modern monitoring solutions work while simultaneously crafting portfolio-level value propositions that resonate with SREs, developers building with generative AI, and platform engineering teams. You'll partner with product and GTM teams to shape positioning for modern use cases like AI application monitoring, agent observability, multicloud visibility, and proactive operations. You'll synthesize competitive intelligence, develop messaging that moves customers from reactive monitoring to autonomous operations, and drive launches that earn attention at scale. Key job responsibilities - Partner with product management and GTM teams to develop portfolio-level strategy documents and guide AWS Observability services including Amazon CloudWatch and AI-powered operations capabilities in AWS DevOps Agent. - Create and own positioning and messaging that clearly articulates value propositions to customers, from infrastructure monitoring through AI application and agent observability - Analyze and synthesize market data from multiple sources (including direct customer feedback and competitive intelligence) to identify product opportunities and shape portfolio strategy - Lead product launch strategies and associated plans, including naming, target audience definition, and marketing vehicles for observability services launching into an increasingly AI-driven market - Develop technical content including presentations, demonstrations, and customer stories that educate developers, SREs, and platform engineering teams on how AWS Observability addresses modern use cases - Drive field enablement strategies to support product launches, campaigns, and customer success across observability and AI operations - Align with technical and business leaders on primary observability use cases for their specific ideal customer profiles: from multicloud visibility and cost-aware telemetry to autonomous remediation and AI application reliability About the team Diverse Experiences AWS values diverse experiences. Even if you do not meet all of the qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn't followed a traditional path, or includes alternative experiences, don't let it stop you from applying. Why AWS? Amazon Web Services (AWS) is the world's most comprehensive and broadly adopted cloud platform. We pioneered cloud computing and never stopped innovating \u2014 that's why customers from the most successful startups to Global 500 companies trust our robust suite of products and services to power their businesses. Inclusive Team Culture Here at AWS, it's in our nature to learn and be curious. Our employee-led affinity groups foster a culture of inclusion that empower us to be proud of our differences. Ongoing events and learning experiences, including our Conversations on Race and Ethnicity (CORE) and AmazeCon conferences, inspire us to never stop embracing our uniqueness. Mentorship & Career Growth We're continuously raising our performance bar as we strive to become Earth's Best Employer. That's why you'll find endless knowledge-sharing, mentorship and other career-advancing resources here to help you develop into a better-rounded professional. Work/Life Balance We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there's nothing we can't achieve.\n\nBasic qualifications:\n- Bachelor's degree, or experience in technology related sales, business development or equivalent - Experience conveying complex technical concepts to both technical and business audiences - 3+ years of product or program management, product marketing, business development or technology experience - Experience in product marketing for cloud infrastructure, observability, security, analytics, AI/ML products or solutions\n\nPreferred qualifications:\n- Experience bringing technology products to market in a fast-paced environment - Experience working with engineering and product teams to define a product and bring it to market - Experience working with observability, monitoring, or cloud operations technologies, including, but not limited to, metrics and logging, application performance monitoring, distributed tracing, AI/ML operations, incident management, and/or infrastructure automation Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, CA, SANTA CLARA - 130,500.00 - 176,000.00 USD annually USA, MA, Boston - 118,600.00 - 160,000.00 USD annually USA, VA, Arlington - 118,600.00 - 160,000.00 USD annually USA, WA, Seattle - 118,600.00 - 160,000.00 USD annually",
-      "resume_core": {
-        "label": "Amazon \u2014 Product Marketing Manager - Tech, AWS Observability",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
-              "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
-              "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
-              "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "GTM & Product Marketing",
-            "items": [
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Product Launch",
-              "Competitive Intelligence",
-              "Buyer & Market Research"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Case Studies",
-              "Sales Decks & Collateral",
-              "Battlecards",
-              "Webinars"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Product Marketing Manager - Tech, AWS Observ\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
       "id": "64f4f2cd017d2ea8",
       "company": "Datadog",
       "title": "GTM Operations Associate",
@@ -14231,6 +14047,190 @@
       },
       "referral_message": "Hi there \u2014 I saw Datadog is hiring a GTM Operations Associate and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Datadog, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Datadog%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
+      "id": "dd8291648bcc1641",
+      "company": "Amazon",
+      "title": "Product Marketing Manager - Tech, AWS Observability",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10491497/product-marketing-manager-tech-aws-observability",
+      "source": "amazon",
+      "posted_at": "2026-08-04",
+      "sponsorship": "Unknown",
+      "fit_score": 91,
+      "min_years": null,
+      "variant_label": "Amazon Business \u2014 PMM",
+      "title_keywords": [
+        "marketing",
+        "pr",
+        "product marketing"
+      ],
+      "ats_score": 83,
+      "best_variant": "Amazon Business \u2014 PMM",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "adoption",
+        "analytics",
+        "campaign",
+        "competitive intelligence",
+        "gtm",
+        "launch",
+        "messaging",
+        "positioning",
+        "product launch",
+        "product marketing",
+        "r",
+        "value proposition"
+      ],
+      "per_variant": [
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 83,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 67,
+          "missing": []
+        },
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 50,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "Are you a tech-savvy storyteller who can translate complex cloud solutions into compelling customer value? At AWS, we're seeking a Product Marketing Manager who can shape the future of AWS Observability portfolio. Observability has never mattered more. As organizations deploy AI applications, foundation models, and autonomous agents into production, they need to understand not just whether infrastructure is healthy, but whether their AI is reasoning correctly, whether model performance is drifting, and whether systems can self-heal before customers notice. The infrastructure behind this processes quadrillions of data points daily. This is the new frontier, and you'll be at the center of it. In this role, you'll work backwards from customer needs to influence strategy across the portfolio. We're looking for someone who can dive deep into how modern monitoring solutions work while simultaneously crafting portfolio-level value propositions that resonate with SREs, developers building with generative AI, and platform engineering teams. You'll partner with product and GTM teams to shape positioning for modern use cases like AI application monitoring, agent observability, multicloud visibility, and proactive operations. You'll synthesize competitive intelligence, develop messaging that moves customers from reactive monitoring to autonomous operations, and drive launches that earn attention at scale. Key job responsibilities - Partner with product management and GTM teams to develop portfolio-level strategy documents and guide AWS Observability services including Amazon CloudWatch and AI-powered operations capabilities in AWS DevOps Agent. - Create and own positioning and messaging that clearly articulates value propositions to customers, from infrastructure monitoring through AI application and agent observability - Analyze and synthesize market data from multiple sources (including direct customer feedback and competitive intelligence) to identify product opportunities and shape portfolio strategy - Lead product launch strategies and associated plans, including naming, target audience definition, and marketing vehicles for observability services launching into an increasingly AI-driven market - Develop technical content including presentations, demonstrations, and customer stories that educate developers, SREs, and platform engineering teams on how AWS Observability addresses modern use cases - Drive field enablement strategies to support product launches, campaigns, and customer success across observability and AI operations - Align with technical and business leaders on primary observability use cases for their specific ideal customer profiles: from multicloud visibility and cost-aware telemetry to autonomous remediation and AI application reliability About the team Diverse Experiences AWS values diverse experiences. Even if you do not meet all of the qualifications and skills listed in the job description, we encourage candidates to apply. If your career is just starting, hasn't followed a traditional path, or includes alternative experiences, don't let it stop you from applying. Why AWS? Amazon Web Services (AWS) is the world's most comprehensive and broadly adopted cloud platform. We pioneered cloud computing and never stopped innovating \u2014 that's why customers from the most successful startups to Global 500 companies trust our robust suite of products and services to power their businesses. Inclusive Team Culture Here at AWS, it's in our nature to learn and be curious. Our employee-led affinity groups foster a culture of inclusion that empower us to be proud of our differences. Ongoing events and learning experiences, including our Conversations on Race and Ethnicity (CORE) and AmazeCon conferences, inspire us to never stop embracing our uniqueness. Mentorship & Career Growth We're continuously raising our performance bar as we strive to become Earth's Best Employer. That's why you'll find endless knowledge-sharing, mentorship and other career-advancing resources here to help you develop into a better-rounded professional. Work/Life Balance We value work-life harmony. Achieving success at work should never come at the expense of sacrifices at home, which is why we strive for flexibility as part of our working culture. When we feel supported in the workplace and at home, there's nothing we can't achieve.\n\nBasic qualifications:\n- Bachelor's degree, or experience in technology related sales, business development or equivalent - Experience conveying complex technical concepts to both technical and business audiences - 3+ years of product or program management, product marketing, business development or technology experience - Experience in product marketing for cloud infrastructure, observability, security, analytics, AI/ML products or solutions\n\nPreferred qualifications:\n- Experience bringing technology products to market in a fast-paced environment - Experience working with engineering and product teams to define a product and bring it to market - Experience working with observability, monitoring, or cloud operations technologies, including, but not limited to, metrics and logging, application performance monitoring, distributed tracing, AI/ML operations, incident management, and/or infrastructure automation Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, CA, SANTA CLARA - 130,500.00 - 176,000.00 USD annually USA, MA, Boston - 118,600.00 - 160,000.00 USD annually USA, VA, Arlington - 118,600.00 - 160,000.00 USD annually USA, WA, Seattle - 118,600.00 - 160,000.00 USD annually",
+      "resume_core": {
+        "label": "Amazon \u2014 Product Marketing Manager - Tech, AWS Observability",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
+              "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
+              "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
+              "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "GTM & Product Marketing",
+            "items": [
+              "Go-to-Market Strategy",
+              "Positioning & Messaging",
+              "Product Launch",
+              "Competitive Intelligence",
+              "Buyer & Market Research"
+            ]
+          },
+          {
+            "name": "Content & Enablement",
+            "items": [
+              "Case Studies",
+              "Sales Decks & Collateral",
+              "Battlecards",
+              "Webinars"
+            ]
+          },
+          {
+            "name": "Analytics & Tools",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Google Analytics (GA4)"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Product Marketing Manager - Tech, AWS Observ\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "bcd1d7ceea3bcb3e",
@@ -15478,6 +15478,214 @@
         "persona_note": "Growth marketing manager fits lane; years/level unclear"
       },
       "boston_score": 35
+    },
+    {
+      "id": "20b5720f3615f20c",
+      "company": "Amazon",
+      "title": "Marketing Manager, Prime Video US Streaming",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10530969/marketing-manager-prime-video-us-streaming",
+      "source": "amazon",
+      "posted_at": "2026-09-07",
+      "sponsorship": "Unknown",
+      "fit_score": 91,
+      "min_years": null,
+      "variant_label": "Marketing & Business Analyst",
+      "title_keywords": [
+        "marketing",
+        "pr"
+      ],
+      "ats_score": 75,
+      "best_variant": "Marketing & Business Analyst",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "adoption",
+        "brand",
+        "campaign",
+        "cross-functional",
+        "excel",
+        "launch",
+        "messaging",
+        "positioning",
+        "r",
+        "reporting",
+        "stakeholder management",
+        "tableau"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 67,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 58,
+          "missing": [
+            "excel"
+          ]
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 50,
+          "missing": [
+            "excel"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "Own the Game-Day Experience for Prime Video's Biggest Live Sports! Prime Video (PV) is transforming how fans experience live sports\u2014from Thursday Night Football to NBA games to NASCAR races. As a Marketing Manager on our US Streaming team, you'll be at the center of the action, orchestrating the in-app and out-of-app marketing that brings millions of sports fans to our platform every week. Your Arena: You'll own the Storefront and Fire TV marketing execution for Prime Video's expansive live sports catalog\u2014NBA, Thursday Night Football, NASCAR, and more. This is high-stakes, real-time marketing where every second counts. You'll launch time-sensitive campaigns, troubleshoot live during games, and optimize performance on the fly to ensure fans never miss a moment. The Play: - Plan and execute rapid-fire merchandising campaigns for live sporting events across Prime Video's platform - Partner with Live Events Marketing, Creative, Product, and cross-functional teams to deliver seamless game-day experiences - QA, monitor, and optimize in real-time\u2014because when the game is live, there's no room for error - Drive fan engagement through strategic in-app placements and Fire TV promotions - Be the champion for Prime Video's sports merchandising strategy What You Bring: A passion for sports, an eye for detail, and the ability to thrive under pressure. You'll work in a fast-paced environment where deadlines are non-negotiable and every campaign directly impacts how millions of fans experience their favorite sports. If you live for the intensity of game day and want to shape how the world watches live sports, this is your shot. Key job responsibilities Strategic Campaign Operations & Planning - Autonomously develop and manage the seasonal merchandising calendar for live sports assigned properties, anticipating operational complexity across concurrent events - Lead high-stakes campaign execution during peak sports periods (playoffs, championships, season openers), making real-time prioritization decisions without oversight - Design and execute A/B tests for carousel positioning, creative assets, and messaging frameworks in alignment with stakeholder teams - Self-sufficiently schedule, publish, and QA Prime Video live sports content across PV Storefront, X-Site, and Fire TV - Execute merchandising requests from Marketing Managers, CAMs, and Content Operations teams, proactively identifying gaps, risks, and dependencies with limited direction Real-Time Operations & SME-Level Troubleshooting - Establish and maintain QA standards for all live event placements, applying SME-level knowledge to catch issues - Own the live monitoring framework during game broadcasts, driving rapid identification, escalation, and resolution of technical issues or customer-facing errors in real-time - Verify compliance with league brand guidelines, broadcast rights requirements, and partner agreements - Build and maintain reporting mechanisms to track execution quality, issue trends, and resolution metrics - Use AI-assisted anomaly detection and automated QA workflows to catch defects at scale during high-volume sports weekends Stakeholder Management & Cross-Functional Coordination - Partner and serve as the operational point of contact for Marketing, CAMs, Content Operations (PVCO), providing clear status communication and managing expectations on execution timelines - Independently evaluate and prioritize competing merchandising demands across multiple stakeholder teams, making real-time business impact assessments to determine execution sequencing \u2014 including decisions to defer, decline, or escalate requests based on customer-facing risk and strategic priority - Escalate blockers with context and recommended solutions, not just flagging problems, but proposing paths forward Process Innovation & AI-Driven Efficiency - Document workflows, create and maintain SOPs, and build knowledge base articles that enable team scalability - Provide structured feedback on tooling gaps and process inefficiencies, partnering with leadership to build the case for system improvements - Leverage existing AI tools to increase efficiency and reduce manual effort, applying SME judgment to validate outputs for brand and compliance standards e.g., generative AI for campaign setup, automated QA workflows) \n\nBasic qualifications:\n- 2+ years of professional non-internship marketing experience - Experience with Excel or Tableau (data manipulation, macros, charts and pivot tables)\n\nPreferred qualifications:\n- Experience working with a major brand or entertainment company in project/production management - Experience in e-commerce, start ups, advertising, commercial - Experience using data visualization tools Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Los Angeles County applicants: Job duties for this position include: work safely and cooperatively with other employees, supervisors, and staff; adhere to standards of excellence despite stressful conditions; communicate effectively and respectfully with employees, supervisors, and staff to ensure exceptional customer service; and follow all federal, state, and local laws and Company policies. Criminal history may have a direct, adverse, and negative relationship with some of the material job duties of this position. These include the duties and responsibilities listed above, as well as the abilities to adhere to company policies, exercise sound judgment, effectively manage stress and work safely and respectfully with others, exhibit trustworthiness and professionalism, and safeguard business operations and the Company\u2019s reputation. Pursuant to the Los Angeles County Fair Chance Ordinance, we will consider for employment qualified applicants with arrest and conviction records. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, CA, Culver City - 70,400.00 - 103,400.00 USD annually USA, WA, SEATTLE - 80,200.00 - 103,400.00 USD annually",
+      "resume_core": {
+        "label": "Amazon \u2014 Marketing Manager, Prime Video US Streaming",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Sales & Marketing Analytics",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
+              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
+              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
+              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
+              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS / Fintech)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
+              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
+              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
+              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
+              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "India",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
+              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
+              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
+              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
+              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Analytics & Data",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Microsoft Excel (advanced)",
+              "customer segmentation",
+              "cohort & funnel analysis",
+              "A/B testing & experiment design",
+              "KPI reporting & dashboard development",
+              "AI-assisted analytics"
+            ]
+          },
+          {
+            "name": "Business Analysis",
+            "items": [
+              "Requirements gathering",
+              "KPI definition",
+              "stakeholder management",
+              "report automation",
+              "business intelligence",
+              "data-driven decision making"
+            ]
+          },
+          {
+            "name": "Marketing & GTM",
+            "items": [
+              "Campaign measurement",
+              "account-based marketing (ABM)",
+              "customer lifecycle analysis (acquisition, activation, retention)",
+              "competitive benchmarking",
+              "go-to-market strategy"
+            ]
+          },
+          {
+            "name": "Platforms",
+            "items": [
+              "Salesforce (CRM)",
+              "HubSpot",
+              "Eloqua",
+              "LinkedIn Sales Navigator",
+              "Apollo.io"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Marketing Manager, Prime Video US Streaming and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "97939e8d55a38cd0",
@@ -17836,230 +18044,6 @@
         ]
       },
       "referral_message": "Hi there \u2014 I saw Amazon is hiring a Business Analyst III - AMZ10666414 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "a082928e3da9ba8e",
-      "company": "Amazon",
-      "title": "Business Analyst III - AMZ9898510",
-      "location": "Las Vegas, Nevada, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10482980/business-analyst-iii-amz9898510",
-      "source": "amazon",
-      "posted_at": "2026-07-23",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": null,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "business analyst"
-      ],
-      "ats_score": 70,
-      "best_variant": "Marketing & Business Analyst",
-      "missing_keywords": [
-        "forecasting",
-        "python"
-      ],
-      "requested_keywords": [
-        "analytics",
-        "data-driven",
-        "excel",
-        "forecasting",
-        "insights",
-        "kpi",
-        "python",
-        "r",
-        "reporting",
-        "sql"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 70,
-          "missing": [
-            "forecasting",
-            "python"
-          ]
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 60,
-          "missing": [
-            "forecasting",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 40,
-          "missing": [
-            "data-driven",
-            "forecasting",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 30,
-          "missing": [
-            "data-driven",
-            "excel",
-            "forecasting",
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 30,
-          "missing": [
-            "data-driven",
-            "excel",
-            "forecasting",
-            "python"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "MULTIPLE POSITIONS AVAILABLE Employer: AMAZON.COM SERVICES LLC Offered Position: Business Analyst III Job Location: Las Vegas, Nevada Job Number: AMZ9898510 Position Responsibilities: Lead the development of complex forecasting models and strategic analytics initiatives while managing comprehensive metrics reporting and performing advanced data mining and big data analysis to drive business-critical decisions. Partner with multiple functional groups to define and forecast key business drivers, ensure operational effectiveness, and incorporate continuous learning into strategic planning. Design and implement sophisticated mathematical and statistical models incorporating diverse variables such as customer behavior, product performance, operational metrics, market dynamics, and business KPIs. Drive continuous improvement by simplifying and automating planning processes, working with analytics partners to establish scalable, efficient processes for large-scale data analyses, model development, validation, and implementation. Utilize advanced database technologies, including SQL, ETL, and Oracle to develop and evaluate highly innovative business intelligence tools and automated reports. Perform sophisticated statistical analysis, including clustering, cross-session and panel data regression using R, SAS, STATA, and SPSS. Partner with various business groups to gain knowledge of their business requirements and operational processes, transform complicated business problems into mathematics modeling, and provide data-driven solutions. Interact directly with senior management to present findings and deliver models that are statistically grounded and operationally explainable to non-technical stakeholders, enabling strategic decision-making across the organization. 40 hours / week, 8:00am-5:00pm, Salary Range: $118,200/year to $160,000/year. Amazon is a total compensation company. Dependent on the position offered, equity, sign-on payments, and other forms of compensation may be provided as part of a total compensation package, in addition to a full range of medical, financial, and/or other benefits. For more information, visit: https://www.aboutamazon.com/workplace/employee-benefits. Amazon.com is an Equal Opportunity-Affirmative Action Employer \u2013 Minority / Female / Disability / Veteran / Gender Identity / Sexual Orientation.#0000\n\nBasic qualifications:\nPosition Requirements: Master's degree or foreign equivalent in Business Administration, Computer Science, Engineering, Mathematics, Statistics, Economics, or a related field and one year of experience in the job offered or as a Business Analyst, Business Intelligence Engineer, Data Engineer, Data Miner or a related occupation. Employer will accept a Bachelor's degree or foreign equivalent in Business Administration, Computer Science, Engineering, Mathematics, Statistics, Economics, or a related field and five years of experience in the job offered or a related occupation as equivalent to the Master's degree and one year of experience. Must have one year of experience in the following skill(s): 1. using database technologies, including SQL, ETL or Oracle; 2. processing large, multi-dimensional datasets from multiple sources including Kibana, OBIEE, Datanet or equivalent data extraction tool; 3. developing custom predictive models and statistical forecasts using R or Python, translating complex data analysis into actionable business insights and strategic recommendations 4. developing automated reporting using advanced MS Excel skills including but not limited to macros and erlang knowledge; and 5. maintaining data integrity to assure input/output accuracy in various databases including Redshift, Andes, or Huron.#0000\n\nPreferred qualifications:\nPlease see job description and the position requirements above. Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner.",
-      "resume_core": {
-        "label": "Amazon \u2014 Business Analyst III - AMZ9898510",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Business Analyst III - AMZ9898510 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
@@ -26377,228 +26361,6 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Vercel%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
-      "id": "aabc617dac61839f",
-      "company": "AssemblyAI",
-      "title": "Marketing Coordinator, Programs & Ops",
-      "location": "San Francisco",
-      "url": "https://job-boards.greenhouse.io/assemblyai/jobs/4704406005",
-      "source": "greenhouse",
-      "posted_at": "2026-07-23T11:10:44-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 85,
-      "min_years": 1,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "marketing",
-        "marketing coordinator",
-        "pr"
-      ],
-      "ats_score": 55,
-      "best_variant": "Marketing & Business Analyst",
-      "missing_keywords": [
-        "email marketing",
-        "looker"
-      ],
-      "requested_keywords": [
-        "brand",
-        "campaign",
-        "cross-functional",
-        "email marketing",
-        "field marketing",
-        "lifecycle",
-        "looker",
-        "marketing operations",
-        "positioning",
-        "product marketing",
-        "r"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 55,
-          "missing": [
-            "email marketing",
-            "looker"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 55,
-          "missing": [
-            "email marketing",
-            "looker"
-          ]
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 55,
-          "missing": [
-            "email marketing",
-            "looker"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 45,
-          "missing": [
-            "email marketing",
-            "looker"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 36,
-          "missing": [
-            "email marketing",
-            "looker"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Why AssemblyAI \n AssemblyAI builds the best-in-class Voice AI models powering the next generation of voice applications. Our models serve 600M+ inference calls monthly, process 1M+ hours of audio daily, and power 2 billion+ end-user experiences. The Voice AI space is at an inflection point; we\u2019re looking for folks truly excited to join a small team and help define the future of the industry. \n We are one of the most capital-efficient AI companies on the planet - with under 100 people generating roughly $500K ARR per employee, we sit among the top 5 most revenue-dense teams within the fastest-growing AI companies today. That's not an accident; it's a deliberate choice to stay lean, move fast, and give every person on the team outsized ownership and impact. With thousands of customers including Granola, Fireflies, Figure AI, and CallRail, the company has real scale - processing over 2 million hours of audio daily and handling more than 1 million API calls every day. This is a rare growth-stage opportunity where the business is proven and the trajectory is steep, but the team is still small enough that your fingerprints are on everything. \n If you've ever felt buried under layers of bureaucracy, starved of real ownership, or frustrated watching your work disappear into a slow-moving org, AssemblyAI is built differently. The company operates as a true meritocracy, with no heavy planning or approval processes and no gatekeeping on the tools or information you need. For anyone who genuinely cares about voice AI, not as a trend to chase, but as a technology to build,\u00a0 this is the place where the most interesting problems at the most interesting scale are being solved by a team small enough that you'll actually know everyone's name. \n We\u2019re committed to creating a space where our employees can bring their full selves to work and have equal opportunity to succeed. No matter your race, gender identity or expression, sexual orientation, religion, origin, ability, age, veteran status, if joining this mission speaks to you, we encourage you to apply! About the Role \n We\u2019re looking for a Marketing Coordinator to join our San Francisco Office. This is a high-execution, broad-scope role for someone who is organized and ambitious, loves being in the room when things happen, and finds genuine satisfaction in making complex logistics look effortless. You\u2019ll be responsible for field marketing, community, campaign execution, and light office coordination. This is a role for someone who wants to become a strong marketing operator: the kind of person who can take a clear direction and turn it into reliable, organized action. \n Why This Role Exists \n We've opened a San Francisco office to strengthen our presence in the Voice AI market by expanding our field marketing programs. Sponsoring (and building campaigns around) third-party events, crafting executive dinners and experiences, and hosting community meetups are core to how we build relationships and awareness in our market\u2014and we've reached the point where we need additional execution support on the ground in SF to get even more programs off the ground. \n This role is a force multiplier for the marketing team. It will free up capacity to run a higher volume of events, grow our local community presence, and add execution support across campaigns and operations. \n What You\u2019ll Do \n Community & Meetup Support \n \n Help coordinate local community meetups and lighter-weight activations in San Francisco\u00a0 \n Own invite management, RSVP tracking, reminders, venue coordination, materials prep, and post-event follow-up\u00a0 \n Support relationship-building with community members, local partners, creators, and attendees\u00a0 \n Help make SF-based community motions more consistent and easier to run at volume \n Be physically present at events to support setup, registration, and on-the-ground execution \n \n Campaign & Marketing Operations Support \n \n Support email campaign execution\u2014including list coordination, QA, asset organization, and execution follow-through\u00a0 \n Contribute to recurring campaign workflows that keep marketing programs running smoothly and consistently\u00a0 \n Assist with campaign setup and tracking across event, lifecycle, community, and brand work\u00a0 \n Learn marketing tools like Iterable (or similar) and contribute to process improvement over time \n \n San Francisco Office Coordination (~10% of role) \n \n Help get our SF office environment set up and running smoothly \n Coordinate ongoing office needs\u2014supplies, organization, vendor relationships, and light upkeep \n Be the in-person connective tissue for our SF presence, especially during team visits and hosted events \n \n Cross-Functional Collaboration \n \n Work with field marketing, growth, lifecycle, community, and brand teammates to keep projects moving \n Bring structure and follow-through to ambiguous situations\u2014flag blockers, close loops, keep stakeholders informed \n Operate comfortably in an environment where priorities move quickly and clear direction matters \n \n Must-Have Qualifications \n \n 1\u20133 years of experience in a marketing, events, or operations role (internships and contract work count) \n Strong organizational skills\u2014you track tasks, details, and timelines without dropping things \n Clear, confident written and verbal communication; you can coordinate across multiple stakeholders without friction \n Comfort operating in a fast-moving environment with shifting priorities \n Based in San Francisco; comfortable being in-person regularly \n Fluent with AI tools in your day-to-day work\u2014you use them to work faster and smarter, not as a crutch \n Proactive communicator who flags issues early and closes the loop without being asked \n \n Nice-to-Have Qualifications \n \n Experience supporting events, field marketing, or community programs \n Familiarity with tools like Iterable, Luma, looker \n Experience at a startup or high-growth tech company \n Exposure to email marketing operations, campaign coordination, or lifecycle programs \n Background in community coordination, developer events, or brand activations \n Experience in AI/ML, voice tech, or developer-facing products (a genuine plus, not a requirement) \n \n What Success Looks Like \n 30 Days \n \n You\u2019ve met every marketer on the team and understand the portfolio of events, campaigns, and programs we run \n You\u2019ve taken ownership of at least one active event or logistics initiative and are driving it forward \n You\u2019re oriented in our key tools and have a clear read on where you can add the most immediate value \n You\u2019ve assessed the SF office situation and have a plan for any setup or coordination needs \n You\u2019ve started learning the details of our product marketing and positioning\u00a0 \n \n 60 Days \n \n You\u2019re operating with minimal oversight on logistics for multiple ancillary or third-party events\u2014timelines, vendor comms, shipping, and materials run through you \n You\u2019ve executed at least one SF-based event or meetup and gathered learnings for the next one \n You\u2019re contributing to campaign execution support and have started learning our email and lifecycle tools \n \n 90 Days \n \n You\u2019re a reliable, trusted operator for field marketing execution \n You\u2019ve identified at least one process gap and proposed an improvement \n You\u2019re building real relationships with vendors, venues, and community contacts in San Francisco \n \n Pay Transparency: \n AssemblyAI strives to recruit and retain exceptional talent from diverse backgrounds while ensuring pay equity across our team. Our salary ranges are set to be competitive for our size, stage, and industry, and reflect just one component of the full compensation, benefits, and rewards we offer. \n Salary determinations consider a variety of factors, including relevant experience, technical depth, skills demonstrated during the interview process, and maintaining internal equity with peers on the team. The range shared below represents a general expectation for the posted position. However, we are open to considering cand",
-      "resume_core": {
-        "label": "AssemblyAI \u2014 Marketing Coordinator, Programs & Ops",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw AssemblyAI is hiring a Marketing Coordinator, Programs & Ops and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at AssemblyAI, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22AssemblyAI%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
       "id": "3ff723532aa4967e",
       "company": "Amazon",
       "title": "Business Analyst, Whole Foods Market E-Commerce",
@@ -31721,205 +31483,6 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
-      "id": "dedd2fdf9f5fa93a",
-      "company": "Sigma Computing",
-      "title": "Business Value Marketing Manager",
-      "location": "San Francisco",
-      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7787369003",
-      "source": "greenhouse",
-      "posted_at": "2026-07-23T11:26:02-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 61,
-      "min_years": null,
-      "variant_label": "Amazon Business \u2014 PMM",
-      "title_keywords": [
-        "marketing"
-      ],
-      "ats_score": 73,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [
-        "python"
-      ],
-      "requested_keywords": [
-        "abm",
-        "analytics",
-        "b2b",
-        "cross-functional",
-        "field marketing",
-        "go-to-market",
-        "insights",
-        "pipeline",
-        "product marketing",
-        "python",
-        "r",
-        "revops",
-        "saas",
-        "sql",
-        "storytelling"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 73,
-          "missing": [
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 60,
-          "missing": [
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "abm",
-            "python"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 53,
-          "missing": [
-            "python"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 53,
-          "missing": [
-            "abm",
-            "python"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Business Value Marketing Manager \n Team: Marketing \u2013 Business Value Services \u00b7 Reports to: Head of Business Value Services \u00b7 Location: San Francisco \n About Sigma \n Sigma is the cloud analytics platform built directly on the data warehouse. Business teams use it to explore live data with the ease of a spreadsheet and to build interactive data apps on top of Snowflake, Databricks, and BigQuery, with AI now doing a growing share of the work. We crossed $200M in ARR and raised an $80M Series E at a $3B valuation, and we are growing fast. \n The role \n This is value marketing , owned by Business Value Services: turning the outcomes customers have already realized into proof the go-to-market team uses to win and expand accounts. \n As our Business Value Marketing Manager, you'll own how the value customers realize with Sigma becomes proof the whole go-to-market team can use. You'll build the system that tells us which customers are seeing results and why, then turn those outcomes into a steady supply of published proof and reference-ready advocates that sales and Business Value Services can pull from to win and expand accounts. \n This is an individual-contributor role and an entry point into marketing at Sigma. \n What you'll own \n \n The value-proof engine Build and run the system that turns customer outcomes into published proof on a predictable cadence: case studies, videos, and quote cards grounded in real outcome data. This role turns customer outcomes into proof for prospects, the market, and the sales team. \n Advocacy and references Grow a referenceable-customer bench relevant to our field sales teams, run the advocacy program, and feed Majors and ABM with proof tied to the value a customer has already realized. \n Value stories at events Source and prepare customer speakers for our biggest annual events such as Snowflake Summit, Databricks DAIS, and our own Workflow conference. Own the Sigma User Meetups (SUMs) webinar series. \n Reviews and recognition Drive review volume and quality on G2 and Gartner Peer Insights, and run programs like \"Built with Sigma\" awards that give customers a reason to put their name next to ours. \n The Customer Advisory Board Own and mature Sigma\u2019s CAB program in partnership with Business Value Services, and turn what you hear into both product input and pipeline. \n Cross-Functional Distribution of Resources Bring relevant stories into the website, the sales plays, and the ABM pages. \n The agentic stack Operate the AI-first system (Sigma, Claude, and the connected tooling) so drafting, repurposing, and distribution run at a volume one person plus agents can sustain, and improve that system as you go. \n \n What you bring \n \n Three to five years in B2B SaaS value marketing, customer advocacy, customer reference, customer success, BVS, or a closely related field. This is an entry point into marketing, so adjacent experience counts.\u00a0\u00a0 \n A track record of creating proof and references yourself, not only executing an existing playbook. \n Strong writing and storytelling instinct, and the judgment to find the one outcome in a customer conversation that a prospect will actually care about. \n Comfort with AI tooling. You have built, or are eager to build, agentic workflows, and you are not precious about doing by hand what an agent can do better. \n Data fluency. You can work inside a warehouse-native analytics product, pull your own outcome numbers, and partner with RevOps without needing everything handed to you. \n Event and customer-speaker exposure, and the diplomacy to manage customer relationships and executive stakeholders \n A cross-functional operator who works across sales, Business Value Services, customer success, product marketing, and field marketing without friction. \n \n Additional Job details \n The base salary range for this position is $126 - 148k annually. \n Compensation may vary outside of this range depending on a number of factors, including a candidate\u2019s qualifications, skills, competencies and experience. Base pay is one part of the Total Package that is provided to compensate and recognize employees for their work at Sigma Computing. This role is eligible for stock options, as well as a comprehensive benefits package. About us:\u00a0 \n Sigma is the AI Apps and agentic analytics platform built on the cloud data warehouse. Business and technical teams use Sigma to explore live data, build intelligent applications, and automate critical workflows all without moving data or breaking governance. Sigma supports a spreadsheet interface, SQL, Python, and native AI in a single governed workspace, giving every team the speed to act and IT the control to scale. Sigma is trusted by more than 2,000 customers, including AMD, Duolingo, Colgate-Palmolive, and JPMorgan Chase.\u00a0 \n Sigma announced its $80M in Series E financing in May 2026. The round was led by Princeville Capital, with new strategic investors Databricks Ventures, ServiceNow Ventures, and Workday Ventures participating alongside returning investors Altimeter Capital, Avenir Growth Capital, D1 Capital Partners, K5 Global, NewView Capital, Spark Capital, Sutter Hill Ventures, and XN. This milestone follows Sigma reaching $200M in annual recurring revenue in April 2026, with more than 100% year-over-year growth and 1.1 million new active users added in the latest fiscal year. \n Come join us! \n Benefits For Our Full-Time Employees: \n \n Equity\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n Generous health benefits \n Flexible time off policy. Take the time off you need! \n Paid bonding time for all new parents \n Traditional and Roth 401k \n Commuter and FSA benefits \n Lunch Program \n Dog friendly office \n \n Sigma is an equal opportunity employer. We are committed to building a smart and strong team regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender, gender identity or expression, veteran, or any other protected status. We look forward to learning how your experience can enable all of us to grow. \n Note: We have an in-office work environment in all our offices in SF, NYC, London and Sydney. \n Our Privacy Practices \n When you submit a job application on this site, Sigma processes your personal data for the purposes of evaluating your candidacy for employment at Sigma and as otherwise needed throughout the recruitment and hiring process. Please review Sigma\u2019s Candidate Privacy Notice for more details. Please note that your personal data may be transferred to a country other than the one in which it was provided (including to the USA, the UK, and Canada, Australia).\u00a0 \n Sigma\u2019s use of AI \n This hiring process utilizes artificial intelligence tools to assist in candidate screening and assessment. Our AI tools are designed to complement, not replace, human decision-making.",
-      "resume_core": {
-        "label": "Sigma Computing \u2014 Business Value Marketing Manager",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Full-stack B2B product marketer with a STEM MBA. Six years of experience turning customer insight into seller-facing GTM, launch content, and analytics-driven sales enablement.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging, reprioritizing the product roadmap around validated pain points.",
-              "Built segment-specific outbound messaging and playbooks, more than doubling booked meetings (from ~10/week to ~5/day); rebuilt self-serve onboarding (SQL, Tableau), lifting signup conversion 75%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Developed B2B go-to-market for 100+ enterprise banking clients across 50+ markets - segmentation, messaging, (Salesforce, Eloqua) driving a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Built the seller-facing content engine - battlecards, competitive one-pagers, case studies, and monetization deep-dives - equipping 50+ account executives and cutting enterprise sales-cycle length ~15%.",
-              "Partnered cross-functionally to run 10+ executive roundtables and customer briefings; launched Finacle's first pulse-analytics dashboard to measure program impact, winning the Best Internal Campaign Award."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove go-to-market for the launch of ZIF (Zero Incident Framework), Neurealm's flagship product - owned launch messaging, content, and sales enablement, and delivered 80+ tailored presentations to enterprise CIOs/CTOs across EMEA, APAC, and North America; 35 advanced to POC with Sales.",
-              "Led competitive positioning and win/loss analysis that lifted competitive win rates ~10%; authored technical thought-leadership content that grew site engagement 40%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised through conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "GTM & Product Marketing",
-            "items": [
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Product Launch",
-              "Competitive Intelligence",
-              "Buyer & Market Research"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Case Studies",
-              "Sales Decks & Collateral",
-              "Battlecards",
-              "Webinars"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Sigma Computing is hiring a Business Value Marketing M\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Sigma Computing, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Sigma+Computing%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
       "id": "6f535f12e5f2d3e3",
       "company": "Vercel",
       "title": "Performance Marketing Manager ",
@@ -34519,7 +34082,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Go-to-Market-Product-Manager---Ecosystem-ODM-Enablement_JR2002082",
       "source": "workday",
-      "posted_at": "Posted 5 Days Ago",
+      "posted_at": "Posted 6 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -34714,7 +34277,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Manager--Go-To-Market--GTM--Associates_JR-0108463",
       "source": "workday",
-      "posted_at": "Posted 6 Days Ago",
+      "posted_at": "Posted 7 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -34908,7 +34471,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager--NVIDIA-NIM_JR2015402",
       "source": "workday",
-      "posted_at": "Posted 13 Days Ago",
+      "posted_at": "Posted 14 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35102,7 +34665,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Manager---Enterprise-AI_JR2021961",
       "source": "workday",
-      "posted_at": "Posted 30 Days Ago",
+      "posted_at": "Posted 30+ Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -35881,7 +35444,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Product-Marketing-Operations-Manager_JR2022257",
       "source": "workday",
-      "posted_at": "Posted 17 Days Ago",
+      "posted_at": "Posted 18 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36079,7 +35642,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Storytelling-Marketing--Product-Marketing-Spike-_JR-0108731",
       "source": "workday",
-      "posted_at": "Posted 5 Days Ago",
+      "posted_at": "Posted 6 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36274,7 +35837,7 @@
       "location": "Palo Alto, California, United States of America",
       "url": "https://hp.wd5.myworkdayjobs.com/en-US/ExternalCareerSite/job/Palo-Alto-California-United-States-of-America/Growth-Marketing-Manager_3162803",
       "source": "workday",
-      "posted_at": "Posted 16 Days Ago",
+      "posted_at": "Posted 17 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36468,7 +36031,7 @@
       "location": "USA, NY, New York City",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-NY-New-York-City/Growth-Marketing-Manager_JR-0109235",
       "source": "workday",
-      "posted_at": "Posted 6 Days Ago",
+      "posted_at": "Posted 7 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -36856,7 +36419,7 @@
       "location": "6 Locations",
       "url": "https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Boston-MA-USA/Strategic-Partnerships---Associations-Marketing-Manager--AEC_26WD98829-2",
       "source": "workday",
-      "posted_at": "Posted 23 Days Ago",
+      "posted_at": "Posted 24 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -37047,7 +36610,7 @@
       "location": "US, CA, Santa Clara",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Marketing-Specialist_JR2024965",
       "source": "workday",
-      "posted_at": "Posted 3 Days Ago",
+      "posted_at": "Posted 4 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -37238,7 +36801,7 @@
       "location": "San Jose",
       "url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced/job/San-Jose/M-A-IT-Business-Analyst_R171422",
       "source": "workday",
-      "posted_at": "Posted 13 Days Ago",
+      "posted_at": "Posted 14 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 60,
       "min_years": null,
@@ -38795,6 +38358,192 @@
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Coinbase%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
+      "id": "2b8351477b6372eb",
+      "company": "Gusto",
+      "title": "GTM AI Agent Builder",
+      "location": "Atlanta, GA - Remote; Denver, CO - Hybrid; New York, New York, United States; Phoenix, AZ - Remote; San Francisco, CA - Hybrid",
+      "url": "https://job-boards.greenhouse.io/gusto/jobs/8157333",
+      "source": "greenhouse",
+      "posted_at": "2026-09-03T16:57:50-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 58,
+      "min_years": 4,
+      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
+      "title_keywords": [
+        "gtm"
+      ],
+      "ats_score": 67,
+      "best_variant": "Data-Driven GTM (CV)",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "adoption",
+        "conversion",
+        "cross-functional",
+        "go-to-market",
+        "gtm",
+        "insights",
+        "narrative",
+        "r",
+        "revenue operations",
+        "revops",
+        "saas",
+        "salesforce"
+      ],
+      "per_variant": [
+        {
+          "label": "Data-Driven GTM (CV)",
+          "score": 67,
+          "missing": []
+        },
+        {
+          "label": "Amazon Business \u2014 PMM",
+          "score": 58,
+          "missing": []
+        },
+        {
+          "label": "Amazon Transparency \u2014 Marketing Manager",
+          "score": 50,
+          "missing": []
+        },
+        {
+          "label": "Amazon Payments \u2014 PMM",
+          "score": 50,
+          "missing": []
+        },
+        {
+          "label": "Marketing & Business Analyst",
+          "score": 42,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role: \n We're looking for a GTM AI Agent Builder to build, implement, and support the AI and automation foundations that make Gusto's revenue engine smarter, faster, and more human. This role sits at the intersection of Revenue Operations, AI systems, and GTM strategy \u2014 helping shape how Gusto's Sales, Marketing, and Partner teams work in an AI-native future. You'll translate business problems into intelligent, scalable workflows that automate manual work, enhance decision-making, and accelerate growth. \n If you thrive on turning complex systems into elegant, measurable solutions \u2014 and want to help define what AI-native selling looks like at scale \u2014 this is the role for you. \n About the Team: \n The Revenue Operations team is the connective tissue between strategy, systems, and execution across Gusto's Go-to-Market (GTM) organization. We enable Sales, Marketing, and Partnerships to operate efficiently, make data-informed decisions, and deliver exceptional experiences to customers and partners. \n As Gusto embraces an AI-first future, this team is building the infrastructure, workflows, and evaluation frameworks that power intelligent, high-performing GTM operations. You'll collaborate closely with RevOps, Data, BizTech, and GTM leadership to bring automation and AI to life across our revenue systems and processes. \n Here\u2019s what you\u2019ll do day-to-day: \n \n Support GTM AI Strategy : Contribute to the GTM AI strategy and roadmap, including technology evaluation, critical business use cases (e.g., sales productivity, marketing personalization, customer support automation), and change management initiatives. \n Build & Execute : Design and deploy AI-driven workflows and automation that streamline manual GTM processes and improve sales productivity. \n Partner Cross-Functionally : Work closely with RevOps and GTM leaders to identify automation opportunities, support trade-off discussions, and connect AI initiatives to measurable business outcomes. \n Measure Performance & Impact : Help define and maintain evaluation frameworks that measure prompt reliability, latency, cost, and business impact (e.g., conversion lift, time saved). \n Build Data & Systems Connections : Implement integrations connecting Salesforce, GTM tools, and Gusto's data warehouse to AI-powered insights and workflows. \n Support Model & Vendor Selection : Contribute to model and vendor evaluation processes, helping ensure flexibility to test and scale best-in-class AI tools. \n Execute Program Management : Support the rollout and adoption of AI initiatives, ensuring pilots ship with clear ownership, training, and measurable outcomes. \n Scale Reusable Patterns : Collaborate cross-functionally to implement automation patterns and guardrails that make AI-enabled operations safe, efficient, and repeatable across teams. \n \n Here\u2019s what we're looking for: \n \n 4\u20136 years of experience in Revenue Operations, Business Operations, or Product, ideally within high-growth SaaS or technology companies or 2\u20134 years in an earlier-stage AI-focused company. \n Demonstrated experience building and implementing operational systems or automation that improved productivity, accuracy, or revenue outcomes. \n Comfortable experimenting with AI tools, agents, and automation workflows \u2014 strong intuition for where AI adds leverage, even without deep ML expertise. \n Experience working with GTM systems (Salesforce, Gong, Outreach, data warehouses) and connecting insights to commercial impact. \n Solid program execution and prioritization skills \u2014 able to manage multiple cross-functional workstreams and drive measurable progress. \n Technical background is valued and a plus. \n Strong communication and stakeholder collaboration skills \u2014 can translate technical concepts into clear narratives for GTM and business audiences. \n AI-native mindset : Curious, adaptable, and excited to help shape how AI transforms the future of revenue operations. \n \n Our annual base salary compensation range for this role is $222,000 - $242,000 in San Francisco and New York, and $189,473 - $205,000 in Denver, Atlanta and Phoenix metro areas. \u00a0This role is also eligible for an annual variable cash bonus (up to 20%). Final offer amounts are determined by multiple factors, including candidate experience and expertise, and may vary from the amounts listed above. Final offer amounts are determined by multiple factors, including candidate experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of backgrounds, not just because it's the right thing to do, but because it makes our company stronger. If you share our values and our enthusiasm for small businesses, you will find a home at Gusto.\u00a0 \n Gusto is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Gusto considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Gusto is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. We want to see our candidates perform to the best of their ability. If you require a medical or religious accommodation at any time throughout your candidate journey, please fill out this form and a member of our team will get in touch with you. \n Gusto takes security and protection of your personal information very seriously. Please review our Fraudulent Activity Disclaimer . \n Personal information collected and processed as part of your Gusto application will be subject to\u00a0 Gusto's Applicant Privacy Notice .",
+      "resume_core": {
+        "label": "Gusto \u2014 GTM AI Agent Builder",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern - Product Marketing & GTM",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
+              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Product Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "Dec 2024",
+            "highlights": [
+              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
+              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
+              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Product Marketing Consultant",
+            "location": "Remote",
+            "startDate": "Jul 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
+              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "Chennai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Demand & GTM",
+            "items": [
+              "Account-Based Marketing (ABM)",
+              "Demand Generation",
+              "Multi-Channel Campaigns",
+              "Go-to-Market Strategy",
+              "Positioning & Messaging",
+              "Segmentation"
+            ]
+          },
+          {
+            "name": "Content & Enablement",
+            "items": [
+              "Content Strategy",
+              "Case Studies & Sales Collateral",
+              "Competitive Intelligence",
+              "Sales Enablement"
+            ]
+          },
+          {
+            "name": "Analytics & Tools",
+            "items": [
+              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
+              "A/B Testing",
+              "Attribution",
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Salesforce",
+              "Eloqua",
+              "HubSpot",
+              "Google Analytics (GA4)"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Gusto is hiring a GTM AI Agent Builder and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Gusto, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Gusto%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
+    },
+    {
       "id": "d11f5f74adfb4a0a",
       "company": "Instacart",
       "title": "Growth Media Marketing Manager, Paid Search",
@@ -38989,192 +38738,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Instacart is hiring a Growth Media Marketing Manager, Paid S\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Instacart, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Instacart%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "2b8351477b6372eb",
-      "company": "Gusto",
-      "title": "GTM AI Agent Builder",
-      "location": "Atlanta, GA - Remote; Denver, CO - Hybrid; New York, New York, United States; Phoenix, AZ - Remote; San Francisco, CA - Hybrid",
-      "url": "https://job-boards.greenhouse.io/gusto/jobs/8157333",
-      "source": "greenhouse",
-      "posted_at": "2026-09-03T16:57:50-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 58,
-      "min_years": 4,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "gtm"
-      ],
-      "ats_score": 67,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "conversion",
-        "cross-functional",
-        "go-to-market",
-        "gtm",
-        "insights",
-        "narrative",
-        "r",
-        "revenue operations",
-        "revops",
-        "saas",
-        "salesforce"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 67,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 58,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 50,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 50,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 42,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "About Gusto \n At Gusto, we're on a mission to grow the small business economy. We handle the hard stuff \u2014 payroll, health insurance, 401(k)s, and HR \u2014 so owners can focus on their craft and their customers. With teams in Denver, San Francisco, and New York, we support more than 500,000 small businesses nationwide and are building a workplace that reflects the people we serve. \n \u00a0 All full-time employees receive competitive base pay, benefits, and equity (RSUs) \u2014 because everyone who helps build Gusto should share in its success. Offer amounts are determined by role, level, and location. Learn more about our Total Rewards philosophy . \n \u00a0 AI is a fundamental part of how work gets done at Gusto. We expect all team members to actively engage with AI tools relevant to their role and grow their fluency as the technology evolves. AI experience requirements vary by role and will be assessed during the interview process. About the Role: \n We're looking for a GTM AI Agent Builder to build, implement, and support the AI and automation foundations that make Gusto's revenue engine smarter, faster, and more human. This role sits at the intersection of Revenue Operations, AI systems, and GTM strategy \u2014 helping shape how Gusto's Sales, Marketing, and Partner teams work in an AI-native future. You'll translate business problems into intelligent, scalable workflows that automate manual work, enhance decision-making, and accelerate growth. \n If you thrive on turning complex systems into elegant, measurable solutions \u2014 and want to help define what AI-native selling looks like at scale \u2014 this is the role for you. \n About the Team: \n The Revenue Operations team is the connective tissue between strategy, systems, and execution across Gusto's Go-to-Market (GTM) organization. We enable Sales, Marketing, and Partnerships to operate efficiently, make data-informed decisions, and deliver exceptional experiences to customers and partners. \n As Gusto embraces an AI-first future, this team is building the infrastructure, workflows, and evaluation frameworks that power intelligent, high-performing GTM operations. You'll collaborate closely with RevOps, Data, BizTech, and GTM leadership to bring automation and AI to life across our revenue systems and processes. \n Here\u2019s what you\u2019ll do day-to-day: \n \n Support GTM AI Strategy : Contribute to the GTM AI strategy and roadmap, including technology evaluation, critical business use cases (e.g., sales productivity, marketing personalization, customer support automation), and change management initiatives. \n Build & Execute : Design and deploy AI-driven workflows and automation that streamline manual GTM processes and improve sales productivity. \n Partner Cross-Functionally : Work closely with RevOps and GTM leaders to identify automation opportunities, support trade-off discussions, and connect AI initiatives to measurable business outcomes. \n Measure Performance & Impact : Help define and maintain evaluation frameworks that measure prompt reliability, latency, cost, and business impact (e.g., conversion lift, time saved). \n Build Data & Systems Connections : Implement integrations connecting Salesforce, GTM tools, and Gusto's data warehouse to AI-powered insights and workflows. \n Support Model & Vendor Selection : Contribute to model and vendor evaluation processes, helping ensure flexibility to test and scale best-in-class AI tools. \n Execute Program Management : Support the rollout and adoption of AI initiatives, ensuring pilots ship with clear ownership, training, and measurable outcomes. \n Scale Reusable Patterns : Collaborate cross-functionally to implement automation patterns and guardrails that make AI-enabled operations safe, efficient, and repeatable across teams. \n \n Here\u2019s what we're looking for: \n \n 4\u20136 years of experience in Revenue Operations, Business Operations, or Product, ideally within high-growth SaaS or technology companies or 2\u20134 years in an earlier-stage AI-focused company. \n Demonstrated experience building and implementing operational systems or automation that improved productivity, accuracy, or revenue outcomes. \n Comfortable experimenting with AI tools, agents, and automation workflows \u2014 strong intuition for where AI adds leverage, even without deep ML expertise. \n Experience working with GTM systems (Salesforce, Gong, Outreach, data warehouses) and connecting insights to commercial impact. \n Solid program execution and prioritization skills \u2014 able to manage multiple cross-functional workstreams and drive measurable progress. \n Technical background is valued and a plus. \n Strong communication and stakeholder collaboration skills \u2014 can translate technical concepts into clear narratives for GTM and business audiences. \n AI-native mindset : Curious, adaptable, and excited to help shape how AI transforms the future of revenue operations. \n \n Our annual base salary compensation range for this role is $222,000 - $242,000 in San Francisco and New York, and $189,473 - $205,000 in Denver, Atlanta and Phoenix metro areas. \u00a0This role is also eligible for an annual variable cash bonus (up to 20%). Final offer amounts are determined by multiple factors, including candidate experience and expertise, and may vary from the amounts listed above. Final offer amounts are determined by multiple factors, including candidate experience and expertise, and may vary from the amounts listed above. \n Gusto has physical office spaces in Denver, San Francisco, and New York City. Employees who are based in those locations will be expected to work from the office on designated days approximately 2-3 days per week (or more depending on role). The same office expectations apply to all Symmetry roles, Gusto's subsidiary, whose physical office is in Scottsdale. \n Note: The San Francisco office expectations encompass both the San Francisco and San Jose metro areas.\u00a0 \n When approved to work from a location other than a Gusto office, a secure, reliable, and consistent internet connection is required. This includes non-office days for hybrid employees. \n \n Our customers come from all walks of life and so do we. We hire great people from a wide variety of backgrounds, not just because it's the right thing to do, but because it makes our company stronger. If you share our values and our enthusiasm for small businesses, you will find a home at Gusto.\u00a0 \n Gusto is proud to be an equal opportunity employer. We do not discriminate in hiring or any employment decision based on race, color, religion, national origin, age, sex (including pregnancy, childbirth, or related medical conditions), marital status, ancestry, physical or mental disability, genetic information, veteran status, gender identity or expression, sexual orientation, or other applicable legally protected characteristic. Gusto considers qualified applicants with criminal histories, consistent with applicable federal, state and local law. Gusto is also committed to providing reasonable accommodations for qualified individuals with disabilities and disabled veterans in our job application procedures. We want to see our candidates perform to the best of their ability. If you require a medical or religious accommodation at any time throughout your candidate journey, please fill out this form and a member of our team will get in touch with you. \n Gusto takes security and protection of your personal information very seriously. Please review our Fraudulent Activity Disclaimer . \n Personal information collected and processed as part of your Gusto application will be subject to\u00a0 Gusto's Applicant Privacy Notice .",
-      "resume_core": {
-        "label": "Gusto \u2014 GTM AI Agent Builder",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Gusto is hiring a GTM AI Agent Builder and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Gusto, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Gusto%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "b52c187da40ca569",
@@ -39767,208 +39330,6 @@
       },
       "referral_message": "Hi there \u2014 I saw Databricks is hiring a Event Marketing Manager, 3P & Partner and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Databricks, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
       "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Databricks%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
-    },
-    {
-      "id": "8a4075a80b75cff7",
-      "company": "Brex",
-      "title": "Event Marketing Manager",
-      "location": "San Francisco, California, United States",
-      "url": "https://www.brex.com/careers/8645962002?gh_jid=8645962002",
-      "source": "greenhouse",
-      "posted_at": "2026-07-23T16:19:08-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 58,
-      "min_years": 3,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing"
-      ],
-      "ats_score": 62,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [
-        "marketo"
-      ],
-      "requested_keywords": [
-        "b2b",
-        "brand",
-        "brand marketing",
-        "cross-functional",
-        "field marketing",
-        "marketo",
-        "messaging",
-        "pipeline",
-        "positioning",
-        "product marketing",
-        "project management",
-        "r",
-        "reporting",
-        "roi",
-        "saas",
-        "salesforce"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 62,
-          "missing": [
-            "marketo"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 56,
-          "missing": [
-            "marketo"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 56,
-          "missing": [
-            "marketo"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 56,
-          "missing": [
-            "marketo"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 50,
-          "missing": [
-            "marketo"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Why join us \n Brex is the intelligent finance platform that enables companies to spend smarter and move faster in more than 200 markets. By combining global corporate cards and banking with intuitive spend management, bill pay, and travel software, Brex enables founders and finance teams to accelerate operations, gain real-time visibility, and control spend effortlessly. Brex\u2019s AI-native automation and world-class service eliminate manual expense and accounting tasks for customers so they can focus on what matters most. Tens of thousands of the world's best companies run on Brex, including DoorDash, Coinbase, Robinhood, Zoom, Plaid, Reddit, and SeatGeek. \n Working at Brex allows you to push your limits, challenge the status quo, and collaborate with some of the brightest minds in the industry. We\u2019re committed to building a diverse team and inclusive culture and believe your potential should only be limited by how big you can dream. We make this a reality by empowering you with the tools, resources, and support you need to grow your career. Marketing at Brex \n The Marketing team tells the Brex story, determines messaging and positioning, and translates our products and features into tangible customer benefits. Our marketers, across Revenue Marketing, Product Marketing, and Brand Marketing, are responsible for acquiring new customers and have a deep understanding of the business. We're a highly cross-functional team and partner most closely with Product, Sales, and Business Development to show our prospects and customers how we can help them reach their full potential. \n What you'll do \n As an Event Marketing Manager at Brex, you\u2019ll support a portfolio of B2B events - the events that put us in front of founders, finance leaders, and operators. You'll report to the Head of Events on the Corporate Events team in Revenue Marketing, and work daily with sales, field marketing, and brand design. Corporate Events is a growing team that delivers highly engaging, high quality events with consistent ROI. You'll deliver a portfolio of industry & hosted events from brief through post-event reporting. You'll have input on the portfolio strategy and how the team operates. The work spans strategy, operations, experience design with our brand and creative teams, and tight coordination with sales on what happens before and after each event.\u00a0 \n \u00a0 Where you\u2019ll work \n This role will be based in one of our 5 hubs (San Francisco, New York City, Seattle, Salt Lake City and Vancouver). We are a hybrid environment that combines the energy and connections of being in the office with the benefits and flexibility of working from home. We currently require a minimum of three coordinated days in the office per week, Monday, Wednesday and Thursday. As a perk, we also have up to four weeks per year of fully remote work! \n Responsibilities \n \n Own how Brex shows up at each event in your portfolio, from brief through post-event reporting, including vendor management, design partnership, registration, on-site execution, and sales follow-up \n Execute event sponsorships end-to-end: vendor and venue coordination, logistics, onsite management, and post-event reporting \n Coordinate with sales on pre- and post-event outreach - managing specific tasks and timelines to ensure lead follow-through and maximize pipeline impact \n Partner with design and brand marketing on activations, merch, and graphics for each event \n Manage vendor contracts and event budgets end-to-end, including reconciliation and variance flagging \n Collaborate with sales and field marketing teams to develop booth experiences and promotional materials aligned to brand standards \n Own lead gen & pipeline targets; understand how event performance connects to broader marketing and sales goals \n Improve repeatable tradeshow processes, documentation, and workflows that scale across the portfolio \n Evaluate and recommend new event opportunities based on audience fit and pipeline potential \n Travel to manage onsite components for assigned events, as well as supporting events across the team as needed \n \n Requirements \n \n 3+ years of experience in event marketing or field marketing, with hands-on tradeshow and conference execution experience \n Demonstrated ability to own events end-to-end: logistics, vendors, onsite execution, and the follow-through that happens after everyone goes home \n Strong project management skills and a structured approach to planning; experience with project management tools is a plus \n Known for cross-functional collaboration and clean handoffs and proactive communication at all levels \n Understands how events connect to business goals - you know why you're running an event and what success looks like \n Team-oriented but self-directed: you collaborate closely and communicate openly, and you own your workstream without waiting to be told what to do next \n Comfortable using AI tools to streamline planning, communications, and repeatable workflows \n Proficiency with G Suite; familiarity with Monday.com, Salesforce, Marketo, or Nooks is a plus \n Willingness and ability to travel up to 50% for onsite event setup, supervision, and management \n A bachelor's degree in Marketing, Communications, Business, related field, or equivalent professional experience \n \n Nice to haves \n \n Experience managing executive engagements and\u00a0 hospitality suites \n Experience managing event content and speaking engagements \n Familiarity with ClaudeAI and Splash \n Knowledge of the fintech or B2B SaaS industry \n CMP (Certified Meeting Professional) or similar certification \n \n Compensation \n The expected salary range for this role is $103,960 - $129,950. However, the starting base pay will depend on several factors, including the candidate\u2019s location, skills, experience, market demands, and internal pay parity. Depending on the position offered, equity and other forms of compensation may be provided as part of a total compensation package. \n \u00a0 Please be aware, job-seekers may be at risk of targeting by malicious actors looking for personal data. Brex recruiters will only reach out via LinkedIn or email with a\u00a0 brex.com \u00a0domain. Any outreach claiming to be from Brex via other sources should be ignored.",
-      "resume_core": {
-        "label": "Brex \u2014 Event Marketing Manager",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Brex is hiring a Event Marketing Manager and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Brex, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Brex%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER"
     },
     {
       "id": "31f66d0772a0ce46",
@@ -42531,7 +41892,7 @@
       "location": "USA, CA, Pleasanton",
       "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Senior-Compensation-Business-Partner--Sales_JR-0108857",
       "source": "workday",
-      "posted_at": "Posted 18 Days Ago",
+      "posted_at": "Posted 19 Days Ago",
       "sponsorship": "Unknown",
       "fit_score": 30,
       "min_years": null,
