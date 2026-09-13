@@ -23,6 +23,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from lib import jobspec as jobspec_mod  # noqa: E402
 JOBS = ROOT / "docs" / "jobs.json"
 OUT = ROOT / "docs" / "coach.json"
 CONFIG = ROOT / "config.json"
@@ -45,17 +47,30 @@ def _resume_context(jobs: list) -> str:
             f"Skills: {', '.join(skills[:24])}")
 
 
+def _trim(items, n, chars=150):
+    return [re.sub(r"\s+", " ", (s or ""))[:chars] for s in (items or [])[:n]]
+
+
 def _compact(jobs: list, hist: dict) -> list:
+    """Hand the ranker STRUCTURED requirements (Phase 3) — basic vs preferred quals,
+    responsibilities, required years — plus a source snippet, not a 320-char blob, so
+    it can judge genuine fit instead of keyword overlap. Spec is computed on the fly
+    when worker.py hasn't yet written one, so this never depends on refresh order."""
     out = []
     for j in jobs:
+        spec = j.get("spec") or jobspec_mod.structure(j, include_full=False, max_bullets=10)
         out.append({
             "id": j.get("id"), "title": j.get("title", ""), "company": j.get("company", ""),
             "location": j.get("location", ""), "fit": j.get("fit_score"), "ats": j.get("ats_score"),
             "posted_at": j.get("posted_at", ""),
             "imm_risk": (j.get("immigration") or {}).get("risk", "yellow"),  # green|yellow|red
             "prev": hist.get(j.get("id"), 0),   # how many prior runs already recommended this
+            "req_years": spec.get("required_years"),
+            "basic_quals": _trim(spec.get("basic_qualifications"), 6),      # eligibility
+            "preferred_quals": _trim(spec.get("preferred_qualifications"), 3),  # ranking only
+            "responsibilities": _trim(spec.get("responsibilities"), 4),
             "missing": (j.get("missing_keywords") or [])[:8],
-            "jd": re.sub(r"\s+", " ", (j.get("excerpt") or ""))[:320],
+            "jd": re.sub(r"\s+", " ", (j.get("excerpt") or ""))[:300],      # source-text context
         })
     return out
 
@@ -94,6 +109,15 @@ def build_prompt(jobs: list, hist: dict) -> str:
         "- Two target lanes: (1) product marketing / marketing — GTM, growth, marketing ops; "
         "(2) analyst roles — marketing / business / sales analyst.\n"
         + _resume_context(jobs) + "\n\n"
+        "REQUIREMENT-TO-EVIDENCE (judge fit HONESTLY, not by keyword overlap): each role now "
+        "carries structured 'basic_quals' (eligibility — the bar to clear), 'preferred_quals' "
+        "(ranking only, never eligibility) and 'responsibilities'. For each role weigh the "
+        "candidate's ACTUAL experience against the basic_quals and classify the match as: DIRECT "
+        "evidence (they've demonstrably done it), TRANSFERABLE (adjacent/analogous, reframe honestly), "
+        "GAP (no real basis), or HARD DISQUALIFIER (a basic_qual they cannot meet — e.g. a required "
+        "degree/certification/tool they lack, or years far beyond ~7). Do NOT let a repeated keyword "
+        "inflate fit when the underlying experience doesn't support it; a title match with unmet "
+        "basic_quals is a weak fit, not a strong one. State the real evidence basis in 'why'.\n"
         "JUDGE each role on: genuine fit for the candidate's lanes AND level (not too senior); "
         "company quality / growth; SPONSORSHIP-friendliness (large/established or known H-1B sponsors "
         "beat tiny startups); Boston/remote-US location; and whether the keyword score mis-rated it. "

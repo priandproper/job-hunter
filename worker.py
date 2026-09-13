@@ -35,6 +35,7 @@ from lib import discovery as disc_mod
 from lib import gap as gap_mod
 from lib import immigration as immig_mod
 from lib import jobs as jobs_mod
+from lib import jobspec as jobspec_mod
 from lib import match as match_mod
 from lib import payload as payload_mod
 from lib import persona as persona_mod
@@ -293,6 +294,10 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "referral_message": message,
             "linkedin_search": search_link,
             "immigration": immig_mod.classify(job, comp_by_name.get((job.get("company") or "").strip().lower())),
+            # Structured JD (Phase 3): responsibilities / basic vs preferred quals /
+            # required years / locations / salary — derived from the excerpt above, so
+            # full_cleaned_jd is omitted and each section is capped to keep jobs.json lean.
+            "spec": jobspec_mod.structure(job, include_full=False, max_bullets=12),
         })
 
         if not public_only:
