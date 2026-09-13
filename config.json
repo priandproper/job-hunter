@@ -43,6 +43,7 @@
     "experience": {
       "exclude_at_years": 8
     },
+    "immigration_hard_stop": true,
     "extra_lane_terms": [
       "marketing",
       "content marketing",

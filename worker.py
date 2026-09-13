@@ -33,6 +33,7 @@ from lib import ats as ats_mod
 from lib import companies_gist as cgist_mod
 from lib import discovery as disc_mod
 from lib import gap as gap_mod
+from lib import immigration as immig_mod
 from lib import jobs as jobs_mod
 from lib import match as match_mod
 from lib import payload as payload_mod
@@ -237,10 +238,18 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     today = _dt.date.today()
     max_age = cfg["match"].get("max_age_days", 0)
 
+    # Company lookup (by name) so each job's immigration object can fold in the
+    # company's public H-1B history as EVIDENCE (never as proof — see lib/immigration).
+    comp_by_name = {(c.get("name") or "").strip().lower(): c
+                    for c in disc_mod.load_companies((REPO_ROOT / cfg["companies_file"]).resolve())}
+
     extra_terms = cfg["match"].get("extra_lane_terms", [])
+    hard_stopped = 0
     for job in all_jobs:
         m = match_mod.match_job(job, profile, extra_terms)
         if not match_mod.passes_filters(job, m, cfg["match"]):
+            if cfg["match"].get("immigration_hard_stop", True) and immig_mod.hard_stop(job)[0]:
+                hard_stopped += 1
             continue
         if _too_old(job, max_age, today):   # auto-tidy stale postings
             tidied += 1
@@ -283,6 +292,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "resume_core": resume_core,
             "referral_message": message,
             "linkedin_search": search_link,
+            "immigration": immig_mod.classify(job, comp_by_name.get((job.get("company") or "").strip().lower())),
         })
 
         if not public_only:
@@ -356,7 +366,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     pub_path.parent.mkdir(parents=True, exist_ok=True)
     pub_path.write_text(json.dumps(doc, indent=2))
     log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}"
-        + (f"; auto-tidied {tidied} stale" if tidied else ""))
+        + (f"; auto-tidied {tidied} stale" if tidied else "")
+        + (f"; {hard_stopped} immigration hard-stop(s) excluded" if hard_stopped else ""))
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "
         f"({best['best_variant'] if best else '—'}); "
         f"{len(missing_counter)} distinct missing keyword(s)")

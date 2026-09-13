@@ -52,6 +52,7 @@ def _compact(jobs: list, hist: dict) -> list:
             "id": j.get("id"), "title": j.get("title", ""), "company": j.get("company", ""),
             "location": j.get("location", ""), "fit": j.get("fit_score"), "ats": j.get("ats_score"),
             "posted_at": j.get("posted_at", ""),
+            "imm_risk": (j.get("immigration") or {}).get("risk", "yellow"),  # green|yellow|red
             "prev": hist.get(j.get("id"), 0),   # how many prior runs already recommended this
             "missing": (j.get("missing_keywords") or [])[:8],
             "jd": re.sub(r"\s+", " ", (j.get("excerpt") or ""))[:320],
@@ -98,6 +99,10 @@ def build_prompt(jobs: list, hist: dict) -> str:
         "beat tiny startups); Boston/remote-US location; and whether the keyword score mis-rated it. "
         "REWARD roles the keyword score under-rated (hidden gems); DEMOTE generic or over-scored ones. "
         "Be honest and specific in each 'why'.\n"
+        "IMMIGRATION: each job has 'imm_risk' — green (posting indicates sponsorship), yellow (unknown: "
+        "verify with recruiter before the hiring-manager stage), red (explicit hard stop; these are already "
+        "filtered out). Prefer green; for yellow, keep it but note it needs sponsorship verification. Historical "
+        "company H-1B use is evidence, NOT proof the current team sponsors — never present it as a guarantee.\n"
         "FRESHNESS: each job has 'prev' = how many prior daily runs you already recommended it. If a role "
         "has a high 'prev' and is still here, the candidate likely passed on it — DEMOTE it in favor of "
         "newer arrivals and roles you haven't pushed before, UNLESS it's still an obvious bullseye. Don't "

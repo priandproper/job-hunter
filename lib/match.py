@@ -14,6 +14,8 @@ the winning variant's own skill terms appear in the posting.
 import re
 import unicodedata
 
+from lib import immigration as _immigration
+
 
 def _strip_accents(s: str) -> str:
     """Fold diacritics so 'São Paulo'/'Kraków'/'Montréal' match their ASCII terms."""
@@ -306,6 +308,12 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
     if match["fit_score"] < cfg_match.get("min_fit_score", 30):
         return False
     if (job.get("sponsorship") or "").strip() in cfg_match.get("exclude_sponsorship", []):
+        return False
+    # Immigration hard stop (Phase 2): the JD explicitly prohibits sponsorship, or
+    # requires citizenship / a security clearance — genuinely non-viable for an
+    # F-1/H-1B candidate. On by default; disable via match.immigration_hard_stop:false
+    # (the full evidence-backed classification is attached to each surfaced job).
+    if cfg_match.get("immigration_hard_stop", True) and _immigration.hard_stop(job)[0]:
         return False
     if not on_target(job.get("title"), cfg_match.get("target_role_terms")):
         return False   # allowlist: title must be one of the target role families
