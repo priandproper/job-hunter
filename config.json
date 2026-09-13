@@ -41,8 +41,7 @@
     ],
     "max_age_days": 45,
     "experience": {
-      "analyst_max_years": 3,
-      "default_max_years": 4
+      "exclude_at_years": 8
     },
     "extra_lane_terms": [
       "marketing",

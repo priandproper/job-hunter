@@ -50,9 +50,15 @@ _TAG_RE = re.compile(r"<[^>]+>")
 # candidate, or a different function entirely (engineering/design). Mirrors the
 # seniority/role exclusions the upstream scanner already used. Config can
 # override via match.exclude_title_terms.
+# Only CLEARLY-EXECUTIVE titles are hard-excluded here (Phase 1). Senior / Sr /
+# Staff / Lead / Principal and plain "Director" are NOT on this list any more:
+# title seniority is no longer a hard filter — level is judged by REQUIRED YEARS
+# and scope (see experience_ok), then ranked. A "Senior Product Marketing
+# Manager" or "Marketing Director" asking for ~5 years is on-target; a VP / C-level
+# / President / Head-of role is genuinely out of band and stays excluded.
 DEFAULT_EXCLUDE_TITLE_TERMS = [
-    "vp", "v.p.", "vice president", "svp", "evp", "head of", "director",
-    "chief", "cmo", "president", "principal", "intern", "internship",
+    "vp", "v.p.", "vice president", "svp", "evp", "head of",
+    "chief", "cmo", "president", "intern", "internship",
     "co-op", "co op", "apprentice", "fellow", "trainee",
     "engineer", "engineering", "software", "data scientist", "designer",
     "architect",
@@ -187,47 +193,63 @@ def extract_years(text: str | None) -> int | None:
     return min(found) if found else None
 
 
-# Experience caps by role class. A posting is dropped when its JD states a
-# minimum ABOVE the cap for its role class. The candidate's two target lanes:
-#   analyst (marketing / business / sales / sales-ops / data / insights analyst): 0–3 yrs
-#   product marketing & other marketing roles:                                    ≤4 yrs
-# Jobs that don't state a minimum are kept (we don't guess), matching the rest of
-# the pipeline's "unknown → keep" stance. Caps are overridable via config
-# match.experience.{analyst_max_years, default_max_years}.
-ANALYST_MAX_YEARS = 3
-DEFAULT_MAX_YEARS = 4
+# Experience band (Phase 1). The candidate has 4+ years of relevant experience,
+# so the target is roles asking for roughly 3–6 years (primary), stretching to 7,
+# and is comfortably over the bar below that (≤2 yrs = fine, just over-qualified).
+# ONLY roles whose ELIGIBILITY bar is substantially higher — 8+ years — are
+# filtered out. Two deliberate rules:
+#   • Total vs role-relevant: extract_years returns the SMALLEST stated figure, so
+#     "8+ years overall, 3+ years in marketing" gates on 3 (the role-relevant bar),
+#     not 8. We never exclude on a "total years" number when a smaller relevant one
+#     is present.
+#   • Basic vs Preferred: years asked for in a "Preferred / nice-to-have" section
+#     are ranking signals, NOT eligibility — the gate reads only the eligibility
+#     (Basic/Minimum) portion of the JD (see eligibility_text).
+# Jobs that state no minimum are kept (unknown → keep), matching the pipeline's
+# stance elsewhere. Threshold overridable via config match.experience.exclude_at_years.
+EXPERIENCE_EXCLUDE_AT_YEARS = 8
+
+# Headers that begin the "preferred / nice-to-have" part of a JD. Anything from
+# such a header onward is a ranking preference, not an eligibility requirement.
+_PREFERRED_HEADER_RE = re.compile(
+    r"(preferred\s+qualifications?|preferred\s+skills|preferred\s+experience|"
+    r"nice[-\s]?to[-\s]?have|bonus\s+(?:points|qualifications?|skills)?|"
+    r"desired\s+qualifications?|pluses|it'?s?\s+a\s+plus|"
+    r"even\s+better|what\s+would\s+set\s+you\s+apart)", re.I)
 
 
-def role_class(title: str | None) -> str:
-    """'analyst' for analyst titles, else 'marketing' (the general lane)."""
-    return "analyst" if "analyst" in (title or "").lower() else "marketing"
+def eligibility_text(text: str | None) -> str:
+    """The portion of the JD that governs ELIGIBILITY. If the JD has a 'preferred /
+    nice-to-have' section, everything from that header onward is ranking-only and
+    is dropped, so years asked for there don't gate the role out — the Basic /
+    Minimum qualifications are the bar. No such header → the whole text."""
+    if not text:
+        return ""
+    m = _PREFERRED_HEADER_RE.search(text)
+    return text[:m.start()] if m else text
 
 
-# BOTH lanes want non-senior roles (marketing ≤4 yrs, analyst 0–3). A Senior / Sr /
-# Staff / Lead / Principal title signals more experience than either band wants —
-# even when the JD omits a year count — so such titles are dropped regardless of
-# lane. Plain "Manager" is a level name, not seniority, and is kept (e.g. "Product
-# Marketing Manager").
-_SENIORITY_RE = re.compile(r"\b(senior|sr|staff|lead|principal|expert)\b")
+def required_years(job: dict) -> int | None:
+    """Minimum RELEVANT years the role requires for eligibility, or None if unstated.
+    Reads only the eligibility section (preferred years are ranking-only) and takes
+    the smallest stated figure (the role-relevant bar, not a larger 'total years')."""
+    return extract_years(eligibility_text(job.get("excerpt")))
 
 
-def too_senior(title: str | None) -> bool:
-    return bool(_SENIORITY_RE.search((title or "").lower()))
-
-
-def years_cap(title: str | None, cfg_match: dict) -> int:
+def experience_exclude_at(cfg_match: dict) -> int:
     exp = (cfg_match or {}).get("experience", {}) if isinstance(cfg_match, dict) else {}
-    if role_class(title) == "analyst":
-        return int(exp.get("analyst_max_years", ANALYST_MAX_YEARS))
-    return int(exp.get("default_max_years", DEFAULT_MAX_YEARS))
+    return int(exp.get("exclude_at_years", EXPERIENCE_EXCLUDE_AT_YEARS))
 
 
 def experience_ok(job: dict, cfg_match: dict) -> bool:
-    """False when the JD demands more years than the role class allows."""
-    yrs = extract_years(job.get("excerpt"))
+    """False only when the role's eligibility bar is at/above the exclude threshold
+    (default 8 years). Everything from 0 up through the stretch band (7) is kept;
+    an unstated minimum is kept. Title seniority is NOT consulted — level is a
+    ranking concern, not a gate."""
+    yrs = required_years(job)
     if yrs is None:
         return True
-    return yrs <= years_cap(job.get("title"), cfg_match)
+    return yrs < experience_exclude_at(cfg_match)
 
 
 def _count_terms(text: str, terms) -> list[str]:
@@ -294,6 +316,8 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
         return False
     if not experience_ok(job, cfg_match):
         return False
-    if too_senior(job.get("title")):
-        return False
+    # NOTE (Phase 1): title seniority is intentionally NOT a hard filter. A "Senior"
+    # / "Lead" / "Principal" / "Director" title is kept when its required-years bar
+    # is in band (experience_ok above) and it's a target function (on_target); level
+    # is then handled by ranking, not by dropping the role on a word in the title.
     return True
