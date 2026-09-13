@@ -40,6 +40,7 @@ from lib import match as match_mod
 from lib import payload as payload_mod
 from lib import persona as persona_mod
 from lib import pool as pool_mod
+from lib import priority as priority_mod
 from lib import profile as profile_mod
 from lib import profile_roi as profile_roi_mod
 from lib import referrals as ref_mod
@@ -115,6 +116,22 @@ def _apply_enrichment(jobs: list[dict]) -> int:
             j["sponsorship"] = e["sponsorship"]
         n += 1
     return n
+
+
+def _priority_ctx(profile) -> dict:
+    """Candidate skill + experience vocabulary for the Phase 6 priority score, from the
+    resume profile. skills = variant skill terms; experience_terms = tokens from real
+    highlights; domains = the candidate's product/customer world."""
+    import re as _re
+    skills, exp = set(), set()
+    for v in getattr(profile, "variants", []) or []:
+        for t in profile.variant_terms(v):
+            skills.update(w for w in _re.findall(r"[a-z0-9][a-z0-9\+/\.#-]*", t.lower()) if len(w) > 2)
+        for e in v.get("experience", []) or []:
+            for h in e.get("highlights", []) or []:
+                exp.update(w for w in _re.findall(r"[a-z0-9][a-z0-9\+/\.#-]*", h.lower()) if len(w) > 2)
+    return {"skills": skills, "experience_terms": exp, "skill_vocab": skills,
+            "domains": priority_mod.DEFAULT_DOMAINS}
 
 
 def _natural_key(job: dict) -> tuple:
@@ -244,6 +261,10 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     comp_by_name = {(c.get("name") or "").strip().lower(): c
                     for c in disc_mod.load_companies((REPO_ROOT / cfg["companies_file"]).resolve())}
 
+    # Candidate context for the transparent priority score (Phase 6): the skills and
+    # experience terms the candidate actually has, drawn from the resume profile.
+    prio_ctx = _priority_ctx(profile)
+
     extra_terms = cfg["match"].get("extra_lane_terms", [])
     hard_stopped = 0
     for job in all_jobs:
@@ -270,6 +291,21 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         message = ref_mod.draft_message({"name": ""}, job, contact_name)
         search_link = ref_mod.linkedin_search_url(job["company"], titles)
 
+        # Referrers first (local runs only) so the priority score can count internal
+        # access. Only the COUNT feeds the public score — names stay in private data.
+        referrers = []
+        if not public_only:
+            apollo_people = apollo_mod.find_people(job["company"], titles, cfg, REPO_ROOT)
+            referrers = ref_mod.build_referrals(job["company"], connections, ref_cfg, apollo_people)
+            if referrers:
+                private[job["id"]] = referrers
+                total_ref += len(referrers)
+
+        immigration = immig_mod.classify(
+            job, comp_by_name.get((job.get("company") or "").strip().lower()))
+        priority = priority_mod.score(job, prio_ctx, immigration=immigration,
+                                      referral_count=len(referrers), today=today)
+
         public_jobs.append({
             "id": job["id"],
             "company": job.get("company", ""),
@@ -293,19 +329,15 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "resume_core": resume_core,
             "referral_message": message,
             "linkedin_search": search_link,
-            "immigration": immig_mod.classify(job, comp_by_name.get((job.get("company") or "").strip().lower())),
+            "immigration": immigration,
             # Structured JD (Phase 3): responsibilities / basic vs preferred quals /
             # required years / locations / salary — derived from the excerpt above, so
             # full_cleaned_jd is omitted and each section is capped to keep jobs.json lean.
             "spec": jobspec_mod.structure(job, include_full=False, max_bullets=12),
+            # Transparent priority score (Phase 6): total, band A/B/C/Reject, per-component
+            # breakdown, hard stops, uncertainty, why. Replaces fit_score as the headline.
+            "priority": priority,
         })
-
-        if not public_only:
-            apollo_people = apollo_mod.find_people(job["company"], titles, cfg, REPO_ROOT)
-            referrers = ref_mod.build_referrals(job["company"], connections, ref_cfg, apollo_people)
-            if referrers:
-                private[job["id"]] = referrers
-                total_ref += len(referrers)
 
     # Re-merge locally-computed enrichment (scripts/enrich_jobs.py, keyed by company+
     # title signature) so it survives cloud rebuilds. No file -> no-op.
@@ -313,7 +345,10 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     if n_enriched:
         log(f"        enrich    — merged enrichment into {n_enriched} job(s)")
 
-    public_jobs.sort(key=lambda j: (j["fit_score"], j["ats_score"]), reverse=True)
+    # Rank by the transparent priority score (Phase 6), then fit/ats as tiebreakers.
+    public_jobs.sort(key=lambda j: (j.get("priority", {}).get("total", 0),
+                                    j["fit_score"], j["ats_score"]), reverse=True)
+    _bands = Counter(j.get("priority", {}).get("band", "?") for j in public_jobs)
 
     # Company watchlist — the set the scraper is looking at, surfaced so the dashboard
     # can list it (and link into the Jobs company filter). Slim + PII-free.
@@ -373,6 +408,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}"
         + (f"; auto-tidied {tidied} stale" if tidied else "")
         + (f"; {hard_stopped} immigration hard-stop(s) excluded" if hard_stopped else ""))
+    log(f"        priority  — A:{_bands.get('A',0)} B:{_bands.get('B',0)} "
+        f"C:{_bands.get('C',0)} Reject:{_bands.get('Reject',0)}")
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "
         f"({best['best_variant'] if best else '—'}); "
         f"{len(missing_counter)} distinct missing keyword(s)")

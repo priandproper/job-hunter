@@ -424,6 +424,25 @@
   .tag.new{background:var(--mid-soft);color:var(--mid)}
   .tag.in{background:var(--good-soft);color:var(--good)} .tag.ap{background:var(--accent-soft);color:var(--accent)}
   .tag.se{background:var(--mid-soft);color:var(--mid)}
+  /* Phase 6 — transparent priority score */
+  .prio{display:inline-block;font-size:.64rem;font-weight:800;padding:.1rem .44rem;border-radius:6px;
+    letter-spacing:.03em;margin-left:.15rem;vertical-align:middle;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .pb-a{background:var(--good-soft);color:var(--good)} .pb-b{background:var(--accent-soft);color:var(--accent)}
+  .pb-c{background:var(--mid-soft);color:var(--mid)} .pb-reject{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b)}
+  .prio-panel{margin-top:.2rem}
+  .pp-top{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:.4rem}
+  .pp-total{font-weight:800;font-size:1.35rem;font-variant-numeric:tabular-nums}.pp-total small{font-size:.7rem;color:var(--ink-2);font-weight:600}
+  .pp-unc{font-size:.72rem;color:var(--ink-2)}
+  .pp-why{font-size:.86rem;color:var(--ink);margin:.2rem 0 .6rem}
+  .pp-note{font-size:.7rem;color:var(--ink-2);margin-top:.5rem;font-style:italic}
+  .pc-stop{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b);font-weight:700;font-size:.8rem;padding:.35rem .5rem;border-radius:7px;margin-bottom:.5rem}
+  .pc-row{margin:.4rem 0}
+  .pc-h{display:flex;justify-content:space-between;font-size:.8rem}.pc-h b{font-variant-numeric:tabular-nums}.pc-h small{color:var(--ink-2);font-weight:600}
+  .pc-cf{font-size:.6rem;font-weight:800;text-transform:uppercase;padding:.02rem .3rem;border-radius:4px;margin-left:.2rem}
+  .pc-cf-high{background:var(--good-soft);color:var(--good)}.pc-cf-medium{background:var(--mid-soft);color:var(--mid)}.pc-cf-low{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b)}
+  .pc-bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:.15rem 0}
+  .pc-bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+  .pc-ev{font-size:.74rem;color:var(--ink-2)}
 
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:start}
   @media (max-width:740px){.grid{grid-template-columns:1fr}}
@@ -845,7 +864,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       JOBCACHE_KEY="job-hunter:jobcache:v1";            // snapshot of viewed/tracked jobs (survive scrape churn)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, COACH=null, filter="active", roleFilter="all", sortBy="relevance", hidePoor=false, hideReposts=false, enrichedOnly=false, companyFilter="all", query="", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, COACH=null, filter="active", roleFilter="all", sortBy="priority", hidePoor=false, hideReposts=false, enrichedOnly=false, companyFilter="all", query="", shownCount=PAGE;
 // Claude's daily curation (docs/coach.json): id -> {tier,priority,why,flag}
 let _coachMap=null;
 function coachMap(){
@@ -859,6 +878,33 @@ const COACH_TIER={top:'⭐ Top pick',strong:'Strong',maybe:'Maybe'};
 let _flagMap=null;
 function flagMap(){if(_flagMap)return _flagMap;_flagMap={};(COACH&&COACH.flagged||[]).forEach(f=>{if(f.id)_flagMap[f.id]=f;});return _flagMap;}
 function flagFor(id){return flagMap()[id]||null;}
+// Transparent priority score (docs/jobs.json job.priority — Phase 6): total, band, per-
+// component breakdown, hard stops, uncertainty, why. Shown as a chip + a detail panel.
+function priorityFor(job){return job&&job.priority||null;}
+const _BAND_LABEL={A:'Priority A',B:'Priority B',C:'Priority C',Reject:'Reject'};
+function prioBadge(job){const p=priorityFor(job);if(!p)return '';
+  const cls='pb-'+String(p.band).toLowerCase();
+  return `<span class="prio ${cls}" title="${esc(p.why||'')}">${esc(p.band)} · ${p.total}</span>`;}
+function prioPanel(job){const p=priorityFor(job);if(!p)return '';
+  const rows=(p.components||[]).map(c=>{
+    const pct=c.max?Math.round(100*c.points/c.max):0;
+    const name=esc(c.name.replace(/_/g,' '));
+    return `<div class="pc-row"><div class="pc-h"><span>${name}</span>
+        <b>${c.points}<small>/${c.max}</small> <span class="pc-cf pc-cf-${esc(c.confidence)}">${esc(c.confidence)}</span></b></div>
+      <div class="pc-bar"><i style="width:${pct}%"></i></div>
+      <div class="pc-ev">${esc(c.evidence||'')}</div></div>`;}).join('');
+  const stops=(p.hard_stops||[]).length
+    ? `<div class="pc-stop">⛔ Hard stop: ${p.hard_stops.map(esc).join(', ')}</div>`:'';
+  return `<div class="prio-panel">
+    <div class="pp-top"><span class="prio pb-${String(p.band).toLowerCase()}">${esc(_BAND_LABEL[p.band]||p.band)}</span>
+      <span class="pp-total">${p.total}<small>/100</small></span>
+      <span class="pp-unc" title="How much the score rests on missing/low-confidence data">uncertainty: ${esc(p.uncertainty)}</span></div>
+    ${stops}
+    <div class="pp-why">${esc(p.why||'')}</div>
+    <div class="pc-list">${rows}</div>
+    <div class="pp-note">A transparent guide, not a precise measurement — component scores &amp; evidence above.</div>
+  </div>`;}
+function _prioTotal(j){const p=priorityFor(j);return p?(p.total||0):-1;}
 // A job you've already acted on shouldn't be re-recommended (status lives here in the
 // browser, so the coach's picks are filtered at display time).
 function _actedOn(id){const s=jobStatus(id);return APPLIED_STATES.has(s)||s==='archived'||s==='messaged'||s==='referred'||isPruned(id);}
@@ -1935,7 +1981,7 @@ function toggleHidePoor(v){hidePoor=v;shownCount=PAGE;renderJobs();}
 function toggleHideReposts(v){hideReposts=v;shownCount=PAGE;renderJobs();}
 function toggleEnrichedOnly(v){enrichedOnly=v;shownCount=PAGE;renderJobs();}
 // ----- sorting (best-for-me / relevance / recency / ATS / new) -----
-const SORTS=[['coach','🧠 Coach’s rank'],['persona','Best for me'],['relevance','Relevance'],['boston','Closest to Boston'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
+const SORTS=[['priority','⭐ Priority score'],['coach','🧠 Coach’s rank'],['persona','Best for me'],['relevance','Relevance'],['boston','Closest to Boston'],['recent','Most recent'],['ats','ATS match'],['fresh','Newly found']];
 function _coachPri(j){const c=coachFor(j.id);return c?(c.priority??50):-1;}   // ranked jobs first, by Claude priority
 function _postedMs(job){const t=Date.parse((job.posted_at||'').replace(' ','T'));return isNaN(t)?0:t;}
 // Recency: how many days ago the role was POSTED (null if unknown). "Fresh" = last 7 days.
@@ -1953,7 +1999,8 @@ function flagBadge(job){const f=flagFor(job.id);if(!f)return '';
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
 function sortJobs(jobs){
   const a=[...jobs],mf=j=>j.manual?1:0;   // jobs you logged yourself pin to the top
-  if(sortBy==='coach')a.sort((x,y)=>mf(y)-mf(x)||_coachPri(y)-_coachPri(x)||y.fit_score-x.fit_score);
+  if(sortBy==='priority')a.sort((x,y)=>mf(y)-mf(x)||_prioTotal(y)-_prioTotal(x)||y.fit_score-x.fit_score);
+  else if(sortBy==='coach')a.sort((x,y)=>mf(y)-mf(x)||_coachPri(y)-_coachPri(x)||y.fit_score-x.fit_score);
   else if(sortBy==='persona')a.sort((x,y)=>mf(y)-mf(x)||personaScore(y)-personaScore(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);
   else if(sortBy==='recent')a.sort((x,y)=>mf(y)-mf(x)||_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
   else if(sortBy==='ats')a.sort((x,y)=>mf(y)-mf(x)||y.ats_score-x.ats_score||y.fit_score-x.fit_score);
@@ -2002,7 +2049,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2850,6 +2897,7 @@ function renderJobPage(id){
         ${isPruned(job.id)?'':`<button class="markbtn lg hidebtn" title="Not interested — don't show this again" onclick="hideJob('${job.id}')">✕ Not interested</button>`}
         <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Apply ↗</button></a></div>
     </div>
+    ${priorityFor(job)?`<div class="box jp-card"><span class="eyebrow">Why this priority</span>${prioPanel(job)}</div>`:''}
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
       <div class="jp-status">
