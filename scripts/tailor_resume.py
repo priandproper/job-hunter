@@ -39,7 +39,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 from lib import ats as ats_mod              # noqa: E402  (clean_jd)
+from lib import factbank as factbank        # noqa: E402  (verified facts)
+from lib import resume_validator as rv       # noqa: E402  (Phase 5 programmatic validator)
 import reach_out as ro                       # noqa: E402  (find_job, _load_jobs, _job_line)
+
+FACTS_FILE = ROOT / "data" / "facts.local.json"
 
 # The same instruction block the dashboard uses, so the CLI output matches the app.
 TAILOR_INSTRUCTIONS = """You tailor a candidate's resume to a specific job. You rewrite only the language that
@@ -360,11 +364,18 @@ def main() -> int:
     if extra:
         print(f"  steering: {extra}")
     print(f"  drafting with Claude CLI ({args.model})…")
+    # Phase 5: validate the draft PROGRAMMATICALLY against the base resume + the verified
+    # fact bank — an LLM instruction to "be truthful" is not enough. Hard violations
+    # (invented numbers/tools, drifted dates, upgraded ownership, cross-application
+    # contamination, untraceable bullets) are fed back for a retry, then fail generation.
+    facts = factbank.load(FACTS_FILE)
+    other_names = {(j.get("company") or "") for j in doc.get("jobs", [])} - {job.get("company", "")}
     prompt = build_prompt(job, base, extra)
-    core, warns, fails = None, [], []
+    core, warns, fails, report = None, [], [], None
     for attempt in range(2):
-        p = prompt if not fails else (prompt + "\n\nYour previous draft broke these HARD REQUIREMENTS. "
-                                      "Fix ALL of them (truthfully, no fabrication) and return the full JSON again:\n- "
+        p = prompt if not fails else (prompt + "\n\nYour previous draft broke these HARD RULES. "
+                                      "Fix ALL of them TRUTHFULLY — never fabricate to satisfy one; if a "
+                                      "claim can't be made truthfully, drop it. Return the full JSON again:\n- "
                                       + "\n- ".join(fails))
         try:
             raw = claude_json(p, args.model)
@@ -376,12 +387,17 @@ def main() -> int:
             return 1
         core, warns = enforce_frozen(base, raw, job)
         core["summary"] = _trim_summary(core.get("summary", ""))   # guarantee ≤2 sentences
-        fails = _requirement_failures(core)
+        slug = f"{_slug(job.get('company',''))}-{_slug(job.get('title',''))}"
+        report = rv.validate(core, base, job, facts=facts,
+                             other_names=other_names, filename=f"tailored.{slug}.json")
+        req_fails = _requirement_failures(core)
+        val_fails = [f"[{k}] {m}" for k, m in report["hard_failures"]]
+        fails = req_fails + val_fails
         if not fails:
             break
         if attempt == 0:
-            print(f"  re-drafting to meet requirements ({'; '.join(fails)})…")
-    warns += fails   # anything still short after the retry becomes a visible warning (never fabricated to force it)
+            print(f"  re-drafting: {len(fails)} issue(s) to fix (requirements + validation)…")
+    warns += [f for f in _requirement_failures(core)]  # anything still short → visible warning
 
     # When tailoring from a track MASTER (--resume), give the output a unique id so a
     # URL (#import=) load can't overwrite that master in the builder — the builder's
@@ -390,7 +406,25 @@ def main() -> int:
     if args.resume:
         core["id"] = "res_ext_" + (_slug(job.get("company", "")) + "-" + _slug(job.get("title", ""))).strip("-")
 
-    out = Path(args.out) if args.out else (ROOT / "data" / f"tailored.{_slug(job.get('company',''))}-{_slug(job.get('title',''))}.json")
+    # Always show the validation report (the brief's "validation results").
+    print("\n" + rv.format_report(report))
+
+    slug = f"{_slug(job.get('company',''))}-{_slug(job.get('title',''))}"
+    # FAIL GENERATION on unresolved hard violations: write the draft to an .INVALID
+    # file for inspection, emit NO import URL, and exit non-zero. Nothing fabricated
+    # is ever presented as a ready-to-use resume.
+    if not report["passed"]:
+        bad = Path(args.out).with_suffix(".INVALID.json") if args.out else \
+            (ROOT / "data" / f"tailored.{slug}.INVALID.json")
+        bad.write_text(json.dumps({"resume": core, "validation": report}, indent=2))
+        rel = bad.relative_to(ROOT) if bad.is_relative_to(ROOT) else bad
+        print(f"\n✗ Generation FAILED validation — not emitting a resume link.")
+        print(f"  Draft + report saved for review -> {rel}")
+        print("  Fix the flagged items (or verify the underlying facts) and re-run. "
+              "The tool will not present unverifiable content as a finished resume.")
+        return 1
+
+    out = Path(args.out) if args.out else (ROOT / "data" / f"tailored.{slug}.json")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(core, indent=2))
     rel = out.relative_to(ROOT) if out.is_relative_to(ROOT) else out
