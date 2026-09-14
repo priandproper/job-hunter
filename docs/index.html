@@ -2090,12 +2090,19 @@ function refItem(job,r){
   const link=r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">open</a>`:'';
   const useBtn=r.kind==='search'?'':`<button onclick="useName('${job.id}',this)" data-name="${esc(r.name)}">use</button>`;
   return `<li><div class="who"><b>${esc(r.name)}</b> ${tag}<span class="pos">${esc(r.position||'')}</span></div>${link} ${useBtn}</li>`;}
+// Phase 11 — auto-detected duplicate/repost tag (from worker's dedup annotation).
+function autoDupTag(job){
+  const d=job&&job.duplicate;if(!d)return'';
+  const label={exact_duplicate:'duplicate',likely_repost:'repost',separate_headcount:'same template'}[d.classification];
+  if(!label)return'';
+  return `<span class="tag repost" title="Auto-detected ${esc(d.classification)} (${Math.round((d.confidence||0)*100)}%): ${esc((d.evidence||[]).join('; '))}">↺ ${label}</span>`;
+}
 function jobRow(job){
   const st=jobStatus(job.id),isNew=newIds.has(job.id)&&st==='new',href='#/job/'+job.id;
   return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${autoDupTag(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -2952,7 +2959,7 @@ function renderJobPage(id){
     ${staleNote}
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
-      <div><h2>${esc(job.title)} ${freshBadge(job)}${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}${_postedDays(job)!==null?` · <span class="co">posted ${_postedDays(job)<1?'today':Math.round(_postedDays(job))+'d ago'}</span>`:''}</p></div>
+      <div><h2>${esc(job.title)} ${autoDupTag(job)}${freshBadge(job)}${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}${_postedDays(job)!==null?` · <span class="co">posted ${_postedDays(job)<1?'today':Math.round(_postedDays(job))+'d ago'}</span>`:''}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>

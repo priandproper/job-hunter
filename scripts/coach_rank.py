@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+from lib import dedup as dedup_mod  # noqa: E402
 from lib import jobspec as jobspec_mod  # noqa: E402
 from lib import ranking as ranking_mod  # noqa: E402
 from lib import state as state_mod  # noqa: E402
@@ -72,6 +73,8 @@ def _compact(jobs: list, hist: dict) -> list:
             "lifecycle": (j.get("_rank") or {}).get("lifecycle", "new_unreviewed"),  # Phase 10
             "freshness": (j.get("_rank") or {}).get("freshness", "unknown"),
             "det_rank": (j.get("_rank") or {}).get("score"),   # deterministic active-queue score
+            "dup": (j.get("duplicate") or {}).get("classification"),  # Phase 11 repost/dup, if any
+            "resembles_rejected": bool(j.get("_resembles_rejected")),  # look-alike of a rejected role
             "req_years": spec.get("required_years"),
             "basic_quals": _trim(spec.get("basic_qualifications"), 6),      # eligibility
             "preferred_quals": _trim(spec.get("preferred_qualifications"), 3),  # ranking only
@@ -142,6 +145,10 @@ def build_prompt(jobs: list, hist: dict) -> str:
         "an 'aging'/'archive' role only if fit or access is strong); keep company AND lane diversity in your "
         "top picks (don't stack one employer). Repeat exposure is NOT a reason to demote a genuinely strong "
         "role — rank on fit, not on how often it has appeared.\n"
+        "DUPLICATES (Phase 11): 'dup' marks a posting our detector judged a repost/duplicate/separate-"
+        "headcount of another role at the same company — don't stack several of these in the top picks; "
+        "pick the best one. 'resembles_rejected'=true means the role closely matches one the candidate was "
+        "already REJECTED from — deprioritize it and note why in 'why'.\n"
         "RELEVANCE: the list is keyword-filtered but imperfect. Any role that is genuinely NOT relevant "
         "to the candidate's two lanes (off-function despite the title, wrong seniority, a role they'd never "
         "want) — put it in 'flagged' with a short reason. Don't delete anything; flagging just lets the "
@@ -191,7 +198,8 @@ def main() -> int:
     ap.add_argument("--publish", action="store_true", help="commit + push docs/coach.json")
     args = ap.parse_args()
 
-    jobs = json.loads(JOBS.read_text()).get("jobs", [])
+    all_jobs = json.loads(JOBS.read_text()).get("jobs", [])
+    jobs = all_jobs
     if not jobs:
         print("coach_rank: no jobs in docs/jobs.json — run worker.py first."); return 1
     # Phase 9/10: read the dashboard's exported state; skip already-acted-on jobs, then
@@ -200,6 +208,9 @@ def main() -> int:
     state_data = state_mod.load(STATE)
     folded = state_mod.fold(state_data.get("events", []))
     skip = state_mod.skip_ids(state_data)
+    # Phase 11: roles the candidate was already REJECTED from, to warn on look-alikes.
+    stages = state_mod.status_by_job(state_data)
+    rejected_jobs = [j for j in all_jobs if stages.get(j.get("id")) == "rejected"]
     if skip:
         before = len(jobs)
         jobs = [j for j in jobs if j.get("id") not in skip]
@@ -215,6 +226,11 @@ def main() -> int:
                              "score": r["score"], "why": r["why"]}
     TOPN = 45
     jobs = [x["job"] for x in ordered[:TOPN]]   # deterministic ranking is PRIMARY; Claude refines
+    if rejected_jobs:                            # Phase 11: flag look-alikes of rejected roles
+        for j in jobs:
+            m = dedup_mod.resembles_rejected(j, rejected_jobs)
+            if m:
+                j["_resembles_rejected"] = m
     print(f"coach_rank: {len(ordered)} active job(s) ranked (lifecycle+freshness+diversity); "
           f"sending top {len(jobs)} to Claude ({args.model}) to refine"
           f"{' (with '+str(len(hist))+' prior-pick counts as a minor signal)' if hist else ''}…")

@@ -31,6 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib import apollo as apollo_mod
 from lib import ats as ats_mod
 from lib import companies_gist as cgist_mod
+from lib import dedup as dedup_mod
 from lib import discovery as disc_mod
 from lib import gap as gap_mod
 from lib import immigration as immig_mod
@@ -345,6 +346,11 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     if n_enriched:
         log(f"        enrich    — merged enrichment into {n_enriched} job(s)")
 
+    # Duplicate / repost detection (Phase 11): annotate near-identical or reposted
+    # postings with evidence + confidence so the dashboard can flag them and the coach
+    # can avoid stacking the same role. Company-scoped, so it's cheap on the full pool.
+    dup_n = dedup_mod.annotate_reposts(public_jobs)
+
     # Rank by the transparent priority score (Phase 6), then fit/ats as tiebreakers.
     public_jobs.sort(key=lambda j: (j.get("priority", {}).get("total", 0),
                                     j["fit_score"], j["ats_score"]), reverse=True)
@@ -411,6 +417,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         + (f"; {hard_stopped} immigration hard-stop(s) excluded" if hard_stopped else ""))
     log(f"        priority  — A:{_bands.get('A',0)} B:{_bands.get('B',0)} "
         f"C:{_bands.get('C',0)} Reject:{_bands.get('Reject',0)}")
+    if dup_n:
+        log(f"        dedup     — {dup_n} repost/duplicate/headcount posting(s) flagged")
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "
         f"({best['best_variant'] if best else '—'}); "
         f"{len(missing_counter)} distinct missing keyword(s)")
