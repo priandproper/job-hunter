@@ -8,6 +8,7 @@ data/private.local.json
 data/contact.local.json
 data/facts.local.json
 data/packets/
+data/state.local.json
 scripts/*.local.js
 data/linkedin_paste.txt
 data/people.local.csv

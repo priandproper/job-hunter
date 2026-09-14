@@ -274,6 +274,7 @@
   .metric-grid .ps-cell b{font-size:1.15rem}
   .pace{font-size:.74rem;font-weight:800;padding:.12rem .5rem;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
   .pace-good{background:var(--good-soft);color:var(--good)}.pace-bad{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b)}.pace-mid{background:var(--mid-soft);color:var(--mid)}
+  .sync-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem;padding-top:.6rem;border-top:1px solid var(--line);font-size:.8rem}
   /* Collapsible review/tools */
   .more-tools{margin-bottom:1.4rem}
   .more-tools>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding:.5rem 0;list-style:none}
@@ -864,6 +865,7 @@
 <script>
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
+      EVENTS_KEY="job-hunter:events:v1",   // Phase 9 — append-only event log exported to Python
       SEEN_KEY="job-hunter:seen:v1", THEME_KEY="job-hunter:theme", GH_KEY="job-hunter:gh:v1",
       RUNS_KEY="job-hunter:runs:v1", INBOX_KEY="job-hunter:inbox:v1", GMAIL_KEY="job-hunter:gmail:v1",
       MAIL_KEY="job-hunter:mail:v1", OUTREACH_KEY="job-hunter:outreach:v1",
@@ -948,8 +950,20 @@ function firstName(n){return (n||'').replace(/^Search LinkedIn.*/,'').trim().spl
 // Referral asks are capped at 300 chars (short enough for a LinkedIn connection note).
 function capMsg(s,limit){limit=limit||300;s=(s||'').trim();if(s.length<=limit)return s;return s.slice(0,limit-1).replace(/\s+\S*$/,'').replace(/[ ,.\-]+$/,'')+'…';}
 function personalize(msg,name){return capMsg(msg.replace(/^Hi [^—-]*/,'Hi '+firstName(name)+' '));}
+// ===== Phase 9 — append-only event log (exported so the Python layer sees your state) =====
+function getEvents(){try{return JSON.parse(localStorage.getItem(EVENTS_KEY))||[]}catch{return[]}}
+function logEvent(jobId,type,metadata){
+  if(!jobId||!type)return;
+  const ev=getEvents();ev.push({job_id:jobId,event_type:type,timestamp:new Date().toISOString(),metadata:metadata||{}});
+  try{localStorage.setItem(EVENTS_KEY,JSON.stringify(ev.slice(-5000)));}catch(e){}   // bound the log
+}
+// Map a dashboard status to the event model's vocabulary.
+const _STATUS_EVENT={'resume ready':'resume_generated',messaged:'outreach_sent',referred:'outreach_sent',
+  applied:'applied',screen:'recruiter_screen',interview:'interview',offer:'offer',rejected:'rejected',archived:'closed'};
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY))||{}}catch{return{}}}
-function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));cacheJobById(id);}
+function setStatusLS(id,s){const o=getStatuses();o[id]={status:s,ts:new Date().toISOString()};localStorage.setItem(STATUS_KEY,JSON.stringify(o));
+  if(_STATUS_EVENT[s])logEvent(id,_STATUS_EVENT[s],{status:s});
+  cacheJobById(id);}
 function jobStatus(id){return (getStatuses()[id]||{}).status||'new';}
 function jobStatusTs(id){return (getStatuses()[id]||{}).ts||null;}
 function daysSince(ts){return ts?(Date.now()-new Date(ts).getTime())/86400000:null;}
@@ -1272,7 +1286,7 @@ function saveAnthropic(){const key=(document.getElementById('claudeKey')||{}).va
   toast(key.trim()?'Claude API key saved':'Claude API key cleared');}
 function getTailored(){try{return JSON.parse(localStorage.getItem(TAILORED_KEY))||{}}catch{return{}}}
 function tailoredFor(id){return getTailored()[id]||null;}
-function saveTailored(id,core){const t=getTailored();t[id]={core,ts:new Date().toISOString()};localStorage.setItem(TAILORED_KEY,JSON.stringify(t));cacheJobById(id);}
+function saveTailored(id,core){const t=getTailored();t[id]={core,ts:new Date().toISOString()};localStorage.setItem(TAILORED_KEY,JSON.stringify(t));logEvent(id,'resume_generated',{});cacheJobById(id);}
 function discardTailored(id){const t=getTailored();delete t[id];localStorage.setItem(TAILORED_KEY,JSON.stringify(t));renderJobPage(id);}
 function setTailorStatus(id,txt){const el=document.getElementById('tailorStatus-'+id);if(el)el.textContent=txt;}
 // Fixed resume shape → guaranteed-valid JSON via structured outputs.
@@ -1966,7 +1980,7 @@ function getMarked(){try{return JSON.parse(localStorage.getItem(MARK_KEY))||{}}c
 function isMarked(id){return !!getMarked()[id];}
 function toggleMark(id,ev){if(ev)ev.stopPropagation();
   const m=getMarked();if(m[id])delete m[id];else m[id]=new Date().toISOString();
-  localStorage.setItem(MARK_KEY,JSON.stringify(m));if(m[id])cacheJobById(id);toast(m[id]?'Marked to revisit ★':'Unmarked');render();}
+  localStorage.setItem(MARK_KEY,JSON.stringify(m));if(m[id]){cacheJobById(id);logEvent(id,'saved',{});}toast(m[id]?'Marked to revisit ★':'Unmarked');render();}
 function setQuery(q){query=q;shownCount=PAGE;renderJobs();}
 // Multi-keyword AND search: every whitespace-separated word must appear (any order).
 function matchesQuery(job){const toks=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -1977,10 +1991,12 @@ function matchesQuery(job){const toks=query.trim().toLowerCase().split(/\s+/).fi
 function getPruned(){try{return JSON.parse(localStorage.getItem(PRUNE_KEY))||{}}catch{return{}}}
 function isPruned(id){return !!getPruned()[id];}
 function savePruned(o){try{localStorage.setItem(PRUNE_KEY,JSON.stringify(o))}catch{}}
-function unprune(id,ev){if(ev)ev.stopPropagation();const o=getPruned();delete o[id];savePruned(o);render();}
+function unprune(id,ev){if(ev)ev.stopPropagation();const o=getPruned();delete o[id];savePruned(o);
+  logEvent(id,'viewed',{restored:true});render();}   // re-surface: latest event overrides 'dismissed'
 // Manual, per-job "don't show this again" — reuses the reversible pruned set.
 function hideJob(id,ev){if(ev){ev.stopPropagation();ev.preventDefault();}
   const o=getPruned();o[id]=new Date().toISOString();savePruned(o);
+  logEvent(id,'dismissed',{});
   toast("Hidden — you won't see this again");render();}
 function unpruneAll(){savePruned({});toast('Restored all pruned jobs');render();}
 function pruneOffPersona(){
@@ -2287,6 +2303,7 @@ function logOutreach(id){
   if(!msg.trim()){toast('Nothing to log');return;}
   const o=getOutreach();(o[id]=o[id]||[]).push({to,message:msg.trim(),ts:new Date().toISOString(),channel:'linkedin',source:'manual'});
   saveOutreach(o);
+  logEvent(id,'outreach_sent',{channel:'linkedin'});
   const cur=jobStatus(id);if(cur==='new'||cur==='resume ready')setStatusLS(id,'messaged');
   toast('Outreach logged'+(cur==='new'||cur==='resume ready'?' → messaged':''));
   renderJobPage(id);
@@ -2515,6 +2532,22 @@ function exportPeople(){
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='people.local.json';
   document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
   toast('Exported people.local.json — save it into your repo’s data/ folder for the reach-out script');
+}
+// Phase 9 — export application state (append-only event log + a current snapshot) so the
+// Python layer (coach_rank / worker) stops re-recommending jobs you've acted on. The file
+// stays local + git-ignored; save it to your repo's data/ folder.
+function exportState(){
+  const snapshot={
+    statuses:getStatuses(),
+    saved:Object.keys(getMarked()||{}),
+    dismissed:Object.keys(getPruned()||{}),
+    tailored:Object.keys(getTailored()||{}),
+  };
+  const payload={version:1,exported_at:new Date().toISOString(),events:getEvents(),snapshot};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='state.local.json';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  toast(`Exported state.local.json (${payload.events.length} events) — save it into your repo's data/ folder`);
 }
 function dedupePeople(){
   const people=getPeople(), out=[]; let merged=0;
@@ -3115,7 +3148,10 @@ function renderProgressStrip(){
       ${cell(dueFollow,'follow-ups due',dueFollow?'':'')}
       ${cell(stale,'going stale (30–45d)',stale?'bad':'')}
       ${cell(opt,'OPT interim actions')}
-    </div></div>`;
+    </div>
+    <div class="sync-row"><span class="co">Sync your status to the recommender so it stops repeating jobs you've acted on:</span>
+      <button class="sm" onclick="exportState()" title="Download state.local.json → save to data/ ; coach_rank & worker then skip applied/dismissed jobs">⬇ Export state for Python</button></div>
+  </div>`;
 }
 
 // ===== Profile ROI — "what to work on" from your resume + the real JDs =====

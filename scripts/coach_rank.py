@@ -25,6 +25,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from lib import jobspec as jobspec_mod  # noqa: E402
+from lib import state as state_mod  # noqa: E402
+
+STATE = ROOT / "data" / "state.local.json"   # exported from the dashboard (git-ignored)
 JOBS = ROOT / "docs" / "jobs.json"
 OUT = ROOT / "docs" / "coach.json"
 CONFIG = ROOT / "config.json"
@@ -183,6 +186,16 @@ def main() -> int:
     jobs = json.loads(JOBS.read_text()).get("jobs", [])
     if not jobs:
         print("coach_rank: no jobs in docs/jobs.json — run worker.py first."); return 1
+    # Phase 9: skip jobs already acted on (applied / dismissed / snoozed / closed),
+    # read from the dashboard's exported state — so the coach stops re-recommending
+    # roles the candidate has moved on from. No file -> no-op (behaves as before).
+    skip = state_mod.skip_ids(state_mod.load(STATE))
+    if skip:
+        before = len(jobs)
+        jobs = [j for j in jobs if j.get("id") not in skip]
+        print(f"coach_rank: skipped {before - len(jobs)} already-acted-on job(s) from state.local.json")
+    if not jobs:
+        print("coach_rank: every job is already acted on — nothing to rank."); return 0
     hist = _load_history()
     print(f"coach_rank: sending {len(jobs)} jobs to Claude ({args.model}) for judgment re-rank"
           f"{' (with memory of '+str(len(hist))+' prior picks)' if hist else ''}…")
