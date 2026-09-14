@@ -25,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from lib import jobspec as jobspec_mod  # noqa: E402
+from lib import ranking as ranking_mod  # noqa: E402
 from lib import state as state_mod  # noqa: E402
 
 STATE = ROOT / "data" / "state.local.json"   # exported from the dashboard (git-ignored)
@@ -67,7 +68,10 @@ def _compact(jobs: list, hist: dict) -> list:
             "location": j.get("location", ""), "fit": j.get("fit_score"), "ats": j.get("ats_score"),
             "posted_at": j.get("posted_at", ""),
             "imm_risk": (j.get("immigration") or {}).get("risk", "yellow"),  # green|yellow|red
-            "prev": hist.get(j.get("id"), 0),   # how many prior runs already recommended this
+            "band": (j.get("priority") or {}).get("band"),                   # A|B|C (Phase 6)
+            "lifecycle": (j.get("_rank") or {}).get("lifecycle", "new_unreviewed"),  # Phase 10
+            "freshness": (j.get("_rank") or {}).get("freshness", "unknown"),
+            "det_rank": (j.get("_rank") or {}).get("score"),   # deterministic active-queue score
             "req_years": spec.get("required_years"),
             "basic_quals": _trim(spec.get("basic_qualifications"), 6),      # eligibility
             "preferred_quals": _trim(spec.get("preferred_qualifications"), 3),  # ranking only
@@ -130,10 +134,14 @@ def build_prompt(jobs: list, hist: dict) -> str:
         "verify with recruiter before the hiring-manager stage), red (explicit hard stop; these are already "
         "filtered out). Prefer green; for yellow, keep it but note it needs sponsorship verification. Historical "
         "company H-1B use is evidence, NOT proof the current team sponsors — never present it as a guarantee.\n"
-        "FRESHNESS: each job has 'prev' = how many prior daily runs you already recommended it. If a role "
-        "has a high 'prev' and is still here, the candidate likely passed on it — DEMOTE it in favor of "
-        "newer arrivals and roles you haven't pushed before, UNLESS it's still an obvious bullseye. Don't "
-        "just repeat the same list every day; surface something fresh.\n"
+        "ACTIVE-QUEUE RANKING (Phase 10): the jobs are ALREADY ordered by a deterministic model that "
+        "combines priority, posting freshness, pipeline lifecycle and company/lane diversity — each carries "
+        "'lifecycle', 'freshness', 'band' and 'det_rank'. Treat that order as your PRIOR and refine it with "
+        "judgment; don't reshuffle wildly. Rules: PUSH 'application_started' (a résumé was tailored but not "
+        "submitted — finish it) and 'follow_up_due' to the top; favor fresher postings (highest>high>moderate; "
+        "an 'aging'/'archive' role only if fit or access is strong); keep company AND lane diversity in your "
+        "top picks (don't stack one employer). Repeat exposure is NOT a reason to demote a genuinely strong "
+        "role — rank on fit, not on how often it has appeared.\n"
         "RELEVANCE: the list is keyword-filtered but imperfect. Any role that is genuinely NOT relevant "
         "to the candidate's two lanes (off-function despite the title, wrong seniority, a role they'd never "
         "want) — put it in 'flagged' with a short reason. Don't delete anything; flagging just lets the "
@@ -186,10 +194,12 @@ def main() -> int:
     jobs = json.loads(JOBS.read_text()).get("jobs", [])
     if not jobs:
         print("coach_rank: no jobs in docs/jobs.json — run worker.py first."); return 1
-    # Phase 9: skip jobs already acted on (applied / dismissed / snoozed / closed),
-    # read from the dashboard's exported state — so the coach stops re-recommending
-    # roles the candidate has moved on from. No file -> no-op (behaves as before).
-    skip = state_mod.skip_ids(state_mod.load(STATE))
+    # Phase 9/10: read the dashboard's exported state; skip already-acted-on jobs, then
+    # order the rest by the deterministic active-queue model (lifecycle + freshness +
+    # priority + company/lane diversity) and send Claude a focused top slice to refine.
+    state_data = state_mod.load(STATE)
+    folded = state_mod.fold(state_data.get("events", []))
+    skip = state_mod.skip_ids(state_data)
     if skip:
         before = len(jobs)
         jobs = [j for j in jobs if j.get("id") not in skip]
@@ -197,8 +207,17 @@ def main() -> int:
     if not jobs:
         print("coach_rank: every job is already acted on — nothing to rank."); return 0
     hist = _load_history()
-    print(f"coach_rank: sending {len(jobs)} jobs to Claude ({args.model}) for judgment re-rank"
-          f"{' (with memory of '+str(len(hist))+' prior picks)' if hist else ''}…")
+
+    ordered = ranking_mod.order_active_queue(jobs, folded, history=hist)
+    for x in ordered:                       # annotate each job with its deterministic rank
+        r = x["rank"]
+        x["job"]["_rank"] = {"lifecycle": r["stage"], "freshness": r["freshness"]["band"],
+                             "score": r["score"], "why": r["why"]}
+    TOPN = 45
+    jobs = [x["job"] for x in ordered[:TOPN]]   # deterministic ranking is PRIMARY; Claude refines
+    print(f"coach_rank: {len(ordered)} active job(s) ranked (lifecycle+freshness+diversity); "
+          f"sending top {len(jobs)} to Claude ({args.model}) to refine"
+          f"{' (with '+str(len(hist))+' prior-pick counts as a minor signal)' if hist else ''}…")
     try:
         rep = claude_json(build_prompt(jobs, hist), args.model)
     except Exception as e:
