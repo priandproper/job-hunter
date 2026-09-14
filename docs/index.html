@@ -255,7 +255,25 @@
   .ps-cell b{display:block;font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
   .ps-cell span{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
   .ps-cell.good b{color:var(--good)}
+  .ps-cell.bad b{color:var(--bad,#c0392b)}
   .ps-cell.ps-meta b{color:var(--accent)}
+  /* Phase 7 cockpit — daily plan + operating metrics */
+  .plan-row{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-top:1px solid var(--line)}
+  .plan-row.done{opacity:.62}
+  .plan-bar{height:5px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:.35rem}
+  .plan-bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+  .plan-row.done .plan-bar i{background:var(--good)}
+  .plan-count{font-weight:800;font-variant-numeric:tabular-nums;font-size:.9rem;flex-shrink:0;min-width:34px;text-align:right}
+  .tgt{margin-top:.6rem;font-size:.8rem}.tgt summary{cursor:pointer;color:var(--muted)}
+  .tgt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.5rem}
+  .tgt-grid label{display:flex;flex-direction:column;font-size:.68rem;color:var(--muted);gap:.15rem}
+  .tgt-grid input{width:100%;padding:.25rem .35rem;border:1px solid var(--line);border-radius:6px;font-size:.85rem}
+  .metric-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+  @media (max-width:740px){.metric-grid{grid-template-columns:repeat(3,1fr)}.tgt-grid{grid-template-columns:repeat(2,1fr)}}
+  .metric-grid .ps-cell{border-right:none;border:1px solid var(--line);border-radius:9px;padding:.5rem .3rem}
+  .metric-grid .ps-cell b{font-size:1.15rem}
+  .pace{font-size:.74rem;font-weight:800;padding:.12rem .5rem;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
+  .pace-good{background:var(--good-soft);color:var(--good)}.pace-bad{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b)}.pace-mid{background:var(--mid-soft);color:var(--mid)}
   /* Collapsible review/tools */
   .more-tools{margin-bottom:1.4rem}
   .more-tools>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding:.5rem 0;list-style:none}
@@ -842,6 +860,7 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="cockpit_metrics.js"></script>
 <script>
 const STATUSES=["new","resume ready","messaged","referred","applied","screen","interview","offer","rejected","archived"];
 const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
@@ -2990,67 +3009,102 @@ function renderCopilot(){
 
 // ===== TODAY — the one thing to look at: a prioritized action queue (~20 min) =====
 function _scrollTo(id){const el=document.getElementById(id);if(el){const d=el.closest('details');if(d)d.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+// ===== Phase 7 — cockpit around the 120-applications / 30-day operating goal =====
+const TARGETS_KEY="job-hunter:targets:v1", OPT_KEY="job-hunter:opt:v1";
+const CM=window.CockpitMetrics;
+function getTargets(){
+  let over={};try{over=JSON.parse(localStorage.getItem(TARGETS_KEY)||'{}')||{};}catch(e){}
+  return CM.mergeTargets(Object.assign({},(DOC.meta&&DOC.meta.cockpit)||{},over));
+}
+function setTarget(k,v){let o={};try{o=JSON.parse(localStorage.getItem(TARGETS_KEY)||'{}')||{};}catch(e){}
+  if(v===''||v==null)delete o[k];else o[k]=Math.max(0,parseInt(v,10)||0);
+  localStorage.setItem(TARGETS_KEY,JSON.stringify(o));renderToday();renderProgressStrip();}
+// OPT interim-employment pipeline (local; keeps F-1 OPT status while job-hunting).
+function getOpt(){try{return JSON.parse(localStorage.getItem(OPT_KEY)||'[]')||[];}catch(e){return [];}}
+function addOptAction(){const what=prompt("Log an interim OPT-employment action (e.g. 'applied to part-time analyst contract', 'logged 12 hrs volunteer analytics for nonprofit'):");
+  if(!what)return;const l=getOpt();l.unshift({what:what.trim(),ts:new Date().toISOString()});
+  localStorage.setItem(OPT_KEY,JSON.stringify(l.slice(0,200)));toast('OPT action logged');renderToday();renderProgressStrip();}
+function _optToday(){const t=new Date().toISOString().slice(0,10);return getOpt().filter(o=>(o.ts||'').slice(0,10)===t).length;}
+
+// Application records joined to their job (for band/immigration-aware metrics).
+function _appliedRecords(){
+  const jm={};(DOC.jobs||[]).forEach(j=>jm[j.id]=j);const out=[];
+  Object.entries(getStatuses()).forEach(([id,o])=>{
+    if(o&&APPLIED_STATES.has(o.status))out.push({id,status:o.status,ts:o.ts||'',job:jm[id]||null});});
+  return out;
+}
+function _sinceDays(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().slice(0,10);}
+function _appliedToday(){const t=new Date().toISOString().slice(0,10);
+  return _appliedRecords().filter(r=>(r.ts||'').slice(0,10)===t).length;}
+function _appliedBandToday(band){const t=new Date().toISOString().slice(0,10);
+  return _appliedRecords().filter(r=>(r.ts||'').slice(0,10)===t&&r.job&&priorityFor(r.job)&&priorityFor(r.job).band===band).length;}
+function _outreachToday(){const t=new Date().toISOString().slice(0,10);let c=0;
+  Object.values(getStatuses()).forEach(o=>{if(o&&['messaged','referred'].includes(o.status)&&(o.ts||'').slice(0,10)===t)c++;});return c;}
+function _bandAvail(band){return (DOC.jobs||[]).filter(j=>jobStatus(j.id)==='new'&&priorityFor(j)&&priorityFor(j).band===band).length;}
+
 function renderToday(){
   const box=document.getElementById('today');if(!box)return;
-  const jobs=DOC.jobs||[], items=[];
-  const fresh=jobs.filter(j=>isFresh(j)&&jobStatus(j.id)==='new').sort((a,b)=>(b.fit_score||0)-(a.fit_score||0));
-  if(fresh.length) items.push({ic:'🆕',t:`${fresh.length} fresh role${fresh.length>1?'s':''} to review & apply`,
-    sub:fresh.slice(0,3).map(j=>`${j.title} · ${j.company}`).join('  •  '),cta:'Review',href:'#/jobs'});
-  let refJobs=0; jobs.forEach(j=>{if(jobStatus(j.id)==='new'&&referrersFor(j).length)refJobs++;});
-  if(refJobs) items.push({ic:'🤝',t:`${refJobs} job${refJobs>1?'s':''} with a referral path — send an ask`,
-    sub:'Ready recruiter/peer messages',cta:'Referrals',scroll:'referrals'});
-  const today=new Date().toISOString().slice(0,10);
-  const due=getPeople().filter(p=>!PL_DONE.has(getPl(p).stage||'identified')&&getPl(p).due&&getPl(p).due<=today);
-  if(due.length) items.push({ic:'⏰',t:`${due.length} follow-up${due.length>1?'s':''} due`,
-    sub:due.slice(0,3).map(p=>p.name).join(', '),cta:'People',href:'#/people'});
-  const pend=pendingInbox();
-  if(pend.length) items.push({ic:'📥',t:`${pend.length} inbox update${pend.length>1?'s':''} to confirm`,
-    sub:pend.slice(0,3).map(p=>`${p.company} → ${p.detected}`).join(', '),cta:'Review',scroll:'inboxReview'});
-  const rows=items.length?items.map(it=>`<div class="today-row">
-      <span class="today-ic">${it.ic}</span>
-      <div class="today-main"><div class="today-t">${esc(it.t)}</div>${it.sub?`<div class="co">${esc(it.sub)}</div>`:''}</div>
-      ${it.href?`<a href="${it.href}"><button class="primary sm">${it.cta} →</button></a>`
-              :`<button class="primary sm" onclick="_scrollTo('${it.scroll}')">${it.cta} →</button>`}
-    </div>`).join('')
-    :`<p class="co">✅ All caught up. Run <code>python3 worker.py</code> to pull new roles, or import people (Find referrers → Import CSV) to open referral paths.</p>`;
-  box.innerHTML=`<div class="card today-card"><div class="auto-hd"><span class="eyebrow">Today</span><span class="co">your next moves · ~20 min</span></div>${_goalBanner(fresh.length,refJobs,due.length)}${rows}</div>`;
+  const T=getTargets();
+  const plan=CM.dailyPlan(T,{availA:_bandAvail('A'),availB:_bandAvail('B')});
+  const doneA=_appliedBandToday('A'),doneB=_appliedBandToday('B'),doneO=_outreachToday(),doneOpt=_optToday();
+  const planRow=(ic,label,done,goal,cta,onclick)=>{
+    const ok=done>=goal&&goal>0;
+    return `<div class="plan-row ${ok?'done':''}">
+      <span class="today-ic">${ic}</span>
+      <div class="today-main"><div class="today-t">${label}</div>
+        <div class="plan-bar"><i style="width:${goal?Math.min(100,100*done/goal):0}%"></i></div></div>
+      <span class="plan-count">${done}/${goal}</span>
+      <button class="primary sm" onclick="${onclick}">${cta}</button></div>`;};
+  const rows=[
+    planRow('🅰️',`Priority-A applications`,doneA,plan.a,'Apply →',"location.hash='#/jobs'"),
+    planRow('🅱️',`Priority-B applications`,doneB,plan.b,'Apply →',"location.hash='#/jobs'"),
+    planRow('🤝',`Outreach / follow-up actions`,doneO,plan.outreach,'Do →',"_scrollTo('referrals')"),
+    planRow('🎓',`Interim OPT-employment action`,doneOpt,plan.opt,'Log →','addOptAction()'),
+  ].join('');
+  const totalToday=_appliedToday();
+  box.innerHTML=`<div class="card today-card">
+    <div class="auto-hd"><span class="eyebrow">Today's plan</span>
+      <span class="co">${totalToday} application${totalToday===1?'':'s'} logged today · goal ${plan.a+plan.b}/day</span></div>
+    ${rows}
+    <details class="tgt"><summary>⚙ adjust targets</summary>
+      <div class="tgt-grid">
+        ${[['dailyA','A/day'],['dailyB','B/day'],['dailyOutreach','outreach/day'],['dailyOpt','OPT/day'],['weekly','per week'],['monthly','per 30d']]
+          .map(([k,l])=>`<label>${l}<input type="number" min="0" value="${T[k]}" onchange="setTarget('${k}',this.value)"></label>`).join('')}
+      </div></details>
+  </div>`;
 }
-// Suggested daily plan — deliberately SMALL and quality-first (tailored apps + warm
-// outreach beat volume, especially when you need sponsorship). Shows progress on apps.
-function _appliedToday(){
-  const t=new Date().toISOString().slice(0,10);let c=0;
-  Object.values(getStatuses()).forEach(o=>{if(o&&APPLIED_STATES.has(o.status)&&(o.ts||'').slice(0,10)===t)c++;});
-  return c;
-}
-function _goalBanner(freshNewCount, refJobs, dueCount){
-  const anyNew=(DOC.jobs||[]).filter(j=>jobStatus(j.id)==='new').length;
-  const pool=freshNewCount||anyNew;
-  const apps=Math.min(3,pool);                  // steady 3/day target (capped by roles available)
-  const refs=Math.min(3,refJobs);
-  const parts=[];
-  if(apps) parts.push(`<b>${apps}</b> tailored application${apps>1?'s':''}`);
-  if(refs) parts.push(`<b>${refs}</b> referral ask${refs>1?'s':''}`);
-  if(dueCount) parts.push(`<b>${dueCount}</b> follow-up${dueCount>1?'s':''}`);
-  if(!parts.length) return '';
-  const done=_appliedToday();
-  const prog=apps?` <span class="goal-prog">${done>=apps?'✅ apps done for today':`${done}/${apps} applications done`}</span>`:'';
-  return `<div class="today-goal">🎯 <span>Today's goal: ${parts.join(' · ')}</span>${prog}</div>`;
-}
-// Compact progress strip (replaces the big gauge/glance).
+// Full operating metrics for the 120/30 goal (replaces the compact strip).
 function renderProgressStrip(){
   const box=document.getElementById('progressStrip');if(!box)return;
-  const f={};Object.values(getStatuses()).forEach(o=>{if(o&&o.status)f[o.status]=(f[o.status]||0)+1;});
-  const n=s=>f[s]||0, jobs=DOC.jobs||[];
-  const apps=['applied','screen','interview','offer','rejected'].reduce((a,s)=>a+n(s),0);
+  const T=getTargets(), jobs=DOC.jobs||[], recs=_appliedRecords();
+  const last=(n,arr)=>{const c=_sinceDays(n);return arr.filter(r=>(r.ts||'').slice(0,10)>=c).length;};
+  const week=last(7,recs), month=last(30,recs);
+  const pace=CM.paceStatus(month,T.monthly);
+  const paceCls=pace.status==='ahead'?'good':pace.status==='behind'?'bad':'';
+  const callStates=new Set(['screen','interview','offer']);
+  const calls=recs.filter(r=>callStates.has(r.status)).length;
+  const conv=CM.conversion(recs.length,calls);
+  const wc=CM.warmColdSplit(recs.map(r=>r.job).filter(Boolean),j=>referrersFor(j).length>0);
+  const mix=CM.sponsorMix(jobs);
+  const today=new Date().toISOString().slice(0,10);
+  const dueFollow=getPeople().filter(p=>!PL_DONE.has(getPl(p).stage||'identified')&&getPl(p).due&&getPl(p).due<=today).length;
+  const stale=jobs.filter(j=>{const d=_postedDays(j);return d!==null&&d>=30&&d<=45&&jobStatus(j.id)==='new';}).length;
+  const opt=getOpt().length;
   const cell=(v,l,cls='')=>`<div class="ps-cell ${cls}"><b>${v}</b><span>${l}</span></div>`;
-  box.innerHTML=`<div class="card prog-strip">
-    ${cell(jobs.filter(isFresh).length,'fresh 🆕')}
-    ${cell(jobs.filter(j=>isMarked(j.id)).length,'saved')}
-    ${cell(apps,'applied')}
-    ${cell(n('screen')+n('interview'),'interviewing')}
-    ${cell(n('offer'),'offers',n('offer')?'good':'')}
-    ${cell(jobs.length,'on-target',' ps-meta')}
-  </div>`;
+  box.innerHTML=`<div class="card"><div class="auto-hd"><span class="eyebrow">Operating metrics · 120 applications / 30 days</span>
+      <span class="pace pace-${paceCls||'mid'}">${pace.status} · ${pace.pct}% of 30-day pace</span></div>
+    <div class="metric-grid">
+      ${cell(_appliedToday(),'applied today')}
+      ${cell(`${week}/${T.weekly}`,'this week')}
+      ${cell(`${month}/${T.monthly}`,'rolling 30-day',paceCls)}
+      ${cell(calls,'calls generated')}
+      ${cell(conv.pct+'%','app→call conv.')}
+      ${cell(`${wc.warm}/${wc.cold}`,'warm / cold apps')}
+      ${cell(`${mix.green}·${mix.yellow}·${mix.red}`,'sponsor 🟢🟡🔴')}
+      ${cell(dueFollow,'follow-ups due',dueFollow?'':'')}
+      ${cell(stale,'going stale (30–45d)',stale?'bad':'')}
+      ${cell(opt,'OPT interim actions')}
+    </div></div>`;
 }
 
 // ===== Profile ROI — "what to work on" from your resume + the real JDs =====

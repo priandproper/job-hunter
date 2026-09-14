@@ -389,6 +389,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
             "companies": meta_companies,
             "company_count": len(meta_companies),
             "profile_roi": profile_roi,
+            "cockpit": cfg.get("cockpit", {}),   # Phase 7 daily/weekly/monthly targets (configurable)
         },
         "summary": {
             "best_match": ({
