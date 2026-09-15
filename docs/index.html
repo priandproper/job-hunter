@@ -3032,7 +3032,13 @@ function exportJobData(){
 function renderCopilot(){
   const box=document.getElementById('copilotBody');if(!box)return;
   const c=COACH, ranked=(c&&c.ranked)||[], b=(c&&c.briefing)||{}, byId={};(DOC.jobs||[]).forEach(j=>byId[j.id]=j);
-  const status=c?`Last curated ${timeAgo(c.generated_at)} · ${ranked.length} roles ranked by Claude${c.model?` (${esc(c.model)})`:''}.`
+  // Phase 15 — show model + timestamp, fallback state, and current/stale.
+  const _fallback=c&&(c.coach_status==='fallback'||c.model==='deterministic-fallback');
+  const _age=c?_hoursSince(c.generated_at):null;
+  const _stale=_age!==null&&_age>36;
+  const status=c?(`Last curated ${timeAgo(c.generated_at)}${_stale?' · ⏳ STALE':' · current'} · `
+                +`${ranked.length} roles ranked ${_fallback?'by the deterministic fallback (Claude was unavailable)':'by Claude'}`
+                +`${c.model&&!_fallback?` (${esc(c.model)})`:''}.`)
                 :'Not run yet — follow the steps below and Claude will curate your jobs.';
   const tierTag=t=>`<span class="tag ${t==='top'?'coach-top':t==='strong'?'coach-strong':'coach-maybe'}">${t==='top'?'⭐ top':esc(t)}</span>`;
   const flagTag=f=>f?`<span class="tag ${f==='hidden-gem'?'fresh':'rel'}">${esc(f)}</span>`:'';

@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT))
 from lib import dedup as dedup_mod  # noqa: E402
 from lib import health as health_mod  # noqa: E402
 from lib import jobspec as jobspec_mod  # noqa: E402
+from lib import llm as llm_mod  # noqa: E402
 from lib import ranking as ranking_mod  # noqa: E402
 from lib import state as state_mod  # noqa: E402
 
@@ -162,24 +163,79 @@ def build_prompt(jobs: list, hist: dict) -> str:
 
 
 def claude_json(prompt: str, model: str = "opus") -> dict:
-    proc = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json"],
-                          input=prompt, capture_output=True, text=True, timeout=600)
-    if proc.returncode != 0:
-        raise RuntimeError((proc.stderr or "").strip() or f"claude exited {proc.returncode}")
-    out = (proc.stdout or "").strip()
-    try:
-        env = json.loads(out)
-        text = env.get("result", out) if isinstance(env, dict) else out
-    except json.JSONDecodeError:
-        text = out
-    t = text.strip()
-    if t.startswith("```"):
-        t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
-        t = re.sub(r"\s*```$", "", t).strip()
-    m = re.search(r"\{.*\}", t, re.S)
-    if not m:
-        raise RuntimeError("Claude returned no JSON:\n" + t[:400])
-    return json.loads(m.group(0))
+    """Robust, PII-safe LLM call (Phase 15) — delegates to the provider abstraction."""
+    return llm_mod.run_json(prompt, model=model, timeout=600)
+
+
+_TIERS = {"top", "strong", "maybe"}
+_FLAGS = {"hidden-gem", "over-rated", "stretch", "sponsorship-risk", ""}
+
+
+def validate_report(rep: dict, valid_ids: set) -> dict:
+    """Validate the LLM ranking against the schema (Phase 15). Drops hallucinated ids and
+    malformed rows; coerces tier/flag to the allowed set; raises ValueError if the report
+    is fundamentally unusable (no briefing or no valid ranked items) so the caller can
+    fall back rather than overwrite a good ranking with garbage."""
+    if not isinstance(rep, dict):
+        raise ValueError("report is not a JSON object")
+    ranked = []
+    for r in (rep.get("ranked") or []):
+        if not isinstance(r, dict):
+            continue
+        rid = r.get("id")
+        if rid not in valid_ids:               # reject hallucinated / unknown ids
+            continue
+        if not r.get("why"):                   # required field
+            continue
+        tier = r.get("tier") if r.get("tier") in _TIERS else "maybe"
+        flag = r.get("flag") if r.get("flag") in _FLAGS else ""
+        try:
+            pri = max(0, min(100, int(r.get("priority", 50))))
+        except (TypeError, ValueError):
+            pri = 50
+        ranked.append({"id": rid, "tier": tier, "priority": pri,
+                       "why": str(r.get("why"))[:240], "flag": flag})
+    briefing = rep.get("briefing") if isinstance(rep.get("briefing"), dict) else {}
+    briefing = {
+        "headline": str(briefing.get("headline", ""))[:200],
+        "focus": str(briefing.get("focus", ""))[:600],
+        "top_ids": [i for i in (briefing.get("top_ids") or []) if i in valid_ids][:6],
+    }
+    flagged = [{"id": f.get("id"), "reason": str(f.get("reason", ""))[:160]}
+               for f in (rep.get("flagged") or [])
+               if isinstance(f, dict) and f.get("id") in valid_ids]
+    if not ranked:
+        raise ValueError("no valid ranked items after schema validation")
+    return {"briefing": briefing, "ranked": ranked, "flagged": flagged}
+
+
+def deterministic_report(ordered: list, jobs: list) -> dict:
+    """Phase 15 fallback ranking — no LLM. Uses the deterministic active-queue order
+    (lib/ranking: basic-qual/immigration/recency/referral/location via priority + job
+    status + freshness) so the app stays useful when Claude is unavailable."""
+    tier_of = {"A": "top", "B": "strong", "C": "maybe"}
+    ranked = []
+    for x in ordered[:30]:
+        j, rk = x["job"], x["rank"]
+        band = (j.get("priority") or {}).get("band", "C")
+        imm = (j.get("immigration") or {}).get("risk", "yellow")
+        ranked.append({
+            "id": j.get("id"), "tier": tier_of.get(band, "maybe"),
+            "priority": int(min(100, max(0, rk.get("score") or 0))),
+            "why": rk.get("why", "deterministic active-queue rank"),
+            "flag": "sponsorship-risk" if imm == "yellow" else "",
+        })
+    top_ids = [r["id"] for r in ranked[:6]]
+    return {
+        "briefing": {
+            "headline": f"Deterministic ranking of {len(ranked)} active roles (Claude unavailable).",
+            "focus": ("Claude wasn't reachable, so these are ranked by the transparent "
+                      "priority + freshness + lifecycle model. Start at the top; verify "
+                      "sponsorship on any yellow-flagged role."),
+            "top_ids": top_ids,
+        },
+        "ranked": ranked, "flagged": [],
+    }
 
 
 def _publish():
@@ -237,23 +293,26 @@ def main() -> int:
     print(f"coach_rank: {len(ordered)} active job(s) ranked (lifecycle+freshness+diversity); "
           f"sending top {len(jobs)} to Claude ({args.model}) to refine"
           f"{' (with '+str(len(hist))+' prior-pick counts as a minor signal)' if hist else ''}…")
-    try:
-        rep = claude_json(build_prompt(jobs, hist), args.model)
-    except Exception as e:
-        print(f"coach_rank: Claude failed ({e})")
-        health_mod.set_coach_status(HEALTH, "failed")   # Phase 13: record the degraded state
-        return 1
-
-    ranked = [r for r in (rep.get("ranked") or []) if r.get("id")]
+    # Phase 15: try Claude, but stay useful if it's unavailable / times out / returns
+    # invalid JSON. On any such failure fall back to the DETERMINISTIC ranking rather
+    # than overwriting the last good coach.json with garbage or failing outright.
     valid_ids = {j["id"] for j in jobs}
-    ranked = [r for r in ranked if r["id"] in valid_ids]          # drop any hallucinated ids
-    briefing = rep.get("briefing") or {}
-    briefing["top_ids"] = [i for i in (briefing.get("top_ids") or []) if i in valid_ids]
-    flagged = [f for f in (rep.get("flagged") or []) if f.get("id") in valid_ids]
+    model_used, coach_status = args.model, "success"
+    try:
+        rep = validate_report(claude_json(build_prompt(jobs, hist), args.model), valid_ids)
+    except (llm_mod.LLMError, ValueError) as e:
+        print(f"coach_rank: Claude unavailable/invalid ({e}) — using deterministic fallback.")
+        rep = deterministic_report(ordered, jobs)
+        model_used, coach_status = "deterministic-fallback", "fallback"
+
+    ranked = rep["ranked"]
+    briefing = rep["briefing"]
+    flagged = rep["flagged"]
     from datetime import datetime, timezone
     OUT.write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "model": args.model, "briefing": briefing, "ranked": ranked, "flagged": flagged,
+        "model": model_used, "coach_status": coach_status,
+        "briefing": briefing, "ranked": ranked, "flagged": flagged,
     }, indent=2))
     # Remember what we recommended so future runs can freshen instead of repeating.
     for r in ranked:
@@ -269,8 +328,8 @@ def main() -> int:
     print(f"coach_rank: ranked {len(ranked)} jobs {tiers} · {len(briefing.get('top_ids',[]))} top picks "
           f"· {len(flagged)} flagged not-relevant")
     print(f"coach_rank: headline — {briefing.get('headline','')}")
-    print(f"coach_rank: wrote {OUT.relative_to(ROOT)}")
-    health_mod.set_coach_status(HEALTH, "success")   # Phase 13: coach ran cleanly
+    print(f"coach_rank: wrote {OUT.relative_to(ROOT)} (model: {model_used})")
+    health_mod.set_coach_status(HEALTH, coach_status)   # Phase 13/15: success | fallback
     if args.publish:
         _publish()
     return 0
