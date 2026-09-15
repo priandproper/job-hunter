@@ -73,13 +73,23 @@ def _c_basic_quals(job, ctx):
         else:
             gaps.append(q[:60])
     frac = covered / len(quals)
+    points = round(25 * frac, 1)
     ev = f"{covered}/{len(quals)} basic quals evidenced"
     if gaps:
         ev += "; gaps: " + "; ".join(gaps[:2])
+    # Experience sweet spot (e.g. 2–4 yrs): a role asking MORE than the sweet-spot high
+    # is down-ranked ~3 pts/year over, so lower-experience roles float to the top without
+    # being hidden. Roles within/below the sweet spot are unpenalized.
     yrs = spec.get("required_years")
-    if yrs is not None and yrs >= 7:
-        ev += f"; asks {yrs}+ yrs (stretch)"
-    return round(25 * frac, 1), ("high" if len(quals) >= 3 else "medium"), ev
+    low, high = ctx.get("sweet_spot", (0, 99))
+    if yrs is not None and yrs > high:
+        over = yrs - high
+        penalty = min(points, round(over * 3.0, 1))
+        points = round(points - penalty, 1)
+        ev += f"; asks {yrs}y — {over}y over your {low}-{high}y sweet spot (−{penalty})"
+    elif yrs is not None and low <= yrs <= high:
+        ev += f"; asks {yrs}y (in your {low}-{high}y sweet spot)"
+    return points, ("high" if len(quals) >= 3 else "medium"), ev
 
 
 def _c_direct_experience(job, ctx):

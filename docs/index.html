@@ -2062,10 +2062,31 @@ function coachBadge(job){const c=coachFor(job.id);if(!c)return '';
 function flagBadge(job){const f=flagFor(job.id);if(!f)return '';
   return `<span class="tag flag-off" title="Claude flagged as not relevant: ${esc(f.reason||'')}">⚑ off-search</span>`;}
 function _seenMs(job){const t=Date.parse(job._first_seen||'');return isNaN(t)?0:t;}
+// Company-diversity spread: after ranking, greedily pick the best role while penalizing
+// each additional role from an already-picked company — so one big employer (e.g. Amazon,
+// which posts hundreds) can't wall off the top of the list.
+function _diversify(sorted, penalty){
+  penalty=penalty||8; const seen={}, out=[], pool=sorted.slice();
+  while(pool.length){
+    let bi=0,best=-1e9;
+    for(let i=0;i<pool.length;i++){
+      const co=(pool[i].company||'').toLowerCase();
+      const adj=_prioTotal(pool[i])-penalty*(seen[co]||0);
+      if(adj>best){best=adj;bi=i;}
+    }
+    const pick=pool.splice(bi,1)[0], co=(pick.company||'').toLowerCase();
+    seen[co]=(seen[co]||0)+1; out.push(pick);
+  }
+  return out;
+}
 function sortJobs(jobs){
   const a=[...jobs],mf=j=>j.manual?1:0;   // jobs you logged yourself pin to the top
-  if(sortBy==='priority')a.sort((x,y)=>mf(y)-mf(x)||_prioTotal(y)-_prioTotal(x)||y.fit_score-x.fit_score);
-  else if(sortBy==='coach')a.sort((x,y)=>mf(y)-mf(x)||_coachPri(y)-_coachPri(x)||y.fit_score-x.fit_score);
+  if(sortBy==='priority'){
+    const man=a.filter(j=>j.manual), rest=a.filter(j=>!j.manual);
+    rest.sort((x,y)=>_prioTotal(y)-_prioTotal(x)||y.fit_score-x.fit_score);
+    return man.concat(_diversify(rest));   // priority order, spread across companies
+  }
+  if(sortBy==='coach')a.sort((x,y)=>mf(y)-mf(x)||_coachPri(y)-_coachPri(x)||y.fit_score-x.fit_score);
   else if(sortBy==='persona')a.sort((x,y)=>mf(y)-mf(x)||personaScore(y)-personaScore(x)||y.fit_score-x.fit_score||y.ats_score-x.ats_score);
   else if(sortBy==='recent')a.sort((x,y)=>mf(y)-mf(x)||_postedMs(y)-_postedMs(x)||y.fit_score-x.fit_score);
   else if(sortBy==='ats')a.sort((x,y)=>mf(y)-mf(x)||y.ats_score-x.ats_score||y.fit_score-x.fit_score);

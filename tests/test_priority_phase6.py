@@ -129,6 +129,24 @@ def test_why_explains():
     assert "hard stop" in red["why"].lower()
 
 
+# 11) Experience sweet spot: a role above the sweet-spot high is down-ranked vs an
+#     equivalent in-sweet-spot role; roles within/below are unpenalized.
+def test_experience_sweet_spot():
+    ctx = dict(CTX, sweet_spot=(2, 4))
+    QUALS = ["product marketing experience", "SQL and Tableau for funnel analytics",
+             "positioning and segmentation"]
+    def _basic(years, c=ctx):
+        j = dict(STRONG_JOB)
+        j["spec"] = {"basic_qualifications": QUALS, "responsibilities": [], "required_years": years}
+        rep = pr.score(j, ctx=c, today=TODAY, immigration=GREEN)
+        return next(x["points"] for x in rep["components"] if x["name"] == "basic_qualifications")
+    in_spot = _basic(3)          # within 2–4
+    over = _basic(6)             # 2 years over → −6
+    assert in_spot > 0 and over < in_spot, (over, in_spot)
+    assert _basic(2) == in_spot                 # low end of sweet spot, no penalty
+    assert _basic(6, c=CTX) > over              # no sweet_spot configured -> no penalty
+
+
 def _run():
     tests = sorted((n, f) for n, f in globals().items()
                    if n.startswith("test_") and callable(f))

@@ -39,7 +39,9 @@
     ],
     "max_age_days": 45,
     "experience": {
-      "exclude_at_years": 8
+      "exclude_at_years": 7,
+      "sweet_spot_low": 2,
+      "sweet_spot_high": 4
     },
     "immigration_hard_stop": true,
     "extra_lane_terms": [

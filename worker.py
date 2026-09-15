@@ -137,6 +137,11 @@ def _priority_ctx(profile) -> dict:
             "domains": priority_mod.DEFAULT_DOMAINS}
 
 
+def _sweet_spot(cfg) -> tuple:
+    exp = (cfg.get("match", {}) or {}).get("experience", {}) or {}
+    return (int(exp.get("sweet_spot_low", 0)), int(exp.get("sweet_spot_high", 99)))
+
+
 def _should_publish(new_count: int, prior_count: int) -> bool:
     """Phase 13/17 atomic-publish guard: never overwrite a non-empty board with an empty
     result (the SSL-broke-fetched-nothing failure mode). Publishing an empty board is only
@@ -299,6 +304,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     # Candidate context for the transparent priority score (Phase 6): the skills and
     # experience terms the candidate actually has, drawn from the resume profile.
     prio_ctx = _priority_ctx(profile)
+    prio_ctx["sweet_spot"] = _sweet_spot(cfg)   # experience sweet spot (e.g. 2–4 yrs)
 
     extra_terms = cfg["match"].get("extra_lane_terms", [])
     hard_stopped = 0
