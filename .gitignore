@@ -29,3 +29,4 @@ data/referrals.local.md
 data/master-*.json
 data/job-search-summary.json
 data/coach_history.json
+data/alerts.local.json

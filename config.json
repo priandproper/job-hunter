@@ -19,13 +19,11 @@
     "app_url": "https://priandproper.github.io/resume-builder",
     "import_encoding": "raw"
   },
+    "_recipients_note": "Alert recipients (PII) live in git-ignored data/alerts.local.json, not here. See lib/alerts.py.",
   "alerts": {
     "min_fit_for_alert": 55,
-    "to": "priyankatambe910@gmail.com",
-    "cc": [
-      "tambe.aniruddha3110@gmail.com",
-      "prakashtambe5834@gmail.com"
-    ]
+    "to": "",
+    "cc": []
   },
   "contact_public": {
     "fullName": "Priyanka Tambe",

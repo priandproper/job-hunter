@@ -20,6 +20,8 @@ from email.message import EmailMessage
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys as _sys; _sys.path.insert(0, str(ROOT))
+from lib import alerts as _alerts_mod  # noqa: E402
 JOBS = ROOT / "docs" / "jobs.json"
 SEEN = ROOT / "docs" / "roi_seen.json"
 
@@ -92,7 +94,7 @@ def main() -> int:
         return 0
 
     cfg = load_json(ROOT / "config.json", {})
-    alerts = cfg.get("alerts", {}) if isinstance(cfg, dict) else {}
+    alerts = _alerts_mod.merged(cfg, ROOT)  # Phase 16: recipients from git-ignored override
     body = render(roi)
     score = roi.get("report", {}).get("completeness_score", "?")
 

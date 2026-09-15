@@ -47,7 +47,7 @@ def test_jd_employer_email_allowed():
 # 3) A candidate email leaking into resume_core.contact.email is caught.
 def test_leaked_candidate_email_caught():
     j = _public_job()
-    j["resume_core"]["contact"]["email"] = "priyankatambe910@gmail.com"
+    j["resume_core"]["contact"]["email"] = "leaked-candidate@example.com"
     v = pv.scan_public(j)
     assert v and any("email" in x for x in v)
     _raises(lambda: pv.assert_public_safe(j), ValueError)

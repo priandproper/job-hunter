@@ -23,6 +23,8 @@ from email.message import EmailMessage
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+import sys as _sys; _sys.path.insert(0, str(ROOT))
+from lib import alerts as _alerts_mod  # noqa: E402
 JOBS = ROOT / "docs" / "jobs.json"
 SEEN = ROOT / "docs" / "seen.json"
 MIN_FIT = 55
@@ -82,7 +84,7 @@ def main() -> int:
     jobs_all = doc.get("jobs", [])
     seen = set(load_json(SEEN, []))
     cfg = load_json(ROOT / "config.json", {})
-    alerts = cfg.get("alerts", {}) if isinstance(cfg, dict) else {}
+    alerts = _alerts_mod.merged(cfg, ROOT)  # Phase 16: recipients from git-ignored override
     MIN = alerts.get("min_fit_for_alert", MIN_FIT)
 
     # One-time migration: seen.json used to store raw ids (no "|"). Switching to
