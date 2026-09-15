@@ -1,0 +1,7 @@
+# job-hunter runtime dependencies (the pipeline is otherwise stdlib-only).
+#
+# certifi provides a current CA bundle so HTTPS to the ATS feeds VERIFIES on macs that
+# lack local issuer certs. Required since Phase 14 removed the unverified-TLS fallback:
+# without a working CA path a source is skipped and reported, never silently downgraded.
+#   python3 -m pip install -r requirements.txt
+certifi>=2024.2.2

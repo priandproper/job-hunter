@@ -3,6 +3,11 @@
 These are the same key-free JSON endpoints the existing scanner/tracker use.
 Every fetch is network-guarded: on any failure it returns [] so the pipeline
 keeps running from other sources (e.g. the tracker DB) offline.
+
+TLS is ALWAYS verified (Phase 14): HTTPS uses certifi's CA bundle (or the system
+default), and a certificate failure raises so the source is skipped + reported —
+there is no unverified fallback. Install certifi (see requirements.txt) if you hit
+"unable to get local issuer certificate".
 """
 
 import datetime as _dt
@@ -30,31 +35,49 @@ def clean_jd(text: str) -> str:
 
 
 import ssl  # noqa: E402
-
-try:                                      # verified via certifi's bundle when available
-    import certifi
-    _CTX = ssl.create_default_context(cafile=certifi.where())
-except Exception:
-    _CTX = None
+import time  # noqa: E402
 
 
-def _open(req, timeout):
-    """Open a request, surviving the macOS "no local CA certs" problem that made every
-    ATS fetch fail (and silently return 0 jobs) when worker.py runs on a Mac.
-    1) system default (works in CI / configured envs); 2) certifi bundle (still verified);
-    3) unverified — acceptable here because these are PUBLIC, read-only job feeds and we
-    send no credentials."""
+def _verified_context():
+    """A TLS context that ALWAYS verifies (Phase 14 — no unverified fallback, ever).
+    Prefers certifi's CA bundle (fixes the macOS "no local issuer" failure); otherwise
+    the system default. Hostname checking and CERT_REQUIRED are asserted defensively so
+    verification can never be silently turned off."""
     try:
-        return urllib.request.urlopen(req, timeout=timeout)
-    except urllib.error.URLError as e:
-        if not (isinstance(getattr(e, "reason", None), ssl.SSLError) or "CERTIFICATE" in str(e).upper()):
-            raise
-    if _CTX is not None:
+        import certifi
+        ctx = ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        ctx = ssl.create_default_context()
+    ctx.check_hostname = True
+    ctx.verify_mode = ssl.CERT_REQUIRED
+    return ctx
+
+
+_CTX = _verified_context()
+
+
+def _is_cert_error(e) -> bool:
+    return isinstance(getattr(e, "reason", None), ssl.SSLError) or "CERTIFICATE" in str(e).upper()
+
+
+def _open(req, timeout, retries: int = 2, backoff: float = 0.5):
+    """Open a request over a VERIFIED TLS connection, with bounded retries + backoff for
+    transient network errors. A certificate-validation failure is raised immediately
+    (never retried, NEVER downgraded to unverified) so the caller skips + reports the
+    source — see worker's per-source health tracking (Phase 13)."""
+    last = None
+    for attempt in range(retries + 1):
         try:
             return urllib.request.urlopen(req, timeout=timeout, context=_CTX)
-        except urllib.error.URLError:
-            pass
-    return urllib.request.urlopen(req, timeout=timeout, context=ssl._create_unverified_context())
+        except urllib.error.URLError as e:
+            if _is_cert_error(e):
+                raise                                  # do not retry, do not downgrade
+            last = e
+            if attempt < retries:
+                time.sleep(backoff * (2 ** attempt))   # exponential backoff
+                continue
+            raise
+    raise last
 
 
 def _get(url: str, timeout: float = 12.0):
