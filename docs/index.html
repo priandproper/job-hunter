@@ -275,6 +275,10 @@
   .pace{font-size:.74rem;font-weight:800;padding:.12rem .5rem;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
   .pace-good{background:var(--good-soft);color:var(--good)}.pace-bad{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b)}.pace-mid{background:var(--mid-soft);color:var(--mid)}
   .sync-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem;padding-top:.6rem;border-top:1px solid var(--line);font-size:.8rem}
+  .health-banner{padding:.6rem .85rem;border-radius:9px;margin:0 0 1rem;font-size:.85rem;border:1px solid}
+  .health-banner code{background:rgba(0,0,0,.06);padding:.05rem .3rem;border-radius:4px}
+  .hb-warn{background:var(--mid-soft);color:var(--mid);border-color:var(--mid)}
+  .hb-bad{background:var(--bad-soft,#fde8e8);color:var(--bad,#c0392b);border-color:var(--bad,#c0392b)}
   /* Collapsible review/tools */
   .more-tools{margin-bottom:1.4rem}
   .more-tools>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding:.5rem 0;list-style:none}
@@ -684,6 +688,7 @@
       <p class="meta" id="meta"></p>
     </header>
     <main>
+      <div id="healthBanner"></div>
       <!-- ===== COCKPIT ===== -->
       <section id="screen-home" class="screen">
         <div id="today"></div>
@@ -885,7 +890,7 @@ const STATUS_KEY="job-hunter:status:v1", PRIVATE_KEY="job-hunter:private:v1",
       JOBCACHE_KEY="job-hunter:jobcache:v1";            // snapshot of viewed/tracked jobs (survive scrape churn)
 const FOLLOWUP={messaged:5, referred:5, applied:7};
 const TARGET_APPS=20, OUTCOME_GOAL=6, PAGE=40;
-let DOC={jobs:[],meta:{},summary:{}}, COACH=null, filter="active", roleFilter="all", sortBy="priority", hidePoor=false, hideReposts=false, enrichedOnly=false, companyFilter="all", query="", shownCount=PAGE;
+let DOC={jobs:[],meta:{},summary:{}}, COACH=null, HEALTH=null, filter="active", roleFilter="all", sortBy="priority", hidePoor=false, hideReposts=false, enrichedOnly=false, companyFilter="all", query="", shownCount=PAGE;
 // Claude's daily curation (docs/coach.json): id -> {tier,priority,why,flag}
 let _coachMap=null;
 function coachMap(){
@@ -3368,6 +3373,23 @@ function currentView(){
   if(h.startsWith('#/people'))return 'people';
   return 'home';
 }
+// Phase 13 — stale/degraded data warning from docs/health.json.
+function _hoursSince(iso){try{return (Date.now()-new Date(iso).getTime())/3.6e6;}catch(e){return null;}}
+function renderHealthBanner(){
+  const box=document.getElementById('healthBanner');if(!box)return;
+  const h=HEALTH;if(!h){box.innerHTML='';return;}
+  const age=_hoursSince(h.completed_at);
+  const stale=age!==null&&age>36;
+  let msg='',cls='';
+  if(h.status==='failed'){cls='hb-bad';
+    msg=`⚠ Last refresh <b>failed</b> — showing the last good data${h.last_full_success?` from ${new Date(h.last_full_success).toLocaleString()}`:''}. Sources failed: ${(h.sources_failed||[]).join(', ')||'unknown'}.`;}
+  else if(h.status==='partial'){cls='hb-warn';
+    msg=`⚠ Last refresh was <b>partial</b> (${h.jobs_matched} jobs; sources failed: ${(h.sources_failed||[]).join(', ')||'—'}). Some roles may be missing.`;}
+  else if(stale){cls='hb-warn';
+    msg=`⏳ Data is <b>${Math.round(age)}h old</b> — the daily refresh may not have run. Run <code>python3 worker.py</code> to update.`;}
+  if(h.coach_status==='failed'&&!msg){cls='hb-warn';msg='⚠ The coach (Claude ranking) failed on the last run — showing the deterministic ranking only.';}
+  box.innerHTML=msg?`<div class="health-banner ${cls}">${msg}</div>`:'';
+}
 function render(){
   document.getElementById('meta').textContent=`${(DOC.jobs||[]).length} jobs · updated ${timeAgo(DOC.generated_at)}`;
   const v=currentView();
@@ -3398,6 +3420,8 @@ async function load(){
   catch(e){DOC={jobs:[],meta:{},summary:{}};
     if(!getManualJobs().length){document.getElementById('overview').innerHTML='<div class="empty">Couldn\'t load jobs.json.</div>';return;}}
   try{const rc=await fetch('coach.json?_='+Date.now());COACH=rc.ok?await rc.json():null;}catch{COACH=null;}  // Claude's curation (optional)
+  try{const rh=await fetch('health.json?_='+Date.now());HEALTH=rh.ok?await rh.json():null;}catch{HEALTH=null;}  // Phase 13 run health (optional)
+  renderHealthBanner();
   mergeManualJobs();mergeJobCache();snapshotTracked();computeNew();loadRuns();route();if(anyActive())refreshRuns();else armDismiss();
 }
 

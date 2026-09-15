@@ -34,6 +34,7 @@ from lib import companies_gist as cgist_mod
 from lib import dedup as dedup_mod
 from lib import discovery as disc_mod
 from lib import gap as gap_mod
+from lib import health as health_mod
 from lib import immigration as immig_mod
 from lib import jobs as jobs_mod
 from lib import jobspec as jobspec_mod
@@ -142,10 +143,15 @@ def _natural_key(job: dict) -> tuple:
             (job.get("title") or "").strip().lower())
 
 
-def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
-    """Fetch fresh postings from every source, then union into the ever-expanding pool."""
+def collect_jobs(cfg: dict, do_discovery: bool, log, src_stats: dict = None) -> list[dict]:
+    """Fetch fresh postings from every source, then union into the ever-expanding pool.
+    Records per-source-type fetch counts into src_stats (Phase 13 health)."""
+    src_stats = src_stats if src_stats is not None else {}
+    by_type, attempts = Counter(), Counter()   # per ATS-type fetched / attempted
     jobs = jobs_mod.load_jobs(cfg, REPO_ROOT)  # tracker/scanner (empty in Actions)
     log(f"[2/6] ingest    — {len(jobs)} job(s) from scanner/tracker")
+    if jobs:
+        by_type["scanner"] = len(jobs); attempts["scanner"] = 1
     if do_discovery:
         scannable = disc_mod.scannable_companies(cfg, REPO_ROOT)
         log(f"        ingest    — fetching {len(scannable)} company ATS feed(s)… "
@@ -153,6 +159,9 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
         fetched = 0
         for i, c in enumerate(scannable, 1):
             new = ats_mod.fetch_company(c)
+            t = (c.get("ats") or "other").lower()
+            attempts[t] += 1
+            by_type[t] += len(new)
             fetched += len(new)
             jobs.extend(new)
             if i % 15 == 0 or i == len(scannable):   # heartbeat so it never looks frozen
@@ -162,7 +171,14 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
         else:
             log("        ingest    — 0 from ATS feeds (check network; see fetch errors above)")
         postings = disc_mod.fetch_postings(cfg, REPO_ROOT, log)  # JSearch job boards
+        attempts["jsearch"] += 1; by_type["jsearch"] += len(postings)
         jobs.extend(postings)
+    # A source TYPE that was attempted but returned zero across all its companies is a
+    # likely failure (e.g. the SSL-broke-fetched-nothing bug) — surface it, don't hide it.
+    src_stats["fetched"] = sum(by_type.values())
+    src_stats["by_type"] = dict(by_type)
+    src_stats["succeeded"] = sorted(t for t in attempts if by_type.get(t, 0) > 0)
+    src_stats["failed"] = sorted(t for t in attempts if by_type.get(t, 0) == 0)
 
     # Relevance gate: pool ONLY jobs that pass the match filter. The boards return
     # thousands of off-lane roles (engineering, sales, etc.) that never surface in
@@ -198,8 +214,18 @@ def collect_jobs(cfg: dict, do_discovery: bool, log) -> list[dict]:
     return merged
 
 
+def collect_jobs_with_stats(cfg, do_discovery, log):
+    """collect_jobs plus the per-source stats dict (Phase 13)."""
+    src_stats = {}
+    merged = collect_jobs(cfg, do_discovery, log, src_stats)
+    return merged, src_stats
+
+
 def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=print) -> dict:
     now = _now()
+    import uuid
+    run_id = _dt.datetime.now().strftime("%Y%m%dT%H%M%S") + "-" + uuid.uuid4().hex[:6]
+    started_at = _dt.datetime.now(_dt.timezone.utc)
 
     # Fold in the dashboard-published persona (public Gist) so the scrape keeps only
     # jobs that fit you. No PERSONA_GIST_ID / no net -> unchanged.
@@ -223,7 +249,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     else:
         log("[1/6] discover  — skipped")
 
-    all_jobs = collect_jobs(cfg, do_discovery, log)
+    all_jobs, src_stats = collect_jobs_with_stats(cfg, do_discovery, log)
 
     profile = profile_mod.load_profile(cfg, REPO_ROOT)
     ref_cfg = cfg["referrals"]
@@ -410,8 +436,23 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         "jobs": public_jobs,
     }
 
-    pub_path.parent.mkdir(parents=True, exist_ok=True)
-    pub_path.write_text(json.dumps(doc, indent=2))
+    # SAFETY (Phase 13): never overwrite a good board with an empty one. If this run
+    # produced zero jobs but a prior jobs.json has jobs, keep the old data and mark the
+    # run failed — this is exactly the SSL-broke-fetched-nothing failure mode.
+    prior_count = 0
+    try:
+        prior_count = len(json.loads(pub_path.read_text()).get("jobs", []))
+    except (OSError, json.JSONDecodeError):
+        pass
+    aborted_empty = len(public_jobs) == 0 and prior_count > 0
+    if aborted_empty:
+        log(f"[!] ABORT publish — 0 jobs matched but {prior_count} exist in {pub_path.name}; "
+            "keeping the existing board (likely a source/network failure, not an empty market).")
+    else:
+        pub_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = pub_path.with_suffix(".json.tmp")     # atomic replace
+        tmp.write_text(json.dumps(doc, indent=2))
+        os.replace(tmp, pub_path)
     log(f"[3/6] match     — {len(public_jobs)} job(s) pass fit >= {cfg['match']['min_fit_score']}"
         + (f"; auto-tidied {tidied} stale" if tidied else "")
         + (f"; {hard_stopped} immigration hard-stop(s) excluded" if hard_stopped else ""))
@@ -422,7 +463,25 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "
         f"({best['best_variant'] if best else '—'}); "
         f"{len(missing_counter)} distinct missing keyword(s)")
-    log(f"[5/6] public    — wrote {pub_path}")
+    log(f"[5/6] public    — {'kept existing (empty run)' if aborted_empty else 'wrote '+str(pub_path)}")
+
+    # Health record (Phase 13): one honest status for this run, read by the dashboard
+    # to warn on stale/degraded/partial data. Public but PII-free.
+    health_path = (REPO_ROOT / "docs" / "health.json").resolve()
+    prior_health = health_mod.load(health_path)
+    record = health_mod.build_record(
+        run_id, started_at, _dt.datetime.now(_dt.timezone.utc),
+        jobs_fetched=src_stats.get("fetched", 0), jobs_matched=len(public_jobs),
+        jobs_ranked=len(public_jobs), sources_succeeded=len(src_stats.get("succeeded", [])),
+        sources_failed=src_stats.get("failed", []), coach_status=prior_health.get("coach_status", ""),
+        prior=prior_health, min_jobs=cfg.get("health", {}).get("min_jobs", health_mod.DEFAULT_MIN_JOBS))
+    if aborted_empty:
+        record["status"] = "failed"
+    health_mod.save(health_path, record)
+    log(f"        health    — {record['status']} · {record['jobs_matched']} jobs · "
+        f"sources ok:{record['sources_succeeded']} failed:{record['sources_failed'] or '—'}")
+    if record["status"] != "success":
+        log(f"[!] run status {record['status'].upper()} — dashboard will show a stale/degraded warning.")
 
     if not public_only:
         priv_payload = {
@@ -458,7 +517,8 @@ def _publish() -> None:
     """Commit the refreshed data and push, so the live dashboard updates. This is the
     step people forget after a local run — --publish folds it into the worker."""
     import subprocess
-    files = ["docs/jobs.json", "data/job_pool.json", "docs/seen.json", "data/companies.json"]
+    files = ["docs/jobs.json", "docs/health.json", "data/job_pool.json",
+             "docs/seen.json", "data/companies.json"]
     subprocess.run(["git", "add", *files], cwd=REPO_ROOT)
     st = subprocess.run(["git", "status", "--porcelain", *files], cwd=REPO_ROOT,
                         capture_output=True, text=True).stdout.strip()
@@ -477,6 +537,21 @@ def _publish() -> None:
           "(hard-refresh the browser with Cmd+Shift+R).")
 
 
+def _acquire_lock():
+    """Prevent overlapping runs (Phase 13). Returns the lock Path, or None if a fresh
+    lock is already held. A stale lock (>2h, e.g. a crashed run) is reclaimed."""
+    import time
+    lock = REPO_ROOT / "data" / ".worker.lock"
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        if lock.exists() and (time.time() - lock.stat().st_mtime) < 2 * 3600:
+            return None
+        lock.write_text(f"{os.getpid()} {_now()}\n")
+        return lock
+    except OSError:
+        return lock   # best-effort: don't block a run on lock I/O trouble
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Build the dashboard data files.")
     ap.add_argument("--public", action="store_true", help="public jobs.json only (Actions mode)")
@@ -489,11 +564,22 @@ def main() -> int:
     cfg = load_config()
     if args.min_fit is not None:
         cfg["match"]["min_fit_score"] = args.min_fit
-    run(cfg, do_discovery=not args.no_discovery, public_only=args.public)
-    # Publish by DEFAULT: "refresh" and "make it live" are one step now, because the
-    # split kept catching people out. Skip only for --no-publish or Actions (--public).
-    if not args.no_publish and not args.public:
-        _publish()
+
+    lock = _acquire_lock()   # Phase 13: one run at a time
+    if lock is None:
+        print("worker: another run holds data/.worker.lock (started <2h ago) — skipping.")
+        return 0
+    try:
+        run(cfg, do_discovery=not args.no_discovery, public_only=args.public)
+        # Publish by DEFAULT: "refresh" and "make it live" are one step now, because the
+        # split kept catching people out. Skip only for --no-publish or Actions (--public).
+        if not args.no_publish and not args.public:
+            _publish()
+    finally:
+        try:
+            lock.unlink()
+        except OSError:
+            pass
     return 0
 
 

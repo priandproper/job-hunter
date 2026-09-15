@@ -25,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from lib import dedup as dedup_mod  # noqa: E402
+from lib import health as health_mod  # noqa: E402
 from lib import jobspec as jobspec_mod  # noqa: E402
 from lib import ranking as ranking_mod  # noqa: E402
 from lib import state as state_mod  # noqa: E402
@@ -33,6 +34,7 @@ STATE = ROOT / "data" / "state.local.json"   # exported from the dashboard (git-
 JOBS = ROOT / "docs" / "jobs.json"
 OUT = ROOT / "docs" / "coach.json"
 CONFIG = ROOT / "config.json"
+HEALTH = ROOT / "docs" / "health.json"           # Phase 13 — record coach_status here
 HISTORY = ROOT / "data" / "coach_history.json"   # id -> times previously recommended (memory)
 
 
@@ -182,8 +184,9 @@ def claude_json(prompt: str, model: str = "opus") -> dict:
 
 def _publish():
     import subprocess as sp
-    sp.run(["git", "add", "docs/coach.json"], cwd=ROOT)
-    if not sp.run(["git", "status", "--porcelain", "docs/coach.json"], cwd=ROOT,
+    files = ["docs/coach.json", "docs/health.json"]   # health carries coach_status (Phase 13)
+    sp.run(["git", "add", *files], cwd=ROOT)
+    if not sp.run(["git", "status", "--porcelain", *files], cwd=ROOT,
                   capture_output=True, text=True).stdout.strip():
         print("coach_rank: coach.json unchanged; nothing to publish."); return
     sp.run(["git", "commit", "-m", "coach: refresh Claude job curation"], cwd=ROOT,
@@ -237,7 +240,9 @@ def main() -> int:
     try:
         rep = claude_json(build_prompt(jobs, hist), args.model)
     except Exception as e:
-        print(f"coach_rank: Claude failed ({e})"); return 1
+        print(f"coach_rank: Claude failed ({e})")
+        health_mod.set_coach_status(HEALTH, "failed")   # Phase 13: record the degraded state
+        return 1
 
     ranked = [r for r in (rep.get("ranked") or []) if r.get("id")]
     valid_ids = {j["id"] for j in jobs}
@@ -265,6 +270,7 @@ def main() -> int:
           f"· {len(flagged)} flagged not-relevant")
     print(f"coach_rank: headline — {briefing.get('headline','')}")
     print(f"coach_rank: wrote {OUT.relative_to(ROOT)}")
+    health_mod.set_coach_status(HEALTH, "success")   # Phase 13: coach ran cleanly
     if args.publish:
         _publish()
     return 0

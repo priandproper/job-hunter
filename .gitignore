@@ -10,6 +10,7 @@ data/facts.local.json
 data/packets/
 data/state.local.json
 data/funnel-report.md
+data/.worker.lock
 scripts/*.local.js
 data/linkedin_paste.txt
 data/people.local.csv
