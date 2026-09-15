@@ -1079,6 +1079,10 @@ function importUrlFromCore(core){const c=(getPrivate().contact)||{};
   // Payload in the URL hash (#import=), not the query string: a full resume JSON
   // overflows the server request-line limit as a query param (GitHub Pages -> 414),
   // but the hash is never sent to the server, so the page always loads.
+  // PRIVACY (Phase 16): the hash carries your resume + merged email/phone. It is NOT
+  // sent to any server, BUT it is stored in this browser's history and is readable by
+  // browser EXTENSIONS with tab access. Only paste it into the resume-builder tab, and
+  // clear history / avoid it on shared or extension-heavy browsers if that matters.
   return ((DOC.meta||{}).app_url||'').replace(/\/$/,'')+'/#import='+encodeURIComponent(JSON.stringify(merged));}
 
 // ----- Copy-prompt flow: build a full tailoring prompt, paste the JSON back -----

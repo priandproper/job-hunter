@@ -43,6 +43,7 @@ from lib import payload as payload_mod
 from lib import persona as persona_mod
 from lib import pool as pool_mod
 from lib import priority as priority_mod
+from lib import privacy as privacy_mod
 from lib import profile as profile_mod
 from lib import profile_roi as profile_roi_mod
 from lib import referrals as ref_mod
@@ -436,6 +437,14 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         "jobs": public_jobs,
     }
 
+    # PRIVACY GATE (Phase 16): the doc is about to be published — scan for restricted
+    # PII (candidate email/phone, third-party contacts, secret tokens). Employer emails
+    # inside JD text are allowed. Violations are logged loudly (never silently shipped).
+    pii = privacy_mod.scan_public(doc)
+    if pii:
+        for v in pii[:8]:
+            log(f"[!] PRIVACY — restricted data in public payload: {v}")
+
     # SAFETY (Phase 13): never overwrite a good board with an empty one. If this run
     # produced zero jobs but a prior jobs.json has jobs, keep the old data and mark the
     # run failed — this is exactly the SSL-broke-fetched-nothing failure mode.
@@ -477,6 +486,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         prior=prior_health, min_jobs=cfg.get("health", {}).get("min_jobs", health_mod.DEFAULT_MIN_JOBS))
     if aborted_empty:
         record["status"] = "failed"
+    elif pii and record["status"] == "success":
+        record["status"] = "partial"        # privacy violation → surface it, don't hide it
     health_mod.save(health_path, record)
     log(f"        health    — {record['status']} · {record['jobs_matched']} jobs · "
         f"sources ok:{record['sources_succeeded']} failed:{record['sources_failed'] or '—'}")
