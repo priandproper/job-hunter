@@ -107,6 +107,12 @@ DEFAULT_TARGET_ROLE_TERMS = [
     "marketing coordinator", "marketing associate", "marketing analyst",
     # analyst lane (the specific types wanted)
     "business analyst", "sales analyst", "sales operations analyst", "sales ops analyst",
+    # analytics/ops analyst lane (added 2026-09-15) — the candidate's SQL/Tableau/funnel
+    # wheelhouse that the old allowlist dropped. Kept tight to marketing/GTM/revenue/ops
+    # flavors (bare "data analyst" deliberately NOT added, to avoid off-lane data roles).
+    "marketing data analyst", "marketing analytics", "revenue operations analyst",
+    "revenue operations", "revops", "growth analyst", "gtm analyst",
+    "operations analyst", "analytics manager",
 ]
 
 
