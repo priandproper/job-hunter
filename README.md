@@ -1,15 +1,25 @@
 # job-hunter
 
-A **static job-search dashboard** fed by a background worker. Every matching job
-arrives with a tailored resume, an ATS keyword-gap analysis, a drafted referral
-message, and who can refer you — all pre-built. You review and hit send.
-**Nothing is applied or sent automatically.**
+A **static job-search dashboard** fed by a background worker, built for an international
+STEM-MBA candidate on F-1 OPT targeting ~120 credible, sponsor-viable applications / 30
+days. Every matching job arrives scored (a transparent priority band), immigration-risk
+classified, structured into requirements, dedup-checked, and — for Priority-A/B roles — a
+full application packet. You review and hit send. **Nothing is applied or sent
+automatically, and no facts are ever fabricated.**
 
-- **Front-end only** — a static page (`docs/index.html`) reading a JSON file. No
-  database, no server. Runs on GitHub Pages or `python3 -m http.server`.
-- **State + PII live in your browser** (`localStorage`), never in the repo.
-- **A GitHub Actions cron** rebuilds the data every ~30 min and **emails you**
-  about new high-fit jobs.
+- **Front-end only** — a static page (`docs/index.html`) reading JSON. No database, no
+  server. Runs on GitHub Pages or `python3 -m http.server`.
+- **State + PII live locally** — job status/People/outreach in the browser
+  (`localStorage`, exportable to Python); the verified fact bank, contacts, and alert
+  recipients in git-ignored `data/*.local.*`. Public JSON is job-market data only.
+- **A local launchd agent** refreshes daily at 8:00 (`scripts/install_auto_refresh.sh`);
+  runs are health-checked (`docs/health.json`) and never overwrite a good board with an
+  empty one. TLS is always verified (needs `certifi` — see below).
+
+**Setup:** `python3 -m pip install -r requirements.txt` · **Full guide:** see
+[GUIDE.md](GUIDE.md) (installation, daily operation, troubleshooting, data schemas,
+privacy model, verifying facts, immigration risk, Claude-failure recovery, state
+migration, running tests, daily health). **Tests:** `python3 tests/run_all.py`.
 
 ## The dashboard (`docs/index.html`)
 

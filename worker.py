@@ -137,6 +137,13 @@ def _priority_ctx(profile) -> dict:
             "domains": priority_mod.DEFAULT_DOMAINS}
 
 
+def _should_publish(new_count: int, prior_count: int) -> bool:
+    """Phase 13/17 atomic-publish guard: never overwrite a non-empty board with an empty
+    result (the SSL-broke-fetched-nothing failure mode). Publishing an empty board is only
+    OK when there was nothing there before (a genuinely fresh/empty run)."""
+    return not (new_count == 0 and prior_count > 0)
+
+
 def _natural_key(job: dict) -> tuple:
     # Dedupe by company + title only. Many ATS feeds post the same role once per
     # location; keying on location too would leave those as duplicate cards.
@@ -453,7 +460,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         prior_count = len(json.loads(pub_path.read_text()).get("jobs", []))
     except (OSError, json.JSONDecodeError):
         pass
-    aborted_empty = len(public_jobs) == 0 and prior_count > 0
+    aborted_empty = not _should_publish(len(public_jobs), prior_count)
     if aborted_empty:
         log(f"[!] ABORT publish — 0 jobs matched but {prior_count} exist in {pub_path.name}; "
             "keeping the existing board (likely a source/network failure, not an empty market).")
