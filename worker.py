@@ -396,6 +396,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     meta_companies = [{
         "name": c.get("name", ""), "ats": c.get("ats", ""),
         "active": bool(c.get("active")), "source": c.get("source", ""),
+        "apply_direct": bool(c.get("apply_direct")),   # own-ATS sponsors — apply on their site
         "careers_url": cgist_mod.careers_url(c),
     } for c in watch if c.get("name")]
     meta_companies.sort(key=lambda c: c["name"].lower())

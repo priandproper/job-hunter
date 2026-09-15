@@ -1897,9 +1897,15 @@ function companiesCard(){
   const scraper=(DOC.meta&&DOC.meta.companies)||[];
   const user=getUserCompanies(), gid=companiesGistId();
   const jobCos=new Set((DOC.jobs||[]).map(j=>(j.company||'').trim().toLowerCase()));
-  const scraperRows=scraper.map(c=>`<div class="co-row">
+  const scanned=scraper.filter(c=>!c.apply_direct), direct=scraper.filter(c=>c.apply_direct);
+  const scraperRows=scanned.map(c=>`<div class="co-row">
     <button class="co-name jumpco" data-co="${esc(c.name)}" onclick="jumpToCompany(this.dataset.co)" title="Show ${esc(c.name)} jobs">${esc(c.name)}${jobCos.has(c.name.toLowerCase())?'':' <span class="co-dim">· no current jobs</span>'}</button>
     <span class="co-ats ${c.active?'on':''}">${esc(c.ats||'no ats')}</span>
+    ${c.careers_url?`<a class="linklike" href="${esc(c.careers_url)}" target="_blank" rel="noopener">careers ↗</a>`:''}
+  </div>`).join('');
+  // Own-ATS mega-sponsors the scanner can't read — apply directly on their site.
+  const directRows=direct.map(c=>`<div class="co-row">
+    <span class="co-name">${esc(c.name)} <span class="tag warm">🎯 apply direct</span></span>
     ${c.careers_url?`<a class="linklike" href="${esc(c.careers_url)}" target="_blank" rel="noopener">careers ↗</a>`:''}
   </div>`).join('');
   const userRows=user.map((c,i)=>`<div class="co-row">
@@ -1921,7 +1927,10 @@ function companiesCard(){
       <div class="rowbtns" style="margin-top:.6rem"><button onclick="publishCompanies()">Publish to Gist</button>
         <span class="co">${gid?'Gist: '+esc(gid):'not published yet'}</span></div>
       ${gid?companiesSetupNote(gid):''}`:'<p class="co" style="margin-top:.5rem">No additions yet — add a company above to extend the scan.</p>'}
-    <h3 class="co-h">Scraper list</h3>
+    ${directRows?`<h3 class="co-h">Apply direct — major sponsors, own ATS (${direct.length})</h3>
+      <p class="sub">The scanner can't read these boards, so they won't appear in Jobs — but they're among the biggest H-1B marketing/analytics sponsors. Check them manually.</p>
+      <div class="co-list">${directRows}</div>`:''}
+    <h3 class="co-h">Scraper list (${scanned.length})</h3>
     <div class="co-list scroll">${scraperRows||'<p class="co">No company list in the latest data yet — it appears after the next scraper run.</p>'}</div>
   </div>`;
 }

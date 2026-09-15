@@ -1630,6 +1630,126 @@
    "hq": "",
    "source": "audit:sponsor-gap",
    "active": true
+  },
+  {
+   "name": "Salesforce",
+   "ats": "manual",
+   "careers_url": "https://careers.salesforce.com/en/jobs/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "ServiceNow",
+   "ats": "manual",
+   "careers_url": "https://careers.servicenow.com/jobs/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Microsoft",
+   "ats": "manual",
+   "careers_url": "https://jobs.careers.microsoft.com/global/en/search",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Google",
+   "ats": "manual",
+   "careers_url": "https://www.google.com/about/careers/applications/jobs/results/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Intuit",
+   "ats": "manual",
+   "careers_url": "https://www.intuit.com/careers/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Cisco",
+   "ats": "manual",
+   "careers_url": "https://jobs.cisco.com/jobs/SearchJobs/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "SAP",
+   "ats": "manual",
+   "careers_url": "https://jobs.sap.com/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Oracle",
+   "ats": "manual",
+   "careers_url": "https://careers.oracle.com/jobs/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Atlassian",
+   "ats": "manual",
+   "careers_url": "https://www.atlassian.com/company/careers/all-jobs",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "LinkedIn",
+   "ats": "manual",
+   "careers_url": "https://careers.linkedin.com/jobs",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Meta",
+   "ats": "manual",
+   "careers_url": "https://www.metacareers.com/jobs",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "IBM",
+   "ats": "manual",
+   "careers_url": "https://www.ibm.com/careers/search",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:apply-direct-2026-09-15"
   }
  ]
 }
