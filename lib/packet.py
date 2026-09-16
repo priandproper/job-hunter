@@ -46,6 +46,20 @@ def _tokens(text):
     return {w for w in _WORD.findall((text or "").lower()) if w not in _STOP and len(w) > 2}
 
 
+# Filler words common to requirement text — not distinctive when matching to a fact.
+_GENERIC_REQ_TOKENS = frozenset(
+    "experience years ability strong degree bachelor master plus related field equivalent "
+    "understanding knowledge excellent proven track record demonstrated working skills "
+    "including etc professional non internship must have will".split())
+
+# Distinctive skills/tools — a shared one is strong evidence a fact answers a requirement.
+_SKILL_TOOLS = frozenset(
+    "sql tableau excel power bi ga4 salesforce hubspot eloqua marketo pardot looker "
+    "positioning messaging gtm launch launches enablement competitive segmentation funnel "
+    "campaign campaigns abm analytics dashboard dashboards demo demos storytelling narrative "
+    "content brand lifecycle demand growth conversion attribution experimentation".split())
+
+
 def _jaccard(a, b):
     return len(a & b) / len(a | b) if (a or b) else 0.0
 
@@ -82,12 +96,18 @@ def requirement_evidence(spec, verified_facts, candidate_skills):
     Direct evidence -> strong (cite fact_ids); transferable skills -> partial; none -> gap."""
     rows = []
     reqs = key_requirements(spec, limit=0)   # all, ranked
+    have_verified = bool(verified_facts)
     for r in reqs:
         rt = _tokens(r["text"])
+        rt_key = rt - _GENERIC_REQ_TOKENS          # distinctive terms of the requirement
         fids, best = [], 0.0
         for f in verified_facts:
-            ov = _jaccard(rt, _tokens(f.get("action", "")))
-            if ov >= 0.28:
+            ft = _tokens(f.get("action", ""))
+            ov = _jaccard(rt, ft)
+            shared = rt_key & ft
+            # Cite a fact as direct evidence when it shares a distinctive skill/tool term
+            # (e.g. Tableau ↔ Tableau), two+ meaningful terms, or has real overlap.
+            if (shared & _SKILL_TOOLS) or len(shared) >= 2 or ov >= 0.2:
                 fids.append(f["fact_id"])
             best = max(best, ov)
         skill_cover = len(rt & candidate_skills) / len(rt) if rt else 0.0
@@ -95,8 +115,9 @@ def requirement_evidence(spec, verified_facts, candidate_skills):
             strength, reason = "strong", f"direct evidence in {len(fids)} verified fact(s)"
             action = "Lead with the cited fact(s) — reword to the role's language, no new claims."
         elif skill_cover >= 0.34:
-            strength, reason = "partial", "transferable — covered by your skills, not yet a verified bullet"
-            action = "Reframe your closest real experience toward this; verify a fact to cite it."
+            strength, reason = "partial", "transferable — covered by your skills, adjacent to a verified fact"
+            action = ("Reframe your closest real experience toward this."
+                      if have_verified else "Reframe your closest real experience; verify a fact to cite it.")
         else:
             strength, reason = "gap", "no direct or transferable evidence found"
             action = "Genuine gap — do not claim it; address in the cover note or upskill."
