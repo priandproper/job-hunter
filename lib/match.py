@@ -236,10 +236,12 @@ def eligibility_text(text: str | None) -> str:
 
 
 def required_years(job: dict) -> int | None:
-    """Minimum RELEVANT years the role requires for eligibility, or None if unstated.
-    Reads only the eligibility section (preferred years are ranking-only) and takes
-    the smallest stated figure (the role-relevant bar, not a larger 'total years')."""
-    return extract_years(eligibility_text(job.get("excerpt")))
+    """Minimum RELEVANT years the role requires, or None if unstated. Prefers the
+    eligibility section (preferred years are ranking-only), but if that yields nothing
+    it falls back to the FULL JD — so a stated '5+ years' the section parser missed
+    still gates the role (the candidate wants a hard 1–4yr cap, no 5+ leaking through)."""
+    y = extract_years(eligibility_text(job.get("excerpt")))
+    return y if y is not None else extract_years(job.get("excerpt"))
 
 
 def experience_exclude_at(cfg_match: dict) -> int:

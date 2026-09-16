@@ -185,9 +185,9 @@ def structure(job: dict, include_full: bool = True, max_bullets: int = 25) -> di
     jd = job.get("excerpt") or ""
     sec = _sections(jd, max_bullets)
     basic = sec["basic"]
-    req_years = _match.extract_years(" ".join(basic)) if basic else None
-    if req_years is None:
-        req_years = _match.required_years(job)   # eligibility-section fallback (Phase 1)
+    # Single source of truth with the filter, so a surfaced role never displays a
+    # required-years number that would have excluded it.
+    req_years = _match.required_years(job)
 
     spec = {
         "title": job.get("title", ""),
