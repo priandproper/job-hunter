@@ -1820,6 +1820,116 @@
    "hq": "Boston, MA area",
    "source": "audit:boston",
    "active": true
+  },
+  {
+   "name": "Wayfair",
+   "ats": "manual",
+   "careers_url": "https://www.aboutwayfair.com/careers/find-a-job",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "DraftKings",
+   "ats": "manual",
+   "careers_url": "https://careers.draftkings.com/jobs/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Rapid7",
+   "ats": "manual",
+   "careers_url": "https://www.rapid7.com/careers/open-positions/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Chewy",
+   "ats": "manual",
+   "careers_url": "https://careers.chewy.com/us/en/search-results",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "DataRobot",
+   "ats": "manual",
+   "careers_url": "https://www.datarobot.com/careers/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Flywire",
+   "ats": "manual",
+   "careers_url": "https://careers.flywire.com/",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Akamai",
+   "ats": "manual",
+   "careers_url": "https://www.akamai.com/careers/job-openings",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "PTC",
+   "ats": "manual",
+   "careers_url": "https://www.ptc.com/en/careers",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Moderna",
+   "ats": "manual",
+   "careers_url": "https://careers.modernatx.com/jobs",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
+  },
+  {
+   "name": "Wellington Management",
+   "ats": "manual",
+   "careers_url": "https://www.wellington.com/en/careers",
+   "active": false,
+   "apply_direct": true,
+   "h1b": true,
+   "hq": "Boston, MA area",
+   "h1b_note": "Boston-area H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
+   "source": "audit:boston-apply-direct-2026-09-16"
   }
  ]
 }
