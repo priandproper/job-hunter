@@ -1750,6 +1750,76 @@
    "h1b": true,
    "h1b_note": "major H-1B sponsor; own ATS \u2014 not auto-scannable, apply direct",
    "source": "audit:apply-direct-2026-09-15"
+  },
+  {
+   "name": "Hopper",
+   "ats": "ashby",
+   "slug": "hopper",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Circle",
+   "ats": "ashby",
+   "slug": "circle",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Formlabs",
+   "ats": "greenhouse",
+   "slug": "formlabs",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Salsify",
+   "ats": "greenhouse",
+   "slug": "salsify",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Jellyfish",
+   "ats": "ashby",
+   "slug": "jellyfish",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Tulip",
+   "ats": "greenhouse",
+   "slug": "tulip",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
+  },
+  {
+   "name": "Nasuni",
+   "ats": "greenhouse",
+   "slug": "nasuni",
+   "h1b": null,
+   "h1b_note": "Boston-area audit 2026-09-15 (H-1B unconfirmed)",
+   "hq": "Boston, MA area",
+   "source": "audit:boston",
+   "active": true
   }
  ]
 }
