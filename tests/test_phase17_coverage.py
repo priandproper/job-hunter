@@ -60,6 +60,11 @@ def test_recruiting_and_sales_false_positives_excluded():
     # the analyst lane is unaffected by the sales exclusions and is on-target
     assert not match.excluded_title("Sales Operations Analyst", excl)
     assert match.on_target("Sales Operations Analyst")
+    # recruiting titles are excluded even when they carry a GTM/marketing token…
+    assert match.excluded_title("Recruiter, GTM", excl)
+    assert match.excluded_title("Talent Acquisition Partner", excl)
+    # …but "recruitment marketing" (a real marketing function) is NOT excluded
+    assert not match.excluded_title("Recruitment Marketing Manager", excl)
 
 
 # --- event-state migration: snapshot fallback when there's no event log --------------

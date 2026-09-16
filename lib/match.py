@@ -64,6 +64,10 @@ DEFAULT_EXCLUDE_TITLE_TERMS = [
     "co-op", "co op", "apprentice", "fellow", "trainee",
     "engineer", "engineering", "software", "data scientist", "designer",
     "architect",
+    # Recruiting / talent roles slip in via "GTM"/"marketing" in the title
+    # ("Recruiter, GTM") — exclude them. ("recruiting" won't match "recruitment
+    # marketing", a genuine marketing function, so that stays.)
+    "recruiter", "recruiting", "talent acquisition", "sourcer",
     # Quota-carrying / sales roles — not what the candidate is targeting.
     # (These are substring-matched, so "business analyst" is unaffected by the
     # "business development" entries.)
