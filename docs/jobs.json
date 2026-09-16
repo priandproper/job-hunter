@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-16 08:11:33",
+  "generated_at": "2026-09-16 14:41:08",
   "meta": {
-    "job_count": 476,
+    "job_count": 471,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -66,6 +66,14 @@
         "source": "seed:scanner",
         "apply_direct": false,
         "careers_url": "https://boards.greenhouse.io/airtable"
+      },
+      {
+        "name": "Akamai",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.akamai.com/careers/job-openings"
       },
       {
         "name": "Akido Labs",
@@ -228,6 +236,14 @@
         "careers_url": "https://boards.greenhouse.io/checkr"
       },
       {
+        "name": "Chewy",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://careers.chewy.com/us/en/search-results"
+      },
+      {
         "name": "Chime",
         "ats": "greenhouse",
         "active": true,
@@ -340,6 +356,14 @@
         "careers_url": "https://boards.greenhouse.io/datadog"
       },
       {
+        "name": "DataRobot",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.datarobot.com/careers/"
+      },
+      {
         "name": "Deel",
         "ats": "ashby",
         "active": true,
@@ -370,6 +394,14 @@
         "source": "seed:curated-batch",
         "apply_direct": false,
         "careers_url": "https://boards.greenhouse.io/doordash"
+      },
+      {
+        "name": "DraftKings",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://careers.draftkings.com/jobs/"
       },
       {
         "name": "Dropbox",
@@ -434,6 +466,14 @@
         "source": "seed:curated-batch",
         "apply_direct": false,
         "careers_url": "https://boards.greenhouse.io/flexport"
+      },
+      {
+        "name": "Flywire",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://careers.flywire.com/"
       },
       {
         "name": "Formlabs",
@@ -828,6 +868,14 @@
         "careers_url": "https://jobs.ashbyhq.com/moderntreasury"
       },
       {
+        "name": "Moderna",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://careers.modernatx.com/jobs"
+      },
+      {
         "name": "MongoDB",
         "ats": "greenhouse",
         "active": true,
@@ -1052,6 +1100,14 @@
         "careers_url": "https://jobs.ashbyhq.com/promise"
       },
       {
+        "name": "PTC",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.ptc.com/en/careers"
+      },
+      {
         "name": "Pyka",
         "ats": "lever",
         "active": true,
@@ -1066,6 +1122,14 @@
         "source": "seed:scanner",
         "apply_direct": false,
         "careers_url": "https://jobs.ashbyhq.com/ramp"
+      },
+      {
+        "name": "Rapid7",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.rapid7.com/careers/open-positions/"
       },
       {
         "name": "Razorpay",
@@ -1396,6 +1460,14 @@
         "careers_url": "https://jobs.ashbyhq.com/vetcove"
       },
       {
+        "name": "Wayfair",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.aboutwayfair.com/careers/find-a-job"
+      },
+      {
         "name": "Wealthfront",
         "ats": "lever",
         "active": true,
@@ -1418,6 +1490,14 @@
         "source": "yc:W18",
         "apply_direct": false,
         "careers_url": "https://jobs.ashbyhq.com/weekend"
+      },
+      {
+        "name": "Wellington Management",
+        "ats": "manual",
+        "active": false,
+        "source": "audit:boston-apply-direct-2026-09-16",
+        "apply_direct": true,
+        "careers_url": "https://www.wellington.com/en/careers"
       },
       {
         "name": "Wistia",
@@ -1452,7 +1532,7 @@
         "careers_url": "https://boards.greenhouse.io/zoominfo"
       }
     ],
-    "company_count": 180,
+    "company_count": 190,
     "profile_roi": null,
     "cockpit": {
       "dailyA": 2,
@@ -4997,326 +5077,6 @@
       }
     },
     {
-      "id": "a7087cd0955f39ca",
-      "company": "Stripe",
-      "title": "Product Marketing Manager, Portfolio Pricing",
-      "location": "United States",
-      "url": "https://stripe.com/jobs/search?gh_jid=7832098",
-      "source": "greenhouse",
-      "posted_at": "2026-09-10T13:11:58-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": 5,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 70,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "b2b",
-        "campaign",
-        "cross-functional",
-        "demand gen",
-        "demand generation",
-        "enterprise",
-        "excel",
-        "go-to-market",
-        "gtm",
-        "insights",
-        "launch",
-        "lifecycle",
-        "messaging",
-        "narrative",
-        "positioning",
-        "product adoption",
-        "product marketing",
-        "r",
-        "sales enablement"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 70,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 65,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 60,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 60,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 45,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014from the world\u2019s largest enterprises to the most ambitious startups\u2014use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone\u2019s reach while doing the most important work of your career. \n About the role \n Our Product Marketing team\u2019s mission is to generate customer insights that inform Stripe\u2019s product strategy, and lead go-to-market for our suite of products. Product Marketing is a highly cross-functional role at Stripe, partnering closely with Product and Engineering, Sales, Partnerships, Demand Generation and Campaigns to name a few. Different from many other Product Marketing teams, our team works across the entire product lifecycle, from helping shape the product, to driving launch and commercialization, to growing product adoption post-launch. We also drive both self-serve and sales-sold marketing efforts. \n We are looking for an experienced product marketer to own and evolve the pricing narrative across Stripe's full product portfolio. This is a new role with the opportunity to shape how Stripe talks about pricing to users and sellers alike. You will lead the launch of new pricing constructs, bundles, and packages \u2014 own the end-to-end GTM strategy, planning, and growth for these efforts across our product suite. You will also develop value selling playbooks, train and enable our sales teams to effectively communicate and defend Stripe's pricing in competitive deals. In this role, you will partner closely with Growth Product, Sales, Product Pricing, Design, and web teams to drive adoption and revenue across both self-serve and sales-assisted channels. \n What you\u2019ll do \n \n Be a storyteller. You have deep empathy for users and are able to adapt how you communicate to best reach and engage your audience and differentiate Stripe. You have excellent verbal and written communication skills \n Keep things organized. You are able to manage highly interdependent, complex projects and keep various workstreams on track.\u00a0 \n Be ambitious. You are eager to make an impact at Stripe. You thrive in a fast-moving, dynamic, hyper-growth environment and are able to operate fluidly between the 30,000-foot strategy level and the micro-detail to get things right \n Act as a team player. Product Marketers collaborate across the Marketing team and with basically every team at Stripe. You are able to work with a range of disciplines to execute on your work \n \n Responsibilities \n \n Own and evolve Stripe's portfolio-wide pricing narrative, developing clear, compelling messaging and positioning for how Stripe prices its products. \n Train and enable sales teams to communicate, position, and defend Stripe's pricing in competitive deals. Develop value selling playbooks that equip sellers to articulate Stripe's differentiated value. \n Own the GTM strategy, plan, and growth for bundling and packaging efforts across Stripe's product portfolio, partnering with Growth Product, Product Pricing, Design, and web teams. \n Launch new pricing constructs, develop go-to-market plans, create messaging and positioning for different user segments. \n \n Who you are \n Minimum requirements \n \n 5\u20138 years of prior product marketing experience, with a strong preference for candidates with experience in B2B technology settings. \n Experience developing messaging, positioning, and sales enablement materials. \n Excellent verbal and written communication skills. \n Experience managing cross-functional GTM efforts, including working closely with product, sales, and growth teams. \n Ability to lead complex, multi-stakeholder launches from strategy through execution. \n \n Preferred qualifications \n \n Prior experience with pricing, packaging, and owning pricing-focused launches. \n Experience developing value selling playbooks and enabling sales teams. \n \"Roll up your sleeves\" mindset to get any job done.",
-      "resume_core": {
-        "label": "Stripe \u2014 Product Marketing Manager, Portfolio Pricing",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a Product Marketing Manager, Portfolio Pricing and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~292 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "Product Marketing Manager, Portfolio Pricing",
-        "company": "Stripe",
-        "job_id": "a7087cd0955f39ca",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [
-          "Our Product Marketing team\u2019s mission is to generate customer insights that inform Stripe\u2019s product strategy, and lead go-to-market for our suite of products. Product Marketing is a highly cross-functional role at Stripe, partnering closely with Product and Engineering, Sales, Partnerships, Demand Generation and Campaig",
-          "We are looking for an experienced product marketer to own and evolve the pricing narrative across Stripe's full product portfolio. This is a new role with the opportunity to shape how Stripe talks about pricing to users and sellers alike. You will lead the launch of new pricing constructs, bundles, and packages",
-          "own the end-to-end GTM strategy, planning, and growth for these efforts across our product suite. You will also develop value selling playbooks, train and enable our sales teams to effectively communicate and defend Stripe's pricing in competitive deals. In this role, you will partner closely with Growth Product, Sales",
-          "What you\u2019ll do",
-          "Be a storyteller. You have deep empathy for users and are able to adapt how you communicate to best reach and engage your audience and differentiate Stripe. You have excellent verbal and written communication skills",
-          "Keep things organized. You are able to manage highly interdependent, complex projects and keep various workstreams on track",
-          "Be ambitious. You are eager to make an impact at Stripe. You thrive in a fast-moving, dynamic, hyper-growth environment and are able to operate fluidly between the 30,000-foot strategy level and the micro-detail to get things right",
-          "Act as a team player. Product Marketers collaborate across the Marketing team and with basically every team at Stripe. You are able to work with a range of disciplines to execute on your work",
-          "Own and evolve Stripe's portfolio-wide pricing narrative, developing clear, compelling messaging and positioning for how Stripe prices its products",
-          "Train and enable sales teams to communicate, position, and defend Stripe's pricing in competitive deals. Develop value selling playbooks that equip sellers to articulate Stripe's differentiated value",
-          "Own the GTM strategy, plan, and growth for bundling and packaging efforts across Stripe's product portfolio, partnering with Growth Product, Product Pricing, Design, and web teams",
-          "Launch new pricing constructs, develop go-to-market plans, create messaging and positioning for different user segments"
-        ],
-        "basic_qualifications": [
-          "Minimum requirements",
-          "5\u20138 years of prior product marketing experience, with a strong preference for candidates with experience in B2B technology settings",
-          "Experience developing messaging, positioning, and sales enablement materials",
-          "Excellent verbal and written communication skills",
-          "Experience managing cross-functional GTM efforts, including working closely with product, sales, and growth teams",
-          "Ability to lead complex, multi-stakeholder launches from strategy through execution"
-        ],
-        "preferred_qualifications": [
-          "Prior experience with pricing, packaging, and owning pricing-focused launches",
-          "Experience developing value selling playbooks and enabling sales teams",
-          "\"Roll up your sleeves\" mindset to get any job done"
-        ],
-        "required_years": 5,
-        "locations": [
-          "United States"
-        ],
-        "salary": null,
-        "sponsorship_text": [],
-        "date_posted": "2026-09-10T13:11:58-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 76,
-        "band": "A",
-        "hard_stops": [],
-        "uncertainty": "medium",
-        "why": "Priority A (76/100). Strong on direct experience & product customer; weakest on immigration. Confidence limited by: immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 17.8,
-            "max": 25,
-            "confidence": "high",
-            "evidence": "5/6 basic quals evidenced; gaps: Excellent verbal and written communication skills; asks 5y \u2014 1y over your 2-4y sweet spot (\u22123.0)"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "26/26 role skills in your experience: b2b, competitive, cross-functional, customer, demand"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, b2b, demand generation, enterprise, go-to-market"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "2 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 6d ago"
-          },
-          {
-            "name": "location",
-            "points": 3.0,
-            "max": 5,
-            "confidence": "medium",
-            "evidence": "US location: United States"
-          }
-        ]
-      }
-    },
-    {
       "id": "e8583a28d2df7186",
       "company": "Stripe",
       "title": "Lifecycle Marketing Manager, Capital",
@@ -7246,320 +7006,6 @@
             "max": 5,
             "confidence": "high",
             "evidence": "Boston-friendly / remote: Remote, United States"
-          }
-        ]
-      }
-    },
-    {
-      "id": "1871cc7720fa514a",
-      "company": "Stripe",
-      "title": "Product Marketing Manager, Radar",
-      "location": "SF, NYC, Seattle, Remote",
-      "url": "https://stripe.com/jobs/search?gh_jid=7961101",
-      "source": "greenhouse",
-      "posted_at": "2026-09-10T13:11:58-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 88,
-      "min_years": null,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 59,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "campaign",
-        "cross-functional",
-        "demand gen",
-        "demand generation",
-        "enterprise",
-        "excel",
-        "go-to-market",
-        "growth marketing",
-        "gtm",
-        "insights",
-        "launch",
-        "lifecycle",
-        "messaging",
-        "narrative",
-        "positioning",
-        "product adoption",
-        "product launch",
-        "product marketing",
-        "r",
-        "reporting",
-        "thought leadership"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 59,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 50,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 50,
-          "missing": []
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 50,
-          "missing": [
-            "excel"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 45,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies\u2014from the world's largest enterprises to the most ambitious startups\u2014use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n Our Product Marketing team\u2019s mission is to generate customer insights that inform Stripe\u2019s product strategy, and lead go-to-market for our suite of products. Product Marketing is a highly cross-functional role at Stripe, partnering closely with Product and Engineering, Sales, Partnerships, Demand Generation and Campaigns to name a few. Different from many other Product Marketing teams, our team works across the entire product lifecycle, from helping shape the product, to driving launch and commercialization, to growing product adoption post-launch. We also drive both self-serve and sales-sold marketing efforts. \n We\u2019re seeking a product marketer to drive the end-to-end GTM strategy and execution for Radar. As a Product Marketing Manager, you will shape the product roadmap, own product-level messaging and positioning, create differentiated content for events and presentations, support product launches, and enable sales. Reporting to the Fraud and Risk PMM Lead, you\u2019ll partner with product and sales teams to drive awareness and adoption in a rapidly evolving market. \n What you'll do \n \n Serve as an early strategic partner on new offerings \u2014 shaping product direction, defining target segments, and building the GTM foundation (positioning, packaging, pricing narrative) from zero to one. \n Drive end-to-end product launches, including define audience segments, gather user insights, craft launch narratives, inform pricing and packaging, ensure cross-functional readiness, and execute launch activities \n Develop differentiated messaging and positioning, equip GTM teams with knowledge and content to sell and market effectively \u00a0 \n Create high-impact thought leadership content \n Work closely with product, sales, data science, pricing and cross-functional marketing teams to identify new opportunities to drive awareness, demand, and adoption of our products and build the right marketing strategies\u00a0 \n \n Who you are \n We\u2019re looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply.\u00a0 \n Minimum requirements \n \n 5+ years of product marketing or growth marketing experience at a technology company \n Excellent verbal and written communication skills, with experience translating technical features into benefits for a technical audience \n Track record of working cross-functionally across product, sales, and growth teams to drive business outcomes",
-      "resume_core": {
-        "label": "Stripe \u2014 Product Marketing Manager, Radar",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a Product Marketing Manager, Radar and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~292 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "Product Marketing Manager, Radar",
-        "company": "Stripe",
-        "job_id": "1871cc7720fa514a",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [
-          "Serve as an early strategic partner on new offerings",
-          "shaping product direction, defining target segments, and building the GTM foundation (positioning, packaging, pricing narrative) from zero to one",
-          "Drive end-to-end product launches, including define audience segments, gather user insights, craft launch narratives, inform pricing and packaging, ensure cross-functional readiness, and execute launch activities",
-          "Develop differentiated messaging and positioning, equip GTM teams with knowledge and content to sell and market effectively",
-          "Create high-impact thought leadership content",
-          "Work closely with product, sales, data science, pricing and cross-functional marketing teams to identify new opportunities to drive awareness, demand, and adoption of our products and build the right marketing strategies"
-        ],
-        "basic_qualifications": [
-          "We\u2019re looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply",
-          "Minimum requirements",
-          "5+ years of product marketing or growth marketing experience at a technology company",
-          "Excellent verbal and written communication skills, with experience translating technical features into benefits for a technical audience",
-          "Track record of working cross-functionally across product, sales, and growth teams to drive business outcomes"
-        ],
-        "preferred_qualifications": [],
-        "required_years": null,
-        "locations": [
-          "SF",
-          "NYC",
-          "Seattle",
-          "Remote"
-        ],
-        "salary": null,
-        "sponsorship_text": [],
-        "date_posted": "2026-09-10T13:11:58-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 75,
-        "band": "A",
-        "hard_stops": [],
-        "uncertainty": "medium",
-        "why": "Priority A (75/100). Strong on direct experience & product customer; weakest on immigration. Confidence limited by: immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 15.0,
-            "max": 25,
-            "confidence": "high",
-            "evidence": "3/5 basic quals evidenced; gaps: We\u2019re looking for someone who meets the minimum requirements; Excellent verbal and written communication skills, with expe"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "22/22 role skills in your experience: business, content, cross-functional, data, demand"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, data, demand generation, enterprise, go-to-market"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "2 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 6d ago"
-          },
-          {
-            "name": "location",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "Boston-friendly / remote: SF, NYC, Seattle, Remote"
           }
         ]
       }
@@ -15451,350 +14897,6 @@
           "shared JD template (similarity 0.702)"
         ]
       }
-    },
-    {
-      "id": "e6ffa8848724bd19",
-      "company": "Stripe",
-      "title": "GTM Product Marketing Manager, Commerce Experiences",
-      "location": "United States",
-      "url": "https://stripe.com/jobs/search?gh_jid=7990812",
-      "source": "greenhouse",
-      "posted_at": "2026-09-10T13:11:58-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": 3,
-      "variant_label": "Marketing & Business Analyst",
-      "title_keywords": [
-        "gtm",
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 65,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "b2b",
-        "buyer persona",
-        "data-driven",
-        "enterprise",
-        "excel",
-        "funnel",
-        "gtm",
-        "insights",
-        "kpi",
-        "launch",
-        "messaging",
-        "narrative",
-        "personas",
-        "positioning",
-        "product launch",
-        "product marketing",
-        "r",
-        "stakeholder management",
-        "value proposition"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 65,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 50,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 50,
-          "missing": [
-            "data-driven"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 50,
-          "missing": [
-            "data-driven",
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 45,
-          "missing": [
-            "data-driven",
-            "excel"
-          ]
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies - from the world\u2019s largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n The GTM Product Marketing team sits within Stripe's Product Marketing org. We make sure Stripe sellers walk into every conversation prepared, confident, and armed with the right story. As Stripe's center of excellence for general product enablement, we set the standard for how sellers learn and pitch our products, drive consistency across product suites, and act as Marketing's Voice of the Field \u2014 surfacing seller insights to sharpen upstream messaging and positioning. We translate product value into seller-ready narratives, resources, and enablement \u2014 and we measure our impact on seller confidence and how effectively our teams pitch, qualify, and close. \n Stripe's Commerce Experiences products (Optimized Checkout Suite, Link, Terminal, Agentic Commerce) help businesses convert more customers across every channel \u2014 from online checkout, to digital wallets, to in-person commerce, to the emerging world of AI-driven shopping. We're looking for an exceptional GTM product marketer to bring Stripe's story to market. In this role, you'll be the connective tissue between product, marketing, and the field. You'll translate complex commerce and checkout capabilities into compelling narratives and seller resources that resonate with our users and drive adoption. You'll equip customer-facing teams to confidently pitch all our solutions, answer technical questions, and speak to the roadmap. You'll also elevate seller and field insights to refine product positioning and messaging. \n What you\u2019ll do \n As the GTM PMM for Commerce Experiences, you\u2019ll need to quickly build a deep understanding of Stripe\u2019s Commerce Experiences products, buyer personas, and differentiation. You will: \n \n Own the content development and GTM enablement strategy across the sold funnel \u2014 creating seller-ready resources (pitch decks, FAQs, value props, talking points) that translate product positioning into clear, differentiated customer value propositions for enterprise, mid-market, and platform buyers. \n Partner with Market Intelligence to monitor and understand commerce, checkout, and emerging agentic commerce market trends, competitive dynamics, and seller-facing competitive narratives \u2014 synthesize insights, and leverage these to build differentiated positioning. \n Design and deliver training programs that build seller expertise across the Commerce Experiences portfolio. \n Prepare sellers for major product launch events like Stripe Sessions, and to understand the details of the roadmap product is building. \n Leverage data and insights to identify enablement and knowledge gaps, prioritize asset development, launch new content, and measure effectiveness on seller confidence and other KPIs. \n Surface field insights on a regular cadence \u2014 through monthly readouts and structured retros \u2014 to inform core PMM positioning and product roadmap. \n \n Minimum requirements \n \n 3+ years of product marketing experience, preferably in B2B tech. \n Direct experience with checkout, ecommerce, digital wallets, agentic commerce or other commerce platforms is strongly preferred.\u00a0 \n Experience with Enterprise sales cycles and technical products. \n Excellent communication and presentation abilities, with a proven track record of distilling complex strategies into clear, compelling narratives. \n Strong stakeholder management skills. \n Ability to move quickly without compromising attention to detail or polish. \n A self-starter who thrives in fast-paced, ambiguous environments and can manage multiple priorities simultaneously. \n Comfort with data-driven decision making and measuring marketing impact. \n Ability to collaborate effectively with stakeholders across Product, Sales, and Marketing, and contribute to alignment on shared goals. \n \n Preferred qualifications \n \n Demonstrated comfort working with, and presenting to, senior leaders across a variety of disciplines. \n Strong collaboration skills, a tendency to seek and share alternative views, and an ability to earn stakeholder confidence\u00a0 \n Experience using or building AI-powered tooling to accelerate seller productivity or content development.",
-      "resume_core": {
-        "label": "Stripe \u2014 GTM Product Marketing Manager, Commerce Experiences",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Marketing and business analyst with 6 years of experience turning customer, funnel, and campaign data into growth decisions across enterprise SaaS and fintech, backed by a STEM MBA in Business Analytics & Machine Learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Sales & Marketing Analytics",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Modeled the lead-to-demo funnel in SQL across CRM and outbound-activity data, exposing speed-to-lead and routing gaps in a Tableau dashboard; rebuilt routing and ICP segmentation on the findings, lifting lead-to-demo conversion 30%.",
-              "Ran cohort analysis to compare conversion by segment, prioritizing India as a high-opportunity growth market.",
-              "Designed and analyzed A/B tests on outbound messaging, selecting winning variants that lifted LinkedIn acceptance rates to 25%+.",
-              "Led 40+ C-suite discovery interviews to pressure-test the ICP, surfacing pain points that reshaped the product roadmap.",
-              "Analyzed self-serve product telemetry to pinpoint activation drop-off, informing the activation framework in Glidely's product-led-growth motion."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS / Fintech)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Defined named-account segmentation and targeting criteria for multi-channel ABM across 50+ countries, driving a 28% conversion uplift across 100+ enterprise banking clients.",
-              "Built and measured named-account targeting parameters and outbound cadence performance in Salesforce and Eloqua to guide pipeline prioritization.",
-              "Designed Finacle's first pulse-analytics measurement strategy, lifting brand recall 2.4x and earning the Best Internal Campaign Award.",
-              "Ran competitive analysis feeding battlecards and monetization deep-dives for 50+ account executives, cutting sales-cycle length 15%.",
-              "Orchestrated 10+ executive roundtables and client briefings that deepened relationships and accelerated late-stage deals."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "India",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Ran quantitative win/loss analysis and competitive benchmarking across enterprise deals, identifying loss drivers and sharpening positioning that lifted competitive win-rates 10%.",
-              "Delivered 80+ executive presentations to CIOs and CTOs across EMEA, APAC, and North America, tailoring each to client priorities and decision criteria.",
-              "Authored thought-leadership content and executive briefings that grew website engagement 40% and strengthened pipeline quality."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Built an impact-measurement framework across 20+ partnerships and 50M+ impressions, driving 200% growth in program reach.",
-              "Ran conversion-rate-optimization analysis across donor-acquisition funnels to raise ~$35K through digital campaigns.",
-              "Unified operational frameworks across marketing, legal, and finance, earning the YES League of Excellency Award."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Analytics & Data",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Microsoft Excel (advanced)",
-              "customer segmentation",
-              "cohort & funnel analysis",
-              "A/B testing & experiment design",
-              "KPI reporting & dashboard development",
-              "AI-assisted analytics"
-            ]
-          },
-          {
-            "name": "Business Analysis",
-            "items": [
-              "Requirements gathering",
-              "KPI definition",
-              "stakeholder management",
-              "report automation",
-              "business intelligence",
-              "data-driven decision making"
-            ]
-          },
-          {
-            "name": "Marketing & GTM",
-            "items": [
-              "Campaign measurement",
-              "account-based marketing (ABM)",
-              "customer lifecycle analysis (acquisition, activation, retention)",
-              "competitive benchmarking",
-              "go-to-market strategy"
-            ]
-          },
-          {
-            "name": "Platforms",
-            "items": [
-              "Salesforce (CRM)",
-              "HubSpot",
-              "Eloqua",
-              "LinkedIn Sales Navigator",
-              "Apollo.io"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a GTM Product Marketing Manager, Commerce Expe\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~292 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "GTM Product Marketing Manager, Commerce Experiences",
-        "company": "Stripe",
-        "job_id": "e6ffa8848724bd19",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [],
-        "basic_qualifications": [],
-        "preferred_qualifications": [
-          "Demonstrated comfort working with, and presenting to, senior leaders across a variety of disciplines",
-          "Strong collaboration skills, a tendency to seek and share alternative views, and an ability to earn stakeholder confidence",
-          "Experience using or building AI-powered tooling to accelerate seller productivity or content development"
-        ],
-        "required_years": 3,
-        "locations": [
-          "United States"
-        ],
-        "salary": null,
-        "sponsorship_text": [],
-        "date_posted": "2026-09-10T13:11:58-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 73,
-        "band": "B",
-        "hard_stops": [],
-        "uncertainty": "high",
-        "why": "Priority B (73/100). Strong on direct experience & product customer; weakest on immigration. Confidence limited by: basic_qualifications, immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 15.0,
-            "max": 25,
-            "confidence": "low",
-            "evidence": "no basic-qualifications parsed from the JD \u2014 neutral estimate"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "3/3 role skills in your experience: gtm, marketing, product"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, b2b, data, enterprise, gtm"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "2 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 6d ago"
-          },
-          {
-            "name": "location",
-            "points": 3.0,
-            "max": 5,
-            "confidence": "medium",
-            "evidence": "US location: United States"
-          }
-        ]
-      },
-      "enrichment": {
-        "sponsorship": "Unknown",
-        "sponsorship_evidence": "",
-        "skills": [
-          "GTM enablement content development",
-          "seller-ready messaging (pitch decks, FAQs, value props)",
-          "buyer persona translation",
-          "field insight synthesis for positioning"
-        ],
-        "tools": [],
-        "preferences": [
-          "experience with checkout/commerce/payments products"
-        ],
-        "seniority": "IC",
-        "min_years": 3,
-        "max_years": null,
-        "boston_score": 75,
-        "boston_note": "Listed as 'United States' with no city \u2014 likely remote-eligible",
-        "persona_fit": 80,
-        "persona_note": "GTM/PMM lane, IC title, experience within target 1-4yr range"
-      },
-      "boston_score": 75
     },
     {
       "id": "417e98a530c70bd2",
@@ -33011,15 +32113,6 @@
             "evidence": "Boston-friendly / remote: Remote in the US, Chicago, Toronto"
           }
         ]
-      },
-      "duplicate": {
-        "of": "1871cc7720fa514a",
-        "classification": "separate_headcount",
-        "confidence": 0.6,
-        "evidence": [
-          "same company",
-          "shared JD template (similarity 0.779)"
-        ]
       }
     },
     {
@@ -47443,295 +46536,6 @@
             "max": 5,
             "confidence": "medium",
             "evidence": "US location: Washington, DC"
-          }
-        ]
-      }
-    },
-    {
-      "id": "7db531b103656e58",
-      "company": "Coinbase",
-      "title": "Product Marketing Manager, Prime & Markets",
-      "location": "Remote - USA",
-      "url": "https://www.coinbase.com/careers/positions/7572514?gh_jid=7572514",
-      "source": "greenhouse",
-      "posted_at": "2026-09-03T13:03:43-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 87,
-      "min_years": null,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 82,
-      "best_variant": "Amazon Business \u2014 PMM",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "battlecards",
-        "cross-functional",
-        "gtm",
-        "launch",
-        "messaging",
-        "narrative",
-        "positioning",
-        "product marketing",
-        "r",
-        "sales enablement"
-      ],
-      "per_variant": [
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 82,
-          "missing": []
-        },
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 82,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 73,
-          "missing": []
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 64,
-          "missing": []
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 45,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Ready to do the most impactful work of your career? At\u00a0 Coinbase , we are uncompromising on our mission to increase economic freedom. The bar is high, the environment is intense, and we like it that way. This isn't a place for complacency, it\u2019s a place to be pushed past your perceived limits. If you're ready to build the future of finance alongside people who refuse to settle for \"good enough,\" you belong here. Coinbase is a remote-first, but not remote-only company. Expect to get together quarterly for intense in-person working sessions called \u201csurges.\u201d\u00a0 learn more about working at Coinbase . You'll join the Product Marketing team within the Institutional group and own how Coinbase's most complex institutional products show up to clients globally. You'll be the PMM behind spot, derivatives, cross-margin, liquidity, and execution workflows used by hundreds of hedge funds, asset managers, and market makers. Partnering closely with Product, Markets, Sales, Legal, and Comms, you'll translate deeply technical capabilities into clear positioning, sharp enablement, and GTM strategies that drive measurable client adoption. \n What you'll do: \n \n Own positioning and messaging for Prime and Markets across spot, futures, options, cross-margin, execution, and liquidity access, pressure-testing narratives with Sales, Product, Legal, and clients to ensure credibility at institutional scale. \n Lead GTM execution for major Prime and Markets launches, including product readiness, sales enablement, client communications, sequencing, and events. \n Build high-signal enablement materials - talk tracks, FAQs, battlecards, demos, and client-ready narratives - that reduce complexity for the field and reflect real objections, deals, and buying behavior. \n Partner with Sales, STPs, and Coverage to translate complex technical capabilities into institutional-grade clarity, and contribute market-backed insight that informs product roadmap conversations. \n Drive clarity around what's live, what's next, and what action clients should take across regions with varying regulatory constraints. \n \n Required Skills and Experience: \n \n 5+ years in product marketing, product strategy, or institutional GTM, with direct experience in institutional trading, derivatives (futures, options, margining, execution models), or market infrastructure. \n Proven track record building GTM strategies and positioning for technically complex products, with the ability to simplify systems like liquidity, capital efficiency, and market structure into clear, compelling narratives for sophisticated trading firms. \n Demonstrated success partnering cross-functionally with Product, Sales, Legal, and Comms to deliver launches and enablement that drive measurable client adoption. \n Fluency in the language of institutional markets - comfortable discussing risk, margining, execution workflows, and capital efficiency with hedge funds and market makers. \n Utilizes generative AI responsibly, maintaining human oversight to deliver business-ready outputs and drive measurable improvements in workflow efficiency, cost, and quality. \n \n Job #: P75800 \n #LI-Remote Pay Transparency Notice: Base salary varies by location (see range below). Total compensation may also include equity and bonus eligibility, and benefits (medical, dental, vision, 401(k)).\u00a0 \n \u00a0 Annual base salary range (excluding equity and bonus): $140,080 \u2014 $164,800 USD \n Application Limit: Candidates may submit a maximum of 3 applications within a 6-month period. \n Equal Opportunity Employer: Coinbase is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, protected veteran status, or genetic information. Applicants with criminal histories will be considered consistent with applicable federal, state, and local laws. \n US Applicants: View Employee Rights , Know Your Rights , and E-Verify Notice of Participation. \n Accommodations: If you are an individual with a disability who needs a reasonable accommodation, email us your request and contact info at accommodations[at]coinbase.com.\u00a0Need screen reading technology? Click here to download a free compatible screen reader and view the tutorial . \n Data Privacy & Arbitration: By submitting your application, you agree to our Candidate Privacy Notice . US applicants: By submitting your application, you agree to Arbitration of Disputes .",
-      "resume_core": {
-        "label": "Coinbase \u2014 Product Marketing Manager, Prime & Markets",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Coinbase is hiring a Product Marketing Manager, Prime & Marke\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Coinbase, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Coinbase%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "unknown",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "Product Marketing Manager, Prime & Markets",
-        "company": "Coinbase",
-        "job_id": "7db531b103656e58",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [
-          "Own positioning and messaging for Prime and Markets across spot, futures, options, cross-margin, execution, and liquidity access, pressure-testing narratives with Sales, Product, Legal, and clients to ensure credibility at institutional scale",
-          "Lead GTM execution for major Prime and Markets launches, including product readiness, sales enablement, client communications, sequencing, and events",
-          "Build high-signal enablement materials",
-          "talk tracks, FAQs, battlecards, demos, and client-ready narratives",
-          "that reduce complexity for the field and reflect real objections, deals, and buying behavior",
-          "Partner with Sales, STPs, and Coverage to translate complex technical capabilities into institutional-grade clarity, and contribute market-backed insight that informs product roadmap conversations",
-          "Drive clarity around what's live, what's next, and what action clients should take across regions with varying regulatory constraints",
-          "Required Skills and Experience",
-          "5+ years in product marketing, product strategy, or institutional GTM, with direct experience in institutional trading, derivatives (futures, options, margining, execution models), or market infrastructure",
-          "Proven track record building GTM strategies and positioning for technically complex products, with the ability to simplify systems like liquidity, capital efficiency, and market structure into clear, compelling narratives for sophisticated trading firms",
-          "Demonstrated success partnering cross-functionally with Product, Sales, Legal, and Comms to deliver launches and enablement that drive measurable client adoption",
-          "Fluency in the language of institutional markets"
-        ],
-        "basic_qualifications": [],
-        "preferred_qualifications": [],
-        "required_years": null,
-        "locations": [
-          "Remote - USA"
-        ],
-        "salary": "$140,080 \u2014 $164,800",
-        "sponsorship_text": [],
-        "date_posted": "2026-09-03T13:03:43-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 68,
-        "band": "B",
-        "hard_stops": [],
-        "uncertainty": "high",
-        "why": "Priority B (68/100). Strong on direct experience & product customer; weakest on referral access. Confidence limited by: basic_qualifications, immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 15.0,
-            "max": 25,
-            "confidence": "low",
-            "evidence": "no basic-qualifications parsed from the JD \u2014 neutral estimate"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "17/17 role skills in your experience: battlecards, conversations, enablement, gtm, insight"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, data, gtm, marketing, product marketing"
-          },
-          {
-            "name": "referral_access",
-            "points": 0.0,
-            "max": 10,
-            "confidence": "medium",
-            "evidence": "no referral path found yet"
-          },
-          {
-            "name": "recency",
-            "points": 3.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 13d ago"
-          },
-          {
-            "name": "location",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "Boston-friendly / remote: Remote - USA"
           }
         ]
       }
@@ -102485,320 +101289,6 @@
             "max": 5,
             "confidence": "high",
             "evidence": "Boston-friendly / remote: Billerica, Massachusetts"
-          }
-        ]
-      }
-    },
-    {
-      "id": "635e14b16f7a1c04",
-      "company": "Stripe",
-      "title": "Product Marketing Manager, Bridge/Stablecoins",
-      "location": "NYC, San Francisco, Seattle",
-      "url": "https://stripe.com/jobs/search?gh_jid=8152994",
-      "source": "greenhouse",
-      "posted_at": "2026-09-10T13:11:58-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 91,
-      "min_years": 5,
-      "variant_label": "Amazon Transparency \u2014 Marketing Manager",
-      "title_keywords": [
-        "marketing",
-        "pr",
-        "product marketing"
-      ],
-      "ats_score": 77,
-      "best_variant": "Data-Driven GTM (CV)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "adoption",
-        "b2b",
-        "campaign",
-        "conversion",
-        "cross-functional",
-        "data-driven",
-        "demand gen",
-        "demand generation",
-        "enterprise",
-        "excel",
-        "go-to-market",
-        "gtm",
-        "insights",
-        "launch",
-        "lifecycle",
-        "messaging",
-        "narrative",
-        "pipeline",
-        "positioning",
-        "product marketing",
-        "r",
-        "sales enablement"
-      ],
-      "per_variant": [
-        {
-          "label": "Data-Driven GTM (CV)",
-          "score": 77,
-          "missing": []
-        },
-        {
-          "label": "Amazon Transparency \u2014 Marketing Manager",
-          "score": 68,
-          "missing": [
-            "data-driven",
-            "excel"
-          ]
-        },
-        {
-          "label": "Amazon Payments \u2014 PMM",
-          "score": 64,
-          "missing": [
-            "data-driven"
-          ]
-        },
-        {
-          "label": "Amazon Business \u2014 PMM",
-          "score": 64,
-          "missing": [
-            "data-driven",
-            "excel"
-          ]
-        },
-        {
-          "label": "Marketing & Business Analyst",
-          "score": 55,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n About Stripe and Bridge \n Stripe is a financial infrastructure platform for businesses. Millions of companies - from the world\u2019s largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Bridge, acquired by Stripe in 2025, is an entirely new payments platform, built with stablecoins, to simplify global money movement. \n About the team \n We're looking for a driven, strategic, and results-oriented PMM to join the product marketing team at Bridge, focused on our Open Issuance, Orchestration and FX product lines. \n As an early PMM for Bridge, you\u2019ll be responsible for product marketing across the lifecycle, from helping shape the product with market insights, to crafting messaging, to growing product awareness and adoption in partnership with Sales, Marketing, Product, and more. This is a highly-cross functional role that will work both across the teams at Bridge and at Stripe to help grow the Bridge business. \n You\u2019ll be embedded with the Bridge team while also being part of the Stripe product marketing team. \n What you\u2019ll do \n \n Be a storyteller. You have deep empathy for our core audience and are able to adapt how you communicate to best reach and engage your audience. You can translate complex infrastructure concepts\u2014stablecoin issuance, cross-border FX, payment orchestration\u2014into clear, compelling narratives that differentiate Bridge. \n Lead with data. You like working with data and insights and pair that with your passion for users to generate balanced and thoughtful points of view for how to take products to market \n Keep things organized . You are able to manage highly interdependent, complex projects and keep various work streams on track. You're comfortable running multiple launches in parallel across different product lines and coordinating across Bridge, Privy, and Stripe teams. \n Have a passion for fintech and crypto. You are keen to learn about how things work and are able to explain technical concepts in ways that everyday people can understand. You\u2019re deeply curious about fintech and crypto and translate that passion into impactful product marketing. \n Be ambitious and thrive in complexity. You are eager to make an impact at Bridge (and consequently, Stripe). You thrive in a fast-moving, dynamic, hyper-growth environment and are able to operate fluidly between the 30,000-foot strategy level and the micro-detail to get things right \n Act as a team player. Product Marketers collaborate with basically every team in the business. You are able to work with a range of disciplines to execute on your work \n \n Responsibilities \u00a0 \n \n Own the end-to-end product marketing strategy for Open Issuance, Orchestration and FX, including messaging, positioning, ICP definition, sales enablement, and demand generation campaigns \n Drive go-to-market for product expansions (new currencies, corridors, pricing improvements), ensuring GTM teams have the right positioning, playbooks, and enablement content from day one \n Build and maintain competitive positioning in a crowded market, clearly articulating Bridge's differentiation to the right developer and customer segments \n Lead marketing for product releases and launches across your product areas, coordinating with product, comms, content, and demand gen \n Create and maintain sales and marketing assets (case studies, solution pages, pitch decks, one-pagers, enablement and trainings) that drive pipeline conversion \n Act as a liaison between Bridge and Stripe product marketing to bring connectivity across the marketing strategy for both parts of the business \n Flex into other Bridge marketing needs as they arise, supporting the broader team during peak moments \n \n Who you are \n We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement. \n Minimum requirements \n \n 5+ years of relevant experience including B2B product marketing, marketing, product management, and management consulting \n Ability to be agile and thrive in a fast-paced and dynamic environment \n Experience in working in businesses that offer API-based products, fintech and crypto experience is a plus \n Action-oriented and comfortable moving forward without clear guidelines or instructions \n Excellent writing and communication skills with the ability to simplify complex topics for diverse audiences \n Strong analytical skills and a data-driven mindset for decision-making \n Strong cross-functional relationship builder at all levels of an organization",
-      "resume_core": {
-        "label": "Stripe \u2014 Product Marketing Manager, Bridge/Stablecoins",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "B2B product marketer with 6 years of experience in banking/fintech and a STEM MBA in business analytics & machine learning.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern - Product Marketing & GTM",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Built segment-specific outbound messaging and playbooks to open new buyer segments, more than doubling booked meetings (from ~10/week to as many as 5/day) and lifting outbound acceptance above 25%.",
-              "Ran discovery with 40+ C-suite prospects to sharpen the ICP and messaging; rebuilt self-serve onboarding and funnel dashboards (SQL, Tableau), lifting signup conversion 75% and lead-to-demo conversion ~30%."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Product Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "Dec 2024",
-            "highlights": [
-              "Managed ABM for 100+ enterprise banking clients across 50+ markets - built the segmentation, named-account targeting, and multi-channel messaging (Salesforce, Eloqua) that drove a 28% conversion lift on ~$25M of influenced pipeline.",
-              "Managed funnel metrics end to end (MQL\u2192SQL, conversion, pipeline velocity), launched Finacle's first internal pulse-analytics dashboard (SQL, Tableau) to attribute impact - won the Best Internal Campaign Award.",
-              "Ran 10+ executive roundtables and customer briefings and equipped 50+ account executives with battlecards and competitive one-pagers, cutting enterprise sales-cycle length ~15%."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Product Marketing Consultant",
-            "location": "Remote",
-            "startDate": "Jul 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Drove multi-channel GTM for the launch of Zero Incident Framework - owned content and enablement and delivered 80+ tailored CIO/CTO presentations across EMEA, APAC, & North America; 35 advanced to POC.",
-              "Authored technical thought-leadership content that grew site engagement 40% and improved inbound lead quality; ran win/loss analysis that lifted competitive win rates ~10%."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Scaled integrated multi-channel campaigns across 20+ partnerships to 50M+ impressions and ~$35K raised, using conversion-rate optimization on acquisition funnels."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "Chennai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Demand & GTM",
-            "items": [
-              "Account-Based Marketing (ABM)",
-              "Demand Generation",
-              "Multi-Channel Campaigns",
-              "Go-to-Market Strategy",
-              "Positioning & Messaging",
-              "Segmentation"
-            ]
-          },
-          {
-            "name": "Content & Enablement",
-            "items": [
-              "Content Strategy",
-              "Case Studies & Sales Collateral",
-              "Competitive Intelligence",
-              "Sales Enablement"
-            ]
-          },
-          {
-            "name": "Analytics & Tools",
-            "items": [
-              "Funnel Metrics (MQL/SQL, Pipeline Velocity, Conversion)",
-              "A/B Testing",
-              "Attribution",
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Salesforce",
-              "Eloqua",
-              "HubSpot",
-              "Google Analytics (GA4)"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a Product Marketing Manager, Bridge/Stablecoins and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~292 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "Product Marketing Manager, Bridge/Stablecoins",
-        "company": "Stripe",
-        "job_id": "635e14b16f7a1c04",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [],
-        "basic_qualifications": [
-          "We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement",
-          "Minimum requirements",
-          "5+ years of relevant experience including B2B product marketing, marketing, product management, and management consulting",
-          "Ability to be agile and thrive in a fast-paced and dynamic environment",
-          "Experience in working in businesses that offer API-based products, fintech and crypto experience is a plus",
-          "Action-oriented and comfortable moving forward without clear guidelines or instructions",
-          "Excellent writing and communication skills with the ability to simplify complex topics for diverse audiences",
-          "Strong analytical skills and a data-driven mindset for decision-making",
-          "Strong cross-functional relationship builder at all levels of an organization"
-        ],
-        "preferred_qualifications": [],
-        "required_years": 5,
-        "locations": [
-          "NYC",
-          "San Francisco",
-          "Seattle"
-        ],
-        "salary": null,
-        "sponsorship_text": [],
-        "date_posted": "2026-09-10T13:11:58-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 61,
-        "band": "B",
-        "hard_stops": [],
-        "uncertainty": "medium",
-        "why": "Priority B (61/100). Strong on direct experience & product customer; weakest on basic qualifications. Confidence limited by: immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 2.6,
-            "max": 25,
-            "confidence": "high",
-            "evidence": "2/9 basic quals evidenced; gaps: We're looking for someone who meets the minimum requirements; Ability to be agile and thrive in a fast-paced and dynamic e; asks 5y \u2014 1y over your 2-4y sweet spot (\u22123.0)"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "8/8 role skills in your experience: b2b, cross-functional, data-driven, fintech, management"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, b2b, data, demand generation, enterprise"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "2 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 6d ago"
-          },
-          {
-            "name": "location",
-            "points": 3.0,
-            "max": 5,
-            "confidence": "medium",
-            "evidence": "US location: NYC, San Francisco, Seattle"
           }
         ]
       }
