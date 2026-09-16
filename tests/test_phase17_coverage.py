@@ -50,13 +50,16 @@ def test_publish_guard():
 # --- recruiting / sales false positives are excluded, real analyst titles kept -------
 def test_recruiting_and_sales_false_positives_excluded():
     excl = match.DEFAULT_EXCLUDE_TITLE_TERMS
-    # sales/quota titles are excluded
+    # quota-carrying / senior sales titles are excluded
     assert match.excluded_title("Account Executive, Mid-Market", excl)
-    assert match.excluded_title("Sales Development Representative", excl)
-    # but the analyst lane is NOT caught by the sales/BD exclusions
+    assert match.excluded_title("Enterprise Sales Manager", excl)
+    # entry-level BDR/SDR are NOW allowed (candidate is open to them) — not excluded, on-target
+    assert not match.excluded_title("Sales Development Representative", excl)
+    assert match.on_target("Sales Development Representative")
+    assert match.on_target("Business Development Representative")
+    # the analyst lane is unaffected by the sales exclusions and is on-target
     assert not match.excluded_title("Sales Operations Analyst", excl)
-    assert not match.excluded_title("Business Analyst", excl)
-    assert match.on_target("Sales Operations Analyst")     # and it's on-target
+    assert match.on_target("Sales Operations Analyst")
 
 
 # --- event-state migration: snapshot fallback when there's no event log --------------

@@ -67,12 +67,13 @@ DEFAULT_EXCLUDE_TITLE_TERMS = [
     # Quota-carrying / sales roles — not what the candidate is targeting.
     # (These are substring-matched, so "business analyst" is unaffected by the
     # "business development" entries.)
+    # NOTE: entry-level BDR / SDR / business-development-REP are NOT excluded any more —
+    # the candidate is open to them as entry roles (see the allowlist). Quota-carrying /
+    # senior sales stays excluded.
     "account executive", "sales representative", "sales rep",
-    "sales development", "sdr", "bdr", "business development representative",
     "business development manager", "sales manager", "sales executive",
     "inside sales", "outside sales", "enterprise sales", "channel sales",
     "territory", "quota carrying", "quota-carrying",
-    "customer development representative", "customer development rep",
     # Legal / tax / finance / accounting functions — out of scope (also unlikely to
     # sponsor). Uses PHRASES like "financial analyst" (not bare "finance") so a
     # marketing/analyst role in the finance INDUSTRY, e.g. "Marketing Analyst,
@@ -97,22 +98,19 @@ def excluded_title(title: str | None, terms) -> bool:
 # types the candidate wants (marketing / business / sales analyst). Everything not on
 # this list is dropped. Overridable via config match.target_role_terms.
 DEFAULT_TARGET_ROLE_TERMS = [
-    # marketing lane
-    "product marketing", "product marketer", "pmm",
-    "go-to-market", "go to market", "gtm",
-    "marketing operations", "marketing ops",
-    "growth marketing", "demand generation", "demand gen", "lifecycle marketing",
-    "content marketing", "brand marketing", "field marketing", "campaign manager",
-    "marketing manager", "marketing lead", "marketing specialist",
-    "marketing coordinator", "marketing associate", "marketing analyst",
-    # analyst lane (the specific types wanted)
-    "business analyst", "sales analyst", "sales operations analyst", "sales ops analyst",
-    # analytics/ops analyst lane (added 2026-09-15) — the candidate's SQL/Tableau/funnel
-    # wheelhouse that the old allowlist dropped. Kept tight to marketing/GTM/revenue/ops
-    # flavors (bare "data analyst" deliberately NOT added, to avoid off-lane data roles).
-    "marketing data analyst", "marketing analytics", "revenue operations analyst",
-    "revenue operations", "revops", "growth analyst", "gtm analyst",
-    "operations analyst", "analytics manager",
+    # MARKETING lane — broad by request: "every role in marketing + anything adjacent".
+    # Bare "marketing" is a catch-all for the whole function; the rest cover marketing
+    # titles that don't contain the word "marketing".
+    "marketing",
+    "go-to-market", "go to market", "gtm", "pmm", "product marketer",
+    "demand generation", "demand gen", "growth marketing", "brand", "campaign manager",
+    # MARKETING / SALES ANALYTICS lane (NOT pure data analytics — those are excluded).
+    "marketing analyst", "marketing analytics", "marketing data analyst",
+    "sales analyst", "sales analytics", "sales operations analyst", "sales ops analyst",
+    "revenue operations analyst", "gtm analyst", "growth analyst", "business analyst",
+    # ENTRY-LEVEL sales development — open to these as a way in (no prior experience).
+    "business development representative", "sales development representative",
+    "bdr", "sdr",
 ]
 
 
@@ -250,14 +248,26 @@ def experience_exclude_at(cfg_match: dict) -> int:
 
 
 def experience_ok(job: dict, cfg_match: dict) -> bool:
-    """False only when the role's eligibility bar is at/above the exclude threshold
-    (default 8 years). Everything from 0 up through the stretch band (7) is kept;
-    an unstated minimum is kept. Title seniority is NOT consulted — level is a
-    ranking concern, not a gate."""
+    """False when the role's eligibility bar is at/above the exclude threshold
+    (config match.experience.exclude_at_years). Unstated minimum is kept."""
     yrs = required_years(job)
     if yrs is None:
         return True
     return yrs < experience_exclude_at(cfg_match)
+
+
+# Seniority-title filter (re-enabled by candidate request 2026-09-16): the candidate
+# targets 1–4 yrs and finds Senior/Sr/Staff/Principal/Director/Head/VP/C-level roles too
+# senior for the US market. Word-boundary matched so "Lead Generation"/"Growth" survive
+# ("lead" is intentionally NOT treated as senior — too ambiguous with demand-gen).
+# Gated by config match.exclude_senior_titles.
+_SENIORITY_RE = re.compile(
+    r"\b(senior|sr|staff|principal|expert|distinguished|director|head|"
+    r"vp|svp|evp|chief|c[teif]o|president)\b")
+
+
+def too_senior(title: str | None) -> bool:
+    return bool(_SENIORITY_RE.search((title or "").lower()))
 
 
 def _count_terms(text: str, terms) -> list[str]:
@@ -330,8 +340,9 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
         return False
     if not experience_ok(job, cfg_match):
         return False
-    # NOTE (Phase 1): title seniority is intentionally NOT a hard filter. A "Senior"
-    # / "Lead" / "Principal" / "Director" title is kept when its required-years bar
-    # is in band (experience_ok above) and it's a target function (on_target); level
-    # is then handled by ranking, not by dropping the role on a word in the title.
+    # Seniority-title gate (candidate request): drop Senior/Sr/Staff/Principal/Director/
+    # Head/VP/C-level titles outright — too senior for a 1–4-yr target, and they slip
+    # past the years filter when a JD omits a year count. On by default via config.
+    if cfg_match.get("exclude_senior_titles", False) and too_senior(job.get("title")):
+        return False
     return True

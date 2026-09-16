@@ -113,6 +113,30 @@ def test_total_vs_role_relevant_years():
 
 
 # --- tiny zero-dependency runner (used when pytest isn't installed) -------------
+# --- 2026-09-16 policy: hard 1–4yr target, senior titles removed, entry BDR/SDR in ---
+STRICT = {"min_fit_score": 30, "exclude_sponsorship": ["No"],
+          "experience": {"exclude_at_years": 5}, "exclude_senior_titles": True}
+
+
+def test_strict_policy_experience_and_seniority():
+    # 5+ years is excluded now; <=4 kept
+    assert not m.passes_filters(_job("Marketing Manager",
+                                     "Basic qualifications: 5+ years of marketing experience."), HIGH_FIT, STRICT)
+    assert m.passes_filters(_job("Marketing Manager",
+                                 "Basic qualifications: 4+ years of marketing experience."), HIGH_FIT, STRICT)
+    # senior-titled roles are dropped even with no stated years
+    for t in ("Senior Marketing Manager", "Sr. Product Marketing Manager",
+              "Principal PMM", "Director of Marketing", "Head of Growth Marketing"):
+        assert not m.passes_filters(_job(t, "Own GTM."), HIGH_FIT, STRICT), t
+    # non-senior marketing + entry sales-dev pass
+    for t in ("Marketing Manager", "Product Marketing Manager", "Marketing Analyst",
+              "Business Development Representative", "Sales Development Representative (SDR)"):
+        assert m.passes_filters(_job(t, "Own GTM."), HIGH_FIT, STRICT), t
+    # "lead generation" is NOT treated as senior (word-boundary guard)
+    assert not m.too_senior("Lead Generation Manager")
+    assert m.too_senior("Senior Marketing Manager")
+
+
 def _run():
     tests = sorted((n, f) for n, f in globals().items()
                    if n.startswith("test_") and callable(f))

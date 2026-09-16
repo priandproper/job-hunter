@@ -39,10 +39,11 @@
     ],
     "max_age_days": 45,
     "experience": {
-      "exclude_at_years": 7,
-      "sweet_spot_low": 2,
+      "exclude_at_years": 5,
+      "sweet_spot_low": 1,
       "sweet_spot_high": 4
     },
+    "exclude_senior_titles": true,
     "immigration_hard_stop": true,
     "extra_lane_terms": [
       "marketing",
