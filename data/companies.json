@@ -2100,6 +2100,186 @@
       "hq": "New York, NY",
       "source": "audit:all-tech-2026-09-17",
       "active": true
+    },
+    {
+      "name": "Anduril",
+      "ats": "greenhouse",
+      "slug": "andurilindustries",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Cursor (Anysphere)",
+      "ats": "ashby",
+      "slug": "cursor",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Runway",
+      "ats": "ashby",
+      "slug": "runway",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Snyk",
+      "ats": "ashby",
+      "slug": "snyk",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "xAI",
+      "ats": "greenhouse",
+      "slug": "xai",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Character.AI",
+      "ats": "ashby",
+      "slug": "character",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Stability AI",
+      "ats": "greenhouse",
+      "slug": "stabilityai",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Cerebras",
+      "ats": "ashby",
+      "slug": "cerebras",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Figure AI",
+      "ats": "greenhouse",
+      "slug": "figureai",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Suno",
+      "ats": "ashby",
+      "slug": "suno",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Luma AI",
+      "ats": "ashby",
+      "slug": "lumaai",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Decagon",
+      "ats": "ashby",
+      "slug": "decagon",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Cresta",
+      "ats": "greenhouse",
+      "slug": "cresta",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Abnormal Security",
+      "ats": "greenhouse",
+      "slug": "abnormalsecurity",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Physical Intelligence",
+      "ats": "ashby",
+      "slug": "physicalintelligence",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Baseten",
+      "ats": "ashby",
+      "slug": "baseten",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Modal",
+      "ats": "ashby",
+      "slug": "modal",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "Fireworks AI",
+      "ats": "ashby",
+      "slug": "fireworks",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "US / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
     }
   ]
 }
