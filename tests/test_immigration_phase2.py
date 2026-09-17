@@ -128,6 +128,19 @@ def test_conditional_sponsorship_is_ambiguous():
     assert im.hard_stop(j)[0] is False
 
 
+# 12) A company on the candidate's confirmed won't-sponsor list is a hard stop even
+#     when the JD is silent (the "no sponsorship" lived only in the application form).
+def test_confirmed_no_sponsor_company():
+    j = _job("Own GTM.", title="Marketing Manager")   # JD says nothing about sponsorship
+    j["company"] = "1Password"
+    ns = {"1password"}
+    assert im.hard_stop(j, ns)[0] is True
+    r = im.classify(j, no_sponsor=ns)
+    assert r["risk"] == "red" and r["hard_stop_reason"] == "confirmed_no_sponsorship"
+    assert not m.passes_filters(j, HIGH_FIT, dict(CFG, no_sponsor_companies=ns))
+    assert im.hard_stop(dict(j, company="Acme"), ns)[0] is False   # not on the list -> unaffected
+
+
 def _run():
     tests = sorted((n, f) for n, f in globals().items()
                    if n.startswith("test_") and callable(f))

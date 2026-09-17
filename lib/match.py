@@ -335,7 +335,8 @@ def passes_filters(job: dict, match: dict, cfg_match: dict) -> bool:
     # requires citizenship / a security clearance — genuinely non-viable for an
     # F-1/H-1B candidate. On by default; disable via match.immigration_hard_stop:false
     # (the full evidence-backed classification is attached to each surfaced job).
-    if cfg_match.get("immigration_hard_stop", True) and _immigration.hard_stop(job)[0]:
+    if cfg_match.get("immigration_hard_stop", True) and \
+            _immigration.hard_stop(job, cfg_match.get("no_sponsor_companies"))[0]:
         return False
     if not on_target(job.get("title"), cfg_match.get("target_role_terms")):
         return False   # allowlist: title must be one of the target role families

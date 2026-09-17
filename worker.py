@@ -301,6 +301,13 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     comp_by_name = {(c.get("name") or "").strip().lower(): c
                     for c in disc_mod.load_companies((REPO_ROOT / cfg["companies_file"]).resolve())}
 
+    # Companies the candidate has CONFIRMED won't sponsor (e.g. learned from an
+    # application form we can't scrape) — treated as a hard immigration stop.
+    no_sponsor = immig_mod.load_no_sponsor(REPO_ROOT)
+    cfg["match"]["no_sponsor_companies"] = no_sponsor
+    if no_sponsor:
+        log(f"        immigration — {len(no_sponsor)} confirmed no-sponsor company(ies) will be excluded")
+
     # Candidate context for the transparent priority score (Phase 6): the skills and
     # experience terms the candidate actually has, drawn from the resume profile.
     prio_ctx = _priority_ctx(profile)
@@ -311,7 +318,8 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     for job in all_jobs:
         m = match_mod.match_job(job, profile, extra_terms)
         if not match_mod.passes_filters(job, m, cfg["match"]):
-            if cfg["match"].get("immigration_hard_stop", True) and immig_mod.hard_stop(job)[0]:
+            if cfg["match"].get("immigration_hard_stop", True) and \
+                    immig_mod.hard_stop(job, no_sponsor)[0]:
                 hard_stopped += 1
             continue
         if _too_old(job, max_age, today):   # auto-tidy stale postings
@@ -343,7 +351,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
                 total_ref += len(referrers)
 
         immigration = immig_mod.classify(
-            job, comp_by_name.get((job.get("company") or "").strip().lower()))
+            job, comp_by_name.get((job.get("company") or "").strip().lower()), no_sponsor)
         priority = priority_mod.score(job, prio_ctx, immigration=immigration,
                                       referral_count=len(referrers), today=today)
 

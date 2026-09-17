@@ -167,10 +167,30 @@ def classify_job_text(excerpt: str | None) -> dict:
             "hard_stop_reason": "", "evidence": ev}
 
 
-def hard_stop(job: dict) -> tuple[bool, str]:
+def load_no_sponsor(root) -> set:
+    """Companies the candidate has CONFIRMED won't sponsor (e.g. learned from an
+    application form, which we can't scrape). Git-ignored data/no_sponsor.local.json:
+    {"companies": ["1Password", ...]}. Normalized to lowercase for matching."""
+    import json as _json
+    from pathlib import Path as _Path
+    try:
+        d = _json.loads((_Path(root) / "data" / "no_sponsor.local.json").read_text())
+        return {(c or "").strip().lower() for c in d.get("companies", []) if c}
+    except (OSError, _json.JSONDecodeError, TypeError):
+        return set()
+
+
+def _is_known_no_sponsor(job, no_sponsor) -> bool:
+    return bool(no_sponsor) and (job.get("company") or "").strip().lower() in no_sponsor
+
+
+def hard_stop(job: dict, no_sponsor=None) -> tuple[bool, str]:
     """Text-only hard-stop test used by the match filter (no company lookup).
     True when the JD explicitly prohibits sponsorship, requires citizenship or a
-    clearance, OR enrichment already marked sponsorship 'No'."""
+    clearance, enrichment marked sponsorship 'No', OR the company is on the
+    candidate's confirmed won't-sponsor list."""
+    if _is_known_no_sponsor(job, no_sponsor):
+        return True, "confirmed_no_sponsorship"
     if (job.get("sponsorship") or "").strip() == "No":
         return True, "enrichment_no"
     r = classify_job_text(job.get("excerpt"))
@@ -191,24 +211,29 @@ def _company_h1b_history(company: dict | None) -> str:
     return "unknown"
 
 
-def classify(job: dict, company: dict | None = None) -> dict:
+def classify(job: dict, company: dict | None = None, no_sponsor=None) -> dict:
     """Build the full immigration object for a job (schema per the brief).
 
     risk:
-      red    — explicit prohibit, citizenship/clearance requirement, or enrichment 'No'.
+      red    — explicit prohibit, citizenship/clearance requirement, enrichment 'No',
+               or the company is on the candidate's confirmed won't-sponsor list.
       green  — explicit support in the JD, or enrichment 'Yes', AND no hard stop.
                (Company H-1B HISTORY never produces green — it is evidence, not proof.)
       yellow — everything else (unknown / ambiguous): proceed but verify first.
     """
     t = classify_job_text(job.get("excerpt"))
     spons = (job.get("sponsorship") or "").strip()
-    is_hard = t["hard_stop"] or spons == "No"
+    confirmed_no = _is_known_no_sponsor(job, no_sponsor)
+    is_hard = t["hard_stop"] or spons == "No" or confirmed_no
 
     evidence = []
     for e in t["evidence"]:
         if e:
             evidence.append({"type": "job_text", "text": e,
                              "url": job.get("url", ""), "source": "job_description"})
+    if confirmed_no:
+        evidence.append({"type": "confirmed", "text": "You recorded that this company won't sponsor.",
+                         "source": "candidate (data/no_sponsor.local.json)"})
     if job.get("sponsorship_note"):
         evidence.append({"type": "enrichment", "text": job["sponsorship_note"],
                          "source": "llm_enrichment"})
@@ -241,7 +266,8 @@ def classify(job: dict, company: dict | None = None) -> dict:
         "marketing_h1b_evidence": "unknown",    # function-specific LCA — not integrated yet
         "team_confirmation": "not_asked",       # confirmed | rejected | pending | not_asked (manual)
         "risk": risk,                           # green | yellow | red
-        "hard_stop_reason": t["hard_stop_reason"] or ("enrichment_no" if spons == "No" else ""),
+        "hard_stop_reason": ("confirmed_no_sponsorship" if confirmed_no else
+                             t["hard_stop_reason"] or ("enrichment_no" if spons == "No" else "")),
         "action": action,
         "evidence": evidence,                   # source text/URL preserved for every classification
         "overridden": False,                    # manual override flag (dashboard workflow)
