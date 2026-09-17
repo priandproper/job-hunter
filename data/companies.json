@@ -2280,6 +2280,26 @@
       "hq": "US / remote",
       "source": "audit:ai-labs-2026-09-17",
       "active": true
+    },
+    {
+      "name": "Cognition (Windsurf/Codeium)",
+      "ats": "ashby",
+      "slug": "cognition",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "San Francisco, CA",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
+    },
+    {
+      "name": "CoreWeave (incl. Weights & Biases)",
+      "ats": "greenhouse",
+      "slug": "coreweave",
+      "h1b": true,
+      "h1b_note": "FLAG: volume unconfirmed",
+      "hq": "Livingston, NJ / remote",
+      "source": "audit:ai-labs-2026-09-17",
+      "active": true
     }
   ]
 }
