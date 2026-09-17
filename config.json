@@ -37,7 +37,7 @@
     "exclude_sponsorship": [
       "No"
     ],
-    "max_age_days": 45,
+    "max_age_days": 7,
     "experience": {
       "exclude_at_years": 5,
       "sweet_spot_low": 1,
