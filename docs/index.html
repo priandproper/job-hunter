@@ -1960,7 +1960,10 @@ function renderFunnel(){
   const counts={};(DOC.jobs||[]).forEach(j=>{const s=jobStatus(j.id);counts[s]=(counts[s]||0)+1;});
   document.getElementById('funnel').innerHTML=FUNNEL.map(([key,label,grp])=>{
     const n=grp.reduce((a,s)=>a+(counts[s]||0),0);
-    return `<div class="stage ${filter===key?'on':''}" onclick="setFilter('${key}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;}).join('');
+    // The Applied tile opens the unified "✅ Applied" view (applied + everything past
+    // it), matching the tab, so a tap on the counter takes you to those jobs.
+    const tgt=key==='applied'?'appliedplus':key;
+    return `<div class="stage ${filter===tgt?'on':''}" onclick="setFilter('${tgt}')"><div class="sn">${n}</div><div class="sl">${label}</div></div>`;}).join('');
 }
 function renderFilters(){
   const jobs=DOC.jobs||[],c=p=>jobs.filter(p).length;
