@@ -1,16 +1,16 @@
 {
-  "run_id": "20260917T162513-dfb416",
-  "started_at": "2026-09-17T20:25:13+00:00",
-  "completed_at": "2026-09-17T20:32:01+00:00",
+  "run_id": "20260918T081005-cd7fd6",
+  "started_at": "2026-09-18T12:10:05+00:00",
+  "completed_at": "2026-09-18T15:01:58+00:00",
   "status": "success",
-  "jobs_fetched": 17357,
-  "jobs_matched": 201,
-  "jobs_ranked": 201,
+  "jobs_fetched": 19012,
+  "jobs_matched": 203,
+  "jobs_ranked": 203,
   "sources_succeeded": 7,
   "sources_failed": [
     "jsearch"
   ],
-  "duration_seconds": 407,
+  "duration_seconds": 10313,
   "coach_status": "fallback",
-  "last_full_success": "2026-09-17T20:32:01+00:00"
+  "last_full_success": "2026-09-18T15:01:58+00:00"
 }
