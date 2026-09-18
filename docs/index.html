@@ -942,7 +942,11 @@ const FUNNEL=[['new','New',['new','resume ready']],['messaged','Messaged',['mess
   ['referred','Referred',['referred']],['applied','Applied',['applied']],
   ['interview','Interviewing',['screen','interview']],['offer','Offers',['offer']]];
 const FILTER_GROUPS={
-  active:j=>!['archived','rejected'].includes(jobStatus(j.id)), all:()=>true,
+  // Active = still worth looking at to apply. Once you've applied (or moved past it),
+  // the job leaves Active so you stop re-reading roles you've already acted on — it
+  // still lives under "✅ Applied" and "All".
+  active:j=>{const s=jobStatus(j.id);return s!=='archived'&&!APPLIED_STATES.has(s);}, all:()=>true,
+  appliedplus:j=>['applied','screen','interview','offer'].includes(jobStatus(j.id)),
   saved:j=>isMarked(j.id), pruned:j=>isPruned(j.id),
   archived:j=>jobStatus(j.id)==='archived', rejected:j=>jobStatus(j.id)==='rejected',
   new:j=>['new','resume ready'].includes(jobStatus(j.id)), messaged:j=>jobStatus(j.id)==='messaged',
@@ -1962,7 +1966,7 @@ function renderFilters(){
   const jobs=DOC.jobs||[],c=p=>jobs.filter(p).length;
   const nPruned=c(FILTER_GROUPS.pruned);
   const opts=[['active','Active',c(FILTER_GROUPS.active)],['all','All',jobs.length],
-    ['saved','★ Saved',c(FILTER_GROUPS.saved)],
+    ['appliedplus','✅ Applied',c(FILTER_GROUPS.appliedplus)],['saved','★ Saved',c(FILTER_GROUPS.saved)],
     ['archived','Archived',c(FILTER_GROUPS.archived)],['rejected','Passed',c(FILTER_GROUPS.rejected)]];
   const nPicks=c(FILTER_GROUPS.picks), nFlag=c(FILTER_GROUPS.flagged);
   if(nPicks||filter==='picks')opts.push(['picks','🧠 Claude picks',nPicks]);
