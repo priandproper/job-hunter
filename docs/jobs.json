@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21 08:08:12",
+  "generated_at": "2026-09-21 11:40:08",
   "meta": {
     "job_count": 207,
     "app_url": "https://priandproper.github.io/resume-builder",
@@ -2819,10 +2819,10 @@
       "id": "e480dc5511ba57b2",
       "company": "HubSpot",
       "title": "Outbound Business Development Representative (BDR)",
-      "location": "Remote - USA",
-      "url": "https://www.hubspot.com/careers/jobs/8031160?gh_jid=8031160",
+      "location": "Cambridge, MA, USA",
+      "url": "https://www.hubspot.com/careers/jobs/8035238?gh_jid=8035238",
       "source": "greenhouse",
-      "posted_at": "2026-09-18T14:13:52-04:00",
+      "posted_at": "2026-09-18T14:14:10-04:00",
       "sponsorship": "Unknown",
       "fit_score": 61,
       "min_years": 2,
@@ -3037,11 +3037,13 @@
         "preferred_qualifications": [],
         "required_years": 2,
         "locations": [
-          "Remote - USA"
+          "Cambridge",
+          "MA",
+          "USA"
         ],
         "salary": "$53,800",
         "sponsorship_text": [],
-        "date_posted": "2026-09-18T14:13:52-04:00",
+        "date_posted": "2026-09-18T14:14:10-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -3098,7 +3100,7 @@
             "points": 5.0,
             "max": 5,
             "confidence": "high",
-            "evidence": "Boston-friendly / remote: Remote - USA"
+            "evidence": "Boston-friendly / remote: Cambridge, MA, USA"
           }
         ]
       }
@@ -14146,9 +14148,9 @@
       "company": "ZoomInfo",
       "title": "Sales Development Representative I",
       "location": "Vancouver, Washington, United States; Waltham, Massachusetts, United States",
-      "url": "https://www.zoominfo.com/careers?gh_jid=8736993002",
+      "url": "https://www.zoominfo.com/careers?gh_jid=8494771002",
       "source": "greenhouse",
-      "posted_at": "2026-09-14T15:05:03-04:00",
+      "posted_at": "2026-09-14T15:04:20-04:00",
       "sponsorship": "Unknown",
       "fit_score": 54,
       "min_years": null,
@@ -14375,7 +14377,7 @@
         ],
         "salary": "$20k",
         "sponsorship_text": [],
-        "date_posted": "2026-09-14T15:05:03-04:00",
+        "date_posted": "2026-09-14T15:04:20-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -17528,8 +17530,8 @@
       "id": "5336b5ce7b1681f3",
       "company": "Braze",
       "title": "Lead, Technology Partners Product Marketing Manager",
-      "location": "New York City",
-      "url": "https://job-boards.greenhouse.io/braze/jobs/8089841",
+      "location": "Austin",
+      "url": "https://job-boards.greenhouse.io/braze/jobs/8089838",
       "source": "greenhouse",
       "posted_at": "2026-09-15T10:12:25-04:00",
       "sponsorship": "Unknown",
@@ -17790,7 +17792,7 @@
         ],
         "required_years": null,
         "locations": [
-          "New York City"
+          "Austin"
         ],
         "salary": "$111,000",
         "sponsorship_text": [],
@@ -17851,7 +17853,7 @@
             "points": 3.0,
             "max": 5,
             "confidence": "medium",
-            "evidence": "US location: New York City"
+            "evidence": "US location: Austin"
           }
         ]
       },
@@ -32526,318 +32528,6 @@
       }
     },
     {
-      "id": "195163851ba25eca",
-      "company": "Stripe",
-      "title": "GTM Strategy & Operations Analyst",
-      "location": "NYC, SF, Seattle, US",
-      "url": "https://stripe.com/jobs/search?gh_jid=8201680",
-      "source": "greenhouse",
-      "posted_at": "2026-09-18T16:51:44-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 87,
-      "min_years": null,
-      "variant_label": "Product Marketing (PMM)",
-      "title_keywords": [
-        "gtm",
-        "operations",
-        "operations analyst",
-        "strategy"
-      ],
-      "ats_score": 89,
-      "best_variant": "Marketing Analytics",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "analytics",
-        "cross-functional",
-        "dashboard",
-        "enterprise",
-        "go-to-market",
-        "gtm",
-        "insights",
-        "r",
-        "sql"
-      ],
-      "per_variant": [
-        {
-          "label": "Marketing Analytics",
-          "score": 89,
-          "missing": []
-        },
-        {
-          "label": "Product Marketing (PMM)",
-          "score": 78,
-          "missing": []
-        },
-        {
-          "label": "GTM / Growth",
-          "score": 78,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies - from the world\u2019s largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n Build, improve, diagnose, fix, and measure things. Have outsized impact in your role supporting a rapidly scaling sales organization! The GTM sales team at Stripe works with new and existing businesses of all shapes and sizes. As a member of the Central Sales Strategy and Operations team, you\u2019ll be responsible for overall productivity and effectiveness of the sales organization, partnering closely with senior sales leadership and the broader sales team to provide insights and analysis on core business performance metrics and drive key strategic sales initiatives. \n What you\u2019ll do \n Partnering closely with the GTM leadership team, regional sales leaders to support sales teams, owning the in-depth monitoring and tracking of the business metrics, creation of key intelligence and insights to accelerate growth.\u00a0 \n Partner with key cross-functional stakeholders, including but not limited to Marketing, Finance & Strategy, Data Science, Seller Systems, and Strategic Operations to streamline and optimize our internal processes and run-the-business and planning deliverables (Stripe Rhythm of Business: Weekly Business Reviews, Monthly Business Reviews, Quarterly Business Reviews). Shape the processes and go-to-market support model for a rapidly growing company, and make a tangible impact on sales and operations. \n Responsibilities \n \n Support the GTM leadership with intelligence and insight to accelerate growth \n Support Sales Strategy and Operations colleagues by standardizing global and regional common process that is currently decentralized \n Deep dive into key performance metrics and drive deep understanding of business performance \n Problem solve and structure analysis outcomes for complex sales operations challenges through data, analytics and insight \n Identify new opportunities and areas of productivity efficiency gains for Regional sales leadership \n Participate in projects defining go-to-market approaches, as well as in regular business and resource planning \n Run analysis on key performance metrics, providing relevant insights for managing the business \n Oversee implementation of enabling systems and tools, working closely with internal systems teams \n Prepare weekly senior leader forecast materials and provide ongoing updates on key business growth/metrics to leadership teams \n Manage bespoke projects and effectively manage stakeholders \n \n Who you are \n We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement. \n Minimum requirements \n \n Has 7+ years of sales, strategy and operations experience in a high-tech growth environment, or operational experience in investment banking or management consulting or private equity or venture capital, or business insights / analytics roles \n Advanced proficiency in SQL and other advanced analytics tools \n Proficiency in BI visualization tools \n Experience leveraging AI to analyze data / derive insights, automate processes, or create reports / dashboards \n Has strong analytical skills and a structured approach to solving unique business problems. Has experience working with data and large data sets to identify trends and create insights to make recommendations to senior leaders \n Has an enthusiastic \u201croll up your sleeves\u201d mentality \n Works well with a high degree of adaptability and flexibility in a fast paced, often ambiguous, and rapidly changing environment \n \n Preferred qualifications \n \n Prior experience at a growth stage Internet/software company \n Prior experience in the payments industry",
-      "resume_core": {
-        "label": "Stripe \u2014 GTM Strategy & Operations Analyst",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "Product Marketing Manager",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern, Product Marketing & Sales",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
-              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
-              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
-              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "May 2024",
-            "highlights": [
-              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
-              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
-              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
-              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
-              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
-              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "Remote",
-            "startDate": "Jun 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
-              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
-              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
-              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
-              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
-              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
-              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
-              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Product Marketing & GTM",
-            "items": [
-              "Positioning & Messaging",
-              "Go-to-Market Strategy",
-              "Product Launches",
-              "Sales Enablement",
-              "Competitive Intelligence",
-              "Customer Stories & Case Studies",
-              "Product Demos",
-              "Account-Based Marketing (ABM)",
-              "Events & Executive Briefings"
-            ]
-          },
-          {
-            "name": "Data & Analytics",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Google Analytics (GA4)",
-              "Excel",
-              "A/B Testing",
-              "Full-Funnel Analytics",
-              "customer segmentation",
-              "cohort & funnel analysis"
-            ]
-          },
-          {
-            "name": "Tools",
-            "items": [
-              "Salesforce (CRM)",
-              "Eloqua",
-              "HubSpot",
-              "Generative AI Tools"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Stripe is hiring a GTM Strategy & Operations Analyst and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~292 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "GTM Strategy & Operations Analyst",
-        "company": "Stripe",
-        "job_id": "195163851ba25eca",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [
-          "Support the GTM leadership with intelligence and insight to accelerate growth",
-          "Support Sales Strategy and Operations colleagues by standardizing global and regional common process that is currently decentralized",
-          "Deep dive into key performance metrics and drive deep understanding of business performance",
-          "Problem solve and structure analysis outcomes for complex sales operations challenges through data, analytics and insight",
-          "Identify new opportunities and areas of productivity efficiency gains for Regional sales leadership",
-          "Participate in projects defining go-to-market approaches, as well as in regular business and resource planning",
-          "Run analysis on key performance metrics, providing relevant insights for managing the business",
-          "Oversee implementation of enabling systems and tools, working closely with internal systems teams",
-          "Prepare weekly senior leader forecast materials and provide ongoing updates on key business growth/metrics to leadership teams",
-          "Manage bespoke projects and effectively manage stakeholders"
-        ],
-        "basic_qualifications": [
-          "We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement",
-          "Minimum requirements",
-          "Has 7+ years of sales, strategy and operations experience in a high-tech growth environment, or operational experience in investment banking or management consulting or private equity or venture capital, or business insights / analytics roles",
-          "Advanced proficiency in SQL and other advanced analytics tools",
-          "Proficiency in BI visualization tools",
-          "Experience leveraging AI to analyze data / derive insights, automate processes, or create reports / dashboards",
-          "Has strong analytical skills and a structured approach to solving unique business problems. Has experience working with data and large data sets to identify trends and create insights to make recommendations to senior leaders",
-          "Has an enthusiastic \u201croll up your sleeves\u201d mentality",
-          "Works well with a high degree of adaptability and flexibility in a fast paced, often ambiguous, and rapidly changing environment"
-        ],
-        "preferred_qualifications": [
-          "Prior experience at a growth stage Internet/software company",
-          "Prior experience in the payments industry"
-        ],
-        "required_years": null,
-        "locations": [
-          "NYC",
-          "SF",
-          "Seattle",
-          "US"
-        ],
-        "salary": null,
-        "sponsorship_text": [],
-        "date_posted": "2026-09-18T16:51:44-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 66,
-        "band": "B",
-        "hard_stops": [],
-        "uncertainty": "medium",
-        "why": "Priority B (66/100). Strong on direct experience & product customer; weakest on basic qualifications. Confidence limited by: immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 8.3,
-            "max": 25,
-            "confidence": "high",
-            "evidence": "3/9 basic quals evidenced; gaps: We're looking for someone who meets the minimum requirements; Minimum requirements"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "14/14 role skills in your experience: analysis, analytics, business, complex, data"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, analytics, banking, data, enterprise"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "2 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 3d ago"
-          },
-          {
-            "name": "location",
-            "points": 3.0,
-            "max": 5,
-            "confidence": "medium",
-            "evidence": "US location: NYC, SF, Seattle, US"
-          }
-        ]
-      }
-    },
-    {
       "id": "3ceb8d11a4b06ca2",
       "company": "OpenAI",
       "title": "Lifecycle Marketing Manager, SMB Ads",
@@ -35803,6 +35493,316 @@
       }
     },
     {
+      "id": "195163851ba25eca",
+      "company": "Stripe",
+      "title": "GTM Strategy & Operations Analyst",
+      "location": "New York, NY",
+      "url": "https://stripe.com/jobs/search?gh_jid=8145119",
+      "source": "greenhouse",
+      "posted_at": "2026-09-10T13:11:58-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 87,
+      "min_years": null,
+      "variant_label": "Product Marketing (PMM)",
+      "title_keywords": [
+        "gtm",
+        "operations",
+        "operations analyst",
+        "strategy"
+      ],
+      "ats_score": 89,
+      "best_variant": "Marketing Analytics",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "analytics",
+        "cross-functional",
+        "dashboard",
+        "enterprise",
+        "go-to-market",
+        "gtm",
+        "insights",
+        "r",
+        "sql"
+      ],
+      "per_variant": [
+        {
+          "label": "Marketing Analytics",
+          "score": 89,
+          "missing": []
+        },
+        {
+          "label": "Product Marketing (PMM)",
+          "score": 78,
+          "missing": []
+        },
+        {
+          "label": "GTM / Growth",
+          "score": 78,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "Who we are \n About Stripe \n Stripe is a financial infrastructure platform for businesses. Millions of companies - from the world\u2019s largest enterprises to the most ambitious startups - use Stripe to accept payments, grow their revenue, and accelerate new business opportunities. Our mission is to increase the GDP of the internet, and we have a staggering amount of work ahead. That means you have an unprecedented opportunity to put the global economy within everyone's reach while doing the most important work of your career. \n About the team \n Build, improve, diagnose, fix, and measure things. Have outsized impact in your role supporting a rapidly scaling sales organization! The GTM sales team at Stripe works with new and existing businesses of all shapes and sizes. As a member of the Central Sales Strategy and Operations team, you\u2019ll be responsible for overall productivity and effectiveness of the sales organization, partnering closely with senior sales leadership and the broader sales team to provide insights and analysis on core business performance metrics and drive key strategic sales initiatives. \n What you\u2019ll do \n Partnering closely with the GTM leadership team, regional sales leaders to support sales teams, owning the in-depth monitoring and tracking of the business metrics, creation of key intelligence and insights to accelerate growth.\u00a0 \n Partner with key cross-functional stakeholders, including but not limited to Marketing, Finance & Strategy, Data Science, Seller Systems, and Strategic Operations to streamline and optimize our internal processes and run-the-business and planning deliverables (Stripe Rhythm of Business: Weekly Business Reviews, Monthly Business Reviews, Quarterly Business Reviews). Shape the processes and go-to-market support model for a rapidly growing company, and make a tangible impact on sales and operations. \n Responsibilities \n \n Support the GTM leadership with intelligence and insight to accelerate growth \n Support Sales Strategy and Operations colleagues by standardizing global and regional common process that is currently decentralized \n Deep dive into key performance metrics and drive deep understanding of business performance \n Problem solve and structure analysis outcomes for complex sales operations challenges through data, analytics and insight \n Identify new opportunities and areas of productivity efficiency gains for Regional sales leadership \n Participate in projects defining go-to-market approaches, as well as in regular business and resource planning \n Run analysis on key performance metrics, providing relevant insights for managing the business \n Oversee implementation of enabling systems and tools, working closely with internal systems teams \n Prepare weekly senior leader forecast materials and provide ongoing updates on key business growth/metrics to leadership teams \n Manage bespoke projects and effectively manage stakeholders \n \n Who you are \n We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement. \n Minimum requirements \n \n Has 7+ years of sales, strategy and operations experience in a high-tech growth environment, or operational experience in investment banking or management consulting or private equity or venture capital, or business insights / analytics roles \n Advanced proficiency in SQL and other advanced analytics tools \n Proficiency in BI visualization tools \n Experience leveraging AI to analyze data / derive insights, automate processes, or create reports / dashboards \n Has strong analytical skills and a structured approach to solving unique business problems. Has experience working with data and large data sets to identify trends and create insights to make recommendations to senior leaders \n Has an enthusiastic \u201croll up your sleeves\u201d mentality \n Works well with a high degree of adaptability and flexibility in a fast paced, often ambiguous, and rapidly changing environment \n \n Preferred qualifications \n \n Prior experience at a growth stage Internet/software company \n Prior experience in the payments industry",
+      "resume_core": {
+        "label": "Stripe \u2014 GTM Strategy & Operations Analyst",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "Product Marketing Manager",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern, Product Marketing & Sales",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
+              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
+              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
+              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "May 2024",
+            "highlights": [
+              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
+              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
+              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
+              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
+              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
+              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "Remote",
+            "startDate": "Jun 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
+              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
+              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
+              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
+              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
+              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
+              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
+              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing & GTM",
+            "items": [
+              "Positioning & Messaging",
+              "Go-to-Market Strategy",
+              "Product Launches",
+              "Sales Enablement",
+              "Competitive Intelligence",
+              "Customer Stories & Case Studies",
+              "Product Demos",
+              "Account-Based Marketing (ABM)",
+              "Events & Executive Briefings"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)",
+              "Excel",
+              "A/B Testing",
+              "Full-Funnel Analytics",
+              "customer segmentation",
+              "cohort & funnel analysis"
+            ]
+          },
+          {
+            "name": "Tools",
+            "items": [
+              "Salesforce (CRM)",
+              "Eloqua",
+              "HubSpot",
+              "Generative AI Tools"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Stripe is hiring a GTM Strategy & Operations Analyst and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Stripe, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Stripe%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
+      "immigration": {
+        "job_text": "not_stated",
+        "company_everify": "unknown",
+        "company_h1b_history": "some",
+        "marketing_h1b_evidence": "unknown",
+        "team_confirmation": "not_asked",
+        "risk": "yellow",
+        "hard_stop_reason": "",
+        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
+        "evidence": [
+          {
+            "type": "company_h1b_history",
+            "text": "~292 LCAs FY2025",
+            "source": "DOL LCA (public, h1bdata.info)",
+            "note": "historical \u2014 not proof the current team sponsors"
+          }
+        ],
+        "overridden": false,
+        "last_verified": null
+      },
+      "spec": {
+        "title": "GTM Strategy & Operations Analyst",
+        "company": "Stripe",
+        "job_id": "195163851ba25eca",
+        "product_or_service": "",
+        "customer": [],
+        "responsibilities": [
+          "Support the GTM leadership with intelligence and insight to accelerate growth",
+          "Support Sales Strategy and Operations colleagues by standardizing global and regional common process that is currently decentralized",
+          "Deep dive into key performance metrics and drive deep understanding of business performance",
+          "Problem solve and structure analysis outcomes for complex sales operations challenges through data, analytics and insight",
+          "Identify new opportunities and areas of productivity efficiency gains for Regional sales leadership",
+          "Participate in projects defining go-to-market approaches, as well as in regular business and resource planning",
+          "Run analysis on key performance metrics, providing relevant insights for managing the business",
+          "Oversee implementation of enabling systems and tools, working closely with internal systems teams",
+          "Prepare weekly senior leader forecast materials and provide ongoing updates on key business growth/metrics to leadership teams",
+          "Manage bespoke projects and effectively manage stakeholders"
+        ],
+        "basic_qualifications": [
+          "We're looking for someone who meets the minimum requirements to be considered for the role. If you meet these requirements, you are encouraged to apply. The preferred qualifications are a bonus, not a requirement",
+          "Minimum requirements",
+          "Has 7+ years of sales, strategy and operations experience in a high-tech growth environment, or operational experience in investment banking or management consulting or private equity or venture capital, or business insights / analytics roles",
+          "Advanced proficiency in SQL and other advanced analytics tools",
+          "Proficiency in BI visualization tools",
+          "Experience leveraging AI to analyze data / derive insights, automate processes, or create reports / dashboards",
+          "Has strong analytical skills and a structured approach to solving unique business problems. Has experience working with data and large data sets to identify trends and create insights to make recommendations to senior leaders",
+          "Has an enthusiastic \u201croll up your sleeves\u201d mentality",
+          "Works well with a high degree of adaptability and flexibility in a fast paced, often ambiguous, and rapidly changing environment"
+        ],
+        "preferred_qualifications": [
+          "Prior experience at a growth stage Internet/software company",
+          "Prior experience in the payments industry"
+        ],
+        "required_years": null,
+        "locations": [
+          "New York",
+          "NY"
+        ],
+        "salary": null,
+        "sponsorship_text": [],
+        "date_posted": "2026-09-10T13:11:58-04:00",
+        "full_cleaned_jd": ""
+      },
+      "priority": {
+        "total": 64,
+        "band": "B",
+        "hard_stops": [],
+        "uncertainty": "medium",
+        "why": "Priority B (64/100). Strong on direct experience & product customer; weakest on basic qualifications. Confidence limited by: immigration.",
+        "components": [
+          {
+            "name": "basic_qualifications",
+            "points": 8.3,
+            "max": 25,
+            "confidence": "high",
+            "evidence": "3/9 basic quals evidenced; gaps: We're looking for someone who meets the minimum requirements; Minimum requirements"
+          },
+          {
+            "name": "direct_experience",
+            "points": 20.0,
+            "max": 20,
+            "confidence": "medium",
+            "evidence": "14/14 role skills in your experience: analysis, analytics, business, complex, data"
+          },
+          {
+            "name": "immigration",
+            "points": 10.0,
+            "max": 20,
+            "confidence": "low",
+            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
+          },
+          {
+            "name": "product_customer",
+            "points": 15.0,
+            "max": 15,
+            "confidence": "medium",
+            "evidence": "domain overlap: ai, analytics, banking, data, enterprise"
+          },
+          {
+            "name": "referral_access",
+            "points": 5.0,
+            "max": 10,
+            "confidence": "high",
+            "evidence": "2 potential referrer(s) in your network"
+          },
+          {
+            "name": "recency",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "high",
+            "evidence": "posted 11d ago"
+          },
+          {
+            "name": "location",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "medium",
+            "evidence": "US location: New York, NY"
+          }
+        ]
+      }
+    },
+    {
       "id": "96229a13207c8b26",
       "company": "Datadog",
       "title": "Field Marketing Manager (North Central)",
@@ -36735,307 +36735,6 @@
             "confidence": "high",
             "evidence": "Boston-friendly / remote: Boston, Massachusetts, USA"
           }
-        ]
-      }
-    },
-    {
-      "id": "f97df0be439ff2a1",
-      "company": "Datadog",
-      "title": "Sales Development Representative (LATAM - Portuguese Speaking)",
-      "location": "Boston, Massachusetts, USA",
-      "url": "https://careers.datadoghq.com/detail/8139396/?gh_jid=8139396",
-      "source": "greenhouse",
-      "posted_at": "2026-09-18T14:57:30-04:00",
-      "sponsorship": "Unknown",
-      "fit_score": 36,
-      "min_years": null,
-      "variant_label": "Product Marketing (PMM)",
-      "title_keywords": [
-        "pr"
-      ],
-      "ats_score": 100,
-      "best_variant": "Product Marketing (PMM)",
-      "missing_keywords": [],
-      "requested_keywords": [
-        "cross-functional",
-        "r"
-      ],
-      "per_variant": [
-        {
-          "label": "Product Marketing (PMM)",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "Marketing Analytics",
-          "score": 100,
-          "missing": []
-        },
-        {
-          "label": "GTM / Growth",
-          "score": 100,
-          "missing": []
-        }
-      ],
-      "jd_available": true,
-      "excerpt": "As a Sales Development Representative (SDR), you will prospect, qualify, and generate customer leads to assist in Datadog\u2019s overall business growth segment. By partnering with internal stakeholders, you will help IT and Technology innovators across markets recognize Datadog\u2019s impact in their digital transformation and migration to the cloud. SDRs have the opportunity to grow their careers in Sales and continue contributing to Datadog team success. \n At Datadog, we place value in our office culture - the relationships and collaboration it builds and the creativity it brings to the table. We operate as a hybrid workplace to ensure our Datadogs can create a work-life harmony that best fits them. \n What You\u2019ll Do: \n \n Collaborate cross-functionally with various Datadog teams \n Drive initial prospect qualification and schedule discovery meetings \n Develop, present, and implement strategies for acquiring new business \n Conduct outbound outreach by cold calling and emailing prospective customers\u00a0 \n Learn to follow a well-defined methodology to help identify a customer's unique needs\u00a0 \n \n Who You Are: \n \n Motivated by a career in sales \n Someone with an innate curiosity to learn \n Have a desire to succeed alongside teammates \n Proven in your written and verbal communication\u00a0\u00a0 \n Comfortable with being able to learn from rejection \n Fluency in Portuguese at a professional or business level is essential for this position \n \n Datadog values people from all walks of life. We understand not everyone will meet all the above qualifications on day one. That's okay. If you\u2019re passionate about technology and want to grow your experience, we encourage you to apply. \n \u00a0 \n Benefits and Growth: \n \n High income earning opportunities based on self performance \n New hire stock equity (RSU) and employee stock purchase plan (ESPP) \n Continuous professional development, product training, and career pathing\u00a0 \n Sales training in MEDDIC and Command of the Message\u00a0 \n Intra-departmental mentor and buddy program for in-house networking\u00a0 \n An inclusive company culture, opportunity to join our Community Guilds \n Generous global benefits \n \n Benefits and Growth listed above may vary based on the country of your employment and the nature of your employment with Datadog. Datadog offers a competitive salary and equity package, and may include variable compensation. Actual compensation is based on factors such as the candidate's skills, qualifications, and experience. In addition, Datadog offers a wide range of best in class, comprehensive and inclusive employee benefits for this role including healthcare, dental, parental planning, and mental health benefits, a 401(k) plan and match, paid time off, fitness reimbursements, and a discounted employee stock purchase plan. The reasonably estimated yearly salary for this role at Datadog is: $50,000 \u2014 $50,000 USD \n About Datadog:\u00a0 \n Datadog is the leading observability and security platform for the AI era, providing businesses with unified visibility across the technology stack to manage complexity at scale. It brings applications, infrastructure, data, models, and security into one place, using AI to detect and resolve issues before they impact customers. Trusted globally by Fortune 500 companies and high-growth AI leaders, Datadog enables businesses to move faster with clarity and confidence. Learn more about #DatadogLife on Instagram , LinkedIn, and Datadog Learning Center. \n \n Equal Opportunity at Datadog: \n Datadog is proud to offer equal employment opportunity to everyone regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, and other characteristics protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. Here are our Candidate Legal Notices for your reference.\u00a0 \n Datadog endeavors to make our Careers Page accessible to all users. If you would like to contact us regarding the accessibility of our website or need assistance completing the application process, please complete this form . This form is for accommodation requests only and cannot be used to inquire about the status of applications.\u00a0 \n Privacy and AI Guidelines: \n Any information you submit to Datadog as part of your application will be processed in accordance with Datadog\u2019s\u00a0 Applicant and Candidate Privacy Notice . For information on our AI policy, please visit Interviewing at Datadog AI Guidelines .",
-      "resume_core": {
-        "label": "Datadog \u2014 Sales Development Representative (LATAM - Portuguese Speaking)",
-        "contact": {
-          "fullName": "Priyanka Tambe",
-          "headline": "Product Marketing Manager",
-          "email": "",
-          "phone": "",
-          "location": "Boston, MA",
-          "linkedin": "linkedin.com/in/priyankatam",
-          "github": "github.com/priandproper"
-        },
-        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
-        "experience": [
-          {
-            "company": "Glidely Inc.",
-            "title": "MBA Intern, Product Marketing & Sales",
-            "location": "San Francisco, CA",
-            "startDate": "Jun 2025",
-            "endDate": "Aug 2025",
-            "highlights": [
-              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
-              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
-              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
-              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
-            ]
-          },
-          {
-            "company": "Infosys Finacle (Banking SaaS)",
-            "title": "Marketing & Analytics Specialist",
-            "location": "Bangalore, India",
-            "startDate": "Mar 2022",
-            "endDate": "May 2024",
-            "highlights": [
-              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
-              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
-              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
-              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
-              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
-              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
-            ]
-          },
-          {
-            "company": "Neurealm",
-            "title": "Lead Consultant, Product Marketing",
-            "location": "Remote",
-            "startDate": "Jun 2021",
-            "endDate": "Mar 2022",
-            "highlights": [
-              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
-              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
-              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
-              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
-              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
-              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
-            ]
-          },
-          {
-            "company": "YES Bank Foundation",
-            "title": "Marketing Manager",
-            "location": "Mumbai, India",
-            "startDate": "Jul 2016",
-            "endDate": "Dec 2018",
-            "highlights": [
-              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
-              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
-              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
-            ]
-          }
-        ],
-        "education": [
-          {
-            "institution": "Babson College",
-            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
-            "location": "Boston, MA",
-            "startDate": "",
-            "endDate": "May 2026",
-            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
-          },
-          {
-            "institution": "Indian Institute of Technology Madras",
-            "degree": "MBA, Marketing & Strategy",
-            "location": "India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          },
-          {
-            "institution": "Mumbai University",
-            "degree": "B.E., Electronics & Telecommunications",
-            "location": "Mumbai, India",
-            "startDate": "",
-            "endDate": "",
-            "details": ""
-          }
-        ],
-        "skills": [
-          {
-            "name": "Product Marketing & GTM",
-            "items": [
-              "Positioning & Messaging",
-              "Go-to-Market Strategy",
-              "Product Launches",
-              "Sales Enablement",
-              "Competitive Intelligence",
-              "Customer Stories & Case Studies",
-              "Product Demos",
-              "Account-Based Marketing (ABM)",
-              "Events & Executive Briefings"
-            ]
-          },
-          {
-            "name": "Data & Analytics",
-            "items": [
-              "SQL",
-              "Tableau",
-              "Power BI",
-              "Google Analytics (GA4)",
-              "Excel",
-              "A/B Testing",
-              "Full-Funnel Analytics",
-              "customer segmentation",
-              "cohort & funnel analysis"
-            ]
-          },
-          {
-            "name": "Tools",
-            "items": [
-              "Salesforce (CRM)",
-              "Eloqua",
-              "HubSpot",
-              "Generative AI Tools"
-            ]
-          }
-        ]
-      },
-      "referral_message": "Hi there \u2014 I saw Datadog is hiring a Sales Development Representative (LATAM\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Datadog, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
-      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Datadog%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
-      "immigration": {
-        "job_text": "not_stated",
-        "company_everify": "unknown",
-        "company_h1b_history": "some",
-        "marketing_h1b_evidence": "unknown",
-        "team_confirmation": "not_asked",
-        "risk": "yellow",
-        "hard_stop_reason": "",
-        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
-        "evidence": [
-          {
-            "type": "company_h1b_history",
-            "text": "~98 LCAs FY2025",
-            "source": "DOL LCA (public, h1bdata.info)",
-            "note": "historical \u2014 not proof the current team sponsors"
-          }
-        ],
-        "overridden": false,
-        "last_verified": null
-      },
-      "spec": {
-        "title": "Sales Development Representative (LATAM - Portuguese Speaking)",
-        "company": "Datadog",
-        "job_id": "f97df0be439ff2a1",
-        "product_or_service": "",
-        "customer": [],
-        "responsibilities": [],
-        "basic_qualifications": [
-          "Motivated by a career in sales",
-          "Someone with an innate curiosity to learn",
-          "Have a desire to succeed alongside teammates",
-          "Proven in your written and verbal communication",
-          "Comfortable with being able to learn from rejection",
-          "Fluency in Portuguese at a professional or business level is essential for this position",
-          "Datadog values people from all walks of life. We understand not everyone will meet all the above qualifications on day one. That's okay. If you\u2019re passionate about technology and want to grow your experience, we encourage you to apply",
-          "Benefits and Growth",
-          "High income earning opportunities based on self performance",
-          "New hire stock equity (RSU) and employee stock purchase plan (ESPP)",
-          "Continuous professional development, product training, and career pathing",
-          "Sales training in MEDDIC and Command of the Message"
-        ],
-        "preferred_qualifications": [],
-        "required_years": null,
-        "locations": [
-          "Boston",
-          "Massachusetts",
-          "USA"
-        ],
-        "salary": "$50,000 \u2014 $50,000",
-        "sponsorship_text": [
-          "Equal Opportunity at Datadog: Datadog is proud to offer equal employment opportunity to everyone regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, and other characteristics protected"
-        ],
-        "date_posted": "2026-09-18T14:57:30-04:00",
-        "full_cleaned_jd": ""
-      },
-      "priority": {
-        "total": 64,
-        "band": "B",
-        "hard_stops": [],
-        "uncertainty": "medium",
-        "why": "Priority B (64/100). Strong on direct experience & product customer; weakest on basic qualifications. Confidence limited by: immigration.",
-        "components": [
-          {
-            "name": "basic_qualifications",
-            "points": 4.2,
-            "max": 25,
-            "confidence": "high",
-            "evidence": "2/12 basic quals evidenced; gaps: Someone with an innate curiosity to learn; Have a desire to succeed alongside teammates"
-          },
-          {
-            "name": "direct_experience",
-            "points": 20.0,
-            "max": 20,
-            "confidence": "medium",
-            "evidence": "8/8 role skills in your experience: business, growth, performance, product, professional"
-          },
-          {
-            "name": "immigration",
-            "points": 10.0,
-            "max": 20,
-            "confidence": "low",
-            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
-          },
-          {
-            "name": "product_customer",
-            "points": 15.0,
-            "max": 15,
-            "confidence": "medium",
-            "evidence": "domain overlap: ai, data, growth, platform"
-          },
-          {
-            "name": "referral_access",
-            "points": 5.0,
-            "max": 10,
-            "confidence": "high",
-            "evidence": "1 potential referrer(s) in your network"
-          },
-          {
-            "name": "recency",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "posted 3d ago"
-          },
-          {
-            "name": "location",
-            "points": 5.0,
-            "max": 5,
-            "confidence": "high",
-            "evidence": "Boston-friendly / remote: Boston, Massachusetts, USA"
-          }
-        ]
-      },
-      "duplicate": {
-        "of": "6400a393bffd0dae",
-        "classification": "likely_repost",
-        "confidence": 0.75,
-        "evidence": [
-          "same company",
-          "near-identical JD (similarity 0.986)"
         ]
       }
     },
@@ -40425,6 +40124,307 @@
       }
     },
     {
+      "id": "f97df0be439ff2a1",
+      "company": "Datadog",
+      "title": "Sales Development Representative (LATAM - Portuguese Speaking)",
+      "location": "Denver, Colorado, USA",
+      "url": "https://careers.datadoghq.com/detail/6685931/?gh_jid=6685931",
+      "source": "greenhouse",
+      "posted_at": "2026-09-18T14:57:30-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 36,
+      "min_years": null,
+      "variant_label": "Product Marketing (PMM)",
+      "title_keywords": [
+        "pr"
+      ],
+      "ats_score": 100,
+      "best_variant": "Product Marketing (PMM)",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "cross-functional",
+        "r"
+      ],
+      "per_variant": [
+        {
+          "label": "Product Marketing (PMM)",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "Marketing Analytics",
+          "score": 100,
+          "missing": []
+        },
+        {
+          "label": "GTM / Growth",
+          "score": 100,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "As a Sales Development Representative (SDR), you will prospect, qualify, and generate customer leads to assist in Datadog\u2019s overall business growth segment. By partnering with internal stakeholders, you will help IT and Technology innovators across markets recognize Datadog\u2019s impact in their digital transformation and migration to the cloud. SDRs have the opportunity to grow their careers in Sales and continue contributing to Datadog team success. \n At Datadog, we place value in our office culture - the relationships and collaboration it builds and the creativity it brings to the table. We operate as a hybrid workplace to ensure our Datadogs can create a work-life harmony that best fits them. \n What You\u2019ll Do: \n \n Collaborate cross-functionally with various Datadog teams \n Drive initial prospect qualification and schedule discovery meetings \n Develop, present, and implement strategies for acquiring new business \n Conduct outbound outreach by cold calling and emailing prospective customers\u00a0 \n Learn to follow a well-defined methodology to help identify a customer's unique needs\u00a0 \n \n Who You Are: \n \n Motivated by a career in sales \n Someone with an innate curiosity to learn \n Have a desire to succeed alongside teammates \n Proven in your written and verbal communication\u00a0\u00a0 \n Comfortable with being able to learn from rejection \n Fluency in Portuguese at a professional or business level is essential for this position \n \n Datadog values people from all walks of life. We understand not everyone will meet all the above qualifications on day one. That's okay. If you\u2019re passionate about technology and want to grow your experience, we encourage you to apply. \n \u00a0 \n Benefits and Growth: \n \n High income earning opportunities based on self performance \n New hire stock equity (RSU) and employee stock purchase plan (ESPP) \n Continuous professional development, product training, and career pathing\u00a0 \n Sales training in MEDDIC and Command of the Message\u00a0 \n Intra-departmental mentor and buddy program for in-house networking\u00a0 \n An inclusive company culture, opportunity to join our Community Guilds \n Generous global benefits \n \n Benefits and Growth listed above may vary based on the country of your employment and the nature of your employment with Datadog. Datadog offers a competitive salary and equity package, and may include variable compensation. Actual compensation is based on factors such as the candidate's skills, qualifications, and experience. In addition, Datadog offers a wide range of best in class, comprehensive and inclusive employee benefits for this role including healthcare, dental, parental planning, and mental health benefits, a 401(k) plan and match, paid time off, fitness reimbursements, and a discounted employee stock purchase plan. The reasonably estimated yearly salary for this role at Datadog is: $50,000 \u2014 $50,000 USD \n About Datadog:\u00a0 \n Datadog is the leading observability and security platform for the AI era, providing businesses with unified visibility across the technology stack to manage complexity at scale. It brings applications, infrastructure, data, models, and security into one place, using AI to detect and resolve issues before they impact customers. Trusted globally by Fortune 500 companies and high-growth AI leaders, Datadog enables businesses to move faster with clarity and confidence. Learn more about #DatadogLife on Instagram , LinkedIn, and Datadog Learning Center. \n \n Equal Opportunity at Datadog: \n Datadog is proud to offer equal employment opportunity to everyone regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, and other characteristics protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. Here are our Candidate Legal Notices for your reference.\u00a0 \n Datadog endeavors to make our Careers Page accessible to all users. If you would like to contact us regarding the accessibility of our website or need assistance completing the application process, please complete this form . This form is for accommodation requests only and cannot be used to inquire about the status of applications.\u00a0 \n Privacy and AI Guidelines: \n Any information you submit to Datadog as part of your application will be processed in accordance with Datadog\u2019s\u00a0 Applicant and Candidate Privacy Notice . For information on our AI policy, please visit Interviewing at Datadog AI Guidelines .",
+      "resume_core": {
+        "label": "Datadog \u2014 Sales Development Representative (LATAM - Portuguese Speaking)",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "Product Marketing Manager",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern, Product Marketing & Sales",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
+              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
+              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
+              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "May 2024",
+            "highlights": [
+              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
+              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
+              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
+              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
+              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
+              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "Remote",
+            "startDate": "Jun 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
+              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
+              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
+              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
+              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
+              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
+              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
+              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing & GTM",
+            "items": [
+              "Positioning & Messaging",
+              "Go-to-Market Strategy",
+              "Product Launches",
+              "Sales Enablement",
+              "Competitive Intelligence",
+              "Customer Stories & Case Studies",
+              "Product Demos",
+              "Account-Based Marketing (ABM)",
+              "Events & Executive Briefings"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)",
+              "Excel",
+              "A/B Testing",
+              "Full-Funnel Analytics",
+              "customer segmentation",
+              "cohort & funnel analysis"
+            ]
+          },
+          {
+            "name": "Tools",
+            "items": [
+              "Salesforce (CRM)",
+              "Eloqua",
+              "HubSpot",
+              "Generative AI Tools"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Datadog is hiring a Sales Development Representative (LATAM\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Datadog, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Datadog%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
+      "immigration": {
+        "job_text": "not_stated",
+        "company_everify": "unknown",
+        "company_h1b_history": "some",
+        "marketing_h1b_evidence": "unknown",
+        "team_confirmation": "not_asked",
+        "risk": "yellow",
+        "hard_stop_reason": "",
+        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
+        "evidence": [
+          {
+            "type": "company_h1b_history",
+            "text": "~98 LCAs FY2025",
+            "source": "DOL LCA (public, h1bdata.info)",
+            "note": "historical \u2014 not proof the current team sponsors"
+          }
+        ],
+        "overridden": false,
+        "last_verified": null
+      },
+      "spec": {
+        "title": "Sales Development Representative (LATAM - Portuguese Speaking)",
+        "company": "Datadog",
+        "job_id": "f97df0be439ff2a1",
+        "product_or_service": "",
+        "customer": [],
+        "responsibilities": [],
+        "basic_qualifications": [
+          "Motivated by a career in sales",
+          "Someone with an innate curiosity to learn",
+          "Have a desire to succeed alongside teammates",
+          "Proven in your written and verbal communication",
+          "Comfortable with being able to learn from rejection",
+          "Fluency in Portuguese at a professional or business level is essential for this position",
+          "Datadog values people from all walks of life. We understand not everyone will meet all the above qualifications on day one. That's okay. If you\u2019re passionate about technology and want to grow your experience, we encourage you to apply",
+          "Benefits and Growth",
+          "High income earning opportunities based on self performance",
+          "New hire stock equity (RSU) and employee stock purchase plan (ESPP)",
+          "Continuous professional development, product training, and career pathing",
+          "Sales training in MEDDIC and Command of the Message"
+        ],
+        "preferred_qualifications": [],
+        "required_years": null,
+        "locations": [
+          "Denver",
+          "Colorado",
+          "USA"
+        ],
+        "salary": "$50,000 \u2014 $50,000",
+        "sponsorship_text": [
+          "Equal Opportunity at Datadog: Datadog is proud to offer equal employment opportunity to everyone regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, veteran status, and other characteristics protected"
+        ],
+        "date_posted": "2026-09-18T14:57:30-04:00",
+        "full_cleaned_jd": ""
+      },
+      "priority": {
+        "total": 62,
+        "band": "B",
+        "hard_stops": [],
+        "uncertainty": "medium",
+        "why": "Priority B (62/100). Strong on direct experience & product customer; weakest on basic qualifications. Confidence limited by: immigration.",
+        "components": [
+          {
+            "name": "basic_qualifications",
+            "points": 4.2,
+            "max": 25,
+            "confidence": "high",
+            "evidence": "2/12 basic quals evidenced; gaps: Someone with an innate curiosity to learn; Have a desire to succeed alongside teammates"
+          },
+          {
+            "name": "direct_experience",
+            "points": 20.0,
+            "max": 20,
+            "confidence": "medium",
+            "evidence": "8/8 role skills in your experience: business, growth, performance, product, professional"
+          },
+          {
+            "name": "immigration",
+            "points": 10.0,
+            "max": 20,
+            "confidence": "low",
+            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
+          },
+          {
+            "name": "product_customer",
+            "points": 15.0,
+            "max": 15,
+            "confidence": "medium",
+            "evidence": "domain overlap: ai, data, growth, platform"
+          },
+          {
+            "name": "referral_access",
+            "points": 5.0,
+            "max": 10,
+            "confidence": "high",
+            "evidence": "1 potential referrer(s) in your network"
+          },
+          {
+            "name": "recency",
+            "points": 5.0,
+            "max": 5,
+            "confidence": "high",
+            "evidence": "posted 3d ago"
+          },
+          {
+            "name": "location",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "medium",
+            "evidence": "US location: Denver, Colorado, USA"
+          }
+        ]
+      },
+      "duplicate": {
+        "of": "6400a393bffd0dae",
+        "classification": "likely_repost",
+        "confidence": 0.75,
+        "evidence": [
+          "same company",
+          "near-identical JD (similarity 0.986)"
+        ]
+      }
+    },
+    {
       "id": "0c6114eabb129d52",
       "company": "LogRocket",
       "title": "Sales Development Representative",
@@ -41677,7 +41677,7 @@
       "location": "New York, NY",
       "url": "https://job-boards.greenhouse.io/carta/jobs/7721908003",
       "source": "greenhouse",
-      "posted_at": "2026-09-18T10:30:50-04:00",
+      "posted_at": "2026-09-21T10:01:32-04:00",
       "sponsorship": "Unknown",
       "fit_score": 85,
       "min_years": null,
@@ -41928,7 +41928,7 @@
         ],
         "salary": "$130,000 - $150,000",
         "sponsorship_text": [],
-        "date_posted": "2026-09-18T10:30:50-04:00",
+        "date_posted": "2026-09-21T10:01:32-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -41978,7 +41978,7 @@
             "points": 5.0,
             "max": 5,
             "confidence": "high",
-            "evidence": "posted 3d ago"
+            "evidence": "posted 0d ago"
           },
           {
             "name": "location",
@@ -41997,7 +41997,7 @@
       "location": "Chicago; Minneapolis",
       "url": "https://www.mongodb.com/careers/job/?gh_jid=8172166",
       "source": "greenhouse",
-      "posted_at": "2026-09-16T13:28:52-04:00",
+      "posted_at": "2026-09-21T11:06:04-04:00",
       "sponsorship": "Unknown",
       "fit_score": 61,
       "min_years": null,
@@ -42230,7 +42230,7 @@
         "sponsorship_text": [
           "The integrated plan may include digital programs, web and webinars, trade shows, regional events, pipeline acceleration events, and the annual roadshow, in concert with key customers and partners in the region Build and execute decision-maker programs that engage executives, business leaders, techni"
         ],
-        "date_posted": "2026-09-16T13:28:52-04:00",
+        "date_posted": "2026-09-21T11:06:04-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -42280,7 +42280,7 @@
             "points": 5.0,
             "max": 5,
             "confidence": "high",
-            "evidence": "posted 5d ago"
+            "evidence": "posted 0d ago"
           },
           {
             "name": "location",
