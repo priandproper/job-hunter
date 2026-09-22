@@ -450,6 +450,7 @@
   .tag.warm{background:var(--good-soft);color:var(--good)}   /* referral path in your network */
   /* Phase 18 — verified visa-sponsorship signal */
   .tag.spon-ok{background:var(--good-soft);color:var(--good);text-transform:none;letter-spacing:0}
+  .tag.spon-verified{background:var(--good);color:#fff;text-transform:none;letter-spacing:0}
   .tag.spon-mid{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0}
   .tag.spon-no{background:var(--bad-soft);color:var(--bad);text-transform:none;letter-spacing:0}
   .sp-card .sp-top{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:0 0 .7rem}
@@ -950,9 +951,12 @@ function _prioTotal(j){const p=priorityFor(j);return p?(p.total||0):-1;}
 // verdict but never turns a "verify first" into a promise.
 function immFor(job){return (job&&job.immigration)||{};}
 function sponsorBadge(job){
-  const im=immFor(job),v=im.h1b_verified;
+  const im=immFor(job),v=im.h1b_verified,ev=im.company_everify,found=v&&v.h1b_status==='FOUND';
   if(im.risk==='red')return `<span class="tag spon-no" title="${esc(im.action||'Hard stop for an F-1/H-1B candidate.')}">🛂 no sponsorship</span>`;
-  if(v&&v.h1b_status==='FOUND')
+  // E-Verify enrolled (Open) is the strongest verified mark — show it distinctly.
+  if(ev==='OPEN')
+    return `<span class="tag spon-verified" title="E-Verify: enrolled (Open) — verified against the USCIS registry.${found?` ${esc(v.legal_name)} filed ${v.h1b_approvals} H-1B in FY${v.h1b_fy}.`:''}">🛂 verified ✓${found?` · H-1B ${v.h1b_approvals}`:''}</span>`;
+  if(found)
     return `<span class="tag spon-ok" title="${esc(v.legal_name)} filed ${v.h1b_approvals} approved H-1B petition(s) in FY${v.h1b_fy} — USCIS H-1B Employer Data Hub. Company-wide history, not a guarantee for this role.">🛂 H-1B ✓ ${v.h1b_approvals}</span>`;
   if(im.job_text==='supports'||im.risk==='green')
     return `<span class="tag spon-ok" title="The job description states sponsorship is available — still get it in writing.">🛂 sponsors</span>`;
@@ -2226,10 +2230,9 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${sponsorBadge(job)}${warmBadge(job)}${autoDupTag(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${sponsorBadge(job)}${coachBadge(job)}${warmBadge(job)}${freshBadge(job)}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
-      <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
     </a>
     <div class="rctl">
       <button class="markbtn ${isMarked(job.id)?'on':''}" title="Mark to revisit" onclick="toggleMark('${job.id}',event)">${isMarked(job.id)?'★':'☆'}</button>

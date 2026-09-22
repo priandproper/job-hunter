@@ -313,14 +313,18 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     # resolved (data/legal_names.json). Only mapped names are looked up — an unmapped
     # miss is never treated as "doesn't sponsor". Cached per run; skipped in --public-only.
     legal_map = sponsor_mod.load_legal_names(REPO_ROOT)
+    everify_map = sponsor_mod.load_everify(REPO_ROOT)   # browser-run E-Verify results, persisted
     sponsor_cache, sponsor_hits = {}, 0
     def _verified_sponsor(name):
         key = (name or "").strip().lower()
-        if not key or key not in legal_map:
-            return None                     # unmapped -> leave to JD-text signal, no network
+        # An E-Verify result alone is worth surfacing even when we haven't mapped the
+        # legal name for the H-1B lookup, so proceed if the company is in EITHER store.
+        if not key or (key not in legal_map and key not in everify_map):
+            return None                     # unknown -> leave to JD-text signal, no network
         if key not in sponsor_cache:
             try:
-                sponsor_cache[key] = sponsor_mod.verdict(name, legal_map=legal_map)
+                sponsor_cache[key] = sponsor_mod.verdict(name, legal_map=legal_map,
+                                                         everify=everify_map.get(key))
             except Exception:               # network hiccup -> no verified block this run
                 sponsor_cache[key] = None
         return sponsor_cache[key]

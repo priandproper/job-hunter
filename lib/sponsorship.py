@@ -142,6 +142,18 @@ def load_legal_names(root) -> dict:
         return {}
 
 
+def load_everify(root) -> dict:
+    """brand (lowercased) -> saved E-Verify result, from data/everify.json:
+    {"everify": {"stripe": {"status": "OPEN", "records": [...], "verified_at": "2026-09-22"}}}.
+    E-Verify runs only in the browser (Tableau dashboard on uscis.dhs.gov), so its
+    results are persisted here for the worker to fold back into the verdict."""
+    try:
+        d = json.loads((Path(root) / "data" / "everify.json").read_text())
+        return {(k or "").strip().lower(): v for k, v in d.get("everify", {}).items() if v}
+    except (OSError, json.JSONDecodeError, TypeError):
+        return {}
+
+
 def resolve_legal_name(company_name: str, legal_map: dict):
     """Look a brand up in the map. Returns (legal_name, source):
     ('STRIPE INC', 'map') when known, (company_name, 'guess') otherwise."""
