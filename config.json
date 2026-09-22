@@ -145,7 +145,8 @@
     "jsearch_api_key_env": "JSEARCH_API_KEY",
     "secrets_file": ".secrets.json",
     "min_interval_minutes": 180,
-    "results_pages": 3,
+    "results_pages": 1,
+    "_quota_note": "RapidAPI JSearch Basic (free) = 200 requests/month. Each worker run spends ~2x the query count (postings ingest + company discovery). 12 queries x 1 page ~= 24 req/run. Trim queries, or run discovery less often, to stay under a free plan; a cheap paid tier removes the worry.",
     "queries": [
       "product marketing manager United States",
       "product marketing manager remote United States",
@@ -153,23 +154,12 @@
       "marketing manager United States",
       "growth marketing manager United States",
       "demand generation manager United States",
-      "marketing analytics manager remote United States",
       "content marketing manager United States",
       "marketing operations manager United States",
       "marketing analyst United States",
-      "marketing analyst remote United States",
-      "business analyst marketing United States",
-      "business analyst United States",
-      "marketing data analyst United States",
-      "data analyst remote United States",
-      "growth analyst United States",
-      "sales analyst United States",
       "sales operations analyst United States",
-      "revenue operations analyst United States",
-      "operations analyst United States",
-      "product marketing manager in New York, New York",
       "product marketing manager in Boston, Massachusetts",
-      "product marketing manager in San Francisco, California"
+      "product marketing manager in New York, New York"
     ]
   },
   "reddit": {
