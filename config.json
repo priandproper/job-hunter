@@ -145,6 +145,7 @@
     "jsearch_api_key_env": "JSEARCH_API_KEY",
     "secrets_file": ".secrets.json",
     "min_interval_minutes": 180,
+    "min_interval_hours": 72,
     "results_pages": 1,
     "_quota_note": "RapidAPI JSearch Basic (free) = 200 requests/month. Each worker run spends ~2x the query count (postings ingest + company discovery). 12 queries x 1 page ~= 24 req/run. Trim queries, or run discovery less often, to stay under a free plan; a cheap paid tier removes the worry.",
     "queries": [

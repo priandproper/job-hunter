@@ -265,6 +265,13 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
 
     all_jobs, src_stats = collect_jobs_with_stats(cfg, do_discovery, log)
 
+    # Stamp the JSearch throttle once per run — but only when it actually could have
+    # fired (discovery on, key present, and the interval had elapsed at run start).
+    # Both JSearch calls above read the same pre-run timestamp, so they ran together
+    # or not at all; marking here resets the clock only after a real JSearch cycle.
+    if do_discovery and disc_mod.has_jsearch_key(cfg, REPO_ROOT) and disc_mod.jsearch_due(cfg, REPO_ROOT):
+        disc_mod.mark_jsearch_run(REPO_ROOT)
+
     profile = profile_mod.load_profile(cfg, REPO_ROOT)
     ref_cfg = cfg["referrals"]
     titles = ref_cfg.get("target_titles", [])

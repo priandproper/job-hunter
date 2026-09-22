@@ -16,7 +16,9 @@ Everything network-touching is guarded: with no key / no network, discovery is a
 no-op and the existing curated list stands. Companies persist in companies.json.
 """
 
+import datetime
 import json
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -25,6 +27,48 @@ from . import ats
 from . import secrets as secrets_mod
 
 UA = "job-hunter/1.0 (personal job search)"
+
+
+# ---- JSearch throttle (stay under the RapidAPI free quota) -------------------
+# The launchd worker runs daily, but the JSearch free tier is ~200 req/month, so
+# we gate JSearch to run at most every `min_interval_hours`. The last-run time
+# lives in a git-ignored local file; both JSearch calls in a run read the SAME
+# (pre-run) timestamp, and the worker stamps it once at the end — so a run either
+# uses JSearch for both ingest + discovery or neither, never a split.
+
+def _jsearch_state_path(repo_root) -> Path:
+    return Path(repo_root) / "data" / "jsearch_state.local.json"
+
+
+def has_jsearch_key(config: dict, repo_root: Path) -> bool:
+    disc = config.get("discovery", {})
+    secrets_file = (Path(repo_root) / disc.get("secrets_file", "")).resolve() \
+        if disc.get("secrets_file") else None
+    return bool(secrets_mod.get_key(disc.get("jsearch_api_key_env", ""), secrets_file))
+
+
+def jsearch_due(config: dict, repo_root: Path) -> bool:
+    """True if enough time has passed since the last JSearch run (or never run).
+    Interval is discovery.min_interval_hours; <=0 disables throttling."""
+    hours = float(config.get("discovery", {}).get("min_interval_hours", 0) or 0)
+    if hours <= 0:
+        return True
+    try:
+        last = float(json.loads(_jsearch_state_path(repo_root).read_text()).get("last_run", 0))
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return True
+    return (time.time() - last) >= hours * 3600
+
+
+def mark_jsearch_run(repo_root: Path):
+    """Stamp 'JSearch ran now'. Called once per run, after both JSearch calls."""
+    p = _jsearch_state_path(repo_root)
+    try:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps({"last_run": time.time(),
+                                 "last_run_iso": datetime.datetime.now().isoformat(timespec="seconds")}))
+    except OSError:
+        pass
 
 
 # ---- company list persistence ------------------------------------------------
@@ -106,6 +150,9 @@ def fetch_postings(config: dict, repo_root: Path, log=print) -> list[dict]:
     api_key = secrets_mod.get_key(disc.get("jsearch_api_key_env", ""), secrets_file)
     if not api_key:
         return []
+    if not jsearch_due(config, repo_root):
+        log(f"        postings  — JSearch throttled ({disc.get('min_interval_hours')}h interval); using existing sources")
+        return []
     pages = max(1, int(disc.get("results_pages", 1)))
     queries = disc.get("queries", [])
     out, seen = [], set()
@@ -152,6 +199,9 @@ def discover_companies(config: dict, repo_root: Path, log=print) -> dict:
     api_key = secrets_mod.get_key(disc.get("jsearch_api_key_env", ""), secrets_file)
     if not api_key:
         log("        discovery — no JSearch key; keeping curated company list")
+        return summary
+    if not jsearch_due(config, repo_root):
+        log(f"        discovery — JSearch throttled ({disc.get('min_interval_hours')}h interval); keeping curated list")
         return summary
 
     seen_employers: dict[str, str] = {}  # name -> apply url

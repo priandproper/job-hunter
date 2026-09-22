@@ -31,3 +31,4 @@ data/job-search-summary.json
 data/coach_history.json
 data/alerts.local.json
 data/no_sponsor.local.json
+data/jsearch_state.local.json
