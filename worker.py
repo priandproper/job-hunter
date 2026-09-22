@@ -36,6 +36,7 @@ from lib import discovery as disc_mod
 from lib import gap as gap_mod
 from lib import health as health_mod
 from lib import immigration as immig_mod
+from lib import sponsorship as sponsor_mod
 from lib import jobs as jobs_mod
 from lib import jobspec as jobspec_mod
 from lib import match as match_mod
@@ -308,6 +309,22 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     if no_sponsor:
         log(f"        immigration — {len(no_sponsor)} confirmed no-sponsor company(ies) will be excluded")
 
+    # Verified H-1B (USCIS Data Hub) for companies whose legal petitioner name we've
+    # resolved (data/legal_names.json). Only mapped names are looked up — an unmapped
+    # miss is never treated as "doesn't sponsor". Cached per run; skipped in --public-only.
+    legal_map = sponsor_mod.load_legal_names(REPO_ROOT)
+    sponsor_cache, sponsor_hits = {}, 0
+    def _verified_sponsor(name):
+        key = (name or "").strip().lower()
+        if not key or key not in legal_map:
+            return None                     # unmapped -> leave to JD-text signal, no network
+        if key not in sponsor_cache:
+            try:
+                sponsor_cache[key] = sponsor_mod.verdict(name, legal_map=legal_map)
+            except Exception:               # network hiccup -> no verified block this run
+                sponsor_cache[key] = None
+        return sponsor_cache[key]
+
     # Candidate context for the transparent priority score (Phase 6): the skills and
     # experience terms the candidate actually has, drawn from the resume profile.
     prio_ctx = _priority_ctx(profile)
@@ -350,8 +367,13 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
                 private[job["id"]] = referrers
                 total_ref += len(referrers)
 
-        immigration = immig_mod.classify(
-            job, comp_by_name.get((job.get("company") or "").strip().lower()), no_sponsor)
+        company_rec = comp_by_name.get((job.get("company") or "").strip().lower())
+        v = _verified_sponsor(job.get("company"))
+        if v and company_rec is not None:
+            company_rec["h1b_verified"] = v            # folded into the immigration object
+            if v.get("h1b_status") == "FOUND":
+                sponsor_hits += 1
+        immigration = immig_mod.classify(job, company_rec, no_sponsor)
         priority = priority_mod.score(job, prio_ctx, immigration=immigration,
                                       referral_count=len(referrers), today=today)
 
@@ -489,6 +511,9 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
         + (f"; {hard_stopped} immigration hard-stop(s) excluded" if hard_stopped else ""))
     log(f"        priority  — A:{_bands.get('A',0)} B:{_bands.get('B',0)} "
         f"C:{_bands.get('C',0)} Reject:{_bands.get('Reject',0)}")
+    _verified_cos = sum(1 for v in sponsor_cache.values() if v and v.get("h1b_status") == "FOUND")
+    if _verified_cos:
+        log(f"        sponsorship — {_verified_cos} company(ies) verified as active H-1B sponsors (USCIS Data Hub)")
     if dup_n:
         log(f"        dedup     — {dup_n} repost/duplicate/headcount posting(s) flagged")
     log(f"[4/6] gap       — best ATS {best['ats_score'] if best else 0}% "

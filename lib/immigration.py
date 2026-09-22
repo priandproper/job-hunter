@@ -238,7 +238,19 @@ def classify(job: dict, company: dict | None = None, no_sponsor=None) -> dict:
         evidence.append({"type": "enrichment", "text": job["sponsorship_note"],
                          "source": "llm_enrichment"})
     hist = _company_h1b_history(company)
-    if hist in ("some", "none") and company and company.get("h1b_note"):
+    # Verified H-1B from the USCIS Data Hub (lib/sponsorship), when the worker resolved
+    # this company's legal petitioner name. Still EVIDENCE, not proof the CURRENT team
+    # sponsors — a company-wide petition history can't guarantee this specific role —
+    # so it enriches the yellow verdict and never lifts risk to green on its own.
+    verified = company.get("h1b_verified") if company else None
+    if verified and verified.get("h1b_status") == "FOUND":
+        hist = "strong"
+        evidence.append({"type": "h1b_verified",
+                         "text": (f"{verified['legal_name']} filed {verified['h1b_approvals']} approved "
+                                  f"H-1B petition(s) in FY{verified['h1b_fy']} (USCIS H-1B Employer Data Hub)."),
+                         "source": "USCIS H-1B Employer Data Hub",
+                         "note": "verified company-wide history — not proof this team sponsors"})
+    elif hist in ("some", "none") and company and company.get("h1b_note"):
         # Recorded as EVIDENCE only; explicitly not proof of current sponsorship.
         evidence.append({"type": "company_h1b_history", "text": company["h1b_note"],
                          "source": "DOL LCA (public, h1bdata.info)",
@@ -261,8 +273,9 @@ def classify(job: dict, company: dict | None = None, no_sponsor=None) -> dict:
 
     return {
         "job_text": t["job_text"],              # supports | prohibits | not_stated | ambiguous
-        "company_everify": "unknown",           # not integrated (no permitted source yet)
+        "company_everify": (verified or {}).get("e_verify", "unknown"),  # from browser E-Verify step, when run
         "company_h1b_history": hist,            # strong | some | none | unknown (EVIDENCE only)
+        "h1b_verified": verified,               # full USCIS Data Hub verdict, or None if not resolved
         "marketing_h1b_evidence": "unknown",    # function-specific LCA — not integrated yet
         "team_confirmation": "not_asked",       # confirmed | rejected | pending | not_asked (manual)
         "risk": risk,                           # green | yellow | red

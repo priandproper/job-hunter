@@ -448,6 +448,17 @@
   .tag.in{background:var(--good-soft);color:var(--good)} .tag.ap{background:var(--accent-soft);color:var(--accent)}
   .tag.se{background:var(--mid-soft);color:var(--mid)}
   .tag.warm{background:var(--good-soft);color:var(--good)}   /* referral path in your network */
+  /* Phase 18 — verified visa-sponsorship signal */
+  .tag.spon-ok{background:var(--good-soft);color:var(--good);text-transform:none;letter-spacing:0}
+  .tag.spon-mid{background:var(--mid-soft);color:var(--mid);text-transform:none;letter-spacing:0}
+  .tag.spon-no{background:var(--bad-soft);color:var(--bad);text-transform:none;letter-spacing:0}
+  .sp-card .sp-top{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:0 0 .7rem}
+  .sp-card .sp-top .tag{margin:0}
+  .sp-line{font-size:.87rem;color:var(--ink-2);margin:.35rem 0;line-height:1.5}
+  .sp-line.sp-good{color:var(--ink)}
+  .sp-line b{color:var(--ink)}
+  .sp-evi{margin:.5rem 0 0;padding-left:1.1rem;font-size:.82rem;color:var(--ink-2);line-height:1.5}
+  .sp-evi li{margin:.2rem 0}
   /* Phase 6 — transparent priority score */
   .prio{display:inline-block;font-size:.64rem;font-weight:800;padding:.1rem .44rem;border-radius:6px;
     letter-spacing:.03em;margin-left:.15rem;vertical-align:middle;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -932,6 +943,66 @@ function prioPanel(job){const p=priorityFor(job);if(!p)return '';
     <div class="pp-note">A transparent guide, not a precise measurement — component scores &amp; evidence above.</div>
   </div>`;}
 function _prioTotal(j){const p=priorityFor(j);return p?(p.total||0):-1;}
+// ===== Verified visa-sponsorship signal (lib/sponsorship — USCIS H-1B Data Hub) =====
+// A verified H-1B block means the employer's LEGAL entity filed approved petitions in
+// the fiscal year (real data, not a guess). It's company-wide history — evidence the
+// company sponsors, never a guarantee this specific team will — so it enriches the
+// verdict but never turns a "verify first" into a promise.
+function immFor(job){return (job&&job.immigration)||{};}
+function sponsorBadge(job){
+  const im=immFor(job),v=im.h1b_verified;
+  if(im.risk==='red')return `<span class="tag spon-no" title="${esc(im.action||'Hard stop for an F-1/H-1B candidate.')}">🛂 no sponsorship</span>`;
+  if(v&&v.h1b_status==='FOUND')
+    return `<span class="tag spon-ok" title="${esc(v.legal_name)} filed ${v.h1b_approvals} approved H-1B petition(s) in FY${v.h1b_fy} — USCIS H-1B Employer Data Hub. Company-wide history, not a guarantee for this role.">🛂 H-1B ✓ ${v.h1b_approvals}</span>`;
+  if(im.job_text==='supports'||im.risk==='green')
+    return `<span class="tag spon-ok" title="The job description states sponsorship is available — still get it in writing.">🛂 sponsors</span>`;
+  return '';   // yellow/unknown: keep the list clean, full detail lives on the job page
+}
+function copyVerifyCommand(id){
+  const job=(DOC.jobs||[]).find(j=>j.id===id)||{};
+  const prompt=`Verify visa sponsorship for this job: "${job.title||''}" at ${job.company||''} — ${job.url||''}. `
+    +`Resolve the real legal hiring entity, then run the H-1B Data Hub (FY2026) and the E-Verify check in the browser, and give me the verdict.`;
+  copyText(prompt);
+  toast('Copied — paste it to Claude to run the full E-Verify + legal-entity check');
+}
+function sponsorCard(job){
+  const im=immFor(job),v=im.h1b_verified;
+  const risk=im.risk||'yellow';
+  const pill={green:'spon-ok',yellow:'spon-mid',red:'spon-no'}[risk]||'spon-mid';
+  const label={green:'Sponsorship indicated',yellow:'Verify sponsorship',red:'Hard stop'}[risk]||'Verify';
+  // H-1B (verified) line
+  let h1b;
+  if(v&&v.h1b_status==='FOUND')
+    h1b=`<div class="sp-line sp-good"><b>H-1B (verified):</b> ${esc(v.legal_name)} filed <b>${v.h1b_approvals}</b> approved petition(s) in FY${v.h1b_fy}. <span class="co">Source: USCIS H-1B Employer Data Hub. Company-wide — evidence they sponsor, not a guarantee for this role.</span></div>`;
+  else if(v&&v.h1b_status==='UNRESOLVED_NAME')
+    h1b=`<div class="sp-line"><b>H-1B:</b> couldn't confirm the legal petitioner name automatically, so the file wasn't checked. <span class="co">This is <b>not</b> evidence they don't sponsor.</span></div>`;
+  else if(v&&v.h1b_status==='NOT_FOUND')
+    h1b=`<div class="sp-line"><b>H-1B:</b> ${esc(v.legal_name)} wasn't in the FY${v.h1b_fy} file. <span class="co">Not proof they don't sponsor — they may file under another entity.</span></div>`;
+  else
+    h1b=`<div class="sp-line"><b>H-1B:</b> not auto-verified for this company yet. <span class="co">Run the full check below.</span></div>`;
+  // E-Verify line
+  const ev=im.company_everify||'unknown';
+  const evTxt={OPEN:'enrolled (Open) ✓',TERMINATED:'terminated',NOT_FOUND:'no matching account found'}[ev]
+    ||'not checked yet <span class="co">(runs in the browser during the full check)</span>';
+  const evLine=`<div class="sp-line"><b>E-Verify:</b> ${evTxt}</div>`;
+  // Evidence from the JD-text + verified sources
+  const evi=(im.evidence||[]).filter(e=>e&&e.text).slice(0,4).map(e=>
+    `<li>${esc(e.text)} <span class="co">— ${esc(e.source||e.type||'')}</span></li>`).join('');
+  const eviHtml=evi?`<ul class="sp-evi">${evi}</ul>`:'';
+  return `<div class="box jp-card sp-card">
+    <span class="eyebrow">🛂 Visa sponsorship</span>
+    <div class="sp-top"><span class="tag ${pill}">${esc(label)}</span>
+      <span class="co">${esc(im.action||'')}</span></div>
+    ${h1b}
+    ${evLine}
+    ${eviHtml}
+    <div class="rowbtns" style="margin-top:.7rem">
+      <button onclick="copyVerifyCommand('${job.id}')" title="Copies a prompt for Claude to resolve the legal hiring entity and run the E-Verify (browser) + H-1B checks for this exact job">🛂 Run full sponsorship check</button>
+      <a href="https://www.e-verify.gov/e-verify-employer-search" target="_blank" rel="noopener"><button title="USCIS E-Verify employer search (opens the official tool)">E-Verify search ↗</button></a>
+    </div>
+    <p class="co" style="margin:.5rem 0 0">A verified H-1B history is strong evidence — always get sponsorship confirmed in writing before the hiring-manager stage.</p>
+  </div>`;
+}
 // A job you've already acted on shouldn't be re-recommended (status lives here in the
 // browser, so the coach's picks are filtered at display time).
 function _actedOn(id){const s=jobStatus(id);return APPLIED_STATES.has(s)||s==='archived'||s==='messaged'||s==='referred'||isPruned(id);}
@@ -2155,7 +2226,7 @@ function jobRow(job){
   return `<div class="jobrow ${isNew?'is-new':''} ${isFresh(job)?'is-fresh':''}" id="row-${job.id}">
     <a class="rhead" href="${href}">
       <span class="dot s-${st.replace(/ /g,'-')}"></span>
-      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${warmBadge(job)}${autoDupTag(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
+      <div class="rinfo"><div class="rtitle">${esc(job.title)} ${prioBadge(job)}${sponsorBadge(job)}${warmBadge(job)}${autoDupTag(job)}${coachBadge(job)}${flagBadge(job)}${freshBadge(job)}${isNew?'<span class="tag new">new</span>':''}${job.manual?'<span class="tag manual">added</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}${job._stale?'<span class="tag stale">past scan</span>':''}${job.enrichment?'<span class="tag enriched" title="Enriched with Claude — open for sponsorship, skills, seniority & location fit">✨ enriched</span>':''}</div>
         <div class="rmeta">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs</span>`:''} · ${esc(job.location||'')}</div></div>
       <div class="rscore">${job.fit_score}<small>fit</small></div>
       <div class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></div>
@@ -3012,7 +3083,7 @@ function renderJobPage(id){
     ${staleNote}
     ${isPruned(job.id)?`<div class="prune-banner">This job is hidden — you won't see it again. <button class="primary" onclick="unprune('${job.id}')">Restore</button></div>`:''}
     <div class="jp-head">
-      <div><h2>${esc(job.title)} ${autoDupTag(job)}${warmBadge(job)}${freshBadge(job)}${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}${_postedDays(job)!==null?` · <span class="co">posted ${_postedDays(job)<1?'today':Math.round(_postedDays(job))+'d ago'}</span>`:''}</p></div>
+      <div><h2>${esc(job.title)} ${autoDupTag(job)}${sponsorBadge(job)}${warmBadge(job)}${freshBadge(job)}${job.manual?'<span class="tag manual">added by me</span>':''}${isRepost(job.id)?'<span class="tag repost">repost</span>':''}</h2><p class="jp-sub">${esc(job.company)}${job.min_years?` · <span class="yrs">${job.min_years}+ yrs exp</span>`:''} · ${esc(job.location||'')}${_postedDays(job)!==null?` · <span class="co">posted ${_postedDays(job)<1?'today':Math.round(_postedDays(job))+'d ago'}</span>`:''}</p></div>
       <div class="jp-scores"><span class="rscore">${job.fit_score}<small>fit</small></span>
         <span class="rscore ${atsClass(job.ats_score)}">${job.ats_score}%<small>ats</small></span>
         <button class="markbtn lg ${isMarked(job.id)?'on':''}" onclick="toggleMark('${job.id}')">${isMarked(job.id)?'★ Saved':'☆ Revisit'}</button>
@@ -3021,6 +3092,7 @@ function renderJobPage(id){
         <a href="${esc(job.url||'#')}" target="_blank" rel="noopener"><button class="primary">Apply ↗</button></a></div>
     </div>
     ${priorityFor(job)?`<div class="box jp-card"><span class="eyebrow">Why this priority</span>${prioPanel(job)}</div>`:''}
+    ${sponsorCard(job)}
     <div class="box jp-card"><span class="eyebrow">Application &amp; inbox</span>
       <p class="jp-applied">${appliedLine}</p>
       <div class="jp-status">
