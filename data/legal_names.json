@@ -15,6 +15,8 @@
     "character.ai": "CHARACTER TECHNOLOGIES INC",
     "checkr": "CHECKR INC",
     "chime": "CHIME FINANCIAL INC",
+    "cohere": "COHERE TECHNOLOGIES INC",
+    "cresta": "CRESTA INTELLIGENCE INC",
     "confluent": "CONFLUENT INC",
     "coreweave (incl. weights & biases)": "COREWEAVE INC",
     "databricks": "DATABRICKS INC",
@@ -43,6 +45,7 @@
     "roblox": "ROBLOX CORPORATION",
     "samsara": "SAMSARA INC",
     "scale ai": "SCALE AI INC",
+    "snyk": "SNYK LTD",
     "squarespace": "SQUARESPACE INC",
     "stripe": "STRIPE INC",
     "toast": "TOAST INC",
@@ -50,6 +53,7 @@
     "twitch": "TWITCH INTERACTIVE INC",
     "vercel": "VERCEL INC",
     "wayfair": "WAYFAIR LLC",
-    "writer": "WRITER INC"
+    "writer": "WRITER INC",
+    "xai": "X AI LLC"
   }
 }
