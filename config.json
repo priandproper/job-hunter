@@ -38,6 +38,7 @@
       "No"
     ],
     "max_age_days": 14,
+    "drop_undated_jobs": true,
     "experience": {
       "exclude_at_years": 5,
       "sweet_spot_low": 1,

@@ -61,18 +61,20 @@ def load_config() -> dict:
     return json.loads((REPO_ROOT / "config.json").read_text())
 
 
-def _too_old(job: dict, max_age_days: int, today: _dt.date) -> bool:
-    """Auto-tidy: drop postings older than max_age_days. Unparseable/absent dates
-    are kept (we don't guess). max_age_days <= 0 disables the filter."""
+def _too_old(job: dict, max_age_days: int, today: _dt.date, drop_undated: bool = False) -> bool:
+    """Auto-tidy: drop postings older than max_age_days. By default unparseable/absent
+    dates are KEPT (we don't guess); with drop_undated=True they're dropped too (the
+    candidate asked to see only jobs with a confirmed post date within the window).
+    max_age_days <= 0 disables the filter."""
     if not max_age_days or max_age_days <= 0:
         return False
     raw = (job.get("posted_at") or "").strip()
     if not raw:
-        return False
+        return drop_undated
     try:
         d = _dt.datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
     except (ValueError, TypeError):
-        return False
+        return drop_undated
     return (today - d).days > max_age_days
 
 
@@ -307,6 +309,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     tidied = 0
     today = _dt.date.today()
     max_age = cfg["match"].get("max_age_days", 0)
+    drop_undated = bool(cfg["match"].get("drop_undated_jobs", False))
 
     # Company lookup (by name) so each job's immigration object can fold in the
     # company's public H-1B history as EVIDENCE (never as proof — see lib/immigration).
@@ -354,7 +357,7 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
                     immig_mod.hard_stop(job, no_sponsor)[0]:
                 hard_stopped += 1
             continue
-        if _too_old(job, max_age, today):   # auto-tidy stale postings
+        if _too_old(job, max_age, today, drop_undated):   # auto-tidy stale postings
             tidied += 1
             continue
         kept += 1
