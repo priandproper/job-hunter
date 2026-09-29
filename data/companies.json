@@ -2300,6 +2300,336 @@
       "hq": "Livingston, NJ / remote",
       "source": "audit:ai-labs-2026-09-17",
       "active": true
+    },
+    {
+      "name": "Uline",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Juniper Square",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Stryker",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Cengage Learning",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Univar Solutions",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Realpage",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Doppel",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Nelnet",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Speechify",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Asurion",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Nestl\u00e9",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Compass Group",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Stanley Martin Homes",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Chapman University",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Capital One",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "PepsiCo",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Omnicom",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Anatta Design",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "State Farm",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "ektello",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Waters",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Belk",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Kelly Services",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Abbott Laboratories",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "System One",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Johnson & Johnson",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "PreVeil",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Fastly",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "commercetools",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Freshworks",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Veeva Systems",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "Tenable",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
+    },
+    {
+      "name": "BlackRock",
+      "ats": "",
+      "slug": "",
+      "h1b": true,
+      "h1b_note": "public LCA rows found (h1bdata, 2024)",
+      "hq": "",
+      "source": "discovery:jsearch",
+      "active": false
     }
   ]
 }
