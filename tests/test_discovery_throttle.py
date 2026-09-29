@@ -77,6 +77,42 @@ def test_has_key_reflects_env():
         del os.environ["JS_TEST_KEY"]
 
 
+# 5) Per-run request budget is a hard cap shared across JSearch calls.
+def test_request_budget_hard_caps_spend():
+    d.reset_request_budget(20)
+    assert d.jsearch_requests_used() == 0
+    assert d._budget_room(20) is True and d._budget_room(21) is False
+    d._budget_spend(18)
+    assert d._budget_room(2) is True and d._budget_room(3) is False   # 18+3 > 20
+    d._budget_spend(2)
+    assert d._budget_room(1) is False                                  # full at 20
+    # cap None (or 0) disables the budget -> always room
+    d.reset_request_budget(None)
+    assert d._budget_room(9999) is True
+
+
+# 6) With the budget exhausted, fetch_postings makes ZERO network calls (guard fires
+#    before _jsearch), even with a key present.
+def test_fetch_postings_stops_at_budget():
+    import os
+    root = Path(tempfile.mkdtemp())
+    (root / "data").mkdir()
+    cfg = {"discovery": {"enabled": True, "min_interval_hours": 0,   # not throttled
+                         "jsearch_api_key_env": "BUD_KEY", "secrets_file": "",
+                         "queries": ["a", "b", "c"], "results_pages": 1}}
+    os.environ["BUD_KEY"] = "fake"
+    called = {"n": 0}
+    orig = d._jsearch
+    d._jsearch = lambda *a, **k: called.__setitem__("n", called["n"] + 1) or []
+    try:
+        d.reset_request_budget(0)                 # no budget at all
+        out = d.fetch_postings(cfg, root, log=lambda *_: None)
+    finally:
+        d._jsearch = orig
+        del os.environ["BUD_KEY"]
+    assert out == [] and called["n"] == 0          # guard fired, no network attempted
+
+
 def _run():
     tests = sorted((n, f) for n, f in globals().items()
                    if n.startswith("test_") and callable(f))

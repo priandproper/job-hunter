@@ -71,6 +71,33 @@ def mark_jsearch_run(repo_root: Path):
         pass
 
 
+# ---- per-run request budget (hard cap — a run can NEVER blow the quota) -------
+# The RapidAPI quota counts credits and each JSearch page = 1 credit. This budget
+# is shared by BOTH JSearch calls in a run and reset by the worker at run start, so
+# no matter how many queries/pages are configured, one worker run can never spend
+# more than max_requests_per_run credits. Belt-and-suspenders on top of the free
+# tier's own hard 200/month limit (which blocks, never bills).
+_BUDGET = {"used": 0, "cap": None}
+
+
+def reset_request_budget(cap):
+    # None/absent -> unlimited; an integer (including 0) -> that hard cap.
+    _BUDGET["used"] = 0
+    _BUDGET["cap"] = None if cap is None else int(cap)
+
+
+def _budget_room(cost: int = 1) -> bool:
+    return _BUDGET["cap"] is None or (_BUDGET["used"] + cost) <= _BUDGET["cap"]
+
+
+def _budget_spend(cost: int = 1):
+    _BUDGET["used"] += cost
+
+
+def jsearch_requests_used() -> int:
+    return _BUDGET["used"]
+
+
 # ---- company list persistence ------------------------------------------------
 
 def load_companies(path: Path) -> list[dict]:
@@ -98,7 +125,7 @@ def verify_h1b(company_name: str) -> tuple[bool | None, str]:
         q = urllib.parse.quote(company_name)
         url = f"https://h1bdata.info/index.php?em={q}&year=2024"
         req = urllib.request.Request(url, headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=12) as resp:
+        with urllib.request.urlopen(req, timeout=12, context=ats._CTX) as resp:
             html = resp.read().decode("utf-8", "replace")
         # h1bdata renders a data row per certified LCA; a populated table = sponsor.
         rows = html.count("<tr>")
@@ -111,20 +138,24 @@ def verify_h1b(company_name: str) -> tuple[bool | None, str]:
 
 # ---- job-board discovery (JSearch) ------------------------------------------
 
-def _jsearch(query: str, api_key: str, page: int = 1) -> list[dict]:
-    # country=us pre-filters to United States postings server-side (the candidate
-    # needs US / US-remote roles for H-1B sponsorship).
+def _jsearch(query: str, api_key: str, num_pages: int = 1) -> list[dict]:
+    # JSearch v5: the endpoint is /search-v2 (the old /search was retired), the jobs
+    # list is nested under data.jobs (with a data.cursor for going further), and
+    # num_pages returns up to that many pages in ONE request (each page ~10 results =
+    # 1 request credit). country=us pre-filters to US postings server-side.
     params = urllib.parse.urlencode(
-        {"query": query, "page": page, "num_pages": 1, "country": "us"})
-    url = f"https://jsearch.p.rapidapi.com/search?{params}"
+        {"query": query, "num_pages": max(1, int(num_pages)), "country": "us"})
+    url = f"https://jsearch.p.rapidapi.com/search-v2?{params}"
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
         "X-RapidAPI-Key": api_key,
         "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     })
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    # TLS ALWAYS verified via ats._CTX (certifi bundle) — same as the ATS fetchers.
+    # Without it, macOS raises "unable to get local issuer certificate" (Phase 14).
+    with urllib.request.urlopen(req, timeout=20, context=ats._CTX) as resp:
         data = json.loads(resp.read().decode("utf-8", "replace"))
-    return data.get("data", []) or []
+    return (data.get("data") or {}).get("jobs", []) or []
 
 
 def _norm_jsearch(posting: dict) -> dict:
@@ -157,24 +188,28 @@ def fetch_postings(config: dict, repo_root: Path, log=print) -> list[dict]:
     queries = disc.get("queries", [])
     out, seen = [], set()
     for query in queries:
-        for page in range(1, pages + 1):
-            try:
-                postings = _jsearch(query, api_key, page)
-            except Exception as e:
-                log(f"        postings  — jsearch '{query[:28]}...' p{page} failed: {e}")
-                break  # stop paging this query on error
-            if not postings:
-                break
-            for posting in postings:
-                # Hard US gate: skip any posting whose country is set and isn't US
-                # (server-side country=us still lets the odd non-US role slip through).
-                country = (posting.get("job_country") or "").strip().upper()
-                if country and country not in ("US", "USA", "UNITED STATES"):
-                    continue
-                j = _norm_jsearch(posting)
-                if j["company"] and j["title"] and j["id"] not in seen:
-                    seen.add(j["id"])
-                    out.append(j)
+        # Each call requests `pages` pages = `pages` credits. Stop before exceeding
+        # the per-run budget so a run can never overshoot the quota.
+        if not _budget_room(pages):
+            log(f"        postings  — request budget reached ({jsearch_requests_used()}); stopping JSearch")
+            break
+        # v5 returns up to `pages` pages in one request, so one call per query.
+        try:
+            _budget_spend(pages)
+            postings = _jsearch(query, api_key, pages)
+        except Exception as e:
+            log(f"        postings  — jsearch '{query[:28]}...' failed: {e}")
+            continue
+        for posting in postings:
+            # Hard US gate: skip any posting whose country is set and isn't US
+            # (server-side country=us still lets the odd non-US role slip through).
+            country = (posting.get("job_country") or "").strip().upper()
+            if country and country not in ("US", "USA", "UNITED STATES"):
+                continue
+            j = _norm_jsearch(posting)
+            if j["company"] and j["title"] and j["id"] not in seen:
+                seen.add(j["id"])
+                out.append(j)
     if out:
         log(f"        postings  — +{len(out)} job(s) from JSearch ({len(queries)} queries x {pages}p)")
     return out
@@ -204,9 +239,16 @@ def discover_companies(config: dict, repo_root: Path, log=print) -> dict:
         log(f"        discovery — JSearch throttled ({disc.get('min_interval_hours')}h interval); keeping curated list")
         return summary
 
+    # Discovery is the secondary consumer — cap it to a few queries so the primary
+    # job-ingest keeps most of the per-run budget, and never exceed the budget.
+    disc_queries = disc.get("queries", [])[:max(0, int(disc.get("discover_max_queries", 6)))]
     seen_employers: dict[str, str] = {}  # name -> apply url
-    for query in disc.get("queries", []):
+    for query in disc_queries:
+        if not _budget_room(1):
+            log(f"        discovery — request budget reached ({jsearch_requests_used()}); stopping JSearch")
+            break
         try:
+            _budget_spend(1)
             for posting in _jsearch(query, api_key, 1):
                 name = posting.get("employer_name")
                 if name and _norm_name(name) not in known:

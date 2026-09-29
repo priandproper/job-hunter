@@ -255,6 +255,10 @@ def run(cfg: dict, do_discovery: bool = True, public_only: bool = False, log=pri
     if cg["added"]:
         log(f"[0/6] companies — +{cg['added']} user-added from gist ({cg['listed']} listed)")
 
+    # Hard-cap JSearch spend for this whole run (shared by discovery + ingest) so it
+    # can never exceed the quota, regardless of query/page config.
+    disc_mod.reset_request_budget(cfg.get("discovery", {}).get("max_requests_per_run"))
+
     if do_discovery:
         summary = disc_mod.discover_companies(cfg, REPO_ROOT, log)
         log(f"[1/6] discover  — +{summary['added']} companies "
