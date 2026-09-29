@@ -137,6 +137,30 @@ def test_strict_policy_experience_and_seniority():
     assert m.too_senior("Senior Marketing Manager")
 
 
+# Regression (candidate flagged 7+yr roles leaking repeatedly): a bare "N+ years"
+# with no adjacent "experience" word must still gate, and "Lead"/"Group Manager"
+# titles must count as senior — while demand-gen "lead" roles survive.
+def test_bare_plus_years_and_lead_titles_gate():
+    # "7+ years in product marketing" — no literal "experience" nearby, still gated.
+    assert not m.passes_filters(
+        _job("Product Marketing Manager", "You have 7+ years in product marketing."), HIGH_FIT, STRICT)
+    # a 5–7 year range (no "experience" word) gates on the low end (5) -> excluded.
+    assert not m.passes_filters(
+        _job("Marketing Manager", "We're looking for 5-7 years building GTM programs."), HIGH_FIT, STRICT)
+    # company boilerplate "for 7+ years" must NOT gate when the real bar is 4+.
+    assert m.passes_filters(
+        _job("Field Marketing Manager",
+             "Named a Best Workplace for 7+ years. Required: 4+ years of field marketing."),
+        HIGH_FIT, STRICT)
+    # "Lead" / "Group Manager" as a level are senior…
+    for t in ("Product Marketing Lead", "Lead, Growth Marketing", "PMM Lead",
+              "Group Manager, Product Marketing"):
+        assert m.too_senior(t), t
+    # …but demand-gen "lead gen" and plural "leads" are not.
+    for t in ("Lead Generation Manager", "Demand Gen & Leads Manager", "Marketing Manager, Lead Gen"):
+        assert not m.too_senior(t), t
+
+
 def _run():
     tests = sorted((n, f) for n, f in globals().items()
                    if n.startswith("test_") and callable(f))

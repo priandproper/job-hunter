@@ -187,6 +187,12 @@ _YEARS_PATTERNS = [
     r"(\d{1,2})\s*\+?\s*years?\s+(?:of\s+)?(?:[a-z ]{0,24})?experience",
     r"(?:minimum|at\s+least|min\.?|at\s+minimum)\s+(?:of\s+)?(\d{1,2})\s*\+?\s*years?",
     r"experience[:\s].{0,20}?(\d{1,2})\s*\+?\s*years?",
+    # A bare "N+ years" — the plus almost always marks a requirement ("7+ years in
+    # product marketing", "10+ years leading teams") that the experience-anchored
+    # patterns above miss when the literal word "experience" isn't adjacent.
+    r"(\d{1,2})\s*\+\s*years?\b",
+    # A "5-7 years" / "5 to 7 years" range with no trailing "experience".
+    r"(\d{1,2})\s*(?:-|to|–|—)\s*\d{1,2}\s*years?\b",
 ]
 
 
@@ -269,11 +275,16 @@ def experience_ok(job: dict, cfg_match: dict) -> bool:
 # Gated by config match.exclude_senior_titles.
 _SENIORITY_RE = re.compile(
     r"\b(senior|sr|staff|principal|expert|distinguished|director|head|"
-    r"vp|svp|evp|chief|c[teif]o|president)\b")
+    r"vp|svp|evp|chief|c[teif]o|president|group\s+(?:product\s+)?manager)\b")
+# "Lead" as a job LEVEL (PMM Lead, Lead Growth Marketing) is senior for a 1–4yr
+# target — but NOT when it's the demand-gen noun "lead gen(eration)". "leads" and
+# "leader" don't match (word boundary), so demand-gen roles survive.
+_LEAD_LEVEL_RE = re.compile(r"\blead\b(?!\s*(?:gen\b|gen\.|generation))")
 
 
 def too_senior(title: str | None) -> bool:
-    return bool(_SENIORITY_RE.search((title or "").lower()))
+    t = (title or "").lower()
+    return bool(_SENIORITY_RE.search(t) or _LEAD_LEVEL_RE.search(t))
 
 
 def _count_terms(text: str, terms) -> list[str]:
