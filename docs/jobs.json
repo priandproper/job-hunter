@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-04 08:05:15",
+  "generated_at": "2026-10-04 21:02:23",
   "meta": {
-    "job_count": 145,
+    "job_count": 148,
     "app_url": "https://priandproper.github.io/resume-builder",
     "min_fit_score": 30,
     "github": {
@@ -2137,6 +2137,10 @@
         "count": 6
       },
       {
+        "keyword": "python",
+        "count": 5
+      },
+      {
         "keyword": "forecasting",
         "count": 5
       },
@@ -2146,10 +2150,6 @@
       },
       {
         "keyword": "cms",
-        "count": 4
-      },
-      {
-        "keyword": "python",
         "count": 4
       },
       {
@@ -4389,6 +4389,306 @@
             "max": 5,
             "confidence": "medium",
             "evidence": "US location: Austin, Texas, USA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aec907213a1bc424",
+      "company": "Amazon",
+      "title": "Business Analyst II, WW Grocery Store Private Brands",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10568529/business-analyst-ii-ww-grocery-store-private-brands",
+      "source": "amazon",
+      "posted_at": "2026-10-04",
+      "sponsorship": "Unknown",
+      "fit_score": 96,
+      "min_years": 3,
+      "variant_label": "Product Marketing (PMM)",
+      "title_keywords": [
+        "brand",
+        "business analyst",
+        "pr"
+      ],
+      "ats_score": 55,
+      "best_variant": "Product Marketing (PMM)",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "adoption",
+        "analytics",
+        "brand",
+        "dashboard",
+        "excel",
+        "insights",
+        "project management",
+        "r",
+        "reporting",
+        "sql",
+        "tableau"
+      ],
+      "per_variant": [
+        {
+          "label": "Product Marketing (PMM)",
+          "score": 55,
+          "missing": []
+        },
+        {
+          "label": "Marketing Analytics",
+          "score": 55,
+          "missing": []
+        },
+        {
+          "label": "GTM / Growth",
+          "score": 55,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "The WW Private Brands Shared Services team is seeking an experienced and innovative Business Analyst to help shape the future of Private Brands. You will support the rapid growth of this initiative by developing business metrics, mining data to uncover consumer insights and business opportunity, establishing new reporting and partnering with internal stakeholders to drive the business. The ideal candidate will be highly analytical with proven experience delivering results. Specific responsibilities include identifying the necessary metrics and creating reports to increase understanding of the business, proactively identifying pain points or opportunities through systemic measurement. The Business Analyst will be detail oriented, and possess expertise in both qualitative and quantitative analysis with a passion for delivering actionable insights to key stakeholders. The right candidate will blend advanced reporting with strong critical thinking and project management skills. Your success in the role will have a large impact on improving the customer experience and growing the business. The successful candidate will communicate effectively across teams and levels, while balancing the needs and requirements of internal and external customers. They will be relentlessly focused on improving the customer experience. Flexibility and the ability to prioritize in a changing business environment will also be key. Our team culture is goal-oriented, collaborative and driven to achieve results. We seek an individual who is motivated by a fast-paced and highly entrepreneurial environment. Key job responsibilities Specific responsibilities include identifying the necessary metrics and creating reports to increase understanding of the business, proactively identifying pain points or opportunities through systemic measurement. The Business Analyst will be detail oriented, and possess expertise in both qualitative and quantitative analysis with a passion for delivering actionable insights to key stakeholders. The right candidate will blend advanced reporting with strong critical thinking and project management skills. Your success in the role will have a large impact on improving the customer experience and growing the business. A day in the life Partner across stakeholders to identify and build new weekly and daily reporting to provide insights into business management and optimization. Establish new dashboards and analytics to proactively manage grocery and perishable efficiency. \n\nBasic qualifications:\n- 3+ years of tax, finance or a related analytical field experience - 5+ years of Excel (including VBA, pivot tables, array functions, power pivots, etc.) and data visualization tools such as Tableau experience - 3+ years of business or financial analysis experience - Bachelor's degree or equivalent - Experience defining requirements and using data and metrics to draw business insights - Experience with Excel - Experience with SQL - Experience making business recommendations and influencing stakeholders\n\nPreferred qualifications:\n- 4+ years of Excel (including VBA, pivot tables, array functions, power pivots, etc.) and data visualization tools such as Tableau experience - Usage of generative AI tools to enhance workflow efficiency, with a willingness to learn effective prompting and evaluation practices. - Ability to recognize opportunities where generative AI could enhance products, workflows, or customer experiences. Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you\u2019re applying in isn\u2019t listed, please contact your Recruiting Partner. The base salary range for this position is listed below. Your Amazon package will include sign-on payments and restricted stock units (RSUs). Final compensation will be determined based on factors including experience, qualifications, and location. Amazon also offers comprehensive benefits including health insurance (medical, dental, vision, prescription, Basic Life & AD&D insurance and option for Supplemental life plans, EAP, Mental Health Support, Medical Advice Line, Flexible Spending Accounts, Adoption and Surrogacy Reimbursement coverage), 401(k) matching, paid time off, and parental leave. Learn more about our benefits at https://amazon.jobs/en/benefits . USA, WA, Seattle - 82,700.00 - 130,100.00 USD annually",
+      "resume_core": {
+        "label": "Amazon \u2014 Business Analyst II, WW Grocery Store Private Brands",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "Product Marketing Manager",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern, Product Marketing & Sales",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
+              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
+              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
+              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "May 2024",
+            "highlights": [
+              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
+              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
+              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
+              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
+              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
+              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "Remote",
+            "startDate": "Jun 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
+              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
+              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
+              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
+              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
+              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
+              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
+              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing & GTM",
+            "items": [
+              "Positioning & Messaging",
+              "Go-to-Market Strategy",
+              "Product Launches",
+              "Sales Enablement",
+              "Competitive Intelligence",
+              "Customer Stories & Case Studies",
+              "Product Demos",
+              "Account-Based Marketing (ABM)",
+              "Events & Executive Briefings"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)",
+              "Excel",
+              "A/B Testing",
+              "Full-Funnel Analytics",
+              "customer segmentation",
+              "cohort & funnel analysis"
+            ]
+          },
+          {
+            "name": "Tools",
+            "items": [
+              "Salesforce (CRM)",
+              "Eloqua",
+              "HubSpot",
+              "Generative AI Tools"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Business Analyst II, WW Grocery Store Privat\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
+      "immigration": {
+        "job_text": "not_stated",
+        "company_everify": "unknown",
+        "company_h1b_history": "some",
+        "h1b_verified": null,
+        "marketing_h1b_evidence": "unknown",
+        "team_confirmation": "not_asked",
+        "risk": "yellow",
+        "hard_stop_reason": "",
+        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
+        "evidence": [
+          {
+            "type": "company_h1b_history",
+            "text": "large H-1B sponsor",
+            "source": "DOL LCA (public, h1bdata.info)",
+            "note": "historical \u2014 not proof the current team sponsors"
+          }
+        ],
+        "overridden": false,
+        "last_verified": null
+      },
+      "spec": {
+        "title": "Business Analyst II, WW Grocery Store Private Brands",
+        "company": "Amazon",
+        "job_id": "aec907213a1bc424",
+        "product_or_service": "",
+        "customer": [],
+        "responsibilities": [],
+        "basic_qualifications": [
+          "3+ years of tax, finance or a related analytical field experience",
+          "5+ years of Excel (including VBA, pivot tables, array functions, power pivots, etc.) and data visualization tools such as Tableau experience",
+          "3+ years of business or financial analysis experience",
+          "Bachelor's degree or equivalent",
+          "Experience defining requirements and using data and metrics to draw business insights",
+          "Experience with Excel",
+          "Experience with SQL",
+          "Experience making business recommendations and influencing stakeholders"
+        ],
+        "preferred_qualifications": [
+          "4+ years of Excel (including VBA, pivot tables, array functions, power pivots, etc.) and data visualization tools such as Tableau experience"
+        ],
+        "required_years": 3,
+        "locations": [
+          "Seattle",
+          "Washington",
+          "USA"
+        ],
+        "salary": "82,700.00 - 130,100.00 USD",
+        "sponsorship_text": [],
+        "date_posted": "2026-10-04",
+        "full_cleaned_jd": ""
+      },
+      "priority": {
+        "total": 72,
+        "band": "B",
+        "hard_stops": [],
+        "uncertainty": "medium",
+        "why": "Priority B (72/100). Strong on direct experience & product customer; weakest on referral access. Confidence limited by: immigration.",
+        "components": [
+          {
+            "name": "basic_qualifications",
+            "points": 18.8,
+            "max": 25,
+            "confidence": "high",
+            "evidence": "6/8 basic quals evidenced; gaps: 3+ years of tax, finance or a related analytical field exper; Bachelor's degree or equivalent; asks 3y (in your 1-4y sweet spot)"
+          },
+          {
+            "name": "direct_experience",
+            "points": 20.0,
+            "max": 20,
+            "confidence": "medium",
+            "evidence": "8/8 role skills in your experience: analysis, business, data, excel, power"
+          },
+          {
+            "name": "immigration",
+            "points": 10.0,
+            "max": 20,
+            "confidence": "low",
+            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
+          },
+          {
+            "name": "product_customer",
+            "points": 15.0,
+            "max": 15,
+            "confidence": "medium",
+            "evidence": "domain overlap: ai, analytics, data, growth, payments"
+          },
+          {
+            "name": "referral_access",
+            "points": 0.0,
+            "max": 10,
+            "confidence": "medium",
+            "evidence": "no referral path found yet"
+          },
+          {
+            "name": "recency",
+            "points": 5.0,
+            "max": 5,
+            "confidence": "high",
+            "evidence": "posted 0d ago"
+          },
+          {
+            "name": "location",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "medium",
+            "evidence": "US location: Seattle, Washington, USA"
           }
         ]
       }
@@ -15290,7 +15590,7 @@
       "location": "San Mateo, CA, United States",
       "url": "https://careers.roblox.com/jobs/8187226?gh_jid=8187226",
       "source": "greenhouse",
-      "posted_at": "2026-10-04T02:33:19-04:00",
+      "posted_at": "2026-10-04T14:33:23-04:00",
       "sponsorship": "Unknown",
       "fit_score": 88,
       "min_years": 2,
@@ -15544,7 +15844,7 @@
           "For US based roles only, please note the Company may not be able to employ candidates for this role who have United States work authorization related to certain U.S.",
           "visa categories, or support future H-1B sponsorship at this time."
         ],
-        "date_posted": "2026-10-04T02:33:19-04:00",
+        "date_posted": "2026-10-04T14:33:23-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -16494,7 +16794,7 @@
       "location": "San Mateo, CA, United States",
       "url": "https://careers.roblox.com/jobs/8187220?gh_jid=8187220",
       "source": "greenhouse",
-      "posted_at": "2026-10-04T02:33:17-04:00",
+      "posted_at": "2026-10-04T14:33:21-04:00",
       "sponsorship": "Unknown",
       "fit_score": 85,
       "min_years": 3,
@@ -16741,7 +17041,7 @@
           "For US based roles only, please note the Company may not be able to employ candidates for this role who have United States work authorization related to certain U.S.",
           "visa categories, or support future H-1B sponsorship at this time."
         ],
-        "date_posted": "2026-10-04T02:33:17-04:00",
+        "date_posted": "2026-10-04T14:33:21-04:00",
         "full_cleaned_jd": ""
       },
       "priority": {
@@ -30691,11 +30991,302 @@
       }
     },
     {
+      "id": "a079e1b964373898",
+      "company": "Gong",
+      "title": "Sales Development Representative",
+      "location": "San Francisco",
+      "url": "https://job-boards.greenhouse.io/gongio/jobs/4270796006",
+      "source": "greenhouse",
+      "posted_at": "2026-09-22T12:17:17-04:00",
+      "sponsorship": "Unknown",
+      "fit_score": 51,
+      "min_years": null,
+      "variant_label": "Product Marketing (PMM)",
+      "title_keywords": [
+        "pr"
+      ],
+      "ats_score": 75,
+      "best_variant": "Product Marketing (PMM)",
+      "missing_keywords": [],
+      "requested_keywords": [
+        "excel",
+        "insights",
+        "r",
+        "sales enablement"
+      ],
+      "per_variant": [
+        {
+          "label": "Product Marketing (PMM)",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "Marketing Analytics",
+          "score": 75,
+          "missing": []
+        },
+        {
+          "label": "GTM / Growth",
+          "score": 75,
+          "missing": []
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "Gong harnesses the power of AI to transform how revenue teams win. The Gong Revenue AI Operating System unifies data, insights, and workflows into a single, trusted system that observes, guides, and acts alongside the world\u2019s most successful revenue teams. Powered by the Gong Revenue Graph, AI-powered intelligence, specialized agents, and trusted applications, Gong helps more than 5,000 companies around the world deeply understand their teams and customers, automate critical sales workflows, and close more deals with less effort. For more information, visit www.gong.io. \n At Gong, you will join a company built on innovative products, ambitious goals, and passionate people. We are shaping the future of revenue intelligence and we want people who are excited to build what comes next. You will work with a team that dreams big, moves fast, and cares deeply about the craft and about each other. Here, transparency and trust are core to how we operate, and every person has the opportunity to make a visible impact. If you want to grow, stretch, and do work that truly matters, Gong is the place to do the best work of your career. Gong empowers everyone in revenue teams to improve productivity, increase predictability, and drive revenue growth by deeply understanding customers and business trends; driving impactful decisions and actions. The Gong Revenue AI Platform captures and contextualizes customer interactions, surfaces insights and predictions, and powers actions and workflows that are essential for business success. More than 4,500 companies around the world rely on Gong to unlock their revenue potential. For more information, visit\u00a0 www.gong.io . \n As a Gong Sales Development Representative, you'll play a key role in generating new business opportunities for the company and be a part of building a world-class sales development organization at a category-defining tech company. \n RESPONSIBILITIES \n \n Raise awareness and generate interest for Gong through cold calling, emails, and social outreach to prospective customers \n Schedule initial discovery calls for Account Executives \n Meet or exceed assigned daily activity minimums of 80-100 activities \n Manage your own book of accounts and set the strategy for effective book management \n Become a power user of Gong's platform \n Provide constructive feedback on how to improve effectiveness and efficiency within the SDR role to SDR Managers and Sales Enablement \n Collaborate with team members to share and learn from best practices \n \n QUALIFICATIONS\u00a0 \n \n You are located in the NYC metro area within a commutable distance to our office \n You are able to be in a Gong office 3x per week (Monday, Tuesday, Thursday) \n Have sold in the past or have a passion for sales or sales leadership \n Excellent verbal and written communication skills \n You have a high degree of resilience, enabling you to bounce back from setbacks \n You possess a player mindset; you strive to grow and develop and never back down from a challenge \n Your work ethic is unmatched- anything you don't know you'll make up with hard work \n You're extremely coachable and willing to receive and implement feedback \n \n PERKS & BENEFITS\u00a0 \n \n We offer Gongsters a variety of medical, dental, and vision plans, designed to fit you and your family\u2019s needs. \n Wellbeing Fund - flexible wellness stipend to support a healthy lifestyle. \n Mental Health benefits with covered therapy and coaching. \n 401(k) program to help you invest in your future. \n Education & learning stipend for personal growth and development. \n Flexible vacation time to promote a healthy work-life blend. \n Paid parental leave to support you and your family. \n Company-wide recharge days each quarter. \n Work from home stipend to help you succeed in a remote environment. \n \n The annual OTE for this position is $90,000 USD.\u00a0 \n Compensation is based on factors unique to each candidate, including, but not limited to, job-related skills, qualification, education, experience, and location. At Gong, we have a location-based compensation structure, which means there may be a different range for candidates in other locations. The total compensation package for this position, in addition to base compensation, may include incentive compensation, bonus, equity, and benefits. Some of our sales compensation programs also offer the potential to achieve above targeted earnings for those who exceed their sales targets.\u00a0 \n We are always looking for outstanding Gongsters! So if this sounds like something that interests you regardless of compensation, please reach out. We may have more roles for you to consider and would love to connect. \n We have noticed a rise in recruiting impersonations across the industry, where scammers attempt to access candidates' personal and financial information through fake interviews and offers. All Gong recruiting email communications will always come from the @gong.io domain. Any outreach claiming to be from Gong via other sources should be ignored. \n \n Gong is an equal-opportunity employer. We believe that diversity is integral to our success, and do not discriminate based on race, color, religion, age, sex, sexual orientation, gender identity, national origin, disability, military status, genetic information, or any other basis protected by applicable law. \n To review Gong's privacy policy, visit https://www.gong.io/gong-io-job-candidates-privacy-notice/ for more details. \n #LI-IP1",
+      "resume_core": {
+        "label": "Gong \u2014 Sales Development Representative",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "Product Marketing Manager",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern, Product Marketing & Sales",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
+              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
+              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
+              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "May 2024",
+            "highlights": [
+              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
+              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
+              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
+              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
+              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
+              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "Remote",
+            "startDate": "Jun 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
+              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
+              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
+              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
+              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
+              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
+              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
+              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing & GTM",
+            "items": [
+              "Positioning & Messaging",
+              "Go-to-Market Strategy",
+              "Product Launches",
+              "Sales Enablement",
+              "Competitive Intelligence",
+              "Customer Stories & Case Studies",
+              "Product Demos",
+              "Account-Based Marketing (ABM)",
+              "Events & Executive Briefings"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)",
+              "Excel",
+              "A/B Testing",
+              "Full-Funnel Analytics",
+              "customer segmentation",
+              "cohort & funnel analysis"
+            ]
+          },
+          {
+            "name": "Tools",
+            "items": [
+              "Salesforce (CRM)",
+              "Eloqua",
+              "HubSpot",
+              "Generative AI Tools"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Gong is hiring a Sales Development Representative and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Gong, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Gong%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
+      "immigration": {
+        "job_text": "not_stated",
+        "company_everify": "unknown",
+        "company_h1b_history": "some",
+        "h1b_verified": null,
+        "marketing_h1b_evidence": "unknown",
+        "team_confirmation": "not_asked",
+        "risk": "yellow",
+        "hard_stop_reason": "",
+        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
+        "evidence": [
+          {
+            "type": "company_h1b_history",
+            "text": "FLAG: small - ~3 LCAs FY2025",
+            "source": "DOL LCA (public, h1bdata.info)",
+            "note": "historical \u2014 not proof the current team sponsors"
+          }
+        ],
+        "overridden": false,
+        "last_verified": null
+      },
+      "spec": {
+        "title": "Sales Development Representative",
+        "company": "Gong",
+        "job_id": "a079e1b964373898",
+        "product_or_service": "",
+        "customer": [],
+        "responsibilities": [
+          "Raise awareness and generate interest for Gong through cold calling, emails, and social outreach to prospective customers",
+          "Schedule initial discovery calls for Account Executives",
+          "Meet or exceed assigned daily activity minimums of 80-100 activities",
+          "Manage your own book of accounts and set the strategy for effective book management",
+          "Become a power user of Gong's platform",
+          "Provide constructive feedback on how to improve effectiveness and efficiency within the SDR role to SDR Managers and Sales Enablement",
+          "Collaborate with team members to share and learn from best practices",
+          "QUALIFICATIONS",
+          "You are located in the NYC metro area within a commutable distance to our office",
+          "You are able to be in a Gong office 3x per week (Monday, Tuesday, Thursday)",
+          "Have sold in the past or have a passion for sales or sales leadership",
+          "Excellent verbal and written communication skills"
+        ],
+        "basic_qualifications": [],
+        "preferred_qualifications": [],
+        "required_years": null,
+        "locations": [
+          "San Francisco"
+        ],
+        "salary": "$90,000",
+        "sponsorship_text": [],
+        "date_posted": "2026-09-22T12:17:17-04:00",
+        "full_cleaned_jd": ""
+      },
+      "priority": {
+        "total": 66,
+        "band": "B",
+        "hard_stops": [],
+        "uncertainty": "high",
+        "why": "Priority B (66/100). Strong on direct experience & product customer; weakest on referral access. Confidence limited by: basic_qualifications, immigration.",
+        "components": [
+          {
+            "name": "basic_qualifications",
+            "points": 15.0,
+            "max": 25,
+            "confidence": "low",
+            "evidence": "no basic-qualifications parsed from the JD \u2014 neutral estimate"
+          },
+          {
+            "name": "direct_experience",
+            "points": 20.0,
+            "max": 20,
+            "confidence": "medium",
+            "evidence": "5/5 role skills in your experience: enablement, power, sales, sold, strategy"
+          },
+          {
+            "name": "immigration",
+            "points": 10.0,
+            "max": 20,
+            "confidence": "low",
+            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
+          },
+          {
+            "name": "product_customer",
+            "points": 15.0,
+            "max": 15,
+            "confidence": "medium",
+            "evidence": "domain overlap: ai, data, growth, platform"
+          },
+          {
+            "name": "referral_access",
+            "points": 0.0,
+            "max": 10,
+            "confidence": "medium",
+            "evidence": "no referral path found yet"
+          },
+          {
+            "name": "recency",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "high",
+            "evidence": "posted 12d ago"
+          },
+          {
+            "name": "location",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "medium",
+            "evidence": "US location: San Francisco"
+          }
+        ]
+      }
+    },
+    {
       "id": "cf041b9109f87907",
       "company": "Databricks",
       "title": "Business Development Representative",
-      "location": "Chicago, Illinois",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8423165002",
+      "location": "Washington, D.C.",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8423167002",
       "source": "greenhouse",
       "posted_at": "2026-09-21T13:22:12-04:00",
       "sponsorship": "Unknown",
@@ -30925,8 +31516,8 @@
         "preferred_qualifications": [],
         "required_years": 2,
         "locations": [
-          "Chicago",
-          "Illinois"
+          "Washington",
+          "D.C."
         ],
         "salary": "$95,000 \u2014 $95,000",
         "sponsorship_text": [],
@@ -30987,7 +31578,7 @@
             "points": 3.0,
             "max": 5,
             "confidence": "medium",
-            "evidence": "US location: Chicago, Illinois"
+            "evidence": "US location: Washington, D.C."
           }
         ]
       }
@@ -43403,6 +43994,312 @@
             "max": 5,
             "confidence": "medium",
             "evidence": "US location: Madison, Wisconsin, United States"
+          }
+        ]
+      }
+    },
+    {
+      "id": "6c740cb7a0f359eb",
+      "company": "Amazon",
+      "title": "Product Quality Technician, Worldwide Grocery Stores Private Brands Product Quality",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10568526/product-quality-technician-worldwide-grocery-stores-private-brands-product-quality",
+      "source": "amazon",
+      "posted_at": "2026-10-04",
+      "sponsorship": "Unknown",
+      "fit_score": 97,
+      "min_years": 2,
+      "variant_label": "Product Marketing (PMM)",
+      "title_keywords": [
+        "brand",
+        "pr"
+      ],
+      "ats_score": 62,
+      "best_variant": "Product Marketing (PMM)",
+      "missing_keywords": [
+        "python"
+      ],
+      "requested_keywords": [
+        "brand",
+        "cross-functional",
+        "dashboard",
+        "excel",
+        "launch",
+        "lifecycle",
+        "power bi",
+        "python",
+        "r",
+        "reporting",
+        "retention",
+        "sql",
+        "tableau"
+      ],
+      "per_variant": [
+        {
+          "label": "Product Marketing (PMM)",
+          "score": 62,
+          "missing": [
+            "python"
+          ]
+        },
+        {
+          "label": "Marketing Analytics",
+          "score": 62,
+          "missing": [
+            "python"
+          ]
+        },
+        {
+          "label": "GTM / Growth",
+          "score": 62,
+          "missing": [
+            "python"
+          ]
+        }
+      ],
+      "jd_available": true,
+      "excerpt": "The Worldwide Grocery Private Brands team is looking for a Product Quality Manager who is passionate about ensuring our products meet or exceed customer expectations. You will join a dynamic, fast-paced, collaborative work environment where you will help build and scale our business across physical stores and online channels in North America. This role ensures that products are consistently produced and meet our quality expectations. You will drive activities across several stakeholder teams including Product Development, Category Managers, Food Safety, Marketing, Supply Chain, Operations, and suppliers to ensure the maintenance of quality expectations for our food and other CPG items. The position focuses on monitoring product performance of launched products, managing trend analysis, customer complaint issue identification, and facilitating product and process improvement initiatives with suppliers and internal cross-functional teams. This is a hands-on role that combines product quality management with laboratory work. In addition to driving quality programs, you will conduct and oversee quality assurance testing, including first production testing, shelf-life verification, and consumer complaint investigations, while maintaining accurate documentation, laboratory equipment, and retention sample inventory. You will also leverage data and mechanisms to identify defects, track quality performance, and drive improvements that maintain customer trust in our brands and products. The right person for this role must be customer obsessed and enjoy using data and mechanisms to drive improvements. The successful candidate will be self-motivated, comfortable working with data and identifying trends from large data sets, have high attention to detail, a strong vision for quality standards and programs, and the ability to develop sound recommendations for product and process improvements. This candidate must be able to build and maintain strong working relationships across teams, earn trust and influence others, be solution oriented, have solid problem-solving skills, communicate clearly (verbal and written) with technical and non-technical teams alike, and be motivated by a fast-paced dynamic environment. Key job responsibilities - Support a robust product quality program across both pre-launch and post-launch initiatives. - Conduct and oversee laboratory quality testing, including first production testing, shelf-life verification, and consumer complaint investigations; execute testing protocols and document results accurately in designated quality data management systems, adhering to standard operating procedures and safety protocols. - Maintain laboratory equipment, perform calibration, and manage retention sample inventory and storage monitoring. - Support the Quality Surveillance program to monitor product performance post-launch, analyzing large sets of customer feedback data (ratings, concessions, complaints) to identify product, process, and supplier improvement opportunities and drive improvement initiatives. - Support business selection health assessments, influencing cross-functional teams based on quality performance metrics to drive remediation, reformulation, or product discontinuation decisions. - Use and help optimize quality dashboards and reporting mechanisms to track program, product, and supplier performance metrics. A day in the life No two days look exactly alike in this role, but most blend hands-on lab work with product quality program management. You might start your morning in the laboratory, running first-production or shelf-life testing on newly launched items and documenting results in our quality systems, then shift to reviewing customer feedback trends (ratings, concessions, and complaints) to spot emerging quality issues. Throughout the week, you will partner closely with a product category, supporting the product quality development of new items from early formulation through launch, helping ensure quality requirements are built in from the start. By midday, you could be working with Product Development, Food Safety, or a supplier on a defect investigation or a business selection health assessment, translating what the data and the bench tell you into concrete remediation or reformulation recommendations. Afternoons often involve maintaining lab equipment and retention samples, refining a quality dashboard, or preparing performance metrics to influence cross-functional decisions. Throughout, you will balance the precision of laboratory testing with the bigger-picture work of keeping our food and other CPG items meeting the quality standards our customers expect. About the team Our team is dedicated to identifying and mitigating WWGS PB product quality risks that protect Amazon's customers, partners, and operations. We work collaboratively across the organization to build and refine the processes, controls, and mechanisms that keep our business compliant and resilient. We value curiosity, clear communication, and a commitment to continuous improvement. As we look ahead, we are focused on scaling our programs and integrating new tools and approaches to stay ahead of emerging challenges. Joining our team means contributing to work that has a direct, meaningful impact on trust and quality at Amazon.\n\nBasic qualifications:\n- Experience in the Quality Assurance/testing domain - Experience performing accurate data entry and analysis - Experience managing multiple projects, prioritizing, planning, and managing time - Experience handling ambiguous or undefined challenges through strong problem solving abilities - 2+ years of experience in product or program management, product development, or quality management of food and other CPG items. - Hands-on experience with laboratory equipment and food testing methodologies (physical, chemical, or microbiological). - Experience with laboratory equipment maintenance and calibration, and retention sample inventory management. - Strong analytical skills, including the ability to distill, synthesize, and draw conclusions from large amounts of data. - Experience in analyzing customer feedback data and trend analysis. - Excellent communicator (written, oral, presentation), comfortable communicating with technical and non-technical team members. - Proven track record for cultivating strong relationships with key internal and external partners. - Ability to drive decisions under time pressure without compromising safety or compliance of products. - 2+ years of experience using Microsoft Excel. - Bachelor's degree or above\n\nPreferred qualifications:\n- Experience interpreting data and making business recommendations across leadership and cross-functional teams - Bachelor's degree in Food Science, Chemistry, Biology, or a related field. - Knowledge of HACCP and food safety systems. - Food manufacturing quality assurance experience, site operations, or site quality controls. - Familiarity with food industry regulations, standards, and quality management systems. - Experience with Private Brands or consumer goods manufacturing, preferably in regulated spaces. - Experience leveraging AI tools, including validating quality of output. - Diversified experience with the entire product lifecycle and supply chain (R&D, scale-up, material sourcing, operations management, customer feedback). - Experience with continuous improvement programs and procedures. - Experience with advanced use of SQL for data mining and business intelligence, or experience working with Excel, reporting tools, and large-scale data mining tools, such as Power BI, Python, SQL, or Tableau Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability, or other legally protected status. Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring proces",
+      "resume_core": {
+        "label": "Amazon \u2014 Product Quality Technician, Worldwide Grocery Stores Private Brands Pro",
+        "contact": {
+          "fullName": "Priyanka Tambe",
+          "headline": "Product Marketing Manager",
+          "email": "",
+          "phone": "",
+          "location": "Boston, MA",
+          "linkedin": "linkedin.com/in/priyankatam",
+          "github": "github.com/priandproper"
+        },
+        "summary": "Product Marketing Manager with 6+ years across enterprise B2B SaaS, fintech, and AI platforms, and an MBA in Business Analytics and Machine Learning. Proven track record of developing positioning, messaging, go-to-market launches, and sales enablement for technical products sold to enterprise buyers. Skilled at translating complex technology into customer stories and executive-level narratives, and at using performance data to refine what works.",
+        "experience": [
+          {
+            "company": "Glidely Inc.",
+            "title": "MBA Intern, Product Marketing & Sales",
+            "location": "San Francisco, CA",
+            "startDate": "Jun 2025",
+            "endDate": "Aug 2025",
+            "highlights": [
+              "Led 40+ discovery conversations with C-suite prospects as the first commercial hire, defining customer profiles and use cases that shaped content and product roadmaps.",
+              "Wrote targeted outbound messaging frameworks and localized content, lifting outbound engagement rates to 25%+.",
+              "Built SQL and Tableau dashboards to identify lead-to-demo funnel friction and inform segmentation, contributing to a 30% improvement in lead-to-demo conversion.",
+              "Designed a stage-based user-activation roadmap with triggered email sequences and ran sequence tests to improve activation."
+            ]
+          },
+          {
+            "company": "Infosys Finacle (Banking SaaS)",
+            "title": "Marketing & Analytics Specialist",
+            "location": "Bangalore, India",
+            "startDate": "Mar 2022",
+            "endDate": "May 2024",
+            "highlights": [
+              "Owned solution-track campaigns end to end by product line and region across 50+ countries (LinkedIn sponsored content, Eloqua email), including campaign design, metrics, and guardrails; increased marketing-qualified leads 28%.",
+              "Equipped 50+ account executives with messaging playbooks, first-call decks, and competitive talking points, reducing campaign execution timelines by 15%.",
+              "Partnered with account-based marketing teams on campaigns targeting named banks across North America and the Middle East; developed account-specific messaging and reviewed all campaign content for product accuracy.",
+              "Developed customer success stories for banking clients, coordinating stakeholder and legal approvals before publishing them and repurposing them into social and email content.",
+              "Planned and ran Finacle Day, the annual flagship customer event with 5,000+ attendees, end to end, alongside executive roundtables and customer briefings with bank leadership.",
+              "Increased content engagement 2.4x using SQL and Tableau to evaluate campaign performance and guide content optimization, including email tests across banners, length, CTA, and form length."
+            ]
+          },
+          {
+            "company": "Neurealm",
+            "title": "Lead Consultant, Product Marketing",
+            "location": "Remote",
+            "startDate": "Jun 2021",
+            "endDate": "Mar 2022",
+            "highlights": [
+              "Owned positioning, messaging, and executive narratives for ZIF, an AI-driven IT operations (AIOps) platform, translating technical capabilities into customer use cases and business value.",
+              "Delivered 80+ live product demonstrations and led CXO discovery calls as first client touch, influencing software procurement decisions globally.",
+              "Coordinated cross-functional product launches with Product and Engineering, defining positioning, messaging, and launch plans.",
+              "Directed product benchmarking studies against AIOps alternatives, producing competitive talking points for sales and positioning inputs for product.",
+              "Rebuilt the product website and authored technical content (blogs, solution briefs, presentations), growing website engagement 40%.",
+              "Wrote customer success stories and case studies for healthcare enterprise clients, turning implementation outcomes into proof points for sales and campaigns."
+            ]
+          },
+          {
+            "company": "YES Bank Foundation",
+            "title": "Marketing Manager",
+            "location": "Mumbai, India",
+            "startDate": "Jul 2016",
+            "endDate": "Dec 2018",
+            "highlights": [
+              "Grew digital acquisition footprint 200% and secured 50M+ impressions through integrated, multi-channel campaigns.",
+              "Generated ~$35K USD through online fundraising campaigns using structured conversion optimization across funnels.",
+              "Unified frameworks across marketing, legal, and finance to ensure compliance and streamlined execution."
+            ]
+          }
+        ],
+        "education": [
+          {
+            "institution": "Babson College",
+            "degree": "MBA, Business Analytics & Machine Learning (STEM)",
+            "location": "Boston, MA",
+            "startDate": "",
+            "endDate": "May 2026",
+            "details": "Fairleigh S. Dickinson, Jr. Global Manager Award"
+          },
+          {
+            "institution": "Indian Institute of Technology Madras",
+            "degree": "MBA, Marketing & Strategy",
+            "location": "India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          },
+          {
+            "institution": "Mumbai University",
+            "degree": "B.E., Electronics & Telecommunications",
+            "location": "Mumbai, India",
+            "startDate": "",
+            "endDate": "",
+            "details": ""
+          }
+        ],
+        "skills": [
+          {
+            "name": "Product Marketing & GTM",
+            "items": [
+              "Positioning & Messaging",
+              "Go-to-Market Strategy",
+              "Product Launches",
+              "Sales Enablement",
+              "Competitive Intelligence",
+              "Customer Stories & Case Studies",
+              "Product Demos",
+              "Account-Based Marketing (ABM)",
+              "Events & Executive Briefings"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "items": [
+              "SQL",
+              "Tableau",
+              "Power BI",
+              "Google Analytics (GA4)",
+              "Excel",
+              "A/B Testing",
+              "Full-Funnel Analytics",
+              "customer segmentation",
+              "cohort & funnel analysis"
+            ]
+          },
+          {
+            "name": "Tools",
+            "items": [
+              "Salesforce (CRM)",
+              "Eloqua",
+              "HubSpot",
+              "Generative AI Tools"
+            ]
+          }
+        ]
+      },
+      "referral_message": "Hi there \u2014 I saw Amazon is hiring a Product Quality Technician, Worldwide Grocer\u2026 and it lines up with my background in B2B marketing, GTM, and analytics. Since you're at Amazon, would you be open to referring me or pointing me to the right person? Happy to share my resume. Thanks!\n\n\u2014 Priyanka Tambe",
+      "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=%22Amazon%22+%28%22product+marketing%22+OR+%22marketing+manager%22+OR+%22growth+marketing%22+OR+%22demand+generation%22+OR+%22recruiter%22+OR+%22talent+acquisition%22%29&origin=GLOBAL_SEARCH_HEADER",
+      "immigration": {
+        "job_text": "not_stated",
+        "company_everify": "unknown",
+        "company_h1b_history": "some",
+        "h1b_verified": null,
+        "marketing_h1b_evidence": "unknown",
+        "team_confirmation": "not_asked",
+        "risk": "yellow",
+        "hard_stop_reason": "",
+        "action": "Verify sponsorship with the recruiter before the hiring-manager stage.",
+        "evidence": [
+          {
+            "type": "company_h1b_history",
+            "text": "large H-1B sponsor",
+            "source": "DOL LCA (public, h1bdata.info)",
+            "note": "historical \u2014 not proof the current team sponsors"
+          }
+        ],
+        "overridden": false,
+        "last_verified": null
+      },
+      "spec": {
+        "title": "Product Quality Technician, Worldwide Grocery Stores Private Brands Product Quality",
+        "company": "Amazon",
+        "job_id": "6c740cb7a0f359eb",
+        "product_or_service": "",
+        "customer": [],
+        "responsibilities": [],
+        "basic_qualifications": [
+          "Experience in the Quality Assurance/testing domain",
+          "Experience performing accurate data entry and analysis",
+          "Experience managing multiple projects, prioritizing, planning, and managing time",
+          "Experience handling ambiguous or undefined challenges through strong problem solving abilities",
+          "2+ years of experience in product or program management, product development, or quality management of food and other CPG items. - Hands-on experience with laboratory equipment and food testing methodologies (physical, chemical, or microbiological). - Experience with laboratory equipment maintenance and calibration, an"
+        ],
+        "preferred_qualifications": [
+          "Experience interpreting data and making business recommendations across leadership and cross-functional teams"
+        ],
+        "required_years": 2,
+        "locations": [
+          "Austin",
+          "Texas",
+          "USA"
+        ],
+        "salary": null,
+        "sponsorship_text": [],
+        "date_posted": "2026-10-04",
+        "full_cleaned_jd": ""
+      },
+      "priority": {
+        "total": 58,
+        "band": "C",
+        "hard_stops": [],
+        "uncertainty": "medium",
+        "why": "Priority C (58/100). Strong on direct experience & product customer; weakest on referral access. Confidence limited by: immigration.",
+        "components": [
+          {
+            "name": "basic_qualifications",
+            "points": 5.0,
+            "max": 25,
+            "confidence": "high",
+            "evidence": "1/5 basic quals evidenced; gaps: Experience in the Quality Assurance/testing domain; Experience managing multiple projects, prioritizing, plannin; asks 2y (in your 1-4y sweet spot)"
+          },
+          {
+            "name": "direct_experience",
+            "points": 20.0,
+            "max": 20,
+            "confidence": "medium",
+            "evidence": "4/4 role skills in your experience: analysis, data, product, testing"
+          },
+          {
+            "name": "immigration",
+            "points": 10.0,
+            "max": 20,
+            "confidence": "low",
+            "evidence": "sponsorship not stated \u2014 verify with recruiter before hiring-manager stage"
+          },
+          {
+            "name": "product_customer",
+            "points": 15.0,
+            "max": 15,
+            "confidence": "medium",
+            "evidence": "domain overlap: ai, data, marketing"
+          },
+          {
+            "name": "referral_access",
+            "points": 0.0,
+            "max": 10,
+            "confidence": "medium",
+            "evidence": "no referral path found yet"
+          },
+          {
+            "name": "recency",
+            "points": 5.0,
+            "max": 5,
+            "confidence": "high",
+            "evidence": "posted 0d ago"
+          },
+          {
+            "name": "location",
+            "points": 3.0,
+            "max": 5,
+            "confidence": "medium",
+            "evidence": "US location: Austin, Texas, USA"
           }
         ]
       }
