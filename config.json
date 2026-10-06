@@ -37,7 +37,7 @@
     "exclude_sponsorship": [
       "No"
     ],
-    "max_age_days": 14,
+    "max_age_days": 7,
     "drop_undated_jobs": true,
     "experience": {
       "exclude_at_years": 5,
