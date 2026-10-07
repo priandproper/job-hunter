@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T12:08:07+00:00",
+  "generated_at": "2026-10-07T13:52:07+00:00",
   "model": "deterministic-fallback",
   "coach_status": "fallback",
   "briefing": {
@@ -7,40 +7,40 @@
     "focus": "Claude wasn't reachable, so these are ranked by the transparent priority + freshness + lifecycle model. Start at the top; verify sponsorship on any yellow-flagged role.",
     "top_ids": [
       "39e7e9baa65d409b",
-      "d089c69309dbf12c",
-      "ec8412d75fff28ac",
-      "aec907213a1bc424",
+      "ff5a27aff8672f1a",
+      "b8c2636192aacd13",
+      "4eeb389c61108f9d",
       "2f746afe3243c470",
-      "e6263bd4fa52305c"
+      "ec8412d75fff28ac"
     ]
   },
   "ranked": [
     {
       "id": "39e7e9baa65d409b",
       "tier": "strong",
-      "priority": 77,
-      "why": "new unreviewed; priority 72\u00d71.00 freshness (highest) +5 stage",
+      "priority": 76,
+      "why": "new unreviewed; priority 72\u00d71.00 freshness (highest) +5 stage \u22121 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "d089c69309dbf12c",
+      "id": "ff5a27aff8672f1a",
       "tier": "strong",
       "priority": 73,
       "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "ec8412d75fff28ac",
+      "id": "b8c2636192aacd13",
       "tier": "strong",
-      "priority": 69,
-      "why": "new unreviewed; priority 64\u00d71.00 freshness (highest) +5 stage",
+      "priority": 75,
+      "why": "new unreviewed; priority 70\u00d71.00 freshness (highest) +5 stage",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "aec907213a1bc424",
+      "id": "4eeb389c61108f9d",
       "tier": "strong",
-      "priority": 76,
-      "why": "new unreviewed; priority 72\u00d71.00 freshness (highest) +5 stage \u22121 repeats",
+      "priority": 68,
+      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22125 repeats",
       "flag": "sponsorship-risk"
     },
     {
@@ -51,7 +51,21 @@
       "flag": "sponsorship-risk"
     },
     {
-      "id": "e6263bd4fa52305c",
+      "id": "ec8412d75fff28ac",
+      "tier": "strong",
+      "priority": 68,
+      "why": "new unreviewed; priority 64\u00d71.00 freshness (highest) +5 stage \u22121 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "aec907213a1bc424",
+      "tier": "strong",
+      "priority": 75,
+      "why": "new unreviewed; priority 72\u00d71.00 freshness (highest) +5 stage \u22122 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "a079e1b964373898",
       "tier": "strong",
       "priority": 73,
       "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage",
@@ -67,50 +81,8 @@
     {
       "id": "95891b116539de1f",
       "tier": "strong",
-      "priority": 62,
-      "why": "new unreviewed; priority 68\u00d70.90 freshness (high) +5 stage \u22124 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "303dbd84633ee94a",
-      "tier": "strong",
       "priority": 61,
       "why": "new unreviewed; priority 68\u00d70.90 freshness (high) +5 stage \u22125 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "f2e4001f3b09ffd4",
-      "tier": "strong",
-      "priority": 73,
-      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "76a606f681c0af70",
-      "tier": "strong",
-      "priority": 59,
-      "why": "new unreviewed; priority 66\u00d70.90 freshness (high) +5 stage \u22125 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "be7abab7ec4d771a",
-      "tier": "strong",
-      "priority": 63,
-      "why": "new unreviewed; priority 70\u00d70.90 freshness (high) +5 stage \u22125 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "417e98a530c70bd2",
-      "tier": "strong",
-      "priority": 63,
-      "why": "new unreviewed; priority 70\u00d70.90 freshness (high) +5 stage \u22125 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "8b2f02153c82aeb5",
-      "tier": "strong",
-      "priority": 63,
-      "why": "new unreviewed; priority 70\u00d70.90 freshness (high) +5 stage \u22125 repeats",
       "flag": "sponsorship-risk"
     },
     {
@@ -121,13 +93,6 @@
       "flag": "sponsorship-risk"
     },
     {
-      "id": "4eeb389c61108f9d",
-      "tier": "strong",
-      "priority": 68,
-      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22125 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
       "id": "5aee15555fbf81c1",
       "tier": "strong",
       "priority": 63,
@@ -135,7 +100,7 @@
       "flag": "sponsorship-risk"
     },
     {
-      "id": "a7d2bf01e7e62c1a",
+      "id": "303dbd84633ee94a",
       "tier": "strong",
       "priority": 61,
       "why": "new unreviewed; priority 68\u00d70.90 freshness (high) +5 stage \u22125 repeats",
@@ -149,80 +114,115 @@
       "flag": "sponsorship-risk"
     },
     {
+      "id": "76a606f681c0af70",
+      "tier": "strong",
+      "priority": 59,
+      "why": "new unreviewed; priority 66\u00d70.90 freshness (high) +5 stage \u22125 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "cf5f1d0795f0c09e",
+      "tier": "strong",
+      "priority": 72,
+      "why": "new unreviewed; priority 70\u00d71.00 freshness (highest) +5 stage \u22123 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "16c80b54a1835415",
+      "tier": "maybe",
+      "priority": 60,
+      "why": "new unreviewed; priority 55\u00d71.00 freshness (highest) +5 stage",
+      "flag": "sponsorship-risk"
+    },
+    {
       "id": "a5c4bd852a109e69",
       "tier": "strong",
-      "priority": 56,
-      "why": "new unreviewed; priority 61\u00d70.90 freshness (high) +5 stage \u22123 repeats",
+      "priority": 55,
+      "why": "new unreviewed; priority 61\u00d70.90 freshness (high) +5 stage \u22124 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "1321fe1b17092702",
-      "tier": "strong",
-      "priority": 60,
-      "why": "new unreviewed; priority 63\u00d70.90 freshness (high) +5 stage \u22121 repeats",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "c58dc098f9ac3071",
+      "id": "e6263bd4fa52305c",
       "tier": "strong",
       "priority": 72,
       "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22121 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "e18988ae04b92540",
+      "id": "0ccfa33db724828d",
       "tier": "strong",
-      "priority": 54,
-      "why": "new unreviewed; priority 61\u00d70.90 freshness (high) +5 stage \u22125 repeats",
+      "priority": 59,
+      "why": "new unreviewed; priority 64\u00d70.90 freshness (high) +5 stage \u22123 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "4aa68ac85751b58f",
+      "id": "be7abab7ec4d771a",
       "tier": "strong",
-      "priority": 50,
-      "why": "new unreviewed; priority 66\u00d70.70 freshness (moderate) +5 stage \u22121 repeats",
+      "priority": 63,
+      "why": "new unreviewed; priority 70\u00d70.90 freshness (high) +5 stage \u22125 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "1fcf090b3ab516ec",
+      "id": "f2e4001f3b09ffd4",
       "tier": "strong",
-      "priority": 49,
-      "why": "new unreviewed; priority 71\u00d70.70 freshness (moderate) +5 stage \u22125 repeats",
+      "priority": 72,
+      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22121 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "5fd707839a08f0c3",
+      "id": "f28ea6487c0903e8",
+      "tier": "strong",
+      "priority": 61,
+      "why": "new unreviewed; priority 63\u00d70.90 freshness (high) +5 stage",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "8fab479e16b7ad49",
       "tier": "strong",
       "priority": 71,
       "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22122 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "1c5e8ec0f912722f",
+      "id": "1321fe1b17092702",
       "tier": "strong",
-      "priority": 62,
-      "why": "new unreviewed; priority 66\u00d70.90 freshness (high) +5 stage \u22122 repeats",
+      "priority": 59,
+      "why": "new unreviewed; priority 63\u00d70.90 freshness (high) +5 stage \u22122 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "93f377c723f6bc3b",
+      "id": "8c66fd3042a3f2b5",
       "tier": "strong",
-      "priority": 49,
-      "why": "new unreviewed; priority 65\u00d70.70 freshness (moderate) +5 stage \u22121 repeats",
+      "priority": 71,
+      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22122 repeats",
       "flag": "sponsorship-risk"
     },
     {
-      "id": "7471c6d365f91bd3",
-      "tier": "strong",
-      "priority": 68,
-      "why": "new unreviewed; priority 71\u00d70.90 freshness (high) +5 stage",
-      "flag": "sponsorship-risk"
-    },
-    {
-      "id": "106d232c392388a7",
+      "id": "6c740cb7a0f359eb",
       "tier": "maybe",
-      "priority": 51,
-      "why": "new unreviewed; priority 55\u00d70.90 freshness (high) +5 stage \u22123 repeats",
+      "priority": 63,
+      "why": "new unreviewed; priority 58\u00d71.00 freshness (highest) +5 stage",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "5326ec612ee4279d",
+      "tier": "strong",
+      "priority": 70,
+      "why": "new unreviewed; priority 70\u00d71.00 freshness (highest) +5 stage \u22125 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "5fd707839a08f0c3",
+      "tier": "strong",
+      "priority": 70,
+      "why": "new unreviewed; priority 68\u00d71.00 freshness (highest) +5 stage \u22123 repeats",
+      "flag": "sponsorship-risk"
+    },
+    {
+      "id": "9ab7299874b923ec",
+      "tier": "strong",
+      "priority": 61,
+      "why": "new unreviewed; priority 63\u00d70.90 freshness (high) +5 stage",
       "flag": "sponsorship-risk"
     }
   ],
